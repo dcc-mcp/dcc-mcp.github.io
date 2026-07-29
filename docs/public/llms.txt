@@ -1,0 +1,42 @@
+# DCC-MCP
+
+> DCC-MCP is open infrastructure that connects AI agents to creative applications through one Agent Skill, the typed `dcc-mcp-cli`, and a shared MCP + REST control plane.
+
+## Canonical entry points
+
+- [Homepage and one-prompt setup](https://dcc-mcp.github.io/)
+- [Marketplace search](https://dcc-mcp.github.io/marketplace): Search the official live catalog and copy consent-aware agent prompts or typed CLI installation commands.
+- [Agent workflow](https://dcc-mcp.github.io/agents): Install the public Skill, discover typed tools, validate calls, and diagnose failures.
+- [Developer routing](https://dcc-mcp.github.io/developers): Decide whether to build an adapter, a specialized Skill, or a shared Core change.
+- [Ecosystem directory](https://dcc-mcp.github.io/ecosystem): Adapters, extensions, asset providers, AI services, and studio integrations.
+- [Core documentation](https://dcc-mcp.github.io/dcc-mcp-core/): Gateway, CLI, MCP/REST, security, observability, and Python API.
+
+## Agent Skills
+
+- [dcc-mcp](https://clawhub.ai/loonghao/skills/dcc-mcp): Operate live DCCs and install official Marketplace extensions.
+- [dcc-mcp-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-creator): Create or modernize a complete DCC-MCP adapter/runtime.
+- [dcc-mcp-skills-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator): Create, validate, or improve a DCC-specific Skill package.
+
+## Current released integrations
+
+`dcc-mcp-cli dcc-types` currently exposes 19 adapter-backed identifiers: `3dsmax`, `aftereffects`, `blender`, `godot`, `houdini`, `katana`, `maya`, `mobu`, `nuke`, `openusd`, `photoshop`, `premiere`, `renderdoc`, `shotgrid`, `substance3d_designer`, `substance3d_painter`, `unity`, `unreal`, and `zbrush`. Custom studio host identifiers are also supported.
+
+## Marketplace CLI contract
+
+```text
+dcc-mcp-cli marketplace search --query "rigging"
+dcc-mcp-cli marketplace inspect <package-name>
+dcc-mcp-cli marketplace install <package-name> --dcc <dcc-type>
+dcc-mcp-cli reload-skills --dcc-type <dcc-type>
+```
+
+Inspect before installation and obtain user consent before changing local state.
+
+## Failure and bug-report contract
+
+Preserve the failed call's `request_id`. Run `dcc-mcp-cli doctor`, inspect failure-filtered `dcc-mcp-cli stats`, then discover and use `dcc_feedback__report`. Review public-safe evidence before sharing it, and never create an external issue without explicit user authorization.
+
+## Full machine-readable guide
+
+- [llms-full.txt](https://dcc-mcp.github.io/llms-full.txt)
+- [GitHub organization](https://github.com/dcc-mcp)

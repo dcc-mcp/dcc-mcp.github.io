@@ -1,0 +1,115 @@
+# DCC-MCP: agent, marketplace, adapter, and developer reference
+
+DCC-MCP is shared infrastructure for discovering and safely operating creative applications through MCP and REST. It combines a machine-wide gateway, typed `dcc-mcp-cli`, progressive Agent Skills, per-application adapters, installable Marketplace extensions, safety boundaries, observability, and structured failure reporting.
+
+Canonical website: https://dcc-mcp.github.io/
+GitHub organization: https://github.com/dcc-mcp
+Core documentation: https://dcc-mcp.github.io/dcc-mcp-core/
+
+## Recommended agent route
+
+1. Install `@loonghao/dcc-mcp` from ClawHub and start a new agent turn so the Skill is available.
+2. Verify the CLI with `dcc-mcp-cli health`, `dcc-mcp-cli dcc-types`, and `dcc-mcp-cli list`.
+3. If the CLI is missing, explain the official installer and obtain permission before running it. For an existing official build, use `dcc-mcp-cli update check` and then `dcc-mcp-cli update apply` with consent.
+4. Search narrowly: `dcc-mcp-cli search --query <intent> --dcc-type <host>`.
+5. Follow the returned `next_step` exactly. Load or describe only when requested.
+6. Execute the returned typed slug: `dcc-mcp-cli call <slug> --json <arguments>`.
+7. Validate the result and report concrete evidence, not only command success.
+8. Use scoped Computer Use only when the structured DCC Skill, script, or API cannot reach the required semantic UI.
+
+The default agent path is the public `dcc-mcp` Skill plus CLI + REST. IDE users may connect through MCP configuration. Both paths use the same gateway; CLI-first does not deprecate MCP.
+
+## Public Skill router
+
+- Operate a live DCC, discover typed tools, or search/install Marketplace extensions: https://clawhub.ai/loonghao/skills/dcc-mcp
+- Create or modernize a complete adapter, dispatcher, readiness bridge, runtime, resource, or gateway integration: https://clawhub.ai/loonghao/skills/dcc-mcp-creator
+- Create, validate, test, review, or publish a specialized DCC Skill package: https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator
+
+Install only the Skill matching the task. OpenClaw uses `openclaw skills install @loonghao/<slug>`. A ClawHub-compatible agent may use `npx --yes clawhub@0.23.1 install @loonghao/<slug>`. Start a new agent turn after installation.
+
+## Current adapter-backed release catalog
+
+Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release catalog exposes 19 canonical identifiers:
+
+- `3dsmax` — Autodesk 3ds Max — https://github.com/dcc-mcp/dcc-mcp-3dsmax
+- `aftereffects` — Adobe After Effects — https://github.com/dcc-mcp/dcc-mcp-aftereffects
+- `blender` — Blender — https://github.com/dcc-mcp/dcc-mcp-blender
+- `godot` — Godot Engine — https://github.com/dcc-mcp/dcc-mcp-godot
+- `houdini` — SideFX Houdini — https://github.com/dcc-mcp/dcc-mcp-houdini
+- `katana` — Foundry Katana — https://github.com/dcc-mcp/dcc-mcp-katana
+- `maya` — Autodesk Maya — https://github.com/dcc-mcp/dcc-mcp-maya
+- `mobu` — Autodesk MotionBuilder — https://github.com/dcc-mcp/dcc-mcp-mobu
+- `nuke` — Foundry Nuke — https://github.com/dcc-mcp/dcc-mcp-nuke
+- `openusd` — OpenUSD — https://github.com/dcc-mcp/dcc-mcp-openusd
+- `photoshop` — Adobe Photoshop — https://github.com/dcc-mcp/dcc-mcp-photoshop
+- `premiere` — Adobe Premiere Pro — https://github.com/dcc-mcp/dcc-mcp-premiere
+- `renderdoc` — RenderDoc — https://github.com/dcc-mcp/dcc-mcp-renderdoc
+- `shotgrid` — Autodesk Flow Production Tracking — https://github.com/dcc-mcp/dcc-mcp-fpt
+- `substance3d_designer` — Adobe Substance 3D Designer — https://github.com/dcc-mcp/dcc-mcp-substance3d-designer
+- `substance3d_painter` — Adobe Substance 3D Painter — https://github.com/dcc-mcp/dcc-mcp-substance3d-painter
+- `unity` — Unity — https://github.com/dcc-mcp/dcc-mcp-unity
+- `unreal` — Unreal Engine — https://github.com/dcc-mcp/dcc-mcp-unreal
+- `zbrush` — Maxon ZBrush — https://github.com/dcc-mcp/dcc-mcp-zbrush
+
+Unknown and custom studio host identifiers are supported. The broader ecosystem directory may include experimental or independently released adapters that are not yet in the current CLI release catalog: https://dcc-mcp.github.io/ecosystem
+
+## Official Marketplace
+
+Website search: https://dcc-mcp.github.io/marketplace
+Catalog source: https://github.com/dcc-mcp/marketplace
+Machine-readable catalog: https://raw.githubusercontent.com/dcc-mcp/marketplace/main/marketplace.json
+
+The website fetches the official catalog and lets a user copy a safe agent prompt or exact CLI commands. A static website cannot and must not mutate the user's machine.
+
+```text
+dcc-mcp-cli marketplace search --query "<intent>"
+dcc-mcp-cli marketplace inspect <package-name>
+dcc-mcp-cli marketplace install <package-name> --dcc <dcc-type>
+dcc-mcp-cli reload-skills --dcc-type <dcc-type>
+```
+
+Search may target workflow terms, package names, tags, categories, or DCC identifiers. Inspect the exact package before installation. Obtain user consent before installing software or changing local state. Reload the selected DCC's Skill catalog and validate availability after installation.
+
+## Failure analysis, feedback, and bug reporting
+
+Every reusable failure analysis starts from the failed call's `request_id`.
+
+1. Preserve the original `request_id`, exact typed tool slug, safe arguments, DCC type, adapter version, and observed result.
+2. Run `dcc-mcp-cli doctor` for environment and gateway diagnostics.
+3. Query narrowly scoped, failure-filtered `dcc-mcp-cli stats`; zero calls means there is no behavioral evidence.
+4. Discover the typed `dcc_feedback__report` tool through the normal search/describe flow and submit reviewed internal feedback when authorized.
+5. Use public-safe issue evidence associated with the request ID; remove secrets, credentials, private paths, scene data, and user content.
+6. Distinguish a one-off task failure from reusable product friction. Do not create a new Skill merely to hide an adapter or Core defect.
+7. Never publish evidence, create a GitHub issue, or contact an external maintainer without explicit user authorization.
+
+After an accepted task, a specialized Skill may use the `dcc-mcp-skills-creator` review workflow to analyze recurring friction and propose a narrowly scoped improvement. Review never expands edit, install, or publish authority.
+
+## Developer ownership
+
+- Build a new DCC integration or modernize runtime wiring with `dcc-mcp-creator`.
+- Build a focused workflow package with `dcc-mcp-skills-creator`.
+- Put shared gateway, CLI, MCP/REST, safety, diagnostics, telemetry, and reusable runtime contracts in `dcc-mcp-core`.
+- Keep host-specific installation, compatibility, and troubleshooting in the owning adapter repository.
+- Publish installable extensions through the official Marketplace contract.
+
+## Documentation map
+
+- Homepage and one-prompt setup: https://dcc-mcp.github.io/
+- Agent guide: https://dcc-mcp.github.io/agents
+- Marketplace search: https://dcc-mcp.github.io/marketplace
+- Developer router: https://dcc-mcp.github.io/developers
+- Ecosystem directory: https://dcc-mcp.github.io/ecosystem
+- Core getting started: https://dcc-mcp.github.io/dcc-mcp-core/guide/getting-started
+- CLI reference: https://dcc-mcp.github.io/dcc-mcp-core/guide/cli-reference
+- Agent reference: https://dcc-mcp.github.io/dcc-mcp-core/guide/agents-reference
+- Architecture: https://dcc-mcp.github.io/dcc-mcp-core/guide/architecture
+- Gateway diagnostics: https://dcc-mcp.github.io/dcc-mcp-core/guide/gateway-diagnostics
+- Python API: https://dcc-mcp.github.io/dcc-mcp-core/api/models
+
+## Entity and terminology notes
+
+- `dcc-mcp-core` is the shared DCC infrastructure and control plane; it is not itself an AI agent and is not a replacement for `dcc-mcp-cli`.
+- `dcc-mcp` is the default public Agent Skill that teaches agents how to operate the toolchain.
+- `dcc-mcp-cli` is the typed operational interface for gateway lifecycle, discovery, calls, diagnostics, and Marketplace installation.
+- The gateway exposes MCP and REST together and routes to live per-DCC adapters.
+- DCC means digital content creation application or host.
