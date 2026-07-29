@@ -132,5 +132,5 @@ hero:
       <span><small>GAME ASSETS</small><strong>从浏览到构建</strong><em>↗</em></span>
     </a>
   </div>
-  <a class="showcase-more" href="/zh/ecosystem">探索完整生态 →</a>
+  <a class="showcase-more" href="/zh/showcase">打开案例画廊并复制提示词 →</a>
 </section>
