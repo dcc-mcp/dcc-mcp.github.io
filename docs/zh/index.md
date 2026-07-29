@@ -112,6 +112,10 @@ hero:
       <img src="/showcase/blender-lookdev.webp" alt="Blender 程序化星系渲染" loading="lazy">
       <span><small>BLENDER</small><strong>程序化星系</strong><em>↗</em></span>
     </a>
+    <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-marmoset">
+      <img src="/showcase/marmoset-pbr-lookdev.webp" alt="在 Marmoset Toolbag 中还原并渲染 CC0 PBR 材质" loading="lazy">
+      <span><small>MARMOSET</small><strong>CC0 PBR 材质还原</strong><em>↗</em></span>
+    </a>
     <a class="showcase-card showcase-narrow" href="https://github.com/dcc-mcp/dcc-mcp-houdini">
       <img src="/showcase/houdini-portal.png" alt="Houdini 程序化传送门粒子" loading="lazy">
       <span><small>HOUDINI</small><strong>传送门粒子</strong><em>↗</em></span>

@@ -70,7 +70,7 @@ if (!marketplaceSource.includes('props.preview ? previewSkills.value : filtered.
 }
 
 const showcaseSource = readFileSync(join(root, 'docs', '.vitepress', 'theme', 'components', 'ShowcaseGallery.vue'), 'utf8')
-for (const asset of ['blender-lookdev.webp', 'houdini-portal.png', 'hunyuan3d.webp', 'geospatial-city.webp', 'maya-architecture.jpg', 'kenney-assets.webp']) {
+for (const asset of ['blender-lookdev.webp', 'marmoset-pbr-lookdev.webp', 'houdini-portal.png', 'hunyuan3d.webp', 'geospatial-city.webp', 'maya-architecture.jpg', 'kenney-assets.webp']) {
   if (!showcaseSource.includes(asset)) throw new Error(`Showcase gallery is missing ${asset}`)
 }
 if (!showcaseSource.includes('navigator.clipboard.writeText')) throw new Error('Showcase prompt copy support is missing')

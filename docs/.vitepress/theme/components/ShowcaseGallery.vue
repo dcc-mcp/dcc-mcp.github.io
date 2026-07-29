@@ -26,6 +26,21 @@ const showcases: Showcase[] = [
     },
   },
   {
+    id: 'marmoset-lookdev',
+    image: '/showcase/marmoset-pbr-lookdev.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-marmoset',
+    en: {
+      label: 'MARMOSET · PBR LOOKDEV',
+      title: 'CC0 material reconstruction in Toolbag',
+      prompt: 'Use the dcc-mcp Skill to connect to Marmoset Toolbag. Inspect the runtime and discover the typed marmoset-scene, marmoset-lookdev, and marmoset-diagnostics tools. Ask before downloading an asset; use an explicit CC0 source and preserve provenance. Import the model, assign Albedo, Normal, Roughness, Metalness, and Occlusion maps, frame the exact object, validate that no texture references are missing, save the .tbscene, render a 16:9 image, and report the scene, render, and source paths.',
+    },
+    zh: {
+      label: 'MARMOSET · PBR 材质',
+      title: '在八猴中还原 CC0 PBR 材质',
+      prompt: '使用 dcc-mcp Skill 连接 Marmoset Toolbag。先检查运行时，再搜索类型化的 marmoset-scene、marmoset-lookdev 和 marmoset-diagnostics 工具。下载资产前先征得我的同意；使用许可证明确的 CC0 来源并保留溯源信息。导入模型，绑定 Albedo、Normal、Roughness、Metalness 和 Occlusion 贴图，精确框选目标对象，验证没有丢失贴图引用，保存 .tbscene，渲染 16:9 图片，并报告场景、渲染与来源路径。',
+    },
+  },
+  {
     id: 'houdini-portal',
     image: '/showcase/houdini-portal.png',
     source: 'https://github.com/dcc-mcp/dcc-mcp-houdini',
