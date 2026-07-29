@@ -69,10 +69,10 @@ if (!showcaseSource.includes('navigator.clipboard.writeText')) throw new Error('
 
 const englishUseCases = readFileSync(join(dist, 'use-cases.html'), 'utf8')
 const chineseUseCases = readFileSync(join(dist, 'zh', 'use-cases.html'), 'utf8')
-for (const phrase of ['control Maya with AI', 'control Blender with AI', 'create ten random spheres in Maya', 'want to make a game']) {
+for (const phrase of ['control Maya with AI', 'control Blender with AI', 'create ten random spheres in Maya', 'want to make a game', 'edit photos with AI', 'edit or composite a film with AI', 'create visual effects with AI']) {
   if (!englishUseCases.toLowerCase().includes(phrase.toLowerCase())) throw new Error(`English use cases are missing: ${phrase}`)
 }
-for (const phrase of ['我想用 AI 控制 Maya', '我想用 AI 控制 Blender', '我想在 Maya 创建十个随机的小球', '我想做一个游戏']) {
+for (const phrase of ['我想用 AI 控制 Maya', '我想用 AI 控制 Blender', '我想在 Maya 创建十个随机的小球', '我想做一个游戏', '我想用 AI 修图', '我想用 AI 剪辑或合成片子', '我想用 AI 做特效']) {
   if (!chineseUseCases.includes(phrase)) throw new Error(`Chinese use cases are missing: ${phrase}`)
 }
 

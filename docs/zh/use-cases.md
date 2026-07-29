@@ -1,6 +1,6 @@
 ---
-title: 用 AI 控制 Maya、Blender 与制作游戏
-description: 回答如何用 AI 控制 Maya 或 Blender、在 Maya 创建十个随机小球，以及从零开始做游戏，并提供可复制的 Agent 提示词。
+title: 用 AI 控制 Maya、Blender、修图、合成、特效与游戏制作
+description: 回答如何用 AI 控制创意软件，覆盖 Maya、Blender、修图、剪辑合成、视觉特效与游戏制作，并提供可复制的 Agent 提示词。
 pageClass: route-page
 ---
 
@@ -54,6 +54,30 @@ dcc-mcp-cli search --query "检查 Blender 场景" --dcc-type blender
 
 ```text
 使用 DCC-MCP 帮我制作一个小型可玩游戏。先询问我选择 Unreal、Unity 还是 Godot，以及目标平台、视觉风格和一句话可玩循环。把想法缩小为一个关卡和一个胜利或失败条件。盘点已连接的 DCC 与引擎，发现类型化工具，并检查官方 Marketplace 是否有需要的安全授权资产。安装软件包、下载资产或改变系统状态前必须先征得我的同意。构建最小可玩切片，实际运行它，验证控制与胜负循环，保存证据并报告项目和打包构建路径。没有可运行构建时不得宣称完成。
+```
+
+## 我想用 AI 修图，要怎么做？
+
+使用官方 [Photoshop 适配器](https://github.com/dcc-mcp/dcc-mcp-photoshop)完成修饰、调色、蒙版、图层与导出。Agent 应保留原图、采用非破坏性编辑，并在开始前询问目标效果与交付格式。
+
+```text
+使用 dcc-mcp Skill 连接 Photoshop 并帮我修图。先询问需要改变什么、哪些内容必须保持不变、参考效果和交付格式。保留原始文档，在宿主支持时使用新图层、调整图层、蒙版或 Smart Object；未经我批准，不得合并图层或覆盖源文件。发现类型化 Photoshop 工具，完成一次范围有限的初稿，对照需求检查效果，验证尺寸、颜色模式、图层结构和丢失资产；只有我确认预览后，才导出到新的路径。
+```
+
+## 我想用 AI 剪辑或合成片子，要怎么做？
+
+按意图选择宿主：[Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere) 负责时间线剪辑，[After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) 负责动态图形和图层式镜头处理，[Nuke](https://github.com/dcc-mcp/dcc-mcp-nuke) 负责节点式合成。不能因为另一个宿主的工具更容易调用，就擅自迁移工作流。
+
+```text
+使用 dcc-mcp Skill 帮我剪辑或合成这部片子。先询问任务属于 Premiere 时间线剪辑、After Effects 动态图形或图层合成，还是 Nuke 节点合成。盘点源媒体，确认分辨率、帧率、色彩空间、音频要求和交付目标。保留源文件，创建新的项目、Sequence 或 Comp，发现类型化工具，先完成一个代表性镜头或段落，渲染预览，检查丢失媒体和帧范围，并报告项目与预览路径。安装 Codec 或插件、重新链接媒体或开始最终渲染前必须征得我的同意。
+```
+
+## 我想用 AI 做特效，要怎么做？
+
+使用 [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini)完成程序化几何与模拟，使用 Nuke 或 After Effects 完成镜头合成，使用 [Unreal Engine](https://github.com/dcc-mcp/dcc-mcp-unreal)完成实时特效。Agent 应先判断特效属于制作链的哪一层，再构建并验证最小代表镜头。
+
+```text
+使用 dcc-mcp Skill 帮我制作视觉特效。先询问镜头需求、参考、时长、摄影机、交付格式，以及效果应在 Houdini 模拟、Nuke 或 After Effects 合成，还是 Unreal 实时 VFX 中完成。盘点已连接宿主，发现类型化工具，并提出最小代表性方案。保持参数可编辑，保留源素材和场景，只在需要时缓存或渲染，生成预览，验证时序、比例、色彩空间和缺失依赖，并报告场景、缓存和预览路径。下载资产、安装插件或启动昂贵模拟与最终渲染前必须征得我的同意。
 ```
 
 ## 为什么不直接让 AI 临时写脚本？

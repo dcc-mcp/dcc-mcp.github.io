@@ -9,7 +9,7 @@
 - [官网与一段提示词完成接入](https://dcc-mcp.github.io/zh/)
 - [Marketplace 搜索](https://dcc-mcp.github.io/zh/marketplace)：搜索官方在线目录，复制安全 Agent 提示词或类型化 CLI 安装命令。
 - [案例画廊](https://dcc-mcp.github.io/zh/showcase)：查看真实生态产出，并复制对应的生产级 Agent 提示词。
-- [常见 AI + DCC 任务](https://dcc-mcp.github.io/zh/use-cases)：直接回答如何控制 Maya、Blender、生成随机场景内容和制作游戏，并提供可复制提示词。
+- [常见 AI + DCC 任务](https://dcc-mcp.github.io/zh/use-cases)：直接回答如何控制 Maya、Blender、修图、剪辑合成、制作特效、生成随机场景内容和制作游戏，并提供可复制提示词。
 - [Agent 工作流](https://dcc-mcp.github.io/zh/agents)：安装公开 Skill、发现类型化工具、验证调用并诊断失败。
 - [开发者路由](https://dcc-mcp.github.io/zh/developers)：判断应该构建适配器、专项 Skill 还是共享 Core 能力。
 - [生态目录](https://dcc-mcp.github.io/zh/ecosystem)：适配器、扩展、资产提供方、AI 服务和工作室集成。
