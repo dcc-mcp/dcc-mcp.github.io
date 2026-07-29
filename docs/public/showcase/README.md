@@ -9,3 +9,5 @@ Homepage showcase media is copied from the owning DCC-MCP repositories so the we
 - `geospatial-city.webp`: `dcc-mcp/dcc-asset-geospatial`, `docs/images/overture-city-data-showcase.webp`
 - `maya-architecture.jpg`: `dcc-mcp/dcc-mcp-maya-procedural-architecture`, `docs/showcase/turntable-contact-sheet.jpg`
 - `kenney-assets.webp`: `dcc-mcp/dcc-asset-kenney`, `docs/images/dcc-asset-kenney-showcase.webp`
+- `zbrush-fantasy-dragon.png`: `dcc-mcp/dcc-mcp-zbrush`, captured from a typed ZBrush viewport workflow using the [Artec 3D Fantasy Dragon](https://www.artec3d.com/3d-models/fantasy-dragon) under CC BY 4.0.
+- `zbrush-maya-fantasy-dragon.png`: `dcc-mcp/dcc-mcp-maya`, captured through scoped project UI Control after a typed 5,000,000-face ZBrush-to-Maya import; model attribution remains Artec 3D, CC BY 4.0.

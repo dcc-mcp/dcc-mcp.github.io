@@ -115,6 +115,36 @@ const showcases: Showcase[] = [
       prompt: '检查官方 Marketplace 软件包 dcc-asset-kenney，安装或下载资产前先征得我的同意。选择风格统一的资产包，保留许可证和来源信息，在所选 DCC 或游戏引擎中组装一个小型可玩关卡，检查丢失引用并报告输出路径。',
     },
   },
+  {
+    id: 'zbrush-fantasy-dragon',
+    image: '/showcase/zbrush-fantasy-dragon.png',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-zbrush',
+    en: {
+      label: 'ZBRUSH · HIGH-POLY INTERCHANGE',
+      title: 'Five-million-face Dragon, controlled without UI re-entry',
+      prompt: 'Use the dcc-mcp Skill to connect to ZBrush. Ask before downloading the Artec 3D Fantasy Dragon and preserve its CC BY 4.0 attribution. Import it quietly, inspect point and face counts, capture visual evidence, and export the active Dragon subtool as OBJ. Serialize SDK mutations, treat a busy or still-running timeout as non-retryable until the host finishes, and report the output hash.',
+    },
+    zh: {
+      label: 'ZBRUSH · 高面数交换',
+      title: '稳定控制 500 万面 Dragon，不重入 UI',
+      prompt: '使用 dcc-mcp Skill 连接 ZBrush。下载 Artec 3D Fantasy Dragon 前先征得我的同意，并保留 CC BY 4.0 署名。静默导入，检查点数和面数，采集可视化证据，再把当前 Dragon SubTool 导出为 OBJ。所有 SDK 修改请求必须串行；主机仍在执行时不得因超时重复提交，最后报告输出哈希。',
+    },
+  },
+  {
+    id: 'zbrush-maya-roundtrip',
+    image: '/showcase/zbrush-maya-fantasy-dragon.png',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-maya',
+    en: {
+      label: 'ZBRUSH → MAYA · CROSS-DCC',
+      title: 'A verified five-million-face cross-DCC round trip',
+      prompt: 'Continue a ZBrush-to-Maya validation with the exported Fantasy Dragon OBJ. Use typed Maya tools to import it into a namespace, verify exactly 2,499,970 vertices and 5,000,000 faces, isolate and frame the Dragon, save a Maya scene, and capture scoped UI evidence only through project UI Control when viewport playblast is unavailable. Do not leave test fixtures in the final scene.',
+    },
+    zh: {
+      label: 'ZBRUSH → MAYA · 跨软件联调',
+      title: '经过验证的 500 万面跨 DCC 往返',
+      prompt: '继续验证从 ZBrush 导出的 Fantasy Dragon OBJ。使用 Maya 类型化工具导入独立 Namespace，严格核对 2,499,970 个顶点和 5,000,000 个面，只保留并框选 Dragon，保存 Maya 场景；仅当 viewport playblast 不可用时，才使用项目 UI Control 采集限定窗口证据。最终场景不得残留测试夹具。',
+    },
+  },
 ]
 
 async function copyPrompt(item: Showcase) {
@@ -126,7 +156,7 @@ async function copyPrompt(item: Showcase) {
 
 <template>
   <div class="showcase-gallery">
-    <article v-for="item in showcases" :key="item.id" class="showcase-prompt-card">
+    <article v-for="item in showcases" :id="item.id" :key="item.id" class="showcase-prompt-card">
       <a class="showcase-prompt-media" :href="item.source" target="_blank" rel="noreferrer">
         <img :src="item.image" :alt="(isZh ? item.zh : item.en).title">
         <span>{{ (isZh ? item.zh : item.en).label }}</span>

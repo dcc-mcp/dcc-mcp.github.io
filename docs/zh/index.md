@@ -136,6 +136,10 @@ hero:
       <img src="/showcase/kenney-assets.webp" alt="游戏资产发现、解包与关卡搭建" loading="lazy">
       <span><small>GAME ASSETS</small><strong>从浏览到构建</strong><em>↗</em></span>
     </a>
+    <a class="showcase-card showcase-wide" href="/zh/showcase#zbrush-fantasy-dragon">
+      <img src="/showcase/zbrush-fantasy-dragon.png" alt="在 ZBrush 中验证的 500 万面 Fantasy Dragon" loading="lazy">
+      <span><small>ZBRUSH → MAYA</small><strong>500 万面跨软件往返</strong><em>→</em></span>
+    </a>
   </div>
   <a class="showcase-more" href="/zh/showcase">打开案例画廊并复制提示词 →</a>
 </section>
