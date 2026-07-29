@@ -3,6 +3,7 @@
 Homepage showcase media is copied from the owning DCC-MCP repositories so the website remains available without cross-origin image dependencies.
 
 - `blender-lookdev.webp`: `dcc-mcp/dcc-mcp-blender`, `docs/images/dcc-mcp-blender-showcase.webp`
+- `marmoset-pbr-lookdev.webp`: `dcc-mcp/dcc-mcp-marmoset`, `docs/images/dcc-mcp-marmoset-showcase.webp`
 - `houdini-portal.png`: `dcc-mcp/dcc-mcp-houdini`, `docs/showcase/six-dcc-portal-particles.png`
 - `hunyuan3d.webp`: `dcc-mcp/dcc-ai-hunyuan3d`, `docs/images/dcc-ai-hunyuan3d-showcase.webp`
 - `geospatial-city.webp`: `dcc-mcp/dcc-asset-geospatial`, `docs/images/overture-city-data-showcase.webp`

@@ -116,6 +116,10 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
       <img src="/showcase/blender-lookdev.webp" alt="Procedural galaxy rendered in Blender" loading="lazy">
       <span><small>BLENDER</small><strong>Procedural galaxy</strong><em>↗</em></span>
     </a>
+    <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-marmoset">
+      <img src="/showcase/marmoset-pbr-lookdev.webp" alt="CC0 PBR material reconstructed and rendered in Marmoset Toolbag" loading="lazy">
+      <span><small>MARMOSET</small><strong>CC0 PBR lookdev</strong><em>↗</em></span>
+    </a>
     <a class="showcase-card showcase-narrow" href="https://github.com/dcc-mcp/dcc-mcp-houdini">
       <img src="/showcase/houdini-portal.png" alt="Procedural portal particles created in Houdini" loading="lazy">
       <span><small>HOUDINI</small><strong>Portal particles</strong><em>↗</em></span>
