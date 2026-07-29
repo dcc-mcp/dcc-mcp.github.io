@@ -5,6 +5,7 @@ DCC-MCP is shared infrastructure for discovering and safely operating creative a
 Canonical website: https://dcc-mcp.github.io/
 GitHub organization: https://github.com/dcc-mcp
 Core documentation: https://dcc-mcp.github.io/dcc-mcp-core/
+Simplified Chinese machine-readable guide: https://dcc-mcp.github.io/zh/llms-full.txt
 
 ## Recommended agent route
 

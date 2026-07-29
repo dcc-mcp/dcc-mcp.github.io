@@ -2,6 +2,8 @@
 
 > DCC-MCP is open infrastructure that connects AI agents to creative applications through one Agent Skill, the typed `dcc-mcp-cli`, and a shared MCP + REST control plane.
 
+Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https://dcc-mcp.github.io/zh/llms.txt)
+
 ## Canonical entry points
 
 - [Homepage and one-prompt setup](https://dcc-mcp.github.io/)

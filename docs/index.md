@@ -8,7 +8,7 @@ hero:
   text: Creative tools. One agent interface.
   tagline: A shared control plane for discovering and safely operating Maya, Blender, Houdini, Unreal, Photoshop, and the rest of your pipeline.
   image:
-    src: /brand/dcc-mcp-logo-dark-transparent.webp
+    src: /brand/dcc-mcp-logo-admin-light.png
     alt: DCC-MCP
   actions:
     - theme: brand

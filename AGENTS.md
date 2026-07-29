@@ -13,6 +13,12 @@ This repository is the official website and shared documentation front door for 
 - Preserve original generated source images in `docs/public/brand/` and record derivatives in its `README.md`.
 - Do not overwrite the authoritative Core README logo. Website variants must remain separate assets.
 - Showcase media must link back to its owning DCC-MCP repository and be recorded in `docs/public/showcase/README.md`.
+- Keep the website palette and theme-aware logo treatment aligned with the Core Admin UI. Both light and dark modes are release surfaces.
+
+## Localization and Marketplace
+
+- Keep English routes and their `zh/` counterparts structurally equivalent. Update localized `llms.txt` and `hreflang` metadata when public routes or Agent contracts change.
+- Resolve Marketplace showcase media from the package's immutable `source.ref`. Images and GIFs render as lazy images; video files render with native controls. Do not introduce a mutable media CDN.
 
 ## Validation
 
