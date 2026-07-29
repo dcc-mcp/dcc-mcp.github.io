@@ -157,13 +157,13 @@ const showcases: Showcase[] = [
     source: 'https://github.com/dcc-mcp/dcc-mcp-maya',
     en: {
       label: 'ZBRUSH → MAYA · CROSS-DCC',
-      title: 'A verified five-million-face cross-DCC round trip',
-      prompt: 'Continue a ZBrush-to-Maya validation with the exported Fantasy Dragon OBJ. Use typed Maya tools to import it into a namespace, verify exactly 2,499,970 vertices and 5,000,000 faces, isolate and frame the Dragon, save a Maya scene, and capture scoped UI evidence only through project UI Control when viewport playblast is unavailable. Do not leave test fixtures in the final scene.',
+      title: 'Five million faces reduced to a verified 115K Maya wireframe',
+      prompt: 'Continue a ZBrush-to-Maya validation with the exported Fantasy Dragon OBJ. Use typed Maya tools to verify the 2,499,970-vertex / 5,000,000-face source, then import its ZRemesh into a namespace and verify exactly 115,336 vertices and 115,364 faces. Frame the Dragon, enable wireframe-on-shaded, save the Maya scene, and use project UI Control only for scoped viewport evidence when playblast is unavailable. Do not leave test fixtures in the final scene.',
     },
     zh: {
       label: 'ZBRUSH → MAYA · 跨软件联调',
-      title: '经过验证的 500 万面跨 DCC 往返',
-      prompt: '继续验证从 ZBrush 导出的 Fantasy Dragon OBJ。使用 Maya 类型化工具导入独立 Namespace，严格核对 2,499,970 个顶点和 5,000,000 个面，只保留并框选 Dragon，保存 Maya 场景；仅当 viewport playblast 不可用时，才使用项目 UI Control 采集限定窗口证据。最终场景不得残留测试夹具。',
+      title: '将 500 万面 Dragon 化简为经验证的 11.5 万面 Maya 布线',
+      prompt: '继续验证从 ZBrush 导出的 Fantasy Dragon OBJ。先使用 Maya 类型化工具核对原始模型的 2,499,970 个顶点和 5,000,000 个面，再把 ZRemesh 导入独立 Namespace，并严格核对 115,336 个顶点和 115,364 个面。框选 Dragon、开启着色表面布线并保存 Maya 场景；仅当 viewport playblast 不可用时，才使用项目 UI Control 采集限定窗口证据。最终场景不得残留测试夹具。',
     },
   },
 ]
