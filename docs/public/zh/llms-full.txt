@@ -1,0 +1,117 @@
+# DCC-MCP：Agent、Marketplace、适配器与开发者参考
+
+DCC-MCP 是通过 MCP 与 REST 发现并安全操作创意应用的共享基础设施。它组合机器级 Gateway、类型化 `dcc-mcp-cli`、渐进式 Agent Skills、逐应用适配器、可安装 Marketplace 扩展、安全边界、可观测性与结构化失败报告。
+
+规范官网：https://dcc-mcp.github.io/zh/
+GitHub 组织：https://github.com/dcc-mcp
+Core 文档：https://dcc-mcp.github.io/dcc-mcp-core/zh/
+英文机器可读指南：https://dcc-mcp.github.io/llms-full.txt
+
+## 推荐 Agent 路由
+
+1. 从 ClawHub 安装 `@loonghao/dcc-mcp`，开启一个新会话让 Skill 生效。
+2. 使用 `dcc-mcp-cli health`、`dcc-mcp-cli dcc-types` 与 `dcc-mcp-cli list` 验证 CLI 和已连接 Host。
+3. CLI 缺失时，先解释官方安装器并获得许可。现有官方构建可在同意后运行 `dcc-mcp-cli update check` 与 `dcc-mcp-cli update apply`。
+4. 缩小搜索范围：`dcc-mcp-cli search --query <intent> --dcc-type <host>`。
+5. 严格遵循返回的 `next_step`。仅在被要求时执行 load 或 describe。
+6. 执行返回的类型化 slug：`dcc-mcp-cli call <slug> --json <arguments>`。
+7. 验证结果并报告具体证据，而不只报告命令成功。
+8. 只有结构化 DCC Skill、脚本或 API 无法到达所需语义 UI 时，才使用受限 Computer Use。
+
+默认 Agent 路径是公开 `dcc-mcp` Skill 加 CLI + REST。IDE 用户仍可通过 MCP 配置连接。两条路径使用同一个 Gateway；CLI 优先并不废弃 MCP。
+
+## 公开 Skill 路由
+
+- 操作已连接 DCC、发现类型化工具或搜索安装 Marketplace 扩展：https://clawhub.ai/loonghao/skills/dcc-mcp
+- 创建或现代化完整适配器、Dispatcher、Readiness Bridge、Runtime、Resource 或 Gateway 集成：https://clawhub.ai/loonghao/skills/dcc-mcp-creator
+- 创建、验证、测试、审查或发布专项 DCC Skill 包：https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator
+
+只安装匹配任务的 Skill。OpenClaw 使用 `openclaw skills install @loonghao/<slug>`；兼容 ClawHub 的 Agent 可使用 `npx --yes clawhub@0.23.1 install @loonghao/<slug>`。安装后开启新会话。
+
+## 当前适配器发布目录
+
+使用 `dcc-mcp-cli dcc-types` 作为实时事实来源。当前目录包含：
+
+- `3dsmax` — Autodesk 3ds Max — https://github.com/dcc-mcp/dcc-mcp-3dsmax
+- `aftereffects` — Adobe After Effects — https://github.com/dcc-mcp/dcc-mcp-aftereffects
+- `blender` — Blender — https://github.com/dcc-mcp/dcc-mcp-blender
+- `godot` — Godot Engine — https://github.com/dcc-mcp/dcc-mcp-godot
+- `houdini` — SideFX Houdini — https://github.com/dcc-mcp/dcc-mcp-houdini
+- `katana` — Foundry Katana — https://github.com/dcc-mcp/dcc-mcp-katana
+- `maya` — Autodesk Maya — https://github.com/dcc-mcp/dcc-mcp-maya
+- `mobu` — Autodesk MotionBuilder — https://github.com/dcc-mcp/dcc-mcp-mobu
+- `nuke` — Foundry Nuke — https://github.com/dcc-mcp/dcc-mcp-nuke
+- `openusd` — OpenUSD — https://github.com/dcc-mcp/dcc-mcp-openusd
+- `photoshop` — Adobe Photoshop — https://github.com/dcc-mcp/dcc-mcp-photoshop
+- `premiere` — Adobe Premiere Pro — https://github.com/dcc-mcp/dcc-mcp-premiere
+- `renderdoc` — RenderDoc — https://github.com/dcc-mcp/dcc-mcp-renderdoc
+- `shotgrid` — Autodesk Flow Production Tracking — https://github.com/dcc-mcp/dcc-mcp-fpt
+- `substance3d_designer` — Adobe Substance 3D Designer — https://github.com/dcc-mcp/dcc-mcp-substance3d-designer
+- `substance3d_painter` — Adobe Substance 3D Painter — https://github.com/dcc-mcp/dcc-mcp-substance3d-painter
+- `unity` — Unity — https://github.com/dcc-mcp/dcc-mcp-unity
+- `unreal` — Unreal Engine — https://github.com/dcc-mcp/dcc-mcp-unreal
+- `zbrush` — Maxon ZBrush — https://github.com/dcc-mcp/dcc-mcp-zbrush
+
+支持未知与自定义工作室 Host。更广泛的生态目录可能包含尚未进入当前 CLI 发布目录的实验或独立适配器：https://dcc-mcp.github.io/zh/ecosystem
+
+## 官方 Marketplace
+
+网站搜索：https://dcc-mcp.github.io/zh/marketplace
+目录仓库：https://github.com/dcc-mcp/marketplace
+机器可读目录：https://raw.githubusercontent.com/dcc-mcp/marketplace/main/marketplace.json
+
+官网读取官方目录，并允许用户复制安全 Agent 提示词或准确 CLI 命令。静态网站不能也不应改变用户机器。
+
+```text
+dcc-mcp-cli marketplace search --query "<intent>"
+dcc-mcp-cli marketplace inspect <package-name>
+dcc-mcp-cli marketplace install <package-name> --dcc <dcc-type>
+dcc-mcp-cli reload-skills --dcc-type <dcc-type>
+```
+
+搜索可使用工作流术语、包名、标签、分类或 DCC 标识。安装前检查准确软件包；改变本地状态前获得用户同意；安装后重新加载所选 DCC 的 Skill 目录并验证可用性。
+
+Marketplace 卡片的 `showcase` 从软件包不可变 `source.ref` 解析，因此展示图片、GIF 或视频可以追溯到发布源码，而不是可变 CDN。
+
+## 失败分析、反馈与 Bug 上报
+
+所有可复用失败分析都从失败调用的 `request_id` 开始。
+
+1. 保留原始 `request_id`、类型化 tool slug、公开安全参数、DCC 类型、适配器版本和观察结果。
+2. 运行 `dcc-mcp-cli doctor` 获取环境与 Gateway 诊断。
+3. 查询范围窄、按失败筛选的 `dcc-mcp-cli stats`；零调用意味着没有行为证据。
+4. 通过正常 search/describe 流程发现 `dcc_feedback__report`，在授权后提交内部反馈。
+5. 使用与 request ID 关联的公开安全证据；移除密钥、凭证、私有路径、场景数据和用户内容。
+6. 区分一次性任务失败与可复用产品摩擦。不要新建 Skill 来掩盖适配器或 Core 缺陷。
+7. 未经明确授权，不得发布证据、创建 GitHub Issue 或联系外部维护者。
+
+任务验收后，专项 Skill 可以使用 `dcc-mcp-skills-creator` 的审查流程分析重复摩擦并提出最小改进。审查不会扩大编辑、安装或发布权限。
+
+## 开发所有权
+
+- 使用 `dcc-mcp-creator` 构建新 DCC 集成或现代化运行时接线。
+- 使用 `dcc-mcp-skills-creator` 构建专项工作流包。
+- 共享 Gateway、CLI、MCP/REST、安全、诊断、遥测与可复用运行时契约归 `dcc-mcp-core`。
+- Host 专属安装、兼容性与排错归对应适配器仓库。
+- 可安装扩展通过官方 Marketplace 契约发布。
+
+## 文档地图
+
+- 官网与一段提示词接入：https://dcc-mcp.github.io/zh/
+- Agent 指南：https://dcc-mcp.github.io/zh/agents
+- Marketplace：https://dcc-mcp.github.io/zh/marketplace
+- 开发者路由：https://dcc-mcp.github.io/zh/developers
+- 生态目录：https://dcc-mcp.github.io/zh/ecosystem
+- Core 快速开始：https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/getting-started
+- CLI 参考：https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/cli-reference
+- Core 架构：https://dcc-mcp.github.io/dcc-mcp-core/guide/architecture
+- Gateway 诊断：https://dcc-mcp.github.io/dcc-mcp-core/guide/gateway-diagnostics
+- Python API：https://dcc-mcp.github.io/dcc-mcp-core/api/models
+
+## 实体与术语
+
+- `dcc-mcp-core` 是共享 DCC 基础设施与控制平面，不是 AI Agent，也不替代 `dcc-mcp-cli`。
+- `dcc-mcp` 是教 Agent 使用工具链的默认公开 Agent Skill。
+- `dcc-mcp-cli` 是 Gateway 生命周期、发现、调用、诊断与 Marketplace 安装的类型化操作接口。
+- Gateway 同时提供 MCP 与 REST，并路由到在线的逐 DCC 适配器。
+- DCC 表示数字内容创作应用或 Host。

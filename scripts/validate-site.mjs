@@ -1,0 +1,48 @@
+import { existsSync, readFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const root = dirname(dirname(fileURLToPath(import.meta.url)))
+const dist = join(root, 'docs', '.vitepress', 'dist')
+const requiredFiles = [
+  'index.html',
+  'agents.html',
+  'developers.html',
+  'ecosystem.html',
+  'marketplace.html',
+  'zh/index.html',
+  'zh/agents.html',
+  'zh/developers.html',
+  'zh/ecosystem.html',
+  'zh/marketplace.html',
+  'llms.txt',
+  'llms-full.txt',
+  'zh/llms.txt',
+  'zh/llms-full.txt',
+  'brand/dcc-mcp-logo-admin-light.png',
+  'brand/dcc-mcp-logo-admin-dark.png',
+]
+
+for (const file of requiredFiles) {
+  if (!existsSync(join(dist, file))) throw new Error(`Missing generated file: ${file}`)
+}
+
+const englishHome = readFileSync(join(dist, 'index.html'), 'utf8')
+const chineseHome = readFileSync(join(dist, 'zh', 'index.html'), 'utf8')
+for (const [name, html] of [['English home', englishHome], ['Chinese home', chineseHome]]) {
+  if (!html.includes('hreflang="en"') || !html.includes('hreflang="zh-CN"')) {
+    throw new Error(`${name} is missing language alternates`)
+  }
+}
+if (!chineseHome.includes('lang="zh-CN"')) throw new Error('Chinese home has the wrong document language')
+
+const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
+for (const route of ['/', '/marketplace', '/zh/', '/zh/marketplace']) {
+  if (!sitemap.includes(`https://dcc-mcp.github.io${route}`)) throw new Error(`Sitemap is missing ${route}`)
+}
+
+const marketplaceSource = readFileSync(join(root, 'docs', '.vitepress', 'theme', 'components', 'MarketplaceSearch.vue'), 'utf8')
+if (!marketplaceSource.includes('raw.githubusercontent.com')) throw new Error('Marketplace media is not pinned to repository source')
+if (!marketplaceSource.includes('mp4|webm|ogg|mov')) throw new Error('Marketplace video media support is missing')
+
+console.log('Validated 10 localized pages, 4 llms files, theme logos, sitemap, and Marketplace media support.')
