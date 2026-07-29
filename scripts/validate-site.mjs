@@ -35,6 +35,9 @@ for (const [name, html] of [['English home', englishHome], ['Chinese home', chin
   }
 }
 if (!chineseHome.includes('lang="zh-CN"')) throw new Error('Chinese home has the wrong document language')
+if (!englishHome.includes('CAPABILITY MARKETPLACE') || !chineseHome.includes('能力市场')) {
+  throw new Error('Localized homepages are missing the Marketplace preview')
+}
 
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
 for (const route of ['/', '/marketplace', '/zh/', '/zh/marketplace']) {
@@ -44,5 +47,8 @@ for (const route of ['/', '/marketplace', '/zh/', '/zh/marketplace']) {
 const marketplaceSource = readFileSync(join(root, 'docs', '.vitepress', 'theme', 'components', 'MarketplaceSearch.vue'), 'utf8')
 if (!marketplaceSource.includes('raw.githubusercontent.com')) throw new Error('Marketplace media is not pinned to repository source')
 if (!marketplaceSource.includes('mp4|webm|ogg|mov')) throw new Error('Marketplace video media support is missing')
+if (!marketplaceSource.includes('props.preview ? previewSkills.value : filtered.value')) {
+  throw new Error('Marketplace home preview support is missing')
+}
 
-console.log('Validated 10 localized pages, 4 llms files, theme logos, sitemap, and Marketplace media support.')
+console.log('Validated 10 localized pages, 4 llms files, theme logos, sitemap, and Marketplace page/home media support.')
