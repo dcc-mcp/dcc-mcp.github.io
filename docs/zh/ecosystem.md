@@ -27,7 +27,7 @@ DCC-MCP-Core 负责共享控制平面文档；每个仓库只负责自己 Host �
 
 - [3ds Max](https://github.com/dcc-mcp/dcc-mcp-3dsmax) · [After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) · [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) · [ComfyUI](https://github.com/dcc-mcp/dcc-mcp-comfyui)
 - [GIMP](https://github.com/dcc-mcp/dcc-mcp-gimp) · [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) · [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) · [Katana](https://github.com/dcc-mcp/dcc-mcp-katana)
-- [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) · [Material Maker](https://github.com/dcc-mcp/dcc-mcp-material-maker) · [Maya](https://github.com/dcc-mcp/dcc-mcp-maya) · [MotionBuilder](https://github.com/dcc-mcp/dcc-mcp-mobu)
+- [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) · [Material Maker](https://github.com/dcc-mcp/dcc-mcp-material-maker) · [Maya](https://github.com/dcc-mcp/dcc-mcp-maya) · [Marmoset Toolbag](https://github.com/dcc-mcp/dcc-mcp-marmoset) · [MotionBuilder](https://github.com/dcc-mcp/dcc-mcp-mobu)
 - [Nuke](https://github.com/dcc-mcp/dcc-mcp-nuke) · [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) · [Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere)
 - [Substance 3D Designer](https://github.com/dcc-mcp/dcc-mcp-substance3d-designer) · [Substance 3D Painter](https://github.com/dcc-mcp/dcc-mcp-substance3d-painter)
 - [Tiled](https://github.com/dcc-mcp/dcc-mcp-tiled) · [TouchDesigner](https://github.com/dcc-mcp/dcc-mcp-touchdesigner) · [Unity](https://github.com/dcc-mcp/dcc-mcp-unity) · [Unreal Engine](https://github.com/dcc-mcp/dcc-mcp-unreal) · [ZBrush](https://github.com/dcc-mcp/dcc-mcp-zbrush)

@@ -60,9 +60,9 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">OFFICIAL INTEGRATIONS</p>
-      <h2 id="integrations-title">19 creative tools. One interface.</h2>
+      <h2 id="integrations-title">20 creative tools. One interface.</h2>
     </div>
-    <p>The current release catalog, verified by <code>dcc-mcp-cli dcc-types</code>. Custom studio hosts are supported too.</p>
+    <p>Official adapters across the DCC-MCP ecosystem. Use <code>dcc-mcp-cli dcc-types</code> to see currently installable releases.</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>
@@ -72,6 +72,7 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
     <a href="https://github.com/dcc-mcp/dcc-mcp-houdini"><img src="/dcc-logos/houdini.svg" alt="Houdini logo"><span>Houdini</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-katana"><img src="/dcc-logos/katana.png" alt="Katana logo"><span>Katana</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-maya"><img src="/dcc-logos/maya.svg" alt="Maya logo"><span>Maya</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-marmoset"><img src="/dcc-logos/marmoset.png" alt="Marmoset Toolbag logo"><span>Marmoset</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-mobu"><img src="/dcc-logos/motionbuilder.png" alt="MotionBuilder logo"><span>MotionBuilder</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-nuke"><img src="/dcc-logos/nuke.png" alt="Nuke logo"><span>Nuke</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-openusd"><img src="/dcc-logos/openusd.svg" alt="OpenUSD logo"><span>OpenUSD</span></a>
