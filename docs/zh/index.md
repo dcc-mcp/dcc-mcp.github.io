@@ -84,6 +84,22 @@ hero:
   <a class="integrations-more" href="/zh/ecosystem">查看所有适配器与扩展 →</a>
 </section>
 
+<section class="home-marketplace-section" aria-labelledby="home-marketplace-title">
+  <div class="home-marketplace-heading">
+    <div>
+      <p class="home-kicker">能力市场</p>
+      <h2 id="home-marketplace-title">按需添加工作流。</h2>
+    </div>
+    <div>
+      <p>发现官方 Skills、资产提供方、AI 服务与工作室集成，并查看固定到源码版本的可视化成果。</p>
+      <a href="/zh/marketplace">浏览完整技能市场 →</a>
+    </div>
+  </div>
+  <ClientOnly>
+    <MarketplaceSearch preview />
+  </ClientOnly>
+</section>
+
 <section class="showcase-section">
   <div class="showcase-heading">
     <p class="home-kicker">使用 DCC-MCP 构建</p>

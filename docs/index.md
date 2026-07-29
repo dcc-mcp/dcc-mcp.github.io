@@ -88,6 +88,22 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
   <a class="integrations-more" href="/ecosystem">See every adapter and extension →</a>
 </section>
 
+<section class="home-marketplace-section" aria-labelledby="home-marketplace-title">
+  <div class="home-marketplace-heading">
+    <div>
+      <p class="home-kicker">CAPABILITY MARKETPLACE</p>
+      <h2 id="home-marketplace-title">Add the workflow you need.</h2>
+    </div>
+    <div>
+      <p>Discover official Skills, asset providers, AI services, and studio integrations with source-pinned visual proof.</p>
+      <a href="/marketplace">Browse the complete Marketplace →</a>
+    </div>
+  </div>
+  <ClientOnly>
+    <MarketplaceSearch preview />
+  </ClientOnly>
+</section>
+
 <section class="showcase-section">
   <div class="showcase-heading">
     <p class="home-kicker">BUILT WITH DCC-MCP</p>

@@ -15,6 +15,8 @@ type MarketplaceSkill = {
   source?: { url?: string; ref?: string }
 }
 
+const props = defineProps<{ preview?: boolean }>()
+
 const catalogUrl = 'https://raw.githubusercontent.com/dcc-mcp/marketplace/main/marketplace.json'
 const dccLogos: Record<string, string> = {
   '3dsmax': '/dcc-logos/3dsmax.png',
@@ -61,6 +63,7 @@ const messages = {
     copyInstall: 'Copy install command',
     copied: 'Copied',
     docs: 'Docs ↗',
+    viewPackage: 'View package →',
     empty: 'No package matches these filters.',
     mediaAlt: (name: string) => `${name} showcase`,
   },
@@ -85,13 +88,15 @@ const messages = {
     copyInstall: '复制安装命令',
     copied: '已复制',
     docs: '文档 ↗',
+    viewPackage: '查看软件包 →',
     empty: '没有符合当前筛选条件的包。',
     mediaAlt: (name: string) => `${name} 展示素材`,
   },
 }
 
 const { lang } = useData()
-const text = computed(() => lang.value.toLowerCase().startsWith('zh') ? messages.zh : messages.en)
+const isZh = computed(() => lang.value.toLowerCase().startsWith('zh'))
+const text = computed(() => isZh.value ? messages.zh : messages.en)
 const skills = ref<MarketplaceSkill[]>([])
 const query = ref('')
 const dcc = ref('')
@@ -116,6 +121,15 @@ const filtered = computed(() => {
       && (!category.value || skill.category === category.value)
   })
 })
+const previewSkills = computed(() => {
+  const categories = new Set<string>()
+  return filtered.value.filter((skill) => {
+    if (!skill.showcase || categories.has(skill.category)) return false
+    categories.add(skill.category)
+    return true
+  }).slice(0, 4)
+})
+const visibleSkills = computed(() => props.preview ? previewSkills.value : filtered.value)
 
 function targetDcc(skill: MarketplaceSkill) {
   if (dcc.value && skill.dcc.includes(dcc.value)) return dcc.value
@@ -147,6 +161,10 @@ function isVideo(url: string) {
   return /\.(?:mp4|webm|ogg|mov)(?:\?.*)?$/i.test(url)
 }
 
+function previewLink(skill: MarketplaceSkill) {
+  return `${isZh.value ? '/zh' : ''}/marketplace?q=${encodeURIComponent(skill.name)}`
+}
+
 async function writeClipboard(value: string, key: string) {
   await navigator.clipboard.writeText(value)
   copied.value = key
@@ -166,14 +184,14 @@ function copyInstall(skill: MarketplaceSkill) {
 
 function copyAgentPrompt(skill: MarketplaceSkill) {
   const host = targetDcc(skill)
-  const prompt = lang.value.toLowerCase().startsWith('zh')
+  const prompt = isZh.value
     ? `使用 dcc-mcp Skill 检查官方 Marketplace 包“${skill.name}”，先征得我的同意，再为 ${host} 安装，重新加载 ${host} Skills，并报告验证证据。`
     : `Use the dcc-mcp Skill to inspect the official Marketplace package "${skill.name}", ask for my consent, install it for ${host}, reload ${host} Skills, and report validation evidence.`
   return writeClipboard(prompt, `agent:${skill.name}`)
 }
 
 onMounted(async () => {
-  query.value = new URLSearchParams(window.location.search).get('q') ?? ''
+  if (!props.preview) query.value = new URLSearchParams(window.location.search).get('q') ?? ''
   try {
     const response = await fetch(catalogUrl)
     if (!response.ok) throw new Error(`Catalog request failed (${response.status})`)
@@ -188,7 +206,7 @@ onMounted(async () => {
 })
 
 watch(query, (value) => {
-  if (typeof window === 'undefined') return
+  if (props.preview || typeof window === 'undefined') return
   const url = new URL(window.location.href)
   value.trim() ? url.searchParams.set('q', value.trim()) : url.searchParams.delete('q')
   window.history.replaceState({}, '', url)
@@ -196,8 +214,8 @@ watch(query, (value) => {
 </script>
 
 <template>
-  <section class="marketplace-search" aria-live="polite">
-    <div class="marketplace-toolbar" role="search">
+  <section class="marketplace-search" :class="{ preview: props.preview }" aria-live="polite">
+    <div v-if="!props.preview" class="marketplace-toolbar" role="search">
       <label class="marketplace-query">
         <span>{{ text.search }}</span>
         <input v-model="query" type="search" :placeholder="text.placeholder" autocomplete="off">
@@ -211,24 +229,24 @@ watch(query, (value) => {
       </label>
     </div>
 
-    <div class="marketplace-tabs" aria-hidden="true">
+    <div v-if="!props.preview" class="marketplace-tabs" aria-hidden="true">
       <span class="active">{{ text.browse }}</span>
     </div>
 
-    <p class="marketplace-status">
+    <p v-if="!props.preview || loading || error" class="marketplace-status">
       <template v-if="loading">{{ text.loading }}</template>
       <template v-else-if="error">{{ text.unavailable }} <a href="https://github.com/dcc-mcp/marketplace">{{ text.openGithub }}</a></template>
       <template v-else>{{ text.results(filtered.length, skills.length) }}</template>
     </p>
 
-    <div v-if="!loading && !error" class="marketplace-summary" aria-label="Marketplace summary">
+    <div v-if="!props.preview && !loading && !error" class="marketplace-summary" aria-label="Marketplace summary">
       <div><span>{{ text.packages }}</span><strong>{{ skills.length }}</strong></div>
       <div><span>{{ text.showcased }}</span><strong>{{ showcasedCount }}</strong></div>
       <div><span>{{ text.targets }}</span><strong>{{ dccOptions.length }}</strong></div>
       <div><span>{{ text.categories }}</span><strong>{{ categoryOptions.length }}</strong></div>
     </div>
 
-    <div v-if="!loading && !error" class="marketplace-dcc-filter">
+    <div v-if="!props.preview && !loading && !error" class="marketplace-dcc-filter">
       <strong>{{ text.dcc }}:</strong>
       <button type="button" :class="{ active: !dcc }" :aria-pressed="!dcc" @click="dcc = ''">{{ text.all }}</button>
       <button
@@ -242,7 +260,7 @@ watch(query, (value) => {
     </div>
 
     <div v-if="!loading && !error" class="marketplace-results">
-      <article v-for="skill in filtered" :key="skill.name" class="marketplace-card">
+      <article v-for="skill in visibleSkills" :key="skill.name" class="marketplace-card">
         <div class="marketplace-card-media">
           <video
             v-if="showcaseUrl(skill) && isVideo(showcaseUrl(skill))"
@@ -284,7 +302,7 @@ watch(query, (value) => {
 
           <p>{{ skill.description }}</p>
 
-          <div class="marketplace-card-section">
+          <div v-if="!props.preview" class="marketplace-card-section">
             <strong>{{ text.dcc }}:</strong>
             <div class="marketplace-card-chips">
               <button
@@ -298,7 +316,7 @@ watch(query, (value) => {
             </div>
           </div>
 
-          <div v-if="skill.tags?.length" class="marketplace-card-section tags">
+          <div v-if="!props.preview && skill.tags?.length" class="marketplace-card-section tags">
             <strong>{{ text.tags }}:</strong>
             <div class="marketplace-card-chips">
               <code v-for="tag in skill.tags.slice(0, 3)" :key="tag">{{ tag }}</code>
@@ -306,7 +324,7 @@ watch(query, (value) => {
             </div>
           </div>
 
-          <div class="marketplace-card-actions">
+          <div v-if="!props.preview" class="marketplace-card-actions">
             <button type="button" @click="copyAgentPrompt(skill)">
               {{ copied === `agent:${skill.name}` ? text.copied : text.copyAgent }}
             </button>
@@ -315,10 +333,11 @@ watch(query, (value) => {
             </button>
             <a :href="skill.docs || skill.source?.url || 'https://github.com/dcc-mcp/marketplace'" target="_blank" rel="noreferrer">{{ text.docs }}</a>
           </div>
+          <a v-else class="marketplace-preview-link" :href="previewLink(skill)">{{ text.viewPackage }}</a>
         </div>
       </article>
     </div>
 
-    <p v-if="!loading && !error && !filtered.length" class="marketplace-empty">{{ text.empty }}</p>
+    <p v-if="!loading && !error && !visibleSkills.length" class="marketplace-empty">{{ text.empty }}</p>
   </section>
 </template>
