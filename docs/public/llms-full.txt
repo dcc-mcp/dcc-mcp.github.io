@@ -20,7 +20,7 @@ Simplified Chinese machine-readable guide: https://dcc-mcp.github.io/zh/llms-ful
 
 The default agent path is the public `dcc-mcp` Skill plus CLI + REST. IDE users may connect through MCP configuration. Both paths use the same gateway; CLI-first does not deprecate MCP.
 
-For a copyable ecosystem-orientation prompt, use https://dcc-mcp.github.io/agents. For proven output-and-prompt pairs, use https://dcc-mcp.github.io/showcase.
+For a copyable ecosystem-orientation prompt, use https://dcc-mcp.github.io/agents. For proven output-and-prompt pairs, use https://dcc-mcp.github.io/showcase. The playable Wwise audio showcase is at https://dcc-mcp.github.io/showcase/wwise.
 
 ## Public Skill router
 

@@ -3,7 +3,13 @@ import { computed, ref } from 'vue'
 import { useData } from 'vitepress'
 
 type Copy = { label: string; title: string; prompt: string }
-type Showcase = { id: string; image: string; source: string; en: Copy; zh: Copy }
+type Showcase = {
+  id: string
+  image: string
+  source: string
+  en: Copy
+  zh: Copy
+}
 
 const { lang } = useData()
 const copied = ref('')
@@ -38,6 +44,21 @@ const showcases: Showcase[] = [
       label: 'MARMOSET · PBR 材质',
       title: '在八猴中还原 CC0 PBR 材质',
       prompt: '使用 dcc-mcp Skill 连接 Marmoset Toolbag。先检查运行时，再搜索类型化的 marmoset-scene、marmoset-lookdev 和 marmoset-diagnostics 工具。下载资产前先征得我的同意；使用许可证明确的 CC0 来源并保留溯源信息。导入模型，绑定 Albedo、Normal、Roughness、Metalness 和 Occlusion 贴图，精确框选目标对象，验证没有丢失贴图引用，保存 .tbscene，渲染 16:9 图片，并报告场景、渲染与来源路径。',
+    },
+  },
+  {
+    id: 'wwise-audio',
+    image: '/brand/dcc-mcp-wwise-dark.svg',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-wwise',
+    en: {
+      label: 'WWISE · INTERACTIVE AUDIO',
+      title: 'Sound effects and music through typed WAAPI tools',
+      prompt: 'Use the dcc-mcp Skill to connect to Wwise. Work in a local scratch project, discover the typed Wwise project and audio tools, create one UI sound, one impact sound, and a short looping background track, import and organize them, create play Events, preview every result, and report validation evidence. Do not publish the scratch Wwise project.',
+    },
+    zh: {
+      label: 'WWISE · 交互音频',
+      title: '通过类型化 WAAPI 工具制作音效与音乐',
+      prompt: '使用 dcc-mcp Skill 连接 Wwise。在本地临时工程中搜索并使用类型化的 Wwise 项目与音频工具，制作一个 UI 音效、一个冲击音效和一段可循环背景音乐，完成导入、整理、Play Event 创建与逐项试听，并报告验证证据。不要发布临时 Wwise 工程。',
     },
   },
   {
