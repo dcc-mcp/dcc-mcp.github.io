@@ -146,8 +146,8 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
       <span><small>GAME ASSETS</small><strong>Browse to build</strong><em>↗</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="/showcase#zbrush-fantasy-dragon">
-      <img src="/showcase/zbrush-fantasy-dragon.png" alt="Five-million-face Fantasy Dragon validated in ZBrush" loading="lazy">
-      <span><small>ZBRUSH → MAYA</small><strong>Five-million-face round trip</strong><em>→</em></span>
+      <img src="/showcase/zbrush-fantasy-dragon.png" alt="Fantasy Dragon remeshed from five million faces to a 115K PolyFrame mesh in ZBrush" loading="lazy">
+      <span><small>ZBRUSH → MAYA</small><strong>5M import → 115K PolyFrame</strong><em>→</em></span>
     </a>
   </div>
   <a class="showcase-more" href="/showcase">Open the Showcase and copy a prompt →</a>
