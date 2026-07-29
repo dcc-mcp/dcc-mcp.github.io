@@ -23,7 +23,7 @@ Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https
 
 ## Current released integrations
 
-`dcc-mcp-cli dcc-types` currently exposes 19 adapter-backed identifiers: `3dsmax`, `aftereffects`, `blender`, `godot`, `houdini`, `katana`, `maya`, `mobu`, `nuke`, `openusd`, `photoshop`, `premiere`, `renderdoc`, `shotgrid`, `substance3d_designer`, `substance3d_painter`, `unity`, `unreal`, and `zbrush`. Custom studio host identifiers are also supported.
+`dcc-mcp-cli dcc-types` currently exposes 20 adapter-backed identifiers: `3dsmax`, `aftereffects`, `blender`, `godot`, `houdini`, `katana`, `maya`, `marmoset`, `mobu`, `nuke`, `openusd`, `photoshop`, `premiere`, `renderdoc`, `shotgrid`, `substance3d_designer`, `substance3d_painter`, `unity`, `unreal`, and `zbrush`. Custom studio host identifiers are also supported.
 
 ## Marketplace CLI contract
 
