@@ -11,6 +11,7 @@ const requiredFiles = [
   'ecosystem.html',
   'marketplace.html',
   'showcase.html',
+  'showcase/wwise.html',
   'use-cases.html',
   'zh/index.html',
   'zh/agents.html',
@@ -18,6 +19,7 @@ const requiredFiles = [
   'zh/ecosystem.html',
   'zh/marketplace.html',
   'zh/showcase.html',
+  'zh/showcase/wwise.html',
   'zh/use-cases.html',
   'llms.txt',
   'llms-full.txt',
@@ -25,6 +27,12 @@ const requiredFiles = [
   'zh/llms-full.txt',
   'brand/dcc-mcp-logo-admin-light.png',
   'brand/dcc-mcp-logo-admin-dark.png',
+  'brand/dcc-mcp-wwise.svg',
+  'brand/dcc-mcp-wwise-dark.svg',
+  'dcc-logos/wwise.png',
+  'showcase/wwise/ui-confirm.wav',
+  'showcase/wwise/sci-fi-impact.wav',
+  'showcase/wwise/neon-circuit-bgm.wav',
 ]
 
 for (const file of requiredFiles) {
@@ -58,7 +66,7 @@ for (const label of ['技能市场', '案例画廊', 'Agent 使用']) {
 }
 
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
-for (const route of ['/', '/marketplace', '/showcase', '/use-cases', '/zh/', '/zh/marketplace', '/zh/showcase', '/zh/use-cases']) {
+for (const route of ['/', '/marketplace', '/showcase', '/showcase/wwise', '/use-cases', '/zh/', '/zh/marketplace', '/zh/showcase', '/zh/showcase/wwise', '/zh/use-cases']) {
   if (!sitemap.includes(`https://dcc-mcp.github.io${route}`)) throw new Error(`Sitemap is missing ${route}`)
 }
 
@@ -70,10 +78,22 @@ if (!marketplaceSource.includes('props.preview ? previewSkills.value : filtered.
 }
 
 const showcaseSource = readFileSync(join(root, 'docs', '.vitepress', 'theme', 'components', 'ShowcaseGallery.vue'), 'utf8')
-for (const asset of ['blender-lookdev.webp', 'marmoset-pbr-lookdev.webp', 'houdini-portal.png', 'hunyuan3d.webp', 'geospatial-city.webp', 'maya-architecture.jpg', 'kenney-assets.webp']) {
+for (const asset of ['blender-lookdev.webp', 'marmoset-pbr-lookdev.webp', 'dcc-mcp-wwise-dark.svg', 'houdini-portal.png', 'hunyuan3d.webp', 'geospatial-city.webp', 'maya-architecture.jpg', 'kenney-assets.webp']) {
   if (!showcaseSource.includes(asset)) throw new Error(`Showcase gallery is missing ${asset}`)
 }
 if (!showcaseSource.includes('navigator.clipboard.writeText')) throw new Error('Showcase prompt copy support is missing')
+
+for (const file of [join(dist, 'showcase', 'wwise.html'), join(dist, 'zh', 'showcase', 'wwise.html')]) {
+  const html = readFileSync(file, 'utf8')
+  for (const id of ['ui-confirm', 'sci-fi-impact', 'neon-circuit-bgm']) {
+    if (!html.includes(`id="${id}"`) || !html.includes(`/showcase/wwise/${id}.wav`)) {
+      throw new Error(`${file} is missing playable audio: ${id}`)
+    }
+  }
+  if (!html.includes('hreflang="en"') || !html.includes('hreflang="zh-CN"')) {
+    throw new Error(`${file} is missing language alternates`)
+  }
+}
 
 const englishUseCases = readFileSync(join(dist, 'use-cases.html'), 'utf8')
 const chineseUseCases = readFileSync(join(dist, 'zh', 'use-cases.html'), 'utf8')
@@ -84,4 +104,4 @@ for (const phrase of ['我想用 AI 控制 Maya', '我想用 AI 控制 Blender',
   if (!chineseUseCases.includes(phrase)) throw new Error(`Chinese use cases are missing: ${phrase}`)
 }
 
-console.log('Validated 14 localized pages, 4 llms files, theme logos, sitemap, Marketplace media, Showcase prompts, and GEO use cases.')
+console.log('Validated 16 localized pages, 4 llms files, theme logos, sitemap, Marketplace media, Showcase prompts, audio, and GEO use cases.')

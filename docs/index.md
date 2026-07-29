@@ -60,7 +60,7 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">OFFICIAL INTEGRATIONS</p>
-      <h2 id="integrations-title">20 creative tools. One interface.</h2>
+      <h2 id="integrations-title">21 creative tools. One interface.</h2>
     </div>
     <p>Official adapters across the DCC-MCP ecosystem. Use <code>dcc-mcp-cli dcc-types</code> to see currently installable releases.</p>
   </div>
@@ -84,6 +84,7 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
     <a href="https://github.com/dcc-mcp/dcc-mcp-substance3d-painter"><img src="/dcc-logos/substance3d-painter.svg" alt="Substance 3D Painter logo"><span>Substance Painter</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-unity"><img src="/dcc-logos/unity.png" alt="Unity logo"><span>Unity</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-unreal"><img src="/dcc-logos/unreal.svg" alt="Unreal Engine logo"><span>Unreal Engine</span></a>
+    <a class="dcc-tile-dark" href="https://github.com/dcc-mcp/dcc-mcp-wwise"><img src="/dcc-logos/wwise.png" alt="Wwise logo"><span>Wwise</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-zbrush"><img src="/dcc-logos/zbrush.png" alt="ZBrush logo"><span>ZBrush</span></a>
   </div>
   <a class="integrations-more" href="/ecosystem">See every adapter and extension →</a>
@@ -115,6 +116,10 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
     <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-blender">
       <img src="/showcase/blender-lookdev.webp" alt="Procedural galaxy rendered in Blender" loading="lazy">
       <span><small>BLENDER</small><strong>Procedural galaxy</strong><em>↗</em></span>
+    </a>
+    <a class="showcase-card showcase-narrow showcase-logo" href="/showcase/wwise">
+      <img src="/brand/dcc-mcp-wwise-dark.svg" alt="Wwise sound effects and background music showcase" loading="lazy">
+      <span><small>WWISE</small><strong>Interactive audio</strong><em>▶</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-marmoset">
       <img src="/showcase/marmoset-pbr-lookdev.webp" alt="CC0 PBR material reconstructed and rendered in Marmoset Toolbag" loading="lazy">

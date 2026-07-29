@@ -23,4 +23,5 @@ These nominative product identity assets are displayed unchanged. Product names 
 | `substance3d-painter.svg` | [Adobe product icon](https://www.adobe.com/cc-shared/assets/img/product-icons/svg/substance-3d-painter-64.svg) |
 | `unity.png` | Approved DCC-MCP Admin UI asset, checked against [Unity branding](https://unity.com/legal/branding-trademarks) |
 | `unreal.svg` | [Simple Icons](https://cdn.simpleicons.org/unrealengine), checked against [Unreal Engine branding](https://www.unrealengine.com/branding) |
+| `wwise.png` | [Official Audiokinetic reversed Wwise logo](https://info.audiokinetic.com/hs-fs/hubfs/WWISE%20LOGO_REV-2.png) |
 | `zbrush.png` | [Official Maxon ZBrush app artwork](https://apps.apple.com/app/zbrush-for-ipad/id6612028716) |

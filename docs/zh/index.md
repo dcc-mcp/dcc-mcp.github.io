@@ -56,7 +56,7 @@ hero:
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">官方集成</p>
-      <h2 id="integrations-title">20 款创意工具，一个接口。</h2>
+      <h2 id="integrations-title">21 款创意工具，一个接口。</h2>
     </div>
     <p>DCC-MCP 生态的官方适配器；使用 <code>dcc-mcp-cli dcc-types</code> 查询当前可安装版本。</p>
   </div>
@@ -80,6 +80,7 @@ hero:
     <a href="https://github.com/dcc-mcp/dcc-mcp-substance3d-painter"><img src="/dcc-logos/substance3d-painter.svg" alt="Substance 3D Painter logo"><span>Substance Painter</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-unity"><img src="/dcc-logos/unity.png" alt="Unity logo"><span>Unity</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-unreal"><img src="/dcc-logos/unreal.svg" alt="Unreal Engine logo"><span>Unreal Engine</span></a>
+    <a class="dcc-tile-dark" href="https://github.com/dcc-mcp/dcc-mcp-wwise"><img src="/dcc-logos/wwise.png" alt="Wwise logo"><span>Wwise</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-zbrush"><img src="/dcc-logos/zbrush.png" alt="ZBrush logo"><span>ZBrush</span></a>
   </div>
   <a class="integrations-more" href="/zh/ecosystem">查看所有适配器与扩展 →</a>
@@ -111,6 +112,10 @@ hero:
     <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-blender">
       <img src="/showcase/blender-lookdev.webp" alt="Blender 程序化星系渲染" loading="lazy">
       <span><small>BLENDER</small><strong>程序化星系</strong><em>↗</em></span>
+    </a>
+    <a class="showcase-card showcase-narrow showcase-logo" href="/zh/showcase/wwise">
+      <img src="/brand/dcc-mcp-wwise-dark.svg" alt="Wwise 音效与背景音乐案例" loading="lazy">
+      <span><small>WWISE</small><strong>交互音频</strong><em>▶</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-marmoset">
       <img src="/showcase/marmoset-pbr-lookdev.webp" alt="在 Marmoset Toolbag 中还原并渲染 CC0 PBR 材质" loading="lazy">

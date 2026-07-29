@@ -20,7 +20,7 @@ Core 文档：https://dcc-mcp.github.io/dcc-mcp-core/zh/
 
 默认 Agent 路径是公开 `dcc-mcp` Skill 加 CLI + REST。IDE 用户仍可通过 MCP 配置连接。两条路径使用同一个 Gateway；CLI 优先并不废弃 MCP。
 
-可复制的生态理解提示词位于 https://dcc-mcp.github.io/zh/agents；经过验证的效果与提示词组合位于 https://dcc-mcp.github.io/zh/showcase。
+可复制的生态理解提示词位于 https://dcc-mcp.github.io/zh/agents；经过验证的效果与提示词组合位于 https://dcc-mcp.github.io/zh/showcase；可在线试听的 Wwise 音频案例位于 https://dcc-mcp.github.io/zh/showcase/wwise。
 
 ## 公开 Skill 路由
 

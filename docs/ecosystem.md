@@ -52,6 +52,7 @@ DCC-MCP-Core owns the shared control-plane documentation. Each linked repository
 - [TouchDesigner](https://github.com/dcc-mcp/dcc-mcp-touchdesigner) — Derivative TouchDesigner.
 - [Unity](https://github.com/dcc-mcp/dcc-mcp-unity) — Unity Editor and game-authoring Skills.
 - [Unreal Engine](https://github.com/dcc-mcp/dcc-mcp-unreal) — Unreal Engine plug-in.
+- [Wwise](https://github.com/dcc-mcp/dcc-mcp-wwise) — Audiokinetic Wwise authoring through typed WAAPI tools.
 - [ZBrush](https://github.com/dcc-mcp/dcc-mcp-zbrush) — Maxon ZBrush.
 
 ## Specialized Maya Skills

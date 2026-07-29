@@ -325,6 +325,13 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
 
 .dcc-grid a:hover { color: var(--dcc-ink) !important; background: var(--vp-c-brand-soft); }
 
+.dcc-grid a.dcc-tile-dark {
+  background: #081426;
+  color: #fff !important;
+}
+
+.dcc-grid a.dcc-tile-dark:hover { background: #0d2440; color: #fff !important; }
+
 .dcc-grid img {
   width: 38px;
   height: 38px;
@@ -387,6 +394,8 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
   object-fit: cover;
   transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 400ms ease;
 }
+
+.showcase-card.showcase-logo img { object-fit: contain; background: #081426; }
 
 .showcase-card::after {
   position: absolute;
@@ -817,6 +826,7 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
 .showcase-prompt-card {
   overflow: hidden;
   margin: 0 !important;
+  scroll-margin-top: 90px;
   border: 1px solid var(--dcc-line);
   background: var(--dcc-panel);
   transition: transform 280ms ease, border-color 280ms ease, box-shadow 280ms ease;
@@ -876,6 +886,8 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
   letter-spacing: -0.025em;
 }
 
+#wwise-audio .showcase-prompt-media img { object-fit: contain; background: #081426; }
+
 .showcase-prompt-copy {
   display: grid;
   gap: 12px;
@@ -913,6 +925,25 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
 
 .showcase-prompt-copy button:hover { background: var(--vp-c-brand-2); }
 .showcase-prompt-copy button:focus-visible { outline: 3px solid var(--vp-c-brand-soft); outline-offset: 2px; }
+
+.wwise-audio-lockup { margin: 32px 0 !important; }
+.wwise-audio-lockup picture { display: block; max-width: 100%; }
+.wwise-audio-lockup img { display: block; width: 100%; max-width: 100%; height: auto; border: 1px solid var(--dcc-line); }
+
+.wwise-audio-page .vp-doc section {
+  margin: 30px 0;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  padding: 20px;
+  scroll-margin-top: 90px;
+  border: 1px solid var(--dcc-line);
+  background: var(--dcc-panel-soft);
+}
+
+.wwise-audio-page .vp-doc section h2 { margin-top: 0; padding-top: 0; border-top: 0; }
+.wwise-audio-page .vp-doc section audio { width: 100%; min-width: 0; max-width: 100%; }
 
 .directory-actions {
   display: grid;
@@ -995,6 +1026,9 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
   .showcase-gallery { grid-template-columns: 1fr; }
   .showcase-prompt-body h2,
   .showcase-prompt-copy p { min-height: 0; }
+  .wwise-audio-lockup,
+  .wwise-audio-page .vp-doc section { width: calc(100vw - 48px); max-width: calc(100vw - 48px); }
+  .wwise-audio-page .vp-doc section audio { width: calc(100vw - 88px); max-width: calc(100vw - 88px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

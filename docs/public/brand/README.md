@@ -7,5 +7,6 @@
 - `dcc-mcp-logo-dark-transparent.webp` removes only the generated near-black canvas so the optimized lockup can sit cleanly in the site header and homepage hero.
 - `dcc-mcp-logo-admin-light.png` and `dcc-mcp-logo-admin-dark.png` are exact copies of the official light/dark lockups used by the DCC-MCP Core Admin UI. The website navigation reuses them so both products share one theme-aware brand treatment.
 - `social-card.png` is a deterministic composition of the authoritative logo and generated atmosphere for link previews.
+- `dcc-mcp-wwise.svg` and `dcc-mcp-wwise-dark.svg` are deterministic light and dark Wwise lockups generated with the `dcc-brand-lockup` contract. Product identity is carried by the audio waveform motif and the `WWISE` footer label without placing a product badge over the shared mark.
 
 The generated atmosphere uses the DCC-MCP navy, blue, cyan, and teal palette to suggest one shared gateway connecting creative tools. It is decorative only; product identity and written information remain in HTML and the authoritative logo asset.
