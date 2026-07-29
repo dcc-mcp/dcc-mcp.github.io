@@ -13,7 +13,7 @@ hero:
   actions:
     - theme: brand
       text: 从 Skill 开始
-      link: /zh/agents
+      link: /zh/#install-prompt
     - theme: alt
       text: 浏览生态
       link: /zh/ecosystem
@@ -26,7 +26,7 @@ hero:
   <span><strong>50+</strong> 个公开项目</span>
 </div>
 
-<div class="install-intro">
+<div id="install-prompt" class="install-intro">
   <p class="home-kicker">一段提示词完成接入</p>
   <h2>把下面内容交给你的 Agent。</h2>
   <p>它会安装正确的 Skill，连接 CLI 与适配器，验证 Gateway，并在每个会改变系统状态的边界先征得你的同意。</p>

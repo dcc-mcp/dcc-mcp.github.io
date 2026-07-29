@@ -13,7 +13,7 @@ hero:
   actions:
     - theme: brand
       text: Start with the Skill
-      link: /agents
+      link: /#install-prompt
     - theme: alt
       text: View the ecosystem
       link: /ecosystem
@@ -26,7 +26,7 @@ hero:
   <span><strong>50+</strong> public projects</span>
 </div>
 
-<div class="install-intro">
+<div id="install-prompt" class="install-intro">
   <p class="home-kicker">ONE-PROMPT SETUP</p>
   <h2>Give this to your agent.</h2>
   <p>It will install the right Skill, connect the CLI and adapters, verify the gateway, and stop for consent at every system-changing boundary.</p>
