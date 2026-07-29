@@ -41,6 +41,7 @@ Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release cat
 - `houdini` — SideFX Houdini — https://github.com/dcc-mcp/dcc-mcp-houdini
 - `katana` — Foundry Katana — https://github.com/dcc-mcp/dcc-mcp-katana
 - `maya` — Autodesk Maya — https://github.com/dcc-mcp/dcc-mcp-maya
+- `marmoset` — Marmoset Toolbag — https://github.com/dcc-mcp/dcc-mcp-marmoset
 - `mobu` — Autodesk MotionBuilder — https://github.com/dcc-mcp/dcc-mcp-mobu
 - `nuke` — Foundry Nuke — https://github.com/dcc-mcp/dcc-mcp-nuke
 - `openusd` — OpenUSD — https://github.com/dcc-mcp/dcc-mcp-openusd

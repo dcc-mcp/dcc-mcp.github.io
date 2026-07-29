@@ -23,7 +23,7 @@
 
 ## 当前发布集成
 
-`dcc-mcp-cli dcc-types` 当前提供 19 个适配器标识：`3dsmax`、`aftereffects`、`blender`、`godot`、`houdini`、`katana`、`maya`、`mobu`、`nuke`、`openusd`、`photoshop`、`premiere`、`renderdoc`、`shotgrid`、`substance3d_designer`、`substance3d_painter`、`unity`、`unreal`、`zbrush`。同时支持工作室自定义 Host 标识。
+`dcc-mcp-cli dcc-types` 当前提供 20 个适配器标识：`3dsmax`、`aftereffects`、`blender`、`godot`、`houdini`、`katana`、`maya`、`marmoset`、`mobu`、`nuke`、`openusd`、`photoshop`、`premiere`、`renderdoc`、`shotgrid`、`substance3d_designer`、`substance3d_painter`、`unity`、`unreal`、`zbrush`。同时支持工作室自定义 Host 标识。
 
 ## Marketplace CLI 契约
 
