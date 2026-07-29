@@ -11,6 +11,7 @@ These nominative product identity assets are displayed unchanged. Product names 
 | `houdini.svg` | [Simple Icons](https://cdn.simpleicons.org/houdini), checked against [SideFX Houdini](https://www.sidefx.com/products/houdini/) |
 | `katana.png` | [Foundry Katana product icon](https://www.foundry.com/sites/default/files/styles/icon_lg/public/media/image/2026-06/iconkatanargbyellow-01.png) |
 | `maya.svg` | [Simple Icons](https://cdn.simpleicons.org/autodeskmaya), checked against [Autodesk Maya](https://www.autodesk.com/products/maya/overview) |
+| `marmoset.png` | Official Marmoset Toolbag 5 Windows application icon extracted unchanged from `toolbag.exe` 5.0.2.2; executable SHA-256 `50b75406743ee983e94b95d859701cf1befcc386ed268e848ce16a9939ef72ad`; product red `#FF0044` |
 | `motionbuilder.png` | Highest-resolution icon embedded in an official Autodesk MotionBuilder installation; [product reference](https://www.autodesk.com/products/motionbuilder/overview) |
 | `nuke.png` | [Foundry Nuke product icon](https://www.foundry.com/sites/default/files/styles/icon_lg/public/media/image/2026-06/iconnuke-rgb-yellow-01.png) |
 | `openusd.svg` | [Alliance for OpenUSD](https://openusd.org/images/USDLogoUnsized.svg) |

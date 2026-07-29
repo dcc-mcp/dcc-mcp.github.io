@@ -41,6 +41,7 @@ DCC-MCP-Core owns the shared control-plane documentation. Each linked repository
 - [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) — Krita.
 - [Material Maker](https://github.com/dcc-mcp/dcc-mcp-material-maker) — Procedural material authoring.
 - [Maya](https://github.com/dcc-mcp/dcc-mcp-maya) — Autodesk Maya.
+- [Marmoset Toolbag](https://github.com/dcc-mcp/dcc-mcp-marmoset) — PBR material authoring, scene inspection, and rendering.
 - [MotionBuilder](https://github.com/dcc-mcp/dcc-mcp-mobu) — Autodesk MotionBuilder.
 - [Nuke](https://github.com/dcc-mcp/dcc-mcp-nuke) — Foundry Nuke.
 - [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) — Adobe Photoshop through UXP.

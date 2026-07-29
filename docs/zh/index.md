@@ -56,9 +56,9 @@ hero:
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">官方集成</p>
-      <h2 id="integrations-title">19 款创意工具，一个接口。</h2>
+      <h2 id="integrations-title">20 款创意工具，一个接口。</h2>
     </div>
-    <p>当前发布目录由 <code>dcc-mcp-cli dcc-types</code> 验证，同时支持工作室自定义 Host。</p>
+    <p>DCC-MCP 生态的官方适配器；使用 <code>dcc-mcp-cli dcc-types</code> 查询当前可安装版本。</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>
@@ -68,6 +68,7 @@ hero:
     <a href="https://github.com/dcc-mcp/dcc-mcp-houdini"><img src="/dcc-logos/houdini.svg" alt="Houdini logo"><span>Houdini</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-katana"><img src="/dcc-logos/katana.png" alt="Katana logo"><span>Katana</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-maya"><img src="/dcc-logos/maya.svg" alt="Maya logo"><span>Maya</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-marmoset"><img src="/dcc-logos/marmoset.png" alt="Marmoset Toolbag logo"><span>Marmoset</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-mobu"><img src="/dcc-logos/motionbuilder.png" alt="MotionBuilder logo"><span>MotionBuilder</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-nuke"><img src="/dcc-logos/nuke.png" alt="Nuke logo"><span>Nuke</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-openusd"><img src="/dcc-logos/openusd.svg" alt="OpenUSD logo"><span>OpenUSD</span></a>
