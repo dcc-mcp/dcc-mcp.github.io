@@ -54,7 +54,7 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
    and any action still required from me.
 ```
 
-<p class="install-note">Paste once. The Agent Skill supplies the maintained workflow. <a href="/agents">Read the agent guide →</a></p>
+<p class="install-note">Paste once. The Agent Skill supplies the maintained workflow. <a href="/agents">Read the agent guide</a> or <a href="/use-cases">start from a common task →</a></p>
 
 <section class="integrations-section" aria-labelledby="integrations-title">
   <div class="integrations-heading">

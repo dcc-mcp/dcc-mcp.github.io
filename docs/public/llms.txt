@@ -9,6 +9,7 @@ Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https
 - [Homepage and one-prompt setup](https://dcc-mcp.github.io/)
 - [Marketplace search](https://dcc-mcp.github.io/marketplace): Search the official live catalog and copy consent-aware agent prompts or typed CLI installation commands.
 - [Showcase gallery](https://dcc-mcp.github.io/showcase): View real ecosystem outputs and copy the corresponding production-oriented agent prompts.
+- [Common AI + DCC tasks](https://dcc-mcp.github.io/use-cases): Direct answers and copyable prompts for Maya, Blender, random scene generation, and game creation.
 - [Agent workflow](https://dcc-mcp.github.io/agents): Install the public Skill, discover typed tools, validate calls, and diagnose failures.
 - [Developer routing](https://dcc-mcp.github.io/developers): Decide whether to build an adapter, a specialized Skill, or a shared Core change.
 - [Ecosystem directory](https://dcc-mcp.github.io/ecosystem): Adapters, extensions, asset providers, AI services, and studio integrations.

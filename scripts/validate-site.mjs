@@ -11,12 +11,14 @@ const requiredFiles = [
   'ecosystem.html',
   'marketplace.html',
   'showcase.html',
+  'use-cases.html',
   'zh/index.html',
   'zh/agents.html',
   'zh/developers.html',
   'zh/ecosystem.html',
   'zh/marketplace.html',
   'zh/showcase.html',
+  'zh/use-cases.html',
   'llms.txt',
   'llms-full.txt',
   'zh/llms.txt',
@@ -48,7 +50,7 @@ for (const label of ['技能市场', '案例画廊', 'Agent 使用']) {
 }
 
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
-for (const route of ['/', '/marketplace', '/showcase', '/zh/', '/zh/marketplace', '/zh/showcase']) {
+for (const route of ['/', '/marketplace', '/showcase', '/use-cases', '/zh/', '/zh/marketplace', '/zh/showcase', '/zh/use-cases']) {
   if (!sitemap.includes(`https://dcc-mcp.github.io${route}`)) throw new Error(`Sitemap is missing ${route}`)
 }
 
@@ -65,4 +67,13 @@ for (const asset of ['blender-lookdev.webp', 'houdini-portal.png', 'hunyuan3d.we
 }
 if (!showcaseSource.includes('navigator.clipboard.writeText')) throw new Error('Showcase prompt copy support is missing')
 
-console.log('Validated 12 localized pages, 4 llms files, theme logos, sitemap, Marketplace media, and Showcase prompts.')
+const englishUseCases = readFileSync(join(dist, 'use-cases.html'), 'utf8')
+const chineseUseCases = readFileSync(join(dist, 'zh', 'use-cases.html'), 'utf8')
+for (const phrase of ['control Maya with AI', 'control Blender with AI', 'create ten random spheres in Maya', 'want to make a game']) {
+  if (!englishUseCases.toLowerCase().includes(phrase.toLowerCase())) throw new Error(`English use cases are missing: ${phrase}`)
+}
+for (const phrase of ['我想用 AI 控制 Maya', '我想用 AI 控制 Blender', '我想在 Maya 创建十个随机的小球', '我想做一个游戏']) {
+  if (!chineseUseCases.includes(phrase)) throw new Error(`Chinese use cases are missing: ${phrase}`)
+}
+
+console.log('Validated 14 localized pages, 4 llms files, theme logos, sitemap, Marketplace media, Showcase prompts, and GEO use cases.')
