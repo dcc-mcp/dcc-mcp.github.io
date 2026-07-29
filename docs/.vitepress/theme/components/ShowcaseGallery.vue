@@ -121,13 +121,13 @@ const showcases: Showcase[] = [
     source: 'https://github.com/dcc-mcp/dcc-mcp-zbrush',
     en: {
       label: 'ZBRUSH · HIGH-POLY INTERCHANGE',
-      title: 'Five-million-face Dragon, controlled without UI re-entry',
-      prompt: 'Use the dcc-mcp Skill to connect to ZBrush. Ask before downloading the Artec 3D Fantasy Dragon and preserve its CC BY 4.0 attribution. Import it quietly, inspect point and face counts, capture visual evidence, and export the active Dragon subtool as OBJ. Serialize SDK mutations, treat a busy or still-running timeout as non-retryable until the host finishes, and report the output hash.',
+      title: 'Five-million-face Dragon remeshed to a 115K PolyFrame mesh',
+      prompt: 'Use the dcc-mcp Skill to connect to ZBrush. Ask before downloading the Artec 3D Fantasy Dragon and preserve its CC BY 4.0 attribution. Import it quietly and verify 2,499,970 points and 5,000,000 faces. Confirm the Dragon bake is rejected because it has no UVs, then verify normal and displacement baking on a UV test mesh. Duplicate the Dragon, ZRemesh it to 115,364 faces, enable PolyFrame, turn its head toward the camera, capture scoped visual evidence, and export the active remesh as OBJ with its hash. Serialize SDK mutations and do not retry while the host is still busy.',
     },
     zh: {
       label: 'ZBRUSH · 高面数交换',
-      title: '稳定控制 500 万面 Dragon，不重入 UI',
-      prompt: '使用 dcc-mcp Skill 连接 ZBrush。下载 Artec 3D Fantasy Dragon 前先征得我的同意，并保留 CC BY 4.0 署名。静默导入，检查点数和面数，采集可视化证据，再把当前 Dragon SubTool 导出为 OBJ。所有 SDK 修改请求必须串行；主机仍在执行时不得因超时重复提交，最后报告输出哈希。',
+      title: '将 500 万面 Dragon 重拓扑为 11.5 万面 PolyFrame 网格',
+      prompt: '使用 dcc-mcp Skill 连接 ZBrush。下载 Artec 3D Fantasy Dragon 前先征得我的同意，并保留 CC BY 4.0 署名。静默导入并核对 2,499,970 个点、5,000,000 个面；确认 Dragon 因缺少 UV 被拒绝烘焙，再用带 UV 的测试网格验证法线与置换烘焙。复制 Dragon，ZRemesh 到 115,364 面，开启 PolyFrame，把龙头转向镜头并采集限定窗口证据，最后导出当前重拓扑网格并报告哈希。所有 SDK 修改必须串行，主机繁忙时不得重复提交。',
     },
   },
   {
