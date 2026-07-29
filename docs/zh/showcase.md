@@ -11,3 +11,5 @@ pageClass: showcase-page
 <ClientOnly>
   <ShowcaseGallery />
 </ClientOnly>
+
+Fantasy Dragon 模型由 [Artec 3D](https://www.artec3d.com/3d-models/fantasy-dragon) 提供，按 Creative Commons Attribution 4.0 使用。

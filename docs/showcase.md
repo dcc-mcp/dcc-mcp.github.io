@@ -11,3 +11,5 @@ Each showcase pairs a real ecosystem output with a consent-aware prompt. Give th
 <ClientOnly>
   <ShowcaseGallery />
 </ClientOnly>
+
+Fantasy Dragon model by [Artec 3D](https://www.artec3d.com/3d-models/fantasy-dragon), used under Creative Commons Attribution 4.0.
