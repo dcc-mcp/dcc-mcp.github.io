@@ -20,6 +20,8 @@ Core 文档：https://dcc-mcp.github.io/dcc-mcp-core/zh/
 
 默认 Agent 路径是公开 `dcc-mcp` Skill 加 CLI + REST。IDE 用户仍可通过 MCP 配置连接。两条路径使用同一个 Gateway；CLI 优先并不废弃 MCP。
 
+可复制的生态理解提示词位于 https://dcc-mcp.github.io/zh/agents；经过验证的效果与提示词组合位于 https://dcc-mcp.github.io/zh/showcase。
+
 ## 公开 Skill 路由
 
 - 操作已连接 DCC、发现类型化工具或搜索安装 Marketplace 扩展：https://clawhub.ai/loonghao/skills/dcc-mcp
@@ -87,6 +89,12 @@ Marketplace 卡片的 `showcase` 从软件包不可变 `source.ref` 解析，因
 
 任务验收后，专项 Skill 可以使用 `dcc-mcp-skills-creator` 的审查流程分析重复摩擦并提出最小改进。审查不会扩大编辑、安装或发布权限。
 
+## 案例提示词模式
+
+案例画廊：https://dcc-mcp.github.io/zh/showcase
+
+每张卡片把真实生态产出与安全提示词关联起来。它是可复用意图模式，不代表本地 Host 或软件包已经安装。Agent 仍须发现类型化工具、检查 Marketplace 软件包、改变状态前请求授权，并验证生成的场景或文件。
+
 ## 开发所有权
 
 - 使用 `dcc-mcp-creator` 构建新 DCC 集成或现代化运行时接线。
@@ -100,6 +108,7 @@ Marketplace 卡片的 `showcase` 从软件包不可变 `source.ref` 解析，因
 - 官网与一段提示词接入：https://dcc-mcp.github.io/zh/
 - Agent 指南：https://dcc-mcp.github.io/zh/agents
 - Marketplace：https://dcc-mcp.github.io/zh/marketplace
+- 案例提示词：https://dcc-mcp.github.io/zh/showcase
 - 开发者路由：https://dcc-mcp.github.io/zh/developers
 - 生态目录：https://dcc-mcp.github.io/zh/ecosystem
 - Core 快速开始：https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/getting-started

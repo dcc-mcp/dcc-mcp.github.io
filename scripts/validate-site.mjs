@@ -10,11 +10,13 @@ const requiredFiles = [
   'developers.html',
   'ecosystem.html',
   'marketplace.html',
+  'showcase.html',
   'zh/index.html',
   'zh/agents.html',
   'zh/developers.html',
   'zh/ecosystem.html',
   'zh/marketplace.html',
+  'zh/showcase.html',
   'llms.txt',
   'llms-full.txt',
   'zh/llms.txt',
@@ -38,9 +40,15 @@ if (!chineseHome.includes('lang="zh-CN"')) throw new Error('Chinese home has the
 if (!englishHome.includes('CAPABILITY MARKETPLACE') || !chineseHome.includes('能力市场')) {
   throw new Error('Localized homepages are missing the Marketplace preview')
 }
+for (const label of ['Marketplace', 'Showcase', 'For Agents']) {
+  if (!englishHome.includes(`>${label}<`)) throw new Error(`English navigation is missing ${label}`)
+}
+for (const label of ['技能市场', '案例画廊', 'Agent 使用']) {
+  if (!chineseHome.includes(`>${label}<`)) throw new Error(`Chinese navigation is missing ${label}`)
+}
 
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
-for (const route of ['/', '/marketplace', '/zh/', '/zh/marketplace']) {
+for (const route of ['/', '/marketplace', '/showcase', '/zh/', '/zh/marketplace', '/zh/showcase']) {
   if (!sitemap.includes(`https://dcc-mcp.github.io${route}`)) throw new Error(`Sitemap is missing ${route}`)
 }
 
@@ -51,4 +59,10 @@ if (!marketplaceSource.includes('props.preview ? previewSkills.value : filtered.
   throw new Error('Marketplace home preview support is missing')
 }
 
-console.log('Validated 10 localized pages, 4 llms files, theme logos, sitemap, and Marketplace page/home media support.')
+const showcaseSource = readFileSync(join(root, 'docs', '.vitepress', 'theme', 'components', 'ShowcaseGallery.vue'), 'utf8')
+for (const asset of ['blender-lookdev.webp', 'houdini-portal.png', 'hunyuan3d.webp', 'geospatial-city.webp', 'maya-architecture.jpg', 'kenney-assets.webp']) {
+  if (!showcaseSource.includes(asset)) throw new Error(`Showcase gallery is missing ${asset}`)
+}
+if (!showcaseSource.includes('navigator.clipboard.writeText')) throw new Error('Showcase prompt copy support is missing')
+
+console.log('Validated 12 localized pages, 4 llms files, theme logos, sitemap, Marketplace media, and Showcase prompts.')

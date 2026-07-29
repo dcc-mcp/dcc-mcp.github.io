@@ -8,6 +8,14 @@ pageClass: route-page
 
 Agent 的默认入口是公开的 [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp) 与 `dcc-mcp-cli`。Skill 提供工作流知识；CLI 负责 Gateway 生命周期、结构化发现、类型化执行、诊断与更新。
 
+## 把项目地图交给你的 Agent
+
+开始 DCC-MCP 任务前，把下面这段提示词直接交给 Agent：
+
+```text
+行动前先了解 DCC-MCP 生态。首先阅读 https://dcc-mcp.github.io/zh/llms.txt，只有需要更多细节时才阅读 https://dcc-mcp.github.io/zh/llms-full.txt。将我的需求准确路由到一条路径：用 dcc-mcp 操作在线 DCC，用 dcc-mcp-creator 创建或现代化适配器，或用 dcc-mcp-skills-creator 创建专项工作流 Skill。使用 https://dcc-mcp.github.io/zh/marketplace 发现可安装能力，使用 https://dcc-mcp.github.io/zh/showcase 参考经过验证的提示词模式，使用 https://dcc-mcp.github.io/zh/ecosystem 确认仓库归属。优先使用类型化 dcc-mcp-cli 发现能力，并严格遵循返回的 next_step。重试前从 request_id 开始诊断，清理敏感证据；未经我明确许可，不得安装、发布、创建外部 Bug 或改变我的机器。先返回项目路由、准备使用的能力和下一步准确且安全的操作。
+```
+
 ## 安装匹配任务的 Skill
 
 | 任务 | Skill |
@@ -63,4 +71,6 @@ dcc-mcp-cli stats --status failure
 - [CLI 参考](https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/cli-reference)
 - [Agent 参考](https://dcc-mcp.github.io/dcc-mcp-core/guide/agents-reference)
 - [Gateway 诊断](https://dcc-mcp.github.io/dcc-mcp-core/guide/gateway-diagnostics)
+- [技能市场](/zh/marketplace)
+- [案例提示词](/zh/showcase)
 - [浏览生态目录](/zh/ecosystem)

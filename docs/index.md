@@ -136,5 +136,5 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
       <span><small>GAME ASSETS</small><strong>Browse to build</strong><em>↗</em></span>
     </a>
   </div>
-  <a class="showcase-more" href="/ecosystem">Explore the complete ecosystem →</a>
+  <a class="showcase-more" href="/showcase">Open the Showcase and copy a prompt →</a>
 </section>

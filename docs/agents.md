@@ -8,6 +8,14 @@ pageClass: route-page
 
 The default agent entry is the public [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp) plus `dcc-mcp-cli`. The Skill supplies workflow knowledge; the CLI owns gateway lifecycle, structured discovery, typed execution, diagnostics, and updates.
 
+## Give your agent the project map
+
+Paste this into an agent to orient it before a DCC-MCP task:
+
+```text
+Learn the DCC-MCP ecosystem before acting. Read https://dcc-mcp.github.io/llms.txt first and use https://dcc-mcp.github.io/llms-full.txt only when more detail is needed. Route my request to exactly one path: operate a live DCC with dcc-mcp, create or modernize an adapter with dcc-mcp-creator, or create a specialized workflow Skill with dcc-mcp-skills-creator. Use https://dcc-mcp.github.io/marketplace to discover installable capabilities, https://dcc-mcp.github.io/showcase for proven prompt patterns, and https://dcc-mcp.github.io/ecosystem for repository ownership. Prefer typed dcc-mcp-cli discovery and follow returned next_step values. Diagnose failures from request_id before retrying, redact evidence, and never install, publish, file an external bug, or change my machine without explicit permission. Start by returning the project route, the capability you will use, and the exact next safe step.
+```
+
 ## Install the matching Skill
 
 | Intent | Skill |
@@ -63,4 +71,6 @@ Then discover and call `dcc_feedback__report` through the same search workflow. 
 - [CLI reference](https://dcc-mcp.github.io/dcc-mcp-core/guide/cli-reference)
 - [Agent reference](https://dcc-mcp.github.io/dcc-mcp-core/guide/agents-reference)
 - [Gateway diagnostics](https://dcc-mcp.github.io/dcc-mcp-core/guide/gateway-diagnostics)
+- [Marketplace](/marketplace)
+- [Showcase prompts](/showcase)
 - [Browse the ecosystem](/ecosystem)

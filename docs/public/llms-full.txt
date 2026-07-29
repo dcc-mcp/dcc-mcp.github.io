@@ -20,6 +20,8 @@ Simplified Chinese machine-readable guide: https://dcc-mcp.github.io/zh/llms-ful
 
 The default agent path is the public `dcc-mcp` Skill plus CLI + REST. IDE users may connect through MCP configuration. Both paths use the same gateway; CLI-first does not deprecate MCP.
 
+For a copyable ecosystem-orientation prompt, use https://dcc-mcp.github.io/agents. For proven output-and-prompt pairs, use https://dcc-mcp.github.io/showcase.
+
 ## Public Skill router
 
 - Operate a live DCC, discover typed tools, or search/install Marketplace extensions: https://clawhub.ai/loonghao/skills/dcc-mcp
@@ -85,6 +87,12 @@ Every reusable failure analysis starts from the failed call's `request_id`.
 
 After an accepted task, a specialized Skill may use the `dcc-mcp-skills-creator` review workflow to analyze recurring friction and propose a narrowly scoped improvement. Review never expands edit, install, or publish authority.
 
+## Showcase prompt patterns
+
+Showcase gallery: https://dcc-mcp.github.io/showcase
+
+Each card links a real ecosystem output to a consent-aware prompt. Treat it as a reproducible intent pattern, not proof that a local host or package is already installed. Agents must still discover typed tools, inspect Marketplace packages, request consent before mutation, and validate the produced scene or file.
+
 ## Developer ownership
 
 - Build a new DCC integration or modernize runtime wiring with `dcc-mcp-creator`.
@@ -98,6 +106,7 @@ After an accepted task, a specialized Skill may use the `dcc-mcp-skills-creator`
 - Homepage and one-prompt setup: https://dcc-mcp.github.io/
 - Agent guide: https://dcc-mcp.github.io/agents
 - Marketplace search: https://dcc-mcp.github.io/marketplace
+- Showcase prompts: https://dcc-mcp.github.io/showcase
 - Developer router: https://dcc-mcp.github.io/developers
 - Ecosystem directory: https://dcc-mcp.github.io/ecosystem
 - Core getting started: https://dcc-mcp.github.io/dcc-mcp-core/guide/getting-started

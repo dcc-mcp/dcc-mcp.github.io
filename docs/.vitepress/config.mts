@@ -25,6 +25,73 @@ const integrations = [
   ['ZBrush', 'dcc-mcp-zbrush'],
 ]
 
+const englishTheme = {
+  nav: [
+    { text: 'Marketplace', link: '/marketplace' },
+    { text: 'Showcase', link: '/showcase' },
+    { text: 'For Agents', link: '/agents' },
+    { text: 'For Developers', link: '/developers' },
+    { text: 'Ecosystem', link: '/ecosystem' },
+    {
+      text: 'Reference',
+      items: [
+        { text: 'Core documentation', link: 'https://dcc-mcp.github.io/dcc-mcp-core/' },
+        { text: 'CLI reference', link: 'https://dcc-mcp.github.io/dcc-mcp-core/guide/cli-reference' },
+        { text: 'Python API', link: 'https://dcc-mcp.github.io/dcc-mcp-core/api/models' },
+        { text: 'Marketplace source', link: 'https://github.com/dcc-mcp/marketplace' },
+      ],
+    },
+  ],
+  footer: {
+    message: 'Open infrastructure for agent-driven creative software.',
+    copyright: 'DCC-MCP',
+  },
+  editLink: {
+    pattern: 'https://github.com/dcc-mcp/dcc-mcp.github.io/edit/main/docs/:path',
+    text: 'Improve this page',
+  },
+  docFooter: { prev: 'Previous page', next: 'Next page' },
+  lastUpdatedText: 'Last updated',
+  outlineTitle: 'On this page',
+}
+
+const chineseTheme = {
+  nav: [
+    { text: '技能市场', link: '/zh/marketplace' },
+    { text: '案例画廊', link: '/zh/showcase' },
+    { text: 'Agent 使用', link: '/zh/agents' },
+    { text: '开发者', link: '/zh/developers' },
+    { text: '生态目录', link: '/zh/ecosystem' },
+    {
+      text: '参考资料',
+      items: [
+        { text: 'Core 文档', link: 'https://dcc-mcp.github.io/dcc-mcp-core/zh/' },
+        { text: 'CLI 参考', link: 'https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/cli-reference' },
+        { text: 'Python API', link: 'https://dcc-mcp.github.io/dcc-mcp-core/api/models' },
+        { text: 'Marketplace 源目录', link: 'https://github.com/dcc-mcp/marketplace' },
+      ],
+    },
+  ],
+  footer: {
+    message: '面向 Agent 驱动创意软件的开放基础设施。',
+    copyright: 'DCC-MCP',
+  },
+  editLink: {
+    pattern: 'https://github.com/dcc-mcp/dcc-mcp.github.io/edit/main/docs/:path',
+    text: '改进此页面',
+  },
+  docFooter: { prev: '上一页', next: '下一页' },
+  lastUpdatedText: '最后更新',
+  outlineTitle: '本页内容',
+  darkModeSwitchLabel: '外观',
+  lightModeSwitchTitle: '切换到浅色主题',
+  darkModeSwitchTitle: '切换到深色主题',
+  langMenuLabel: '切换语言',
+  sidebarMenuLabel: '菜单',
+  returnToTopLabel: '返回顶部',
+  skipToContentLabel: '跳到正文',
+}
+
 export default defineConfig({
   title: 'DCC-MCP',
   description,
@@ -34,8 +101,8 @@ export default defineConfig({
   sitemap: { hostname: siteUrl },
 
   locales: {
-    root: { label: 'English', lang: 'en', title: 'DCC-MCP', description },
-    zh: { label: '简体中文', lang: 'zh-CN', title: 'DCC-MCP', description: zhDescription, link: '/zh/' },
+    root: { label: 'English', lang: 'en', title: 'DCC-MCP', description, themeConfig: englishTheme },
+    zh: { label: '简体中文', lang: 'zh-CN', title: 'DCC-MCP', description: zhDescription, link: '/zh/', themeConfig: chineseTheme },
   },
 
   head: [
@@ -161,72 +228,5 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/dcc-mcp' },
     ],
-    locales: {
-      root: {
-        label: 'English',
-        nav: [
-          { text: 'Marketplace', link: '/marketplace' },
-          { text: 'For Agents', link: '/agents' },
-          { text: 'For Developers', link: '/developers' },
-          { text: 'Ecosystem', link: '/ecosystem' },
-          {
-            text: 'Reference',
-            items: [
-              { text: 'Core documentation', link: 'https://dcc-mcp.github.io/dcc-mcp-core/' },
-              { text: 'CLI reference', link: 'https://dcc-mcp.github.io/dcc-mcp-core/guide/cli-reference' },
-              { text: 'Python API', link: 'https://dcc-mcp.github.io/dcc-mcp-core/api/models' },
-              { text: 'Marketplace source', link: 'https://github.com/dcc-mcp/marketplace' },
-            ],
-          },
-        ],
-        footer: {
-          message: 'Open infrastructure for agent-driven creative software.',
-          copyright: 'DCC-MCP',
-        },
-        editLink: {
-          pattern: 'https://github.com/dcc-mcp/dcc-mcp.github.io/edit/main/docs/:path',
-          text: 'Improve this page',
-        },
-        docFooter: { prev: 'Previous page', next: 'Next page' },
-        lastUpdatedText: 'Last updated',
-        outlineTitle: 'On this page',
-      },
-      zh: {
-        label: '简体中文',
-        nav: [
-          { text: '技能市场', link: '/zh/marketplace' },
-          { text: 'Agent 使用', link: '/zh/agents' },
-          { text: '开发者', link: '/zh/developers' },
-          { text: '生态目录', link: '/zh/ecosystem' },
-          {
-            text: '参考资料',
-            items: [
-              { text: 'Core 文档', link: 'https://dcc-mcp.github.io/dcc-mcp-core/zh/' },
-              { text: 'CLI 参考', link: 'https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/cli-reference' },
-              { text: 'Python API', link: 'https://dcc-mcp.github.io/dcc-mcp-core/api/models' },
-              { text: 'Marketplace 源目录', link: 'https://github.com/dcc-mcp/marketplace' },
-            ],
-          },
-        ],
-        footer: {
-          message: '面向 Agent 驱动创意软件的开放基础设施。',
-          copyright: 'DCC-MCP',
-        },
-        editLink: {
-          pattern: 'https://github.com/dcc-mcp/dcc-mcp.github.io/edit/main/docs/:path',
-          text: '改进此页面',
-        },
-        docFooter: { prev: '上一页', next: '下一页' },
-        lastUpdatedText: '最后更新',
-        outlineTitle: '本页内容',
-        darkModeSwitchLabel: '外观',
-        lightModeSwitchTitle: '切换到浅色主题',
-        darkModeSwitchTitle: '切换到深色主题',
-        langMenuLabel: '切换语言',
-        sidebarMenuLabel: '菜单',
-        returnToTopLabel: '返回顶部',
-        skipToContentLabel: '跳到正文',
-      },
-    },
   },
 })
