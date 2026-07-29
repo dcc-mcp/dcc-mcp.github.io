@@ -181,6 +181,7 @@
 .install-intro {
   max-width: 800px;
   margin: 0 auto 34px;
+  scroll-margin-top: 112px;
   text-align: center;
 }
 

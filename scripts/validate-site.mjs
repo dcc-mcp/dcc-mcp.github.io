@@ -39,6 +39,14 @@ for (const [name, html] of [['English home', englishHome], ['Chinese home', chin
   }
 }
 if (!chineseHome.includes('lang="zh-CN"')) throw new Error('Chinese home has the wrong document language')
+for (const [name, html, href] of [
+  ['English home', englishHome, '/#install-prompt'],
+  ['Chinese home', chineseHome, '/zh/#install-prompt'],
+]) {
+  if (!html.includes(`href="${href}"`) || !html.includes('id="install-prompt"')) {
+    throw new Error(`${name} is missing the one-prompt setup anchor`)
+  }
+}
 if (!englishHome.includes('CAPABILITY MARKETPLACE') || !chineseHome.includes('能力市场')) {
   throw new Error('Localized homepages are missing the Marketplace preview')
 }
