@@ -50,7 +50,7 @@ hero:
 7. 最后报告已安装版本、已连接实例、验证证据，以及仍需我处理的事项。
 ```
 
-<p class="install-note">只需粘贴一次，Agent Skill 会提供持续维护的工作流。<a href="/zh/agents">阅读 Agent 指南 →</a></p>
+<p class="install-note">只需粘贴一次，Agent Skill 会提供持续维护的工作流。<a href="/zh/agents">阅读 Agent 指南</a>或<a href="/zh/use-cases">从常见任务开始 →</a></p>
 
 <section class="integrations-section" aria-labelledby="integrations-title">
   <div class="integrations-heading">

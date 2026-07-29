@@ -35,6 +35,7 @@ const englishTheme = {
     {
       text: 'Reference',
       items: [
+        { text: 'Common AI + DCC tasks', link: '/use-cases' },
         { text: 'Core documentation', link: 'https://dcc-mcp.github.io/dcc-mcp-core/' },
         { text: 'CLI reference', link: 'https://dcc-mcp.github.io/dcc-mcp-core/guide/cli-reference' },
         { text: 'Python API', link: 'https://dcc-mcp.github.io/dcc-mcp-core/api/models' },
@@ -65,6 +66,7 @@ const chineseTheme = {
     {
       text: '参考资料',
       items: [
+        { text: '常见 AI + DCC 任务', link: '/zh/use-cases' },
         { text: 'Core 文档', link: 'https://dcc-mcp.github.io/dcc-mcp-core/zh/' },
         { text: 'CLI 参考', link: 'https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/cli-reference' },
         { text: 'Python API', link: 'https://dcc-mcp.github.io/dcc-mcp-core/api/models' },

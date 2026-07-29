@@ -107,6 +107,7 @@ Each card links a real ecosystem output to a consent-aware prompt. Treat it as a
 - Agent guide: https://dcc-mcp.github.io/agents
 - Marketplace search: https://dcc-mcp.github.io/marketplace
 - Showcase prompts: https://dcc-mcp.github.io/showcase
+- Common AI + DCC tasks: https://dcc-mcp.github.io/use-cases
 - Developer router: https://dcc-mcp.github.io/developers
 - Ecosystem directory: https://dcc-mcp.github.io/ecosystem
 - Core getting started: https://dcc-mcp.github.io/dcc-mcp-core/guide/getting-started

@@ -73,4 +73,5 @@ Then discover and call `dcc_feedback__report` through the same search workflow. 
 - [Gateway diagnostics](https://dcc-mcp.github.io/dcc-mcp-core/guide/gateway-diagnostics)
 - [Marketplace](/marketplace)
 - [Showcase prompts](/showcase)
+- [Common AI + DCC tasks](/use-cases)
 - [Browse the ecosystem](/ecosystem)

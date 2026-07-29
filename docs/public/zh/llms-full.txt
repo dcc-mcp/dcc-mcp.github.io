@@ -109,6 +109,7 @@ Marketplace 卡片的 `showcase` 从软件包不可变 `source.ref` 解析，因
 - Agent 指南：https://dcc-mcp.github.io/zh/agents
 - Marketplace：https://dcc-mcp.github.io/zh/marketplace
 - 案例提示词：https://dcc-mcp.github.io/zh/showcase
+- 常见 AI + DCC 任务：https://dcc-mcp.github.io/zh/use-cases
 - 开发者路由：https://dcc-mcp.github.io/zh/developers
 - 生态目录：https://dcc-mcp.github.io/zh/ecosystem
 - Core 快速开始：https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/getting-started
