@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, reactive, ref, watch } from 'vue'
 import { useData } from 'vitepress'
+import { data as catalogSnapshot } from '../../marketplace.data.mts'
 
 type MarketplaceSkill = {
   name: string
@@ -98,11 +99,11 @@ const messages = {
 const { lang } = useData()
 const isZh = computed(() => lang.value.toLowerCase().startsWith('zh'))
 const text = computed(() => isZh.value ? messages.zh : messages.en)
-const skills = ref<MarketplaceSkill[]>([])
+const skills = ref<MarketplaceSkill[]>((catalogSnapshot as { skills: MarketplaceSkill[] }).skills)
 const query = ref('')
 const dcc = ref('')
 const category = ref('')
-const loading = ref(true)
+const loading = ref(false)
 const error = ref('')
 const copied = ref('')
 const selectedDcc = reactive<Record<string, string>>({})
@@ -199,7 +200,9 @@ onMounted(async () => {
     if (!Array.isArray(catalog.skills)) throw new Error('Catalog response is invalid')
     skills.value = catalog.skills
   } catch (reason) {
-    error.value = reason instanceof Error ? reason.message : 'Catalog request failed'
+    if (!skills.value.length) {
+      error.value = reason instanceof Error ? reason.message : 'Catalog request failed'
+    }
   } finally {
     loading.value = false
   }

@@ -10,6 +10,7 @@ const integrations = [
   ['Godot', 'dcc-mcp-godot'],
   ['Houdini', 'dcc-mcp-houdini'],
   ['Katana', 'dcc-mcp-katana'],
+  ['Marmoset Toolbag', 'dcc-mcp-marmoset'],
   ['Maya', 'dcc-mcp-maya'],
   ['MotionBuilder', 'dcc-mcp-mobu'],
   ['Nuke', 'dcc-mcp-nuke'],
@@ -102,6 +103,7 @@ export default defineConfig({
   appearance: 'dark',
   cleanUrls: true,
   lastUpdated: true,
+  srcExclude: ['public/**/README.md'],
   sitemap: { hostname: siteUrl },
 
   locales: {
@@ -150,7 +152,7 @@ export default defineConfig({
         },
         {
           '@type': 'ItemList',
-          name: 'DCC-MCP integrated creative applications',
+          name: 'DCC-MCP released creative application integrations',
           numberOfItems: integrations.length,
           itemListElement: integrations.map(([name, repository], index) => ({
             '@type': 'ListItem',

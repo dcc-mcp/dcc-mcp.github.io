@@ -12,6 +12,4 @@ aside: false
 
 官网不会安装软件。你确认后，`dcc-mcp-cli marketplace install ... --reload` 会安装所选包 ID 并重新加载 DCC。不熟悉的软件包应先检查。
 
-<ClientOnly>
-  <MarketplaceSearch />
-</ClientOnly>
+<MarketplaceSearch />

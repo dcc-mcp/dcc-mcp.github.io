@@ -71,6 +71,9 @@ const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
 for (const route of ['/', '/marketplace', '/showcase', '/showcase/wwise', '/use-cases', '/why-dcc-mcp', '/zh/', '/zh/marketplace', '/zh/showcase', '/zh/showcase/wwise', '/zh/use-cases', '/zh/why-dcc-mcp']) {
   if (!sitemap.includes(`https://dcc-mcp.github.io${route}`)) throw new Error(`Sitemap is missing ${route}`)
 }
+if (sitemap.includes('/public/') || sitemap.includes('/README')) {
+  throw new Error('Sitemap contains an internal asset README')
+}
 
 const marketplaceSource = readFileSync(join(root, 'docs', '.vitepress', 'theme', 'components', 'MarketplaceSearch.vue'), 'utf8')
 if (!marketplaceSource.includes('raw.githubusercontent.com')) throw new Error('Marketplace media is not pinned to repository source')
@@ -81,12 +84,29 @@ if (!marketplaceSource.includes('props.preview ? previewSkills.value : filtered.
 if (!marketplaceSource.includes('dcc-mcp-cli marketplace install ${skill.name} --dcc ${host} --reload')) {
   throw new Error('Marketplace copy command is missing install --reload')
 }
+const catalogResponse = await fetch('https://raw.githubusercontent.com/dcc-mcp/marketplace/main/marketplace.json', {
+  signal: AbortSignal.timeout(15_000),
+})
+if (!catalogResponse.ok) throw new Error(`Marketplace validation request failed (${catalogResponse.status})`)
+const catalog = await catalogResponse.json()
+if (!Array.isArray(catalog.skills)) throw new Error('Marketplace validation response is invalid')
+for (const file of [join(dist, 'marketplace.html'), join(dist, 'zh', 'marketplace.html')]) {
+  const html = readFileSync(file, 'utf8')
+  const missing = catalog.skills.filter((skill) => !html.includes(skill.name)).map((skill) => skill.name)
+  if (missing.length) throw new Error(`${file} is missing rendered Marketplace packages: ${missing.join(', ')}`)
+}
 
 const showcaseSource = readFileSync(join(root, 'docs', '.vitepress', 'theme', 'components', 'ShowcaseGallery.vue'), 'utf8')
 for (const asset of ['blender-lookdev.webp', 'marmoset-pbr-lookdev.webp', 'dcc-mcp-wwise-dark.svg', 'houdini-portal.png', 'hunyuan3d.webp', 'geospatial-city.webp', 'maya-architecture.jpg', 'kenney-assets.webp']) {
   if (!showcaseSource.includes(asset)) throw new Error(`Showcase gallery is missing ${asset}`)
 }
 if (!showcaseSource.includes('navigator.clipboard.writeText')) throw new Error('Showcase prompt copy support is missing')
+const showcaseIds = [...showcaseSource.matchAll(/id: '([^']+)'/g)].map((match) => match[1])
+for (const file of [join(dist, 'showcase.html'), join(dist, 'zh', 'showcase.html')]) {
+  const html = readFileSync(file, 'utf8')
+  const missing = showcaseIds.filter((id) => !html.includes(`id="${id}"`))
+  if (missing.length) throw new Error(`${file} is missing rendered Showcase entries: ${missing.join(', ')}`)
+}
 
 for (const file of [join(dist, 'showcase', 'wwise.html'), join(dist, 'zh', 'showcase', 'wwise.html')]) {
   const html = readFileSync(file, 'utf8')
