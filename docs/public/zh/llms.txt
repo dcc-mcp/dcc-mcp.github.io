@@ -12,14 +12,14 @@
 - [Wwise 音频案例](https://dcc-mcp.github.io/zh/showcase/wwise)：在线试听通过类型化 WAAPI 工具验证的可复现音效与背景音乐。
 - [常见 AI + DCC 任务](https://dcc-mcp.github.io/zh/use-cases)：直接回答如何控制 Maya、Blender、修图、剪辑合成、制作特效、生成随机场景内容和制作游戏，并提供可复制提示词。
 - [Agent 工作流](https://dcc-mcp.github.io/zh/agents)：安装公开 Skill、发现类型化工具、验证调用并诊断失败。
-- [开发者路由](https://dcc-mcp.github.io/zh/developers)：判断应该构建适配器、专项 Skill 还是共享 Core 能力。
+- [开发者实验](https://dcc-mcp.github.io/zh/developers)：把经过验证的路径交给 Agent，用于开发和调试内部 standalone MCP 服务、DCC 适配器或专项 Skill。
 - [生态目录](https://dcc-mcp.github.io/zh/ecosystem)：适配器、扩展、资产提供方、AI 服务和工作室集成。
 - [Core 文档](https://dcc-mcp.github.io/dcc-mcp-core/zh/)：Gateway、CLI、MCP/REST、安全、可观测性与 Python API。
 
 ## Agent Skills
 
 - [dcc-mcp](https://clawhub.ai/loonghao/skills/dcc-mcp)：操作已连接 DCC，搜索并安装官方 Marketplace 扩展。
-- [dcc-mcp-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-creator)：创建或现代化完整 DCC-MCP 适配器与运行时。
+- [dcc-mcp-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-creator)：创建或现代化 DCC 适配器/运行时，或无需 GitHub 的内部非 DCC standalone MCP 服务。
 - [dcc-mcp-skills-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator)：创建、验证或改进 DCC 专项 Skill 包。
 
 ## 当前发布集成

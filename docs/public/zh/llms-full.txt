@@ -25,7 +25,7 @@ Core 文档：https://dcc-mcp.github.io/dcc-mcp-core/zh/
 ## 公开 Skill 路由
 
 - 操作已连接 DCC、发现类型化工具或搜索安装 Marketplace 扩展：https://clawhub.ai/loonghao/skills/dcc-mcp
-- 创建或现代化完整适配器、Dispatcher、Readiness Bridge、Runtime、Resource 或 Gateway 集成：https://clawhub.ai/loonghao/skills/dcc-mcp-creator
+- 创建或现代化 DCC 适配器或内部非 DCC standalone MCP 服务，包括 Dispatcher、Readiness、Runtime、Resource 或 Gateway 集成：https://clawhub.ai/loonghao/skills/dcc-mcp-creator
 - 创建、验证、测试、审查或发布专项 DCC Skill 包：https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator
 
 只安装匹配任务的 Skill。OpenClaw 使用 `openclaw skills install @loonghao/<slug>`；兼容 ClawHub 的 Agent 可使用 `npx --yes clawhub@0.23.1 install @loonghao/<slug>`。安装后开启新会话。
@@ -97,10 +97,13 @@ Marketplace 卡片的 `showcase` 从软件包不可变 `source.ref` 解析，因
 ## 开发所有权
 
 - 使用 `dcc-mcp-creator` 构建新 DCC 集成或现代化运行时接线。
+- 使用 `dcc-mcp-creator`、稳定的自定义服务 ID 与 `instance_type="standalone"` 暴露内部非 DCC API、CLI、资产系统、农场或评审服务；不要伪造 DCC PID，也不要求公开仓库。
 - 使用 `dcc-mcp-skills-creator` 构建专项工作流包。
 - 共享 Gateway、CLI、MCP/REST、安全、诊断、遥测与可复用运行时契约归 `dcc-mcp-core`。
 - Host 专属安装、兼容性与排错归对应适配器仓库。
 - 可安装扩展通过官方 Marketplace 契约发布。
+
+https://dcc-mcp.github.io/zh/developers 提供可复制的本地实验，使用官方开源 MCP Inspector 作为 loopback 与内部服务的安全 Playground。不得为了使用托管浏览器 Playground 而暴露内部端点。
 
 ## 文档地图
 

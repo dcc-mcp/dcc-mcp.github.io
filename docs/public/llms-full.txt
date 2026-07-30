@@ -25,7 +25,7 @@ For a copyable ecosystem-orientation prompt, use https://dcc-mcp.github.io/agent
 ## Public Skill router
 
 - Operate a live DCC, discover typed tools, or search/install Marketplace extensions: https://clawhub.ai/loonghao/skills/dcc-mcp
-- Create or modernize a complete adapter, dispatcher, readiness bridge, runtime, resource, or gateway integration: https://clawhub.ai/loonghao/skills/dcc-mcp-creator
+- Create or modernize a DCC adapter or private non-DCC standalone MCP service, including dispatcher, readiness, runtime, resource, or gateway integration: https://clawhub.ai/loonghao/skills/dcc-mcp-creator
 - Create, validate, test, review, or publish a specialized DCC Skill package: https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator
 
 Install only the Skill matching the task. OpenClaw uses `openclaw skills install @loonghao/<slug>`. A ClawHub-compatible agent may use `npx --yes clawhub@0.23.1 install @loonghao/<slug>`. Start a new agent turn after installation.
@@ -95,10 +95,13 @@ Each card links a real ecosystem output to a consent-aware prompt. Treat it as a
 ## Developer ownership
 
 - Build a new DCC integration or modernize runtime wiring with `dcc-mcp-creator`.
+- Expose a private non-DCC API, CLI, asset system, render farm, or review service with `dcc-mcp-creator`, a stable custom service id, `instance_type="standalone"`, no fake DCC PID, and no public repository requirement.
 - Build a focused workflow package with `dcc-mcp-skills-creator`.
 - Put shared gateway, CLI, MCP/REST, safety, diagnostics, telemetry, and reusable runtime contracts in `dcc-mcp-core`.
 - Keep host-specific installation, compatibility, and troubleshooting in the owning adapter repository.
 - Publish installable extensions through the official Marketplace contract.
+
+The copyable local lab at https://dcc-mcp.github.io/developers uses the official open-source MCP Inspector as the safe playground for loopback and internal services. A hosted browser playground should not be used as a reason to expose a private endpoint.
 
 ## Documentation map
 
