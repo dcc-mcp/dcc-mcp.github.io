@@ -56,9 +56,9 @@ hero:
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">官方集成</p>
-      <h2 id="integrations-title">21 款应用的适配器。</h2>
+      <h2 id="integrations-title">20 个已发布适配器，另有 Wwise。</h2>
     </div>
-    <p>每个适配器负责对应应用的安装与工具。使用 <code>dcc-mcp-cli dcc-types</code> 查询当前发布目录。</p>
+    <p>当前发布目录提供 20 个适配器标识；Wwise 另有公开适配器与案例。使用 <code>dcc-mcp-cli dcc-types</code> 查询当前可安装列表。</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>
@@ -97,9 +97,7 @@ hero:
       <a href="/zh/marketplace">搜索技能市场 →</a>
     </div>
   </div>
-  <ClientOnly>
-    <MarketplaceSearch preview />
-  </ClientOnly>
+  <MarketplaceSearch preview />
 </section>
 
 <section class="showcase-section">

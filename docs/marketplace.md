@@ -12,6 +12,4 @@ The [DCC-MCP Marketplace](https://github.com/dcc-mcp/marketplace) lists Skills, 
 
 This website does not install software. After you approve the change, `dcc-mcp-cli marketplace install ... --reload` installs the selected package ID and reloads the DCC. Inspect unfamiliar packages first.
 
-<ClientOnly>
-  <MarketplaceSearch />
-</ClientOnly>
+<MarketplaceSearch />

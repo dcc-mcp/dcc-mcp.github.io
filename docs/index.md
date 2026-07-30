@@ -60,9 +60,9 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">OFFICIAL INTEGRATIONS</p>
-      <h2 id="integrations-title">Adapters for 21 applications.</h2>
+      <h2 id="integrations-title">20 released adapters, plus Wwise.</h2>
     </div>
-    <p>Each adapter owns its application-specific installation and tools. Run <code>dcc-mcp-cli dcc-types</code> for the current release catalog.</p>
+    <p>The release catalog exposes 20 adapter identifiers. Wwise also has a public adapter and showcase; run <code>dcc-mcp-cli dcc-types</code> for the current installable list.</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>
@@ -101,9 +101,7 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
       <a href="/marketplace">Search the Marketplace →</a>
     </div>
   </div>
-  <ClientOnly>
-    <MarketplaceSearch preview />
-  </ClientOnly>
+  <MarketplaceSearch preview />
 </section>
 
 <section class="showcase-section">
