@@ -1,6 +1,6 @@
 ---
 title: Wwise 交互音频案例
-description: 在线试听通过 DCC-MCP Wwise 类型化工具制作并验证的音效与背景音乐。
+description: 试听通过类型化 WAAPI 工具在 Wwise 中制作的 WAV，并查看适配器与验证记录。
 pageClass: wwise-audio-page
 ---
 
@@ -14,8 +14,8 @@ pageClass: wwise-audio-page
   </picture>
 </p>
 
-这些可复现 WAV 素材通过类型化 WAAPI 工具完成导入、整理、属性调整、试听与保存。
-验证使用的 Wwise 临时工程只保留在本地，公开内容仅包含可复用音频素材和验证记录。
+这些 WAV 通过类型化 WAAPI 调用完成导入、整理、属性调整、试听和保存。验证使用的
+Wwise 测试工程不公开；本页只提供音频文件和验证记录链接。
 
 <section id="ui-confirm">
   <h2>UI 确认音效</h2>

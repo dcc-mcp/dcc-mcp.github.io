@@ -1,6 +1,18 @@
 # DCC-MCP: agent, marketplace, adapter, and developer reference
 
-DCC-MCP is shared infrastructure for discovering and safely operating creative applications through MCP and REST. It combines a machine-wide gateway, typed `dcc-mcp-cli`, progressive Agent Skills, per-application adapters, installable Marketplace extensions, safety boundaries, observability, and structured failure reporting.
+DCC-MCP exposes creative applications through a machine-wide Gateway, typed
+`dcc-mcp-cli`, MCP and REST endpoints, per-application adapters, Skills,
+Marketplace extensions, policy checks, diagnostics, and structured failure
+reporting.
+
+The shared contracts came from problems repeated across adapters: regenerated
+scripts, duplicated lifecycle code, DCC thread and instance constraints,
+long-running jobs, missing APIs, and failures without evidence. The working
+sequence is production standards → repeatable workflows → typed tools → agent
+operation. REST/OpenAPI and CLI remain usable by operators, CI, applications,
+workflow canvases, and cloud platforms without an AI agent. The technical
+rationale and known limits are documented at
+https://dcc-mcp.github.io/why-dcc-mcp.
 
 Canonical website: https://dcc-mcp.github.io/
 GitHub organization: https://github.com/dcc-mcp
@@ -20,7 +32,10 @@ Simplified Chinese machine-readable guide: https://dcc-mcp.github.io/zh/llms-ful
 
 The default agent path is the public `dcc-mcp` Skill plus CLI + REST. IDE users may connect through MCP configuration. Both paths use the same gateway; CLI-first does not deprecate MCP.
 
-For a copyable ecosystem-orientation prompt, use https://dcc-mcp.github.io/agents. For proven output-and-prompt pairs, use https://dcc-mcp.github.io/showcase. The playable Wwise audio showcase is at https://dcc-mcp.github.io/showcase/wwise.
+The setup prompt is at https://dcc-mcp.github.io/agents. Outputs, source
+repositories, validation notes, and prompts are at
+https://dcc-mcp.github.io/showcase. The Wwise audio example is at
+https://dcc-mcp.github.io/showcase/wwise.
 
 ## Public Skill router
 
@@ -63,7 +78,8 @@ Website search: https://dcc-mcp.github.io/marketplace
 Catalog source: https://github.com/dcc-mcp/marketplace
 Machine-readable catalog: https://raw.githubusercontent.com/dcc-mcp/marketplace/main/marketplace.json
 
-The website fetches the official catalog and lets a user copy a safe agent prompt or exact CLI commands. A static website cannot and must not mutate the user's machine.
+The website fetches the official catalog and lets a user copy a setup prompt or
+exact CLI commands. The static website does not change the user's machine.
 
 ```text
 dcc-mcp-cli marketplace search --query "<intent>"
@@ -90,7 +106,10 @@ After an accepted task, a specialized Skill may use the `dcc-mcp-skills-creator`
 
 Showcase gallery: https://dcc-mcp.github.io/showcase
 
-Each card links a real ecosystem output to a consent-aware prompt. Treat it as a reproducible intent pattern, not proof that a local host or package is already installed. Agents must still discover typed tools, inspect Marketplace packages, request consent before mutation, and validate the produced scene or file.
+Each card links an output, its owning repository, validation notes, and a
+prompt. It does not prove that a local host or package is installed. Agents
+must still discover typed tools, inspect Marketplace packages, request consent
+before mutation, and validate the scene or file.
 
 ## Developer ownership
 
@@ -101,14 +120,18 @@ Each card links a real ecosystem output to a consent-aware prompt. Treat it as a
 - Keep host-specific installation, compatibility, and troubleshooting in the owning adapter repository.
 - Publish installable extensions through the official Marketplace contract.
 
-The copyable local lab at https://dcc-mcp.github.io/developers uses an open Dev Container plus the official open-source MCP Inspector for a reproducible loopback environment. Adopt the Apache-2.0 Educates platform only when a team needs operator-managed, isolated browser workshops for multiple learners. A hosted playground should not be used as a reason to expose a private endpoint.
+The local example at https://dcc-mcp.github.io/developers uses a Dev Container
+and the open-source MCP Inspector on loopback. Educates is listed for teams
+that need operator-managed browser sessions for multiple learners. Do not
+expose a private endpoint to use a hosted playground.
 
 ## Documentation map
 
-- Homepage and one-prompt setup: https://dcc-mcp.github.io/
+- Homepage and setup prompt: https://dcc-mcp.github.io/
+- Why DCC-MCP exists: https://dcc-mcp.github.io/why-dcc-mcp
 - Agent guide: https://dcc-mcp.github.io/agents
 - Marketplace search: https://dcc-mcp.github.io/marketplace
-- Showcase prompts: https://dcc-mcp.github.io/showcase
+- Showcase examples: https://dcc-mcp.github.io/showcase
 - Common AI + DCC tasks: https://dcc-mcp.github.io/use-cases
 - Developer router: https://dcc-mcp.github.io/developers
 - Ecosystem directory: https://dcc-mcp.github.io/ecosystem

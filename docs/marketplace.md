@@ -1,16 +1,16 @@
 ---
 title: DCC-MCP Marketplace
-description: Search the official DCC-MCP catalog and copy safe Agent Skill or dcc-mcp-cli installation instructions.
+description: Search the official DCC-MCP catalog and copy a setup prompt or dcc-mcp-cli installation command.
 pageClass: marketplace-page
 outline: false
 aside: false
 ---
 
-# Skills for real creative workflows.
+# Search the package catalog
 
-Search the live [official DCC-MCP Marketplace](https://github.com/dcc-mcp/marketplace) for Skills, asset providers, studio integrations, and shared infrastructure. Choose a target DCC, then copy either a consent-aware agent prompt or the exact typed CLI command.
+The [DCC-MCP Marketplace](https://github.com/dcc-mcp/marketplace) lists Skills, asset providers, studio integrations, and shared infrastructure. Select a target DCC, then copy either a setup prompt or the exact CLI command.
 
-The website never installs software itself. After consent, the selected exact package ID can be installed and reloaded in one `dcc-mcp-cli marketplace install ... --reload` command. Inspect remains available for unfamiliar packages.
+This website does not install software. After you approve the change, `dcc-mcp-cli marketplace install ... --reload` installs the selected package ID and reloads the DCC. Inspect unfamiliar packages first.
 
 <ClientOnly>
   <MarketplaceSearch />

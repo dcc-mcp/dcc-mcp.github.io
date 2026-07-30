@@ -1,13 +1,15 @@
 ---
-title: DCC-MCP 生态
-description: DCC-MCP 适配器、Skills、资产提供方、AI 服务与生产扩展的统一目录。
+title: DCC-MCP 项目目录
+description: DCC-MCP 适配器、Skills、资产提供方、生成服务与 Pipeline 扩展目录。
 pageClass: ecosystem-directory
 outline: [2, 2]
 ---
 
-# 一个生态，一个入口。
+# 项目目录
 
-DCC-MCP-Core 负责共享控制平面文档；每个仓库只负责自己 Host 的安装、兼容性和参考资料。Agent 应先加载公开 [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp)，仅在任务需要时进入具体适配器或扩展仓库。
+Core 记录共享控制平面；各仓库记录自己的安装、兼容性和 Host 专属 API。
+先加载公开 [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp)，
+任务需要时再进入对应适配器或扩展仓库。
 
 <div class="directory-actions">
   <a href="https://clawhub.ai/loonghao/skills/dcc-mcp"><strong>操作 DCC</strong><span>dcc-mcp Skill</span></a>
@@ -15,7 +17,7 @@ DCC-MCP-Core 负责共享控制平面文档；每个仓库只负责自己 Host �
   <a href="https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator"><strong>构建 Skill</strong><span>dcc-mcp-skills-creator</span></a>
 </div>
 
-## 基础设施与生产管线
+## 共享基础设施与 Pipeline 工具
 
 - [dcc-mcp-core](https://github.com/dcc-mcp/dcc-mcp-core) — 共享 Gateway、CLI、MCP/REST 运行时、安全、诊断与可观测性。
 - [Marketplace 搜索](/zh/marketplace) — 搜索 `dcc-mcp-cli` 使用的官方扩展目录；[目录源仓库](https://github.com/dcc-mcp/marketplace)。
@@ -38,7 +40,7 @@ DCC-MCP-Core 负责共享控制平面文档；每个仓库只负责自己 Host �
 - [mGear](https://github.com/dcc-mcp/dcc-mcp-maya-mgear) — mGear Shifter 集成。
 - [程序化建筑](https://github.com/dcc-mcp/dcc-mcp-maya-procedural-architecture) — Maya、Bifrost 与 Arnold 建筑工作流。
 
-## AI 创作服务
+## 生成服务
 
 - [Hunyuan 3D](https://github.com/dcc-mcp/dcc-ai-hunyuan3d) — 文本或图片生成 3D。
 - [OpenAI Image](https://github.com/dcc-mcp/dcc-ai-openai-image) — 为 DCC 纹理工作流生成与编辑图片。
@@ -52,7 +54,7 @@ DCC-MCP-Core 负责共享控制平面文档；每个仓库只负责自己 Host �
 - [Objaverse](https://github.com/dcc-mcp/dcc-asset-objaverse) · [Poly Haven](https://github.com/dcc-mcp/dcc-asset-polyhaven) · [Quaternius](https://github.com/dcc-mcp/dcc-asset-quaternius)
 - [Sketchfab](https://github.com/dcc-mcp/dcc-asset-sketchfab) · [Smithsonian 3D](https://github.com/dcc-mcp/dcc-asset-smithsonian3d)
 
-## UI 智能与共享运行时
+## UI 自动化与共享运行时
 
 - [Qt Actions](https://github.com/dcc-mcp/dcc-ui-qt-actions) — Qt DCC 的可复用类型化 UI 动作。
 - [Qt Inspector](https://github.com/dcc-mcp/dcc-ui-qt-inspector) — 跨 Host 窗口与控件发现。

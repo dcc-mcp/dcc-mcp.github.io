@@ -1,13 +1,16 @@
 ---
-title: DCC-MCP Ecosystem
-description: The central directory for DCC-MCP adapters, Skills, asset providers, AI services, and production extensions.
+title: DCC-MCP project directory
+description: Directory of DCC-MCP adapters, Skills, asset providers, generation services, and pipeline extensions.
 pageClass: ecosystem-directory
 outline: [2, 2]
 ---
 
-# One ecosystem. One front door.
+# Project directory
 
-DCC-MCP-Core owns the shared control-plane documentation. Each linked repository owns only its host-specific installation, compatibility, and reference material. Agents should begin with the public [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp), then follow a repository link only when the task requires that adapter or extension.
+Core documents the shared control plane. Each linked repository documents its
+own installation, compatibility, and host-specific API. Start with the public
+[`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp), then open an
+adapter or extension repository when the task needs it.
 
 <div class="directory-actions">
   <a href="https://clawhub.ai/loonghao/skills/dcc-mcp"><strong>Operate DCCs</strong><span>dcc-mcp Skill</span></a>
@@ -15,7 +18,7 @@ DCC-MCP-Core owns the shared control-plane documentation. Each linked repository
   <a href="https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator"><strong>Build a Skill</strong><span>dcc-mcp-skills-creator</span></a>
 </div>
 
-## Foundation and production
+## Shared infrastructure and pipeline tools
 
 - [dcc-mcp-core](https://github.com/dcc-mcp/dcc-mcp-core) — Shared gateway, CLI, MCP/REST runtime, safety, diagnostics, and observability.
 - [Marketplace search](/marketplace) — Search the official extension catalog used by `dcc-mcp-cli`; [catalog source](https://github.com/dcc-mcp/marketplace).
@@ -61,7 +64,7 @@ DCC-MCP-Core owns the shared control-plane documentation. Each linked repository
 - [mGear](https://github.com/dcc-mcp/dcc-mcp-maya-mgear) — mGear Shifter integration.
 - [Procedural architecture](https://github.com/dcc-mcp/dcc-mcp-maya-procedural-architecture) — Maya, Bifrost, and Arnold architecture workflows.
 
-## AI creation services
+## Generation services
 
 - [Hunyuan 3D](https://github.com/dcc-mcp/dcc-ai-hunyuan3d) — Text and image to 3D generation.
 - [OpenAI Image](https://github.com/dcc-mcp/dcc-ai-openai-image) — Image generation and editing for DCC texture workflows.
@@ -75,7 +78,7 @@ DCC-MCP-Core owns the shared control-plane documentation. Each linked repository
 - [Objaverse](https://github.com/dcc-mcp/dcc-asset-objaverse) · [Poly Haven](https://github.com/dcc-mcp/dcc-asset-polyhaven) · [Quaternius](https://github.com/dcc-mcp/dcc-asset-quaternius)
 - [Sketchfab](https://github.com/dcc-mcp/dcc-asset-sketchfab) · [Smithsonian 3D](https://github.com/dcc-mcp/dcc-asset-smithsonian3d)
 
-## UI intelligence and shared runtimes
+## UI automation and shared runtimes
 
 - [Qt Actions](https://github.com/dcc-mcp/dcc-ui-qt-actions) — Reusable typed actions for Qt-based DCC interfaces.
 - [Qt Inspector](https://github.com/dcc-mcp/dcc-ui-qt-inspector) — Cross-host window and widget discovery.

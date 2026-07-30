@@ -1,14 +1,14 @@
 ---
-title: Build MCP services and Skills with DCC-MCP
-description: Give your agent a tested path to build, play, debug, and privately deliver a custom MCP service or DCC-MCP Skill.
+title: Develop adapters, services, and Skills
+description: Choose the owning layer, run the local examples, and validate an adapter, standalone service, or Skill.
 pageClass: route-page
 ---
 
-# Build a custom MCP service or Skill with your agent.
+# Develop an adapter, service, or Skill
 
-Start from the workflow owner, not from a repository template. DCC-MCP supports
-public DCC adapters, private non-DCC services, and focused Skill packages. A
-local folder or internal source tree is enough.
+Choose the owning layer before creating files. DCC-MCP supports public DCC
+adapters, private non-DCC services, and focused Skill packages. A local folder
+or internal source tree is enough.
 
 <div class="directory-actions">
   <a href="https://clawhub.ai/loonghao/skills/dcc-mcp-creator"><strong>Private or custom MCP service</strong><span>Use dcc-mcp-creator</span></a>
@@ -28,11 +28,11 @@ local folder or internal source tree is enough.
 Search the [ecosystem directory](/ecosystem) before creating a public adapter
 or Skill. Private service identities do not need a public catalog entry.
 
-## Five-minute Agent lab: private non-DCC service
+## Build a private non-DCC service
 
-Use this track for an internal system that is not a creative application and
-may not use GitHub. Paste the prompt into a coding agent while its working
-directory is your private project:
+Use this route for an internal system that is not a creative application and
+may not use GitHub. Run the coding agent from the private project, then use this
+prompt:
 
 ```text
 Use dcc-mcp-creator for the runtime and dcc-mcp-skills-creator for Skill files. Work only in my current private or internal project. Do not create a GitHub repository, public catalog entry, external issue, or public release. First inspect and reuse this project's language, package manager, test command, authentication, and deployment conventions.
@@ -42,7 +42,7 @@ Build the smallest useful non-DCC MCP vertical slice: one stable custom service 
 Validate with dcc-mcp-cli lint skills and the smallest repository-native test. Start the service, print its resolved /mcp URL, and verify tools/list, exact Skill discovery and load, describe, one valid call, one invalid-input error, and clean shutdown. Use the official open-source MCP Inspector locally, then repeat the agent path with dcc-mcp-cli list/load-skill/describe/call using --output toon. Preserve the returned slug and request_id; do not guess or blindly retry. Report files changed, exact validation evidence, remaining security/deployment work, and stop before publishing or changing shared infrastructure.
 ```
 
-The agent should return these checkpoints before calling the work complete:
+Required validation:
 
 1. The existing project conventions it is reusing.
 2. The custom service id and why the runtime is `standalone`.
@@ -50,7 +50,7 @@ The agent should return these checkpoints before calling the work complete:
 4. One safe invalid-input result.
 5. Clean shutdown evidence and the private delivery path left untouched.
 
-### Run the local service
+### Run the example service
 
 The complete Core example lives at
 [`examples/remote-server`](https://github.com/dcc-mcp/dcc-mcp-core/tree/main/examples/remote-server).
@@ -67,7 +67,7 @@ Expected startup output includes a URL such as
 `http://127.0.0.1:8765/mcp`, the custom identity `studio-service`, and the
 runtime lifetime `standalone`.
 
-### Develop inside the open container lab
+### Use the Development Container
 
 The example includes a [Development Container](https://containers.dev/)
 configuration. The specification and reference CLI are open source, so the
@@ -93,14 +93,13 @@ devcontainer exec --workspace-folder examples/remote-server \
 The lab runs as a non-root user and does not mount the host container socket.
 Keep private credentials outside the image.
 
-Need a browser classroom for many learners? Adopt the Apache-2.0
-[Educates](https://docs.educates.dev/en/stable/) platform when you have an
-operator for Kubernetes, ingress, identity, quotas, image supply, and session
-cleanup. Educates provides one isolated session per learner, Markdown steps,
-integrated terminals, and an embedded editor. The local Dev Container remains
-the smaller default; both layers are open source and can be self-hosted.
+For browser-based group training, [Educates](https://docs.educates.dev/en/stable/)
+provides isolated sessions, Markdown steps, terminals, and an embedded editor.
+It requires operators for Kubernetes, ingress, identity, quotas, images, and
+session cleanup. Use the local Dev Container when those shared services are not
+needed.
 
-### Play in a free open-source sandbox
+### Test with MCP Inspector
 
 Use the official [MCP Inspector](https://github.com/modelcontextprotocol/inspector).
 It runs locally, needs no hosted account, supports Streamable HTTP, and keeps a
@@ -114,14 +113,14 @@ Connect to the printed `/mcp` URL. Search for `hello-world`, load it, and
 call `hello_world__greet` with `{"name":"Agent"}`. Also send an empty name and
 confirm the response is a structured validation error.
 
-::: warning Why not a public browser playground?
+::: warning Why use a local Inspector?
 A hosted playground cannot reach a loopback or intranet MCP service without
 exposing it. For internal systems, the local open-source Inspector is the safe
 "play now" path. Never expose its process-spawning proxy to an untrusted
 network.
 :::
 
-### Prove the Agent path
+### Verify through the CLI
 
 Use the CLI after the service registers. Keep the slug returned by search:
 
@@ -132,7 +131,7 @@ dcc-mcp-cli describe <tool-slug-returned-by-load> --output toon
 dcc-mcp-cli call <tool-slug-returned-by-load> --json '{"name":"Agent"}' --wait --output toon
 ```
 
-## Five-minute Agent lab: Skill-only change
+## Change a Skill without adding a runtime
 
 Use this prompt when the runtime already exists:
 
@@ -140,8 +139,8 @@ Use this prompt when the runtime already exists:
 Use dcc-mcp-skills-creator in the current private project. Do not create a new adapter, service, repository, or public package. Search the existing Skills first, then add or improve the smallest owning Skill for this workflow. Keep SKILL.md metadata under metadata.dcc-mcp.*, declare typed schemas, all safety annotations, affinity, timeout, call_examples, and next-tools, and implement one bounded script using dcc_mcp_core.skills_helper where it already covers the need. Run dcc-mcp-cli lint against the installable Skill directory, load it through the existing runtime, call it once successfully and once with invalid input, and report evidence. Do not publish without permission.
 ```
 
-The authoring loop is short: **search existing ownership → scaffold or edit →
-lint → reload → load → describe → call → diagnose**.
+Use this sequence: **search existing ownership → scaffold or edit → lint →
+reload → load → describe → call → diagnose**.
 
 ## Debug without guessing
 

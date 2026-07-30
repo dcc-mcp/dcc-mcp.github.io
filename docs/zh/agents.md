@@ -1,22 +1,22 @@
 ---
-title: Agent 使用 DCC-MCP
-description: 安装一个 Skill，使用一套 CLI 发现、调用、诊断并持续改进 DCC 工作流。
+title: 在 Agent 中使用 DCC-MCP
+description: 安装 DCC-MCP Skill，通过 CLI 发现类型化工具，并诊断失败调用。
 pageClass: route-page
 ---
 
-# 一个 Skill。一套 CLI。连接所有 DCC。
+# 使用 Skill 与 CLI
 
-Agent 的默认入口是公开的 [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp) 与 `dcc-mcp-cli`。Skill 提供工作流知识；CLI 负责 Gateway 生命周期、结构化发现、类型化执行、诊断与更新。
+公开的 [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp) 保存操作步骤。`dcc-mcp-cli` 负责 Gateway 状态、工具发现、类型化调用、诊断、更新和 Marketplace 安装。
 
-## 把项目地图交给你的 Agent
+## 把当前文档交给 Agent
 
-开始 DCC-MCP 任务前，把下面这段提示词直接交给 Agent：
+Agent 还不清楚任务归属时，使用下面的提示词：
 
 ```text
-行动前先了解 DCC-MCP 生态。首先阅读 https://dcc-mcp.github.io/zh/llms.txt，只有需要更多细节时才阅读 https://dcc-mcp.github.io/zh/llms-full.txt。将我的需求准确路由到一条路径：用 dcc-mcp 操作在线 DCC，用 dcc-mcp-creator 创建或现代化适配器，或用 dcc-mcp-skills-creator 创建专项工作流 Skill。使用 https://dcc-mcp.github.io/zh/marketplace 发现可安装能力，使用 https://dcc-mcp.github.io/zh/showcase 参考经过验证的提示词模式，使用 https://dcc-mcp.github.io/zh/ecosystem 确认仓库归属。优先使用类型化 dcc-mcp-cli 发现能力，并严格遵循返回的 next_step。重试前从 request_id 开始诊断，清理敏感证据；未经我明确许可，不得安装、发布、创建外部 Bug 或改变我的机器。先返回项目路由、准备使用的能力和下一步准确且安全的操作。
+修改任何内容前，先阅读 https://dcc-mcp.github.io/zh/llms.txt；短文件没有所需信息时再阅读 llms-full.txt。只选择一条路线：用 dcc-mcp 操作已连接 DCC，用 dcc-mcp-creator 处理适配器或服务，用 dcc-mcp-skills-creator 处理 Skill。软件包查 Marketplace，案例查 Showcase，仓库归属查生态目录。使用 dcc-mcp-cli 发现工具并遵循 next_step。保留 request_id 用于诊断。未经我允许，不得安装、发布、创建外部 Issue 或改变这台机器。先报告所选路线、能力和下一项操作。
 ```
 
-## 安装匹配任务的 Skill
+## 只安装任务需要的 Skill
 
 | 任务 | Skill |
 | --- | --- |
@@ -38,7 +38,7 @@ npx --yes clawhub@0.23.1 install @loonghao/dcc-mcp
 
 安装后开启一个新会话，让运行时加载 Skill。
 
-## 遵循类型化工作流
+## 搜索、描述并调用
 
 ```bash
 # 确认 Gateway 和已连接 Host。
@@ -52,9 +52,9 @@ dcc-mcp-cli search --query "create sphere" --dcc-type maya
 dcc-mcp-cli call <tool-slug> --json '{"radius": 2.0}'
 ```
 
-搜索结果是路由契约。不要猜测工具名称，也不要一次把所有后端 Schema 加载进上下文。只有返回结果明确要求时，才执行对应的 load 或 describe。
+不要猜测工具名称，也不要一次加载全部后端 Schema。先搜索，再执行 `next_step` 指定的 `load` 或 `describe`。
 
-## 重试前先诊断
+## 重试前检查 request ID
 
 保留失败调用的 `request_id`，再使用 CLI 内置证据路径：
 
@@ -63,9 +63,9 @@ dcc-mcp-cli doctor
 dcc-mcp-cli stats --status failure
 ```
 
-然后通过相同的搜索工作流发现并调用 `dcc_feedback__report`。分享前检查公开安全的 Issue 报告；未经用户授权，不得发布原始证据或创建外部 Issue。
+然后通过相同的搜索流程发现 `dcc_feedback__report`。分享前检查并清理报告中的敏感信息；创建外部 Issue 仍需用户授权。
 
-## 详细参考
+## 参考资料
 
 - [快速开始](https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/getting-started)
 - [CLI 参考](https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/cli-reference)

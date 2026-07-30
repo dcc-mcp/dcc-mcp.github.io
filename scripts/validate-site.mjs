@@ -13,6 +13,7 @@ const requiredFiles = [
   'showcase.html',
   'showcase/wwise.html',
   'use-cases.html',
+  'why-dcc-mcp.html',
   'zh/index.html',
   'zh/agents.html',
   'zh/developers.html',
@@ -21,6 +22,7 @@ const requiredFiles = [
   'zh/showcase.html',
   'zh/showcase/wwise.html',
   'zh/use-cases.html',
+  'zh/why-dcc-mcp.html',
   'llms.txt',
   'llms-full.txt',
   'zh/llms.txt',
@@ -58,15 +60,15 @@ for (const [name, html, href] of [
 if (!englishHome.includes('CAPABILITY MARKETPLACE') || !chineseHome.includes('能力市场')) {
   throw new Error('Localized homepages are missing the Marketplace preview')
 }
-for (const label of ['Marketplace', 'Showcase', 'For Agents']) {
+for (const label of ['Why DCC-MCP', 'Marketplace', 'Showcase', 'For Agents']) {
   if (!englishHome.includes(`>${label}<`)) throw new Error(`English navigation is missing ${label}`)
 }
-for (const label of ['技能市场', '案例画廊', 'Agent 使用']) {
+for (const label of ['为什么是 DCC-MCP', '技能市场', '案例画廊', 'Agent 使用']) {
   if (!chineseHome.includes(`>${label}<`)) throw new Error(`Chinese navigation is missing ${label}`)
 }
 
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
-for (const route of ['/', '/marketplace', '/showcase', '/showcase/wwise', '/use-cases', '/zh/', '/zh/marketplace', '/zh/showcase', '/zh/showcase/wwise', '/zh/use-cases']) {
+for (const route of ['/', '/marketplace', '/showcase', '/showcase/wwise', '/use-cases', '/why-dcc-mcp', '/zh/', '/zh/marketplace', '/zh/showcase', '/zh/showcase/wwise', '/zh/use-cases', '/zh/why-dcc-mcp']) {
   if (!sitemap.includes(`https://dcc-mcp.github.io${route}`)) throw new Error(`Sitemap is missing ${route}`)
 }
 
@@ -118,4 +120,15 @@ for (const [file, phrases] of developerGuides) {
   }
 }
 
-console.log('Validated 16 localized pages, 4 llms files, developer labs, theme logos, sitemap, Marketplace media, Showcase prompts, audio, and GEO use cases.')
+const whyGuides = [
+  [join(root, 'docs', 'why-dcc-mcp.md'), ['Start with the production process', 'CLI, MCP, and REST share one implementation', 'Why direct scripts stopped scaling', 'Use existing protocols first', 'Keep failure evidence', 'What still depends on human judgment', 'Known limits']],
+  [join(root, 'docs', 'zh', 'why-dcc-mcp.md'), ['先整理生产流程', 'CLI、MCP 与 REST 共用一套实现', '临时脚本为什么无法规模化', '优先复用现有协议', '保留失败证据', '仍然依赖人的判断', '已知边界']],
+]
+for (const [file, phrases] of whyGuides) {
+  const source = readFileSync(file, 'utf8')
+  for (const phrase of phrases) {
+    if (!source.includes(phrase)) throw new Error(`${file} is missing the architecture rationale: ${phrase}`)
+  }
+}
+
+console.log('Validated 18 localized pages, 4 llms files, architecture rationale, developer labs, theme logos, sitemap, Marketplace media, Showcase prompts, audio, and GEO use cases.')

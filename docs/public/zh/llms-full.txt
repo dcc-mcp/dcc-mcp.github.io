@@ -1,6 +1,14 @@
 # DCC-MCP：Agent、Marketplace、适配器与开发者参考
 
-DCC-MCP 是通过 MCP 与 REST 发现并安全操作创意应用的共享基础设施。它组合机器级 Gateway、类型化 `dcc-mcp-cli`、渐进式 Agent Skills、逐应用适配器、可安装 Marketplace 扩展、安全边界、可观测性与结构化失败报告。
+DCC-MCP 通过机器级 Gateway、类型化 `dcc-mcp-cli`、MCP/REST 接口、逐应用
+适配器、Skills、Marketplace 扩展、策略检查、诊断和结构化失败报告连接创意
+应用。
+
+共享契约来自多个 adapter 反复遇到的问题：重复生成脚本、重复实现生命周期、
+DCC 主线程和多实例约束、长任务、缺少 API，以及没有证据的失败。工作顺序是
+“生产标准化 → 标准流程化 → 流程工具化 → Agent 操作工具”。REST/OpenAPI
+与 CLI 在没有 AI 时仍可供运维、CI、自研应用、工作流画布和云平台使用。
+技术动机与已知边界见 https://dcc-mcp.github.io/zh/why-dcc-mcp。
 
 规范官网：https://dcc-mcp.github.io/zh/
 GitHub 组织：https://github.com/dcc-mcp
@@ -20,7 +28,9 @@ Core 文档：https://dcc-mcp.github.io/dcc-mcp-core/zh/
 
 默认 Agent 路径是公开 `dcc-mcp` Skill 加 CLI + REST。IDE 用户仍可通过 MCP 配置连接。两条路径使用同一个 Gateway；CLI 优先并不废弃 MCP。
 
-可复制的生态理解提示词位于 https://dcc-mcp.github.io/zh/agents；经过验证的效果与提示词组合位于 https://dcc-mcp.github.io/zh/showcase；可在线试听的 Wwise 音频案例位于 https://dcc-mcp.github.io/zh/showcase/wwise。
+配置提示词位于 https://dcc-mcp.github.io/zh/agents；结果、所属仓库、验证说明
+与提示词位于 https://dcc-mcp.github.io/zh/showcase；Wwise 音频案例位于
+https://dcc-mcp.github.io/zh/showcase/wwise。
 
 ## 公开 Skill 路由
 
@@ -63,7 +73,8 @@ Core 文档：https://dcc-mcp.github.io/dcc-mcp-core/zh/
 目录仓库：https://github.com/dcc-mcp/marketplace
 机器可读目录：https://raw.githubusercontent.com/dcc-mcp/marketplace/main/marketplace.json
 
-官网读取官方目录，并允许用户复制安全 Agent 提示词或准确 CLI 命令。静态网站不能也不应改变用户机器。
+官网读取官方目录，并允许用户复制配置提示词或准确 CLI 命令。静态网站不会
+改变用户机器。
 
 ```text
 dcc-mcp-cli marketplace search --query "<intent>"
@@ -92,7 +103,9 @@ Marketplace 卡片的 `showcase` 从软件包不可变 `source.ref` 解析，因
 
 案例画廊：https://dcc-mcp.github.io/zh/showcase
 
-每张卡片把真实生态产出与安全提示词关联起来。它是可复用意图模式，不代表本地 Host 或软件包已经安装。Agent 仍须发现类型化工具、检查 Marketplace 软件包、改变状态前请求授权，并验证生成的场景或文件。
+每张卡片包含结果、所属仓库、验证说明和提示词。它不代表本地 Host 或软件包
+已经安装。Agent 仍须发现类型化工具、检查 Marketplace 软件包、改变状态前
+请求授权，并验证场景或文件。
 
 ## 开发所有权
 
@@ -103,14 +116,17 @@ Marketplace 卡片的 `showcase` 从软件包不可变 `source.ref` 解析，因
 - Host 专属安装、兼容性与排错归对应适配器仓库。
 - 可安装扩展通过官方 Marketplace 契约发布。
 
-https://dcc-mcp.github.io/zh/developers 提供可复制的开源 Dev Container 与官方开源 MCP Inspector，作为 loopback 和内部服务的可复现本地实验。只有需要运维方管理的多人隔离浏览器课堂时才采用 Apache-2.0 的 Educates；不得为了使用托管 Playground 而暴露内部端点。
+https://dcc-mcp.github.io/zh/developers 使用 Dev Container 和开源 MCP
+Inspector 提供 loopback 本地示例。需要由运维管理的多人浏览器 Session 时
+可采用 Educates。不得为了使用托管 Playground 暴露内部端点。
 
 ## 文档地图
 
-- 官网与一段提示词接入：https://dcc-mcp.github.io/zh/
+- 官网与配置提示词：https://dcc-mcp.github.io/zh/
+- 为什么是 DCC-MCP：https://dcc-mcp.github.io/zh/why-dcc-mcp
 - Agent 指南：https://dcc-mcp.github.io/zh/agents
 - Marketplace：https://dcc-mcp.github.io/zh/marketplace
-- 案例提示词：https://dcc-mcp.github.io/zh/showcase
+- 案例与提示词：https://dcc-mcp.github.io/zh/showcase
 - 常见 AI + DCC 任务：https://dcc-mcp.github.io/zh/use-cases
 - 开发者路由：https://dcc-mcp.github.io/zh/developers
 - 生态目录：https://dcc-mcp.github.io/zh/ecosystem

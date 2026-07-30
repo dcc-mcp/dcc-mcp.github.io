@@ -60,11 +60,11 @@ const messages = {
     results: (shown: number, total: number) => `${shown} of ${total} packages`,
     dcc: 'DCC',
     tags: 'Tags',
-    copyAgent: 'Copy agent prompt',
+    copyAgent: 'Copy setup prompt',
     copyInstall: 'Copy install command',
     copied: 'Copied',
     docs: 'Docs ↗',
-    viewPackage: 'View package →',
+    viewPackage: 'Open package →',
     empty: 'No package matches these filters.',
     mediaAlt: (name: string) => `${name} showcase`,
   },
@@ -85,11 +85,11 @@ const messages = {
     results: (shown: number, total: number) => `显示 ${shown} / ${total} 个包`,
     dcc: 'DCC',
     tags: '标签',
-    copyAgent: '复制 Agent 提示词',
+    copyAgent: '复制配置提示词',
     copyInstall: '复制安装命令',
     copied: '已复制',
     docs: '文档 ↗',
-    viewPackage: '查看软件包 →',
+    viewPackage: '打开软件包 →',
     empty: '没有符合当前筛选条件的包。',
     mediaAlt: (name: string) => `${name} 展示素材`,
   },
@@ -185,8 +185,8 @@ function copyInstall(skill: MarketplaceSkill) {
 function copyAgentPrompt(skill: MarketplaceSkill) {
   const host = targetDcc(skill)
   const prompt = isZh.value
-    ? `使用 dcc-mcp Skill 和准确的官方 Marketplace 包 ID“${skill.name}”，先征得我的同意，再为 ${host} 执行 install --reload，并报告验证证据。`
-    : `Use the dcc-mcp Skill with the exact official Marketplace package ID "${skill.name}", ask for my consent, then install it for ${host} with --reload and report validation evidence.`
+    ? `检查适用于 ${host} 的官方 Marketplace 软件包“${skill.name}”。说明 install --reload 会改变什么，并等待我确认。确认后使用准确包 ID 安装、重新加载 DCC，并验证工具是否可用。`
+    : `Check the official Marketplace package "${skill.name}" for ${host}. Explain what install --reload will change and wait for my approval. After approval, install the exact package ID, reload the DCC, and verify that its tools are available.`
   return writeClipboard(prompt, `agent:${skill.name}`)
 }
 

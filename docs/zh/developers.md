@@ -1,12 +1,12 @@
 ---
-title: 使用 DCC-MCP 开发 MCP 服务与 Skills
-description: 把一条经过验证的路径交给 Agent，让它开发、试玩、调试并在内部交付自定义 MCP 服务或 DCC-MCP Skill。
+title: 开发 DCC-MCP 适配器、服务与 Skills
+description: 选择能力归属层，运行本地示例，并验证适配器、standalone 服务或 Skill。
 pageClass: route-page
 ---
 
-# 让 Agent 开发自定义 MCP 服务或 Skill。
+# 开发适配器、服务或 Skill
 
-先确认工作流归属，再选择仓库模板。DCC-MCP 同时支持公开 DCC 适配器、
+创建文件前先确认工作流归属。DCC-MCP 同时支持公开 DCC 适配器、
 内部非 DCC 服务和专项 Skill 包；一个本地目录或内部源码树就足够。
 
 <div class="directory-actions">
@@ -27,10 +27,10 @@ pageClass: route-page
 创建公开适配器或 Skill 前先搜索[生态目录](/zh/ecosystem)。内部服务 ID
 不需要写入公开 Catalog。
 
-## 五分钟 Agent 实验：内部非 DCC 服务
+## 开发内部非 DCC 服务
 
 这条路线适用于不属于创意软件、也可能不使用 GitHub 的内部系统。让
-Agent 的工作目录指向你的内部项目，然后粘贴下面的提示词：
+Agent 从内部项目目录运行，然后使用下面的提示词：
 
 ```text
 运行时使用 dcc-mcp-creator，Skill 文件使用 dcc-mcp-skills-creator。只在我当前的私有或内部项目中工作，不要创建 GitHub 仓库、公开 Catalog 条目、外部 Issue 或公开 Release。先检查并复用项目已有的语言、包管理器、测试命令、鉴权和部署约定。
@@ -40,7 +40,7 @@ Agent 的工作目录指向你的内部项目，然后粘贴下面的提示词�
 使用 dcc-mcp-cli lint skills 和项目原生的最小测试完成验证。启动服务并输出解析后的 /mcp URL；验证 tools/list、精确的 Skill 发现与 load、describe、一次合法调用、一次非法输入错误和干净退出。先使用官方开源 MCP Inspector 在本机验证，再通过 dcc-mcp-cli list/load-skill/describe/call 与 --output toon 重复 Agent 路径。保留返回的 slug 和 request_id，不要猜测或盲目重试。报告修改文件、准确验证证据、剩余安全/部署工作；发布或修改共享基础设施前停止。
 ```
 
-Agent 在宣布完成前应返回以下检查点：
+完成前应具备：
 
 1. 它复用了哪些现有项目约定。
 2. 自定义服务 ID，以及运行时为何是 `standalone`。
@@ -64,7 +64,7 @@ python server.py
 预期启动输出包含类似 `http://127.0.0.1:8765/mcp` 的 URL、自定义标识
 `studio-service` 和运行时生命周期 `standalone`。
 
-### 在开源容器实验中开发
+### 使用 Development Container
 
 示例包含 [Development Container](https://containers.dev/) 配置。规范与
 参考 CLI 均为开源，因此兼容编辑器和 Agent Shell 可以复用同一套 Python、
@@ -89,13 +89,12 @@ devcontainer exec --workspace-folder examples/remote-server \
 实验容器使用非 root 用户，也不挂载 Host 的容器 Socket；私有凭据必须
 保留在镜像之外。
 
-需要面向多人提供浏览器课堂时，可以采用 Apache-2.0 的
-[Educates](https://docs.educates.dev/en/stable/)；前提是已有 Owner 负责
-Kubernetes、Ingress、身份、Quota、镜像供应和 Session 清理。Educates
-为每位学习者提供隔离 Session、Markdown 步骤、浏览器终端和内嵌编辑器。
-本地 Dev Container 仍是更小的默认方案；两层组件均为开源并可自托管。
+多人浏览器培训可使用 [Educates](https://docs.educates.dev/en/stable/)。
+它提供隔离 Session、Markdown 步骤、终端和内嵌编辑器，但需要运维
+Kubernetes、Ingress、身份、Quota、镜像和 Session 清理。不需要这些共享
+服务时，使用本地 Dev Container。
 
-### 在免费开源沙箱中试玩
+### 使用 MCP Inspector 测试
 
 使用官方 [MCP Inspector](https://github.com/modelcontextprotocol/inspector)。
 它在本机运行，无需托管账号，支持 Streamable HTTP，也不需要把内部
@@ -109,13 +108,13 @@ npx --yes @modelcontextprotocol/inspector@latest
 `{"name":"Agent"}` 调用 `hello_world__greet`。再传一次空名称，确认返回的
 是结构化验证错误。
 
-::: warning 为什么不推荐公网浏览器 Playground？
+::: warning 为什么使用本地 Inspector？
 托管 Playground 无法直接访问 loopback 或内部 MCP 服务，除非先把服务
 暴露出去。对于内部系统，本地开源 Inspector 才是安全的“立即试玩”路径。
 绝不能把它具备进程启动能力的 Proxy 暴露到不可信网络。
 :::
 
-### 验证 Agent 路径
+### 通过 CLI 验证
 
 服务完成注册后使用 CLI，并保留 search 返回的 slug：
 
@@ -126,7 +125,7 @@ dcc-mcp-cli describe <tool-slug-returned-by-load> --output toon
 dcc-mcp-cli call <tool-slug-returned-by-load> --json '{"name":"Agent"}' --wait --output toon
 ```
 
-## 五分钟 Agent 实验：只修改 Skill
+## 在现有运行时中修改 Skill
 
 运行时已经存在时，使用这段提示词：
 
@@ -134,7 +133,7 @@ dcc-mcp-cli call <tool-slug-returned-by-load> --json '{"name":"Agent"}' --wait -
 在当前内部项目中使用 dcc-mcp-skills-creator。不要新建适配器、服务、仓库或公开包。先搜索已有 Skills，再为该工作流添加或改进最小的归属 Skill。所有 SKILL.md 扩展元数据都放在 metadata.dcc-mcp.* 下；声明类型化 Schema、全部安全注解、affinity、timeout、call_examples 和 next-tools；已有 dcc_mcp_core.skills_helper 能覆盖需求时，使用它实现一个有限且类型化的脚本。对实际可安装 Skill 目录运行 dcc-mcp-cli lint，通过现有运行时加载并分别做一次成功调用和一次非法输入调用，然后报告证据。未经允许不要发布。
 ```
 
-创作循环保持简短：**搜索已有归属 → scaffold 或编辑 → lint → reload →
+按以下顺序操作：**搜索已有归属 → scaffold 或编辑 → lint → reload →
 load → describe → call → diagnose**。
 
 ## 不要靠猜测调试

@@ -22,12 +22,12 @@ const showcases: Showcase[] = [
     source: 'https://github.com/dcc-mcp/dcc-mcp-blender',
     en: {
       label: 'BLENDER · PROCEDURAL LOOKDEV',
-      title: 'Spiral galaxy, built from typed tools',
+      title: 'Spiral galaxy scene in Blender',
       prompt: 'Use the dcc-mcp Skill to connect to Blender. Discover the typed procedural modeling, material, lighting, and render tools needed to create a spiral galaxy in a new collection. Work non-destructively, render a preview, validate the scene, and report the tool calls and output path. Ask before installing anything.',
     },
     zh: {
       label: 'BLENDER · 程序化视觉开发',
-      title: '用类型化工具构建螺旋星系',
+      title: 'Blender 螺旋星系场景',
       prompt: '使用 dcc-mcp Skill 连接 Blender。搜索创建螺旋星系所需的类型化程序化建模、材质、灯光和渲染工具，在新 Collection 中非破坏性构建，渲染预览并验证场景，最后报告工具调用与输出路径。安装任何内容前先征得我的同意。',
     },
   },
@@ -37,12 +37,12 @@ const showcases: Showcase[] = [
     source: 'https://github.com/dcc-mcp/dcc-mcp-marmoset',
     en: {
       label: 'MARMOSET · PBR LOOKDEV',
-      title: 'CC0 material reconstruction in Toolbag',
+      title: 'CC0 PBR material in Toolbag',
       prompt: 'Use the dcc-mcp Skill to connect to Marmoset Toolbag. Inspect the runtime and discover the typed marmoset-scene, marmoset-lookdev, and marmoset-diagnostics tools. Ask before downloading an asset; use an explicit CC0 source and preserve provenance. Import the model, assign Albedo, Normal, Roughness, Metalness, and Occlusion maps, frame the exact object, validate that no texture references are missing, save the .tbscene, render a 16:9 image, and report the scene, render, and source paths.',
     },
     zh: {
       label: 'MARMOSET · PBR 材质',
-      title: '在八猴中还原 CC0 PBR 材质',
+      title: 'Toolbag 中的 CC0 PBR 材质',
       prompt: '使用 dcc-mcp Skill 连接 Marmoset Toolbag。先检查运行时，再搜索类型化的 marmoset-scene、marmoset-lookdev 和 marmoset-diagnostics 工具。下载资产前先征得我的同意；使用许可证明确的 CC0 来源并保留溯源信息。导入模型，绑定 Albedo、Normal、Roughness、Metalness 和 Occlusion 贴图，精确框选目标对象，验证没有丢失贴图引用，保存 .tbscene，渲染 16:9 图片，并报告场景、渲染与来源路径。',
     },
   },
@@ -52,12 +52,12 @@ const showcases: Showcase[] = [
     source: 'https://github.com/dcc-mcp/dcc-mcp-wwise',
     en: {
       label: 'WWISE · INTERACTIVE AUDIO',
-      title: 'Sound effects and music through typed WAAPI tools',
+      title: 'Wwise sound effects and loop',
       prompt: 'Use the dcc-mcp Skill to connect to Wwise. Work in a local scratch project, discover the typed Wwise project and audio tools, create one UI sound, one impact sound, and a short looping background track, import and organize them, create play Events, preview every result, and report validation evidence. Do not publish the scratch Wwise project.',
     },
     zh: {
       label: 'WWISE · 交互音频',
-      title: '通过类型化 WAAPI 工具制作音效与音乐',
+      title: 'Wwise 音效与循环音乐',
       prompt: '使用 dcc-mcp Skill 连接 Wwise。在本地临时工程中搜索并使用类型化的 Wwise 项目与音频工具，制作一个 UI 音效、一个冲击音效和一段可循环背景音乐，完成导入、整理、Play Event 创建与逐项试听，并报告验证证据。不要发布临时 Wwise 工程。',
     },
   },
@@ -67,12 +67,12 @@ const showcases: Showcase[] = [
     source: 'https://github.com/dcc-mcp/dcc-mcp-houdini',
     en: {
       label: 'HOUDINI · FX',
-      title: 'A portal system with procedural particles',
+      title: 'Houdini procedural portal',
       prompt: 'Use the dcc-mcp Skill to connect to Houdini. Discover the typed SOP, POP, material, and preview tools for a procedural energy portal. Build it in a new isolated network, keep parameters editable, cache only when needed, render a preview, and report validation evidence.',
     },
     zh: {
       label: 'HOUDINI · 特效',
-      title: '程序化粒子能量门',
+      title: 'Houdini 程序化能量门',
       prompt: '使用 dcc-mcp Skill 连接 Houdini。搜索程序化能量门所需的类型化 SOP、POP、材质和预览工具，在新的独立网络中构建并保持参数可编辑，仅在需要时缓存，渲染预览并报告验证证据。',
     },
   },
@@ -82,12 +82,12 @@ const showcases: Showcase[] = [
     source: 'https://github.com/dcc-mcp/dcc-ai-hunyuan3d',
     en: {
       label: 'HUNYUAN3D · AI SERVICE',
-      title: 'Prompt-to-3D with traceable provenance',
-      prompt: 'Inspect the official Marketplace package dcc-ai-hunyuan3d. Ask before installing it or calling a remote service. Generate a production-ready 3D lantern from my description, import it into the selected DCC, validate geometry and materials, and report provenance and output files.',
+      title: '3D lantern generated with Hunyuan3D',
+      prompt: 'Inspect the official Marketplace package dcc-ai-hunyuan3d. Ask before installing it or calling a remote service. Generate a 3D lantern from my description, import it into the selected DCC, validate geometry and materials, and report provenance and output files.',
     },
     zh: {
       label: '混元 3D · AI 服务',
-      title: '可追溯来源的提示词生成 3D',
+      title: '混元 3D 生成的灯笼模型',
       prompt: '检查官方 Marketplace 软件包 dcc-ai-hunyuan3d。安装或调用远程服务前先征得我的同意。根据我的描述生成可用于生产的 3D 灯笼，导入所选 DCC，验证几何体和材质，并报告来源与输出文件。',
     },
   },
@@ -97,12 +97,12 @@ const showcases: Showcase[] = [
     source: 'https://github.com/dcc-mcp/dcc-asset-geospatial',
     en: {
       label: 'GEOSPATIAL · ASSET PROVIDER',
-      title: 'Real-world city data into a DCC scene',
+      title: 'Geospatial city scene',
       prompt: 'Inspect the official Marketplace package dcc-asset-geospatial and ask before installing or downloading data. Use a bounded area I provide, preserve CRS and source provenance, create a city layout in my selected DCC, validate object counts and scale, and report the resulting scene path.',
     },
     zh: {
       label: '地理空间 · 资产提供方',
-      title: '将真实城市数据带入 DCC 场景',
+      title: '地理数据生成的城市场景',
       prompt: '检查官方 Marketplace 软件包 dcc-asset-geospatial，安装或下载数据前先征得我的同意。使用我提供的有限区域，保留坐标系与数据来源，在所选 DCC 中创建城市布局，验证对象数量和比例，并报告场景输出路径。',
     },
   },
@@ -112,12 +112,12 @@ const showcases: Showcase[] = [
     source: 'https://github.com/dcc-mcp/dcc-mcp-maya-procedural-architecture',
     en: {
       label: 'MAYA · SPECIALIZED SKILL',
-      title: 'Procedural architecture as a reusable workflow',
+      title: 'Maya architectural variations',
       prompt: 'Inspect the official Marketplace package dcc-mcp-maya-procedural-architecture and ask before installing it. In a new Maya scene or namespace, create three editable architectural variations from one brief, render a contact sheet, validate scene structure, and report the selected parameters.',
     },
     zh: {
       label: 'MAYA · 专项 SKILL',
-      title: '可复用的程序化建筑工作流',
+      title: 'Maya 程序化建筑方案',
       prompt: '检查官方 Marketplace 软件包 dcc-mcp-maya-procedural-architecture，安装前先征得我的同意。在新的 Maya 场景或 Namespace 中，根据同一需求创建三个可编辑建筑方案，渲染联系表，验证场景结构并报告所选参数。',
     },
   },
@@ -127,12 +127,12 @@ const showcases: Showcase[] = [
     source: 'https://github.com/dcc-mcp/dcc-asset-kenney',
     en: {
       label: 'KENNEY · ASSET PROVIDER',
-      title: 'Licensed assets assembled into a playable scene',
+      title: 'Kenney assets in a playable scene',
       prompt: 'Inspect the official Marketplace package dcc-asset-kenney and ask before installing or downloading assets. Find a coherent pack, preserve license and source provenance, assemble a small playable level in my selected DCC or game engine, validate missing references, and report output paths.',
     },
     zh: {
       label: 'KENNEY · 资产提供方',
-      title: '将授权资产组装为可玩场景',
+      title: 'Kenney 资产关卡',
       prompt: '检查官方 Marketplace 软件包 dcc-asset-kenney，安装或下载资产前先征得我的同意。选择风格统一的资产包，保留许可证和来源信息，在所选 DCC 或游戏引擎中组装一个小型可玩关卡，检查丢失引用并报告输出路径。',
     },
   },
@@ -185,7 +185,7 @@ async function copyPrompt(item: Showcase) {
       <div class="showcase-prompt-body">
         <h2>{{ (isZh ? item.zh : item.en).title }}</h2>
         <div class="showcase-prompt-copy">
-          <small>{{ isZh ? '交给你的 Agent' : 'GIVE THIS TO YOUR AGENT' }}</small>
+          <small>{{ isZh ? '复制提示词' : 'COPY PROMPT' }}</small>
           <p>{{ (isZh ? item.zh : item.en).prompt }}</p>
           <button type="button" @click="copyPrompt(item)">
             {{ copied === item.id ? (isZh ? '已复制' : 'Copied') : (isZh ? '复制提示词' : 'Copy prompt') }}
