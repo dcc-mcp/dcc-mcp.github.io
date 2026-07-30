@@ -108,8 +108,8 @@ for (const phrase of ['我想用 AI 控制 Maya', '我想用 AI 控制 Blender',
 }
 
 const developerGuides = [
-  [join(root, 'docs', 'developers.md'), ['private non-DCC service', 'instance_type="standalone"', 'dcc-mcp-cli lint skills', '@modelcontextprotocol/inspector@latest', 'Do not create a GitHub repository']],
-  [join(root, 'docs', 'zh', 'developers.md'), ['内部非 DCC 服务', 'instance_type="standalone"', 'dcc-mcp-cli lint skills', '@modelcontextprotocol/inspector@latest', '不要创建 GitHub 仓库']],
+  [join(root, 'docs', 'developers.md'), ['private non-DCC service', 'instance_type="standalone"', 'dcc-mcp-cli lint skills', '@modelcontextprotocol/inspector@latest', 'devcontainer up', 'Educates', 'Do not create a GitHub repository']],
+  [join(root, 'docs', 'zh', 'developers.md'), ['内部非 DCC 服务', 'instance_type="standalone"', 'dcc-mcp-cli lint skills', '@modelcontextprotocol/inspector@latest', 'devcontainer up', 'Educates', '不要创建 GitHub 仓库']],
 ]
 for (const [file, phrases] of developerGuides) {
   const source = readFileSync(file, 'utf8')

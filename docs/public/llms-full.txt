@@ -101,7 +101,7 @@ Each card links a real ecosystem output to a consent-aware prompt. Treat it as a
 - Keep host-specific installation, compatibility, and troubleshooting in the owning adapter repository.
 - Publish installable extensions through the official Marketplace contract.
 
-The copyable local lab at https://dcc-mcp.github.io/developers uses the official open-source MCP Inspector as the safe playground for loopback and internal services. A hosted browser playground should not be used as a reason to expose a private endpoint.
+The copyable local lab at https://dcc-mcp.github.io/developers uses an open Dev Container plus the official open-source MCP Inspector for a reproducible loopback environment. Adopt the Apache-2.0 Educates platform only when a team needs operator-managed, isolated browser workshops for multiple learners. A hosted playground should not be used as a reason to expose a private endpoint.
 
 ## Documentation map
 

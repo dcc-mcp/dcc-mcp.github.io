@@ -103,7 +103,7 @@ Marketplace 卡片的 `showcase` 从软件包不可变 `source.ref` 解析，因
 - Host 专属安装、兼容性与排错归对应适配器仓库。
 - 可安装扩展通过官方 Marketplace 契约发布。
 
-https://dcc-mcp.github.io/zh/developers 提供可复制的本地实验，使用官方开源 MCP Inspector 作为 loopback 与内部服务的安全 Playground。不得为了使用托管浏览器 Playground 而暴露内部端点。
+https://dcc-mcp.github.io/zh/developers 提供可复制的开源 Dev Container 与官方开源 MCP Inspector，作为 loopback 和内部服务的可复现本地实验。只有需要运维方管理的多人隔离浏览器课堂时才采用 Apache-2.0 的 Educates；不得为了使用托管 Playground 而暴露内部端点。
 
 ## 文档地图
 

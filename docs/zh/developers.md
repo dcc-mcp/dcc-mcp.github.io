@@ -64,6 +64,37 @@ python server.py
 预期启动输出包含类似 `http://127.0.0.1:8765/mcp` 的 URL、自定义标识
 `studio-service` 和运行时生命周期 `standalone`。
 
+### 在开源容器实验中开发
+
+示例包含 [Development Container](https://containers.dev/) 配置。规范与
+参考 CLI 均为开源，因此兼容编辑器和 Agent Shell 可以复用同一套 Python、
+Node.js、Core 与 Inspector 环境，不要求托管账号。
+
+在 Core 仓库根目录执行：
+
+```bash
+npm install --global @devcontainers/cli
+devcontainer up --workspace-folder examples/remote-server
+devcontainer exec --workspace-folder examples/remote-server python server.py
+```
+
+在第二个终端中运行自动化 Inspector 冒烟：
+
+```bash
+devcontainer exec --workspace-folder examples/remote-server \
+  npx --yes @modelcontextprotocol/inspector@latest --cli \
+  http://127.0.0.1:8765/mcp --transport http --method tools/list
+```
+
+实验容器使用非 root 用户，也不挂载 Host 的容器 Socket；私有凭据必须
+保留在镜像之外。
+
+需要面向多人提供浏览器课堂时，可以采用 Apache-2.0 的
+[Educates](https://docs.educates.dev/en/stable/)；前提是已有 Owner 负责
+Kubernetes、Ingress、身份、Quota、镜像供应和 Session 清理。Educates
+为每位学习者提供隔离 Session、Markdown 步骤、浏览器终端和内嵌编辑器。
+本地 Dev Container 仍是更小的默认方案；两层组件均为开源并可自托管。
+
 ### 在免费开源沙箱中试玩
 
 使用官方 [MCP Inspector](https://github.com/modelcontextprotocol/inspector)。
@@ -126,6 +157,7 @@ load → describe → call → diagnose**。
 继续阅读：
 
 - [内部 standalone 服务工作流](https://github.com/dcc-mcp/dcc-mcp-core/blob/main/skills/dcc-mcp-creator/references/INTERNAL_SERVICE_WORKFLOW.md)
+- [开源 Dev Container 示例](https://github.com/dcc-mcp/dcc-mcp-core/tree/main/examples/remote-server/.devcontainer)
 - [适配器与服务工作流](https://github.com/dcc-mcp/dcc-mcp-core/blob/main/skills/dcc-mcp-creator/references/ADAPTER_WORKFLOW.md)
 - [Skills 系统](https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/skills)
 - [Skill Scope 与策略](https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/skill-scopes-policies)

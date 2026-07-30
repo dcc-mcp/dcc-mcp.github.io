@@ -67,6 +67,39 @@ Expected startup output includes a URL such as
 `http://127.0.0.1:8765/mcp`, the custom identity `studio-service`, and the
 runtime lifetime `standalone`.
 
+### Develop inside the open container lab
+
+The example includes a [Development Container](https://containers.dev/)
+configuration. The specification and reference CLI are open source, so the
+same Python, Node.js, Core, and Inspector environment works in a compatible
+editor or from an agent shell without a hosted account.
+
+From the Core repository root:
+
+```bash
+npm install --global @devcontainers/cli
+devcontainer up --workspace-folder examples/remote-server
+devcontainer exec --workspace-folder examples/remote-server python server.py
+```
+
+Use a second terminal for an automated Inspector smoke:
+
+```bash
+devcontainer exec --workspace-folder examples/remote-server \
+  npx --yes @modelcontextprotocol/inspector@latest --cli \
+  http://127.0.0.1:8765/mcp --transport http --method tools/list
+```
+
+The lab runs as a non-root user and does not mount the host container socket.
+Keep private credentials outside the image.
+
+Need a browser classroom for many learners? Adopt the Apache-2.0
+[Educates](https://docs.educates.dev/en/stable/) platform when you have an
+operator for Kubernetes, ingress, identity, quotas, image supply, and session
+cleanup. Educates provides one isolated session per learner, Markdown steps,
+integrated terminals, and an embedded editor. The local Dev Container remains
+the smaller default; both layers are open source and can be self-hosted.
+
 ### Play in a free open-source sandbox
 
 Use the official [MCP Inspector](https://github.com/modelcontextprotocol/inspector).
@@ -131,6 +164,7 @@ Rez, private registry, or internal deployment system. GitHub is optional.
 Read next:
 
 - [Internal standalone service workflow](https://github.com/dcc-mcp/dcc-mcp-core/blob/main/skills/dcc-mcp-creator/references/INTERNAL_SERVICE_WORKFLOW.md)
+- [Open Dev Container example](https://github.com/dcc-mcp/dcc-mcp-core/tree/main/examples/remote-server/.devcontainer)
 - [Adapter and service workflow](https://github.com/dcc-mcp/dcc-mcp-core/blob/main/skills/dcc-mcp-creator/references/ADAPTER_WORKFLOW.md)
 - [Skills system](https://dcc-mcp.github.io/dcc-mcp-core/guide/skills)
 - [Skill scopes and policies](https://dcc-mcp.github.io/dcc-mcp-core/guide/skill-scopes-policies)
