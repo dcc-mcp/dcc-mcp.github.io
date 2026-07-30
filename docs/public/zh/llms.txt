@@ -30,12 +30,11 @@
 
 ```text
 dcc-mcp-cli marketplace search --query "rigging"
-dcc-mcp-cli marketplace inspect <package-name>
-dcc-mcp-cli marketplace install <package-name> --dcc <dcc-type>
-dcc-mcp-cli reload-skills --dcc-type <dcc-type>
+dcc-mcp-cli marketplace install <package-name> --dcc <dcc-type> --reload
 ```
 
-安装前必须检查准确软件包，并在改变本地状态前征得用户同意。
+不熟悉的软件包在安装前先检查；已知准确 ID 时直接使用 `--reload` 安装。
+改变本地状态前始终需要征得用户同意。
 
 ## 失败与 Bug 上报契约
 

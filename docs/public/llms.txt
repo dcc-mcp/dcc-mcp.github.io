@@ -30,12 +30,11 @@ Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https
 
 ```text
 dcc-mcp-cli marketplace search --query "rigging"
-dcc-mcp-cli marketplace inspect <package-name>
-dcc-mcp-cli marketplace install <package-name> --dcc <dcc-type>
-dcc-mcp-cli reload-skills --dcc-type <dcc-type>
+dcc-mcp-cli marketplace install <package-name> --dcc <dcc-type> --reload
 ```
 
-Inspect before installation and obtain user consent before changing local state.
+Inspect unfamiliar packages before installation. When the exact ID is known,
+install it directly with `--reload`; always obtain user consent before changing local state.
 
 ## Failure and bug-report contract
 

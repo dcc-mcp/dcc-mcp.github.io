@@ -32,7 +32,7 @@ Install only the Skill matching the task. OpenClaw uses `openclaw skills install
 
 ## Current adapter-backed release catalog
 
-Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release catalog exposes 19 canonical identifiers:
+Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release catalog exposes 20 canonical identifiers:
 
 - `3dsmax` — Autodesk 3ds Max — https://github.com/dcc-mcp/dcc-mcp-3dsmax
 - `aftereffects` — Adobe After Effects — https://github.com/dcc-mcp/dcc-mcp-aftereffects
@@ -67,12 +67,10 @@ The website fetches the official catalog and lets a user copy a safe agent promp
 
 ```text
 dcc-mcp-cli marketplace search --query "<intent>"
-dcc-mcp-cli marketplace inspect <package-name>
-dcc-mcp-cli marketplace install <package-name> --dcc <dcc-type>
-dcc-mcp-cli reload-skills --dcc-type <dcc-type>
+dcc-mcp-cli marketplace install <package-name> --dcc <dcc-type> --reload
 ```
 
-Search may target workflow terms, package names, tags, categories, or DCC identifiers. Inspect the exact package before installation. Obtain user consent before installing software or changing local state. Reload the selected DCC's Skill catalog and validate availability after installation.
+Search may target workflow terms, package names, tags, categories, or DCC identifiers. Inspect unfamiliar packages before installation. When the exact package ID is known, install and reload the selected DCC's Skill catalog in one command; obtain user consent before installing software or changing local state, then validate availability.
 
 ## Failure analysis, feedback, and bug reporting
 

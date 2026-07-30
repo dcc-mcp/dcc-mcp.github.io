@@ -67,12 +67,10 @@ Core 文档：https://dcc-mcp.github.io/dcc-mcp-core/zh/
 
 ```text
 dcc-mcp-cli marketplace search --query "<intent>"
-dcc-mcp-cli marketplace inspect <package-name>
-dcc-mcp-cli marketplace install <package-name> --dcc <dcc-type>
-dcc-mcp-cli reload-skills --dcc-type <dcc-type>
+dcc-mcp-cli marketplace install <package-name> --dcc <dcc-type> --reload
 ```
 
-搜索可使用工作流术语、包名、标签、分类或 DCC 标识。安装前检查准确软件包；改变本地状态前获得用户同意；安装后重新加载所选 DCC 的 Skill 目录并验证可用性。
+搜索可使用工作流术语、包名、标签、分类或 DCC 标识。不熟悉的软件包在安装前先检查；已知准确包 ID 时，用一条命令完成安装并重新加载所选 DCC 的 Skill 目录。改变本地状态前获得用户同意，随后验证可用性。
 
 Marketplace 卡片的 `showcase` 从软件包不可变 `source.ref` 解析，因此展示图片、GIF 或视频可以追溯到发布源码，而不是可变 CDN。
 
