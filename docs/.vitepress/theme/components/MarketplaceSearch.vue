@@ -25,6 +25,7 @@ const dccLogos: Record<string, string> = {
   godot: '/dcc-logos/godot.svg',
   houdini: '/dcc-logos/houdini.svg',
   katana: '/dcc-logos/katana.png',
+  marmoset: '/dcc-logos/marmoset.png',
   maya: '/dcc-logos/maya.svg',
   mobu: '/dcc-logos/motionbuilder.png',
   nuke: '/dcc-logos/nuke.png',
@@ -175,18 +176,17 @@ async function writeClipboard(value: string, key: string) {
 
 function copyInstall(skill: MarketplaceSkill) {
   const host = targetDcc(skill)
-  return writeClipboard([
-    `dcc-mcp-cli marketplace inspect ${skill.name}`,
-    `dcc-mcp-cli marketplace install ${skill.name} --dcc ${host}`,
-    `dcc-mcp-cli reload-skills --dcc-type ${host}`,
-  ].join('\n'), `install:${skill.name}`)
+  return writeClipboard(
+    `dcc-mcp-cli marketplace install ${skill.name} --dcc ${host} --reload`,
+    `install:${skill.name}`,
+  )
 }
 
 function copyAgentPrompt(skill: MarketplaceSkill) {
   const host = targetDcc(skill)
   const prompt = isZh.value
-    ? `使用 dcc-mcp Skill 检查官方 Marketplace 包“${skill.name}”，先征得我的同意，再为 ${host} 安装，重新加载 ${host} Skills，并报告验证证据。`
-    : `Use the dcc-mcp Skill to inspect the official Marketplace package "${skill.name}", ask for my consent, install it for ${host}, reload ${host} Skills, and report validation evidence.`
+    ? `使用 dcc-mcp Skill 和准确的官方 Marketplace 包 ID“${skill.name}”，先征得我的同意，再为 ${host} 执行 install --reload，并报告验证证据。`
+    : `Use the dcc-mcp Skill with the exact official Marketplace package ID "${skill.name}", ask for my consent, then install it for ${host} with --reload and report validation evidence.`
   return writeClipboard(prompt, `agent:${skill.name}`)
 }
 

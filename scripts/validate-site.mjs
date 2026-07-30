@@ -76,6 +76,9 @@ if (!marketplaceSource.includes('mp4|webm|ogg|mov')) throw new Error('Marketplac
 if (!marketplaceSource.includes('props.preview ? previewSkills.value : filtered.value')) {
   throw new Error('Marketplace home preview support is missing')
 }
+if (!marketplaceSource.includes('dcc-mcp-cli marketplace install ${skill.name} --dcc ${host} --reload')) {
+  throw new Error('Marketplace copy command is missing install --reload')
+}
 
 const showcaseSource = readFileSync(join(root, 'docs', '.vitepress', 'theme', 'components', 'ShowcaseGallery.vue'), 'utf8')
 for (const asset of ['blender-lookdev.webp', 'marmoset-pbr-lookdev.webp', 'dcc-mcp-wwise-dark.svg', 'houdini-portal.png', 'hunyuan3d.webp', 'geospatial-city.webp', 'maya-architecture.jpg', 'kenney-assets.webp']) {

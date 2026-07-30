@@ -8,9 +8,9 @@ aside: false
 
 # 面向真实创意工作流的 Skills。
 
-在[官方 DCC-MCP Marketplace](https://github.com/dcc-mcp/marketplace) 中搜索 Skills、资产提供方、工作室集成与共享基础设施。选择目标 DCC 后，可以复制一段会先征求同意的 Agent 提示词，或准确的类型化 CLI 命令。
+在[官方 DCC-MCP Marketplace](https://github.com/dcc-mcp/marketplace) 中搜索 Skills、资产提供方、工作室集成与共享基础设施。选择目标 DCC 后，可以复制一段会先征求同意的 Agent 提示词，或一条准确的类型化 CLI 命令。
 
-官网本身不会安装软件。Agent 或终端会先检查软件包、征得同意，再通过 `dcc-mcp-cli` 安装并重新加载所选 DCC。
+官网本身不会安装软件。征得同意后，可用一条 `dcc-mcp-cli marketplace install ... --reload` 命令安装准确包 ID 并重新加载所选 DCC；不熟悉的软件包仍可先检查。
 
 <ClientOnly>
   <MarketplaceSearch />
