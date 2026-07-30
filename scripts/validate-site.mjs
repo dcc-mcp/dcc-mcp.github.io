@@ -107,4 +107,15 @@ for (const phrase of ['我想用 AI 控制 Maya', '我想用 AI 控制 Blender',
   if (!chineseUseCases.includes(phrase)) throw new Error(`Chinese use cases are missing: ${phrase}`)
 }
 
-console.log('Validated 16 localized pages, 4 llms files, theme logos, sitemap, Marketplace media, Showcase prompts, audio, and GEO use cases.')
+const developerGuides = [
+  [join(root, 'docs', 'developers.md'), ['private non-DCC service', 'instance_type="standalone"', 'dcc-mcp-cli lint skills', '@modelcontextprotocol/inspector@latest', 'Do not create a GitHub repository']],
+  [join(root, 'docs', 'zh', 'developers.md'), ['内部非 DCC 服务', 'instance_type="standalone"', 'dcc-mcp-cli lint skills', '@modelcontextprotocol/inspector@latest', '不要创建 GitHub 仓库']],
+]
+for (const [file, phrases] of developerGuides) {
+  const source = readFileSync(file, 'utf8')
+  for (const phrase of phrases) {
+    if (!source.includes(phrase)) throw new Error(`${file} is missing the developer lab contract: ${phrase}`)
+  }
+}
+
+console.log('Validated 16 localized pages, 4 llms files, developer labs, theme logos, sitemap, Marketplace media, Showcase prompts, audio, and GEO use cases.')

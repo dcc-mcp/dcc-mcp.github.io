@@ -12,14 +12,14 @@ Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https
 - [Wwise audio showcase](https://dcc-mcp.github.io/showcase/wwise): Play deterministic sound effects and background music validated through typed WAAPI tools.
 - [Common AI + DCC tasks](https://dcc-mcp.github.io/use-cases): Direct answers and copyable prompts for Maya, Blender, image editing, film editing and compositing, VFX, random scene generation, and game creation.
 - [Agent workflow](https://dcc-mcp.github.io/agents): Install the public Skill, discover typed tools, validate calls, and diagnose failures.
-- [Developer routing](https://dcc-mcp.github.io/developers): Decide whether to build an adapter, a specialized Skill, or a shared Core change.
+- [Developer labs](https://dcc-mcp.github.io/developers): Give an agent a tested path to build and debug a private standalone MCP service, a DCC adapter, or a specialized Skill.
 - [Ecosystem directory](https://dcc-mcp.github.io/ecosystem): Adapters, extensions, asset providers, AI services, and studio integrations.
 - [Core documentation](https://dcc-mcp.github.io/dcc-mcp-core/): Gateway, CLI, MCP/REST, security, observability, and Python API.
 
 ## Agent Skills
 
 - [dcc-mcp](https://clawhub.ai/loonghao/skills/dcc-mcp): Operate live DCCs and install official Marketplace extensions.
-- [dcc-mcp-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-creator): Create or modernize a complete DCC-MCP adapter/runtime.
+- [dcc-mcp-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-creator): Create or modernize a DCC adapter/runtime or a private non-DCC standalone MCP service without requiring GitHub.
 - [dcc-mcp-skills-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator): Create, validate, or improve a DCC-specific Skill package.
 
 ## Current released integrations
