@@ -1,19 +1,20 @@
 # DCC-MCP
 
-> DCC-MCP is open infrastructure that connects AI agents to creative applications through one Agent Skill, the typed `dcc-mcp-cli`, and a shared MCP + REST control plane.
+> DCC-MCP provides a Gateway, typed CLI, MCP and REST endpoints, adapters, and Skills for creative applications.
 
 Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https://dcc-mcp.github.io/zh/llms.txt)
 
 ## Canonical entry points
 
-- [Homepage and one-prompt setup](https://dcc-mcp.github.io/)
-- [Marketplace search](https://dcc-mcp.github.io/marketplace): Search the official live catalog and copy consent-aware agent prompts or typed CLI installation commands.
-- [Showcase gallery](https://dcc-mcp.github.io/showcase): View real ecosystem outputs and copy the corresponding production-oriented agent prompts.
+- [Homepage and setup prompt](https://dcc-mcp.github.io/)
+- [Why DCC-MCP exists](https://dcc-mcp.github.io/why-dcc-mcp): The production problems, lessons, technical boundaries, and deliberate limits behind the architecture.
+- [Marketplace search](https://dcc-mcp.github.io/marketplace): Search the official catalog and copy a setup prompt or typed CLI installation command.
+- [Showcase gallery](https://dcc-mcp.github.io/showcase): View outputs, owning repositories, validation notes, and prompts.
 - [Wwise audio showcase](https://dcc-mcp.github.io/showcase/wwise): Play deterministic sound effects and background music validated through typed WAAPI tools.
 - [Common AI + DCC tasks](https://dcc-mcp.github.io/use-cases): Direct answers and copyable prompts for Maya, Blender, image editing, film editing and compositing, VFX, random scene generation, and game creation.
 - [Agent workflow](https://dcc-mcp.github.io/agents): Install the public Skill, discover typed tools, validate calls, and diagnose failures.
-- [Developer labs](https://dcc-mcp.github.io/developers): Give an agent an open Dev Container and tested path to build and debug a private standalone MCP service, a DCC adapter, or a specialized Skill.
-- [Ecosystem directory](https://dcc-mcp.github.io/ecosystem): Adapters, extensions, asset providers, AI services, and studio integrations.
+- [Developer guide](https://dcc-mcp.github.io/developers): Local examples and validation steps for a private standalone MCP service, DCC adapter, or specialized Skill.
+- [Ecosystem directory](https://dcc-mcp.github.io/ecosystem): Adapters, extensions, asset providers, generation services, and studio integrations.
 - [Core documentation](https://dcc-mcp.github.io/dcc-mcp-core/): Gateway, CLI, MCP/REST, security, observability, and Python API.
 
 ## Agent Skills

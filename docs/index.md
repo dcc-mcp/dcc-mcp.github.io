@@ -1,35 +1,35 @@
 ---
 layout: home
 title: DCC-MCP
-description: One Agent Skill and one CLI for operating creative software through a shared, production-grade control plane.
+description: Connect creative applications through a shared Gateway, typed CLI, MCP, and REST.
 
 hero:
   name: DCC-MCP
-  text: Creative tools. One agent interface.
-  tagline: A shared control plane for discovering and safely operating Maya, Blender, Houdini, Unreal, Photoshop, and the rest of your pipeline.
+  text: Connect agents to creative software.
+  tagline: Use the Gateway and typed tools to work with Maya, Blender, Houdini, Unreal, Photoshop, and other applications in the pipeline.
   image:
     src: /brand/dcc-mcp-logo-admin-light.png
     alt: DCC-MCP
   actions:
     - theme: brand
-      text: Start with the Skill
+      text: Set up DCC-MCP
       link: /#install-prompt
     - theme: alt
-      text: View the ecosystem
+      text: Browse projects
       link: /ecosystem
 ---
 
 <div class="home-proof" aria-label="DCC-MCP platform summary">
-  <span><strong>One</strong> Agent Skill</span>
-  <span><strong>One</strong> typed CLI</span>
-  <span><strong>MCP + REST</strong> together</span>
+  <span><strong>Public</strong> Agent Skill</span>
+  <span><strong>Typed</strong> CLI</span>
+  <span><strong>MCP + REST</strong> endpoints</span>
   <span><strong>50+</strong> public projects</span>
 </div>
 
 <div id="install-prompt" class="install-intro">
-  <p class="home-kicker">ONE-PROMPT SETUP</p>
-  <h2>Give this to your agent.</h2>
-  <p>It will install the right Skill, connect the CLI and adapters, verify the gateway, and stop for consent at every system-changing boundary.</p>
+  <p class="home-kicker">SETUP</p>
+  <h2>Copy this prompt into your agent.</h2>
+  <p>The agent will follow the maintained Skill, check the CLI and adapters, and ask before installing software or changing system state.</p>
 </div>
 
 ```text
@@ -54,15 +54,15 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
    and any action still required from me.
 ```
 
-<p class="install-note">Paste once. The Agent Skill supplies the maintained workflow. <a href="/agents">Read the agent guide</a> or <a href="/use-cases">start from a common task →</a></p>
+<p class="install-note">The Skill contains the current setup procedure. <a href="/agents">Read the agent guide</a> or <a href="/use-cases">choose a task →</a></p>
 
 <section class="integrations-section" aria-labelledby="integrations-title">
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">OFFICIAL INTEGRATIONS</p>
-      <h2 id="integrations-title">21 creative tools. One interface.</h2>
+      <h2 id="integrations-title">Adapters for 21 applications.</h2>
     </div>
-    <p>Official adapters across the DCC-MCP ecosystem. Use <code>dcc-mcp-cli dcc-types</code> to see currently installable releases.</p>
+    <p>Each adapter owns its application-specific installation and tools. Run <code>dcc-mcp-cli dcc-types</code> for the current release catalog.</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>
@@ -87,18 +87,18 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
     <a class="dcc-tile-dark" href="https://github.com/dcc-mcp/dcc-mcp-wwise"><img src="/dcc-logos/wwise.png" alt="Wwise logo"><span>Wwise</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-zbrush"><img src="/dcc-logos/zbrush.png" alt="ZBrush logo"><span>ZBrush</span></a>
   </div>
-  <a class="integrations-more" href="/ecosystem">See every adapter and extension →</a>
+  <a class="integrations-more" href="/ecosystem">Open the project directory →</a>
 </section>
 
 <section class="home-marketplace-section" aria-labelledby="home-marketplace-title">
   <div class="home-marketplace-heading">
     <div>
       <p class="home-kicker">CAPABILITY MARKETPLACE</p>
-      <h2 id="home-marketplace-title">Add the workflow you need.</h2>
+      <h2 id="home-marketplace-title">Find optional packages.</h2>
     </div>
     <div>
-      <p>Discover official Skills, asset providers, AI services, and studio integrations with source-pinned visual proof.</p>
-      <a href="/marketplace">Browse the complete Marketplace →</a>
+      <p>Search Skills, asset providers, services, and studio integrations. Showcase media is resolved from each package's pinned source revision.</p>
+      <a href="/marketplace">Search the Marketplace →</a>
     </div>
   </div>
   <ClientOnly>
@@ -108,9 +108,9 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
 
 <section class="showcase-section">
   <div class="showcase-heading">
-    <p class="home-kicker">BUILT WITH DCC-MCP</p>
-    <h2>From intent to production output.</h2>
-    <p>Real workflows from adapters, AI services, procedural systems, and asset providers across the ecosystem.</p>
+    <p class="home-kicker">EXAMPLES</p>
+    <h2>Outputs, sources, and validation records.</h2>
+    <p>Examples from adapters, procedural tools, asset providers, and external services.</p>
   </div>
   <div class="showcase-grid">
     <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-blender">
@@ -150,5 +150,5 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
       <span><small>ZBRUSH → MAYA</small><strong>5M import → 115K PolyFrame</strong><em>→</em></span>
     </a>
   </div>
-  <a class="showcase-more" href="/showcase">Open the Showcase and copy a prompt →</a>
+  <a class="showcase-more" href="/showcase">View all examples and prompts →</a>
 </section>

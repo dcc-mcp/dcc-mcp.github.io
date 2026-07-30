@@ -1,12 +1,12 @@
 ---
 title: Showcase
-description: Production-oriented DCC-MCP examples with the exact prompts agents can follow to recreate each workflow.
+description: DCC-MCP examples with source repositories, validation details, and reusable prompts.
 pageClass: showcase-page
 ---
 
-# See the result. Copy the intent.
+# Examples and prompts
 
-Each showcase pairs a real ecosystem output with a consent-aware prompt. Give the prompt to an agent with the [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp); it will discover the matching typed tools or Marketplace package before acting.
+Each card includes an output, its owning repository, and a prompt. An agent using the [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp) still needs to discover the local tools or Marketplace package and ask before installing anything.
 
 <ClientOnly>
   <ShowcaseGallery />

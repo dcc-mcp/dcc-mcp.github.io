@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitepress'
 
 const siteUrl = 'https://dcc-mcp.github.io/'
-const description = 'One Agent Skill and one CLI for creative software through a shared production control plane.'
-const zhDescription = '通过一个 Agent Skill、一套类型化 CLI 和共享控制平面连接专业创意软件。'
+const description = 'Gateway, typed CLI, MCP, REST, adapters, and Skills for creative applications.'
+const zhDescription = '连接创意应用的 Gateway、类型化 CLI、MCP、REST、适配器与 Skills。'
 const integrations = [
   ['3ds Max', 'dcc-mcp-3dsmax'],
   ['After Effects', 'dcc-mcp-aftereffects'],
@@ -27,6 +27,7 @@ const integrations = [
 
 const englishTheme = {
   nav: [
+    { text: 'Why DCC-MCP', link: '/why-dcc-mcp' },
     { text: 'Marketplace', link: '/marketplace' },
     { text: 'Showcase', link: '/showcase' },
     { text: 'For Agents', link: '/agents' },
@@ -44,7 +45,7 @@ const englishTheme = {
     },
   ],
   footer: {
-    message: 'Open infrastructure for agent-driven creative software.',
+    message: 'Gateway, CLI, adapters, and Skills for creative applications.',
     copyright: 'DCC-MCP',
   },
   editLink: {
@@ -58,6 +59,7 @@ const englishTheme = {
 
 const chineseTheme = {
   nav: [
+    { text: '为什么是 DCC-MCP', link: '/zh/why-dcc-mcp' },
     { text: '技能市场', link: '/zh/marketplace' },
     { text: '案例画廊', link: '/zh/showcase' },
     { text: 'Agent 使用', link: '/zh/agents' },
@@ -75,7 +77,7 @@ const chineseTheme = {
     },
   ],
   footer: {
-    message: '面向 Agent 驱动创意软件的开放基础设施。',
+    message: '连接创意应用的 Gateway、CLI、适配器与 Skills。',
     copyright: 'DCC-MCP',
   },
   editLink: {
@@ -170,7 +172,7 @@ export default defineConfig({
     const englishPath = relativePath.replace(/^zh\//, '')
     const chinesePath = isZh ? relativePath : `zh/${relativePath}`
     const title = pageData.frontmatter.layout === 'home'
-      ? (isZh ? 'DCC-MCP — 创意软件的统一控制平面' : 'DCC-MCP — One control plane for creative software')
+        ? (isZh ? 'DCC-MCP — 创意应用控制平面' : 'DCC-MCP — Creative application control plane')
       : `${pageData.title} | DCC-MCP`
 
     pageData.frontmatter.head ??= []

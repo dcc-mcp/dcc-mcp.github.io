@@ -1,6 +1,6 @@
 ---
 title: Wwise Interactive Audio Showcase
-description: Play sound effects and background music created and validated through typed DCC-MCP Wwise tools.
+description: WAV files created in Wwise through typed WAAPI tools, with adapter and validation links.
 pageClass: wwise-audio-page
 ---
 
@@ -14,10 +14,9 @@ pageClass: wwise-audio-page
   </picture>
 </p>
 
-These deterministic WAV assets were imported, organized, adjusted, previewed,
-and saved through typed WAAPI tools in a local scratch Wwise project. The test
-project stays local; only the reusable audio assets and validation record are
-published.
+Typed WAAPI calls imported, organized, adjusted, previewed, and saved these WAV
+files in a local Wwise test project. The project is not published; this page
+contains the audio files and a link to the validation record.
 
 <section id="ui-confirm">
   <h2>UI Confirm</h2>

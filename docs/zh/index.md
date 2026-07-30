@@ -1,35 +1,35 @@
 ---
 layout: home
 title: DCC-MCP
-description: 通过一个 Agent Skill、一套类型化 CLI 和共享的生产级控制平面操作创意软件。
+description: 通过共享 Gateway、类型化 CLI、MCP 与 REST 连接创意应用。
 
 hero:
   name: DCC-MCP
-  text: 创意工具，一个 Agent 接口。
-  tagline: 通过共享控制平面发现并安全操作 Maya、Blender、Houdini、Unreal、Photoshop 与完整制作管线。
+  text: 让 Agent 使用创意软件。
+  tagline: 通过共享 Gateway 和类型化工具连接 Maya、Blender、Houdini、Unreal、Photoshop 与制作管线中的其他应用。
   image:
     src: /brand/dcc-mcp-logo-admin-light.png
     alt: DCC-MCP
   actions:
     - theme: brand
-      text: 从 Skill 开始
+      text: 配置 DCC-MCP
       link: /zh/#install-prompt
     - theme: alt
-      text: 浏览生态
+      text: 浏览项目
       link: /zh/ecosystem
 ---
 
 <div class="home-proof" aria-label="DCC-MCP 平台摘要">
-  <span><strong>一个</strong> Agent Skill</span>
-  <span><strong>一套</strong>类型化 CLI</span>
-  <span><strong>MCP + REST</strong> 同时提供</span>
+  <span><strong>公开</strong> Agent Skill</span>
+  <span><strong>类型化</strong> CLI</span>
+  <span><strong>MCP + REST</strong> 接口</span>
   <span><strong>50+</strong> 个公开项目</span>
 </div>
 
 <div id="install-prompt" class="install-intro">
-  <p class="home-kicker">一段提示词完成接入</p>
-  <h2>把下面内容交给你的 Agent。</h2>
-  <p>它会安装正确的 Skill，连接 CLI 与适配器，验证 Gateway，并在每个会改变系统状态的边界先征得你的同意。</p>
+  <p class="home-kicker">配置</p>
+  <h2>把这段提示词复制给 Agent。</h2>
+  <p>Agent 会按 Skill 中维护的步骤检查 CLI 和适配器；安装软件或改变系统状态前会先询问你。</p>
 </div>
 
 ```text
@@ -50,15 +50,15 @@ hero:
 7. 最后报告已安装版本、已连接实例、验证证据，以及仍需我处理的事项。
 ```
 
-<p class="install-note">只需粘贴一次，Agent Skill 会提供持续维护的工作流。<a href="/zh/agents">阅读 Agent 指南</a>或<a href="/zh/use-cases">从常见任务开始 →</a></p>
+<p class="install-note">Skill 中保存了当前配置步骤。<a href="/zh/agents">阅读 Agent 指南</a>或<a href="/zh/use-cases">选择一个任务 →</a></p>
 
 <section class="integrations-section" aria-labelledby="integrations-title">
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">官方集成</p>
-      <h2 id="integrations-title">21 款创意工具，一个接口。</h2>
+      <h2 id="integrations-title">21 款应用的适配器。</h2>
     </div>
-    <p>DCC-MCP 生态的官方适配器；使用 <code>dcc-mcp-cli dcc-types</code> 查询当前可安装版本。</p>
+    <p>每个适配器负责对应应用的安装与工具。使用 <code>dcc-mcp-cli dcc-types</code> 查询当前发布目录。</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>
@@ -83,18 +83,18 @@ hero:
     <a class="dcc-tile-dark" href="https://github.com/dcc-mcp/dcc-mcp-wwise"><img src="/dcc-logos/wwise.png" alt="Wwise logo"><span>Wwise</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-zbrush"><img src="/dcc-logos/zbrush.png" alt="ZBrush logo"><span>ZBrush</span></a>
   </div>
-  <a class="integrations-more" href="/zh/ecosystem">查看所有适配器与扩展 →</a>
+  <a class="integrations-more" href="/zh/ecosystem">打开项目目录 →</a>
 </section>
 
 <section class="home-marketplace-section" aria-labelledby="home-marketplace-title">
   <div class="home-marketplace-heading">
     <div>
       <p class="home-kicker">能力市场</p>
-      <h2 id="home-marketplace-title">按需添加工作流。</h2>
+      <h2 id="home-marketplace-title">查找可选软件包。</h2>
     </div>
     <div>
-      <p>发现官方 Skills、资产提供方、AI 服务与工作室集成，并查看固定到源码版本的可视化成果。</p>
-      <a href="/zh/marketplace">浏览完整技能市场 →</a>
+      <p>搜索 Skills、资产提供方、服务与工作室集成。展示素材从软件包固定的源码版本读取。</p>
+      <a href="/zh/marketplace">搜索技能市场 →</a>
     </div>
   </div>
   <ClientOnly>
@@ -104,9 +104,9 @@ hero:
 
 <section class="showcase-section">
   <div class="showcase-heading">
-    <p class="home-kicker">使用 DCC-MCP 构建</p>
-    <h2>从意图到生产产出。</h2>
-    <p>来自生态适配器、AI 服务、程序化系统与资产提供方的真实工作流。</p>
+    <p class="home-kicker">案例</p>
+    <h2>结果、来源与验证记录。</h2>
+    <p>这里收录适配器、程序化工具、资产提供方和外部服务的使用结果。</p>
   </div>
   <div class="showcase-grid">
     <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-blender">
@@ -146,5 +146,5 @@ hero:
       <span><small>ZBRUSH → MAYA</small><strong>500 万面导入 → 11.5 万面布线</strong><em>→</em></span>
     </a>
   </div>
-  <a class="showcase-more" href="/zh/showcase">打开案例画廊并复制提示词 →</a>
+  <a class="showcase-more" href="/zh/showcase">查看全部案例与提示词 →</a>
 </section>
