@@ -12,7 +12,7 @@ Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https
 - [Wwise audio showcase](https://dcc-mcp.github.io/showcase/wwise): Play deterministic sound effects and background music validated through typed WAAPI tools.
 - [Common AI + DCC tasks](https://dcc-mcp.github.io/use-cases): Direct answers and copyable prompts for Maya, Blender, image editing, film editing and compositing, VFX, random scene generation, and game creation.
 - [Agent workflow](https://dcc-mcp.github.io/agents): Install the public Skill, discover typed tools, validate calls, and diagnose failures.
-- [Developer labs](https://dcc-mcp.github.io/developers): Give an agent a tested path to build and debug a private standalone MCP service, a DCC adapter, or a specialized Skill.
+- [Developer labs](https://dcc-mcp.github.io/developers): Give an agent an open Dev Container and tested path to build and debug a private standalone MCP service, a DCC adapter, or a specialized Skill.
 - [Ecosystem directory](https://dcc-mcp.github.io/ecosystem): Adapters, extensions, asset providers, AI services, and studio integrations.
 - [Core documentation](https://dcc-mcp.github.io/dcc-mcp-core/): Gateway, CLI, MCP/REST, security, observability, and Python API.
 
