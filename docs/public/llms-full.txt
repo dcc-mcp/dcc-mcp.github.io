@@ -72,6 +72,40 @@ Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release cat
 
 Unknown and custom studio host identifiers are supported. The broader ecosystem directory may include experimental or independently released adapters that are not yet in the current CLI release catalog: https://dcc-mcp.github.io/ecosystem
 
+## Application-specific AI control guides
+
+The canonical hub is https://dcc-mcp.github.io/use-cases. Direct guides are available for every public application and released pipeline integration:
+
+- 3ds Max: https://dcc-mcp.github.io/control/3ds-max
+- After Effects: https://dcc-mcp.github.io/control/after-effects
+- Blender: https://dcc-mcp.github.io/control/blender
+- ComfyUI: https://dcc-mcp.github.io/control/comfyui
+- Flow Production Tracking: https://dcc-mcp.github.io/control/flow-production-tracking
+- GIMP: https://dcc-mcp.github.io/control/gimp
+- Godot: https://dcc-mcp.github.io/control/godot
+- Houdini: https://dcc-mcp.github.io/control/houdini
+- Katana: https://dcc-mcp.github.io/control/katana
+- Krita: https://dcc-mcp.github.io/control/krita
+- Marmoset Toolbag: https://dcc-mcp.github.io/control/marmoset-toolbag
+- Material Maker: https://dcc-mcp.github.io/control/material-maker
+- Maya: https://dcc-mcp.github.io/control/maya
+- MotionBuilder: https://dcc-mcp.github.io/control/motionbuilder
+- Nuke: https://dcc-mcp.github.io/control/nuke
+- OpenUSD: https://dcc-mcp.github.io/control/openusd
+- Photoshop: https://dcc-mcp.github.io/control/photoshop
+- Premiere Pro: https://dcc-mcp.github.io/control/premiere-pro
+- RenderDoc: https://dcc-mcp.github.io/control/renderdoc
+- Substance 3D Designer: https://dcc-mcp.github.io/control/substance-3d-designer
+- Substance 3D Painter: https://dcc-mcp.github.io/control/substance-3d-painter
+- Tiled: https://dcc-mcp.github.io/control/tiled
+- TouchDesigner: https://dcc-mcp.github.io/control/touchdesigner
+- Unity: https://dcc-mcp.github.io/control/unity
+- Unreal Engine: https://dcc-mcp.github.io/control/unreal-engine
+- Wwise: https://dcc-mcp.github.io/control/wwise
+- ZBrush: https://dcc-mcp.github.io/control/zbrush
+
+Each guide distinguishes the public adapter inventory from the current CLI release catalog and links host-specific details back to the owning repository.
+
 ## Official Marketplace
 
 Website search: https://dcc-mcp.github.io/marketplace

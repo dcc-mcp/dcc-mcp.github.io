@@ -83,7 +83,7 @@ hero:
     <a class="dcc-tile-dark" href="https://github.com/dcc-mcp/dcc-mcp-wwise"><img src="/dcc-logos/wwise.png" alt="Wwise logo"><span>Wwise</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-zbrush"><img src="/dcc-logos/zbrush.png" alt="ZBrush logo"><span>ZBrush</span></a>
   </div>
-  <a class="integrations-more" href="/zh/ecosystem">打开项目目录 →</a>
+  <a class="integrations-more" href="/zh/use-cases">查看 AI 如何控制全部集成 →</a>
 </section>
 
 <section class="home-marketplace-section" aria-labelledby="home-marketplace-title">

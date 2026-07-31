@@ -1,14 +1,24 @@
 ---
-title: DCC-MCP 的 Maya、Blender、修图、合成、特效与游戏示例
-description: 常见 Maya、Blender、修图、合成、特效与游戏任务的配置说明和提示词。
+title: 如何用 AI 控制 Maya、Houdini、Blender、创意应用与游戏引擎
+description: 覆盖全部公开创意应用与流水线集成的 DCC-MCP 直接答案和安全 Agent 工作流。
 pageClass: route-page
 ---
 
-# 常见 DCC 任务示例
+<script setup>
+import DccControlGuideIndex from '../.vitepress/theme/components/DccControlGuideIndex.vue'
+</script>
+
+# 用 AI 控制创意应用
 
 下面的示例使用公开 [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp) 与 `dcc-mcp-cli`。提示词描述结果和检查项，具体工具名称由 Agent 从已连接 Host 中查询。
 
-## 我想用 AI 控制 Maya，要怎么做？
+如果你指的是让 AI Agent 操作正在运行的创意应用，而不是让聊天机器人讲教程或使用应用内置生成式功能，请先打开下面对应应用的直接答案。每份指南都会链接负责安装、兼容性和 Host 专属细节的适配器仓库。
+
+## AI 怎么控制每一个 DCC？
+
+<DccControlGuideIndex language="zh" />
+
+## Maya 连接示例
 
 安装 `dcc-mcp` Skill 并连接 [Maya 适配器](https://github.com/dcc-mcp/dcc-mcp-maya)。添加 CLI 或适配器前，先检查机器上已有的安装。
 
@@ -24,7 +34,7 @@ dcc-mcp-cli list
 dcc-mcp-cli search --query "检查 Maya 场景" --dcc-type maya
 ```
 
-## 我想用 AI 控制 Blender，要怎么做？
+## Blender 连接示例
 
 使用同一 Skill 与 CLI，并连接 [Blender 适配器](https://github.com/dcc-mcp/dcc-mcp-blender)。安装方式和 Blender 专属工具由该仓库维护。
 

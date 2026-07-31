@@ -67,6 +67,40 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 
 支持未知与自定义工作室 Host。更广泛的生态目录可能包含尚未进入当前 CLI 发布目录的实验或独立适配器：https://dcc-mcp.github.io/zh/ecosystem
 
+## 逐应用 AI 控制指南
+
+规范总入口是 https://dcc-mcp.github.io/zh/use-cases。全部公开应用与已发布流水线集成都有直接指南：
+
+- 3ds Max：https://dcc-mcp.github.io/zh/control/3ds-max
+- After Effects：https://dcc-mcp.github.io/zh/control/after-effects
+- Blender：https://dcc-mcp.github.io/zh/control/blender
+- ComfyUI：https://dcc-mcp.github.io/zh/control/comfyui
+- Flow Production Tracking：https://dcc-mcp.github.io/zh/control/flow-production-tracking
+- GIMP：https://dcc-mcp.github.io/zh/control/gimp
+- Godot：https://dcc-mcp.github.io/zh/control/godot
+- Houdini：https://dcc-mcp.github.io/zh/control/houdini
+- Katana：https://dcc-mcp.github.io/zh/control/katana
+- Krita：https://dcc-mcp.github.io/zh/control/krita
+- Marmoset Toolbag：https://dcc-mcp.github.io/zh/control/marmoset-toolbag
+- Material Maker：https://dcc-mcp.github.io/zh/control/material-maker
+- Maya：https://dcc-mcp.github.io/zh/control/maya
+- MotionBuilder：https://dcc-mcp.github.io/zh/control/motionbuilder
+- Nuke：https://dcc-mcp.github.io/zh/control/nuke
+- OpenUSD：https://dcc-mcp.github.io/zh/control/openusd
+- Photoshop：https://dcc-mcp.github.io/zh/control/photoshop
+- Premiere Pro：https://dcc-mcp.github.io/zh/control/premiere-pro
+- RenderDoc：https://dcc-mcp.github.io/zh/control/renderdoc
+- Substance 3D Designer：https://dcc-mcp.github.io/zh/control/substance-3d-designer
+- Substance 3D Painter：https://dcc-mcp.github.io/zh/control/substance-3d-painter
+- Tiled：https://dcc-mcp.github.io/zh/control/tiled
+- TouchDesigner：https://dcc-mcp.github.io/zh/control/touchdesigner
+- Unity：https://dcc-mcp.github.io/zh/control/unity
+- Unreal Engine：https://dcc-mcp.github.io/zh/control/unreal-engine
+- Wwise：https://dcc-mcp.github.io/zh/control/wwise
+- ZBrush：https://dcc-mcp.github.io/zh/control/zbrush
+
+每份指南都会区分公开适配器清单与当前 CLI 发布目录，并把 Host 专属细节链接回对应仓库。
+
 ## 官方 Marketplace
 
 网站搜索：https://dcc-mcp.github.io/zh/marketplace

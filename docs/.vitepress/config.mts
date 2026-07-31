@@ -1,30 +1,9 @@
 import { defineConfig } from 'vitepress'
+import { releasedIntegrations } from './dcc-integrations.mts'
 
 const siteUrl = 'https://dcc-mcp.github.io/'
 const description = 'Gateway, typed CLI, MCP, REST, adapters, and Skills for creative applications.'
 const zhDescription = '连接创意应用的 Gateway、类型化 CLI、MCP、REST、适配器与 Skills。'
-const integrations = [
-  ['3ds Max', 'dcc-mcp-3dsmax'],
-  ['After Effects', 'dcc-mcp-aftereffects'],
-  ['Blender', 'dcc-mcp-blender'],
-  ['Godot', 'dcc-mcp-godot'],
-  ['Houdini', 'dcc-mcp-houdini'],
-  ['Katana', 'dcc-mcp-katana'],
-  ['Marmoset Toolbag', 'dcc-mcp-marmoset'],
-  ['Maya', 'dcc-mcp-maya'],
-  ['MotionBuilder', 'dcc-mcp-mobu'],
-  ['Nuke', 'dcc-mcp-nuke'],
-  ['OpenUSD', 'dcc-mcp-openusd'],
-  ['Photoshop', 'dcc-mcp-photoshop'],
-  ['Premiere Pro', 'dcc-mcp-premiere'],
-  ['RenderDoc', 'dcc-mcp-renderdoc'],
-  ['Flow Production Tracking', 'dcc-mcp-fpt'],
-  ['Substance 3D Designer', 'dcc-mcp-substance3d-designer'],
-  ['Substance 3D Painter', 'dcc-mcp-substance3d-painter'],
-  ['Unity', 'dcc-mcp-unity'],
-  ['Unreal Engine', 'dcc-mcp-unreal'],
-  ['ZBrush', 'dcc-mcp-zbrush'],
-]
 
 const englishTheme = {
   nav: [
@@ -153,8 +132,8 @@ export default defineConfig({
         {
           '@type': 'ItemList',
           name: 'DCC-MCP released creative application integrations',
-          numberOfItems: integrations.length,
-          itemListElement: integrations.map(([name, repository], index) => ({
+          numberOfItems: releasedIntegrations.length,
+          itemListElement: releasedIntegrations.map(({ name, repository }, index) => ({
             '@type': 'ListItem',
             position: index + 1,
             name,
@@ -166,6 +145,9 @@ export default defineConfig({
   ],
 
   transformPageData(pageData) {
+    if (pageData.params?.title) pageData.title = pageData.params.title
+    if (pageData.params?.description) pageData.description = pageData.params.description
+
     const relativePath = pageData.relativePath
       .replace(/index\.md$/, '')
       .replace(/\.md$/, '')

@@ -87,7 +87,7 @@ Set up DCC-MCP on this machine for agent-driven creative workflows.
     <a class="dcc-tile-dark" href="https://github.com/dcc-mcp/dcc-mcp-wwise"><img src="/dcc-logos/wwise.png" alt="Wwise logo"><span>Wwise</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-zbrush"><img src="/dcc-logos/zbrush.png" alt="ZBrush logo"><span>ZBrush</span></a>
   </div>
-  <a class="integrations-more" href="/ecosystem">Open the project directory →</a>
+  <a class="integrations-more" href="/use-cases">See how AI controls every integration →</a>
 </section>
 
 <section class="home-marketplace-section" aria-labelledby="home-marketplace-title">

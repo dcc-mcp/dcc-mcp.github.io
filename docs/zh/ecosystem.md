@@ -27,6 +27,9 @@ Core 记录共享控制平面；各仓库记录自己的安装、兼容性和 Ho
 
 ## DCC 与创意应用适配器
 
+自然语言控制问题和安全 Agent 提示词先从[逐应用 AI 控制指南](/zh/use-cases)
+开始；安装和 Host 专属细节仍以对应适配器仓库为事实来源。
+
 - [3ds Max](https://github.com/dcc-mcp/dcc-mcp-3dsmax) · [After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) · [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) · [ComfyUI](https://github.com/dcc-mcp/dcc-mcp-comfyui)
 - [GIMP](https://github.com/dcc-mcp/dcc-mcp-gimp) · [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) · [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) · [Katana](https://github.com/dcc-mcp/dcc-mcp-katana)
 - [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) · [Material Maker](https://github.com/dcc-mcp/dcc-mcp-material-maker) · [Maya](https://github.com/dcc-mcp/dcc-mcp-maya) · [Marmoset Toolbag](https://github.com/dcc-mcp/dcc-mcp-marmoset) · [MotionBuilder](https://github.com/dcc-mcp/dcc-mcp-mobu)
