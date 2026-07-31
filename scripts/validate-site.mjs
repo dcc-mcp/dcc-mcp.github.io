@@ -4,6 +4,17 @@ import { fileURLToPath } from 'node:url'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const dist = join(root, 'docs', '.vitepress', 'dist')
+const integrationSource = readFileSync(join(root, 'docs', '.vitepress', 'dcc-integrations.mts'), 'utf8')
+const integrations = [...integrationSource.matchAll(
+  /slug: '([^']+)',\s+name: '([^']+)',\s+repository: '([^']+)'/g,
+)].map(([, slug, name, repository]) => ({ slug, name, repository }))
+if (integrations.length !== 27) {
+  throw new Error(`Expected 27 public application and pipeline integrations, found ${integrations.length}`)
+}
+const releasedIntegrationCount = [...integrationSource.matchAll(/\s+dccType: '[^']+',/g)].length
+if (releasedIntegrationCount !== 20) {
+  throw new Error(`Expected 20 released host identifiers, found ${releasedIntegrationCount}`)
+}
 const requiredFiles = [
   'index.html',
   'agents.html',
@@ -40,6 +51,11 @@ const requiredFiles = [
 for (const file of requiredFiles) {
   if (!existsSync(join(dist, file))) throw new Error(`Missing generated file: ${file}`)
 }
+for (const { slug } of integrations) {
+  for (const file of [`control/${slug}.html`, `zh/control/${slug}.html`]) {
+    if (!existsSync(join(dist, file))) throw new Error(`Missing generated DCC control guide: ${file}`)
+  }
+}
 
 const englishHome = readFileSync(join(dist, 'index.html'), 'utf8')
 const chineseHome = readFileSync(join(dist, 'zh', 'index.html'), 'utf8')
@@ -60,6 +76,12 @@ for (const [name, html, href] of [
 if (!englishHome.includes('CAPABILITY MARKETPLACE') || !chineseHome.includes('能力市场')) {
   throw new Error('Localized homepages are missing the Marketplace preview')
 }
+if (!englishHome.includes('href="/use-cases"') || !chineseHome.includes('href="/zh/use-cases"')) {
+  throw new Error('Localized homepages are missing the all-integration control guide link')
+}
+if (!englishHome.includes(`"numberOfItems":${releasedIntegrationCount}`)) {
+  throw new Error('Homepage structured data has the wrong released integration count')
+}
 for (const label of ['Why DCC-MCP', 'Marketplace', 'Showcase', 'For Agents']) {
   if (!englishHome.includes(`>${label}<`)) throw new Error(`English navigation is missing ${label}`)
 }
@@ -70,6 +92,11 @@ for (const label of ['为什么是 DCC-MCP', '技能市场', '案例画廊', 'Ag
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
 for (const route of ['/', '/marketplace', '/showcase', '/showcase/wwise', '/use-cases', '/why-dcc-mcp', '/zh/', '/zh/marketplace', '/zh/showcase', '/zh/showcase/wwise', '/zh/use-cases', '/zh/why-dcc-mcp']) {
   if (!sitemap.includes(`https://dcc-mcp.github.io${route}`)) throw new Error(`Sitemap is missing ${route}`)
+}
+for (const { slug } of integrations) {
+  for (const route of [`/control/${slug}`, `/zh/control/${slug}`]) {
+    if (!sitemap.includes(`https://dcc-mcp.github.io${route}`)) throw new Error(`Sitemap is missing ${route}`)
+  }
 }
 if (sitemap.includes('/public/') || sitemap.includes('/README')) {
   throw new Error('Sitemap contains an internal asset README')
@@ -122,11 +149,38 @@ for (const file of [join(dist, 'showcase', 'wwise.html'), join(dist, 'zh', 'show
 
 const englishUseCases = readFileSync(join(dist, 'use-cases.html'), 'utf8')
 const chineseUseCases = readFileSync(join(dist, 'zh', 'use-cases.html'), 'utf8')
-for (const phrase of ['control Maya with AI', 'control Blender with AI', 'create ten random spheres in Maya', 'want to make a game', 'edit photos with AI', 'edit or composite a film with AI', 'create visual effects with AI']) {
+for (const phrase of ['control Maya with AI', 'control Houdini with AI', 'control Blender with AI', 'create ten random spheres in Maya', 'want to make a game', 'edit photos with AI', 'edit or composite a film with AI', 'create visual effects with AI']) {
   if (!englishUseCases.toLowerCase().includes(phrase.toLowerCase())) throw new Error(`English use cases are missing: ${phrase}`)
 }
-for (const phrase of ['我想用 AI 控制 Maya', '我想用 AI 控制 Blender', '我想在 Maya 创建十个随机的小球', '我想做一个游戏', '我想用 AI 修图', '我想用 AI 剪辑或合成片子', '我想用 AI 做特效']) {
+for (const phrase of ['AI 怎么控制 Maya', 'AI 怎么控制 Houdini', 'AI 怎么控制 Blender', '我想在 Maya 创建十个随机的小球', '我想做一个游戏', '我想用 AI 修图', '我想用 AI 剪辑或合成片子', '我想用 AI 做特效']) {
   if (!chineseUseCases.includes(phrase)) throw new Error(`Chinese use cases are missing: ${phrase}`)
+}
+const llmsFiles = [
+  readFileSync(join(dist, 'llms.txt'), 'utf8'),
+  readFileSync(join(dist, 'llms-full.txt'), 'utf8'),
+  readFileSync(join(dist, 'zh', 'llms.txt'), 'utf8'),
+  readFileSync(join(dist, 'zh', 'llms-full.txt'), 'utf8'),
+]
+for (const { slug, name, repository } of integrations) {
+  const englishGuide = readFileSync(join(dist, 'control', `${slug}.html`), 'utf8')
+  const chineseGuide = readFileSync(join(dist, 'zh', 'control', `${slug}.html`), 'utf8')
+  for (const [label, html, localePath, question] of [
+    ['English', englishGuide, `control/${slug}`, `control ${name}`],
+    ['Chinese', chineseGuide, `zh/control/${slug}`, `控制 ${name}`],
+  ]) {
+    if (!html.includes(question)) throw new Error(`${label} ${name} guide is missing its direct-answer question`)
+    if (!html.includes(`https://github.com/dcc-mcp/${repository}`)) throw new Error(`${label} ${name} guide is missing its owning repository`)
+    if (!html.includes(`https://dcc-mcp.github.io/${localePath}`)) throw new Error(`${label} ${name} guide is missing its canonical URL`)
+    if (!html.includes('hreflang="en"') || !html.includes('hreflang="zh-CN"')) {
+      throw new Error(`${label} ${name} guide is missing language alternates`)
+    }
+  }
+  if (!englishUseCases.includes(`/control/${slug}`) || !chineseUseCases.includes(`/zh/control/${slug}`)) {
+    throw new Error(`Localized use-case hubs are missing the ${name} guide`)
+  }
+  for (const llms of llmsFiles) {
+    if (!llms.includes(`/control/${slug}`)) throw new Error(`An llms file is missing the ${name} guide`)
+  }
 }
 
 const developerGuides = [
@@ -151,4 +205,4 @@ for (const [file, phrases] of whyGuides) {
   }
 }
 
-console.log('Validated 18 localized pages, 4 llms files, architecture rationale, developer labs, theme logos, sitemap, Marketplace media, Showcase prompts, audio, and GEO use cases.')
+console.log(`Validated ${18 + integrations.length * 2} localized pages, ${integrations.length} bilingual DCC control guides, 4 llms files, architecture rationale, developer labs, theme logos, sitemap, Marketplace media, Showcase prompts, audio, and GEO use cases.`)

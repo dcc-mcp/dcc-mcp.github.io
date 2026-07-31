@@ -11,7 +11,7 @@
 - [Marketplace 搜索](https://dcc-mcp.github.io/zh/marketplace)：搜索官方目录，复制配置提示词或类型化 CLI 安装命令。
 - [案例画廊](https://dcc-mcp.github.io/zh/showcase)：查看结果、所属仓库、验证说明与提示词。
 - [Wwise 音频案例](https://dcc-mcp.github.io/zh/showcase/wwise)：在线试听通过类型化 WAAPI 工具验证的可复现音效与背景音乐。
-- [常见 AI + DCC 任务](https://dcc-mcp.github.io/zh/use-cases)：直接回答如何控制 Maya、Blender、修图、剪辑合成、制作特效、生成随机场景内容和制作游戏，并提供可复制提示词。
+- [AI + DCC 控制指南](https://dcc-mcp.github.io/zh/use-cases)：为全部公开创意应用与流水线集成提供直接答案和可复制提示词。
 - [Agent 工作流](https://dcc-mcp.github.io/zh/agents)：安装公开 Skill、发现类型化工具、验证调用并诊断失败。
 - [开发者指南](https://dcc-mcp.github.io/zh/developers)：内部 standalone MCP 服务、DCC 适配器和专项 Skill 的本地示例与验证步骤。
 - [生态目录](https://dcc-mcp.github.io/zh/ecosystem)：适配器、扩展、资产提供方、生成服务和工作室集成。
@@ -26,6 +26,38 @@
 ## 当前发布集成
 
 `dcc-mcp-cli dcc-types` 当前提供 20 个适配器标识：`3dsmax`、`aftereffects`、`blender`、`godot`、`houdini`、`katana`、`maya`、`marmoset`、`mobu`、`nuke`、`openusd`、`photoshop`、`premiere`、`renderdoc`、`shotgrid`、`substance3d_designer`、`substance3d_painter`、`unity`、`unreal`、`zbrush`。同时支持工作室自定义 Host 标识。
+
+## 逐应用 AI 控制指南
+
+- [3ds Max](https://dcc-mcp.github.io/zh/control/3ds-max)
+- [After Effects](https://dcc-mcp.github.io/zh/control/after-effects)
+- [Blender](https://dcc-mcp.github.io/zh/control/blender)
+- [ComfyUI](https://dcc-mcp.github.io/zh/control/comfyui)
+- [Flow Production Tracking](https://dcc-mcp.github.io/zh/control/flow-production-tracking)
+- [GIMP](https://dcc-mcp.github.io/zh/control/gimp)
+- [Godot](https://dcc-mcp.github.io/zh/control/godot)
+- [Houdini](https://dcc-mcp.github.io/zh/control/houdini)
+- [Katana](https://dcc-mcp.github.io/zh/control/katana)
+- [Krita](https://dcc-mcp.github.io/zh/control/krita)
+- [Marmoset Toolbag](https://dcc-mcp.github.io/zh/control/marmoset-toolbag)
+- [Material Maker](https://dcc-mcp.github.io/zh/control/material-maker)
+- [Maya](https://dcc-mcp.github.io/zh/control/maya)
+- [MotionBuilder](https://dcc-mcp.github.io/zh/control/motionbuilder)
+- [Nuke](https://dcc-mcp.github.io/zh/control/nuke)
+- [OpenUSD](https://dcc-mcp.github.io/zh/control/openusd)
+- [Photoshop](https://dcc-mcp.github.io/zh/control/photoshop)
+- [Premiere Pro](https://dcc-mcp.github.io/zh/control/premiere-pro)
+- [RenderDoc](https://dcc-mcp.github.io/zh/control/renderdoc)
+- [Substance 3D Designer](https://dcc-mcp.github.io/zh/control/substance-3d-designer)
+- [Substance 3D Painter](https://dcc-mcp.github.io/zh/control/substance-3d-painter)
+- [Tiled](https://dcc-mcp.github.io/zh/control/tiled)
+- [TouchDesigner](https://dcc-mcp.github.io/zh/control/touchdesigner)
+- [Unity](https://dcc-mcp.github.io/zh/control/unity)
+- [Unreal Engine](https://dcc-mcp.github.io/zh/control/unreal-engine)
+- [Wwise](https://dcc-mcp.github.io/zh/control/wwise)
+- [ZBrush](https://dcc-mcp.github.io/zh/control/zbrush)
+
+公开指南的覆盖范围大于当前 20 个发布标识。操作前检查 `dcc-mcp-cli dcc-types` 与对应适配器仓库。
 
 ## Marketplace CLI 契约
 

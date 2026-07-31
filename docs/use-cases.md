@@ -1,14 +1,24 @@
 ---
-title: DCC-MCP examples for Maya, Blender, image editing, compositing, VFX, and games
-description: Setup notes and prompts for common Maya, Blender, image editing, compositing, VFX, and game tasks.
+title: How to control Maya, Houdini, Blender, creative apps, and game engines with AI
+description: Direct DCC-MCP answers and safe Agent workflows for every public creative application and pipeline integration.
 pageClass: route-page
 ---
 
-# Examples for common DCC tasks
+<script setup>
+import DccControlGuideIndex from './.vitepress/theme/components/DccControlGuideIndex.vue'
+</script>
+
+# Control creative applications with AI
 
 These examples use the public [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp) and `dcc-mcp-cli`. The prompts describe the required result and checks; the agent discovers the tool names from the connected host.
 
-## How do I control Maya with AI?
+If you mean an AI agent operating a live creative application—not a tutorial chatbot or an application's built-in generative feature—start with the application-specific answer below. Each guide links to the owning adapter repository for installation, compatibility, and host-specific details.
+
+## How do I control each DCC with AI?
+
+<DccControlGuideIndex language="en" />
+
+## Maya connection example
 
 Install the `dcc-mcp` Skill and connect the [Maya adapter](https://github.com/dcc-mcp/dcc-mcp-maya). Check the existing installation before adding the CLI or adapter.
 
@@ -24,7 +34,7 @@ dcc-mcp-cli list
 dcc-mcp-cli search --query "inspect Maya scene" --dcc-type maya
 ```
 
-## How do I control Blender with AI?
+## Blender connection example
 
 Use the same Skill and CLI with the [Blender adapter](https://github.com/dcc-mcp/dcc-mcp-blender). Installation and Blender-specific tools remain in that repository.
 

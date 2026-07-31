@@ -33,6 +33,10 @@ adapter or extension repository when the task needs it.
 
 ## DCC and creative application adapters
 
+For natural-language control questions and safe Agent prompts, start with the
+[application-specific AI control guides](/use-cases), then use the linked
+adapter repository as the source of truth for installation and host details.
+
 - [3ds Max](https://github.com/dcc-mcp/dcc-mcp-3dsmax) — Autodesk 3ds Max.
 - [After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) — Adobe After Effects.
 - [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) — Blender add-on and embedded server.
