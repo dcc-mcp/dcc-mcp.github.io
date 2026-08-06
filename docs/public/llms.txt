@@ -19,9 +19,12 @@ Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https
 
 ## Agent Skills
 
+- [Canonical distribution repository](https://github.com/dcc-mcp/dcc-mcp-agent-plugins): One Skill source with universal and native installation paths.
 - [dcc-mcp](https://clawhub.ai/loonghao/skills/dcc-mcp): Operate live DCCs and install official Marketplace extensions.
 - [dcc-mcp-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-creator): Create or modernize a DCC adapter/runtime or a private non-DCC standalone MCP service without requiring GitHub.
 - [dcc-mcp-skills-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator): Create, validate, or improve a DCC-specific Skill package.
+
+Universal install: `npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`
 
 ## Current released integrations
 

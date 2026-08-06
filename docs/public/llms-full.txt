@@ -21,7 +21,7 @@ Simplified Chinese machine-readable guide: https://dcc-mcp.github.io/zh/llms-ful
 
 ## Recommended agent route
 
-1. Install `@loonghao/dcc-mcp` from ClawHub and start a new agent turn so the Skill is available.
+1. From the Agent workspace, run `npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`, then start a new agent turn if the host discovers Skills only at startup.
 2. Verify the CLI with `dcc-mcp-cli health`, `dcc-mcp-cli dcc-types`, and `dcc-mcp-cli list`.
 3. If the CLI is missing, explain the official installer and obtain permission before running it. For an existing official build, use `dcc-mcp-cli update check` and then `dcc-mcp-cli update apply` with consent.
 4. Search narrowly: `dcc-mcp-cli search --query <intent> --dcc-type <host>`.
@@ -43,7 +43,7 @@ https://dcc-mcp.github.io/showcase/wwise.
 - Create or modernize a DCC adapter or private non-DCC standalone MCP service, including dispatcher, readiness, runtime, resource, or gateway integration: https://clawhub.ai/loonghao/skills/dcc-mcp-creator
 - Create, validate, test, review, or publish a specialized DCC Skill package: https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator
 
-Install only the Skill matching the task. OpenClaw uses `openclaw skills install @loonghao/<slug>`. A ClawHub-compatible agent may use `npx --yes clawhub@0.23.1 install @loonghao/<slug>`. Start a new agent turn after installation.
+The canonical distribution source is https://github.com/dcc-mcp/dcc-mcp-agent-plugins. Install only the Skill matching the task. The universal `skills` command supports mainstream Agent Skills hosts; native Codex, Claude Code, CodeBuddy, WorkBuddy, OpenClaw, ClawHub, and Smithery routes remain documented in that repository. Start a new agent turn when the host requires startup discovery.
 
 ## Current adapter-backed release catalog
 

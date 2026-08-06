@@ -73,6 +73,21 @@ for (const [name, html, href] of [
     throw new Error(`${name} is missing the one-prompt setup anchor`)
   }
 }
+const universalSkillCommand = 'npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp'
+const hasRenderedSkillInstall = (html) => [
+  'npx',
+  'skills@1.5.22',
+  'dcc-mcp/dcc-mcp-agent-plugins',
+  '--skill',
+].every((part) => html.includes(part))
+for (const [name, html, prompt] of [
+  ['English home', englishHome, 'Use the dcc-mcp Skill to set up DCC-MCP'],
+  ['Chinese home', chineseHome, '使用 dcc-mcp Skill 为这台机器上的创意应用配置 DCC-MCP'],
+]) {
+  if (!hasRenderedSkillInstall(html) || !html.includes(prompt)) {
+    throw new Error(`${name} is missing the universal Skill install and short prompt`)
+  }
+}
 if (!englishHome.includes('CAPABILITY MARKETPLACE') || !chineseHome.includes('能力市场')) {
   throw new Error('Localized homepages are missing the Marketplace preview')
 }
@@ -161,6 +176,20 @@ const llmsFiles = [
   readFileSync(join(dist, 'zh', 'llms.txt'), 'utf8'),
   readFileSync(join(dist, 'zh', 'llms-full.txt'), 'utf8'),
 ]
+for (const llms of llmsFiles) {
+  if (!llms.includes(universalSkillCommand) || !llms.includes('https://github.com/dcc-mcp/dcc-mcp-agent-plugins')) {
+    throw new Error('An llms file is missing the canonical Agent Skill distribution contract')
+  }
+}
+for (const [file, prompt] of [
+  [join(dist, 'agents.html'), 'Use the dcc-mcp Skill to &lt;describe the DCC task&gt;'],
+  [join(dist, 'zh', 'agents.html'), '使用 dcc-mcp Skill 完成&lt;描述 DCC 任务&gt;'],
+]) {
+  const html = readFileSync(file, 'utf8')
+  if (!hasRenderedSkillInstall(html) || !html.includes(prompt)) {
+    throw new Error(`${file} is missing the universal Skill install and short prompt`)
+  }
+}
 for (const { slug, name, repository } of integrations) {
   const englishGuide = readFileSync(join(dist, 'control', `${slug}.html`), 'utf8')
   const chineseGuide = readFileSync(join(dist, 'zh', 'control', `${slug}.html`), 'utf8')

@@ -4,39 +4,39 @@ description: 安装 DCC-MCP Skill，通过 CLI 发现类型化工具，并诊断
 pageClass: route-page
 ---
 
-# 使用 Skill 与 CLI
+# 安装一次，然后描述任务
 
-公开的 [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp) 保存操作步骤。`dcc-mcp-cli` 负责 Gateway 状态、工具发现、类型化调用、诊断、更新和 Marketplace 安装。
+公开的 [`dcc-mcp` Skill](https://github.com/dcc-mcp/dcc-mcp-agent-plugins/tree/main/plugins/dcc-mcp/skills/dcc-mcp) 保存操作步骤。`dcc-mcp-cli` 负责 Gateway 状态、工具发现、类型化调用、诊断、更新和 Marketplace 安装。
 
-## 把当前文档交给 Agent
+在 Codex、Claude Code、Gemini CLI、GitHub Copilot、Cursor、Windsurf、
+OpenCode、Cline、Roo Code、Kiro CLI、Amp 或其他兼容 Agent Skills 的 Host
+所使用的工作区运行：
 
-Agent 还不清楚任务归属时，使用下面的提示词：
+```bash
+npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
+```
+
+用户级安装可追加 `--global`。如果 Host 只在启动时发现 Skill，请开启新会话。
+原生插件市场和 Registry 安装方式仍保留在
+[`dcc-mcp-agent-plugins` 仓库](https://github.com/dcc-mcp/dcc-mcp-agent-plugins#install)。
+
+## 使用简短提示词
+
+操作步骤已经在 Skill 中，提示词只需描述任务和安全边界：
 
 ```text
-修改任何内容前，先阅读 https://dcc-mcp.github.io/zh/llms.txt；短文件没有所需信息时再阅读 llms-full.txt。只选择一条路线：用 dcc-mcp 操作已连接 DCC，用 dcc-mcp-creator 处理适配器或服务，用 dcc-mcp-skills-creator 处理 Skill。软件包查 Marketplace，案例查 Showcase，仓库归属查生态目录。使用 dcc-mcp-cli 发现工具并遵循 next_step。保留 request_id 用于诊断。未经我允许，不得安装、发布、创建外部 Issue 或改变这台机器。先报告所选路线、能力和下一项操作。
+使用 dcc-mcp Skill 完成<描述 DCC 任务>。安装软件或改变系统状态前先询问我，完成后提供验证证据。
 ```
 
 ## 只安装任务需要的 Skill
 
 | 任务 | Skill |
 | --- | --- |
-| 操作已连接 DCC、发现工具或搜索扩展 | [`@loonghao/dcc-mcp`](https://clawhub.ai/loonghao/skills/dcc-mcp) |
-| 创建或现代化完整适配器与运行时 | [`@loonghao/dcc-mcp-creator`](https://clawhub.ai/loonghao/skills/dcc-mcp-creator) |
-| 创建或改进 DCC 专项 Skill 包 | [`@loonghao/dcc-mcp-skills-creator`](https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator) |
+| 操作已连接 DCC、发现工具或搜索扩展 | `dcc-mcp` |
+| 创建或现代化完整适配器与运行时 | `dcc-mcp-creator` |
+| 创建或改进 DCC 专项 Skill 包 | `dcc-mcp-skills-creator` |
 
-OpenClaw：
-
-```bash
-openclaw skills install @loonghao/dcc-mcp
-```
-
-兼容 ClawHub 的 Agent：
-
-```bash
-npx --yes clawhub@0.23.1 install @loonghao/dcc-mcp
-```
-
-安装后开启一个新会话，让运行时加载 Skill。
+只有任务属于两个开发者路线之一时，才替换通用命令中的 `--skill` 值。
 
 ## 搜索、描述并调用
 

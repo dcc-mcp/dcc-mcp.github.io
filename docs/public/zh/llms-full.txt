@@ -17,7 +17,7 @@ Core 文档：https://dcc-mcp.github.io/dcc-mcp-core/zh/
 
 ## 推荐 Agent 路由
 
-1. 从 ClawHub 安装 `@loonghao/dcc-mcp`，开启一个新会话让 Skill 生效。
+1. 在 Agent 工作区运行 `npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`；如果 Host 只在启动时发现 Skill，再开启新会话。
 2. 使用 `dcc-mcp-cli health`、`dcc-mcp-cli dcc-types` 与 `dcc-mcp-cli list` 验证 CLI 和已连接 Host。
 3. CLI 缺失时，先解释官方安装器并获得许可。现有官方构建可在同意后运行 `dcc-mcp-cli update check` 与 `dcc-mcp-cli update apply`。
 4. 缩小搜索范围：`dcc-mcp-cli search --query <intent> --dcc-type <host>`。
@@ -38,7 +38,7 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - 创建或现代化 DCC 适配器或内部非 DCC standalone MCP 服务，包括 Dispatcher、Readiness、Runtime、Resource 或 Gateway 集成：https://clawhub.ai/loonghao/skills/dcc-mcp-creator
 - 创建、验证、测试、审查或发布专项 DCC Skill 包：https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator
 
-只安装匹配任务的 Skill。OpenClaw 使用 `openclaw skills install @loonghao/<slug>`；兼容 ClawHub 的 Agent 可使用 `npx --yes clawhub@0.23.1 install @loonghao/<slug>`。安装后开启新会话。
+规范分发源是 https://github.com/dcc-mcp/dcc-mcp-agent-plugins。只安装匹配任务的 Skill。通用 `skills` 命令覆盖主流兼容 Agent Skills 的 Host；Codex、Claude Code、CodeBuddy、WorkBuddy、OpenClaw、ClawHub 与 Smithery 的原生入口仍由该仓库维护。Host 需要在启动时发现 Skill 时再开启新会话。
 
 ## 当前适配器发布目录
 

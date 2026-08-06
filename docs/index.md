@@ -28,33 +28,19 @@ hero:
 
 <div id="install-prompt" class="install-intro">
   <p class="home-kicker">SETUP</p>
-  <h2>Copy this prompt into your agent.</h2>
-  <p>The agent will follow the maintained Skill, check the CLI and adapters, and ask before installing software or changing system state.</p>
+  <h2>Install once. Then describe the task.</h2>
+  <p>The same maintained Skill works across mainstream Agent Skills-compatible hosts.</p>
 </div>
 
-```text
-Set up DCC-MCP on this machine for agent-driven creative workflows.
-
-1. Install @loonghao/dcc-mcp from ClawHub and follow that Skill exactly. If the
-   new Skill is not available in this turn, stop and ask me to start a new turn.
-2. Verify dcc-mcp-cli. If it is missing, explain the official installer and ask
-   for permission before running it. Then run update check, health, dcc-types,
-   and list.
-3. Detect the creative applications I use. Propose only matching official
-   adapters, and ask before installing software or changing system state.
-4. Verify gateway readiness and one safe search → load/describe → call path
-   without modifying my current scene or document.
-5. Preserve request IDs. On failure, use doctor, failure-filtered stats, and the
-   discovered dcc_feedback__report workflow; never publish evidence or create an
-   external issue without my approval.
-6. If a new adapter is required, route through @loonghao/dcc-mcp-creator. If a
-   focused workflow Skill is required, route through
-   @loonghao/dcc-mcp-skills-creator.
-7. Finish with installed versions, connected instances, validation evidence,
-   and any action still required from me.
+```bash
+npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 ```
 
-<p class="install-note">The Skill contains the current setup procedure. <a href="/agents">Read the agent guide</a> or <a href="/use-cases">choose a task →</a></p>
+```text
+Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this machine. Ask before installing or changing system state, and finish with verification evidence.
+```
+
+<p class="install-note">Run the command from your Agent workspace; use <code>--global</code> for user-level installation. <a href="/agents">See all Agent hosts</a> or <a href="/use-cases">choose a task →</a></p>
 
 <section class="integrations-section" aria-labelledby="integrations-title">
   <div class="integrations-heading">
