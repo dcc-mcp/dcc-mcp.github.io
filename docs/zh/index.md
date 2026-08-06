@@ -28,29 +28,19 @@ hero:
 
 <div id="install-prompt" class="install-intro">
   <p class="home-kicker">配置</p>
-  <h2>把这段提示词复制给 Agent。</h2>
-  <p>Agent 会按 Skill 中维护的步骤检查 CLI 和适配器；安装软件或改变系统状态前会先询问你。</p>
+  <h2>安装一次，然后描述任务。</h2>
+  <p>同一份持续维护的 Skill 可用于主流兼容 Agent Skills 的 Host。</p>
 </div>
 
-```text
-请在这台机器上配置 DCC-MCP，用于 Agent 驱动的创意工作流。
-
-1. 从 ClawHub 安装 @loonghao/dcc-mcp，并严格遵循该 Skill。如果本轮还不能
-   使用新安装的 Skill，请停止并提醒我开启一个新会话。
-2. 验证 dcc-mcp-cli。如果尚未安装，先解释官方安装方式并获得我的许可；然后
-   依次运行 update check、health、dcc-types 和 list。
-3. 检测我使用的创意软件，只建议匹配的官方适配器；安装软件或改变系统状态前
-   必须先征得我的同意。
-4. 验证 Gateway 就绪状态，并完成一次安全的 search → load/describe → call，
-   不得修改我当前的场景或文档。
-5. 保留 request_id。失败时使用 doctor、按失败筛选的 stats，以及搜索发现的
-   dcc_feedback__report；未经我批准，不得公开证据或创建外部 Issue。
-6. 如需新建适配器，使用 @loonghao/dcc-mcp-creator；如需创建专项工作流 Skill，
-   使用 @loonghao/dcc-mcp-skills-creator。
-7. 最后报告已安装版本、已连接实例、验证证据，以及仍需我处理的事项。
+```bash
+npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 ```
 
-<p class="install-note">Skill 中保存了当前配置步骤。<a href="/zh/agents">阅读 Agent 指南</a>或<a href="/zh/use-cases">选择一个任务 →</a></p>
+```text
+使用 dcc-mcp Skill 为这台机器上的创意应用配置 DCC-MCP。安装软件或改变系统状态前先询问我，完成后提供验证证据。
+```
+
+<p class="install-note">请在 Agent 工作区运行命令；用户级安装可追加 <code>--global</code>。<a href="/zh/agents">查看全部 Agent Host</a>或<a href="/zh/use-cases">选择一个任务 →</a></p>
 
 <section class="integrations-section" aria-labelledby="integrations-title">
   <div class="integrations-heading">

@@ -19,9 +19,12 @@
 
 ## Agent Skills
 
+- [规范分发仓库](https://github.com/dcc-mcp/dcc-mcp-agent-plugins)：一份 Skill 源码，同时提供通用与原生安装入口。
 - [dcc-mcp](https://clawhub.ai/loonghao/skills/dcc-mcp)：操作已连接 DCC，搜索并安装官方 Marketplace 扩展。
 - [dcc-mcp-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-creator)：创建或现代化 DCC 适配器/运行时，或无需 GitHub 的内部非 DCC standalone MCP 服务。
 - [dcc-mcp-skills-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator)：创建、验证或改进 DCC 专项 Skill 包。
+
+通用安装：`npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`
 
 ## 当前发布集成
 
