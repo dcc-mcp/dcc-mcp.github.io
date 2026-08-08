@@ -22,6 +22,9 @@
   --dcc-primary-foreground: #ffffff;
   --dcc-nav: rgba(250, 250, 250, 0.88);
   --dcc-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --dcc-signal: #0284c7;
+  --dcc-grid: rgba(5, 150, 105, 0.08);
+  --dcc-hero-glow: rgba(2, 132, 199, 0.14);
 }
 
 :root.dark {
@@ -48,6 +51,9 @@
   --dcc-primary-foreground: #04140d;
   --dcc-nav: rgba(10, 10, 10, 0.88);
   --dcc-shadow: 0 12px 34px rgba(0, 0, 0, 0.45);
+  --dcc-signal: #38bdf8;
+  --dcc-grid: rgba(110, 231, 183, 0.07);
+  --dcc-hero-glow: rgba(56, 189, 248, 0.16);
 }
 
 .VPNavBar {
@@ -67,11 +73,13 @@
 
 .VPHome .VPHero {
   position: relative;
+  isolation: isolate;
   min-height: 720px;
   padding-top: 150px;
   border-bottom: 1px solid var(--dcc-line);
   background:
-    radial-gradient(circle at 78% 44%, rgba(16, 185, 129, 0.1), transparent 30rem),
+    radial-gradient(circle at 78% 44%, rgba(16, 185, 129, 0.13), transparent 28rem),
+    radial-gradient(circle at 70% 52%, var(--dcc-hero-glow), transparent 36rem),
     var(--dcc-canvas);
 }
 
@@ -81,9 +89,24 @@
   pointer-events: none;
   background: url('/brand/dcc-mcp-hero-atmosphere.webp') 92% center / auto 100% no-repeat;
   content: '';
-  opacity: 0.1;
-  filter: saturate(0.58);
+  opacity: 0.13;
+  filter: saturate(0.72);
   mask-image: linear-gradient(90deg, transparent 34%, black 78%, transparent);
+}
+
+.VPHome .VPHero::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--dcc-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--dcc-grid) 1px, transparent 1px),
+    linear-gradient(100deg, transparent 36%, color-mix(in srgb, var(--dcc-signal) 10%, transparent) 50%, transparent 64%);
+  background-position: center;
+  background-size: 56px 56px, 56px 56px, 100% 100%;
+  content: '';
+  mask-image: linear-gradient(90deg, transparent, black 38%, black 82%, transparent);
 }
 
 .VPHome .VPHero .container { position: relative; z-index: 1; }
@@ -101,6 +124,7 @@
   font-size: clamp(50px, 6vw, 82px);
   line-height: 0.98;
   letter-spacing: -0.06em;
+  text-wrap: balance;
 }
 
 .VPHome .VPHero .tagline {
@@ -108,12 +132,44 @@
   color: var(--dcc-muted);
   font-size: 18px;
   line-height: 1.7;
+  text-wrap: pretty;
 }
 
 .VPHome .VPHero .image-container {
+  position: relative;
+  display: grid;
   width: 560px;
   height: 300px;
+  place-items: center;
   transform: none;
+}
+
+.VPHome .VPHero .image-container::before,
+.VPHome .VPHero .image-container::after {
+  position: absolute;
+  pointer-events: none;
+  content: '';
+}
+
+.VPHome .VPHero .image-container::before {
+  width: 86%;
+  height: 78%;
+  border: 1px solid color-mix(in srgb, var(--dcc-signal) 40%, transparent);
+  border-radius: 50%;
+  box-shadow:
+    0 0 70px color-mix(in srgb, var(--vp-c-brand-1) 14%, transparent),
+    inset 0 0 40px color-mix(in srgb, var(--dcc-signal) 8%, transparent);
+  transform: rotate(-9deg);
+  transform-origin: center;
+}
+
+.VPHome .VPHero .image-container::after {
+  right: 4%;
+  left: 4%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--dcc-signal), var(--vp-c-brand-1), transparent);
+  box-shadow: 0 0 20px var(--dcc-signal);
+  opacity: 0.55;
 }
 
 .VPHome .VPHero .image-bg { display: none; }
@@ -124,7 +180,7 @@
   max-width: none;
   max-height: none;
   object-fit: contain;
-  filter: saturate(0.82);
+  filter: saturate(0.92) drop-shadow(0 18px 34px color-mix(in srgb, var(--dcc-signal) 18%, transparent));
 }
 
 :root.dark .VPHome .VPHero .image-src { content: url('/brand/dcc-mcp-logo-admin-dark.png'); }
@@ -133,7 +189,14 @@
   color: var(--dcc-primary-foreground);
   border-color: var(--vp-c-brand-1);
   background: var(--vp-c-brand-1);
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--vp-c-brand-1) 22%, transparent);
 }
+
+.VPHome .VPButton {
+  touch-action: manipulation;
+}
+.VPHome .VPButton:hover { transform: translateY(-2px); }
+.VPHome .VPButton:focus-visible { outline: 3px solid var(--vp-c-brand-soft); outline-offset: 3px; }
 
 .VPHome .VPButton.alt {
   color: var(--dcc-ink-soft);
@@ -154,10 +217,12 @@
 }
 
 .home-proof {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-bottom: 152px;
   border-bottom: 1px solid var(--dcc-line);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--vp-c-brand-1) 4%, transparent), transparent);
 }
 
 .home-proof span {
@@ -267,7 +332,10 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
   text-align: right;
 }
 
-.install-note a { color: var(--vp-c-brand-1); }
+.install-note a {
+  display: inline-block;
+  color: var(--vp-c-brand-1);
+}
 
 .integrations-section { margin-bottom: 168px; }
 
@@ -308,6 +376,7 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
 }
 
 .dcc-grid a {
+  position: relative;
   display: flex;
   min-width: 0;
   height: 86px;
@@ -320,17 +389,38 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
   font-size: 12px;
   line-height: 1.25;
   text-decoration: none !important;
-  transition: color 160ms ease, background 160ms ease;
+  touch-action: manipulation;
 }
 
-.dcc-grid a:hover { color: var(--dcc-ink) !important; background: var(--vp-c-brand-soft); }
+.dcc-grid a:hover {
+  z-index: 1;
+  color: var(--dcc-ink) !important;
+  background: color-mix(in srgb, var(--vp-c-brand-soft) 78%, var(--dcc-panel));
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--vp-c-brand-1) 12%, transparent);
+  transform: translateY(-3px);
+}
 
-.dcc-grid a.dcc-tile-dark {
+.dcc-grid a:focus-visible { z-index: 2; outline: 3px solid var(--vp-c-brand-soft); outline-offset: -3px; }
+
+.dcc-grid a.dcc-tile-featured {
+  background: linear-gradient(105deg, color-mix(in srgb, var(--dcc-signal) 10%, var(--dcc-panel)), var(--dcc-panel) 72%);
+  color: var(--dcc-ink) !important;
+  box-shadow: inset 3px 0 0 var(--dcc-signal);
+}
+
+.dcc-grid a.dcc-tile-featured:hover {
+  background: color-mix(in srgb, var(--dcc-signal) 14%, var(--dcc-panel));
+  color: var(--dcc-ink) !important;
+}
+
+.dcc-grid a.dcc-tile-featured img {
+  width: 38px;
+  height: 38px;
+  padding: 4px;
+  border: 1px solid color-mix(in srgb, var(--dcc-signal) 42%, transparent);
+  border-radius: 7px;
   background: #081426;
-  color: #fff !important;
 }
-
-.dcc-grid a.dcc-tile-dark:hover { background: #0d2440; color: #fff !important; }
 
 .dcc-grid img {
   width: 38px;
@@ -385,6 +475,7 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
   background: var(--dcc-panel);
   color: #f7fafc !important;
   text-decoration: none !important;
+  touch-action: manipulation;
 }
 
 .showcase-wide { grid-column: span 7; }
@@ -394,7 +485,6 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 400ms ease;
 }
 
 .showcase-card.showcase-logo img { object-fit: contain; background: #081426; }
@@ -427,7 +517,42 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
 
 .showcase-card strong { font-size: 20px; font-weight: 520; }
 .showcase-card em { color: var(--vp-c-brand-1); font-style: normal; }
+.showcase-card:hover {
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 46%, var(--dcc-line));
+  box-shadow: 0 20px 48px color-mix(in srgb, var(--dcc-signal) 14%, transparent);
+  transform: translateY(-4px);
+}
 .showcase-card:hover img { transform: scale(1.025); filter: brightness(1.06); }
+
+@keyframes dcc-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dcc-logo-float {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0) scale(0.98); }
+  50% { transform: translate(-50%, -50%) translateY(-8px) scale(1); }
+}
+
+@keyframes dcc-orbit {
+  from { transform: rotate(-9deg); }
+  to { transform: rotate(351deg); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .VPHome .VPButton { transition: transform 180ms ease; }
+  .dcc-grid a { transition: transform 180ms ease; }
+  .showcase-card { transition: transform 220ms ease; }
+  .showcase-card img { transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .VPHome .VPHero .image-src { animation: dcc-logo-float 4.8s ease-in-out 1; }
+  .VPHome .VPHero .image-container::before { animation: dcc-orbit 4.8s linear 1; }
+  .VPHome .VPHero .name { animation: dcc-rise 620ms 80ms both; }
+  .VPHome .VPHero .text { animation: dcc-rise 720ms 150ms both; }
+  .VPHome .VPHero .tagline { animation: dcc-rise 720ms 230ms both; }
+  .VPHome .VPHero .actions { animation: dcc-rise 720ms 310ms both; }
+  .VPHome .VPHero .image { animation: dcc-rise 820ms 220ms both; }
+  .home-proof { animation: dcc-rise 720ms 380ms both; }
+}
 
 .showcase-more {
   display: block;
@@ -494,14 +619,15 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
   padding: 0 14px;
   border: 1px solid var(--dcc-line);
   border-radius: 6px;
-  outline: none;
   background: var(--dcc-panel);
   color: var(--dcc-ink);
   font: inherit;
 }
 
-.marketplace-toolbar input:focus,
-.marketplace-toolbar select:focus {
+.marketplace-toolbar input:focus-visible,
+.marketplace-toolbar select:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 2px;
   border-color: var(--vp-c-brand-1);
   box-shadow: 0 0 0 3px var(--vp-c-brand-soft);
 }
@@ -1000,16 +1126,34 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
   .VPHome .VPHero .image-container { width: 100%; height: 160px; }
   .VPHome .VPHero.has-image.VPHomeHero .image { margin: 24px 0 42px !important; }
   .VPHome .vp-doc.container { padding-inline: 20px; }
-  .home-proof { margin-bottom: 104px; }
+  .home-proof { margin-bottom: 64px; }
   .home-proof span { padding: 18px 0; }
   .home-proof span + span { padding-left: 14px; }
-  .VPHome .vp-doc.container div[class*='language-'] pre { padding: 24px 20px; font-size: 12px; }
-  .install-note { margin-bottom: 112px !important; text-align: left; }
+  .install-intro { margin-bottom: 24px; }
+  .VPHome .vp-doc.container div[class*='language-'] { display: grid; }
+  .VPHome .vp-doc.container div[class*='language-'] + div[class*='language-'] { margin-top: 12px; }
+  .VPHome .vp-doc.container div[class*='language-'] pre {
+    grid-row: 1;
+    grid-column: 1;
+    padding: 22px 20px 16px;
+    font-size: 12px;
+  }
+  .VPHome .vp-doc.container div[class*='language-'] button.copy {
+    position: static;
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: end;
+    width: 116px;
+    height: 34px;
+    margin: 0 14px 14px 0;
+  }
+  .install-note { margin-top: 16px !important; margin-bottom: 96px !important; line-height: 1.7; text-align: left; }
   .integrations-section { margin-bottom: 112px; }
   .integrations-heading { grid-template-columns: 1fr; gap: 20px; }
   .dcc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .dcc-grid a { height: 76px; padding: 12px; }
   .dcc-grid img { width: 32px; height: 32px; flex-basis: 32px; }
+  .dcc-grid a.dcc-tile-featured img { width: 32px; height: 32px; flex-basis: 32px; }
   .showcase-heading { margin-bottom: 38px; }
   .home-marketplace-section { margin-bottom: 112px; }
   .home-marketplace-heading { grid-template-columns: 1fr; gap: 20px; margin-bottom: 32px; }
@@ -1034,9 +1178,21 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .VPHome .VPButton,
+  .dcc-grid a,
+  .showcase-card,
   .showcase-card img,
   .showcase-prompt-card,
   .showcase-prompt-media img,
   .marketplace-card,
   .marketplace-card-media > img { transition: none; }
+
+  .VPHome .VPButton:hover,
+  .dcc-grid a:hover,
+  .showcase-card:hover,
+  .showcase-card:hover img,
+  .showcase-prompt-card:hover,
+  .showcase-prompt-card:hover .showcase-prompt-media img,
+  .marketplace-card:hover,
+  .marketplace-card:hover .marketplace-card-media > img { transform: none; }
 }
