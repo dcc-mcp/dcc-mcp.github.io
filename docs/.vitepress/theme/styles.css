@@ -524,34 +524,28 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
 }
 .showcase-card:hover img { transform: scale(1.025); filter: brightness(1.06); }
 
-@keyframes dcc-rise {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
+.home-motion-progress {
+  position: fixed;
+  z-index: 100;
+  top: var(--vp-nav-height);
+  right: 0;
+  left: 0;
+  height: 2px;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--vp-c-brand-1), var(--dcc-signal));
+  box-shadow: 0 0 14px color-mix(in srgb, var(--dcc-signal) 56%, transparent);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
 }
 
-@keyframes dcc-logo-float {
-  0%, 100% { transform: translate(-50%, -50%) translateY(0) scale(0.98); }
-  50% { transform: translate(-50%, -50%) translateY(-8px) scale(1); }
-}
-
-@keyframes dcc-orbit {
-  from { transform: rotate(-9deg); }
-  to { transform: rotate(351deg); }
-}
+.gsap-home-active .home-motion-progress { opacity: 1; }
 
 @media (prefers-reduced-motion: no-preference) {
   .VPHome .VPButton { transition: transform 180ms ease; }
   .dcc-grid a { transition: transform 180ms ease; }
   .showcase-card { transition: transform 220ms ease; }
   .showcase-card img { transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .VPHome .VPHero .image-src { animation: dcc-logo-float 4.8s ease-in-out 1; }
-  .VPHome .VPHero .image-container::before { animation: dcc-orbit 4.8s linear 1; }
-  .VPHome .VPHero .name { animation: dcc-rise 620ms 80ms both; }
-  .VPHome .VPHero .text { animation: dcc-rise 720ms 150ms both; }
-  .VPHome .VPHero .tagline { animation: dcc-rise 720ms 230ms both; }
-  .VPHome .VPHero .actions { animation: dcc-rise 720ms 310ms both; }
-  .VPHome .VPHero .image { animation: dcc-rise 820ms 220ms both; }
-  .home-proof { animation: dcc-rise 720ms 380ms both; }
 }
 
 .showcase-more {
