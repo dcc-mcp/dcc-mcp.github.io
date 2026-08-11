@@ -47,18 +47,22 @@ The canonical distribution source is https://github.com/dcc-mcp/dcc-mcp-agent-pl
 
 ## Current adapter-backed release catalog
 
-Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release catalog exposes 20 canonical identifiers:
+Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release catalog exposes 24 canonical identifiers:
 
 - `3dsmax` — Autodesk 3ds Max — https://github.com/dcc-mcp/dcc-mcp-3dsmax
 - `aftereffects` — Adobe After Effects — https://github.com/dcc-mcp/dcc-mcp-aftereffects
 - `blender` — Blender — https://github.com/dcc-mcp/dcc-mcp-blender
+- `c4d` — Maxon Cinema 4D — https://github.com/dcc-mcp/dcc-mcp-cinema4d
+- `freecad` — FreeCAD — https://github.com/dcc-mcp/dcc-mcp-freecad
 - `godot` — Godot Engine — https://github.com/dcc-mcp/dcc-mcp-godot
 - `houdini` — SideFX Houdini — https://github.com/dcc-mcp/dcc-mcp-houdini
 - `katana` — Foundry Katana — https://github.com/dcc-mcp/dcc-mcp-katana
+- `mari` — Foundry Mari — https://github.com/dcc-mcp/dcc-mcp-mari
 - `maya` — Autodesk Maya — https://github.com/dcc-mcp/dcc-mcp-maya
 - `marmoset` — Marmoset Toolbag — https://github.com/dcc-mcp/dcc-mcp-marmoset
 - `mobu` — Autodesk MotionBuilder — https://github.com/dcc-mcp/dcc-mcp-mobu
 - `nuke` — Foundry Nuke — https://github.com/dcc-mcp/dcc-mcp-nuke
+- `openscad` — OpenSCAD — https://github.com/dcc-mcp/dcc-mcp-openscad
 - `openusd` — OpenUSD — https://github.com/dcc-mcp/dcc-mcp-openusd
 - `photoshop` — Adobe Photoshop — https://github.com/dcc-mcp/dcc-mcp-photoshop
 - `premiere` — Adobe Premiere Pro — https://github.com/dcc-mcp/dcc-mcp-premiere
@@ -79,19 +83,23 @@ The canonical hub is https://dcc-mcp.github.io/use-cases. Direct guides are avai
 - 3ds Max: https://dcc-mcp.github.io/control/3ds-max
 - After Effects: https://dcc-mcp.github.io/control/after-effects
 - Blender: https://dcc-mcp.github.io/control/blender
+- Cinema 4D: https://dcc-mcp.github.io/control/cinema-4d
 - ComfyUI: https://dcc-mcp.github.io/control/comfyui
 - Flow Production Tracking: https://dcc-mcp.github.io/control/flow-production-tracking
+- FreeCAD: https://dcc-mcp.github.io/control/freecad
 - GIMP: https://dcc-mcp.github.io/control/gimp
 - Godot: https://dcc-mcp.github.io/control/godot
 - Houdini: https://dcc-mcp.github.io/control/houdini
 - Katana: https://dcc-mcp.github.io/control/katana
 - Krita: https://dcc-mcp.github.io/control/krita
+- Mari: https://dcc-mcp.github.io/control/mari
 - Marmoset Toolbag: https://dcc-mcp.github.io/control/marmoset-toolbag
 - Material Maker: https://dcc-mcp.github.io/control/material-maker
 - Maya: https://dcc-mcp.github.io/control/maya
 - MotionBuilder: https://dcc-mcp.github.io/control/motionbuilder
 - Nuke: https://dcc-mcp.github.io/control/nuke
 - OpenUSD: https://dcc-mcp.github.io/control/openusd
+- OpenSCAD: https://dcc-mcp.github.io/control/openscad
 - Photoshop: https://dcc-mcp.github.io/control/photoshop
 - Premiere Pro: https://dcc-mcp.github.io/control/premiere-pro
 - RenderDoc: https://dcc-mcp.github.io/control/renderdoc

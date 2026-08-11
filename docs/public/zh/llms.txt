@@ -28,26 +28,30 @@
 
 ## 当前发布集成
 
-`dcc-mcp-cli dcc-types` 当前提供 20 个适配器标识：`3dsmax`、`aftereffects`、`blender`、`godot`、`houdini`、`katana`、`maya`、`marmoset`、`mobu`、`nuke`、`openusd`、`photoshop`、`premiere`、`renderdoc`、`shotgrid`、`substance3d_designer`、`substance3d_painter`、`unity`、`unreal`、`zbrush`。同时支持工作室自定义 Host 标识。
+`dcc-mcp-cli dcc-types` 当前提供 24 个适配器标识：`3dsmax`、`aftereffects`、`blender`、`c4d`、`freecad`、`godot`、`houdini`、`katana`、`mari`、`maya`、`marmoset`、`mobu`、`nuke`、`openscad`、`openusd`、`photoshop`、`premiere`、`renderdoc`、`shotgrid`、`substance3d_designer`、`substance3d_painter`、`unity`、`unreal`、`zbrush`。同时支持工作室自定义 Host 标识。
 
 ## 逐应用 AI 控制指南
 
 - [3ds Max](https://dcc-mcp.github.io/zh/control/3ds-max)
 - [After Effects](https://dcc-mcp.github.io/zh/control/after-effects)
 - [Blender](https://dcc-mcp.github.io/zh/control/blender)
+- [Cinema 4D](https://dcc-mcp.github.io/zh/control/cinema-4d)
 - [ComfyUI](https://dcc-mcp.github.io/zh/control/comfyui)
 - [Flow Production Tracking](https://dcc-mcp.github.io/zh/control/flow-production-tracking)
+- [FreeCAD](https://dcc-mcp.github.io/zh/control/freecad)
 - [GIMP](https://dcc-mcp.github.io/zh/control/gimp)
 - [Godot](https://dcc-mcp.github.io/zh/control/godot)
 - [Houdini](https://dcc-mcp.github.io/zh/control/houdini)
 - [Katana](https://dcc-mcp.github.io/zh/control/katana)
 - [Krita](https://dcc-mcp.github.io/zh/control/krita)
+- [Mari](https://dcc-mcp.github.io/zh/control/mari)
 - [Marmoset Toolbag](https://dcc-mcp.github.io/zh/control/marmoset-toolbag)
 - [Material Maker](https://dcc-mcp.github.io/zh/control/material-maker)
 - [Maya](https://dcc-mcp.github.io/zh/control/maya)
 - [MotionBuilder](https://dcc-mcp.github.io/zh/control/motionbuilder)
 - [Nuke](https://dcc-mcp.github.io/zh/control/nuke)
 - [OpenUSD](https://dcc-mcp.github.io/zh/control/openusd)
+- [OpenSCAD](https://dcc-mcp.github.io/zh/control/openscad)
 - [Photoshop](https://dcc-mcp.github.io/zh/control/photoshop)
 - [Premiere Pro](https://dcc-mcp.github.io/zh/control/premiere-pro)
 - [RenderDoc](https://dcc-mcp.github.io/zh/control/renderdoc)
@@ -60,7 +64,7 @@
 - [Wwise](https://dcc-mcp.github.io/zh/control/wwise)
 - [ZBrush](https://dcc-mcp.github.io/zh/control/zbrush)
 
-公开指南的覆盖范围大于当前 20 个发布标识。操作前检查 `dcc-mcp-cli dcc-types` 与对应适配器仓库。
+公开指南的覆盖范围大于当前 24 个发布标识。操作前检查 `dcc-mcp-cli dcc-types` 与对应适配器仓库。
 
 ## Marketplace CLI 契约
 

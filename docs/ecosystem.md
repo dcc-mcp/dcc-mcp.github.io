@@ -40,17 +40,21 @@ adapter repository as the source of truth for installation and host details.
 - [3ds Max](https://github.com/dcc-mcp/dcc-mcp-3dsmax) — Autodesk 3ds Max.
 - [After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) — Adobe After Effects.
 - [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) — Blender add-on and embedded server.
+- [Cinema 4D](https://github.com/dcc-mcp/dcc-mcp-cinema4d) — Typed headless document, primitive, interchange, and render automation.
 - [ComfyUI](https://github.com/dcc-mcp/dcc-mcp-comfyui) — Workflow execution through REST and WebSocket APIs.
+- [FreeCAD](https://github.com/dcc-mcp/dcc-mcp-freecad) — Parametric CAD modeling, topology validation, and mesh interchange.
 - [GIMP](https://github.com/dcc-mcp/dcc-mcp-gimp) — GIMP 3.
 - [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) — Godot Engine and 2D game-authoring Skills.
 - [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) — SideFX Houdini.
 - [Katana](https://github.com/dcc-mcp/dcc-mcp-katana) — Foundry Katana.
 - [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) — Krita.
+- [Mari](https://github.com/dcc-mcp/dcc-mcp-mari) — Foundry Mari projects, geometry, node graphs, look development, and texture export.
 - [Material Maker](https://github.com/dcc-mcp/dcc-mcp-material-maker) — Procedural material authoring.
 - [Maya](https://github.com/dcc-mcp/dcc-mcp-maya) — Autodesk Maya.
 - [Marmoset Toolbag](https://github.com/dcc-mcp/dcc-mcp-marmoset) — PBR material authoring, scene inspection, and rendering.
 - [MotionBuilder](https://github.com/dcc-mcp/dcc-mcp-mobu) — Autodesk MotionBuilder.
 - [Nuke](https://github.com/dcc-mcp/dcc-mcp-nuke) — Foundry Nuke.
+- [OpenSCAD](https://github.com/dcc-mcp/dcc-mcp-openscad) — Declarative parametric CAD validation, preview rendering, and mesh export.
 - [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) — Adobe Photoshop through UXP.
 - [Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere) — Adobe Premiere Pro.
 - [Substance 3D Designer](https://github.com/dcc-mcp/dcc-mcp-substance3d-designer) — Adobe Substance 3D Designer.

@@ -46,14 +46,16 @@ npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">官方集成</p>
-      <h2 id="integrations-title">20 个已发布适配器，另有 Wwise。</h2>
+      <h2 id="integrations-title">24 个已发布适配器，另有 Wwise。</h2>
     </div>
-    <p>当前发布目录提供 20 个适配器标识；Wwise 另有公开适配器与案例。使用 <code>dcc-mcp-cli dcc-types</code> 查询当前可安装列表。</p>
+    <p>当前发布目录提供 24 个适配器标识；Wwise 另有公开适配器与案例。使用 <code>dcc-mcp-cli dcc-types</code> 查询当前可安装列表。</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-aftereffects"><img src="/dcc-logos/aftereffects.svg" alt="After Effects logo"><span>After Effects</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-blender"><img src="/dcc-logos/blender.svg" alt="Blender logo"><span>Blender</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-cinema4d"><img src="/dcc-logos/cinema4d.png" alt="Cinema 4D logo"><span>Cinema 4D</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-freecad"><img src="/dcc-logos/freecad.png" alt="FreeCAD logo"><span>FreeCAD</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-godot"><img src="/dcc-logos/godot.svg" alt="Godot logo"><span>Godot</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-unreal"><img class="dcc-logo-invert-dark" src="/dcc-logos/unreal.svg" alt="Unreal Engine logo"><span>Unreal Engine</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-unity"><img src="/dcc-logos/unity.png" alt="Unity logo"><span>Unity</span></a>
@@ -61,9 +63,11 @@ npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
     <a href="https://github.com/dcc-mcp/dcc-mcp-katana"><img src="/dcc-logos/katana.png" alt="Katana logo"><span>Katana</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-maya"><img src="/dcc-logos/maya.svg" alt="Maya logo"><span>Maya</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-marmoset"><img src="/dcc-logos/marmoset.png" alt="Marmoset Toolbag logo"><span>Marmoset</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-mari"><img class="dcc-logo-white" src="/dcc-logos/mari.svg" alt="Mari logo"><span>Mari</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-mobu"><img src="/dcc-logos/motionbuilder.png" alt="MotionBuilder logo"><span>MotionBuilder</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-nuke"><img src="/dcc-logos/nuke.png" alt="Nuke logo"><span>Nuke</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-openusd"><img src="/dcc-logos/openusd.svg" alt="OpenUSD logo"><span>OpenUSD</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-openscad"><img src="/dcc-logos/openscad.png" alt="OpenSCAD logo"><span>OpenSCAD</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-photoshop"><img src="/dcc-logos/photoshop.png" alt="Photoshop logo"><span>Photoshop</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-premiere"><img src="/dcc-logos/premiere.svg" alt="Premiere Pro logo"><span>Premiere Pro</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-renderdoc"><img src="/dcc-logos/renderdoc.svg" alt="RenderDoc logo"><span>RenderDoc</span></a>
@@ -112,6 +116,14 @@ npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
     <a class="showcase-card showcase-narrow" href="https://github.com/dcc-mcp/dcc-mcp-houdini">
       <img src="/showcase/houdini-portal.png" alt="Houdini 程序化传送门粒子" loading="lazy">
       <span><small>HOUDINI</small><strong>传送门粒子</strong><em>↗</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/zh/showcase#openscad-parametric-pipeline">
+      <img src="/showcase/openscad-parametric-pipeline.webp" alt="OpenSCAD 支架经 FreeCAD 验证并导入 Blender 与 Godot" loading="lazy">
+      <span><small>OPENSCAD → FREECAD → BLENDER / GODOT</small><strong>参数化 CAD 到经验证的游戏资产</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-narrow" href="/zh/showcase#cinema4d-typed-scene">
+      <img src="/showcase/cinema4d-typed-scene.webp" alt="Cinema 4D 类型化基础体完成装配、验证与渲染" loading="lazy">
+      <span><small>CINEMA 4D</small><strong>类型化场景自动化</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-narrow" href="https://github.com/dcc-mcp/dcc-ai-hunyuan3d">
       <img src="/showcase/hunyuan3d.webp" alt="从提示词生成 3D 灯笼资产" loading="lazy">

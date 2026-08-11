@@ -7,14 +7,18 @@ These nominative product identity assets are displayed unchanged. Product names 
 | `3dsmax.png` | Approved DCC-MCP Admin UI asset; [Autodesk 3ds Max](https://www.autodesk.com/products/3ds-max/overview) |
 | `aftereffects.svg` | [Adobe product icon](https://www.adobe.com/cc-shared/assets/img/product-icons/svg/after-effects-40.svg) |
 | `blender.svg` | [Simple Icons](https://cdn.simpleicons.org/blender), checked against [Blender branding](https://www.blender.org/about/logo/) |
+| `cinema4d.png` | Representative Cinema 4D host mark extracted from the approved `dcc-mcp-cinema4d` DCC-MCP lockup; checked against [Maxon Cinema 4D](https://www.maxon.net/en/cinema-4d) |
+| `freecad.png` | Representative FreeCAD host mark extracted from the approved `dcc-mcp-freecad` DCC-MCP lockup; checked against the [FreeCAD project](https://www.freecad.org/) |
 | `godot.svg` | [Godot official repository](https://github.com/godotengine/godot/blob/master/misc/logo/icon.svg) |
 | `houdini.svg` | [Simple Icons](https://cdn.simpleicons.org/houdini), checked against [SideFX Houdini](https://www.sidefx.com/products/houdini/) |
 | `katana.png` | [Foundry Katana product icon](https://www.foundry.com/sites/default/files/styles/icon_lg/public/media/image/2026-06/iconkatanargbyellow-01.png) |
 | `maya.svg` | [Simple Icons](https://cdn.simpleicons.org/autodeskmaya), checked against [Autodesk Maya](https://www.autodesk.com/products/maya/overview) |
 | `marmoset.png` | Official Marmoset Toolbag 5 Windows application icon extracted unchanged from `toolbag.exe` 5.0.2.2; executable SHA-256 `50b75406743ee983e94b95d859701cf1befcc386ed268e848ce16a9939ef72ad`; product red `#FF0044` |
+| `mari.svg` | [Foundry Mari official white product logo](https://www.foundry.com/sites/default/files/product-logos/website_productpages-logos_MARI_white.svg), checked against [Foundry Mari](https://www.foundry.com/products/mari) |
 | `motionbuilder.png` | Highest-resolution icon embedded in an official Autodesk MotionBuilder installation; [product reference](https://www.autodesk.com/products/motionbuilder/overview) |
 | `nuke.png` | [Foundry Nuke product icon](https://www.foundry.com/sites/default/files/styles/icon_lg/public/media/image/2026-06/iconnuke-rgb-yellow-01.png) |
 | `openusd.svg` | [Alliance for OpenUSD](https://openusd.org/images/USDLogoUnsized.svg) |
+| `openscad.png` | Representative OpenSCAD host mark extracted from the approved `dcc-mcp-openscad` DCC-MCP lockup; checked against the [OpenSCAD project](https://openscad.org/) |
 | `photoshop.png` | Approved DCC-MCP Admin UI asset; [Adobe Photoshop](https://www.adobe.com/products/photoshop.html) |
 | `premiere.svg` | [Adobe product icon](https://main--cc--adobecom.aem.live/cc-shared/assets/img/product-icons/svg/premiere-pro.svg) |
 | `renderdoc.svg` | [RenderDoc official repository](https://github.com/baldurk/renderdoc/blob/v1.x/qrenderdoc/Resources/logo.svg) |
