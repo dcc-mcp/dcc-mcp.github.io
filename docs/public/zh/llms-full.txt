@@ -47,13 +47,17 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - `3dsmax` — Autodesk 3ds Max — https://github.com/dcc-mcp/dcc-mcp-3dsmax
 - `aftereffects` — Adobe After Effects — https://github.com/dcc-mcp/dcc-mcp-aftereffects
 - `blender` — Blender — https://github.com/dcc-mcp/dcc-mcp-blender
+- `c4d` — Maxon Cinema 4D — https://github.com/dcc-mcp/dcc-mcp-cinema4d
+- `freecad` — FreeCAD — https://github.com/dcc-mcp/dcc-mcp-freecad
 - `godot` — Godot Engine — https://github.com/dcc-mcp/dcc-mcp-godot
 - `houdini` — SideFX Houdini — https://github.com/dcc-mcp/dcc-mcp-houdini
 - `katana` — Foundry Katana — https://github.com/dcc-mcp/dcc-mcp-katana
+- `mari` — Foundry Mari — https://github.com/dcc-mcp/dcc-mcp-mari
 - `maya` — Autodesk Maya — https://github.com/dcc-mcp/dcc-mcp-maya
 - `marmoset` — Marmoset Toolbag — https://github.com/dcc-mcp/dcc-mcp-marmoset
 - `mobu` — Autodesk MotionBuilder — https://github.com/dcc-mcp/dcc-mcp-mobu
 - `nuke` — Foundry Nuke — https://github.com/dcc-mcp/dcc-mcp-nuke
+- `openscad` — OpenSCAD — https://github.com/dcc-mcp/dcc-mcp-openscad
 - `openusd` — OpenUSD — https://github.com/dcc-mcp/dcc-mcp-openusd
 - `photoshop` — Adobe Photoshop — https://github.com/dcc-mcp/dcc-mcp-photoshop
 - `premiere` — Adobe Premiere Pro — https://github.com/dcc-mcp/dcc-mcp-premiere
@@ -74,19 +78,23 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - 3ds Max：https://dcc-mcp.github.io/zh/control/3ds-max
 - After Effects：https://dcc-mcp.github.io/zh/control/after-effects
 - Blender：https://dcc-mcp.github.io/zh/control/blender
+- Cinema 4D：https://dcc-mcp.github.io/zh/control/cinema-4d
 - ComfyUI：https://dcc-mcp.github.io/zh/control/comfyui
 - Flow Production Tracking：https://dcc-mcp.github.io/zh/control/flow-production-tracking
+- FreeCAD：https://dcc-mcp.github.io/zh/control/freecad
 - GIMP：https://dcc-mcp.github.io/zh/control/gimp
 - Godot：https://dcc-mcp.github.io/zh/control/godot
 - Houdini：https://dcc-mcp.github.io/zh/control/houdini
 - Katana：https://dcc-mcp.github.io/zh/control/katana
 - Krita：https://dcc-mcp.github.io/zh/control/krita
+- Mari：https://dcc-mcp.github.io/zh/control/mari
 - Marmoset Toolbag：https://dcc-mcp.github.io/zh/control/marmoset-toolbag
 - Material Maker：https://dcc-mcp.github.io/zh/control/material-maker
 - Maya：https://dcc-mcp.github.io/zh/control/maya
 - MotionBuilder：https://dcc-mcp.github.io/zh/control/motionbuilder
 - Nuke：https://dcc-mcp.github.io/zh/control/nuke
 - OpenUSD：https://dcc-mcp.github.io/zh/control/openusd
+- OpenSCAD：https://dcc-mcp.github.io/zh/control/openscad
 - Photoshop：https://dcc-mcp.github.io/zh/control/photoshop
 - Premiere Pro：https://dcc-mcp.github.io/zh/control/premiere-pro
 - RenderDoc：https://dcc-mcp.github.io/zh/control/renderdoc

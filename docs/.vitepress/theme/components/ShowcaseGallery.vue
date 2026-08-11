@@ -77,6 +77,51 @@ const showcases: Showcase[] = [
     },
   },
   {
+    id: 'openscad-parametric-pipeline',
+    image: '/showcase/openscad-parametric-pipeline.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-openscad',
+    en: {
+      label: 'OPENSCAD → FREECAD → BLENDER / GODOT',
+      title: 'Parametric bracket to verified game asset',
+      prompt: 'Use the dcc-mcp Skill to validate a parametric bracket through OpenSCAD, FreeCAD, Blender, and Godot. Work only in a new bounded scratch root. In OpenSCAD, inspect the source, validate the model, render a preview, and export STL while recording dimensions, topology metrics, and hashes. Import the STL into FreeCAD, verify points, facets, volume, and exact bounds, then export OBJ. Import the OBJ into Blender, verify mesh counts, export GLB, and load it into Godot. Run the Godot scene and prove that a visible MeshInstance3D is present. Report every durable file and validation result.',
+    },
+    zh: {
+      label: 'OPENSCAD → FREECAD → BLENDER / GODOT',
+      title: '参数化支架到经验证的游戏资产',
+      prompt: '使用 dcc-mcp Skill，通过 OpenSCAD、FreeCAD、Blender 与 Godot 验证一个参数化支架。所有文件只能写入新的受控临时根目录。先在 OpenSCAD 中检查源码、验证模型、渲染预览并导出 STL，同时记录尺寸、拓扑指标与哈希；再把 STL 导入 FreeCAD，核对点数、面数、体积和精确边界后导出 OBJ；将 OBJ 导入 Blender，核对网格数量并导出 GLB；最后在 Godot 中载入并运行场景，证明存在可见的 MeshInstance3D。报告所有持久化文件和验证结果。',
+    },
+  },
+  {
+    id: 'freecad-game-ready-pipeline',
+    image: '/showcase/freecad-game-ready-pipeline.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-freecad',
+    en: {
+      label: 'FREECAD · CAD INTERCHANGE',
+      title: 'Editable CAD to validated realtime mesh',
+      prompt: 'Use the dcc-mcp Skill to connect to FreeCAD. Create a new durable FCStd document in an approved output root, build an editable solid from typed primitives and booleans, and preserve the parametric source. Inspect the resulting objects and validate shape validity, topology counts, volume, and bounds. Export an OBJ or STL, import it into Blender, verify the mesh, export GLB, and load the GLB into Godot for a visible runtime check. Report the document, interchange files, object metrics, and hashes.',
+    },
+    zh: {
+      label: 'FREECAD · CAD 格式交换',
+      title: '可编辑 CAD 到经验证的实时网格',
+      prompt: '使用 dcc-mcp Skill 连接 FreeCAD。在获准的输出根目录中创建新的持久化 FCStd 文档，通过类型化基础体与布尔运算构建可编辑实体，并保留参数化源文件。检查生成的对象，验证形体有效性、拓扑数量、体积与边界；导出 OBJ 或 STL，导入 Blender 核对网格后再导出 GLB，并在 Godot 中完成可见性运行验证。报告文档、交换文件、对象指标与哈希。',
+    },
+  },
+  {
+    id: 'cinema4d-typed-scene',
+    image: '/showcase/cinema4d-typed-scene.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-cinema4d',
+    en: {
+      label: 'CINEMA 4D · TYPED AUTOMATION',
+      title: 'Typed primitives to validated render',
+      prompt: 'Use the dcc-mcp Skill with the locally licensed Cinema 4D runtime. Start with get_status and get_capabilities, then create a durable C4D document in an allowed output root. Add only supported typed primitives, give every object a unique name, apply bounded transforms, inspect the saved document, and validate it. Render a 16:9 PNG and export OBJ or another interchange format only when the runtime reports support. Report object counts, output sizes, hashes, and any format-specific limitation. Do not execute arbitrary Python or publish local installation details.',
+    },
+    zh: {
+      label: 'CINEMA 4D · 类型化自动化',
+      title: '类型化基础体到经验证的渲染',
+      prompt: '使用 dcc-mcp Skill 连接本机已授权的 Cinema 4D 运行时。先调用 get_status 与 get_capabilities，再在允许的输出根目录中创建持久化 C4D 文档。只添加运行时支持的类型化基础体，为每个对象使用唯一名称，执行范围明确的变换，检查并验证保存后的文档；渲染一张 16:9 PNG，并且仅在运行时明确支持时导出 OBJ 或其他交换格式。报告对象数量、输出大小、哈希与格式限制。不得执行任意 Python，也不要发布本地安装细节。',
+    },
+  },
+  {
     id: 'hunyuan3d',
     image: '/showcase/hunyuan3d.webp',
     source: 'https://github.com/dcc-mcp/dcc-ai-hunyuan3d',

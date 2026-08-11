@@ -30,10 +30,10 @@ Core 记录共享控制平面；各仓库记录自己的安装、兼容性和 Ho
 自然语言控制问题和安全 Agent 提示词先从[逐应用 AI 控制指南](/zh/use-cases)
 开始；安装和 Host 专属细节仍以对应适配器仓库为事实来源。
 
-- [3ds Max](https://github.com/dcc-mcp/dcc-mcp-3dsmax) · [After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) · [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) · [ComfyUI](https://github.com/dcc-mcp/dcc-mcp-comfyui)
-- [GIMP](https://github.com/dcc-mcp/dcc-mcp-gimp) · [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) · [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) · [Katana](https://github.com/dcc-mcp/dcc-mcp-katana)
-- [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) · [Material Maker](https://github.com/dcc-mcp/dcc-mcp-material-maker) · [Maya](https://github.com/dcc-mcp/dcc-mcp-maya) · [Marmoset Toolbag](https://github.com/dcc-mcp/dcc-mcp-marmoset) · [MotionBuilder](https://github.com/dcc-mcp/dcc-mcp-mobu)
-- [Nuke](https://github.com/dcc-mcp/dcc-mcp-nuke) · [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) · [Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere)
+- [3ds Max](https://github.com/dcc-mcp/dcc-mcp-3dsmax) · [After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) · [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) · [Cinema 4D](https://github.com/dcc-mcp/dcc-mcp-cinema4d) · [ComfyUI](https://github.com/dcc-mcp/dcc-mcp-comfyui)
+- [FreeCAD](https://github.com/dcc-mcp/dcc-mcp-freecad) · [GIMP](https://github.com/dcc-mcp/dcc-mcp-gimp) · [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) · [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) · [Katana](https://github.com/dcc-mcp/dcc-mcp-katana)
+- [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) · [Mari](https://github.com/dcc-mcp/dcc-mcp-mari) · [Material Maker](https://github.com/dcc-mcp/dcc-mcp-material-maker) · [Maya](https://github.com/dcc-mcp/dcc-mcp-maya) · [Marmoset Toolbag](https://github.com/dcc-mcp/dcc-mcp-marmoset) · [MotionBuilder](https://github.com/dcc-mcp/dcc-mcp-mobu)
+- [Nuke](https://github.com/dcc-mcp/dcc-mcp-nuke) · [OpenSCAD](https://github.com/dcc-mcp/dcc-mcp-openscad) · [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) · [Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere)
 - [Substance 3D Designer](https://github.com/dcc-mcp/dcc-mcp-substance3d-designer) · [Substance 3D Painter](https://github.com/dcc-mcp/dcc-mcp-substance3d-painter)
 - [Tiled](https://github.com/dcc-mcp/dcc-mcp-tiled) · [TouchDesigner](https://github.com/dcc-mcp/dcc-mcp-touchdesigner) · [Unity](https://github.com/dcc-mcp/dcc-mcp-unity) · [Unreal Engine](https://github.com/dcc-mcp/dcc-mcp-unreal) · [Wwise](https://github.com/dcc-mcp/dcc-mcp-wwise) · [ZBrush](https://github.com/dcc-mcp/dcc-mcp-zbrush)
 

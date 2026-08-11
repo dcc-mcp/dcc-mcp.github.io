@@ -431,6 +431,9 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
 
 :root.dark .dcc-grid img.dcc-logo-invert-dark { filter: brightness(0) invert(1); }
 
+.dcc-grid img.dcc-logo-white { filter: brightness(0); }
+:root.dark .dcc-grid img.dcc-logo-white { filter: none; }
+
 .dcc-grid span { overflow-wrap: anywhere; }
 
 .integrations-more {
