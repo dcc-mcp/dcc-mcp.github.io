@@ -37,7 +37,7 @@ Core 记录共享控制平面；各仓库记录自己的安装、兼容性和 Ho
 - [Substance 3D Designer](https://github.com/dcc-mcp/dcc-mcp-substance3d-designer) · [Substance 3D Painter](https://github.com/dcc-mcp/dcc-mcp-substance3d-painter)
 - [Tiled](https://github.com/dcc-mcp/dcc-mcp-tiled) · [TouchDesigner](https://github.com/dcc-mcp/dcc-mcp-touchdesigner) · [Unity](https://github.com/dcc-mcp/dcc-mcp-unity) · [Unreal Engine](https://github.com/dcc-mcp/dcc-mcp-unreal) · [Wwise](https://github.com/dcc-mcp/dcc-mcp-wwise) · [ZBrush](https://github.com/dcc-mcp/dcc-mcp-zbrush)
 
-Shōgun 0.3.0 提供 36 个基于官方 SDK 的类型化工具，覆盖 Scene 对象、动捕数据、文件、Timeline 控制与带能力门控的 Offline 处理。
+Shōgun 0.4.0 提供 48 个基于官方 SDK 的类型化工具，覆盖 Scene 对象、属性、Channel、光学相机、文件、Timeline 控制，以及带能力门控的 Offline 处理设置与操作。
 
 ## Maya 专项 Skills
 

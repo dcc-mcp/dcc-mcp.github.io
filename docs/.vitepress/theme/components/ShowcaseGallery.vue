@@ -202,13 +202,13 @@ const showcases: Showcase[] = [
     source: 'https://github.com/dcc-mcp/dcc-mcp-shogun',
     en: {
       label: 'SHŌGUN · TYPED MOTION CAPTURE',
-      title: '36 official-SDK tools for capability-verified mocap work',
-      prompt: 'Use the dcc-mcp Skill to connect to one explicit Vicon Shōgun Post instance and load the 36 typed tools. Start with scene, object, selection, and timeline inspection; report subjects, markers, skeletons, trajectories, object hierarchy and transforms, frame rate, current frame, play and animation ranges, and selected time ranges. Before any mutation, probe the exact Scene, Timeline, or Offline SDK command and treat a bounded ControlError as an unsupported host capability. If supported, make only one explicit selection/display, current-frame/selected-range processing, ROM-label, calibration, or QuickPost operation, validate the resulting state, and save to a new approved path. Do not run arbitrary HSL or Python, expose raw channel writes, or overwrite the source scene.',
+      title: '48 official-SDK tools for capability-verified mocap work',
+      prompt: 'Use the dcc-mcp Skill to connect to one explicit Vicon Shōgun Post instance and load the 48 typed tools. Start with scene, object, selection, and timeline inspection; report subjects, markers, skeletons, trajectories, hierarchy and transforms, attribute and channel names, one explicitly requested bounded channel sample or gap summary, optical-camera summaries, frame rate, current frame, play and animation ranges, and selected time ranges. Before any mutation, probe the exact Scene, Timeline, or Offline SDK command and treat a bounded ControlError as an unsupported host capability. If supported, make only one explicit selection/display, allowlisted processing-setting update, current-frame/selected-range processing, ROM-label, calibration, or QuickPost operation; then validate the resulting state and save to a new approved path. Do not expose attribute values or camera device IDs, run arbitrary HSL or Python, permit raw channel or trajectory writes, or overwrite the source scene.',
     },
     zh: {
       label: 'SHŌGUN · 类型化动作捕捉',
-      title: '36 个官方 SDK 工具完成经能力验证的动捕工作',
-      prompt: '使用 dcc-mcp Skill 连接一个明确指定的 Vicon Shōgun Post 实例，并加载 36 个类型化工具。先检查场景、对象、选择集与时间线，再报告角色、Marker、骨架、轨迹、对象层级与变换、帧率、当前帧、播放/动画范围和所选时间范围。任何修改前都要探测准确的 Scene、Timeline 或 Offline SDK 命令，并将有界 ControlError 视为宿主不支持该能力。若宿主支持，只执行一个明确的选择/显示、当前帧/所选范围处理、ROM 标记、校准或 QuickPost 操作，验证结果状态，并保存到新的获准路径。不得执行任意 HSL 或 Python、开放原始 Channel 写入或覆盖源场景。',
+      title: '48 个官方 SDK 工具完成经能力验证的动捕工作',
+      prompt: '使用 dcc-mcp Skill 连接一个明确指定的 Vicon Shōgun Post 实例，并加载 48 个类型化工具。先检查场景、对象、选择集与时间线，再报告角色、Marker、骨架、轨迹、层级与变换、属性与 Channel 名称、一个明确指定的有界 Channel 样本或缺口摘要、光学相机摘要、帧率、当前帧、播放/动画范围和所选时间范围。任何修改前都要探测准确的 Scene、Timeline 或 Offline SDK 命令，并将有界 ControlError 视为宿主不支持该能力。若宿主支持，只执行一个明确的选择/显示、白名单内处理设置更新、当前帧/所选范围处理、ROM 标记、校准或 QuickPost 操作；随后验证结果状态，并保存到新的获准路径。不得暴露属性值或相机 Device ID、执行任意 HSL 或 Python、允许原始 Channel/轨迹写入或覆盖源场景。',
     },
   },
   {
