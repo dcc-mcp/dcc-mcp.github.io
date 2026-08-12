@@ -202,13 +202,13 @@ const showcases: Showcase[] = [
     source: 'https://github.com/dcc-mcp/dcc-mcp-shogun',
     en: {
       label: 'SHŌGUN · TYPED MOTION CAPTURE',
-      title: 'Motion data to capability-verified scene operations',
-      prompt: 'Use the dcc-mcp Skill to connect to one explicit Vicon Shōgun Post instance. Start with typed scene and timeline inspection, then report subjects, markers, skeletons, trajectories, frame rate, current frame, play range, and selected time ranges. Before any mutation, probe the exact Timeline or Offline SDK command and treat a bounded ControlError as an unsupported host capability. If supported, make only one current-frame or selected-range operation, validate the resulting state, and save to a new approved path. Do not run arbitrary HSL or Python, do not process a play range, and do not overwrite the source scene.',
+      title: '36 official-SDK tools for capability-verified mocap work',
+      prompt: 'Use the dcc-mcp Skill to connect to one explicit Vicon Shōgun Post instance and load the 36 typed tools. Start with scene, object, selection, and timeline inspection; report subjects, markers, skeletons, trajectories, object hierarchy and transforms, frame rate, current frame, play and animation ranges, and selected time ranges. Before any mutation, probe the exact Scene, Timeline, or Offline SDK command and treat a bounded ControlError as an unsupported host capability. If supported, make only one explicit selection/display, current-frame/selected-range processing, ROM-label, calibration, or QuickPost operation, validate the resulting state, and save to a new approved path. Do not run arbitrary HSL or Python, expose raw channel writes, or overwrite the source scene.',
     },
     zh: {
       label: 'SHŌGUN · 类型化动作捕捉',
-      title: '动作数据到经能力验证的场景操作',
-      prompt: '使用 dcc-mcp Skill 连接一个明确指定的 Vicon Shōgun Post 实例。先通过类型化工具检查场景与时间线，再报告角色、Marker、骨架、轨迹、帧率、当前帧、播放范围与所选时间范围。任何修改前都要探测准确的 Timeline 或 Offline SDK 命令，并将有界 ControlError 视为宿主不支持该能力。若宿主支持，只执行一个当前帧或所选范围操作，验证结果状态，并保存到新的获准路径。不得执行任意 HSL 或 Python，不得处理播放范围，不得覆盖源场景。',
+      title: '36 个官方 SDK 工具完成经能力验证的动捕工作',
+      prompt: '使用 dcc-mcp Skill 连接一个明确指定的 Vicon Shōgun Post 实例，并加载 36 个类型化工具。先检查场景、对象、选择集与时间线，再报告角色、Marker、骨架、轨迹、对象层级与变换、帧率、当前帧、播放/动画范围和所选时间范围。任何修改前都要探测准确的 Scene、Timeline 或 Offline SDK 命令，并将有界 ControlError 视为宿主不支持该能力。若宿主支持，只执行一个明确的选择/显示、当前帧/所选范围处理、ROM 标记、校准或 QuickPost 操作，验证结果状态，并保存到新的获准路径。不得执行任意 HSL 或 Python、开放原始 Channel 写入或覆盖源场景。',
     },
   },
   {

@@ -59,7 +59,7 @@ adapter repository as the source of truth for installation and host details.
 - [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) — Adobe Photoshop through UXP.
 - [Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere) — Adobe Premiere Pro.
 - [SketchUp](https://github.com/dcc-mcp/dcc-mcp-sketchup) — Typed modeling, materials, Tags, scenes, validation, and interchange through an authenticated Ruby bridge.
-- [Shōgun](https://github.com/dcc-mcp/dcc-mcp-shogun) — Vicon Shōgun Post scene and file inspection plus capability-gated Timeline and Offline processing.
+- [Shōgun](https://github.com/dcc-mcp/dcc-mcp-shogun) — 36 typed official-SDK tools for Scene objects, motion data, files, Timeline control, and capability-gated Offline processing.
 - [Substance 3D Designer](https://github.com/dcc-mcp/dcc-mcp-substance3d-designer) — Adobe Substance 3D Designer.
 - [Substance 3D Painter](https://github.com/dcc-mcp/dcc-mcp-substance3d-painter) — Adobe Substance 3D Painter.
 - [Tiled](https://github.com/dcc-mcp/dcc-mcp-tiled) — Tiled map editor.
