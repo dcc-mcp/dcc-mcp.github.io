@@ -28,7 +28,7 @@ Universal install: `npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --
 
 ## Current released integrations
 
-`dcc-mcp-cli dcc-types` currently exposes 24 adapter-backed identifiers: `3dsmax`, `aftereffects`, `blender`, `c4d`, `freecad`, `godot`, `houdini`, `katana`, `mari`, `maya`, `marmoset`, `mobu`, `nuke`, `openscad`, `openusd`, `photoshop`, `premiere`, `renderdoc`, `shotgrid`, `substance3d_designer`, `substance3d_painter`, `unity`, `unreal`, and `zbrush`. Custom studio host identifiers are also supported.
+`dcc-mcp-cli dcc-types` currently exposes 34 adapter-backed identifiers: `3dsmax`, `aftereffects`, `blender`, `c4d`, `cache-inspector`, `comfyui`, `freecad`, `gimp`, `godot`, `houdini`, `illustrator`, `katana`, `krita`, `mari`, `marmoset`, `material-maker`, `maya`, `mobu`, `nuke`, `openscad`, `openusd`, `photoshop`, `premiere`, `renderdoc`, `shotgrid`, `sketchup`, `substance3d_designer`, `substance3d_painter`, `tiled`, `touchdesigner`, `unity`, `unreal`, `wwise`, and `zbrush`. Custom studio host identifiers are also supported.
 
 ## Application-specific AI control guides
 
@@ -36,12 +36,14 @@ Universal install: `npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --
 - [After Effects](https://dcc-mcp.github.io/control/after-effects)
 - [Blender](https://dcc-mcp.github.io/control/blender)
 - [Cinema 4D](https://dcc-mcp.github.io/control/cinema-4d)
+- [Cache Inspector](https://dcc-mcp.github.io/control/cache-inspector)
 - [ComfyUI](https://dcc-mcp.github.io/control/comfyui)
 - [Flow Production Tracking](https://dcc-mcp.github.io/control/flow-production-tracking)
 - [FreeCAD](https://dcc-mcp.github.io/control/freecad)
 - [GIMP](https://dcc-mcp.github.io/control/gimp)
 - [Godot](https://dcc-mcp.github.io/control/godot)
 - [Houdini](https://dcc-mcp.github.io/control/houdini)
+- [Illustrator](https://dcc-mcp.github.io/control/illustrator)
 - [Katana](https://dcc-mcp.github.io/control/katana)
 - [Krita](https://dcc-mcp.github.io/control/krita)
 - [Mari](https://dcc-mcp.github.io/control/mari)
@@ -55,6 +57,7 @@ Universal install: `npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --
 - [Photoshop](https://dcc-mcp.github.io/control/photoshop)
 - [Premiere Pro](https://dcc-mcp.github.io/control/premiere-pro)
 - [RenderDoc](https://dcc-mcp.github.io/control/renderdoc)
+- [SketchUp](https://dcc-mcp.github.io/control/sketchup)
 - [Substance 3D Designer](https://dcc-mcp.github.io/control/substance-3d-designer)
 - [Substance 3D Painter](https://dcc-mcp.github.io/control/substance-3d-painter)
 - [Tiled](https://dcc-mcp.github.io/control/tiled)
@@ -64,7 +67,7 @@ Universal install: `npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --
 - [Wwise](https://dcc-mcp.github.io/control/wwise)
 - [ZBrush](https://dcc-mcp.github.io/control/zbrush)
 
-The public guide inventory is broader than the current 24-identifier release catalog. Check `dcc-mcp-cli dcc-types` and the linked adapter repository before operating.
+The public guide inventory matches the current 34-identifier release catalog. Check `dcc-mcp-cli dcc-types` and the linked adapter repository before operating.
 
 ## Marketplace CLI contract
 

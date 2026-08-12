@@ -46,20 +46,22 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">OFFICIAL INTEGRATIONS</p>
-      <h2 id="integrations-title">24 released adapters, plus Wwise.</h2>
+      <h2 id="integrations-title">34 released adapter identifiers.</h2>
     </div>
-    <p>The release catalog exposes 24 adapter identifiers. Wwise also has a public adapter and showcase; run <code>dcc-mcp-cli dcc-types</code> for the current installable list.</p>
+    <p>The release catalog exposes 34 adapter identifiers. The tiles below highlight representative integrations; run <code>dcc-mcp-cli dcc-types</code> for the complete current installable list.</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-aftereffects"><img src="/dcc-logos/aftereffects.svg" alt="After Effects logo"><span>After Effects</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-blender"><img src="/dcc-logos/blender.svg" alt="Blender logo"><span>Blender</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-cinema4d"><img src="/dcc-logos/cinema4d.png" alt="Cinema 4D logo"><span>Cinema 4D</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-comfyui"><img src="/dcc-logos/comfyui.svg" alt="ComfyUI logo"><span>ComfyUI</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-freecad"><img src="/dcc-logos/freecad.png" alt="FreeCAD logo"><span>FreeCAD</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-godot"><img src="/dcc-logos/godot.svg" alt="Godot logo"><span>Godot</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-unreal"><img class="dcc-logo-invert-dark" src="/dcc-logos/unreal.svg" alt="Unreal Engine logo"><span>Unreal Engine</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-unity"><img src="/dcc-logos/unity.png" alt="Unity logo"><span>Unity</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-houdini"><img src="/dcc-logos/houdini.svg" alt="Houdini logo"><span>Houdini</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-illustrator"><img src="/dcc-logos/illustrator.svg" alt="Illustrator logo"><span>Illustrator</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-katana"><img src="/dcc-logos/katana.png" alt="Katana logo"><span>Katana</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-maya"><img src="/dcc-logos/maya.svg" alt="Maya logo"><span>Maya</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-marmoset"><img src="/dcc-logos/marmoset.png" alt="Marmoset Toolbag logo"><span>Marmoset</span></a>
@@ -71,6 +73,8 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
     <a href="https://github.com/dcc-mcp/dcc-mcp-photoshop"><img src="/dcc-logos/photoshop.png" alt="Photoshop logo"><span>Photoshop</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-premiere"><img src="/dcc-logos/premiere.svg" alt="Premiere Pro logo"><span>Premiere Pro</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-renderdoc"><img src="/dcc-logos/renderdoc.svg" alt="RenderDoc logo"><span>RenderDoc</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-sketchup"><img src="/dcc-logos/sketchup.svg" alt="SketchUp logo"><span>SketchUp</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-touchdesigner"><img src="/dcc-logos/touchdesigner-reference.svg" alt="Original operator-network motif for the TouchDesigner integration"><span>TouchDesigner</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-fpt"><img src="/dcc-logos/shotgrid.png" alt="Flow Production Tracking logo"><span>Flow Production Tracking</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-substance3d-designer"><img src="/dcc-logos/substance3d-designer.svg" alt="Substance 3D Designer logo"><span>Substance Designer</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-substance3d-painter"><img src="/dcc-logos/substance3d-painter.svg" alt="Substance 3D Painter logo"><span>Substance Painter</span></a>
@@ -124,6 +128,50 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
     <a class="showcase-card showcase-narrow" href="/showcase#cinema4d-typed-scene">
       <img src="/showcase/cinema4d-typed-scene.webp" alt="Typed Cinema 4D primitives assembled, validated, and rendered" loading="lazy">
       <span><small>CINEMA 4D</small><strong>Typed scene automation</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/showcase#comfyui-typed-workflow">
+      <img src="/showcase/comfyui-typed-workflow.webp" alt="ComfyUI graph validated against live node contracts, executed, and delivered as an artifact" loading="lazy">
+      <span><small>COMFYUI</small><strong>Validate, execute, deliver</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/showcase#illustrator-typed-vector-workflow">
+      <img src="/showcase/illustrator-typed-vector-workflow.webp" alt="Illustrator documents inspected, edited through typed vector tools, and verified through production exports" loading="lazy">
+      <span><small>ILLUSTRATOR</small><strong>Typed vector creation and export</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-narrow" href="/showcase#sketchup-typed-modeling">
+      <img src="/showcase/sketchup-typed-modeling.webp" alt="SketchUp models inspected, built with typed geometry, organized, validated, and exported" loading="lazy">
+      <span><small>SKETCHUP</small><strong>Typed model to verified interchange</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/showcase#touchdesigner-typed-operator-workflow">
+      <img src="/showcase/touchdesigner-typed-operator-workflow.webp" alt="Typed operator requests flow through a main-thread graph into verified project and PNG artifacts" loading="lazy">
+      <span><small>TOUCHDESIGNER</small><strong>Typed operator graph to verified artifacts</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/showcase#cache-inspection-workflow">
+      <img src="/showcase/cache-inspection-workflow.webp" alt="Compressed geometry cache decoded within bounded limits into privacy-safe counts, bounds, and attribute summaries" loading="lazy">
+      <span><small>CACHE INSPECTOR</small><strong>Bounded cache to privacy-safe structure</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-narrow" href="/showcase#tiled-typed-map-workflow">
+      <img src="/showcase/tiled-typed-map-workflow.webp" alt="Tiled map data authored through typed tools and validated as a durable TMJ artifact" loading="lazy">
+      <span><small>TILED</small><strong>Typed map authoring and validation</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/showcase#material-maker-typed-material-workflow">
+      <img src="/showcase/material-maker-typed-material-workflow.webp" alt="Material Maker PTEX inspected and validated before native texture export" loading="lazy">
+      <span><small>MATERIAL MAKER</small><strong>Bounded PTEX to texture export</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/showcase#krita-typed-paint-workflow">
+      <img src="/showcase/krita-typed-paint-workflow.webp" alt="Krita layered canvas authored through typed document and paint-layer tools" loading="lazy">
+      <span><small>KRITA</small><strong>Typed layered document authoring</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-narrow" href="/showcase#gimp-typed-image-workflow">
+      <img src="/showcase/gimp-typed-image-workflow.webp" alt="GIMP image and layers authored through a fixed typed bridge and exported to XCF and PNG" loading="lazy">
+      <span><small>GIMP</small><strong>Typed image layers to verified exports</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/showcase#katana-typed-lookdev-workflow">
+      <img src="/showcase/katana-typed-lookdev-workflow.webp" alt="Katana node graph created and connected through typed main-thread operations" loading="lazy">
+      <span><small>KATANA</small><strong>Typed node graph to durable project</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/showcase#premiere-typed-edit-workflow">
+      <img src="/showcase/premiere-typed-edit-workflow.webp" alt="Premiere Pro media, sequence, timeline, marker, and export queue operated through typed tools" loading="lazy">
+      <span><small>PREMIERE PRO</small><strong>Typed edit to export queue</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-narrow" href="https://github.com/dcc-mcp/dcc-ai-hunyuan3d">
       <img src="/showcase/hunyuan3d.webp" alt="Prompt to generated 3D lantern asset workflow" loading="lazy">

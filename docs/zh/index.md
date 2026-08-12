@@ -46,20 +46,22 @@ npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">官方集成</p>
-      <h2 id="integrations-title">24 个已发布适配器，另有 Wwise。</h2>
+      <h2 id="integrations-title">34 个已发布适配器标识。</h2>
     </div>
-    <p>当前发布目录提供 24 个适配器标识；Wwise 另有公开适配器与案例。使用 <code>dcc-mcp-cli dcc-types</code> 查询当前可安装列表。</p>
+    <p>当前发布目录提供 34 个适配器标识。下方卡片展示代表性集成；使用 <code>dcc-mcp-cli dcc-types</code> 查询完整的当前可安装列表。</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-aftereffects"><img src="/dcc-logos/aftereffects.svg" alt="After Effects logo"><span>After Effects</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-blender"><img src="/dcc-logos/blender.svg" alt="Blender logo"><span>Blender</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-cinema4d"><img src="/dcc-logos/cinema4d.png" alt="Cinema 4D logo"><span>Cinema 4D</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-comfyui"><img src="/dcc-logos/comfyui.svg" alt="ComfyUI logo"><span>ComfyUI</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-freecad"><img src="/dcc-logos/freecad.png" alt="FreeCAD logo"><span>FreeCAD</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-godot"><img src="/dcc-logos/godot.svg" alt="Godot logo"><span>Godot</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-unreal"><img class="dcc-logo-invert-dark" src="/dcc-logos/unreal.svg" alt="Unreal Engine logo"><span>Unreal Engine</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-unity"><img src="/dcc-logos/unity.png" alt="Unity logo"><span>Unity</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-houdini"><img src="/dcc-logos/houdini.svg" alt="Houdini logo"><span>Houdini</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-illustrator"><img src="/dcc-logos/illustrator.svg" alt="Illustrator logo"><span>Illustrator</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-katana"><img src="/dcc-logos/katana.png" alt="Katana logo"><span>Katana</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-maya"><img src="/dcc-logos/maya.svg" alt="Maya logo"><span>Maya</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-marmoset"><img src="/dcc-logos/marmoset.png" alt="Marmoset Toolbag logo"><span>Marmoset</span></a>
@@ -71,6 +73,8 @@ npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
     <a href="https://github.com/dcc-mcp/dcc-mcp-photoshop"><img src="/dcc-logos/photoshop.png" alt="Photoshop logo"><span>Photoshop</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-premiere"><img src="/dcc-logos/premiere.svg" alt="Premiere Pro logo"><span>Premiere Pro</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-renderdoc"><img src="/dcc-logos/renderdoc.svg" alt="RenderDoc logo"><span>RenderDoc</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-sketchup"><img src="/dcc-logos/sketchup.svg" alt="SketchUp logo"><span>SketchUp</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-touchdesigner"><img src="/dcc-logos/touchdesigner-reference.svg" alt="用于 TouchDesigner 集成的原创算子网络图形"><span>TouchDesigner</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-fpt"><img src="/dcc-logos/shotgrid.png" alt="Flow Production Tracking logo"><span>Flow Production Tracking</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-substance3d-designer"><img src="/dcc-logos/substance3d-designer.svg" alt="Substance 3D Designer logo"><span>Substance Designer</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-substance3d-painter"><img src="/dcc-logos/substance3d-painter.svg" alt="Substance 3D Painter logo"><span>Substance Painter</span></a>
@@ -124,6 +128,50 @@ npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
     <a class="showcase-card showcase-narrow" href="/zh/showcase#cinema4d-typed-scene">
       <img src="/showcase/cinema4d-typed-scene.webp" alt="Cinema 4D 类型化基础体完成装配、验证与渲染" loading="lazy">
       <span><small>CINEMA 4D</small><strong>类型化场景自动化</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/zh/showcase#comfyui-typed-workflow">
+      <img src="/showcase/comfyui-typed-workflow.webp" alt="ComfyUI 图依据实时节点契约完成验证、执行与产物交付" loading="lazy">
+      <span><small>COMFYUI</small><strong>验证、执行、交付</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/zh/showcase#illustrator-typed-vector-workflow">
+      <img src="/showcase/illustrator-typed-vector-workflow.webp" alt="Illustrator 文档经过检查、类型化矢量编辑与生产导出验证" loading="lazy">
+      <span><small>ILLUSTRATOR</small><strong>类型化矢量创建与导出</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-narrow" href="/zh/showcase#sketchup-typed-modeling">
+      <img src="/showcase/sketchup-typed-modeling.webp" alt="SketchUp 模型经过检查、类型化建模、组织、验证与导出" loading="lazy">
+      <span><small>SKETCHUP</small><strong>类型化模型到经验证的格式交换</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/zh/showcase#touchdesigner-typed-operator-workflow">
+      <img src="/showcase/touchdesigner-typed-operator-workflow.webp" alt="类型化算子请求经主线程图执行后生成可验证的工程与 PNG 产物" loading="lazy">
+      <span><small>TOUCHDESIGNER</small><strong>类型化算子图到经验证产物</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/zh/showcase#cache-inspection-workflow">
+      <img src="/showcase/cache-inspection-workflow.webp" alt="压缩几何缓存在有界解码后生成隐私安全的数量、边界与属性摘要" loading="lazy">
+      <span><small>CACHE INSPECTOR</small><strong>有界缓存到隐私安全结构摘要</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-narrow" href="/zh/showcase#tiled-typed-map-workflow">
+      <img src="/showcase/tiled-typed-map-workflow.webp" alt="通过类型化工具制作 Tiled 地图数据并验证持久化 TMJ 产物" loading="lazy">
+      <span><small>TILED</small><strong>类型化地图制作与验证</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/zh/showcase#material-maker-typed-material-workflow">
+      <img src="/showcase/material-maker-typed-material-workflow.webp" alt="检查并验证 Material Maker PTEX 后执行原生纹理导出" loading="lazy">
+      <span><small>MATERIAL MAKER</small><strong>有界 PTEX 到纹理导出</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/zh/showcase#krita-typed-paint-workflow">
+      <img src="/showcase/krita-typed-paint-workflow.webp" alt="通过类型化文档与绘画图层工具制作 Krita 分层画布" loading="lazy">
+      <span><small>KRITA</small><strong>类型化分层文档制作</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-narrow" href="/zh/showcase#gimp-typed-image-workflow">
+      <img src="/showcase/gimp-typed-image-workflow.webp" alt="通过固定类型化桥接制作 GIMP 图像与图层并导出 XCF 与 PNG" loading="lazy">
+      <span><small>GIMP</small><strong>类型化图层到经验证导出</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/zh/showcase#katana-typed-lookdev-workflow">
+      <img src="/showcase/katana-typed-lookdev-workflow.webp" alt="通过类型化主线程操作创建并连接 Katana 节点图" loading="lazy">
+      <span><small>KATANA</small><strong>类型化节点图到持久化工程</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/zh/showcase#premiere-typed-edit-workflow">
+      <img src="/showcase/premiere-typed-edit-workflow.webp" alt="通过类型化工具操作 Premiere Pro 媒体、Sequence、时间线、Marker 与导出队列" loading="lazy">
+      <span><small>PREMIERE PRO</small><strong>类型化剪辑到导出队列</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-narrow" href="https://github.com/dcc-mcp/dcc-ai-hunyuan3d">
       <img src="/showcase/hunyuan3d.webp" alt="从提示词生成 3D 灯笼资产" loading="lazy">

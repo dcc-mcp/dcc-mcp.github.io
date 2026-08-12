@@ -47,19 +47,25 @@ The canonical distribution source is https://github.com/dcc-mcp/dcc-mcp-agent-pl
 
 ## Current adapter-backed release catalog
 
-Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release catalog exposes 24 canonical identifiers:
+Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release catalog exposes 34 canonical identifiers:
 
 - `3dsmax` — Autodesk 3ds Max — https://github.com/dcc-mcp/dcc-mcp-3dsmax
 - `aftereffects` — Adobe After Effects — https://github.com/dcc-mcp/dcc-mcp-aftereffects
 - `blender` — Blender — https://github.com/dcc-mcp/dcc-mcp-blender
 - `c4d` — Maxon Cinema 4D — https://github.com/dcc-mcp/dcc-mcp-cinema4d
+- `cache-inspector` — Cache Inspector — https://github.com/dcc-mcp/dcc-mcp-cache-inspector
+- `comfyui` — ComfyUI — https://github.com/dcc-mcp/dcc-mcp-comfyui
 - `freecad` — FreeCAD — https://github.com/dcc-mcp/dcc-mcp-freecad
+- `gimp` — GIMP — https://github.com/dcc-mcp/dcc-mcp-gimp
 - `godot` — Godot Engine — https://github.com/dcc-mcp/dcc-mcp-godot
 - `houdini` — SideFX Houdini — https://github.com/dcc-mcp/dcc-mcp-houdini
+- `illustrator` — Adobe Illustrator — https://github.com/dcc-mcp/dcc-mcp-illustrator
 - `katana` — Foundry Katana — https://github.com/dcc-mcp/dcc-mcp-katana
+- `krita` — Krita — https://github.com/dcc-mcp/dcc-mcp-krita
 - `mari` — Foundry Mari — https://github.com/dcc-mcp/dcc-mcp-mari
 - `maya` — Autodesk Maya — https://github.com/dcc-mcp/dcc-mcp-maya
 - `marmoset` — Marmoset Toolbag — https://github.com/dcc-mcp/dcc-mcp-marmoset
+- `material-maker` — Material Maker — https://github.com/dcc-mcp/dcc-mcp-material-maker
 - `mobu` — Autodesk MotionBuilder — https://github.com/dcc-mcp/dcc-mcp-mobu
 - `nuke` — Foundry Nuke — https://github.com/dcc-mcp/dcc-mcp-nuke
 - `openscad` — OpenSCAD — https://github.com/dcc-mcp/dcc-mcp-openscad
@@ -67,11 +73,15 @@ Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release cat
 - `photoshop` — Adobe Photoshop — https://github.com/dcc-mcp/dcc-mcp-photoshop
 - `premiere` — Adobe Premiere Pro — https://github.com/dcc-mcp/dcc-mcp-premiere
 - `renderdoc` — RenderDoc — https://github.com/dcc-mcp/dcc-mcp-renderdoc
+- `sketchup` — SketchUp — https://github.com/dcc-mcp/dcc-mcp-sketchup
+- `touchdesigner` — TouchDesigner — https://github.com/dcc-mcp/dcc-mcp-touchdesigner
 - `shotgrid` — Autodesk Flow Production Tracking — https://github.com/dcc-mcp/dcc-mcp-fpt
 - `substance3d_designer` — Adobe Substance 3D Designer — https://github.com/dcc-mcp/dcc-mcp-substance3d-designer
 - `substance3d_painter` — Adobe Substance 3D Painter — https://github.com/dcc-mcp/dcc-mcp-substance3d-painter
+- `tiled` — Tiled — https://github.com/dcc-mcp/dcc-mcp-tiled
 - `unity` — Unity — https://github.com/dcc-mcp/dcc-mcp-unity
 - `unreal` — Unreal Engine — https://github.com/dcc-mcp/dcc-mcp-unreal
+- `wwise` — Audiokinetic Wwise — https://github.com/dcc-mcp/dcc-mcp-wwise
 - `zbrush` — Maxon ZBrush — https://github.com/dcc-mcp/dcc-mcp-zbrush
 
 Unknown and custom studio host identifiers are supported. The broader ecosystem directory may include experimental or independently released adapters that are not yet in the current CLI release catalog: https://dcc-mcp.github.io/ecosystem
@@ -84,12 +94,14 @@ The canonical hub is https://dcc-mcp.github.io/use-cases. Direct guides are avai
 - After Effects: https://dcc-mcp.github.io/control/after-effects
 - Blender: https://dcc-mcp.github.io/control/blender
 - Cinema 4D: https://dcc-mcp.github.io/control/cinema-4d
+- Cache Inspector: https://dcc-mcp.github.io/control/cache-inspector
 - ComfyUI: https://dcc-mcp.github.io/control/comfyui
 - Flow Production Tracking: https://dcc-mcp.github.io/control/flow-production-tracking
 - FreeCAD: https://dcc-mcp.github.io/control/freecad
 - GIMP: https://dcc-mcp.github.io/control/gimp
 - Godot: https://dcc-mcp.github.io/control/godot
 - Houdini: https://dcc-mcp.github.io/control/houdini
+- Illustrator: https://dcc-mcp.github.io/control/illustrator
 - Katana: https://dcc-mcp.github.io/control/katana
 - Krita: https://dcc-mcp.github.io/control/krita
 - Mari: https://dcc-mcp.github.io/control/mari
@@ -103,6 +115,7 @@ The canonical hub is https://dcc-mcp.github.io/use-cases. Direct guides are avai
 - Photoshop: https://dcc-mcp.github.io/control/photoshop
 - Premiere Pro: https://dcc-mcp.github.io/control/premiere-pro
 - RenderDoc: https://dcc-mcp.github.io/control/renderdoc
+- SketchUp: https://dcc-mcp.github.io/control/sketchup
 - Substance 3D Designer: https://dcc-mcp.github.io/control/substance-3d-designer
 - Substance 3D Painter: https://dcc-mcp.github.io/control/substance-3d-painter
 - Tiled: https://dcc-mcp.github.io/control/tiled
