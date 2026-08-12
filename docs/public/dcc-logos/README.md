@@ -24,6 +24,7 @@ These nominative product identity assets are displayed unchanged. Product names 
 | `photoshop.png` | Approved DCC-MCP Admin UI asset; [Adobe Photoshop](https://www.adobe.com/products/photoshop.html) |
 | `premiere.svg` | [Adobe product icon](https://main--cc--adobecom.aem.live/cc-shared/assets/img/product-icons/svg/premiere-pro.svg) |
 | `renderdoc.svg` | [RenderDoc official repository](https://github.com/baldurk/renderdoc/blob/v1.x/qrenderdoc/Resources/logo.svg) |
+| `shogun.svg` | Vicon's unchanged white wordmark from the current [Shōgun product page](https://www.vicon.com/software/shogun/) theme asset; used nominatively for the integration and checked against [Vicon trademark information](https://www.vicon.com/vicon/copyright-information/) |
 | `sketchup.svg` | [Simple Icons](https://cdn.simpleicons.org/sketchup/0063A3), checked against the [official SketchUp identity asset](https://images.ctfassets.net/5qimfmsew7zl/2nXLjh2FwQIrCtlGYklT4B/d1bc6c392be68d36501f8cde637d997f/Trimble-SketchUp-Logo-RGB.svg) |
 | `touchdesigner-reference.svg` | Original non-trademark operator-network motif for a referential TouchDesigner integration. It is not a TouchDesigner logo: the [Derivative brand policy](https://derivative.ca/brand-guidelines-and-assets) prohibits incorporating or repurposing TouchDesigner program icons in third-party product or plug-in logos. |
 | `shotgrid.png` | Highest-resolution icon embedded in an official Autodesk Flow installation; [Flow Production Tracking](https://www.autodesk.com/products/flow-production-tracking/overview/) |

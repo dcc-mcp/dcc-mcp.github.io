@@ -48,7 +48,6 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - `aftereffects` — Adobe After Effects — https://github.com/dcc-mcp/dcc-mcp-aftereffects
 - `blender` — Blender — https://github.com/dcc-mcp/dcc-mcp-blender
 - `c4d` — Maxon Cinema 4D — https://github.com/dcc-mcp/dcc-mcp-cinema4d
-- `cache-inspector` — Cache Inspector — https://github.com/dcc-mcp/dcc-mcp-cache-inspector
 - `comfyui` — ComfyUI — https://github.com/dcc-mcp/dcc-mcp-comfyui
 - `freecad` — FreeCAD — https://github.com/dcc-mcp/dcc-mcp-freecad
 - `gimp` — GIMP — https://github.com/dcc-mcp/dcc-mcp-gimp
@@ -69,6 +68,7 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - `premiere` — Adobe Premiere Pro — https://github.com/dcc-mcp/dcc-mcp-premiere
 - `renderdoc` — RenderDoc — https://github.com/dcc-mcp/dcc-mcp-renderdoc
 - `sketchup` — SketchUp — https://github.com/dcc-mcp/dcc-mcp-sketchup
+- `shogun` — Vicon Shōgun Post — https://github.com/dcc-mcp/dcc-mcp-shogun
 - `touchdesigner` — TouchDesigner — https://github.com/dcc-mcp/dcc-mcp-touchdesigner
 - `shotgrid` — Autodesk Flow Production Tracking — https://github.com/dcc-mcp/dcc-mcp-fpt
 - `substance3d_designer` — Adobe Substance 3D Designer — https://github.com/dcc-mcp/dcc-mcp-substance3d-designer
@@ -111,6 +111,7 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - Premiere Pro：https://dcc-mcp.github.io/zh/control/premiere-pro
 - RenderDoc：https://dcc-mcp.github.io/zh/control/renderdoc
 - SketchUp：https://dcc-mcp.github.io/zh/control/sketchup
+- Shōgun：https://dcc-mcp.github.io/zh/control/shogun
 - Substance 3D Designer：https://dcc-mcp.github.io/zh/control/substance-3d-designer
 - Substance 3D Painter：https://dcc-mcp.github.io/zh/control/substance-3d-painter
 - Tiled：https://dcc-mcp.github.io/zh/control/tiled

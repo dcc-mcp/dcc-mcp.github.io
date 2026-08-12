@@ -74,6 +74,7 @@ npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
     <a href="https://github.com/dcc-mcp/dcc-mcp-premiere"><img src="/dcc-logos/premiere.svg" alt="Premiere Pro logo"><span>Premiere Pro</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-renderdoc"><img src="/dcc-logos/renderdoc.svg" alt="RenderDoc logo"><span>RenderDoc</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-sketchup"><img src="/dcc-logos/sketchup.svg" alt="SketchUp logo"><span>SketchUp</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-shogun"><img class="dcc-logo-white" src="/dcc-logos/shogun.svg" alt="Shōgun 集成使用的 Vicon 字标"><span>Shōgun</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-touchdesigner"><img src="/dcc-logos/touchdesigner-reference.svg" alt="用于 TouchDesigner 集成的原创算子网络图形"><span>TouchDesigner</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-fpt"><img src="/dcc-logos/shotgrid.png" alt="Flow Production Tracking logo"><span>Flow Production Tracking</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-substance3d-designer"><img src="/dcc-logos/substance3d-designer.svg" alt="Substance 3D Designer logo"><span>Substance Designer</span></a>
@@ -148,6 +149,10 @@ npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
     <a class="showcase-card showcase-wide" href="/zh/showcase#cache-inspection-workflow">
       <img src="/showcase/cache-inspection-workflow.webp" alt="压缩几何缓存在有界解码后生成隐私安全的数量、边界与属性摘要" loading="lazy">
       <span><small>CACHE INSPECTOR</small><strong>有界缓存到隐私安全结构摘要</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/zh/showcase#shogun-typed-mocap-workflow">
+      <img src="/showcase/shogun-typed-mocap-workflow.webp" alt="通过有界的 Shōgun 类型化工具检查与处理动作捕捉场景数据" loading="lazy">
+      <span><small>SHŌGUN</small><strong>带能力门控的类型化动作捕捉</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-narrow" href="/zh/showcase#tiled-typed-map-workflow">
       <img src="/showcase/tiled-typed-map-workflow.webp" alt="通过类型化工具制作 Tiled 地图数据并验证持久化 TMJ 产物" loading="lazy">

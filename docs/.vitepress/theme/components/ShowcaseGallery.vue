@@ -188,12 +188,27 @@ const showcases: Showcase[] = [
     en: {
       label: 'CACHE INSPECTOR · BOUNDED READ-ONLY ANALYSIS',
       title: 'Compressed geometry cache to privacy-safe structure',
-      prompt: 'Use the dcc-mcp Skill to connect to the standalone Cache Inspector service. Discover and load cache-inspection, then inspect one caller-approved .bgeo or .bgeo.sc file with the default 512 MiB input and decoded-data ceilings. Report recognized format and version, point, vertex, and primitive counts, primitive families, finite bounds when supported, and attribute owner, name, storage, tuple size, and element count. Call list_attributes for the schema-only projection. Confirm that the free-form info block and raw geometry values are absent. Do not launch Houdini, evaluate code, mutate the cache, or raise the public limits.',
+      prompt: 'Use the dcc-mcp Skill to install the host-neutral dcc-mcp-cache-inspector Marketplace Skill into the concrete adapter that owns this workflow, then discover and load cache-inspection. Inspect one caller-approved .bgeo or .bgeo.sc file with the default 512 MiB input and decoded-data ceilings. Report recognized format and version, point, vertex, and primitive counts, primitive families, finite bounds when supported, and attribute owner, name, storage, tuple size, and element count. Call list_attributes for the schema-only projection. Confirm that the free-form info block and raw geometry values are absent. Do not launch Houdini, evaluate code, mutate the cache, or raise the public limits.',
     },
     zh: {
       label: 'CACHE INSPECTOR · 有界只读分析',
       title: '压缩几何缓存到隐私安全的结构摘要',
-      prompt: '使用 dcc-mcp Skill 连接独立的 Cache Inspector 服务。发现并加载 cache-inspection，然后在默认 512 MiB 输入与解码上限内检查一个调用方批准的 .bgeo 或 .bgeo.sc 文件。报告识别出的格式与版本、点/顶点/图元数量、图元家族、支持编码下的有限边界，以及属性的 owner、名称、存储类型、元组大小与元素数量；再调用 list_attributes 获取仅含结构的投影。确认结果不包含自由格式 info 块和原始几何值。不得启动 Houdini、执行代码、修改缓存或提高公共上限。',
+      prompt: '使用 dcc-mcp Skill 将 Host-neutral 的 dcc-mcp-cache-inspector Marketplace Skill 安装到当前工作流所属的具体适配器，再发现并加载 cache-inspection。在默认 512 MiB 输入与解码上限内检查一个调用方批准的 .bgeo 或 .bgeo.sc 文件。报告识别出的格式与版本、点/顶点/图元数量、图元家族、支持编码下的有限边界，以及属性的 owner、名称、存储类型、元组大小与元素数量；再调用 list_attributes 获取仅含结构的投影。确认结果不包含自由格式 info 块和原始几何值。不得启动 Houdini、执行代码、修改缓存或提高公共上限。',
+    },
+  },
+  {
+    id: 'shogun-typed-mocap-workflow',
+    image: '/showcase/shogun-typed-mocap-workflow.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-shogun',
+    en: {
+      label: 'SHŌGUN · TYPED MOTION CAPTURE',
+      title: 'Motion data to capability-verified scene operations',
+      prompt: 'Use the dcc-mcp Skill to connect to one explicit Vicon Shōgun Post instance. Start with typed scene and timeline inspection, then report subjects, markers, skeletons, trajectories, frame rate, current frame, play range, and selected time ranges. Before any mutation, probe the exact Timeline or Offline SDK command and treat a bounded ControlError as an unsupported host capability. If supported, make only one current-frame or selected-range operation, validate the resulting state, and save to a new approved path. Do not run arbitrary HSL or Python, do not process a play range, and do not overwrite the source scene.',
+    },
+    zh: {
+      label: 'SHŌGUN · 类型化动作捕捉',
+      title: '动作数据到经能力验证的场景操作',
+      prompt: '使用 dcc-mcp Skill 连接一个明确指定的 Vicon Shōgun Post 实例。先通过类型化工具检查场景与时间线，再报告角色、Marker、骨架、轨迹、帧率、当前帧、播放范围与所选时间范围。任何修改前都要探测准确的 Timeline 或 Offline SDK 命令，并将有界 ControlError 视为宿主不支持该能力。若宿主支持，只执行一个当前帧或所选范围操作，验证结果状态，并保存到新的获准路径。不得执行任意 HSL 或 Python，不得处理播放范围，不得覆盖源场景。',
     },
   },
   {

@@ -28,7 +28,7 @@ Universal install: `npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --
 
 ## Current released integrations
 
-`dcc-mcp-cli dcc-types` currently exposes 34 adapter-backed identifiers: `3dsmax`, `aftereffects`, `blender`, `c4d`, `cache-inspector`, `comfyui`, `freecad`, `gimp`, `godot`, `houdini`, `illustrator`, `katana`, `krita`, `mari`, `marmoset`, `material-maker`, `maya`, `mobu`, `nuke`, `openscad`, `openusd`, `photoshop`, `premiere`, `renderdoc`, `shotgrid`, `sketchup`, `substance3d_designer`, `substance3d_painter`, `tiled`, `touchdesigner`, `unity`, `unreal`, `wwise`, and `zbrush`. Custom studio host identifiers are also supported.
+`dcc-mcp-cli dcc-types` currently exposes 34 adapter-backed identifiers: `3dsmax`, `aftereffects`, `blender`, `c4d`, `comfyui`, `freecad`, `gimp`, `godot`, `houdini`, `illustrator`, `katana`, `krita`, `mari`, `marmoset`, `material-maker`, `maya`, `mobu`, `nuke`, `openscad`, `openusd`, `photoshop`, `premiere`, `renderdoc`, `shotgrid`, `shogun`, `sketchup`, `substance3d_designer`, `substance3d_painter`, `tiled`, `touchdesigner`, `unity`, `unreal`, `wwise`, and `zbrush`. Cache Inspector is a host-neutral Marketplace Skill, not an adapter identifier. Custom studio host identifiers are also supported.
 
 ## Application-specific AI control guides
 
@@ -58,6 +58,7 @@ Universal install: `npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --
 - [Premiere Pro](https://dcc-mcp.github.io/control/premiere-pro)
 - [RenderDoc](https://dcc-mcp.github.io/control/renderdoc)
 - [SketchUp](https://dcc-mcp.github.io/control/sketchup)
+- [Shōgun](https://dcc-mcp.github.io/control/shogun)
 - [Substance 3D Designer](https://dcc-mcp.github.io/control/substance-3d-designer)
 - [Substance 3D Painter](https://dcc-mcp.github.io/control/substance-3d-painter)
 - [Tiled](https://dcc-mcp.github.io/control/tiled)

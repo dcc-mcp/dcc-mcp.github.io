@@ -34,6 +34,7 @@ const dccLogos: Record<string, string> = {
   photoshop: '/dcc-logos/photoshop.png',
   premiere: '/dcc-logos/premiere.svg',
   renderdoc: '/dcc-logos/renderdoc.svg',
+  shogun: '/dcc-logos/shogun.svg',
   shotgrid: '/dcc-logos/shotgrid.png',
   substance: '/dcc-logos/substance3d-painter.svg',
   substance3d_designer: '/dcc-logos/substance3d-designer.svg',

@@ -21,7 +21,12 @@ defineProps<{ language: 'en' | 'zh' }>()
         </a>
       </p>
       <p>
-        <template v-if="integration.dccType">
+        <template v-if="integration.marketplacePackage">
+          {{ language === 'zh'
+            ? `Host-neutral Marketplace Skill：${integration.marketplacePackage}；安装时需指定实际 Host。`
+            : `Host-neutral Marketplace Skill: ${integration.marketplacePackage}; choose a concrete host when installing.` }}
+        </template>
+        <template v-else-if="integration.dccType">
           {{ language === 'zh'
             ? `当前发布 Host 标识：${integration.dccType}。`
             : `Current release host id: ${integration.dccType}.` }}
