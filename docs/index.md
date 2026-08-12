@@ -74,6 +74,7 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
     <a href="https://github.com/dcc-mcp/dcc-mcp-premiere"><img src="/dcc-logos/premiere.svg" alt="Premiere Pro logo"><span>Premiere Pro</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-renderdoc"><img src="/dcc-logos/renderdoc.svg" alt="RenderDoc logo"><span>RenderDoc</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-sketchup"><img src="/dcc-logos/sketchup.svg" alt="SketchUp logo"><span>SketchUp</span></a>
+    <a href="https://github.com/dcc-mcp/dcc-mcp-shogun"><img class="dcc-logo-white" src="/dcc-logos/shogun.svg" alt="Vicon wordmark used for the Shōgun integration"><span>Shōgun</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-touchdesigner"><img src="/dcc-logos/touchdesigner-reference.svg" alt="Original operator-network motif for the TouchDesigner integration"><span>TouchDesigner</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-fpt"><img src="/dcc-logos/shotgrid.png" alt="Flow Production Tracking logo"><span>Flow Production Tracking</span></a>
     <a href="https://github.com/dcc-mcp/dcc-mcp-substance3d-designer"><img src="/dcc-logos/substance3d-designer.svg" alt="Substance 3D Designer logo"><span>Substance Designer</span></a>
@@ -148,6 +149,10 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
     <a class="showcase-card showcase-wide" href="/showcase#cache-inspection-workflow">
       <img src="/showcase/cache-inspection-workflow.webp" alt="Compressed geometry cache decoded within bounded limits into privacy-safe counts, bounds, and attribute summaries" loading="lazy">
       <span><small>CACHE INSPECTOR</small><strong>Bounded cache to privacy-safe structure</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-wide" href="/showcase#shogun-typed-mocap-workflow">
+      <img src="/showcase/shogun-typed-mocap-workflow.webp" alt="Motion-capture scene data inspected and processed through bounded typed Shōgun tools" loading="lazy">
+      <span><small>SHŌGUN</small><strong>Typed motion capture with capability gates</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-narrow" href="/showcase#tiled-typed-map-workflow">
       <img src="/showcase/tiled-typed-map-workflow.webp" alt="Tiled map data authored through typed tools and validated as a durable TMJ artifact" loading="lazy">

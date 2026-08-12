@@ -8,8 +8,8 @@ const integrationSource = readFileSync(join(root, 'docs', '.vitepress', 'dcc-int
 const integrations = [...integrationSource.matchAll(
   /slug: '([^']+)',\s+name: '([^']+)',\s+repository: '([^']+)'/g,
 )].map(([, slug, name, repository]) => ({ slug, name, repository }))
-if (integrations.length !== 34) {
-  throw new Error(`Expected 34 public application and pipeline integrations, found ${integrations.length}`)
+if (integrations.length !== 35) {
+  throw new Error(`Expected 35 public application and pipeline integrations, found ${integrations.length}`)
 }
 const releasedIntegrationCount = [...integrationSource.matchAll(/\s+dccType: '[^']+',/g)].length
 if (releasedIntegrationCount !== 34) {
@@ -50,6 +50,7 @@ const requiredFiles = [
   'dcc-logos/mari.svg',
   'dcc-logos/openscad.png',
   'dcc-logos/sketchup.svg',
+  'dcc-logos/shogun.svg',
   'dcc-logos/touchdesigner-reference.svg',
   'showcase/cinema4d-typed-scene.webp',
   'showcase/cache-inspection-workflow.webp',
@@ -58,6 +59,7 @@ const requiredFiles = [
   'showcase/illustrator-typed-vector-workflow.webp',
   'showcase/openscad-parametric-pipeline.webp',
   'showcase/sketchup-typed-modeling.webp',
+  'showcase/shogun-typed-mocap-workflow.webp',
   'showcase/touchdesigner-typed-operator-workflow.webp',
   'showcase/tiled-typed-map-workflow.webp',
   'showcase/material-maker-typed-material-workflow.webp',
@@ -161,7 +163,7 @@ for (const file of [join(dist, 'marketplace.html'), join(dist, 'zh', 'marketplac
 }
 
 const showcaseSource = readFileSync(join(root, 'docs', '.vitepress', 'theme', 'components', 'ShowcaseGallery.vue'), 'utf8')
-for (const asset of ['blender-lookdev.webp', 'marmoset-pbr-lookdev.webp', 'dcc-mcp-wwise-dark.svg', 'houdini-portal.png', 'hunyuan3d.webp', 'geospatial-city.webp', 'maya-architecture.jpg', 'kenney-assets.webp', 'cache-inspection-workflow.webp', 'cinema4d-typed-scene.webp', 'comfyui-typed-workflow.webp', 'freecad-game-ready-pipeline.webp', 'illustrator-typed-vector-workflow.webp', 'openscad-parametric-pipeline.webp', 'sketchup-typed-modeling.webp', 'touchdesigner-typed-operator-workflow.webp', 'tiled-typed-map-workflow.webp', 'material-maker-typed-material-workflow.webp', 'krita-typed-paint-workflow.webp', 'gimp-typed-image-workflow.webp', 'katana-typed-lookdev-workflow.webp', 'premiere-typed-edit-workflow.webp']) {
+for (const asset of ['blender-lookdev.webp', 'marmoset-pbr-lookdev.webp', 'dcc-mcp-wwise-dark.svg', 'houdini-portal.png', 'hunyuan3d.webp', 'geospatial-city.webp', 'maya-architecture.jpg', 'kenney-assets.webp', 'cache-inspection-workflow.webp', 'cinema4d-typed-scene.webp', 'comfyui-typed-workflow.webp', 'freecad-game-ready-pipeline.webp', 'illustrator-typed-vector-workflow.webp', 'openscad-parametric-pipeline.webp', 'sketchup-typed-modeling.webp', 'shogun-typed-mocap-workflow.webp', 'touchdesigner-typed-operator-workflow.webp', 'tiled-typed-map-workflow.webp', 'material-maker-typed-material-workflow.webp', 'krita-typed-paint-workflow.webp', 'gimp-typed-image-workflow.webp', 'katana-typed-lookdev-workflow.webp', 'premiere-typed-edit-workflow.webp']) {
   if (!showcaseSource.includes(asset)) throw new Error(`Showcase gallery is missing ${asset}`)
 }
 if (!showcaseSource.includes('navigator.clipboard.writeText')) throw new Error('Showcase prompt copy support is missing')

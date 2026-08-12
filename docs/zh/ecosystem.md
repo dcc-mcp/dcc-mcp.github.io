@@ -22,7 +22,7 @@ Core 记录共享控制平面；各仓库记录自己的安装、兼容性和 Ho
 - [dcc-mcp-core](https://github.com/dcc-mcp/dcc-mcp-core) — 共享 Gateway、CLI、MCP/REST 运行时、安全、诊断与可观测性。
 - [Marketplace 搜索](/zh/marketplace) — 搜索 `dcc-mcp-cli` 使用的官方扩展目录；[目录源仓库](https://github.com/dcc-mcp/marketplace)。
 - [Flow Production Tracking](https://github.com/dcc-mcp/dcc-mcp-fpt) · [OpenUSD](https://github.com/dcc-mcp/dcc-mcp-openusd) · [MaterialX](https://github.com/dcc-mcp/dcc-materialx)
-- [Pipeline Publish](https://github.com/dcc-mcp/dcc-pipeline-publish) · [Texture Pipeline](https://github.com/dcc-mcp/dcc-texture-pipeline) · [Cache Inspector](https://github.com/dcc-mcp/dcc-mcp-cache-inspector)
+- [Pipeline Publish](https://github.com/dcc-mcp/dcc-pipeline-publish) · [Texture Pipeline](https://github.com/dcc-mcp/dcc-texture-pipeline) · [Cache Inspector](https://github.com/dcc-mcp/dcc-mcp-cache-inspector)（Host-neutral Marketplace Skill，无适配器与 PyPI 包）
 - [RenderDoc](https://github.com/dcc-mcp/dcc-mcp-renderdoc) · [Tracy](https://github.com/dcc-mcp/dcc-mcp-tracy)
 
 ## DCC 与创意应用适配器
@@ -33,9 +33,11 @@ Core 记录共享控制平面；各仓库记录自己的安装、兼容性和 Ho
 - [3ds Max](https://github.com/dcc-mcp/dcc-mcp-3dsmax) · [After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) · [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) · [Cinema 4D](https://github.com/dcc-mcp/dcc-mcp-cinema4d) · [ComfyUI](https://github.com/dcc-mcp/dcc-mcp-comfyui)
 - [FreeCAD](https://github.com/dcc-mcp/dcc-mcp-freecad) · [GIMP](https://github.com/dcc-mcp/dcc-mcp-gimp) · [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) · [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) · [Illustrator](https://github.com/dcc-mcp/dcc-mcp-illustrator) · [Katana](https://github.com/dcc-mcp/dcc-mcp-katana)
 - [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) · [Mari](https://github.com/dcc-mcp/dcc-mcp-mari) · [Material Maker](https://github.com/dcc-mcp/dcc-mcp-material-maker) · [Maya](https://github.com/dcc-mcp/dcc-mcp-maya) · [Marmoset Toolbag](https://github.com/dcc-mcp/dcc-mcp-marmoset) · [MotionBuilder](https://github.com/dcc-mcp/dcc-mcp-mobu)
-- [Nuke](https://github.com/dcc-mcp/dcc-mcp-nuke) · [OpenSCAD](https://github.com/dcc-mcp/dcc-mcp-openscad) · [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) · [Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere) · [SketchUp](https://github.com/dcc-mcp/dcc-mcp-sketchup)
+- [Nuke](https://github.com/dcc-mcp/dcc-mcp-nuke) · [OpenSCAD](https://github.com/dcc-mcp/dcc-mcp-openscad) · [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) · [Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere) · [SketchUp](https://github.com/dcc-mcp/dcc-mcp-sketchup) · [Shōgun](https://github.com/dcc-mcp/dcc-mcp-shogun)
 - [Substance 3D Designer](https://github.com/dcc-mcp/dcc-mcp-substance3d-designer) · [Substance 3D Painter](https://github.com/dcc-mcp/dcc-mcp-substance3d-painter)
 - [Tiled](https://github.com/dcc-mcp/dcc-mcp-tiled) · [TouchDesigner](https://github.com/dcc-mcp/dcc-mcp-touchdesigner) · [Unity](https://github.com/dcc-mcp/dcc-mcp-unity) · [Unreal Engine](https://github.com/dcc-mcp/dcc-mcp-unreal) · [Wwise](https://github.com/dcc-mcp/dcc-mcp-wwise) · [ZBrush](https://github.com/dcc-mcp/dcc-mcp-zbrush)
+
+Shōgun 0.3.0 提供 36 个基于官方 SDK 的类型化工具，覆盖 Scene 对象、动捕数据、文件、Timeline 控制与带能力门控的 Offline 处理。
 
 ## Maya 专项 Skills
 

@@ -3,6 +3,7 @@ export type DccIntegration = {
   name: string
   repository: string
   dccType?: string
+  marketplacePackage?: string
   summaryEn: string
   summaryZh: string
   tasksEn: [string, string, string]
@@ -64,7 +65,7 @@ export const dccIntegrations: DccIntegration[] = [
     slug: 'cache-inspector',
     name: 'Cache Inspector',
     repository: 'dcc-mcp-cache-inspector',
-    dccType: 'cache-inspector',
+    marketplacePackage: 'dcc-mcp-cache-inspector',
     summaryEn: 'inspect SideFX geo, bgeo, and bgeo.sc caches offline through bounded privacy-safe read-only projections',
     summaryZh: '离线检查 SideFX geo、bgeo 与 bgeo.sc 缓存，并返回有界、隐私安全的只读结构投影',
     tasksEn: ['detect cache format and decode within public size ceilings', 'inspect counts, primitive families, finite bounds, and attribute definitions', 'verify that raw geometry values and the free-form info block are absent'],
@@ -261,6 +262,16 @@ export const dccIntegrations: DccIntegration[] = [
     tasksZh: ['打开捕获并定位目标帧', '检查事件、资源与管线状态', '在不修改源构建的情况下报告可复现证据'],
   },
   {
+    slug: 'shogun',
+    name: 'Shōgun',
+    repository: 'dcc-mcp-shogun',
+    dccType: 'shogun',
+    summaryEn: 'use 36 typed tools to inspect motion-capture scenes, object graphs, and files, control timeline state, and run bounded capability-gated processing',
+    summaryZh: '通过 36 个类型化工具检查动捕场景、对象图与文件，控制时间线状态，并执行有界且带能力门控的处理操作',
+    tasksEn: ['inspect subjects, markers, skeletons, trajectories, object hierarchy, transforms, and selection', 'inspect or change explicit play and animation ranges, selection, and playback when the host exposes Timeline', 'run ROM labeling, subject calibration, QuickPost, or another bounded processing step only after the host confirms the official Offline capability'],
+    tasksZh: ['检查角色、Marker、骨架、轨迹、对象层级、变换与选择集', '在宿主公开 Timeline 能力时检查或修改明确的播放/动画范围、选择集与播放状态', '仅在宿主确认官方 Offline 能力后执行 ROM 标记、角色校准、QuickPost 或其他有界处理'],
+  },
+  {
     slug: 'sketchup',
     name: 'SketchUp',
     repository: 'dcc-mcp-sketchup',
@@ -360,7 +371,9 @@ const repositoryUrl = (integration: DccIntegration) =>
 export function renderControlGuide(integration: DccIntegration, language: 'en' | 'zh') {
   const released = Boolean(integration.dccType)
   if (language === 'zh') {
-    const availability = released
+    const availability = integration.marketplacePackage
+      ? `这是 Host-neutral Marketplace Skill，不是独立适配器。使用 \`dcc-mcp-cli marketplace install ${integration.marketplacePackage} --dcc <实际-host> --reload\` 将它安装到具体 DCC；\`any\` 不是安装目录。`
+      : released
       ? `当前发布目录使用 \`${integration.dccType}\` 作为 Host 标识；实际操作前仍应运行 \`dcc-mcp-cli dcc-types\` 核对本机版本。`
       : '这是公开适配器仓库，但它可能尚未进入当前 CLI 发布目录。先检查适配器 README 与 `dcc-mcp-cli dcc-types`，不要猜测 Host 标识。'
     return `# AI 怎么控制 ${integration.name}？
@@ -407,7 +420,9 @@ ${availability}
 `
   }
 
-  const availability = released
+  const availability = integration.marketplacePackage
+    ? `This is a host-neutral Marketplace Skill, not a standalone adapter. Install it into a concrete DCC with \`dcc-mcp-cli marketplace install ${integration.marketplacePackage} --dcc <real-host> --reload\`; \`any\` is not an install directory.`
+    : released
     ? `The current release catalog uses \`${integration.dccType}\` as the host identifier. Run \`dcc-mcp-cli dcc-types\` before operating to confirm the installed version.`
     : 'This is a public adapter repository, but it may not yet be present in the current CLI release catalog. Check its README and `dcc-mcp-cli dcc-types`; do not guess a host identifier.'
   return `# How can an AI agent control ${integration.name}?
