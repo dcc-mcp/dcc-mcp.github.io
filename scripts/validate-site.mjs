@@ -8,12 +8,12 @@ const integrationSource = readFileSync(join(root, 'docs', '.vitepress', 'dcc-int
 const integrations = [...integrationSource.matchAll(
   /slug: '([^']+)',\s+name: '([^']+)',\s+repository: '([^']+)'/g,
 )].map(([, slug, name, repository]) => ({ slug, name, repository }))
-if (integrations.length !== 31) {
-  throw new Error(`Expected 31 public application and pipeline integrations, found ${integrations.length}`)
+if (integrations.length !== 34) {
+  throw new Error(`Expected 34 public application and pipeline integrations, found ${integrations.length}`)
 }
 const releasedIntegrationCount = [...integrationSource.matchAll(/\s+dccType: '[^']+',/g)].length
-if (releasedIntegrationCount !== 24) {
-  throw new Error(`Expected 24 released host identifiers, found ${releasedIntegrationCount}`)
+if (releasedIntegrationCount !== 34) {
+  throw new Error(`Expected 34 released host identifiers, found ${releasedIntegrationCount}`)
 }
 const requiredFiles = [
   'index.html',
@@ -44,12 +44,27 @@ const requiredFiles = [
   'brand/dcc-mcp-wwise-dark.svg',
   'dcc-logos/wwise.png',
   'dcc-logos/cinema4d.png',
+  'dcc-logos/comfyui.svg',
   'dcc-logos/freecad.png',
+  'dcc-logos/illustrator.svg',
   'dcc-logos/mari.svg',
   'dcc-logos/openscad.png',
+  'dcc-logos/sketchup.svg',
+  'dcc-logos/touchdesigner-reference.svg',
   'showcase/cinema4d-typed-scene.webp',
+  'showcase/cache-inspection-workflow.webp',
+  'showcase/comfyui-typed-workflow.webp',
   'showcase/freecad-game-ready-pipeline.webp',
+  'showcase/illustrator-typed-vector-workflow.webp',
   'showcase/openscad-parametric-pipeline.webp',
+  'showcase/sketchup-typed-modeling.webp',
+  'showcase/touchdesigner-typed-operator-workflow.webp',
+  'showcase/tiled-typed-map-workflow.webp',
+  'showcase/material-maker-typed-material-workflow.webp',
+  'showcase/krita-typed-paint-workflow.webp',
+  'showcase/gimp-typed-image-workflow.webp',
+  'showcase/katana-typed-lookdev-workflow.webp',
+  'showcase/premiere-typed-edit-workflow.webp',
   'showcase/wwise/ui-confirm.wav',
   'showcase/wwise/sci-fi-impact.wav',
   'showcase/wwise/neon-circuit-bgm.wav',
@@ -146,7 +161,7 @@ for (const file of [join(dist, 'marketplace.html'), join(dist, 'zh', 'marketplac
 }
 
 const showcaseSource = readFileSync(join(root, 'docs', '.vitepress', 'theme', 'components', 'ShowcaseGallery.vue'), 'utf8')
-for (const asset of ['blender-lookdev.webp', 'marmoset-pbr-lookdev.webp', 'dcc-mcp-wwise-dark.svg', 'houdini-portal.png', 'hunyuan3d.webp', 'geospatial-city.webp', 'maya-architecture.jpg', 'kenney-assets.webp', 'cinema4d-typed-scene.webp', 'freecad-game-ready-pipeline.webp', 'openscad-parametric-pipeline.webp']) {
+for (const asset of ['blender-lookdev.webp', 'marmoset-pbr-lookdev.webp', 'dcc-mcp-wwise-dark.svg', 'houdini-portal.png', 'hunyuan3d.webp', 'geospatial-city.webp', 'maya-architecture.jpg', 'kenney-assets.webp', 'cache-inspection-workflow.webp', 'cinema4d-typed-scene.webp', 'comfyui-typed-workflow.webp', 'freecad-game-ready-pipeline.webp', 'illustrator-typed-vector-workflow.webp', 'openscad-parametric-pipeline.webp', 'sketchup-typed-modeling.webp', 'touchdesigner-typed-operator-workflow.webp', 'tiled-typed-map-workflow.webp', 'material-maker-typed-material-workflow.webp', 'krita-typed-paint-workflow.webp', 'gimp-typed-image-workflow.webp', 'katana-typed-lookdev-workflow.webp', 'premiere-typed-edit-workflow.webp']) {
   if (!showcaseSource.includes(asset)) throw new Error(`Showcase gallery is missing ${asset}`)
 }
 if (!showcaseSource.includes('navigator.clipboard.writeText')) throw new Error('Showcase prompt copy support is missing')

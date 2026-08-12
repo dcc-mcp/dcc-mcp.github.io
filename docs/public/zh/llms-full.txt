@@ -42,19 +42,25 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 
 ## 当前适配器发布目录
 
-使用 `dcc-mcp-cli dcc-types` 作为实时事实来源。当前目录包含：
+使用 `dcc-mcp-cli dcc-types` 作为实时事实来源。当前目录包含 34 个规范标识：
 
 - `3dsmax` — Autodesk 3ds Max — https://github.com/dcc-mcp/dcc-mcp-3dsmax
 - `aftereffects` — Adobe After Effects — https://github.com/dcc-mcp/dcc-mcp-aftereffects
 - `blender` — Blender — https://github.com/dcc-mcp/dcc-mcp-blender
 - `c4d` — Maxon Cinema 4D — https://github.com/dcc-mcp/dcc-mcp-cinema4d
+- `cache-inspector` — Cache Inspector — https://github.com/dcc-mcp/dcc-mcp-cache-inspector
+- `comfyui` — ComfyUI — https://github.com/dcc-mcp/dcc-mcp-comfyui
 - `freecad` — FreeCAD — https://github.com/dcc-mcp/dcc-mcp-freecad
+- `gimp` — GIMP — https://github.com/dcc-mcp/dcc-mcp-gimp
 - `godot` — Godot Engine — https://github.com/dcc-mcp/dcc-mcp-godot
 - `houdini` — SideFX Houdini — https://github.com/dcc-mcp/dcc-mcp-houdini
+- `illustrator` — Adobe Illustrator — https://github.com/dcc-mcp/dcc-mcp-illustrator
 - `katana` — Foundry Katana — https://github.com/dcc-mcp/dcc-mcp-katana
+- `krita` — Krita — https://github.com/dcc-mcp/dcc-mcp-krita
 - `mari` — Foundry Mari — https://github.com/dcc-mcp/dcc-mcp-mari
 - `maya` — Autodesk Maya — https://github.com/dcc-mcp/dcc-mcp-maya
 - `marmoset` — Marmoset Toolbag — https://github.com/dcc-mcp/dcc-mcp-marmoset
+- `material-maker` — Material Maker — https://github.com/dcc-mcp/dcc-mcp-material-maker
 - `mobu` — Autodesk MotionBuilder — https://github.com/dcc-mcp/dcc-mcp-mobu
 - `nuke` — Foundry Nuke — https://github.com/dcc-mcp/dcc-mcp-nuke
 - `openscad` — OpenSCAD — https://github.com/dcc-mcp/dcc-mcp-openscad
@@ -62,11 +68,15 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - `photoshop` — Adobe Photoshop — https://github.com/dcc-mcp/dcc-mcp-photoshop
 - `premiere` — Adobe Premiere Pro — https://github.com/dcc-mcp/dcc-mcp-premiere
 - `renderdoc` — RenderDoc — https://github.com/dcc-mcp/dcc-mcp-renderdoc
+- `sketchup` — SketchUp — https://github.com/dcc-mcp/dcc-mcp-sketchup
+- `touchdesigner` — TouchDesigner — https://github.com/dcc-mcp/dcc-mcp-touchdesigner
 - `shotgrid` — Autodesk Flow Production Tracking — https://github.com/dcc-mcp/dcc-mcp-fpt
 - `substance3d_designer` — Adobe Substance 3D Designer — https://github.com/dcc-mcp/dcc-mcp-substance3d-designer
 - `substance3d_painter` — Adobe Substance 3D Painter — https://github.com/dcc-mcp/dcc-mcp-substance3d-painter
+- `tiled` — Tiled — https://github.com/dcc-mcp/dcc-mcp-tiled
 - `unity` — Unity — https://github.com/dcc-mcp/dcc-mcp-unity
 - `unreal` — Unreal Engine — https://github.com/dcc-mcp/dcc-mcp-unreal
+- `wwise` — Audiokinetic Wwise — https://github.com/dcc-mcp/dcc-mcp-wwise
 - `zbrush` — Maxon ZBrush — https://github.com/dcc-mcp/dcc-mcp-zbrush
 
 支持未知与自定义工作室 Host。更广泛的生态目录可能包含尚未进入当前 CLI 发布目录的实验或独立适配器：https://dcc-mcp.github.io/zh/ecosystem
@@ -79,12 +89,14 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - After Effects：https://dcc-mcp.github.io/zh/control/after-effects
 - Blender：https://dcc-mcp.github.io/zh/control/blender
 - Cinema 4D：https://dcc-mcp.github.io/zh/control/cinema-4d
+- Cache Inspector：https://dcc-mcp.github.io/zh/control/cache-inspector
 - ComfyUI：https://dcc-mcp.github.io/zh/control/comfyui
 - Flow Production Tracking：https://dcc-mcp.github.io/zh/control/flow-production-tracking
 - FreeCAD：https://dcc-mcp.github.io/zh/control/freecad
 - GIMP：https://dcc-mcp.github.io/zh/control/gimp
 - Godot：https://dcc-mcp.github.io/zh/control/godot
 - Houdini：https://dcc-mcp.github.io/zh/control/houdini
+- Illustrator：https://dcc-mcp.github.io/zh/control/illustrator
 - Katana：https://dcc-mcp.github.io/zh/control/katana
 - Krita：https://dcc-mcp.github.io/zh/control/krita
 - Mari：https://dcc-mcp.github.io/zh/control/mari
@@ -98,6 +110,7 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - Photoshop：https://dcc-mcp.github.io/zh/control/photoshop
 - Premiere Pro：https://dcc-mcp.github.io/zh/control/premiere-pro
 - RenderDoc：https://dcc-mcp.github.io/zh/control/renderdoc
+- SketchUp：https://dcc-mcp.github.io/zh/control/sketchup
 - Substance 3D Designer：https://dcc-mcp.github.io/zh/control/substance-3d-designer
 - Substance 3D Painter：https://dcc-mcp.github.io/zh/control/substance-3d-painter
 - Tiled：https://dcc-mcp.github.io/zh/control/tiled

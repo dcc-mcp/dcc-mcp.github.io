@@ -8,9 +8,11 @@ These nominative product identity assets are displayed unchanged. Product names 
 | `aftereffects.svg` | [Adobe product icon](https://www.adobe.com/cc-shared/assets/img/product-icons/svg/after-effects-40.svg) |
 | `blender.svg` | [Simple Icons](https://cdn.simpleicons.org/blender), checked against [Blender branding](https://www.blender.org/about/logo/) |
 | `cinema4d.png` | Representative Cinema 4D host mark extracted from the approved `dcc-mcp-cinema4d` DCC-MCP lockup; checked against [Maxon Cinema 4D](https://www.maxon.net/en/cinema-4d) |
+| `comfyui.svg` | [Official ComfyUI single mark](https://github.com/Comfy-Org/ComfyUI_frontend/blob/main/public/assets/images/comfy-logo-single.svg), verified identical to the mark bundled with the live-tested ComfyUI frontend package |
 | `freecad.png` | Representative FreeCAD host mark extracted from the approved `dcc-mcp-freecad` DCC-MCP lockup; checked against the [FreeCAD project](https://www.freecad.org/) |
 | `godot.svg` | [Godot official repository](https://github.com/godotengine/godot/blob/master/misc/logo/icon.svg) |
 | `houdini.svg` | [Simple Icons](https://cdn.simpleicons.org/houdini), checked against [SideFX Houdini](https://www.sidefx.com/products/houdini/) |
+| `illustrator.svg` | [Official Adobe Illustrator product icon](https://www.adobe.com/cc-shared/assets/img/product-icons/svg/illustrator.svg), referenced by [Adobe Illustrator](https://www.adobe.com/products/illustrator.html) |
 | `katana.png` | [Foundry Katana product icon](https://www.foundry.com/sites/default/files/styles/icon_lg/public/media/image/2026-06/iconkatanargbyellow-01.png) |
 | `maya.svg` | [Simple Icons](https://cdn.simpleicons.org/autodeskmaya), checked against [Autodesk Maya](https://www.autodesk.com/products/maya/overview) |
 | `marmoset.png` | Official Marmoset Toolbag 5 Windows application icon extracted unchanged from `toolbag.exe` 5.0.2.2; executable SHA-256 `50b75406743ee983e94b95d859701cf1befcc386ed268e848ce16a9939ef72ad`; product red `#FF0044` |
@@ -22,6 +24,8 @@ These nominative product identity assets are displayed unchanged. Product names 
 | `photoshop.png` | Approved DCC-MCP Admin UI asset; [Adobe Photoshop](https://www.adobe.com/products/photoshop.html) |
 | `premiere.svg` | [Adobe product icon](https://main--cc--adobecom.aem.live/cc-shared/assets/img/product-icons/svg/premiere-pro.svg) |
 | `renderdoc.svg` | [RenderDoc official repository](https://github.com/baldurk/renderdoc/blob/v1.x/qrenderdoc/Resources/logo.svg) |
+| `sketchup.svg` | [Simple Icons](https://cdn.simpleicons.org/sketchup/0063A3), checked against the [official SketchUp identity asset](https://images.ctfassets.net/5qimfmsew7zl/2nXLjh2FwQIrCtlGYklT4B/d1bc6c392be68d36501f8cde637d997f/Trimble-SketchUp-Logo-RGB.svg) |
+| `touchdesigner-reference.svg` | Original non-trademark operator-network motif for a referential TouchDesigner integration. It is not a TouchDesigner logo: the [Derivative brand policy](https://derivative.ca/brand-guidelines-and-assets) prohibits incorporating or repurposing TouchDesigner program icons in third-party product or plug-in logos. |
 | `shotgrid.png` | Highest-resolution icon embedded in an official Autodesk Flow installation; [Flow Production Tracking](https://www.autodesk.com/products/flow-production-tracking/overview/) |
 | `substance3d-designer.svg` | [Adobe product icon](https://www.adobe.com/cc-shared/assets/img/product-icons/svg/substance-3d-designer-64.svg) |
 | `substance3d-painter.svg` | [Adobe product icon](https://www.adobe.com/cc-shared/assets/img/product-icons/svg/substance-3d-painter-64.svg) |

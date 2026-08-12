@@ -122,6 +122,171 @@ const showcases: Showcase[] = [
     },
   },
   {
+    id: 'comfyui-typed-workflow',
+    image: '/showcase/comfyui-typed-workflow.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-comfyui',
+    en: {
+      label: 'COMFYUI · TYPED WORKFLOW EXECUTION',
+      title: 'Live graph contract to delivered artifact',
+      prompt: 'Use the dcc-mcp Skill to connect to the local ComfyUI adapter. Discover the four typed comfyui-workflow tools, then validate a small API-format graph against the running node registry before submitting it. Execute one bounded EmptyImage to ImageInvert to SaveImage workflow, wait for terminal status, query normalized outputs, and retrieve the known artifact URL. Report the prompt ID, node count, status, artifact metadata, file size, and hash without exposing local filesystem paths.',
+    },
+    zh: {
+      label: 'COMFYUI · 类型化工作流执行',
+      title: '实时图契约到可交付产物',
+      prompt: '使用 dcc-mcp Skill 连接本机 ComfyUI 适配器。先发现 comfyui-workflow 的 4 个类型化工具，再依据运行中的节点注册表验证一个小型 API 格式图后提交。执行一个范围明确的 EmptyImage → ImageInvert → SaveImage 工作流，等待终态，查询规范化输出并取得已知产物 URL。报告 prompt ID、节点数、状态、产物元数据、文件大小与哈希，不得暴露本地文件系统路径。',
+    },
+  },
+  {
+    id: 'illustrator-typed-vector-workflow',
+    image: '/showcase/illustrator-typed-vector-workflow.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-illustrator',
+    en: {
+      label: 'ILLUSTRATOR · TYPED VECTOR AUTOMATION',
+      title: 'Structured document to verified production export',
+      prompt: 'Use the dcc-mcp Skill to connect to Illustrator. Start with status and document inspection, then create a new bounded RGB document. Build a small composition with only typed rectangle, path, and text tools through the official DOM; use clear object names and preserve editability. Inspect artboards, layers, and page-item counts, save an AI copy in an approved output root, and export SVG or PNG. Report document metrics, durable paths, sizes, and hashes. Do not execute arbitrary ExtendScript.',
+    },
+    zh: {
+      label: 'ILLUSTRATOR · 类型化矢量自动化',
+      title: '结构化文档到经验证的生产导出',
+      prompt: '使用 dcc-mcp Skill 连接 Illustrator。先检查运行状态与当前文档，再创建新的受控 RGB 文档；仅通过官方 DOM 的类型化矩形、路径与文本工具构建一个小型构图，使用清晰的对象名称并保持可编辑性。检查画板、图层与页面对象数量，在获准的输出根目录中保存 AI 副本并导出 SVG 或 PNG。报告文档指标、持久化路径、文件大小与哈希。不得执行任意 ExtendScript。',
+    },
+  },
+  {
+    id: 'sketchup-typed-modeling',
+    image: '/showcase/sketchup-typed-modeling.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-sketchup',
+    en: {
+      label: 'SKETCHUP · TYPED MODELING',
+      title: 'Live model to validated interchange',
+      prompt: 'Use the dcc-mcp Skill to connect to a live SketchUp model. Start with status, model inspection, and entity listing. Create one grouped box and one grouped cylinder with typed dimensions, assign a named material and Tag, and save a camera scene. Validate persistent entity state and model integrity, save an SKP copy in an approved output root, and export one runtime-supported interchange format such as DAE. Report entity counts, bounds, output paths, sizes, and hashes. Do not execute arbitrary Ruby.',
+    },
+    zh: {
+      label: 'SKETCHUP · 类型化建模',
+      title: '在线模型到经验证的格式交换',
+      prompt: '使用 dcc-mcp Skill 连接在线 SketchUp 模型。先检查运行状态、模型和实体列表；按类型化尺寸创建一个成组盒体与一个成组圆柱体，分配具名材质与标签，并保存一个相机场景。验证持久化实体状态和模型完整性，在获准的输出根目录中保存 SKP 副本，并导出一种运行时支持的交换格式，例如 DAE。报告实体数量、边界、输出路径、文件大小与哈希。不得执行任意 Ruby。',
+    },
+  },
+  {
+    id: 'touchdesigner-typed-operator-workflow',
+    image: '/showcase/touchdesigner-typed-operator-workflow.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-touchdesigner',
+    en: {
+      label: 'TOUCHDESIGNER · TYPED OPERATOR WORKFLOW',
+      title: 'Typed graph to verified project and image artifacts',
+      prompt: 'Use the dcc-mcp Skill to connect to one live TouchDesigner instance. Start with project inspection and a bounded operator listing. Create two supported typed operators under an explicit COMP, connect their exact connectors, set one allowlisted parameter, and read it back. Capture the resulting TOP to a PNG path in an approved output root and save a TOE copy with overwrite protection. Report operator paths, parameter values, image dimensions, file sizes, and SHA-256 hashes. Delete only the temporary operator you created, and do not execute arbitrary Python.',
+    },
+    zh: {
+      label: 'TOUCHDESIGNER · 类型化算子工作流',
+      title: '类型化节点图到经验证的工程与图像产物',
+      prompt: '使用 dcc-mcp Skill 连接一个在线 TouchDesigner 实例。先检查工程信息并执行范围明确的算子列表查询；在显式 COMP 下创建两个受支持的类型化算子，连接它们的精确端口，设置一个白名单参数并回读。将结果 TOP 捕获到获准输出根目录中的 PNG，并使用覆盖保护保存 TOE 副本。报告算子路径、参数值、图像尺寸、文件大小与 SHA-256 哈希；只删除本次创建的临时算子，不得执行任意 Python。',
+    },
+  },
+  {
+    id: 'cache-inspection-workflow',
+    image: '/showcase/cache-inspection-workflow.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-cache-inspector',
+    en: {
+      label: 'CACHE INSPECTOR · BOUNDED READ-ONLY ANALYSIS',
+      title: 'Compressed geometry cache to privacy-safe structure',
+      prompt: 'Use the dcc-mcp Skill to connect to the standalone Cache Inspector service. Discover and load cache-inspection, then inspect one caller-approved .bgeo or .bgeo.sc file with the default 512 MiB input and decoded-data ceilings. Report recognized format and version, point, vertex, and primitive counts, primitive families, finite bounds when supported, and attribute owner, name, storage, tuple size, and element count. Call list_attributes for the schema-only projection. Confirm that the free-form info block and raw geometry values are absent. Do not launch Houdini, evaluate code, mutate the cache, or raise the public limits.',
+    },
+    zh: {
+      label: 'CACHE INSPECTOR · 有界只读分析',
+      title: '压缩几何缓存到隐私安全的结构摘要',
+      prompt: '使用 dcc-mcp Skill 连接独立的 Cache Inspector 服务。发现并加载 cache-inspection，然后在默认 512 MiB 输入与解码上限内检查一个调用方批准的 .bgeo 或 .bgeo.sc 文件。报告识别出的格式与版本、点/顶点/图元数量、图元家族、支持编码下的有限边界，以及属性的 owner、名称、存储类型、元组大小与元素数量；再调用 list_attributes 获取仅含结构的投影。确认结果不包含自由格式 info 块和原始几何值。不得启动 Houdini、执行代码、修改缓存或提高公共上限。',
+    },
+  },
+  {
+    id: 'tiled-typed-map-workflow',
+    image: '/showcase/tiled-typed-map-workflow.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-tiled',
+    en: {
+      label: 'TILED · TYPED MAP AUTHORING',
+      title: 'Bounded map data to validated TMJ artifact',
+      prompt: 'Use the dcc-mcp Skill to connect to the Tiled adapter and work only inside a new approved workspace root. Check the detected Tiled runtime, create a small orthogonal map with explicit tile size and dimensions, create or attach one tileset, paint a bounded rectangle of tile GIDs, add an object layer with a named spawn point, and save the TMJ. Inspect and validate the final map, then report layer, tileset, object, and non-empty tile counts plus the durable output path and hash. Use only the fixed typed driver; do not evaluate caller-provided JavaScript.',
+    },
+    zh: {
+      label: 'TILED · 类型化地图制作',
+      title: '受控地图数据到经验证的 TMJ 产物',
+      prompt: '使用 dcc-mcp Skill 连接 Tiled 适配器，并且只在新的获准工作区根目录中操作。检查检测到的 Tiled 运行时，创建一个明确指定瓦片尺寸与地图尺寸的小型正交地图，创建或绑定一个 Tileset，在有限矩形中绘制 tile GID，添加带具名出生点的对象层并保存 TMJ。检查并验证最终地图，报告图层、Tileset、对象与非空瓦片数量，以及持久化输出路径和哈希。只使用固定类型化驱动，不得执行调用方提供的 JavaScript。',
+    },
+  },
+  {
+    id: 'material-maker-typed-material-workflow',
+    image: '/showcase/material-maker-typed-material-workflow.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-material-maker',
+    en: {
+      label: 'MATERIAL MAKER · BOUNDED PTEX PIPELINE',
+      title: 'Native material source to validated texture export',
+      prompt: 'Use the dcc-mcp Skill with the standalone Material Maker adapter. Inspect one caller-approved .ptex project inside an approved workspace root, report its format version, graph resource path, parameter schema, and declared output definitions, and validate references and supported property types. If the official Material Maker CLI is available, export the project to a new output directory without overwriting existing files and report the exact produced files, sizes, and hashes. Interactive graph authoring is outside this adapter, so do not claim to create or edit nodes.',
+    },
+    zh: {
+      label: 'MATERIAL MAKER · 有界 PTEX 管线',
+      title: '原生材质源到经验证的纹理导出',
+      prompt: '使用 dcc-mcp Skill 连接独立的 Material Maker 适配器。在获准工作区根目录内检查一个调用方批准的 .ptex 工程，报告格式版本、图资源路径、参数结构与声明的输出定义，并验证引用和受支持的属性类型。如果存在官方 Material Maker CLI，则将工程导出到新的输出目录且不得覆盖现有文件，并报告实际生成文件、大小与哈希。交互式节点图制作不在该适配器范围内，不得声称创建或编辑了节点。',
+    },
+  },
+  {
+    id: 'krita-typed-paint-workflow',
+    image: '/showcase/krita-typed-paint-workflow.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-krita',
+    en: {
+      label: 'KRITA · TYPED DOCUMENT AUTHORING',
+      title: 'Layered canvas to verified native and export copies',
+      prompt: 'Use the dcc-mcp Skill to connect to one live Krita instance. Inspect the bridge and open documents, create a small bounded document, add two clearly named paint layers, fill typed-color rectangles, and read back document and layer state. Save an editable KRA copy and export a PNG into an approved output root without overwriting existing files. Report dimensions, color model, layer order and properties, output sizes, and hashes. Do not execute arbitrary Python, action IDs, or destructive flattening without explicit confirmation.',
+    },
+    zh: {
+      label: 'KRITA · 类型化文档制作',
+      title: '分层画布到经验证的原生与导出副本',
+      prompt: '使用 dcc-mcp Skill 连接一个在线 Krita 实例。检查桥接与打开的文档，创建一个范围明确的小型文档，添加两个清晰命名的绘画图层，填充类型化颜色矩形，并回读文档与图层状态。在获准输出根目录中保存可编辑 KRA 副本并导出 PNG，且不得覆盖现有文件。报告尺寸、颜色模型、图层顺序与属性、输出大小和哈希。不得执行任意 Python、Action ID，也不得在未明确确认时破坏性合并图层。',
+    },
+  },
+  {
+    id: 'gimp-typed-image-workflow',
+    image: '/showcase/gimp-typed-image-workflow.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-gimp',
+    en: {
+      label: 'GIMP · TYPED IMAGE AUTHORING',
+      title: 'Layered image to verified XCF and PNG artifacts',
+      prompt: 'Use the dcc-mcp Skill to connect to one live GIMP 3 instance. Inspect the authenticated bridge and open images, create a small bounded RGB image, add clearly named layers, fill them with typed RGBA colors, change one layer property, and read the state back. Save an editable XCF copy and export a PNG into an approved output root without overwriting existing files. Report dimensions, layer order and properties, output sizes, and hashes. Do not execute arbitrary Python or PDB procedure names, and do not flatten or discard changes without explicit typed confirmation.',
+    },
+    zh: {
+      label: 'GIMP · 类型化图像制作',
+      title: '分层图像到经验证的 XCF 与 PNG 产物',
+      prompt: '使用 dcc-mcp Skill 连接一个在线 GIMP 3 实例。检查已认证桥接与打开的图像，创建一个范围明确的小型 RGB 图像，添加清晰命名的图层，用类型化 RGBA 颜色填充，修改一个图层属性并回读状态。在获准输出根目录中保存可编辑 XCF 副本并导出 PNG，且不得覆盖现有文件。报告尺寸、图层顺序与属性、输出大小和哈希。不得执行任意 Python 或 PDB 过程名，也不得在未明确类型化确认时合并图层或丢弃修改。',
+    },
+  },
+  {
+    id: 'katana-typed-lookdev-workflow',
+    image: '/showcase/katana-typed-lookdev-workflow.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-katana',
+    en: {
+      label: 'KATANA · TYPED NODE GRAPH',
+      title: 'Main-thread node authoring to durable project',
+      prompt: 'Use the dcc-mcp Skill to connect to one live Katana instance. Inspect the current node graph, create a small isolated PrimitiveCreate and Merge network with unique names, add and connect only explicit ports, set and read back one typed parameter, position the nodes, and set a bounded timeline range. Inspect the resulting graph and save a new .katana project in an approved output root. Report node types, connections, parameter value, timeline, output size, and hash. Do not execute arbitrary Python or delete pre-existing nodes.',
+    },
+    zh: {
+      label: 'KATANA · 类型化节点图',
+      title: '主线程节点制作到持久化工程',
+      prompt: '使用 dcc-mcp Skill 连接一个在线 Katana 实例。检查当前节点图，使用唯一名称创建一个隔离的小型 PrimitiveCreate 与 Merge 网络，只添加并连接明确端口，设置并回读一个类型化参数，摆放节点并设置有限时间线范围。检查最终节点图，并在获准输出根目录中保存新的 .katana 工程。报告节点类型、连接、参数值、时间线、输出大小与哈希。不得执行任意 Python，也不得删除已有节点。',
+    },
+  },
+  {
+    id: 'premiere-typed-edit-workflow',
+    image: '/showcase/premiere-typed-edit-workflow.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-premiere',
+    en: {
+      label: 'PREMIERE PRO · TYPED EDITING',
+      title: 'Approved media to inspected timeline and queued export',
+      prompt: 'Use the dcc-mcp Skill to connect to one live Premiere Pro project. Inspect project and sequence state, create a clearly named bin, import only caller-approved media, create a sequence, insert one project item at an explicit time, add a named marker, and inspect the timeline readback. Save a project copy in an approved output root. If a compatible encoder preset is reported, queue one sequence export and report the returned job identifier; otherwise export one frame. Report item, track, clip, and marker counts plus durable output metadata. Do not claim a queued render completed without terminal evidence.',
+    },
+    zh: {
+      label: 'PREMIERE PRO · 类型化剪辑',
+      title: '获准媒体到经检查的时间线与导出队列',
+      prompt: '使用 dcc-mcp Skill 连接一个在线 Premiere Pro 工程。检查工程与 Sequence 状态，创建一个清晰命名的 Bin，只导入调用方批准的媒体，创建 Sequence，在明确时间点插入一个项目项，添加具名 Marker 并回读检查时间线。在获准输出根目录中保存工程副本。如果运行时报告兼容的 Encoder 预设，则排队一次 Sequence 导出并报告返回的任务标识；否则导出一帧。报告项目项、轨道、Clip 与 Marker 数量及持久化输出元数据。没有终态证据时不得声称队列渲染已完成。',
+    },
+  },
+  {
     id: 'hunyuan3d',
     image: '/showcase/hunyuan3d.webp',
     source: 'https://github.com/dcc-mcp/dcc-ai-hunyuan3d',
