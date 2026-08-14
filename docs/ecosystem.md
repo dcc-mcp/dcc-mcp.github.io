@@ -23,8 +23,10 @@ adapter or extension repository when the task needs it.
 - [dcc-mcp-core](https://github.com/dcc-mcp/dcc-mcp-core) — Shared gateway, CLI, MCP/REST runtime, safety, diagnostics, and observability.
 - [Marketplace search](/marketplace) — Search the official extension catalog used by `dcc-mcp-cli`; [catalog source](https://github.com/dcc-mcp/marketplace).
 - [dcc-mcp-fpt](https://github.com/dcc-mcp/dcc-mcp-fpt) — Autodesk Flow Production Tracking integration.
+- [fpt-cli](https://github.com/dcc-mcp/fpt-cli) — Automation-first Rust CLI for Autodesk Flow Production Tracking.
 - [dcc-mcp-openusd](https://github.com/dcc-mcp/dcc-mcp-openusd) — OpenUSD workflows and interchange Skills.
 - [dcc-materialx](https://github.com/dcc-mcp/dcc-materialx) — MaterialX look-development interchange.
+- [dcc-lookdev](https://github.com/dcc-mcp/dcc-lookdev) — Standardized cross-DCC PBR look-development workflows.
 - [dcc-pipeline-publish](https://github.com/dcc-mcp/dcc-pipeline-publish) — Portable publish manifests for DCC, USD, render farm, and tracking workflows.
 - [dcc-texture-pipeline](https://github.com/dcc-mcp/dcc-texture-pipeline) — Deterministic OpenImageIO and OpenColorIO texture workflows.
 - [dcc-mcp-cache-inspector](https://github.com/dcc-mcp/dcc-mcp-cache-inspector) — Host-neutral Marketplace Skill for bounded, privacy-safe offline SideFX cache inspection; no adapter or PyPI package.
@@ -88,6 +90,7 @@ adapter repository as the source of truth for installation and host details.
 - [Google Scanned Objects](https://github.com/dcc-mcp/dcc-asset-google-scanned-objects) · [Kenney](https://github.com/dcc-mcp/dcc-asset-kenney) · [NASA 3D](https://github.com/dcc-mcp/dcc-asset-nasa3d)
 - [Objaverse](https://github.com/dcc-mcp/dcc-asset-objaverse) · [Poly Haven](https://github.com/dcc-mcp/dcc-asset-polyhaven) · [Quaternius](https://github.com/dcc-mcp/dcc-asset-quaternius)
 - [Sketchfab](https://github.com/dcc-mcp/dcc-asset-sketchfab) · [Smithsonian 3D](https://github.com/dcc-mcp/dcc-asset-smithsonian3d)
+- [Pirate Nation](https://github.com/dcc-mcp/dcc-asset-pirate-nation) — Game asset provider integration.
 
 ## UI automation and shared runtimes
 
@@ -95,5 +98,12 @@ adapter repository as the source of truth for installation and host details.
 - [Qt Inspector](https://github.com/dcc-mcp/dcc-ui-qt-inspector) — Cross-host window and widget discovery.
 - [UI Workflow Memory](https://github.com/dcc-mcp/dcc-ui-workflow-memory) — Verified selectors, recipes, and failure memory.
 - [adobepy](https://github.com/dcc-mcp/adobepy) — Shared Adobe desktop communication runtime.
+
+## Organization and discovery surfaces
+
+- [Official website source](https://github.com/dcc-mcp/dcc-mcp.github.io) — Shared documentation, GEO metadata, application-control guides, and showcases.
+- [Agent plugins](https://github.com/dcc-mcp/dcc-mcp-agent-plugins) — Canonical DCC-MCP Skills and plugin packages for supported agent clients.
+- [dcc-cua](https://github.com/dcc-mcp/dcc-cua) — Cross-platform Computer Use Automation runtime used by bounded DCC UI workflows.
+- [Organization profile](https://github.com/dcc-mcp/.github) — Shared GitHub profile and community configuration.
 
 > Project availability and installation support can change between releases. Use `dcc-mcp-cli dcc-types` for the release catalog and `dcc-mcp-cli marketplace search` for installable extensions.

@@ -21,7 +21,7 @@ Core 记录共享控制平面；各仓库记录自己的安装、兼容性和 Ho
 
 - [dcc-mcp-core](https://github.com/dcc-mcp/dcc-mcp-core) — 共享 Gateway、CLI、MCP/REST 运行时、安全、诊断与可观测性。
 - [Marketplace 搜索](/zh/marketplace) — 搜索 `dcc-mcp-cli` 使用的官方扩展目录；[目录源仓库](https://github.com/dcc-mcp/marketplace)。
-- [Flow Production Tracking](https://github.com/dcc-mcp/dcc-mcp-fpt) · [OpenUSD](https://github.com/dcc-mcp/dcc-mcp-openusd) · [MaterialX](https://github.com/dcc-mcp/dcc-materialx)
+- [Flow Production Tracking](https://github.com/dcc-mcp/dcc-mcp-fpt) · [fpt-cli](https://github.com/dcc-mcp/fpt-cli) · [OpenUSD](https://github.com/dcc-mcp/dcc-mcp-openusd) · [MaterialX](https://github.com/dcc-mcp/dcc-materialx) · [LookDev](https://github.com/dcc-mcp/dcc-lookdev)
 - [Pipeline Publish](https://github.com/dcc-mcp/dcc-pipeline-publish) · [Texture Pipeline](https://github.com/dcc-mcp/dcc-texture-pipeline) · [Cache Inspector](https://github.com/dcc-mcp/dcc-mcp-cache-inspector)（Host-neutral Marketplace Skill，无适配器与 PyPI 包）
 - [RenderDoc](https://github.com/dcc-mcp/dcc-mcp-renderdoc) · [Tracy](https://github.com/dcc-mcp/dcc-mcp-tracy)
 
@@ -58,6 +58,7 @@ Shōgun 0.4.0 提供 48 个基于官方 SDK 的类型化工具，覆盖 Scene �
 - [Google Scanned Objects](https://github.com/dcc-mcp/dcc-asset-google-scanned-objects) · [Kenney](https://github.com/dcc-mcp/dcc-asset-kenney) · [NASA 3D](https://github.com/dcc-mcp/dcc-asset-nasa3d)
 - [Objaverse](https://github.com/dcc-mcp/dcc-asset-objaverse) · [Poly Haven](https://github.com/dcc-mcp/dcc-asset-polyhaven) · [Quaternius](https://github.com/dcc-mcp/dcc-asset-quaternius)
 - [Sketchfab](https://github.com/dcc-mcp/dcc-asset-sketchfab) · [Smithsonian 3D](https://github.com/dcc-mcp/dcc-asset-smithsonian3d)
+- [Pirate Nation](https://github.com/dcc-mcp/dcc-asset-pirate-nation) — 游戏资产提供方集成。
 
 ## UI 自动化与共享运行时
 
@@ -65,5 +66,12 @@ Shōgun 0.4.0 提供 48 个基于官方 SDK 的类型化工具，覆盖 Scene �
 - [Qt Inspector](https://github.com/dcc-mcp/dcc-ui-qt-inspector) — 跨 Host 窗口与控件发现。
 - [UI Workflow Memory](https://github.com/dcc-mcp/dcc-ui-workflow-memory) — 已验证的 Selector、Recipe 与失败记忆。
 - [adobepy](https://github.com/dcc-mcp/adobepy) — Adobe 桌面通信共享运行时。
+
+## 组织与发现入口
+
+- [官网源码](https://github.com/dcc-mcp/dcc-mcp.github.io) — 共享文档、GEO 元数据、逐应用控制指南与案例。
+- [Agent 插件](https://github.com/dcc-mcp/dcc-mcp-agent-plugins) — 面向受支持 Agent 客户端的规范 DCC-MCP Skills 与插件包。
+- [dcc-cua](https://github.com/dcc-mcp/dcc-cua) — 用于受控 DCC 界面工作流的跨平台 Computer Use Automation 运行时。
+- [组织主页配置](https://github.com/dcc-mcp/.github) — GitHub 组织主页与共享社区配置。
 
 > 项目可用性和安装支持会随版本变化。使用 `dcc-mcp-cli dcc-types` 查询发布目录，使用 `dcc-mcp-cli marketplace search` 查询可安装扩展。

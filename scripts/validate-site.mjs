@@ -162,6 +162,40 @@ for (const file of [join(dist, 'marketplace.html'), join(dist, 'zh', 'marketplac
   if (missing.length) throw new Error(`${file} is missing rendered Marketplace packages: ${missing.join(', ')}`)
 }
 
+const githubToken = process.env.GITHUB_TOKEN || process.env.GH_TOKEN
+const organizationHeaders = {
+  Accept: 'application/vnd.github+json',
+  'User-Agent': 'dcc-mcp-website-validator',
+}
+if (githubToken) organizationHeaders.Authorization = `Bearer ${githubToken}`
+const organizationResponse = await fetch('https://api.github.com/orgs/dcc-mcp/repos?per_page=100&type=public', {
+  headers: organizationHeaders,
+  signal: AbortSignal.timeout(15_000),
+})
+if (!organizationResponse.ok) {
+  throw new Error(`Organization repository validation request failed (${organizationResponse.status})`)
+}
+const organizationRepositories = (await organizationResponse.json()).filter(({ archived }) => !archived)
+if (!organizationRepositories.length) throw new Error('Organization repository validation response is empty')
+const missingDescriptions = organizationRepositories.filter(({ description }) => !description).map(({ name }) => name)
+const missingHomepages = organizationRepositories.filter(({ homepage }) => !homepage).map(({ name }) => name)
+const missingTopics = organizationRepositories.filter(({ topics }) => !topics?.length).map(({ name }) => name)
+if (missingDescriptions.length || missingHomepages.length || missingTopics.length) {
+  console.warn([
+    'Organization repository metadata remains incomplete:',
+    `description=${missingDescriptions.length} [${missingDescriptions.join(', ')}]`,
+    `homepage=${missingHomepages.length} [${missingHomepages.join(', ')}]`,
+    `topics=${missingTopics.length} [${missingTopics.join(', ')}]`,
+  ].join(' '))
+}
+for (const file of [join(dist, 'ecosystem.html'), join(dist, 'zh', 'ecosystem.html')]) {
+  const html = readFileSync(file, 'utf8')
+  const missing = organizationRepositories
+    .filter(({ html_url: url }) => !html.includes(url))
+    .map(({ name }) => name)
+  if (missing.length) throw new Error(`${file} is missing active organization repositories: ${missing.join(', ')}`)
+}
+
 const showcaseSource = readFileSync(join(root, 'docs', '.vitepress', 'theme', 'components', 'ShowcaseGallery.vue'), 'utf8')
 for (const asset of ['blender-lookdev.webp', 'marmoset-pbr-lookdev.webp', 'dcc-mcp-wwise-dark.svg', 'houdini-portal.png', 'hunyuan3d.webp', 'geospatial-city.webp', 'maya-architecture.jpg', 'kenney-assets.webp', 'cache-inspection-workflow.webp', 'cinema4d-typed-scene.webp', 'comfyui-typed-workflow.webp', 'freecad-game-ready-pipeline.webp', 'illustrator-typed-vector-workflow.webp', 'openscad-parametric-pipeline.webp', 'sketchup-typed-modeling.webp', 'shogun-typed-mocap-workflow.webp', 'touchdesigner-typed-operator-workflow.webp', 'tiled-typed-map-workflow.webp', 'material-maker-typed-material-workflow.webp', 'krita-typed-paint-workflow.webp', 'gimp-typed-image-workflow.webp', 'katana-typed-lookdev-workflow.webp', 'premiere-typed-edit-workflow.webp']) {
   if (!showcaseSource.includes(asset)) throw new Error(`Showcase gallery is missing ${asset}`)
@@ -258,4 +292,4 @@ for (const [file, phrases] of whyGuides) {
   }
 }
 
-console.log(`Validated ${18 + integrations.length * 2} localized pages, ${integrations.length} bilingual DCC control guides, 4 llms files, architecture rationale, developer labs, theme logos, sitemap, Marketplace media, Showcase prompts, audio, and GEO use cases.`)
+console.log(`Validated ${18 + integrations.length * 2} localized pages, ${integrations.length} bilingual DCC control guides, ${organizationRepositories.length} active organization repositories, 4 llms files, architecture rationale, developer labs, theme logos, sitemap, Marketplace media, Showcase prompts, audio, and GEO use cases.`)
