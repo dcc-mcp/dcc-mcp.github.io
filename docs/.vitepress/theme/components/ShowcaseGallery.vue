@@ -397,12 +397,12 @@ const showcases: Showcase[] = [
     source: 'https://github.com/dcc-mcp/dcc-mcp-powerpoint',
     en: {
       label: 'OFFICE · POWERPOINT DECK',
-      title: 'A 14-slide framework deck from Deck IR → Open XML → COM render',
+      title: 'A 16-slide framework deck from Deck IR → Open XML → COM render',
       prompt: 'Use the dcc-mcp Skill to generate a PowerPoint deck introducing the DCC-MCP framework. Load the powerpoint-deck skill pack, generate the deck from the Deck IR example (semantic layouts, brand template, speaker notes), render the PDF and per-slide previews through the desktop COM backend, validate artifacts and the pixel-level visual QA, and report the output paths.',
     },
     zh: {
       label: 'OFFICE · POWERPOINT 演示文稿',
-      title: 'Deck IR → Open XML 编译 → COM 渲染生成 14 页框架介绍 Deck',
+      title: 'Deck IR → Open XML 编译 → COM 渲染生成 16 页框架介绍 Deck',
       prompt: '使用 dcc-mcp Skill 生成一份介绍 DCC-MCP 框架的 PowerPoint。加载 powerpoint-deck 技能包，从 Deck IR 示例（语义布局、品牌模板、演讲备注）生成 Deck，经桌面 COM 后端渲染 PDF 与逐页预览，运行产物校验与像素级视觉 QA，最后报告输出路径。',
     },
   },
