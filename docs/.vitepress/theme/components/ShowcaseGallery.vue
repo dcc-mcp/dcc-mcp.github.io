@@ -394,7 +394,7 @@ const showcases: Showcase[] = [
   {
     id: 'office-powerpoint-deck',
     image: '/showcase/dcc-mcp-office-deck.webp',
-    source: 'https://github.com/dcc-mcp/dcc-mcp-PowerPoint',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-powerpoint',
     en: {
       label: 'OFFICE · POWERPOINT DECK',
       title: 'A 12-slide framework deck from Deck IR → Open XML → COM render',

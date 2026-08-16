@@ -58,7 +58,7 @@ adapter repository as the source of truth for installation and host details.
 - [MotionBuilder](https://github.com/dcc-mcp/dcc-mcp-mobu) — Autodesk MotionBuilder.
 - [Nuke](https://github.com/dcc-mcp/dcc-mcp-nuke) — Foundry Nuke.
 - [Office](https://github.com/dcc-mcp/dcc-mcp-office) — Shared office core: office-rpc/1 protocol, C# COM sidecar, Open XML worker, Microsoft Graph connector, and Office-wide Skills.
-- [PowerPoint](https://github.com/dcc-mcp/dcc-mcp-PowerPoint) — Deck generation from Deck IR through Open XML compile and desktop COM render.
+- [PowerPoint](https://github.com/dcc-mcp/dcc-mcp-powerpoint) — Deck generation from Deck IR through Open XML compile and desktop COM render.
 - [Word](https://github.com/dcc-mcp/dcc-mcp-word) — Word documents, fields, and reflow (planned, Phase 2).
 - [Excel](https://github.com/dcc-mcp/dcc-mcp-excel) — Workbooks, formulas, charts, and production dashboards (planned, Phase 2).
 - [Outlook](https://github.com/dcc-mcp/dcc-mcp-outlook) — Mail drafts and calendar (planned, Phase 3).
