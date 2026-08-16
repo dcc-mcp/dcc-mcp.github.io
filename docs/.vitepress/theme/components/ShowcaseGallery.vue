@@ -391,6 +391,21 @@ const showcases: Showcase[] = [
       prompt: '继续验证从 ZBrush 导出的 Fantasy Dragon OBJ。先使用 Maya 类型化工具核对原始模型的 2,499,970 个顶点和 5,000,000 个面，再把 ZRemesh 导入独立 Namespace，并严格核对 115,336 个顶点和 115,364 个面。框选 Dragon、开启着色表面布线并保存 Maya 场景；仅当 viewport playblast 不可用时，才使用项目 UI Control 采集限定窗口证据。最终场景不得残留测试夹具。',
     },
   },
+  {
+    id: 'office-powerpoint-deck',
+    image: '/showcase/dcc-mcp-office-deck.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-PowerPoint',
+    en: {
+      label: 'OFFICE · POWERPOINT DECK',
+      title: 'A 12-slide framework deck from Deck IR → Open XML → COM render',
+      prompt: 'Use the dcc-mcp Skill to generate a PowerPoint deck introducing the DCC-MCP framework. Load the powerpoint-deck skill pack, generate the deck from the Deck IR example (semantic layouts, brand template, speaker notes), render the PDF and per-slide previews through the desktop COM backend, validate artifacts and the pixel-level visual QA, and report the output paths.',
+    },
+    zh: {
+      label: 'OFFICE · POWERPOINT 演示文稿',
+      title: 'Deck IR → Open XML 编译 → COM 渲染生成 12 页框架介绍 Deck',
+      prompt: '使用 dcc-mcp Skill 生成一份介绍 DCC-MCP 框架的 PowerPoint。加载 powerpoint-deck 技能包，从 Deck IR 示例（语义布局、品牌模板、演讲备注）生成 Deck，经桌面 COM 后端渲染 PDF 与逐页预览，运行产物校验与像素级视觉 QA，最后报告输出路径。',
+    },
+  },
 ]
 
 async function copyPrompt(item: Showcase) {
