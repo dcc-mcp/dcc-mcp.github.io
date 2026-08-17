@@ -32,6 +32,21 @@ const showcases: Showcase[] = [
     },
   },
   {
+    id: 'blender-stylized-red-swings',
+    image: '/showcase/blender-stylized-red-swings.png',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-blender#showcase-stylized-reference-reconstruction',
+    en: {
+      label: 'BLENDER · REFERENCE RECONSTRUCTION',
+      title: 'Stylized swing scene reconstructed from reference',
+      prompt: 'Use the dcc-mcp Skill to connect to Blender and reconstruct the supplied stylized swing reference as a fully editable 3D scene. Match the two parallel seats, suspension arcs and flattened chain links, overhead support and its continuous projected shadow, tiled floor, orthographic composition, red material treatment, directional lower-right seat gradient, distant overexposure, subtle bloom, and cinematic letterboxing. Work in an iterative render-reference comparison loop: after every preview, measure silhouette, screen-space alignment, shadow angle and continuity, tile visibility, highlight falloff, and material flatness; correct geometry, lighting, materials, and compositor settings without replacing the scene with a painted image. Preserve a real mesh scene, save the .blend, render the final 16:9 frame, and report validation evidence and output paths.',
+    },
+    zh: {
+      label: 'BLENDER · 参考图场景还原',
+      title: '从参考图还原的风格化秋千场景',
+      prompt: '使用 dcc-mcp Skill 连接 Blender，将提供的风格化秋千参考图还原为可编辑的真实 3D 场景。精确匹配两块平行座板、圆弧吊环与压平的链节、上方支撑杆及其连续投影、地砖、正交构图、红色材质、仅从座板右下方蔓延的定向渐变、远端逐渐过曝的地面、轻微眩光与电影黑边。持续执行“渲染—对比参考图—修正”的循环：每次预览后测量轮廓、屏幕空间对齐、阴影夹角与连续性、亮部砖缝可见度、高光衰减和材质平整度，再修正几何、灯光、材质与合成器设置，不得用绘制图片替代场景。保留真实 Mesh，保存 .blend，渲染最终 16:9 画面，并报告验证证据与输出路径。',
+    },
+  },
+  {
     id: 'marmoset-lookdev',
     image: '/showcase/marmoset-pbr-lookdev.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-marmoset',

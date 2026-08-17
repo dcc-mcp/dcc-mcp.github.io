@@ -3,6 +3,7 @@
 Homepage showcase media is copied from the owning DCC-MCP repositories so the website remains available without cross-origin image dependencies.
 
 - `blender-lookdev.webp`: `dcc-mcp/dcc-mcp-blender`, `docs/images/dcc-mcp-blender-showcase.webp`
+- `blender-stylized-red-swings.png`: `dcc-mcp/dcc-mcp-blender`, `docs/showcase/stylized-red-swings-reference-reconstruction.png`; same-camera split showing the final render and wireframe generated from the evaluated Blender scene geometry.
 - `marmoset-pbr-lookdev.webp`: `dcc-mcp/dcc-mcp-marmoset`, `docs/images/dcc-mcp-marmoset-showcase.webp`
 - `houdini-portal.png`: `dcc-mcp/dcc-mcp-houdini`, `docs/showcase/six-dcc-portal-particles.png`
 - `hunyuan3d.webp`: `dcc-mcp/dcc-ai-hunyuan3d`, `docs/images/dcc-ai-hunyuan3d-showcase.webp`
