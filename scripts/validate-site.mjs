@@ -1,9 +1,15 @@
+import { createHash } from 'node:crypto'
 import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const dist = join(root, 'docs', '.vitepress', 'dist')
+const installSopSchemaPath = 'schemas/adapter-install-sop-v1.schema.json'
+const installSopSchemaUrl = `https://dcc-mcp.github.io/${installSopSchemaPath}`
+const installSopSchemaHash = '3ca25788439917b4d4c0617230a762f9797756b5b54f45c8c4149f975b90f904'
+const installSopSchemaSourceCommit = '9439d1191d729732517f5c023725de954dd211f8'
+const installSopSchemaSourceUrl = `https://raw.githubusercontent.com/dcc-mcp/dcc-mcp-core/${installSopSchemaSourceCommit}/python/dcc_mcp_core/schemas/adapter-install-sop-v1.schema.json`
 const integrationSource = readFileSync(join(root, 'docs', '.vitepress', 'dcc-integrations.mts'), 'utf8')
 const integrations = [...integrationSource.matchAll(
   /slug: '([^']+)',\s+name: '([^']+)',\s+repository: '([^']+)'/g,
@@ -38,6 +44,7 @@ const requiredFiles = [
   'llms-full.txt',
   'zh/llms.txt',
   'zh/llms-full.txt',
+  installSopSchemaPath,
   'brand/dcc-mcp-logo-admin-light.png',
   'brand/dcc-mcp-logo-admin-dark.png',
   'brand/dcc-mcp-wwise.svg',
@@ -74,6 +81,39 @@ const requiredFiles = [
 
 for (const file of requiredFiles) {
   if (!existsSync(join(dist, file))) throw new Error(`Missing generated file: ${file}`)
+}
+
+const installSopSourceBytes = readFileSync(join(root, 'docs', 'public', installSopSchemaPath))
+const installSopDistBytes = readFileSync(join(dist, installSopSchemaPath))
+const actualInstallSopHash = createHash('sha256').update(installSopSourceBytes).digest('hex')
+if (actualInstallSopHash !== installSopSchemaHash) {
+  throw new Error(`Adapter Install SOP v1 schema hash changed: ${actualInstallSopHash}`)
+}
+if (!installSopSourceBytes.equals(installSopDistBytes)) {
+  throw new Error('Generated Adapter Install SOP v1 schema differs from its public source asset')
+}
+const installSopSchema = JSON.parse(installSopSourceBytes.toString('utf8'))
+if (installSopSchema.$id !== installSopSchemaUrl) {
+  throw new Error(`Adapter Install SOP v1 schema has the wrong canonical $id: ${installSopSchema.$id}`)
+}
+if (installSopSchema.$schema !== 'https://json-schema.org/draft/2020-12/schema') {
+  throw new Error(`Adapter Install SOP v1 schema has the wrong dialect: ${installSopSchema.$schema}`)
+}
+const installSopOwnerResponse = await fetch(installSopSchemaSourceUrl, {
+  signal: AbortSignal.timeout(15_000),
+})
+if (!installSopOwnerResponse.ok) {
+  throw new Error(`Adapter Install SOP v1 owner validation request failed (${installSopOwnerResponse.status})`)
+}
+const installSopOwnerBytes = Buffer.from(await installSopOwnerResponse.arrayBuffer())
+if (!installSopSourceBytes.equals(installSopOwnerBytes)) {
+  throw new Error('Public Adapter Install SOP v1 schema differs from the immutable Core-owned source')
+}
+const installSopProvenance = readFileSync(join(root, 'docs', 'public', 'schemas', 'README.md'), 'utf8')
+for (const value of [installSopSchemaUrl, installSopSchemaHash, installSopSchemaSourceCommit, 'dcc-mcp/dcc-mcp-core#2320']) {
+  if (!installSopProvenance.includes(value)) {
+    throw new Error(`Adapter Install SOP v1 provenance is missing: ${value}`)
+  }
 }
 for (const { slug } of integrations) {
   for (const file of [`control/${slug}.html`, `zh/control/${slug}.html`]) {
@@ -244,6 +284,9 @@ for (const llms of llmsFiles) {
   if (!llms.includes(universalSkillCommand) || !llms.includes('https://github.com/dcc-mcp/dcc-mcp-agent-plugins')) {
     throw new Error('An llms file is missing the canonical Agent Skill distribution contract')
   }
+  if (!llms.includes(installSopSchemaUrl)) {
+    throw new Error('An llms file is missing the canonical Adapter Install SOP v1 schema')
+  }
   for (const phrase of ['Maya MCP', '3ds Max MCP', 'Blender MCP', 'Maya CLI', 'Blender CLI', 'Tuanjie AI']) {
     if (!llms.includes(phrase)) throw new Error(`An llms file is missing the search alias: ${phrase}`)
   }
@@ -319,4 +362,4 @@ for (const [file, phrases] of whyGuides) {
   }
 }
 
-console.log(`Validated ${18 + integrations.length * 2} localized pages, ${integrations.length} bilingual DCC control guides, ${organizationRepositories.length} active organization repositories, 4 llms files, architecture rationale, developer labs, theme logos, sitemap, Marketplace media, Showcase prompts, audio, and GEO use cases.`)
+console.log(`Validated ${18 + integrations.length * 2} localized pages, ${integrations.length} bilingual DCC control guides, ${organizationRepositories.length} active organization repositories, 4 llms files, the Install SOP v1 schema mirror, architecture rationale, developer labs, theme logos, sitemap, Marketplace media, Showcase prompts, audio, and GEO use cases.`)

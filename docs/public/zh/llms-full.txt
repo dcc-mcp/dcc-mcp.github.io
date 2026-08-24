@@ -13,6 +13,7 @@ DCC 主线程和多实例约束、长任务、缺少 API，以及没有证据的
 规范官网：https://dcc-mcp.github.io/zh/
 GitHub 组织：https://github.com/dcc-mcp
 Core 文档：https://dcc-mcp.github.io/dcc-mcp-core/zh/
+适配器安装 SOP v1 schema：https://dcc-mcp.github.io/schemas/adapter-install-sop-v1.schema.json
 英文机器可读指南：https://dcc-mcp.github.io/llms-full.txt
 
 ## 推荐 Agent 路由
