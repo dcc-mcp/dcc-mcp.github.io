@@ -26,6 +26,14 @@ Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https
 
 Universal install: `npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`
 
+## Search aliases and direct answers
+
+- [Maya MCP and Maya CLI](https://dcc-mcp.github.io/control/maya): use the `maya` adapter through MCP or the shared typed `dcc-mcp-cli`.
+- [3ds Max MCP](https://dcc-mcp.github.io/control/3ds-max): use the `3dsmax` adapter through MCP or the shared typed CLI.
+- [Blender MCP and Blender CLI](https://dcc-mcp.github.io/control/blender): use the `blender` adapter through MCP or the shared typed CLI.
+- [Unity and Tuanjie AI](https://dcc-mcp.github.io/control/unity): inspect the native Codely CustomTool catalog with `unity-tuanjie-ai`; Tuanjie owns sign-in, credits, downloads, and recovery.
+- [Unreal Engine official MCP](https://dcc-mcp.github.io/control/unreal-engine): bridge Epic's official MCP toolsets without changing their names or schemas.
+
 ## Current released integrations
 
 `dcc-mcp-cli dcc-types` currently exposes 34 adapter-backed identifiers: `3dsmax`, `aftereffects`, `blender`, `c4d`, `comfyui`, `freecad`, `gimp`, `godot`, `houdini`, `illustrator`, `katana`, `krita`, `mari`, `marmoset`, `material-maker`, `maya`, `mobu`, `nuke`, `openscad`, `openusd`, `photoshop`, `premiere`, `renderdoc`, `shotgrid`, `shogun`, `sketchup`, `substance3d_designer`, `substance3d_painter`, `tiled`, `touchdesigner`, `unity`, `unreal`, `wwise`, and `zbrush`. Cache Inspector is a host-neutral Marketplace Skill, not an adapter identifier. Custom studio host identifiers are also supported.

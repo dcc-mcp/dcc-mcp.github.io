@@ -27,8 +27,10 @@ adapter or extension repository when the task needs it.
 - [dcc-mcp-openusd](https://github.com/dcc-mcp/dcc-mcp-openusd) — OpenUSD workflows and interchange Skills.
 - [dcc-materialx](https://github.com/dcc-mcp/dcc-materialx) — MaterialX look-development interchange.
 - [dcc-lookdev](https://github.com/dcc-mcp/dcc-lookdev) — Standardized cross-DCC PBR look-development workflows.
+- [dcc-modeling-spec](https://github.com/dcc-mcp/dcc-modeling-spec) — Host-neutral Modeling Spec v2 gates and review artifacts for Maya, Blender, Houdini, and 3ds Max workflows.
 - [dcc-pipeline-publish](https://github.com/dcc-mcp/dcc-pipeline-publish) — Portable publish manifests for DCC, USD, render farm, and tracking workflows.
 - [dcc-texture-pipeline](https://github.com/dcc-mcp/dcc-texture-pipeline) — Deterministic OpenImageIO and OpenColorIO texture workflows.
+- [dcc-itchio](https://github.com/dcc-mcp/dcc-itchio) — Safe itch.io asset acquisition and preview-gated game publishing Skills.
 - [dcc-mcp-cache-inspector](https://github.com/dcc-mcp/dcc-mcp-cache-inspector) — Host-neutral Marketplace Skill for bounded, privacy-safe offline SideFX cache inspection; no adapter or PyPI package.
 - [dcc-mcp-renderdoc](https://github.com/dcc-mcp/dcc-mcp-renderdoc) — RenderDoc capture and replay automation.
 - [dcc-mcp-tracy](https://github.com/dcc-mcp/dcc-mcp-tracy) — Tracy frame-profiler capture and analysis.

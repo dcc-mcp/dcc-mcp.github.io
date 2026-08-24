@@ -8,6 +8,8 @@ export type DccIntegration = {
   summaryZh: string
   tasksEn: [string, string, string]
   tasksZh: [string, string, string]
+  vendorCaseEn?: string
+  vendorCaseZh?: string
 }
 
 export const dccIntegrations: DccIntegration[] = [
@@ -330,6 +332,8 @@ export const dccIntegrations: DccIntegration[] = [
     summaryZh: '检查项目，并自动化场景、GameObject、组件、资产、测试与构建',
     tasksEn: ['inventory scenes, assets, and project settings', 'build one small playable interaction', 'enter Play Mode and verify behavior before a build'],
     tasksZh: ['盘点场景、资产与项目设置', '构建一个小型可玩交互', '进入 Play Mode 并在构建前验证行为'],
+    vendorCaseEn: 'For Unity and Tuanjie AI projects, the [`unity-tuanjie-ai` Skill](https://github.com/dcc-mcp/dcc-mcp-unity/blob/main/src/dcc_mcp_unity/skills/unity-tuanjie-ai/SKILL.md) inspects the native Codely CustomTool catalog and only executes a tool from a fresh inspection result. Tuanjie owns sign-in, credits, downloads, and task recovery; DCC-MCP owns typed discovery, routing, and verification around those vendor capabilities.',
+    vendorCaseZh: '对于 Unity 与团结 AI（Tuanjie AI）项目，[`unity-tuanjie-ai` Skill](https://github.com/dcc-mcp/dcc-mcp-unity/blob/main/src/dcc_mcp_unity/skills/unity-tuanjie-ai/SKILL.md) 会先检查原生 Codely CustomTool 目录，并且只执行本次检查返回的工具。登录、积分、下载与任务恢复由团结软件包负责；DCC-MCP 负责厂商能力外的类型化发现、路由与验证。',
   },
   {
     slug: 'unreal-engine',
@@ -376,9 +380,18 @@ export function renderControlGuide(integration: DccIntegration, language: 'en' |
       : released
       ? `当前发布目录使用 \`${integration.dccType}\` 作为 Host 标识；实际操作前仍应运行 \`dcc-mcp-cli dcc-types\` 核对本机版本。`
       : '这是公开适配器仓库，但它可能尚未进入当前 CLI 发布目录。先检查适配器 README 与 `dcc-mcp-cli dcc-types`，不要猜测 Host 标识。'
+    const cliSection = released
+      ? `## ${integration.name} MCP 与 ${integration.name} CLI\n\n${integration.name} MCP 接口与 ${integration.name} CLI 工作流共用同一个 DCC-MCP 适配器和类型化工具目录。所谓 ${integration.name} CLI，是使用共享的 \`dcc-mcp-cli\`，并传入 \`--dcc-type ${integration.dccType}\` 来限定当前 ${integration.name} Host，而不是另一套不兼容的命令行。\n\n\`\`\`bash\ndcc-mcp-cli search --query "${integration.tasksZh[0]}" --dcc-type ${integration.dccType}\n\`\`\`\n`
+      : ''
+    const vendorCase = integration.vendorCaseZh
+      ? `## 厂商原生 AI 能力\n\n${integration.vendorCaseZh}\n`
+      : ''
     return `# AI 怎么控制 ${integration.name}？
 
 如果你指的是让兼容 MCP 的 AI Agent 操作正在运行的 ${integration.name}，而不是只让 AI 讲教程或生成一段临时脚本，可以通过 DCC-MCP ${integration.summaryZh}。DCC-MCP 使用可发现的类型化工具、实例路由和结果验证来执行操作。
+
+${cliSection}
+${vendorCase}
 
 ## AI 可以在 ${integration.name} 中做什么？
 
@@ -425,9 +438,18 @@ ${availability}
     : released
     ? `The current release catalog uses \`${integration.dccType}\` as the host identifier. Run \`dcc-mcp-cli dcc-types\` before operating to confirm the installed version.`
     : 'This is a public adapter repository, but it may not yet be present in the current CLI release catalog. Check its README and `dcc-mcp-cli dcc-types`; do not guess a host identifier.'
+  const cliSection = released
+    ? `## ${integration.name} MCP and ${integration.name} CLI\n\nThe ${integration.name} MCP endpoint and ${integration.name} CLI workflow share the same DCC-MCP adapter and typed tool catalog. A ${integration.name} CLI workflow uses the shared \`dcc-mcp-cli\` with \`--dcc-type ${integration.dccType}\` to select the live ${integration.name} host; it is not a second, incompatible command line.\n\n\`\`\`bash\ndcc-mcp-cli search --query "${integration.tasksEn[0]}" --dcc-type ${integration.dccType}\n\`\`\`\n`
+    : ''
+  const vendorCase = integration.vendorCaseEn
+    ? `## Vendor-native AI capabilities\n\n${integration.vendorCaseEn}\n`
+    : ''
   return `# How can an AI agent control ${integration.name}?
 
 If you mean an MCP-compatible AI agent operating a live ${integration.name} session—not merely explaining a tutorial or generating a one-off script—DCC-MCP can ${integration.summaryEn}. DCC-MCP performs work through discoverable typed tools, instance routing, and result validation.
+
+${cliSection}
+${vendorCase}
 
 ## What can an AI agent do in ${integration.name}?
 

@@ -121,6 +121,12 @@ if (!englishHome.includes('href="/use-cases"') || !chineseHome.includes('href="/
 if (!englishHome.includes(`"numberOfItems":${releasedIntegrationCount}`)) {
   throw new Error('Homepage structured data has the wrong released integration count')
 }
+for (const phrase of ['Maya MCP', '3ds Max MCP', 'Blender MCP', 'Maya CLI', 'Blender CLI', 'Unity and Tuanjie AI', 'Unreal Engine official MCP']) {
+  if (!englishHome.includes(phrase)) throw new Error(`English home is missing the GEO answer: ${phrase}`)
+}
+for (const phrase of ['Maya MCP', '3ds Max MCP', 'Blender MCP', 'Maya CLI', 'Blender CLI', 'Unity 与团结 AI', 'Unreal Engine 官方 MCP']) {
+  if (!chineseHome.includes(phrase)) throw new Error(`Chinese home is missing the GEO answer: ${phrase}`)
+}
 for (const label of ['Why DCC-MCP', 'Marketplace', 'Showcase', 'For Agents']) {
   if (!englishHome.includes(`>${label}<`)) throw new Error(`English navigation is missing ${label}`)
 }
@@ -238,6 +244,9 @@ for (const llms of llmsFiles) {
   if (!llms.includes(universalSkillCommand) || !llms.includes('https://github.com/dcc-mcp/dcc-mcp-agent-plugins')) {
     throw new Error('An llms file is missing the canonical Agent Skill distribution contract')
   }
+  for (const phrase of ['Maya MCP', '3ds Max MCP', 'Blender MCP', 'Maya CLI', 'Blender CLI', 'Tuanjie AI']) {
+    if (!llms.includes(phrase)) throw new Error(`An llms file is missing the search alias: ${phrase}`)
+  }
 }
 for (const [file, prompt] of [
   [join(dist, 'agents.html'), 'Use the dcc-mcp Skill to &lt;describe the DCC task&gt;'],
@@ -267,6 +276,24 @@ for (const { slug, name, repository } of integrations) {
   }
   for (const llms of llmsFiles) {
     if (!llms.includes(`/control/${slug}`)) throw new Error(`An llms file is missing the ${name} guide`)
+  }
+}
+for (const [slug, name] of [['maya', 'Maya'], ['3ds-max', '3ds Max'], ['blender', 'Blender']]) {
+  const englishGuide = readFileSync(join(dist, 'control', `${slug}.html`), 'utf8')
+  const chineseGuide = readFileSync(join(dist, 'zh', 'control', `${slug}.html`), 'utf8')
+  for (const [label, html] of [['English', englishGuide], ['Chinese', chineseGuide]]) {
+    for (const phrase of [`${name} MCP`, `${name} CLI`, `--dcc-type ${slug === '3ds-max' ? '3dsmax' : slug}`]) {
+      if (!html.includes(phrase)) throw new Error(`${label} ${name} guide is missing the GEO answer: ${phrase}`)
+    }
+  }
+}
+for (const [label, file, phrases] of [
+  ['English', join(dist, 'control', 'unity.html'), ['Tuanjie AI', 'unity-tuanjie-ai', 'native Codely CustomTool']],
+  ['Chinese', join(dist, 'zh', 'control', 'unity.html'), ['Tuanjie AI', 'unity-tuanjie-ai', '原生 Codely CustomTool']],
+]) {
+  const html = readFileSync(file, 'utf8')
+  for (const phrase of phrases) {
+    if (!html.includes(phrase)) throw new Error(`${label} Unity guide is missing the Tuanjie boundary: ${phrase}`)
   }
 }
 

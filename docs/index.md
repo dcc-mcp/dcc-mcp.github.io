@@ -1,7 +1,7 @@
 ---
 layout: home
 title: DCC-MCP
-description: Connect creative applications through a shared Gateway, typed CLI, MCP, and REST.
+description: Maya MCP, Blender MCP, 3ds Max MCP, and a typed DCC CLI through one shared Gateway.
 
 hero:
   name: DCC-MCP
@@ -41,6 +41,32 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
 ```
 
 <p class="install-note">Run the command from your Agent workspace; use <code>--global</code> for user-level installation. <a href="/agents">See all Agent hosts</a> or <a href="/use-cases">choose a task →</a></p>
+
+<section class="home-marketplace-section" aria-labelledby="mcp-cli-title">
+  <div class="home-marketplace-heading">
+    <div>
+      <p class="home-kicker">MCP + CLI</p>
+      <h2 id="mcp-cli-title">Maya MCP, 3ds Max MCP, Blender MCP—one typed control plane.</h2>
+    </div>
+    <div>
+      <p>Each adapter exposes the same discoverable tool contracts through MCP and <code>dcc-mcp-cli</code>. Looking for a Maya CLI or Blender CLI? Use the shared CLI with the host identifier; there is no separate incompatible command set.</p>
+      <p><a href="/control/maya">Maya MCP and Maya CLI</a> · <a href="/control/3ds-max">3ds Max MCP and 3ds Max CLI</a> · <a href="/control/blender">Blender MCP and Blender CLI</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="home-marketplace-section" aria-labelledby="vendor-ai-title">
+  <div class="home-marketplace-heading">
+    <div>
+      <p class="home-kicker">VENDOR-NATIVE AI</p>
+      <h2 id="vendor-ai-title">Reuse official capabilities inside one workflow.</h2>
+    </div>
+    <div>
+      <p><strong>Unreal Engine official MCP:</strong> the <a href="https://github.com/dcc-mcp/dcc-mcp-unreal/blob/main/src/dcc_mcp_unreal/skills/unreal-official-mcp/SKILL.md">Unreal Skill</a> enables and bridges Epic's official toolsets without renaming their tools or schemas.</p>
+      <p><strong>Unity and Tuanjie AI:</strong> the <a href="https://github.com/dcc-mcp/dcc-mcp-unity/blob/main/src/dcc_mcp_unity/skills/unity-tuanjie-ai/SKILL.md">Unity Skill</a> inspects the native Codely CustomTool catalog before executing a freshly returned tool; Tuanjie still owns sign-in, credits, downloads, and task recovery.</p>
+    </div>
+  </div>
+</section>
 
 <section class="integrations-section" aria-labelledby="integrations-title">
   <div class="integrations-heading">

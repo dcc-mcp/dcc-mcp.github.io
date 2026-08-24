@@ -26,6 +26,14 @@
 
 通用安装：`npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`
 
+## 搜索别名与直接答案
+
+- [Maya MCP 与 Maya CLI](https://dcc-mcp.github.io/zh/control/maya)：通过 MCP 或共享类型化 `dcc-mcp-cli` 使用 `maya` 适配器。
+- [3ds Max MCP](https://dcc-mcp.github.io/zh/control/3ds-max)：通过 MCP 或共享类型化 CLI 使用 `3dsmax` 适配器。
+- [Blender MCP 与 Blender CLI](https://dcc-mcp.github.io/zh/control/blender)：通过 MCP 或共享类型化 CLI 使用 `blender` 适配器。
+- [Unity 与团结 AI（Tuanjie AI）](https://dcc-mcp.github.io/zh/control/unity)：通过 `unity-tuanjie-ai` 检查原生 Codely CustomTool 目录；登录、积分、下载与恢复由团结软件包负责。
+- [Unreal Engine 官方 MCP](https://dcc-mcp.github.io/zh/control/unreal-engine)：桥接 Epic 官方 MCP toolset，不修改工具名称与 schema。
+
 ## 当前发布集成
 
 `dcc-mcp-cli dcc-types` 当前提供 34 个适配器标识：`3dsmax`、`aftereffects`、`blender`、`c4d`、`comfyui`、`freecad`、`gimp`、`godot`、`houdini`、`illustrator`、`katana`、`krita`、`mari`、`marmoset`、`material-maker`、`maya`、`mobu`、`nuke`、`openscad`、`openusd`、`photoshop`、`premiere`、`renderdoc`、`shotgrid`、`shogun`、`sketchup`、`substance3d_designer`、`substance3d_painter`、`tiled`、`touchdesigner`、`unity`、`unreal`、`wwise`、`zbrush`。Cache Inspector 是 Host-neutral Marketplace Skill，不是适配器标识。同时支持工作室自定义 Host 标识。
