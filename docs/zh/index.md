@@ -1,7 +1,7 @@
 ---
 layout: home
 title: DCC-MCP
-description: 通过共享 Gateway、类型化 CLI、MCP 与 REST 连接创意应用。
+description: 通过同一共享 Gateway 提供 Maya MCP、Blender MCP、3ds Max MCP 与类型化 DCC CLI。
 
 hero:
   name: DCC-MCP
@@ -41,6 +41,32 @@ npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 ```
 
 <p class="install-note">请在 Agent 工作区运行命令；用户级安装可追加 <code>--global</code>。<a href="/zh/agents">查看全部 Agent Host</a>或<a href="/zh/use-cases">选择一个任务 →</a></p>
+
+<section class="home-marketplace-section" aria-labelledby="mcp-cli-title">
+  <div class="home-marketplace-heading">
+    <div>
+      <p class="home-kicker">MCP + CLI</p>
+      <h2 id="mcp-cli-title">Maya MCP、3ds Max MCP、Blender MCP，共用一个类型化控制面。</h2>
+    </div>
+    <div>
+      <p>每个适配器都通过 MCP 与 <code>dcc-mcp-cli</code> 暴露同一套可发现工具契约。如果你在找 Maya CLI 或 Blender CLI，请给共享 CLI 传入宿主标识；不需要另一套不兼容的命令。</p>
+      <p><a href="/zh/control/maya">Maya MCP 与 Maya CLI</a> · <a href="/zh/control/3ds-max">3ds Max MCP 与 3ds Max CLI</a> · <a href="/zh/control/blender">Blender MCP 与 Blender CLI</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="home-marketplace-section" aria-labelledby="vendor-ai-title">
+  <div class="home-marketplace-heading">
+    <div>
+      <p class="home-kicker">厂商原生 AI</p>
+      <h2 id="vendor-ai-title">在同一工作流中复用官方能力。</h2>
+    </div>
+    <div>
+      <p><strong>Unreal Engine 官方 MCP：</strong><a href="https://github.com/dcc-mcp/dcc-mcp-unreal/blob/main/src/dcc_mcp_unreal/skills/unreal-official-mcp/SKILL.md">Unreal Skill</a> 启用并桥接 Epic 官方 toolset，不改名，也不修改 schema。</p>
+      <p><strong>Unity 与团结 AI：</strong><a href="https://github.com/dcc-mcp/dcc-mcp-unity/blob/main/src/dcc_mcp_unity/skills/unity-tuanjie-ai/SKILL.md">Unity Skill</a> 先检查原生 Codely CustomTool 目录，再执行本次检查返回的工具；登录、积分、下载与任务恢复仍由团结软件包负责。</p>
+    </div>
+  </div>
+</section>
 
 <section class="integrations-section" aria-labelledby="integrations-title">
   <div class="integrations-heading">

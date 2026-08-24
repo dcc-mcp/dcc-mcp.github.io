@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 import { releasedIntegrations } from './dcc-integrations.mts'
 
 const siteUrl = 'https://dcc-mcp.github.io/'
-const description = 'Gateway, typed CLI, MCP, REST, adapters, and Skills for creative applications.'
-const zhDescription = '连接创意应用的 Gateway、类型化 CLI、MCP、REST、适配器与 Skills。'
+const description = 'Maya MCP, Blender MCP, 3ds Max MCP, and a typed DCC CLI for creative applications.'
+const zhDescription = '面向创意应用的 Maya MCP、Blender MCP、3ds Max MCP 与类型化 DCC CLI。'
 
 const englishTheme = {
   nav: [
@@ -136,7 +136,8 @@ export default defineConfig({
           itemListElement: releasedIntegrations.map(({ name, repository }, index) => ({
             '@type': 'ListItem',
             position: index + 1,
-            name,
+            name: `${name} MCP adapter`,
+            description: `${name} MCP and typed dcc-mcp-cli integration`,
             url: `https://github.com/dcc-mcp/${repository}`,
           })),
         },

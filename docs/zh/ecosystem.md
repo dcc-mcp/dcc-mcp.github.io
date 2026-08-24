@@ -22,7 +22,7 @@ Core 记录共享控制平面；各仓库记录自己的安装、兼容性和 Ho
 - [dcc-mcp-core](https://github.com/dcc-mcp/dcc-mcp-core) — 共享 Gateway、CLI、MCP/REST 运行时、安全、诊断与可观测性。
 - [Marketplace 搜索](/zh/marketplace) — 搜索 `dcc-mcp-cli` 使用的官方扩展目录；[目录源仓库](https://github.com/dcc-mcp/marketplace)。
 - [Flow Production Tracking](https://github.com/dcc-mcp/dcc-mcp-fpt) · [fpt-cli](https://github.com/dcc-mcp/fpt-cli) · [OpenUSD](https://github.com/dcc-mcp/dcc-mcp-openusd) · [MaterialX](https://github.com/dcc-mcp/dcc-materialx) · [LookDev](https://github.com/dcc-mcp/dcc-lookdev)
-- [Pipeline Publish](https://github.com/dcc-mcp/dcc-pipeline-publish) · [Texture Pipeline](https://github.com/dcc-mcp/dcc-texture-pipeline) · [Cache Inspector](https://github.com/dcc-mcp/dcc-mcp-cache-inspector)（Host-neutral Marketplace Skill，无适配器与 PyPI 包）
+- [Pipeline Publish](https://github.com/dcc-mcp/dcc-pipeline-publish) · [Texture Pipeline](https://github.com/dcc-mcp/dcc-texture-pipeline) · [itch.io](https://github.com/dcc-mcp/dcc-itchio)（安全获取资产与预览门控的游戏发布）· [Cache Inspector](https://github.com/dcc-mcp/dcc-mcp-cache-inspector)（Host-neutral Marketplace Skill，无适配器与 PyPI 包）
 - [RenderDoc](https://github.com/dcc-mcp/dcc-mcp-renderdoc) · [Tracy](https://github.com/dcc-mcp/dcc-mcp-tracy)
 
 ## DCC 与创意应用适配器
