@@ -16,6 +16,7 @@ Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https
 - [Developer guide](https://dcc-mcp.github.io/developers): Local examples and validation steps for a private standalone MCP service, DCC adapter, or specialized Skill.
 - [Ecosystem directory](https://dcc-mcp.github.io/ecosystem): Adapters, extensions, asset providers, generation services, and studio integrations.
 - [Core documentation](https://dcc-mcp.github.io/dcc-mcp-core/): Gateway, CLI, MCP/REST, security, observability, and Python API.
+- [Adapter Install SOP v1 schema](https://dcc-mcp.github.io/schemas/adapter-install-sop-v1.schema.json): The canonical Draft 2020-12 result contract for adapter lifecycle commands.
 
 ## Agent Skills
 

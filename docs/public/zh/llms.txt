@@ -16,6 +16,7 @@
 - [开发者指南](https://dcc-mcp.github.io/zh/developers)：内部 standalone MCP 服务、DCC 适配器和专项 Skill 的本地示例与验证步骤。
 - [生态目录](https://dcc-mcp.github.io/zh/ecosystem)：适配器、扩展、资产提供方、生成服务和工作室集成。
 - [Core 文档](https://dcc-mcp.github.io/dcc-mcp-core/zh/)：Gateway、CLI、MCP/REST、安全、可观测性与 Python API。
+- [适配器安装 SOP v1 schema](https://dcc-mcp.github.io/schemas/adapter-install-sop-v1.schema.json)：适配器生命周期命令的规范 Draft 2020-12 结果契约。
 
 ## Agent Skills
 

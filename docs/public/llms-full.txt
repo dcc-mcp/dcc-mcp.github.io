@@ -17,6 +17,7 @@ https://dcc-mcp.github.io/why-dcc-mcp.
 Canonical website: https://dcc-mcp.github.io/
 GitHub organization: https://github.com/dcc-mcp
 Core documentation: https://dcc-mcp.github.io/dcc-mcp-core/
+Adapter Install SOP v1 schema: https://dcc-mcp.github.io/schemas/adapter-install-sop-v1.schema.json
 Simplified Chinese machine-readable guide: https://dcc-mcp.github.io/zh/llms-full.txt
 
 ## Recommended agent route
