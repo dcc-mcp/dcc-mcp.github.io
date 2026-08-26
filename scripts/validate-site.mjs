@@ -72,7 +72,10 @@ const collectDccRepositoryReferences = (value, path = '$', matches = []) => {
   if (Array.isArray(value)) {
     value.forEach((item, index) => collectDccRepositoryReferences(item, `${path}[${index}]`, matches))
   } else if (value && typeof value === 'object') {
-    Object.entries(value).forEach(([key, item]) => collectDccRepositoryReferences(item, `${path}.${key}`, matches))
+    Object.entries(value).forEach(([key, item]) => {
+      if (key.includes(dccRepositoryPrefix)) matches.push({ path: `${path}{key}`, value: key })
+      collectDccRepositoryReferences(item, `${path}.${key}`, matches)
+    })
   }
   return matches
 }
@@ -345,6 +348,7 @@ for (const [language, source] of [['en', englishHome], ['zh', chineseHome]]) {
   for (const [caseName, mutateItem] of [
     ['foreign repository subjectOf', (item) => { item.subjectOf = foreignRepository }],
     ['foreign repository nested path', (item) => { item.reviewProbe = { links: [{ target: foreignRepository }] } }],
+    ['foreign repository property key', (item) => { item.reviewProbe = { [foreignRepository]: 'hidden' } }],
   ]) {
     const mutated = mutateStructuredData(source, label, (document) => {
       const entities = graphEntities(document, `${label} mutation`)
