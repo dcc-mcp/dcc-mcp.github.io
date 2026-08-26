@@ -11,15 +11,116 @@ const installSopSchemaHash = '3ca25788439917b4d4c0617230a762f9797756b5b54f45c8c4
 const installSopSchemaSourceCommit = '9439d1191d729732517f5c023725de954dd211f8'
 const installSopSchemaSourceUrl = `https://raw.githubusercontent.com/dcc-mcp/dcc-mcp-core/${installSopSchemaSourceCommit}/python/dcc_mcp_core/schemas/adapter-install-sop-v1.schema.json`
 const integrationSource = readFileSync(join(root, 'docs', '.vitepress', 'dcc-integrations.mts'), 'utf8')
-const integrations = [...integrationSource.matchAll(
+const integrationMatches = [...integrationSource.matchAll(
   /slug: '([^']+)',\s+name: '([^']+)',\s+repository: '([^']+)'/g,
-)].map(([, slug, name, repository]) => ({ slug, name, repository }))
+)]
+const integrationListEndMatch = /\r?\n]\r?\n\r?\nexport const releasedIntegrations/.exec(integrationSource)
+if (!integrationListEndMatch) throw new Error('Could not locate the end of the DCC integration catalog')
+const integrationListEnd = integrationListEndMatch.index
+const integrations = integrationMatches.map((match, index) => {
+  const [, slug, name, repository] = match
+  const nextOffset = integrationMatches[index + 1]?.index ?? integrationListEnd
+  const block = integrationSource.slice(match.index, nextOffset)
+  return {
+    slug,
+    name,
+    repository,
+    dccType: block.match(/\s+dccType: '([^']+)',/)?.[1],
+    marketplacePackage: block.match(/\s+marketplacePackage: '([^']+)',/)?.[1],
+  }
+})
 if (integrations.length !== 35) {
   throw new Error(`Expected 35 public application and pipeline integrations, found ${integrations.length}`)
 }
 const releasedIntegrationCount = [...integrationSource.matchAll(/\s+dccType: '[^']+',/g)].length
 if (releasedIntegrationCount !== 34) {
   throw new Error(`Expected 34 released host identifiers, found ${releasedIntegrationCount}`)
+}
+
+const parseStructuredData = (html, label) => {
+  const scripts = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+  if (scripts.length !== 1) {
+    throw new Error(`${label} must render exactly one JSON-LD document, found ${scripts.length}`)
+  }
+  try {
+    return JSON.parse(scripts[0][1])
+  } catch (error) {
+    throw new Error(`${label} rendered invalid JSON-LD: ${error.message}`)
+  }
+}
+
+const graphEntities = (document, label) => {
+  if (document?.['@context'] !== 'https://schema.org' || !Array.isArray(document['@graph'])) {
+    throw new Error(`${label} JSON-LD must contain one schema.org @graph`)
+  }
+  return document['@graph']
+}
+
+const oneEntity = (entities, type, label) => {
+  const matches = entities.filter((entity) => entity?.['@type'] === type)
+  if (matches.length !== 1) throw new Error(`${label} must contain exactly one ${type}, found ${matches.length}`)
+  return matches[0]
+}
+
+const validateHomeEntities = (html, language) => {
+  const label = language === 'en' ? 'English home' : 'Chinese home'
+  const routePrefix = language === 'en' ? '/control/' : '/zh/control/'
+  const entities = graphEntities(parseStructuredData(html, label), label)
+  for (const type of ['Organization', 'WebSite', 'SoftwareApplication', 'ItemList']) oneEntity(entities, type, label)
+  const itemList = oneEntity(entities, 'ItemList', label)
+  if (itemList.numberOfItems !== releasedIntegrationCount || itemList.itemListElement?.length !== releasedIntegrationCount) {
+    throw new Error(`${label} ItemList has the wrong released integration count`)
+  }
+  for (const integration of integrations.filter(({ dccType }) => dccType)) {
+    const expectedUrl = `https://dcc-mcp.github.io${routePrefix}${integration.slug}`
+    const expectedRepository = `https://github.com/dcc-mcp/${integration.repository}`
+    const expectedName = language === 'en' ? `${integration.name} MCP adapter` : `${integration.name} MCP 适配器`
+    const item = itemList.itemListElement.find(({ name }) => name === expectedName)
+    if (!item || item.url !== expectedUrl || item.sameAs !== expectedRepository) {
+      throw new Error(`${label} ItemList has the wrong page/repository relationship for ${integration.name}`)
+    }
+    if (item.url === expectedRepository) throw new Error(`${label} ItemList uses a repository as the canonical item URL`)
+  }
+}
+
+const validateControlEntities = (html, language, integration) => {
+  const label = `${language === 'en' ? 'English' : 'Chinese'} ${integration.name} guide`
+  const routePrefix = language === 'en' ? '/control/' : '/zh/control/'
+  const expectedLanguage = language === 'en' ? 'en' : 'zh-CN'
+  const pageUrl = `https://dcc-mcp.github.io${routePrefix}${integration.slug}`
+  const repositoryUrl = `https://github.com/dcc-mcp/${integration.repository}`
+  const entities = graphEntities(parseStructuredData(html, label), label)
+  if (entities.some(({ '@type': type }) => ['Organization', 'WebSite', 'ItemList'].includes(type))) {
+    throw new Error(`${label} repeats homepage-level structured entities`)
+  }
+  const webPage = oneEntity(entities, 'WebPage', label)
+  const application = oneEntity(entities, 'SoftwareApplication', label)
+  if (webPage.url !== pageUrl || webPage.inLanguage !== expectedLanguage) {
+    throw new Error(`${label} WebPage has the wrong canonical URL or language`)
+  }
+  if (application.url !== pageUrl || application.inLanguage !== expectedLanguage) {
+    throw new Error(`${label} SoftwareApplication has the wrong canonical URL or language`)
+  }
+  if (webPage.mainEntity?.['@id'] !== application['@id']) {
+    throw new Error(`${label} does not connect WebPage.mainEntity to its application entity`)
+  }
+  if (application.sameAs !== repositoryUrl) {
+    throw new Error(`${label} does not link its owning repository through sameAs`)
+  }
+  const expectedIdentifier = integration.dccType ?? integration.marketplacePackage
+  const expectedIdentifierKind = integration.dccType ? 'DCC-MCP host identifier' : 'DCC-MCP Marketplace package'
+  if (!expectedIdentifier
+      || application.identifier?.['@type'] !== 'PropertyValue'
+      || application.identifier.propertyID !== expectedIdentifierKind
+      || application.identifier.value !== expectedIdentifier) {
+    throw new Error(`${label} has the wrong host or package identifier`)
+  }
+  for (const forbidden of ['aggregateRating', 'offers', 'brand', 'manufacturer']) {
+    if (forbidden in application) throw new Error(`${label} must not publish ${forbidden}`)
+  }
+  if (JSON.stringify({ ...application, sameAs: undefined }).includes(repositoryUrl)) {
+    throw new Error(`${label} exposes its owning repository outside sameAs`)
+  }
 }
 const requiredFiles = [
   'index.html',
@@ -158,9 +259,8 @@ if (!englishHome.includes('CAPABILITY MARKETPLACE') || !chineseHome.includes('�
 if (!englishHome.includes('href="/use-cases"') || !chineseHome.includes('href="/zh/use-cases"')) {
   throw new Error('Localized homepages are missing the all-integration control guide link')
 }
-if (!englishHome.includes(`"numberOfItems":${releasedIntegrationCount}`)) {
-  throw new Error('Homepage structured data has the wrong released integration count')
-}
+validateHomeEntities(englishHome, 'en')
+validateHomeEntities(chineseHome, 'zh')
 for (const phrase of ['Maya MCP', '3ds Max MCP', 'Blender MCP', 'Maya CLI', 'Blender CLI', 'Unity and Tuanjie AI', 'Unreal Engine official MCP']) {
   if (!englishHome.includes(phrase)) throw new Error(`English home is missing the GEO answer: ${phrase}`)
 }
@@ -300,9 +400,11 @@ for (const [file, prompt] of [
     throw new Error(`${file} is missing the universal Skill install and short prompt`)
   }
 }
-for (const { slug, name, repository } of integrations) {
+for (const { slug, name, repository, dccType, marketplacePackage } of integrations) {
   const englishGuide = readFileSync(join(dist, 'control', `${slug}.html`), 'utf8')
   const chineseGuide = readFileSync(join(dist, 'zh', 'control', `${slug}.html`), 'utf8')
+  validateControlEntities(englishGuide, 'en', { slug, name, repository, dccType, marketplacePackage })
+  validateControlEntities(chineseGuide, 'zh', { slug, name, repository, dccType, marketplacePackage })
   for (const [label, html, localePath, question] of [
     ['English', englishGuide, `control/${slug}`, `control ${name}`],
     ['Chinese', chineseGuide, `zh/control/${slug}`, `控制 ${name}`],
