@@ -66,19 +66,29 @@ const dccRepositoryPrefix = 'https://github.com/dcc-mcp/'
 
 const collectDccRepositoryReferences = (value, path = '$', matches = []) => {
   if (typeof value === 'string') {
-    if (value.includes(dccRepositoryPrefix)) matches.push({ path, value })
+    if (value.includes(dccRepositoryPrefix)) matches.push({ kind: 'value', path, value })
     return matches
   }
   if (Array.isArray(value)) {
     value.forEach((item, index) => collectDccRepositoryReferences(item, `${path}[${index}]`, matches))
   } else if (value && typeof value === 'object') {
     Object.entries(value).forEach(([key, item]) => {
-      if (key.includes(dccRepositoryPrefix)) matches.push({ path: `${path}{key}`, value: key })
+      if (key.includes(dccRepositoryPrefix)) matches.push({ kind: 'key', path: `${path}{key}`, value: key })
       collectDccRepositoryReferences(item, `${path}.${key}`, matches)
     })
   }
   return matches
 }
+
+const collectGraphDccRepositoryReferences = (entities) => entities.flatMap((entity) => {
+  const entityId = typeof entity?.['@id'] === 'string' ? entity['@id'] : null
+  const entityType = typeof entity?.['@type'] === 'string' ? entity['@type'] : null
+  return collectDccRepositoryReferences(entity).map((reference) => ({
+    ...reference,
+    entityId,
+    entityType,
+  }))
+})
 
 const mutateStructuredData = (html, label, mutate) => {
   const pattern = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/
@@ -156,6 +166,15 @@ const validateControlEntities = (html, language, integration) => {
   if (application.sameAs !== repositoryUrl) {
     throw new Error(`${label} does not link its owning repository through sameAs`)
   }
+  const repositoryReferences = collectGraphDccRepositoryReferences(entities)
+  if (repositoryReferences.length !== 1
+      || repositoryReferences[0].kind !== 'value'
+      || repositoryReferences[0].entityId !== expectedApplicationId
+      || repositoryReferences[0].entityType !== 'SoftwareApplication'
+      || repositoryReferences[0].path !== '$.sameAs'
+      || repositoryReferences[0].value !== repositoryUrl) {
+    throw new Error(`${label} has the wrong graph-wide repository relationship`)
+  }
   const expectedIdentifier = integration.dccType ?? integration.marketplacePackage
   const expectedIdentifierKind = integration.dccType ? 'DCC-MCP host identifier' : 'DCC-MCP Marketplace package'
   if (!expectedIdentifier
@@ -166,9 +185,6 @@ const validateControlEntities = (html, language, integration) => {
   }
   for (const forbidden of ['aggregateRating', 'offers', 'brand', 'manufacturer']) {
     if (forbidden in application) throw new Error(`${label} must not publish ${forbidden}`)
-  }
-  if (JSON.stringify({ ...application, sameAs: undefined }).includes(repositoryUrl)) {
-    throw new Error(`${label} exposes its owning repository outside sameAs`)
   }
 }
 const requiredFiles = [
@@ -328,6 +344,54 @@ validateHomeEntities(chineseHome, 'zh')
     'English Maya guide WebPage has the wrong identity, canonical URL, or language',
     () => validateControlEntities(mutated, 'en', integration),
   )
+}
+{
+  const integration = integrations.find(({ slug }) => slug === 'maya')
+  if (!integration) throw new Error('Maya integration is missing from the control repository mutation gate')
+  const repositoryUrl = `https://github.com/dcc-mcp/${integration.repository}`
+  const foreignRepositoryUrl = 'https://github.com/dcc-mcp/dcc-mcp-3dsmax'
+  for (const [language, relativePath] of [['en', ['control', 'maya.html']], ['zh', ['zh', 'control', 'maya.html']]]) {
+    const label = `${language === 'en' ? 'English' : 'Chinese'} Maya guide`
+    const source = readFileSync(join(dist, ...relativePath), 'utf8')
+    for (const [caseName, mutateEntities] of [
+      ['WebPage owning repository subjectOf', (webPage) => { webPage.subjectOf = repositoryUrl }],
+      ['application nested foreign repository', (_webPage, application) => {
+        application.reviewProbe = { nested: [{ target: foreignRepositoryUrl }] }
+      }],
+      ['application foreign repository property key', (_webPage, application) => {
+        application.reviewProbe = { [foreignRepositoryUrl]: 'hidden' }
+      }],
+      ['application repository prefix substring', (_webPage, application) => {
+        application.reviewProbe = { text: `before ${dccRepositoryPrefix}shadow after` }
+      }],
+      ['additional entity nested foreign repository', (_webPage, _application, entities) => {
+        entities.push({
+          '@type': 'CreativeWork',
+          '@id': 'https://dcc-mcp.github.io/review-probe#creative-work',
+          subjectOf: { url: foreignRepositoryUrl },
+        })
+      }],
+    ]) {
+      const mutated = mutateStructuredData(source, label, (document) => {
+        const entities = graphEntities(document, `${label} mutation`)
+        const webPage = oneEntity(entities, 'WebPage', `${label} mutation`)
+        const application = oneEntity(entities, 'SoftwareApplication', `${label} mutation`)
+        mutateEntities(webPage, application, entities)
+      })
+      expectValidationFailure(
+        `${label} ${caseName}`,
+        `${label} has the wrong graph-wide repository relationship`,
+        () => validateControlEntities(mutated, language, integration),
+      )
+    }
+    const reorderedWithOrdinaryGithubUrl = mutateStructuredData(source, label, (document) => {
+      const entities = graphEntities(document, `${label} allowed mutation`)
+      const application = oneEntity(entities, 'SoftwareApplication', `${label} allowed mutation`)
+      application.citation = 'https://github.com/example/ordinary-project'
+      document['@graph'] = [...entities].reverse()
+    })
+    validateControlEntities(reorderedWithOrdinaryGithubUrl, language, integration)
+  }
 }
 for (const [language, source] of [['en', englishHome], ['zh', chineseHome]]) {
   const label = language === 'en' ? 'English home' : 'Chinese home'
