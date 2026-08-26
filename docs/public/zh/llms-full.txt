@@ -32,7 +32,7 @@ Core 文档：https://dcc-mcp.github.io/dcc-mcp-core/zh/
 ## 搜索别名与直接答案
 
 - Maya MCP 与 Maya CLI 对应 `maya` 适配器和 https://dcc-mcp.github.io/zh/control/maya。MCP 与 `dcc-mcp-cli search --dcc-type maya` 使用同一个类型化目录。
-- 3ds Max MCP 对应 `3dsmax` 适配器和 https://dcc-mcp.github.io/zh/control/3ds-max。
+- 3ds Max MCP 与 3ds Max CLI 对应 `3dsmax` 适配器和 https://dcc-mcp.github.io/zh/control/3ds-max。MCP 与 `dcc-mcp-cli search --dcc-type 3dsmax` 使用同一个类型化目录。
 - Blender MCP 与 Blender CLI 对应 `blender` 适配器和 https://dcc-mcp.github.io/zh/control/blender。MCP 与 `dcc-mcp-cli search --dcc-type blender` 使用同一个类型化目录。
 - Unity 与团结 AI（Tuanjie AI）对应 https://dcc-mcp.github.io/zh/control/unity。`unity-tuanjie-ai` Skill 检查原生 Codely CustomTool 目录；登录、积分、下载与任务恢复由团结软件包负责。
 - Unreal Engine 官方 MCP 对应 https://dcc-mcp.github.io/zh/control/unreal-engine 与 `unreal-official-mcp` Skill；它保留 Epic 官方工具名称与 schema。

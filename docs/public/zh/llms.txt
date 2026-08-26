@@ -30,7 +30,7 @@
 ## 搜索别名与直接答案
 
 - [Maya MCP 与 Maya CLI](https://dcc-mcp.github.io/zh/control/maya)：通过 MCP 或共享类型化 `dcc-mcp-cli` 使用 `maya` 适配器。
-- [3ds Max MCP](https://dcc-mcp.github.io/zh/control/3ds-max)：通过 MCP 或共享类型化 CLI 使用 `3dsmax` 适配器。
+- [3ds Max MCP 与 3ds Max CLI](https://dcc-mcp.github.io/zh/control/3ds-max)：通过 MCP 或共享类型化 `dcc-mcp-cli` 使用 `3dsmax` 适配器。
 - [Blender MCP 与 Blender CLI](https://dcc-mcp.github.io/zh/control/blender)：通过 MCP 或共享类型化 CLI 使用 `blender` 适配器。
 - [Unity 与团结 AI（Tuanjie AI）](https://dcc-mcp.github.io/zh/control/unity)：通过 `unity-tuanjie-ai` 检查原生 Codely CustomTool 目录；登录、积分、下载与恢复由团结软件包负责。
 - [Unreal Engine 官方 MCP](https://dcc-mcp.github.io/zh/control/unreal-engine)：桥接 Epic 官方 MCP toolset，不修改工具名称与 schema。

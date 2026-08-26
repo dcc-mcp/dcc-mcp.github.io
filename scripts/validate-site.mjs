@@ -287,7 +287,7 @@ for (const llms of llmsFiles) {
   if (!llms.includes(installSopSchemaUrl)) {
     throw new Error('An llms file is missing the canonical Adapter Install SOP v1 schema')
   }
-  for (const phrase of ['Maya MCP', '3ds Max MCP', 'Blender MCP', 'Maya CLI', 'Blender CLI', 'Tuanjie AI']) {
+  for (const phrase of ['Maya MCP', '3ds Max MCP', 'Blender MCP', 'Maya CLI', '3ds Max CLI', 'Blender CLI', 'Tuanjie AI']) {
     if (!llms.includes(phrase)) throw new Error(`An llms file is missing the search alias: ${phrase}`)
   }
 }
@@ -359,6 +359,15 @@ for (const [file, phrases] of whyGuides) {
   const source = readFileSync(file, 'utf8')
   for (const phrase of phrases) {
     if (!source.includes(phrase)) throw new Error(`${file} is missing the architecture rationale: ${phrase}`)
+  }
+}
+for (const [label, file, phrases] of [
+  ['English', join(dist, 'why-dcc-mcp.html'), ['What is DCC-MCP?', 'open infrastructure', 'shared, typed control plane for creative applications']],
+  ['Chinese', join(dist, 'zh', 'why-dcc-mcp.html'), ['DCC-MCP 是什么？', '开放基础设施', '面向创意应用的共享类型化控制面']],
+]) {
+  const html = readFileSync(file, 'utf8')
+  for (const phrase of phrases) {
+    if (!html.includes(phrase)) throw new Error(`${label} Why guide is missing the direct answer: ${phrase}`)
   }
 }
 
