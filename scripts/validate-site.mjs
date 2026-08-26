@@ -62,6 +62,38 @@ const oneEntity = (entities, type, label) => {
   return matches[0]
 }
 
+const collectValuePaths = (value, target, path = '$', matches = []) => {
+  if (value === target) {
+    matches.push(path)
+    return matches
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => collectValuePaths(item, target, `${path}[${index}]`, matches))
+  } else if (value && typeof value === 'object') {
+    Object.entries(value).forEach(([key, item]) => collectValuePaths(item, target, `${path}.${key}`, matches))
+  }
+  return matches
+}
+
+const mutateStructuredData = (html, label, mutate) => {
+  const pattern = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/
+  const match = pattern.exec(html)
+  if (!match) throw new Error(`${label} has no JSON-LD document to mutate`)
+  const document = JSON.parse(match[1])
+  mutate(document)
+  return `${html.slice(0, match.index)}${match[0].replace(match[1], JSON.stringify(document))}${html.slice(match.index + match[0].length)}`
+}
+
+const expectValidationFailure = (label, expectedMessage, validate) => {
+  try {
+    validate()
+  } catch (error) {
+    if (error instanceof Error && error.message === expectedMessage) return
+    throw error
+  }
+  throw new Error(`${label} mutation was accepted`)
+}
+
 const validateHomeEntities = (html, language) => {
   const label = language === 'en' ? 'English home' : 'Chinese home'
   const routePrefix = language === 'en' ? '/control/' : '/zh/control/'
@@ -76,7 +108,12 @@ const validateHomeEntities = (html, language) => {
     const expectedRepository = `https://github.com/dcc-mcp/${integration.repository}`
     const expectedName = language === 'en' ? `${integration.name} MCP adapter` : `${integration.name} MCP 适配器`
     const item = itemList.itemListElement.find(({ name }) => name === expectedName)
-    if (!item || item.url !== expectedUrl || item.sameAs !== expectedRepository) {
+    const repositoryPaths = item ? collectValuePaths(item, expectedRepository) : []
+    if (!item
+        || item.url !== expectedUrl
+        || item.sameAs !== expectedRepository
+        || repositoryPaths.length !== 1
+        || repositoryPaths[0] !== '$.sameAs') {
       throw new Error(`${label} ItemList has the wrong page/repository relationship for ${integration.name}`)
     }
     if (item.url === expectedRepository) throw new Error(`${label} ItemList uses a repository as the canonical item URL`)
@@ -95,13 +132,19 @@ const validateControlEntities = (html, language, integration) => {
   }
   const webPage = oneEntity(entities, 'WebPage', label)
   const application = oneEntity(entities, 'SoftwareApplication', label)
-  if (webPage.url !== pageUrl || webPage.inLanguage !== expectedLanguage) {
-    throw new Error(`${label} WebPage has the wrong canonical URL or language`)
+  const expectedWebPageId = `${pageUrl}#webpage`
+  const expectedApplicationId = `${pageUrl}#application`
+  if (webPage['@id'] !== expectedWebPageId
+      || webPage.url !== pageUrl
+      || webPage.inLanguage !== expectedLanguage) {
+    throw new Error(`${label} WebPage has the wrong identity, canonical URL, or language`)
   }
-  if (application.url !== pageUrl || application.inLanguage !== expectedLanguage) {
+  if (application['@id'] !== expectedApplicationId
+      || application.url !== pageUrl
+      || application.inLanguage !== expectedLanguage) {
     throw new Error(`${label} SoftwareApplication has the wrong canonical URL or language`)
   }
-  if (webPage.mainEntity?.['@id'] !== application['@id']) {
+  if (webPage.mainEntity?.['@id'] !== expectedApplicationId) {
     throw new Error(`${label} does not connect WebPage.mainEntity to its application entity`)
   }
   if (application.sameAs !== repositoryUrl) {
@@ -261,6 +304,38 @@ if (!englishHome.includes('href="/use-cases"') || !chineseHome.includes('href="/
 }
 validateHomeEntities(englishHome, 'en')
 validateHomeEntities(chineseHome, 'zh')
+{
+  const integration = integrations.find(({ slug }) => slug === 'maya')
+  if (!integration) throw new Error('Maya integration is missing from the mutation gate')
+  const source = readFileSync(join(dist, 'control', 'maya.html'), 'utf8')
+  const mutated = mutateStructuredData(source, 'English Maya guide', (document) => {
+    const entities = graphEntities(document, 'English Maya guide mutation')
+    const webPage = oneEntity(entities, 'WebPage', 'English Maya guide mutation')
+    const application = oneEntity(entities, 'SoftwareApplication', 'English Maya guide mutation')
+    const wrongId = 'https://dcc-mcp.github.io/control/maya#wrong-entity'
+    webPage['@id'] = wrongId
+    application['@id'] = wrongId
+    webPage.mainEntity = { '@id': wrongId }
+  })
+  expectValidationFailure(
+    'Coordinated control entity ID',
+    'English Maya guide WebPage has the wrong identity, canonical URL, or language',
+    () => validateControlEntities(mutated, 'en', integration),
+  )
+}
+for (const [language, source] of [['en', englishHome], ['zh', chineseHome]]) {
+  const label = language === 'en' ? 'English home' : 'Chinese home'
+  const mutated = mutateStructuredData(source, label, (document) => {
+    const entities = graphEntities(document, `${label} mutation`)
+    const itemList = oneEntity(entities, 'ItemList', `${label} mutation`)
+    itemList.itemListElement[0].subjectOf = itemList.itemListElement[0].sameAs
+  })
+  expectValidationFailure(
+    `${label} repository subjectOf`,
+    `${label} ItemList has the wrong page/repository relationship for 3ds Max`,
+    () => validateHomeEntities(mutated, language),
+  )
+}
 for (const phrase of ['Maya MCP', '3ds Max MCP', 'Blender MCP', 'Maya CLI', 'Blender CLI', 'Unity and Tuanjie AI', 'Unreal Engine official MCP']) {
   if (!englishHome.includes(phrase)) throw new Error(`English home is missing the GEO answer: ${phrase}`)
 }
