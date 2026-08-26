@@ -62,15 +62,17 @@ const oneEntity = (entities, type, label) => {
   return matches[0]
 }
 
-const collectValuePaths = (value, target, path = '$', matches = []) => {
-  if (value === target) {
-    matches.push(path)
+const dccRepositoryPrefix = 'https://github.com/dcc-mcp/'
+
+const collectDccRepositoryReferences = (value, path = '$', matches = []) => {
+  if (typeof value === 'string') {
+    if (value.includes(dccRepositoryPrefix)) matches.push({ path, value })
     return matches
   }
   if (Array.isArray(value)) {
-    value.forEach((item, index) => collectValuePaths(item, target, `${path}[${index}]`, matches))
+    value.forEach((item, index) => collectDccRepositoryReferences(item, `${path}[${index}]`, matches))
   } else if (value && typeof value === 'object') {
-    Object.entries(value).forEach(([key, item]) => collectValuePaths(item, target, `${path}.${key}`, matches))
+    Object.entries(value).forEach(([key, item]) => collectDccRepositoryReferences(item, `${path}.${key}`, matches))
   }
   return matches
 }
@@ -108,12 +110,13 @@ const validateHomeEntities = (html, language) => {
     const expectedRepository = `https://github.com/dcc-mcp/${integration.repository}`
     const expectedName = language === 'en' ? `${integration.name} MCP adapter` : `${integration.name} MCP 适配器`
     const item = itemList.itemListElement.find(({ name }) => name === expectedName)
-    const repositoryPaths = item ? collectValuePaths(item, expectedRepository) : []
+    const repositoryReferences = item ? collectDccRepositoryReferences(item) : []
     if (!item
         || item.url !== expectedUrl
         || item.sameAs !== expectedRepository
-        || repositoryPaths.length !== 1
-        || repositoryPaths[0] !== '$.sameAs') {
+        || repositoryReferences.length !== 1
+        || repositoryReferences[0].path !== '$.sameAs'
+        || repositoryReferences[0].value !== expectedRepository) {
       throw new Error(`${label} ItemList has the wrong page/repository relationship for ${integration.name}`)
     }
     if (item.url === expectedRepository) throw new Error(`${label} ItemList uses a repository as the canonical item URL`)
@@ -335,6 +338,25 @@ for (const [language, source] of [['en', englishHome], ['zh', chineseHome]]) {
     `${label} ItemList has the wrong page/repository relationship for 3ds Max`,
     () => validateHomeEntities(mutated, language),
   )
+}
+for (const [language, source] of [['en', englishHome], ['zh', chineseHome]]) {
+  const label = language === 'en' ? 'English home' : 'Chinese home'
+  const foreignRepository = 'https://github.com/dcc-mcp/dcc-mcp-maya'
+  for (const [caseName, mutateItem] of [
+    ['foreign repository subjectOf', (item) => { item.subjectOf = foreignRepository }],
+    ['foreign repository nested path', (item) => { item.reviewProbe = { links: [{ target: foreignRepository }] } }],
+  ]) {
+    const mutated = mutateStructuredData(source, label, (document) => {
+      const entities = graphEntities(document, `${label} mutation`)
+      const itemList = oneEntity(entities, 'ItemList', `${label} mutation`)
+      mutateItem(itemList.itemListElement[0])
+    })
+    expectValidationFailure(
+      `${label} ${caseName}`,
+      `${label} ItemList has the wrong page/repository relationship for 3ds Max`,
+      () => validateHomeEntities(mutated, language),
+    )
+  }
 }
 for (const phrase of ['Maya MCP', '3ds Max MCP', 'Blender MCP', 'Maya CLI', 'Blender CLI', 'Unity and Tuanjie AI', 'Unreal Engine official MCP']) {
   if (!englishHome.includes(phrase)) throw new Error(`English home is missing the GEO answer: ${phrase}`)
