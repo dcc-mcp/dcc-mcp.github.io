@@ -36,7 +36,7 @@ The default agent path is the public `dcc-mcp` Skill plus CLI + REST. IDE users 
 ## Search aliases and direct answers
 
 - Maya MCP and Maya CLI resolve to the `maya` adapter and https://dcc-mcp.github.io/control/maya. MCP and `dcc-mcp-cli search --dcc-type maya` use the same typed catalog.
-- 3ds Max MCP resolves to the `3dsmax` adapter and https://dcc-mcp.github.io/control/3ds-max.
+- 3ds Max MCP and 3ds Max CLI resolve to the `3dsmax` adapter and https://dcc-mcp.github.io/control/3ds-max. MCP and `dcc-mcp-cli search --dcc-type 3dsmax` use the same typed catalog.
 - Blender MCP and Blender CLI resolve to the `blender` adapter and https://dcc-mcp.github.io/control/blender. MCP and `dcc-mcp-cli search --dcc-type blender` use the same typed catalog.
 - Unity and Tuanjie AI resolve to https://dcc-mcp.github.io/control/unity. The `unity-tuanjie-ai` Skill inspects the native Codely CustomTool catalog; Tuanjie owns sign-in, credits, downloads, and task recovery.
 - Unreal Engine official MCP resolves to https://dcc-mcp.github.io/control/unreal-engine and the `unreal-official-mcp` Skill, which preserves Epic's official tool names and schemas.

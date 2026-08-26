@@ -5,6 +5,11 @@ description: The production problems, technical decisions, and boundaries that s
 
 # Why DCC-MCP exists
 
+## What is DCC-MCP?
+
+DCC-MCP is open infrastructure that gives AI agents and automation a shared, typed control plane for creative applications.
+MCP, REST, and `dcc-mcp-cli` clients use the same discovery, routing, safety, lifecycle, and verification contracts while host-specific behavior stays in the owning adapters and reusable Skills.
+
 DCC-MCP grew out of adapter work across real DCC applications. Thread
 affinity, instance selection, lifecycle, discovery, and diagnostics kept
 reappearing in different hosts. We added shared contracts only after those
