@@ -1,9 +1,110 @@
 import { defineConfig } from 'vitepress'
-import { releasedIntegrations } from './dcc-integrations.mts'
+import { dccIntegrations, releasedIntegrations, type DccIntegration } from './dcc-integrations.mts'
 
 const siteUrl = 'https://dcc-mcp.github.io/'
 const description = 'Maya MCP, Blender MCP, 3ds Max MCP, and a typed DCC CLI for creative applications.'
 const zhDescription = '面向创意应用的 Maya MCP、Blender MCP、3ds Max MCP 与类型化 DCC CLI。'
+
+const controlPageUrl = (integration: DccIntegration, isZh: boolean) =>
+  new URL(`${isZh ? 'zh/' : ''}control/${integration.slug}`, siteUrl).href
+
+const repositoryUrl = (integration: DccIntegration) =>
+  `https://github.com/dcc-mcp/${integration.repository}`
+
+const integrationIdentifier = (integration: DccIntegration) => ({
+  '@type': 'PropertyValue',
+  propertyID: integration.dccType ? 'DCC-MCP host identifier' : 'DCC-MCP Marketplace package',
+  value: integration.dccType ?? integration.marketplacePackage,
+})
+
+const homeStructuredData = (isZh: boolean) => ({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      name: 'DCC-MCP',
+      url: siteUrl,
+      logo: `${siteUrl}brand/dcc-mcp-logo.png`,
+      sameAs: [
+        'https://github.com/dcc-mcp',
+        'https://clawhub.ai/loonghao/skills/dcc-mcp',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}#website`,
+      name: 'DCC-MCP',
+      url: siteUrl,
+      description: isZh ? zhDescription : description,
+      inLanguage: ['en', 'zh-CN'],
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: `${siteUrl}marketplace?q={search_term_string}`,
+        'query-input': 'required name=search_term_string',
+      },
+    },
+    {
+      '@type': 'SoftwareApplication',
+      name: 'DCC-MCP',
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'Windows, macOS, Linux',
+      url: siteUrl,
+      description: isZh ? zhDescription : description,
+    },
+    {
+      '@type': 'ItemList',
+      name: isZh ? 'DCC-MCP 已发布创意应用集成' : 'DCC-MCP released creative application integrations',
+      numberOfItems: releasedIntegrations.length,
+      itemListElement: releasedIntegrations.map((integration, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: isZh ? `${integration.name} MCP 适配器` : `${integration.name} MCP adapter`,
+        description: isZh
+          ? `${integration.name} MCP 与类型化 dcc-mcp-cli 集成`
+          : `${integration.name} MCP and typed dcc-mcp-cli integration`,
+        url: controlPageUrl(integration, isZh),
+        sameAs: repositoryUrl(integration),
+      })),
+    },
+  ],
+})
+
+const controlPageStructuredData = (
+  integration: DccIntegration,
+  isZh: boolean,
+  canonicalUrl: string,
+  title: string,
+  pageDescription: string,
+) => {
+  const language = isZh ? 'zh-CN' : 'en'
+  const applicationId = `${canonicalUrl}#application`
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: title,
+        description: pageDescription,
+        inLanguage: language,
+        isPartOf: { '@id': `${siteUrl}#website` },
+        mainEntity: { '@id': applicationId },
+      },
+      {
+        '@type': 'SoftwareApplication',
+        '@id': applicationId,
+        name: isZh ? `${integration.name} MCP 集成` : `${integration.name} MCP integration`,
+        description: pageDescription,
+        applicationCategory: 'DeveloperApplication',
+        url: canonicalUrl,
+        inLanguage: language,
+        identifier: integrationIdentifier(integration),
+        sameAs: repositoryUrl(integration),
+      },
+    ],
+  }
+}
 
 const englishTheme = {
   nav: [
@@ -96,53 +197,6 @@ export default defineConfig({
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:image', content: `${siteUrl}brand/social-card.png` }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['script', { type: 'application/ld+json' }, JSON.stringify({
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'Organization',
-          name: 'DCC-MCP',
-          url: siteUrl,
-          logo: `${siteUrl}brand/dcc-mcp-logo.png`,
-          sameAs: [
-            'https://github.com/dcc-mcp',
-            'https://clawhub.ai/loonghao/skills/dcc-mcp',
-          ],
-        },
-        {
-          '@type': 'WebSite',
-          name: 'DCC-MCP',
-          url: siteUrl,
-          description,
-          inLanguage: ['en', 'zh-CN'],
-          potentialAction: {
-            '@type': 'SearchAction',
-            target: `${siteUrl}marketplace?q={search_term_string}`,
-            'query-input': 'required name=search_term_string',
-          },
-        },
-        {
-          '@type': 'SoftwareApplication',
-          name: 'DCC-MCP',
-          applicationCategory: 'DeveloperApplication',
-          operatingSystem: 'Windows, macOS, Linux',
-          url: siteUrl,
-          description,
-        },
-        {
-          '@type': 'ItemList',
-          name: 'DCC-MCP released creative application integrations',
-          numberOfItems: releasedIntegrations.length,
-          itemListElement: releasedIntegrations.map(({ name, repository }, index) => ({
-            '@type': 'ListItem',
-            position: index + 1,
-            name: `${name} MCP adapter`,
-            description: `${name} MCP and typed dcc-mcp-cli integration`,
-            url: `https://github.com/dcc-mcp/${repository}`,
-          })),
-        },
-      ],
-    })],
   ],
 
   transformPageData(pageData) {
@@ -171,6 +225,27 @@ export default defineConfig({
       ['meta', { property: 'og:url', content: canonicalUrl }],
       ['meta', { property: 'og:locale', content: isZh ? 'zh_CN' : 'en_US' }],
     )
+
+    if (relativePath === '' || relativePath === 'zh/') {
+      pageData.frontmatter.head.push(
+        ['script', { type: 'application/ld+json' }, JSON.stringify(homeStructuredData(isZh))],
+      )
+    }
+
+    const controlSlug = relativePath.match(/^(?:zh\/)?control\/([^/]+)$/)?.[1]
+    if (controlSlug) {
+      const integration = dccIntegrations.find(({ slug }) => slug === controlSlug)
+      if (!integration) throw new Error(`Unknown DCC control guide integration: ${controlSlug}`)
+      pageData.frontmatter.head.push(
+        ['script', { type: 'application/ld+json' }, JSON.stringify(controlPageStructuredData(
+          integration,
+          isZh,
+          canonicalUrl,
+          pageData.params?.title ?? pageData.title,
+          pageData.params?.description ?? pageData.description ?? (isZh ? zhDescription : description),
+        ))],
+      )
+    }
   },
 
   themeConfig: {
