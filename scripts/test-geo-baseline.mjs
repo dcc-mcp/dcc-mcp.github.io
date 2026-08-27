@@ -129,6 +129,7 @@ const observedRows = baseline.split(/\r?\n/)
     } else {
       assert.match(rank, /^(?:[1-9]|10)$/, `rank must be NO_HIT or 1-10: ${query}`)
       assert.notEqual(title, '—', `rank ${rank} requires a title and URL: ${query}`)
+      assert.match(title, /\S/, `rank ${rank} requires a non-empty title: ${query}`)
       assert.notEqual(url, '—', `rank ${rank} requires a title and URL: ${query}`)
       const expectedClassification = classifyRetrievalUrl(url, expected)
       assert.equal(expectedClassification.accepted, true, `ranked URL was not accepted: ${query}`)

@@ -54,6 +54,18 @@ for (const [label, url, context] of rejected) {
   )
 }
 
+for (const url of [
+  'https://dcc-mcp.github.io/?',
+  'https://dcc-mcp.github.io/#',
+  'https://dcc-mcp.github.io/?#',
+]) {
+  assert.throws(
+    () => classifyRetrievalUrl(url, fixed),
+    RetrievalUrlRejectedError,
+    `bare query or fragment delimiter must be rejected: ${url}`,
+  )
+}
+
 for (const locale of ['fr-FR', 'en-US', 'zh', 'EN']) {
   assert.throws(
     () => classifyRetrievalUrl('https://dcc-mcp.github.io/control/maya', { ...maya, locale }),
