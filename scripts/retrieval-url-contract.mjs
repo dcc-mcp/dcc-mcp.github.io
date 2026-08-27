@@ -2,6 +2,8 @@ import { expectedGuideIdentities } from './site-identity-contract.mjs'
 
 export const canonicalSiteHost = 'dcc-mcp.github.io'
 export const firstPartyHosts = Object.freeze(['dcc-mcp.github.io', 'github.com', 'pypi.org'])
+export const retrievalLocales = Object.freeze(['en', 'zh-CN'])
+
 export class RetrievalUrlRejectedError extends Error {
   constructor(message) {
     super(message)
@@ -9,7 +11,9 @@ export class RetrievalUrlRejectedError extends Error {
     this.code = 'RETRIEVAL_URL_REJECTED'
   }
 }
+
 const reject = (message) => { throw new RetrievalUrlRejectedError(message) }
+const accepted = (canonical) => ({ accepted: true, firstParty: true, canonical })
 
 const guideByApplication = new Map(expectedGuideIdentities.map((guide) => [guide.name, guide]))
 guideByApplication.set('Tuanjie / 团结', guideByApplication.get('Unity'))
@@ -34,27 +38,36 @@ const fixedCanonicalPaths = new Set([
   ...expectedGuideIdentities.flatMap(({ slug }) => [`/control/${slug}`, `/zh/control/${slug}`]),
 ])
 const fixedGitHubRepositories = new Set([
-  ...expectedGuideIdentities.map(({ repository }) => repository.toLowerCase()),
+  ...expectedGuideIdentities.map(({ repository }) => repository),
   'dcc-mcp-agent-plugins',
   'dcc-mcp-core',
   'marketplace',
 ])
 const fixedPyPiPackages = new Set([
   ...expectedGuideIdentities.flatMap(({ repository, marketplacePackage }) => [
-    repository.toLowerCase(),
-    ...(marketplacePackage ? [marketplacePackage.toLowerCase()] : []),
+    repository,
+    ...(marketplacePackage ? [marketplacePackage] : []),
   ]),
   'dcc-mcp-cli',
   'dcc-mcp-core',
 ])
 
-const invalidPathSegments = new Set(['redirect', 'search', 'search-result', 'webcache'])
-const normalizedPath = (pathname) => pathname === '/' ? '/' : pathname.replace(/\/$/, '')
+const applicationGuide = (application) => {
+  const guide = guideByApplication.get(application)
+  if (!guide) reject(`unknown application identity: ${application}`)
+  return guide
+}
 
 const parseStrictRetrievalUrl = (rawUrl) => {
   if (typeof rawUrl !== 'string' || rawUrl.trim() !== rawUrl || !rawUrl) {
     reject('invalid retrieval URL: expected one non-empty normalized string')
   }
+  if (!/^[\x21-\x7e]+$/.test(rawUrl)) {
+    reject('invalid retrieval URL: only normalized printable ASCII is accepted')
+  }
+  if (rawUrl.includes('\\')) reject('invalid retrieval URL: backslashes are forbidden')
+  if (rawUrl.includes('%')) reject('invalid retrieval URL: encoded URL components are forbidden')
+
   let parsed
   try {
     parsed = new URL(rawUrl)
@@ -66,34 +79,28 @@ const parseStrictRetrievalUrl = (rawUrl) => {
 
   const authority = rawUrl.match(/^https:\/\/([^/?#]+)/)?.[1]
   if (!authority) reject('invalid retrieval URL: malformed authority')
-  const rawHost = authority.replace(/:\d+$/, '')
-  if (/(?:^|\.)xn--/i.test(rawHost)) reject('invalid retrieval URL: punycode hosts are forbidden')
-  if (rawHost !== rawHost.toLowerCase()) reject('invalid retrieval URL: hostname must be lowercase')
-  if (rawHost.endsWith('.')) reject('invalid retrieval URL: hostname must not have a trailing dot')
-  if (/:443$/.test(authority)) reject('invalid retrieval URL: explicit default port is forbidden')
-  if (rawUrl.includes('%')) reject('invalid retrieval URL: encoded URL components are forbidden')
-
-  const pathSegments = parsed.pathname.toLowerCase().split('/').filter(Boolean)
-  const cacheHost = parsed.hostname.split('.').some((label) => label.includes('cache'))
-  if (cacheHost || pathSegments.some((segment) => invalidPathSegments.has(segment))) {
-    if (cacheHost) reject('invalid retrieval URL: cache URLs are forbidden')
-    if (pathSegments.includes('search')) reject('invalid retrieval URL: search-result URLs are forbidden')
-    reject('invalid retrieval URL: redirect or cache paths are forbidden')
+  if (/(?:^|\.)xn--/i.test(authority)) reject('invalid retrieval URL: punycode hosts are forbidden')
+  if (authority.endsWith('.')) reject('invalid retrieval URL: hostname must not have a trailing dot')
+  if (authority !== authority.toLowerCase()) reject('invalid retrieval URL: hostname must be lowercase')
+  if (authority.includes(':') || parsed.port !== '') reject('invalid retrieval URL: explicit ports are forbidden')
+  if (!firstPartyHosts.includes(parsed.hostname)) {
+    reject(`invalid retrieval URL: hostname is not in the frozen first-party allowlist: ${parsed.hostname}`)
   }
   if (parsed.search) reject('invalid retrieval URL: query strings are forbidden')
   if (parsed.hash) reject('invalid retrieval URL: fragments are forbidden')
+  if (parsed.pathname.includes('//')) reject('invalid retrieval URL: double-slash paths are forbidden')
+  if (rawUrl !== parsed.href) {
+    reject(`invalid retrieval URL: raw URL differs from WHATWG normalized form: ${parsed.href}`)
+  }
   return parsed
 }
 
-const applicationGuide = (application) => {
-  const guide = guideByApplication.get(application)
-  if (!guide) throw new Error(`unknown application identity: ${application}`)
-  return guide
-}
-
 export const classifyRetrievalUrl = (rawUrl, { application, locale }) => {
+  if (!retrievalLocales.includes(locale)) {
+    reject(`invalid retrieval locale: expected en or zh-CN, received ${locale}`)
+  }
   const parsed = parseStrictRetrievalUrl(rawUrl)
-  const path = normalizedPath(parsed.pathname)
+  const path = parsed.pathname
   const applicationScoped = application !== null && application !== undefined
 
   if (parsed.hostname === canonicalSiteHost) {
@@ -106,41 +113,38 @@ export const classifyRetrievalUrl = (rawUrl, { application, locale }) => {
     } else if (!fixedCanonicalPaths.has(path) && !/^\/dcc-mcp-core\/guide\/[a-z0-9-]+$/.test(path)) {
       reject(`canonical path is not an allowed public retrieval route: ${path}`)
     }
-    return { firstParty: true, canonical: true }
+    return accepted(true)
   }
 
   if (parsed.hostname === 'github.com') {
-    const [, owner, repository] = path.split('/')
-    if (owner?.toLowerCase() !== 'dcc-mcp' || !repository) return { firstParty: false, canonical: false }
+    const match = /^\/dcc-mcp\/([a-z0-9-]+)$/.exec(path)
+    if (!match) reject(`official GitHub URL must be the exact repository root: ${path}`)
+    const repository = match[1]
     if (applicationScoped) {
       const guide = applicationGuide(application)
-      if (repository.toLowerCase() !== guide.repository.toLowerCase()) {
+      if (repository !== guide.repository) {
         reject(`official host path is not valid for application ${application}: ${path}`)
       }
-    } else if (!fixedGitHubRepositories.has(repository.toLowerCase())) {
+    } else if (!fixedGitHubRepositories.has(repository)) {
       reject(`official GitHub repository is not frozen as first-party: ${repository}`)
     }
-    return { firstParty: true, canonical: false }
+    return accepted(false)
   }
 
-  if (parsed.hostname === 'pypi.org') {
-    const match = /^\/project\/([^/]+)$/.exec(path)
-    if (!match) reject(`official PyPI path is not a project route: ${path}`)
-    const packageName = match[1].toLowerCase()
-    if (applicationScoped) {
-      const guide = applicationGuide(application)
-      const allowedPackages = new Set([
-        guide.repository.toLowerCase(),
-        ...(guide.marketplacePackage ? [guide.marketplacePackage.toLowerCase()] : []),
-      ])
-      if (!allowedPackages.has(packageName)) {
-        reject(`official host path is not valid for application ${application}: ${path}`)
-      }
-    } else if (!fixedPyPiPackages.has(packageName)) {
-      reject(`official PyPI package is not frozen as first-party: ${packageName}`)
+  const match = /^\/project\/([a-z0-9-]+)$/.exec(path)
+  if (!match) reject(`official PyPI URL must be the exact normalized project route: ${path}`)
+  const packageName = match[1]
+  if (applicationScoped) {
+    const guide = applicationGuide(application)
+    const allowedPackages = new Set([
+      guide.repository,
+      ...(guide.marketplacePackage ? [guide.marketplacePackage] : []),
+    ])
+    if (!allowedPackages.has(packageName)) {
+      reject(`official host path is not valid for application ${application}: ${path}`)
     }
-    return { firstParty: true, canonical: false }
+  } else if (!fixedPyPiPackages.has(packageName)) {
+    reject(`official PyPI package is not frozen as first-party: ${packageName}`)
   }
-
-  return { firstParty: false, canonical: false }
+  return accepted(false)
 }

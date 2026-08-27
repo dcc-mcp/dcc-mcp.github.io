@@ -8,18 +8,18 @@ import { expectedGuideIdentities } from './site-identity-contract.mjs'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const expectedFixedQueries = [
-  ['"DCC-MCP"', 'en-US', 'US'],
-  ['"What is DCC-MCP"', 'en-US', 'US'],
+  ['"DCC-MCP"', 'en', 'US'],
+  ['"What is DCC-MCP"', 'en', 'US'],
   ['"DCC-MCP 是什么"', 'zh-CN', 'CN'],
-  ['"Why DCC-MCP"', 'en-US', 'US'],
-  ['AI agent control Maya Blender Houdini typed tools gateway MCP', 'en-US', 'US'],
-  ['use AI to control Maya typed tools MCP', 'en-US', 'US'],
+  ['"Why DCC-MCP"', 'en', 'US'],
+  ['AI agent control Maya Blender Houdini typed tools gateway MCP', 'en', 'US'],
+  ['use AI to control Maya typed tools MCP', 'en', 'US'],
   ['用 AI 控制 Maya MCP 类型化工具', 'zh-CN', 'CN'],
-  ['"How do I create ten random spheres in Maya?"', 'en-US', 'US'],
-  ['"DCC-MCP Marketplace"', 'en-US', 'US'],
-  ['"dcc-lookdev-turntable"', 'en-US', 'US'],
-  ['"dcc-mcp-maya-procedural-architecture"', 'en-US', 'US'],
-  ['"DCC-MCP" Wwise Marmoset Showcase', 'en-US', 'US'],
+  ['"How do I create ten random spheres in Maya?"', 'en', 'US'],
+  ['"DCC-MCP Marketplace"', 'en', 'US'],
+  ['"dcc-lookdev-turntable"', 'en', 'US'],
+  ['"dcc-mcp-maya-procedural-architecture"', 'en', 'US'],
+  ['"DCC-MCP" Wwise Marmoset Showcase', 'en', 'US'],
 ]
 const expectedApplications = [
   ...expectedGuideIdentities.map(({ name }) => name),
@@ -30,7 +30,7 @@ const expectedRecords = [
     query, locale, market, kind: 'fixed', application: null,
   })),
   ...expectedApplications.flatMap((application) => [
-    { query: `how to control ${application} with AI`, locale: 'en-US', market: 'US', kind: 'application-control', application },
+    { query: `how to control ${application} with AI`, locale: 'en', market: 'US', kind: 'application-control', application },
     { query: `AI 怎么控制 ${application}`, locale: 'zh-CN', market: 'CN', kind: 'application-control', application },
   ]),
 ]
@@ -51,26 +51,26 @@ const compareExactInventory = (actualRecords, expectedInventory, label) => {
   )
 }
 
-const fixedContext = { kind: 'fixed', application: null, locale: 'en-US' }
-const maxContext = { kind: 'application-control', application: '3ds Max', locale: 'en-US' }
+const fixedContext = { kind: 'fixed', application: null, locale: 'en' }
+const maxContext = { kind: 'application-control', application: '3ds Max', locale: 'en' }
 assert.deepEqual(classifyRetrievalUrl('https://dcc-mcp.github.io/', fixedContext), {
+  accepted: true,
   firstParty: true,
   canonical: true,
 })
 assert.deepEqual(classifyRetrievalUrl('https://dcc-mcp.github.io/control/3ds-max', maxContext), {
+  accepted: true,
   firstParty: true,
   canonical: true,
 })
 assert.deepEqual(classifyRetrievalUrl('https://github.com/dcc-mcp/dcc-mcp-3dsmax', maxContext), {
+  accepted: true,
   firstParty: true,
   canonical: false,
 })
 assert.deepEqual(classifyRetrievalUrl('https://pypi.org/project/dcc-mcp-3dsmax', maxContext), {
+  accepted: true,
   firstParty: true,
-  canonical: false,
-})
-assert.deepEqual(classifyRetrievalUrl('https://example.com/dcc-mcp', fixedContext), {
-  firstParty: false,
   canonical: false,
 })
 
@@ -131,13 +131,17 @@ const observedRows = baseline.split(/\r?\n/)
       assert.notEqual(title, '—', `rank ${rank} requires a title and URL: ${query}`)
       assert.notEqual(url, '—', `rank ${rank} requires a title and URL: ${query}`)
       const expectedClassification = classifyRetrievalUrl(url, expected)
+      assert.equal(expectedClassification.accepted, true, `ranked URL was not accepted: ${query}`)
       const recordedClassification = {
         firstParty: firstParty === 'true',
         canonical: canonical === 'true',
       }
       assert.deepEqual(
         recordedClassification,
-        expectedClassification,
+        {
+          firstParty: expectedClassification.firstParty,
+          canonical: expectedClassification.canonical,
+        },
         `URL classification mismatch for ${query}: expected firstParty=${expectedClassification.firstParty} canonical=${expectedClassification.canonical}; recorded firstParty=${recordedClassification.firstParty} canonical=${recordedClassification.canonical}`,
       )
       assert.equal(firstParty, 'true', `ranked qualifying result must be first-party: ${query}`)

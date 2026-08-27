@@ -41,7 +41,7 @@ const measure = async ({ query, locale, market, kind, application }) => {
   const url = new URL('https://www.bing.com/search')
   url.searchParams.set('format', 'rss')
   url.searchParams.set('q', query)
-  url.searchParams.set('setlang', locale)
+  url.searchParams.set('setlang', locale === 'en' ? 'en-US' : locale)
   url.searchParams.set('cc', market)
   const response = await fetch(url, { headers: { 'User-Agent': 'dcc-mcp-geo-baseline/1.0' } })
   if (!response.ok) throw new Error(`${query}: Bing returned HTTP ${response.status}`)
@@ -71,7 +71,7 @@ if (scope === 'applications' || scope === 'all') {
   for (const application of expectedApplications) {
     const english = await measure({
       query: `how to control ${application} with AI`,
-      locale: 'en-US',
+      locale: 'en',
       market: 'US',
       kind: 'application-control',
       application,
@@ -87,7 +87,7 @@ if (scope === 'applications' || scope === 'all') {
     if (!planOnly && (!english.firstParty || !chinese.firstParty)) {
       records.push(await measure({
         query: `"${application}" MCP "DCC-MCP"`,
-        locale: 'en-US',
+        locale: 'en',
         market: 'US',
         kind: 'branded-diagnostic',
         application,
