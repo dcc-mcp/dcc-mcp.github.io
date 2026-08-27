@@ -86,8 +86,8 @@ const parseStrictRetrievalUrl = (rawUrl) => {
   if (!firstPartyHosts.includes(parsed.hostname)) {
     reject(`invalid retrieval URL: hostname is not in the frozen first-party allowlist: ${parsed.hostname}`)
   }
-  if (parsed.search) reject('invalid retrieval URL: query strings are forbidden')
-  if (parsed.hash) reject('invalid retrieval URL: fragments are forbidden')
+  if (rawUrl.includes('?')) reject('invalid retrieval URL: query strings are forbidden')
+  if (rawUrl.includes('#')) reject('invalid retrieval URL: fragments are forbidden')
   if (parsed.pathname.includes('//')) reject('invalid retrieval URL: double-slash paths are forbidden')
   if (rawUrl !== parsed.href) {
     reject(`invalid retrieval URL: raw URL differs from WHATWG normalized form: ${parsed.href}`)

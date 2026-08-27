@@ -66,6 +66,16 @@ try {
     baselineSource.replace('| NO_HIT | — | — | false | false |', '| 1 | — | — | false | false |'),
     /rank 1 requires a title and URL/,
   )
+  for (const blankTitle of ['', '   ']) {
+    validateMutation(
+      queryContractSource,
+      baselineSource.replace(
+        '| NO_HIT | — | — | false | false |',
+        `| 1 | ${blankTitle} | https://dcc-mcp.github.io/ | true | true |`,
+      ),
+      /rank 1 requires a non-empty title/,
+    )
+  }
   validateMutation(
     queryContractSource,
     baselineSource.replace('| NO_HIT | — | — | false | false |', '| NO_HIT | Unexpected | https:\/\/example.com | false | false |'),
@@ -98,6 +108,17 @@ try {
     replaceFirstResult('https://dcc-mcp.github.io:8443/', 'true', 'true'),
     /invalid retrieval URL.*port/,
   )
+  for (const url of [
+    'https://dcc-mcp.github.io/?',
+    'https://dcc-mcp.github.io/#',
+    'https://dcc-mcp.github.io/?#',
+  ]) {
+    validateMutation(
+      queryContractSource,
+      replaceFirstResult(url, 'true', 'true'),
+      /invalid retrieval URL.*(?:query|fragment)/,
+    )
+  }
   for (const [url, diagnostic] of [
     ['ftp://dcc-mcp.github.io/', /invalid retrieval URL.*https/],
     ['https://user:secret@dcc-mcp.github.io/', /invalid retrieval URL.*credentials/],
