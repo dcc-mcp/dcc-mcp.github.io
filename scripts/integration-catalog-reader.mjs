@@ -30,6 +30,7 @@ export const integrationCatalogLimits = Object.freeze({
   maxIntegrations: 64,
   maxStringCodeUnits: 4096,
   maxArrayItems: 3,
+  maxNesting: 3,
 })
 
 const syntaxError = (message, index) => new Error(`Invalid DCC integration catalog at offset ${index}: ${message}`)
@@ -153,13 +154,19 @@ class CatalogLexer {
 }
 
 const tokenMatches = (token, type, value) => token.type === type && token.value === value
+const assertNesting = (depth, index) => {
+  if (depth > integrationCatalogLimits.maxNesting) {
+    throw syntaxError(`nesting exceeds ${integrationCatalogLimits.maxNesting}`, index)
+  }
+}
 const expectToken = (lexer, type, value, message) => {
   const token = lexer.next()
   if (!tokenMatches(token, type, value)) throw syntaxError(message, token.index)
   return token
 }
 
-const parseStringArray = (lexer, field) => {
+const parseStringArray = (lexer, field, depth) => {
+  assertNesting(depth, lexer.peek().index)
   expectToken(lexer, 'punctuator', '[', `${field} must be a direct JSON array`)
   const values = []
   if (tokenMatches(lexer.peek(), 'punctuator', ']')) {
@@ -173,6 +180,9 @@ const parseStringArray = (lexer, field) => {
       )
     }
     const value = lexer.next()
+    if (value.type === 'punctuator' && (value.value === '[' || value.value === '{')) {
+      assertNesting(depth + 1, value.index)
+    }
     if (value.type !== 'string') throw syntaxError(`${field} entries must be JSON strings`, value.index)
     values.push(value.value)
     const separator = lexer.next()
@@ -186,7 +196,8 @@ const parseStringArray = (lexer, field) => {
   }
 }
 
-const parseIntegration = (lexer, index) => {
+const parseIntegration = (lexer, index, depth) => {
+  assertNesting(depth, lexer.peek().index)
   expectToken(lexer, 'punctuator', '{', `integration ${index} must be a JSON object`)
   const integration = Object.create(null)
   const seen = new Set()
@@ -208,7 +219,7 @@ const parseIntegration = (lexer, index) => {
       }
       seen.add(key.value)
       expectToken(lexer, 'punctuator', ':', `integration ${index} field ${key.value} requires a colon`)
-      if (taskFields.includes(key.value)) integration[key.value] = parseStringArray(lexer, key.value)
+      if (taskFields.includes(key.value)) integration[key.value] = parseStringArray(lexer, key.value, depth + 1)
       else {
         const value = lexer.next()
         if (value.type !== 'string') {
@@ -250,7 +261,8 @@ const validateIntegration = (integration, index) => {
   return Object.freeze(integration)
 }
 
-const parseCatalog = (lexer) => {
+const parseCatalog = (lexer, depth = 1) => {
+  assertNesting(depth, lexer.peek().index)
   expectToken(lexer, 'punctuator', '[', 'catalog must begin with a JSON array')
   const integrations = []
   if (tokenMatches(lexer.peek(), 'punctuator', ']')) lexer.next()
@@ -261,7 +273,10 @@ const parseCatalog = (lexer) => {
           `Invalid DCC integration catalog: catalog exceeds ${integrationCatalogLimits.maxIntegrations} integrations`,
         )
       }
-      integrations.push(validateIntegration(parseIntegration(lexer, integrations.length), integrations.length))
+      integrations.push(validateIntegration(
+        parseIntegration(lexer, integrations.length, depth + 1),
+        integrations.length,
+      ))
       const separator = lexer.next()
       if (tokenMatches(separator, 'punctuator', ']')) break
       if (!tokenMatches(separator, 'punctuator', ',')) {

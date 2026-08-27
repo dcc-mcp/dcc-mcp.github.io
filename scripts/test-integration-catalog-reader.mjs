@@ -32,6 +32,7 @@ try {
     maxIntegrations: 64,
     maxStringCodeUnits: 4096,
     maxArrayItems: 3,
+    maxNesting: 3,
   })
   const staticLiteral = `[{${fields()}\n  }]`
   assert.equal(loadCase('plain-static-data', staticLiteral)()[0].slug, 'probe')
@@ -79,6 +80,19 @@ try {
     loadCase('catalog-over-array-limit', overArrayLimit),
     /tasksEn exceeds 3 items/,
     'task arrays must stop at the fixed grammar limit',
+  )
+  assert.equal(
+    loadCase('catalog-at-nesting-limit', staticLiteral)()[0].tasksEn[0],
+    'one',
+  )
+  const overNestingLimit = staticLiteral.replace(
+    '["one", "two", "three"]',
+    '[["one"], "two", "three"]',
+  )
+  assert.throws(
+    loadCase('catalog-over-nesting-limit', overNestingLimit),
+    /nesting exceeds 3/,
+    'the fixed grammar must reject depth four before reading nested values',
   )
   assert.equal(loadCase('reordered-static-fields', `[{
     "tasksZh": ["one", "two", "three"],
