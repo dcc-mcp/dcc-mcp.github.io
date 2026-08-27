@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs'
+import { TextDecoder } from 'node:util'
 
 const requiredStringFields = Object.freeze([
   'slug',
@@ -18,6 +19,7 @@ const allowedFields = new Set([...requiredStringFields, ...optionalStringFields,
 const prototypeFields = new Set(['__proto__', 'constructor', 'prototype'])
 
 const syntaxError = (message, index) => new Error(`Invalid DCC integration catalog at offset ${index}: ${message}`)
+const strictUtf8Decoder = new TextDecoder('utf-8', { fatal: true, ignoreBOM: true })
 
 const validateDecodedString = (value, index) => {
   for (let offset = 0; offset < value.length; offset += 1) {
@@ -240,6 +242,13 @@ const parseCatalog = (lexer) => {
 }
 
 export const loadIntegrationCatalog = (path) => {
-  const source = readFileSync(path, 'utf8')
+  const bytes = readFileSync(path)
+  let source
+  try {
+    // Preserve a BOM as U+FEFF so the byte-zero array contract rejects it.
+    source = strictUtf8Decoder.decode(bytes)
+  } catch {
+    throw new Error('Invalid DCC integration catalog: malformed UTF-8')
+  }
   return parseCatalog(new CatalogLexer(source))
 }
