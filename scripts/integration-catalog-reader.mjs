@@ -276,6 +276,41 @@ const parseCatalog = (lexer) => {
   return Object.freeze(integrations)
 }
 
+const releasedIntegrationDeclarationTokens = Object.freeze([
+  ['identifier', 'export'],
+  ['identifier', 'const'],
+  ['identifier', 'releasedIntegrations'],
+  ['punctuator', '='],
+  ['identifier', 'dccIntegrations'],
+  ['punctuator', '.'],
+  ['identifier', 'filter'],
+  ['punctuator', '('],
+  ['punctuator', '('],
+  ['punctuator', '{'],
+  ['identifier', 'dccType'],
+  ['punctuator', '}'],
+  ['punctuator', ')'],
+  ['punctuator', '='],
+  ['punctuator', '>'],
+  ['identifier', 'dccType'],
+  ['punctuator', ')'],
+])
+
+const validateCatalogDeclarationBoundary = (lexer) => {
+  if (tokenMatches(lexer.peek(), 'punctuator', ';')) lexer.next()
+  for (const [type, value] of releasedIntegrationDeclarationTokens) {
+    expectToken(
+      lexer,
+      type,
+      value,
+      'catalog declaration must end before the frozen releasedIntegrations declaration',
+    )
+  }
+  if (tokenMatches(lexer.peek(), 'punctuator', ';')) lexer.next()
+  expectToken(lexer, 'identifier', 'const', 'releasedIntegrations must be followed by repositoryUrl')
+  expectToken(lexer, 'identifier', 'repositoryUrl', 'releasedIntegrations must be followed by repositoryUrl')
+}
+
 export const loadIntegrationCatalog = (path) => {
   const source = readFileSync(path, 'utf8')
   const firstDeclaration = source.indexOf(declaration)
@@ -284,5 +319,7 @@ export const loadIntegrationCatalog = (path) => {
   }
   const lexer = new CatalogLexer(source)
   locateCatalogDeclaration(lexer)
-  return parseCatalog(lexer)
+  const integrations = parseCatalog(lexer)
+  validateCatalogDeclarationBoundary(lexer)
+  return integrations
 }
