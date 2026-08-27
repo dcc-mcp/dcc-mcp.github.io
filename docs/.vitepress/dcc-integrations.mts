@@ -244,6 +244,16 @@ export const dccIntegrations: DccIntegration[] = [
     tasksZh: ['检查尺寸、颜色模式与图层', '使用图层或蒙版完成可撤销编辑', '在不合并源文件的情况下导出新文件'],
   },
   {
+    slug: 'powerpoint',
+    name: 'PowerPoint',
+    repository: 'dcc-mcp-powerpoint',
+    dccType: 'powerpoint',
+    summaryEn: 'inspect presentations and automate slides, layouts, text, media, and review-deck output',
+    summaryZh: '检查演示文稿，并自动化幻灯片、版式、文本、媒体与评审文稿输出',
+    tasksEn: ['inventory slides, layouts, text, and linked media', 'create or revise one bounded slide sequence', 'validate slide order, visual output, and the saved copy'],
+    tasksZh: ['盘点幻灯片、版式、文本与链接媒体', '创建或修改一个范围明确的幻灯片序列', '验证幻灯片顺序、视觉输出与保存副本'],
+  },
+  {
     slug: 'premiere-pro',
     name: 'Premiere Pro',
     repository: 'dcc-mcp-premiere',

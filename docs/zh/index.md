@@ -64,6 +64,7 @@ npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
     <div>
       <p><strong>Unreal Engine 官方 MCP：</strong><a href="https://github.com/dcc-mcp/dcc-mcp-unreal/blob/main/src/dcc_mcp_unreal/skills/unreal-official-mcp/SKILL.md">Unreal Skill</a> 启用并桥接 Epic 官方 toolset，不改名，也不修改 schema。</p>
       <p><strong>Unity 与团结 AI：</strong><a href="https://github.com/dcc-mcp/dcc-mcp-unity/blob/main/src/dcc_mcp_unity/skills/unity-tuanjie-ai/SKILL.md">Unity Skill</a> 先检查原生 Codely CustomTool 目录，再执行本次检查返回的工具；登录、积分、下载与任务恢复仍由团结软件包负责。</p>
+      <p>Agent 控制指南：<a href="/zh/control/unity">Unity 与团结 AI</a> · <a href="/zh/control/unreal-engine">Unreal Engine</a> · <a href="/zh/control/godot">Godot</a></p>
     </div>
   </div>
 </section>
@@ -72,9 +73,9 @@ npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">官方集成</p>
-      <h2 id="integrations-title">34 个已发布适配器标识。</h2>
+      <h2 id="integrations-title">35 个已发布适配器标识。</h2>
     </div>
-    <p>当前发布目录提供 34 个适配器标识。下方卡片展示代表性集成；使用 <code>dcc-mcp-cli dcc-types</code> 查询完整的当前可安装列表。</p>
+    <p>当前发布目录提供 35 个适配器标识。下方卡片展示代表性集成；使用 <code>dcc-mcp-cli dcc-types</code> 查询完整的当前可安装列表。</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>
