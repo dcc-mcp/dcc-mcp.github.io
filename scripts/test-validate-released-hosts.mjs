@@ -11,7 +11,7 @@ const fixtureRoot = mkdtempSync(join(tmpdir(), 'dcc-mcp-site-validator-'))
 try {
   cpSync(join(root, 'docs'), join(fixtureRoot, 'docs'), { recursive: true })
   mkdirSync(join(fixtureRoot, 'scripts'))
-  for (const file of ['site-identity-contract.mjs', 'validate-site.mjs']) {
+  for (const file of ['integration-catalog-reader.mjs', 'site-identity-contract.mjs', 'validate-site.mjs']) {
     cpSync(join(root, 'scripts', file), join(fixtureRoot, 'scripts', file))
   }
 
@@ -60,6 +60,25 @@ try {
   validateSourceMutation(
     source.replace(listEnd, `${cacheBlock}\n]\n\nexport const releasedIntegrations`),
     [/duplicates=.*cache-inspector/],
+  )
+
+  const reorderedCacheBlock = cacheBlock.replace(
+    /    slug: 'cache-inspector',\r?\n    name: 'Cache Inspector',/,
+    "    name: 'Cache Inspector',\n    slug: 'cache-inspector',",
+  )
+  assert.notEqual(reorderedCacheBlock, cacheBlock, 'fixture must reorder Cache Inspector identity fields')
+  const listStart = /export const dccIntegrations: DccIntegration\[\] = \[\r?\n/
+  validateSourceMutation(
+    source.replace(listStart, (match) => `${match}${reorderedCacheBlock
+      .replace("slug: 'cache-inspector'", "slug: 'reordered-extra'")
+      .replace("name: 'Cache Inspector'", "name: 'Reordered Extra'")
+      .replace(/repository: '[^']+'/, "repository: 'dcc-mcp-reordered-extra'")
+      .replace(/marketplacePackage: '[^']+'/, "marketplacePackage: 'dcc-mcp-reordered-extra'")}`),
+    [/extra=\[[^\]]*reordered-extra/],
+  )
+  validateSourceMutation(
+    source.replace(listStart, (match) => `${match}${reorderedCacheBlock}`),
+    [/duplicates=\[[^\]]*cache-inspector/],
   )
 } finally {
   rmSync(fixtureRoot, { recursive: true, force: true })

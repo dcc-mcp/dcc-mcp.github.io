@@ -7,6 +7,7 @@ import {
   expectedReleasedDccTypes,
   guideIdentityKey,
 } from './site-identity-contract.mjs'
+import { loadIntegrationCatalog } from './integration-catalog-reader.mjs'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const dist = join(root, 'docs', '.vitepress', 'dist')
@@ -15,25 +16,7 @@ const installSopSchemaUrl = `https://dcc-mcp.github.io/${installSopSchemaPath}`
 const installSopSchemaHash = '3ca25788439917b4d4c0617230a762f9797756b5b54f45c8c4149f975b90f904'
 const installSopSchemaSourceCommit = '9439d1191d729732517f5c023725de954dd211f8'
 const installSopSchemaSourceUrl = `https://raw.githubusercontent.com/dcc-mcp/dcc-mcp-core/${installSopSchemaSourceCommit}/python/dcc_mcp_core/schemas/adapter-install-sop-v1.schema.json`
-const integrationSource = readFileSync(join(root, 'docs', '.vitepress', 'dcc-integrations.mts'), 'utf8')
-const integrationMatches = [...integrationSource.matchAll(
-  /slug: '([^']+)',\s+name: '([^']+)',\s+repository: '([^']+)'/g,
-)]
-const integrationListEndMatch = /\r?\n]\r?\n\r?\nexport const releasedIntegrations/.exec(integrationSource)
-if (!integrationListEndMatch) throw new Error('Could not locate the end of the DCC integration catalog')
-const integrationListEnd = integrationListEndMatch.index
-const integrations = integrationMatches.map((match, index) => {
-  const [, slug, name, repository] = match
-  const nextOffset = integrationMatches[index + 1]?.index ?? integrationListEnd
-  const block = integrationSource.slice(match.index, nextOffset)
-  return {
-    slug,
-    name,
-    repository,
-    dccType: block.match(/\s+dccType: '([^']+)',/)?.[1],
-    marketplacePackage: block.match(/\s+marketplacePackage: '([^']+)',/)?.[1],
-  }
-})
+const integrations = loadIntegrationCatalog(join(root, 'docs', '.vitepress', 'dcc-integrations.mts'))
 const expectedGuideIdentityKeys = expectedGuideIdentities.map(guideIdentityKey).sort()
 const guideIdentityKeys = integrations.map(guideIdentityKey).sort()
 const duplicateGuideIdentities = guideIdentityKeys.filter((identity, index) => (
