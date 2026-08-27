@@ -64,6 +64,7 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
     <div>
       <p><strong>Unreal Engine official MCP:</strong> the <a href="https://github.com/dcc-mcp/dcc-mcp-unreal/blob/main/src/dcc_mcp_unreal/skills/unreal-official-mcp/SKILL.md">Unreal Skill</a> enables and bridges Epic's official toolsets without renaming their tools or schemas.</p>
       <p><strong>Unity and Tuanjie AI:</strong> the <a href="https://github.com/dcc-mcp/dcc-mcp-unity/blob/main/src/dcc_mcp_unity/skills/unity-tuanjie-ai/SKILL.md">Unity Skill</a> inspects the native Codely CustomTool catalog before executing a freshly returned tool; Tuanjie still owns sign-in, credits, downloads, and task recovery.</p>
+      <p>Agent-control guides: <a href="/control/unity">Unity and Tuanjie AI</a> · <a href="/control/unreal-engine">Unreal Engine</a> · <a href="/control/godot">Godot</a></p>
     </div>
   </div>
 </section>
@@ -72,9 +73,9 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">OFFICIAL INTEGRATIONS</p>
-      <h2 id="integrations-title">34 released adapter identifiers.</h2>
+      <h2 id="integrations-title">35 released adapter identifiers.</h2>
     </div>
-    <p>The release catalog exposes 34 adapter identifiers. The tiles below highlight representative integrations; run <code>dcc-mcp-cli dcc-types</code> for the complete current installable list.</p>
+    <p>The release catalog exposes 35 adapter identifiers. The tiles below highlight representative integrations; run <code>dcc-mcp-cli dcc-types</code> for the complete current installable list.</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>

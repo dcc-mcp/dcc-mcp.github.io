@@ -51,7 +51,7 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 
 ## 当前适配器发布目录
 
-使用 `dcc-mcp-cli dcc-types` 作为实时事实来源。当前目录包含 34 个规范标识：
+使用 `dcc-mcp-cli dcc-types` 作为实时事实来源。当前目录包含 35 个规范标识：
 
 - `3dsmax` — Autodesk 3ds Max — https://github.com/dcc-mcp/dcc-mcp-3dsmax
 - `aftereffects` — Adobe After Effects — https://github.com/dcc-mcp/dcc-mcp-aftereffects
@@ -74,6 +74,7 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - `openscad` — OpenSCAD — https://github.com/dcc-mcp/dcc-mcp-openscad
 - `openusd` — OpenUSD — https://github.com/dcc-mcp/dcc-mcp-openusd
 - `photoshop` — Adobe Photoshop — https://github.com/dcc-mcp/dcc-mcp-photoshop
+- `powerpoint` — Microsoft PowerPoint — https://github.com/dcc-mcp/dcc-mcp-powerpoint
 - `premiere` — Adobe Premiere Pro — https://github.com/dcc-mcp/dcc-mcp-premiere
 - `renderdoc` — RenderDoc — https://github.com/dcc-mcp/dcc-mcp-renderdoc
 - `sketchup` — SketchUp — https://github.com/dcc-mcp/dcc-mcp-sketchup
@@ -117,6 +118,7 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - OpenUSD：https://dcc-mcp.github.io/zh/control/openusd
 - OpenSCAD：https://dcc-mcp.github.io/zh/control/openscad
 - Photoshop：https://dcc-mcp.github.io/zh/control/photoshop
+- PowerPoint：https://dcc-mcp.github.io/zh/control/powerpoint
 - Premiere Pro：https://dcc-mcp.github.io/zh/control/premiere-pro
 - RenderDoc：https://dcc-mcp.github.io/zh/control/renderdoc
 - SketchUp：https://dcc-mcp.github.io/zh/control/sketchup

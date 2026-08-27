@@ -37,7 +37,7 @@
 
 ## 当前发布集成
 
-`dcc-mcp-cli dcc-types` 当前提供 34 个适配器标识：`3dsmax`、`aftereffects`、`blender`、`c4d`、`comfyui`、`freecad`、`gimp`、`godot`、`houdini`、`illustrator`、`katana`、`krita`、`mari`、`marmoset`、`material-maker`、`maya`、`mobu`、`nuke`、`openscad`、`openusd`、`photoshop`、`premiere`、`renderdoc`、`shotgrid`、`shogun`、`sketchup`、`substance3d_designer`、`substance3d_painter`、`tiled`、`touchdesigner`、`unity`、`unreal`、`wwise`、`zbrush`。Cache Inspector 是 Host-neutral Marketplace Skill，不是适配器标识。同时支持工作室自定义 Host 标识。
+`dcc-mcp-cli dcc-types` 当前提供 35 个适配器标识：`3dsmax`、`aftereffects`、`blender`、`c4d`、`comfyui`、`freecad`、`gimp`、`godot`、`houdini`、`illustrator`、`katana`、`krita`、`mari`、`marmoset`、`material-maker`、`maya`、`mobu`、`nuke`、`openscad`、`openusd`、`photoshop`、`powerpoint`、`premiere`、`renderdoc`、`shotgrid`、`shogun`、`sketchup`、`substance3d_designer`、`substance3d_painter`、`tiled`、`touchdesigner`、`unity`、`unreal`、`wwise`、`zbrush`。Cache Inspector 是 Host-neutral Marketplace Skill，不是适配器标识。同时支持工作室自定义 Host 标识。
 
 ## 逐应用 AI 控制指南
 
@@ -64,6 +64,7 @@
 - [OpenUSD](https://dcc-mcp.github.io/zh/control/openusd)
 - [OpenSCAD](https://dcc-mcp.github.io/zh/control/openscad)
 - [Photoshop](https://dcc-mcp.github.io/zh/control/photoshop)
+- [PowerPoint](https://dcc-mcp.github.io/zh/control/powerpoint)
 - [Premiere Pro](https://dcc-mcp.github.io/zh/control/premiere-pro)
 - [RenderDoc](https://dcc-mcp.github.io/zh/control/renderdoc)
 - [SketchUp](https://dcc-mcp.github.io/zh/control/sketchup)
@@ -77,7 +78,7 @@
 - [Wwise](https://dcc-mcp.github.io/zh/control/wwise)
 - [ZBrush](https://dcc-mcp.github.io/zh/control/zbrush)
 
-公开指南与当前 34 个发布标识一致。操作前检查 `dcc-mcp-cli dcc-types` 与对应适配器仓库。
+公开指南与当前 35 个发布标识一致。操作前检查 `dcc-mcp-cli dcc-types` 与对应适配器仓库。
 
 ## Marketplace CLI 契约
 

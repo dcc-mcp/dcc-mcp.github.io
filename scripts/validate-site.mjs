@@ -2,6 +2,11 @@ import { createHash } from 'node:crypto'
 import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import {
+  expectedGuideIdentities,
+  expectedReleasedDccTypes,
+  guideIdentityKey,
+} from './site-identity-contract.mjs'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const dist = join(root, 'docs', '.vitepress', 'dist')
@@ -29,13 +34,45 @@ const integrations = integrationMatches.map((match, index) => {
     marketplacePackage: block.match(/\s+marketplacePackage: '([^']+)',/)?.[1],
   }
 })
-if (integrations.length !== 35) {
-  throw new Error(`Expected 35 public application and pipeline integrations, found ${integrations.length}`)
+const expectedGuideIdentityKeys = expectedGuideIdentities.map(guideIdentityKey).sort()
+const guideIdentityKeys = integrations.map(guideIdentityKey).sort()
+const duplicateGuideIdentities = guideIdentityKeys.filter((identity, index) => (
+  index > 0 && identity === guideIdentityKeys[index - 1]
+))
+const expectedGuideIdentitySet = new Set(expectedGuideIdentityKeys)
+const guideIdentitySet = new Set(guideIdentityKeys)
+const missingGuideIdentities = expectedGuideIdentityKeys.filter((identity) => !guideIdentitySet.has(identity))
+const extraGuideIdentities = [...guideIdentitySet].filter((identity) => !expectedGuideIdentitySet.has(identity)).sort()
+if (duplicateGuideIdentities.length || missingGuideIdentities.length || extraGuideIdentities.length) {
+  throw new Error(
+    'Public guide identities do not match the frozen 36-guide contract: '
+    + `duplicates=[${[...new Set(duplicateGuideIdentities)].join(';')}] `
+    + `missing=[${missingGuideIdentities.join(';')}] `
+    + `extra=[${extraGuideIdentities.join(';')}]`,
+  )
 }
-const releasedIntegrationCount = [...integrationSource.matchAll(/\s+dccType: '[^']+',/g)].length
-if (releasedIntegrationCount !== 34) {
-  throw new Error(`Expected 34 released host identifiers, found ${releasedIntegrationCount}`)
+if (integrations.length !== expectedGuideIdentities.length) {
+  throw new Error(
+    `Expected ${expectedGuideIdentities.length} public application and pipeline integrations, found ${integrations.length}`,
+  )
 }
+const releasedDccTypes = integrations.flatMap(({ dccType }) => dccType ? [dccType] : []).sort()
+const duplicateReleasedDccTypes = releasedDccTypes.filter((dccType, index) => (
+  index > 0 && dccType === releasedDccTypes[index - 1]
+))
+const expectedReleasedDccTypeSet = new Set(expectedReleasedDccTypes)
+const releasedDccTypeSet = new Set(releasedDccTypes)
+const missingReleasedDccTypes = expectedReleasedDccTypes.filter((dccType) => !releasedDccTypeSet.has(dccType))
+const extraReleasedDccTypes = [...releasedDccTypeSet].filter((dccType) => !expectedReleasedDccTypeSet.has(dccType)).sort()
+if (duplicateReleasedDccTypes.length || missingReleasedDccTypes.length || extraReleasedDccTypes.length) {
+  throw new Error(
+    'Released host identifiers do not match dcc-mcp-cli 0.20.21: '
+    + `duplicates=[${[...new Set(duplicateReleasedDccTypes)].join(',')}] `
+    + `missing=[${missingReleasedDccTypes.join(',')}] `
+    + `extra=[${extraReleasedDccTypes.join(',')}]`,
+  )
+}
+const releasedIntegrationCount = expectedReleasedDccTypes.length
 
 const parseStructuredData = (html, label) => {
   const scripts = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
@@ -289,6 +326,15 @@ for (const { slug } of integrations) {
 
 const englishHome = readFileSync(join(dist, 'index.html'), 'utf8')
 const chineseHome = readFileSync(join(dist, 'zh', 'index.html'), 'utf8')
+const powerPointIntegration = integrations.find(({ slug }) => slug === 'powerpoint')
+if (
+  !powerPointIntegration
+  || powerPointIntegration.name !== 'PowerPoint'
+  || powerPointIntegration.repository !== 'dcc-mcp-powerpoint'
+  || powerPointIntegration.dccType !== 'powerpoint'
+) {
+  throw new Error('The website integration source is missing the released PowerPoint host')
+}
 for (const [name, html] of [['English home', englishHome], ['Chinese home', chineseHome]]) {
   if (!html.includes('hreflang="en"') || !html.includes('hreflang="zh-CN"')) {
     throw new Error(`${name} is missing language alternates`)
@@ -323,6 +369,16 @@ if (!englishHome.includes('CAPABILITY MARKETPLACE') || !chineseHome.includes('èƒ
 }
 if (!englishHome.includes('href="/use-cases"') || !chineseHome.includes('href="/zh/use-cases"')) {
   throw new Error('Localized homepages are missing the all-integration control guide link')
+}
+for (const [name, html, prefix] of [
+  ['English home', englishHome, ''],
+  ['Chinese home', chineseHome, '/zh'],
+]) {
+  for (const slug of ['godot', 'unity', 'unreal-engine']) {
+    if (!html.includes(`href="${prefix}/control/${slug}"`)) {
+      throw new Error(`${name} is missing the visible ${slug} control-guide link`)
+    }
+  }
 }
 validateHomeEntities(englishHome, 'en')
 validateHomeEntities(chineseHome, 'zh')

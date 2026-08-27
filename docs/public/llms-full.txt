@@ -56,7 +56,7 @@ The canonical distribution source is https://github.com/dcc-mcp/dcc-mcp-agent-pl
 
 ## Current adapter-backed release catalog
 
-Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release catalog exposes 34 canonical identifiers:
+Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release catalog exposes 35 canonical identifiers:
 
 - `3dsmax` — Autodesk 3ds Max — https://github.com/dcc-mcp/dcc-mcp-3dsmax
 - `aftereffects` — Adobe After Effects — https://github.com/dcc-mcp/dcc-mcp-aftereffects
@@ -79,6 +79,7 @@ Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release cat
 - `openscad` — OpenSCAD — https://github.com/dcc-mcp/dcc-mcp-openscad
 - `openusd` — OpenUSD — https://github.com/dcc-mcp/dcc-mcp-openusd
 - `photoshop` — Adobe Photoshop — https://github.com/dcc-mcp/dcc-mcp-photoshop
+- `powerpoint` — Microsoft PowerPoint — https://github.com/dcc-mcp/dcc-mcp-powerpoint
 - `premiere` — Adobe Premiere Pro — https://github.com/dcc-mcp/dcc-mcp-premiere
 - `renderdoc` — RenderDoc — https://github.com/dcc-mcp/dcc-mcp-renderdoc
 - `sketchup` — SketchUp — https://github.com/dcc-mcp/dcc-mcp-sketchup
@@ -122,6 +123,7 @@ The canonical hub is https://dcc-mcp.github.io/use-cases. Direct guides are avai
 - OpenUSD: https://dcc-mcp.github.io/control/openusd
 - OpenSCAD: https://dcc-mcp.github.io/control/openscad
 - Photoshop: https://dcc-mcp.github.io/control/photoshop
+- PowerPoint: https://dcc-mcp.github.io/control/powerpoint
 - Premiere Pro: https://dcc-mcp.github.io/control/premiere-pro
 - RenderDoc: https://dcc-mcp.github.io/control/renderdoc
 - SketchUp: https://dcc-mcp.github.io/control/sketchup
