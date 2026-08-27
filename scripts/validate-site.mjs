@@ -16,7 +16,7 @@ const installSopSchemaUrl = `https://dcc-mcp.github.io/${installSopSchemaPath}`
 const installSopSchemaHash = '3ca25788439917b4d4c0617230a762f9797756b5b54f45c8c4149f975b90f904'
 const installSopSchemaSourceCommit = '9439d1191d729732517f5c023725de954dd211f8'
 const installSopSchemaSourceUrl = `https://raw.githubusercontent.com/dcc-mcp/dcc-mcp-core/${installSopSchemaSourceCommit}/python/dcc_mcp_core/schemas/adapter-install-sop-v1.schema.json`
-const integrations = loadIntegrationCatalog(join(root, 'docs', '.vitepress', 'dcc-integrations.mts'))
+const integrations = loadIntegrationCatalog(join(root, 'docs', '.vitepress', 'dcc-integrations.json'))
 const expectedGuideIdentityKeys = expectedGuideIdentities.map(guideIdentityKey).sort()
 const guideIdentityKeys = integrations.map(guideIdentityKey).sort()
 const duplicateGuideIdentities = guideIdentityKeys.filter((identity, index) => (

@@ -15,12 +15,11 @@ try {
     cpSync(join(root, 'scripts', file), join(fixtureRoot, 'scripts', file))
   }
 
-  const integrationPath = join(fixtureRoot, 'docs', '.vitepress', 'dcc-integrations.mts')
-  const source = readFileSync(integrationPath, 'utf8')
-  const validateSourceMutation = (mutated, expectedDiagnostics) => {
-    assert.notEqual(mutated, source, 'fixture mutation must change the integration catalog')
-    writeFileSync(integrationPath, mutated)
-
+  const integrationPath = join(fixtureRoot, 'docs', '.vitepress', 'dcc-integrations.json')
+  const catalog = JSON.parse(readFileSync(integrationPath, 'utf8'))
+  const validateCatalogMutation = (mutated, expectedDiagnostics) => {
+    assert.notDeepEqual(mutated, catalog, 'fixture mutation must change the integration catalog')
+    writeFileSync(integrationPath, `${JSON.stringify(mutated, null, 2)}\n`)
     const result = spawnSync(process.execPath, [join(fixtureRoot, 'scripts', 'validate-site.mjs')], {
       encoding: 'utf8',
     })
@@ -29,57 +28,66 @@ try {
     for (const diagnostic of expectedDiagnostics) assert.match(output, diagnostic)
   }
 
-  validateSourceMutation(
-    source.replace("dccType: 'blender',", "dccType: 'blender_typo',"),
+  const mutateGuide = (name, changes) => catalog.map((guide) => (
+    guide.name === name ? { ...guide, ...changes } : guide
+  ))
+  validateCatalogMutation(
+    mutateGuide('Blender', { dccType: 'blender_typo' }),
     [/missing=\[blender\|.*dccType=blender/, /extra=\[blender\|.*dccType=blender_typo/],
   )
-  validateSourceMutation(
-    source.replace("dccType: 'blender',", "dccType: 'maya',"),
+  validateCatalogMutation(
+    mutateGuide('Blender', { dccType: 'maya' }),
     [/missing=\[blender\|.*dccType=blender/, /extra=\[blender\|.*dccType=maya/],
   )
 
-  const cacheBlock = source.match(/  \{\r?\n    slug: 'cache-inspector',[\s\S]*?\r?\n  \},\r?\n/)?.[0]
-  assert.ok(cacheBlock, 'fixture must contain the Cache Inspector guide')
-  const listEnd = /\r?\n]\r?\n\r?\nexport const releasedIntegrations/
-  validateSourceMutation(
-    source.replace(cacheBlock, cacheBlock
-      .replace("name: 'Cache Inspector'", "name: 'Stale Inspector'")
-      .replace(/repository: '[^']+'/, "repository: 'dcc-mcp-stale'")
-      .replace(/marketplacePackage: '[^']+'/, "marketplacePackage: 'stale-package'")),
+  const cache = catalog.find(({ slug }) => slug === 'cache-inspector')
+  assert.ok(cache, 'fixture must contain the Cache Inspector guide')
+  validateCatalogMutation(
+    mutateGuide('Cache Inspector', {
+      name: 'Stale Inspector',
+      repository: 'dcc-mcp-stale',
+      marketplacePackage: 'stale-package',
+    }),
     [/missing=.*cache-inspector/, /extra=.*Stale Inspector/],
   )
-  validateSourceMutation(source.replace(cacheBlock, ''), [/missing=.*cache-inspector/])
-  validateSourceMutation(
-    source.replace(listEnd, `${cacheBlock
-      .replace("slug: 'cache-inspector'", "slug: 'unrelated-guide'")
-      .replace("name: 'Cache Inspector'", "name: 'Unrelated Guide'")
-      .replace(/repository: '[^']+'/, "repository: 'dcc-mcp-unrelated'")
-      .replace(/marketplacePackage: '[^']+'/, "marketplacePackage: 'unrelated-package'")}\n]\n\nexport const releasedIntegrations`),
-    [/extra=.*unrelated-guide/],
+  validateCatalogMutation(
+    catalog.filter(({ slug }) => slug !== 'cache-inspector'),
+    [/missing=.*cache-inspector/],
   )
-  validateSourceMutation(
-    source.replace(listEnd, `${cacheBlock}\n]\n\nexport const releasedIntegrations`),
-    [/duplicates=.*cache-inspector/],
+  validateCatalogMutation(
+    [...catalog, {
+      ...cache,
+      slug: 'unrelated-guide',
+      name: 'Unrelated Guide',
+      repository: 'dcc-mcp-unrelated',
+      marketplacePackage: 'unrelated-package',
+    }],
+    [/extra=\[[^\]]*unrelated-guide/],
   )
+  validateCatalogMutation([...catalog, { ...cache }], [/duplicates=\[[^\]]*cache-inspector/])
 
-  const reorderedCacheBlock = cacheBlock.replace(
-    /    slug: 'cache-inspector',\r?\n    name: 'Cache Inspector',/,
-    "    name: 'Cache Inspector',\n    slug: 'cache-inspector',",
-  )
-  assert.notEqual(reorderedCacheBlock, cacheBlock, 'fixture must reorder Cache Inspector identity fields')
-  const listStart = /export const dccIntegrations: DccIntegration\[\] = \[\r?\n/
-  validateSourceMutation(
-    source.replace(listStart, (match) => `${match}${reorderedCacheBlock
-      .replace("slug: 'cache-inspector'", "slug: 'reordered-extra'")
-      .replace("name: 'Cache Inspector'", "name: 'Reordered Extra'")
-      .replace(/repository: '[^']+'/, "repository: 'dcc-mcp-reordered-extra'")
-      .replace(/marketplacePackage: '[^']+'/, "marketplacePackage: 'dcc-mcp-reordered-extra'")}`),
-    [/extra=\[[^\]]*reordered-extra/],
-  )
-  validateSourceMutation(
-    source.replace(listStart, (match) => `${match}${reorderedCacheBlock}`),
-    [/duplicates=\[[^\]]*cache-inspector/],
-  )
+  const reorderedExtra = {
+    name: 'Reordered Extra',
+    slug: 'reordered-extra',
+    repository: 'dcc-mcp-reordered-extra',
+    marketplacePackage: 'dcc-mcp-reordered-extra',
+    summaryEn: cache.summaryEn,
+    summaryZh: cache.summaryZh,
+    tasksEn: cache.tasksEn,
+    tasksZh: cache.tasksZh,
+  }
+  validateCatalogMutation([reorderedExtra, ...catalog], [/extra=\[[^\]]*reordered-extra/])
+  const reorderedDuplicate = {
+    name: cache.name,
+    slug: cache.slug,
+    repository: cache.repository,
+    marketplacePackage: cache.marketplacePackage,
+    summaryEn: cache.summaryEn,
+    summaryZh: cache.summaryZh,
+    tasksEn: cache.tasksEn,
+    tasksZh: cache.tasksZh,
+  }
+  validateCatalogMutation([reorderedDuplicate, ...catalog], [/duplicates=\[[^\]]*cache-inspector/])
 } finally {
   rmSync(fixtureRoot, { recursive: true, force: true })
 }
