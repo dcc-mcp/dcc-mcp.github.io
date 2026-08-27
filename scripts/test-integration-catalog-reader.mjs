@@ -14,7 +14,10 @@ const fields = (slugExpression = "'probe'") => `
     tasksEn: ['one', 'two', 'three'],
     tasksZh: ['one', 'two', 'three']`
 
-const sourceFor = (literal) => `export const dccIntegrations: DccIntegration[] = ${literal}\n`
+const sourceFor = (literal) => `export const dccIntegrations: DccIntegration[] = ${literal}
+export const releasedIntegrations = dccIntegrations.filter(({ dccType }) => dccType)
+const repositoryUrl = () => 'https://github.com/dcc-mcp/probe'
+`
 const loadCase = (name, literal) => {
   const path = join(fixtureRoot, `${name}.mts`)
   writeFileSync(path, sourceFor(literal))
@@ -56,6 +59,9 @@ try {
       set slug(value) {},${fields().replace(/\n    slug: 'probe',/, '')}
     }]`],
     ['nonliteral-value', `[{${fields('1 + 1')}\n    }]`],
+    ['comma-declarator-suffix', `[{${fields()}\n    }], reviewerExtra = (() => 'executed')()`],
+    ['typescript-assertion-suffix', `[{${fields()}\n    }] as unknown as DccIntegration[]`],
+    ['executable-statement-suffix', `[{${fields()}\n    }]; (() => 'executed')()`],
   ]
   for (const [name, literal] of rejected) {
     assert.throws(loadCase(name, literal), Error, `${name} must be rejected without evaluation`)
