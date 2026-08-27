@@ -34,7 +34,23 @@ try {
     "summaryEn": "English summary"
   }]`)()[0].slug, 'probe')
 
+  const validSurrogatePair = staticLiteral.replace(
+    '"English summary"',
+    '"Smile \\uD83D\\uDE00"',
+  )
+  assert.equal(
+    loadCase('valid-surrogate-pair', validSurrogatePair)()[0].summaryEn,
+    'Smile 😀',
+    'a valid escaped surrogate pair must decode without replacement characters',
+  )
+
   const rejected = [
+    ['escaped-c0-control', `[{${fields('"pro\\u0001be"')}\n    }]`],
+    ['escaped-del-control', `[{${fields('"pro\\u007Fbe"')}\n    }]`],
+    ['escaped-c1-control', `[{${fields('"pro\\u0085be"')}\n    }]`],
+    ['lone-high-surrogate', `[{${fields('"pro\\uD800be"')}\n    }]`],
+    ['lone-low-surrogate', `[{${fields('"pro\\uDC00be"')}\n    }]`],
+    ['reversed-surrogates', `[{${fields('"pro\\uDC00\\uD800be"')}\n    }]`],
     ['computed-key', `[{
       ["slug"]: "probe",${fields().replace(/\n    "slug": "probe",/, '')}
     }]`],

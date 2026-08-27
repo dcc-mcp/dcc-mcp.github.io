@@ -19,6 +19,25 @@ const prototypeFields = new Set(['__proto__', 'constructor', 'prototype'])
 
 const syntaxError = (message, index) => new Error(`Invalid DCC integration catalog at offset ${index}: ${message}`)
 
+const validateDecodedString = (value, index) => {
+  for (let offset = 0; offset < value.length; offset += 1) {
+    const codeUnit = value.charCodeAt(offset)
+    if (codeUnit <= 0x1f || (codeUnit >= 0x7f && codeUnit <= 0x9f)) {
+      throw syntaxError('decoded control character in string', index)
+    }
+    if (codeUnit >= 0xd800 && codeUnit <= 0xdbff) {
+      const lowSurrogate = value.charCodeAt(offset + 1)
+      if (lowSurrogate < 0xdc00 || lowSurrogate > 0xdfff) {
+        throw syntaxError('unpaired high surrogate in string', index)
+      }
+      offset += 1
+    } else if (codeUnit >= 0xdc00 && codeUnit <= 0xdfff) {
+      throw syntaxError('unpaired low surrogate in string', index)
+    }
+  }
+  return value
+}
+
 class CatalogLexer {
   constructor(source) {
     this.source = source
@@ -67,7 +86,7 @@ class CatalogLexer {
       const character = this.source[this.index]
       if (character === '"') {
         this.index += 1
-        return { type: 'string', value, index: start }
+        return { type: 'string', value: validateDecodedString(value, start), index: start }
       }
       if (character.charCodeAt(0) < 0x20) throw syntaxError('unescaped control character in string', this.index)
       if (character !== '\\') {
