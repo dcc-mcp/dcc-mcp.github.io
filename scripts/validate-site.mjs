@@ -2,59 +2,23 @@ import { createHash } from 'node:crypto'
 import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import {
-  expectedGuideIdentities,
-  expectedReleasedDccTypes,
-  guideIdentityKey,
-} from './site-identity-contract.mjs'
+import { expectedReleasedDccTypes } from './site-identity-contract.mjs'
 import { loadIntegrationCatalog } from './integration-catalog-reader.mjs'
+import { validateIntegrationIdentity } from './validate-integration-identity.mjs'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
-const dist = join(root, 'docs', '.vitepress', 'dist')
+const dist = process.env.DCC_MCP_VALIDATED_DIST_PATH ?? join(root, 'docs', '.vitepress', 'dist')
 const installSopSchemaPath = 'schemas/adapter-install-sop-v1.schema.json'
 const installSopSchemaUrl = `https://dcc-mcp.github.io/${installSopSchemaPath}`
 const installSopSchemaHash = '3ca25788439917b4d4c0617230a762f9797756b5b54f45c8c4149f975b90f904'
 const installSopSchemaSourceCommit = '9439d1191d729732517f5c023725de954dd211f8'
 const installSopSchemaSourceUrl = `https://raw.githubusercontent.com/dcc-mcp/dcc-mcp-core/${installSopSchemaSourceCommit}/python/dcc_mcp_core/schemas/adapter-install-sop-v1.schema.json`
-const integrations = loadIntegrationCatalog(join(root, 'docs', '.vitepress', 'dcc-integrations.json'))
-const expectedGuideIdentityKeys = expectedGuideIdentities.map(guideIdentityKey).sort()
-const guideIdentityKeys = integrations.map(guideIdentityKey).sort()
-const duplicateGuideIdentities = guideIdentityKeys.filter((identity, index) => (
-  index > 0 && identity === guideIdentityKeys[index - 1]
-))
-const expectedGuideIdentitySet = new Set(expectedGuideIdentityKeys)
-const guideIdentitySet = new Set(guideIdentityKeys)
-const missingGuideIdentities = expectedGuideIdentityKeys.filter((identity) => !guideIdentitySet.has(identity))
-const extraGuideIdentities = [...guideIdentitySet].filter((identity) => !expectedGuideIdentitySet.has(identity)).sort()
-if (duplicateGuideIdentities.length || missingGuideIdentities.length || extraGuideIdentities.length) {
-  throw new Error(
-    'Public guide identities do not match the frozen 36-guide contract: '
-    + `duplicates=[${[...new Set(duplicateGuideIdentities)].join(';')}] `
-    + `missing=[${missingGuideIdentities.join(';')}] `
-    + `extra=[${extraGuideIdentities.join(';')}]`,
-  )
-}
-if (integrations.length !== expectedGuideIdentities.length) {
-  throw new Error(
-    `Expected ${expectedGuideIdentities.length} public application and pipeline integrations, found ${integrations.length}`,
-  )
-}
-const releasedDccTypes = integrations.flatMap(({ dccType }) => dccType ? [dccType] : []).sort()
-const duplicateReleasedDccTypes = releasedDccTypes.filter((dccType, index) => (
-  index > 0 && dccType === releasedDccTypes[index - 1]
-))
-const expectedReleasedDccTypeSet = new Set(expectedReleasedDccTypes)
-const releasedDccTypeSet = new Set(releasedDccTypes)
-const missingReleasedDccTypes = expectedReleasedDccTypes.filter((dccType) => !releasedDccTypeSet.has(dccType))
-const extraReleasedDccTypes = [...releasedDccTypeSet].filter((dccType) => !expectedReleasedDccTypeSet.has(dccType)).sort()
-if (duplicateReleasedDccTypes.length || missingReleasedDccTypes.length || extraReleasedDccTypes.length) {
-  throw new Error(
-    'Released host identifiers do not match dcc-mcp-cli 0.20.21: '
-    + `duplicates=[${[...new Set(duplicateReleasedDccTypes)].join(',')}] `
-    + `missing=[${missingReleasedDccTypes.join(',')}] `
-    + `extra=[${extraReleasedDccTypes.join(',')}]`,
-  )
-}
+const integrations = validateIntegrationIdentity(
+  loadIntegrationCatalog(
+    process.env.DCC_MCP_VALIDATED_CATALOG_PATH
+      ?? join(root, 'docs', '.vitepress', 'dcc-integrations.json'),
+  ),
+)
 const releasedIntegrationCount = expectedReleasedDccTypes.length
 
 const parseStructuredData = (html, label) => {

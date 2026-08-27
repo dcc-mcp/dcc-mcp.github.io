@@ -1,4 +1,11 @@
-import { readFileSync } from 'node:fs'
+import {
+  closeSync,
+  constants,
+  fstatSync,
+  lstatSync,
+  openSync,
+  readFileSync,
+} from 'node:fs'
 import { TextDecoder } from 'node:util'
 
 const requiredStringFields = Object.freeze([
@@ -17,6 +24,13 @@ const optionalStringFields = Object.freeze([
 const taskFields = Object.freeze(['tasksEn', 'tasksZh'])
 const allowedFields = new Set([...requiredStringFields, ...optionalStringFields, ...taskFields])
 const prototypeFields = new Set(['__proto__', 'constructor', 'prototype'])
+
+export const integrationCatalogLimits = Object.freeze({
+  maxBytes: 128 * 1024,
+  maxIntegrations: 64,
+  maxStringCodeUnits: 4096,
+  maxArrayItems: 3,
+})
 
 const syntaxError = (message, index) => new Error(`Invalid DCC integration catalog at offset ${index}: ${message}`)
 const strictUtf8Decoder = new TextDecoder('utf-8', { fatal: true, ignoreBOM: true })
@@ -83,16 +97,28 @@ class CatalogLexer {
 
   readString(start) {
     this.index += 1
-    let value = ''
+    const chunks = []
+    let codeUnits = 0
+    const append = (chunk, index) => {
+      codeUnits += chunk.length
+      if (codeUnits > integrationCatalogLimits.maxStringCodeUnits) {
+        throw syntaxError(
+          `string exceeds ${integrationCatalogLimits.maxStringCodeUnits} code units`,
+          index,
+        )
+      }
+      chunks.push(chunk)
+    }
     while (this.index < this.source.length) {
       const character = this.source[this.index]
       if (character === '"') {
         this.index += 1
+        const value = chunks.join('')
         return { type: 'string', value: validateDecodedString(value, start), index: start }
       }
       if (character.charCodeAt(0) < 0x20) throw syntaxError('unescaped control character in string', this.index)
       if (character !== '\\') {
-        value += character
+        append(character, this.index)
         this.index += 1
         continue
       }
@@ -109,14 +135,14 @@ class CatalogLexer {
         t: '\t',
       }
       if (Object.hasOwn(simpleEscapes, escaped)) {
-        value += simpleEscapes[escaped]
+        append(simpleEscapes[escaped], escapeIndex)
         this.index += 2
         continue
       }
       if (escaped === 'u') {
         const digits = this.source.slice(this.index + 2, this.index + 6)
         if (!/^[0-9A-Fa-f]{4}$/.test(digits)) throw syntaxError('invalid Unicode escape', escapeIndex)
-        value += String.fromCharCode(Number.parseInt(digits, 16))
+        append(String.fromCharCode(Number.parseInt(digits, 16)), escapeIndex)
         this.index += 6
         continue
       }
@@ -141,6 +167,11 @@ const parseStringArray = (lexer, field) => {
     return values
   }
   while (true) {
+    if (values.length >= integrationCatalogLimits.maxArrayItems) {
+      throw new Error(
+        `Invalid DCC integration catalog: ${field} exceeds ${integrationCatalogLimits.maxArrayItems} items`,
+      )
+    }
     const value = lexer.next()
     if (value.type !== 'string') throw syntaxError(`${field} entries must be JSON strings`, value.index)
     values.push(value.value)
@@ -225,6 +256,11 @@ const parseCatalog = (lexer) => {
   if (tokenMatches(lexer.peek(), 'punctuator', ']')) lexer.next()
   else {
     while (true) {
+      if (integrations.length >= integrationCatalogLimits.maxIntegrations) {
+        throw new Error(
+          `Invalid DCC integration catalog: catalog exceeds ${integrationCatalogLimits.maxIntegrations} integrations`,
+        )
+      }
       integrations.push(validateIntegration(parseIntegration(lexer, integrations.length), integrations.length))
       const separator = lexer.next()
       if (tokenMatches(separator, 'punctuator', ']')) break
@@ -241,8 +277,10 @@ const parseCatalog = (lexer) => {
   return Object.freeze(integrations)
 }
 
-export const loadIntegrationCatalog = (path) => {
-  const bytes = readFileSync(path)
+export const parseIntegrationCatalogBytes = (bytes) => {
+  if (bytes.byteLength > integrationCatalogLimits.maxBytes) {
+    throw new Error(`Invalid DCC integration catalog: catalog exceeds ${integrationCatalogLimits.maxBytes} bytes`)
+  }
   let source
   try {
     // Preserve a BOM as U+FEFF so the byte-zero array contract rejects it.
@@ -252,3 +290,44 @@ export const loadIntegrationCatalog = (path) => {
   }
   return parseCatalog(new CatalogLexer(source))
 }
+
+const sameFileIdentity = (left, right) => (
+  left.dev === right.dev
+  && left.ino === right.ino
+  && left.size === right.size
+  && left.mtimeNs === right.mtimeNs
+)
+
+export const readIntegrationCatalogSnapshot = (path) => {
+  const initial = lstatSync(path, { bigint: true })
+  if (!initial.isFile() || initial.isSymbolicLink()) {
+    throw new Error('Invalid DCC integration catalog: source must be a regular file')
+  }
+  if (initial.nlink !== 1n) {
+    throw new Error('Invalid DCC integration catalog: hardlinked source is forbidden')
+  }
+  if (initial.size > BigInt(integrationCatalogLimits.maxBytes)) {
+    throw new Error(`Invalid DCC integration catalog: catalog exceeds ${integrationCatalogLimits.maxBytes} bytes`)
+  }
+  const descriptor = openSync(path, constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0))
+  try {
+    const opened = fstatSync(descriptor, { bigint: true })
+    if (!sameFileIdentity(initial, opened)) {
+      throw new Error('Invalid DCC integration catalog: source identity changed before read')
+    }
+    const bytes = readFileSync(descriptor)
+    const afterRead = fstatSync(descriptor, { bigint: true })
+    const currentPath = lstatSync(path, { bigint: true })
+    if (!sameFileIdentity(opened, afterRead) || !sameFileIdentity(afterRead, currentPath)) {
+      throw new Error('Invalid DCC integration catalog: source identity changed during read')
+    }
+    return Object.freeze({
+      bytes,
+      integrations: parseIntegrationCatalogBytes(bytes),
+    })
+  } finally {
+    closeSync(descriptor)
+  }
+}
+
+export const loadIntegrationCatalog = (path) => readIntegrationCatalogSnapshot(path).integrations

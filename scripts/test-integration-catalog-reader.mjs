@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { loadIntegrationCatalog } from './integration-catalog-reader.mjs'
+import { integrationCatalogLimits, loadIntegrationCatalog } from './integration-catalog-reader.mjs'
 
 const fixtureRoot = mkdtempSync(join(tmpdir(), 'dcc-mcp-catalog-reader-'))
 const fields = (slugExpression = '"probe"') => `
@@ -27,8 +27,59 @@ const loadByteCase = (name, bytes) => {
 const loadCase = (name, literal) => loadSourceCase(name, literal)
 
 try {
+  assert.deepEqual(integrationCatalogLimits, {
+    maxBytes: 128 * 1024,
+    maxIntegrations: 64,
+    maxStringCodeUnits: 4096,
+    maxArrayItems: 3,
+  })
   const staticLiteral = `[{${fields()}\n  }]`
   assert.equal(loadCase('plain-static-data', staticLiteral)()[0].slug, 'probe')
+  const maxCatalogBytes = integrationCatalogLimits.maxBytes
+  const atByteLimit = staticLiteral + ' '.repeat(maxCatalogBytes - Buffer.byteLength(staticLiteral))
+  assert.equal(Buffer.byteLength(atByteLimit), maxCatalogBytes)
+  assert.equal(loadCase('catalog-at-byte-limit', atByteLimit)()[0].slug, 'probe')
+  assert.throws(
+    loadCase('catalog-over-byte-limit', `${atByteLimit} `),
+    /catalog exceeds 131072 bytes/,
+    'catalog bytes must be bounded before allocation',
+  )
+  const integrationLiteral = `{${fields()}\n  }`
+  const atRecordLimit = `[${Array(integrationCatalogLimits.maxIntegrations).fill(integrationLiteral).join(',')}]`
+  const overRecordLimit = `[${Array(integrationCatalogLimits.maxIntegrations + 1).fill(integrationLiteral).join(',')}]`
+  assert.equal(loadCase('catalog-at-record-limit', atRecordLimit)().length, integrationCatalogLimits.maxIntegrations)
+  assert.throws(
+    loadCase('catalog-over-record-limit', overRecordLimit),
+    /catalog exceeds 64 integrations/,
+    'catalog record count must be bounded during parsing',
+  )
+  const atStringLimit = staticLiteral.replace(
+    '"English summary"',
+    `"${'x'.repeat(integrationCatalogLimits.maxStringCodeUnits)}"`,
+  )
+  const overStringLimit = staticLiteral.replace(
+    '"English summary"',
+    `"${'x'.repeat(integrationCatalogLimits.maxStringCodeUnits + 1)}"`,
+  )
+  assert.equal(
+    loadCase('catalog-at-string-limit', atStringLimit)()[0].summaryEn.length,
+    integrationCatalogLimits.maxStringCodeUnits,
+  )
+  assert.throws(
+    loadCase('catalog-over-string-limit', overStringLimit),
+    /string exceeds 4096 code units/,
+    'decoded catalog strings must have a stable length bound',
+  )
+  const overArrayLimit = staticLiteral.replace(
+    '["one", "two", "three"]',
+    '["one", "two", "three", "four"]',
+  )
+  assert.equal(loadCase('catalog-at-array-limit', staticLiteral)()[0].tasksEn.length, 3)
+  assert.throws(
+    loadCase('catalog-over-array-limit', overArrayLimit),
+    /tasksEn exceeds 3 items/,
+    'task arrays must stop at the fixed grammar limit',
+  )
   assert.equal(loadCase('reordered-static-fields', `[{
     "tasksZh": ["one", "two", "three"],
     "repository": "dcc-mcp-probe",
