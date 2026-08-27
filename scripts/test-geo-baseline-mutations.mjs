@@ -86,23 +86,28 @@ try {
   validateMutation(
     queryContractSource,
     replaceFirstResult('https://example.com/dcc-mcp', 'true', 'true'),
-    /URL classification mismatch.*expected firstParty=false canonical=false/,
+    /invalid retrieval URL.*first-party allowlist/,
   )
   validateMutation(
     queryContractSource,
     replaceFirstResult('https://dcc-mcp.github.io/', 'true', 'false'),
     /URL classification mismatch.*expected firstParty=true canonical=true/,
   )
+  validateMutation(
+    queryContractSource,
+    replaceFirstResult('https://dcc-mcp.github.io:8443/', 'true', 'true'),
+    /invalid retrieval URL.*port/,
+  )
   for (const [url, diagnostic] of [
     ['ftp://dcc-mcp.github.io/', /invalid retrieval URL.*https/],
     ['https://user:secret@dcc-mcp.github.io/', /invalid retrieval URL.*credentials/],
     ['https://xn--dcc-mcp-qza.github.io/', /invalid retrieval URL.*punycode/],
-    ['https://dcc-mcp.github.io:443/', /invalid retrieval URL.*default port/],
+    ['https://dcc-mcp.github.io:443/', /invalid retrieval URL.*port/],
     ['https://DCC-MCP.GITHUB.IO/', /invalid retrieval URL.*lowercase/],
     ['https://dcc-mcp.github.io./', /invalid retrieval URL.*trailing dot/],
-    ['https://dcc-mcp.github.io/redirect?url=https://example.com', /invalid retrieval URL.*redirect/],
-    ['https://www.bing.com/search?q=DCC-MCP', /invalid retrieval URL.*search-result/],
-    ['https://webcache.example/dcc-mcp.github.io/', /invalid retrieval URL.*cache/],
+    ['https://dcc-mcp.github.io/redirect?url=https://example.com', /invalid retrieval URL/],
+    ['https://www.bing.com/search?q=DCC-MCP', /invalid retrieval URL.*first-party allowlist/],
+    ['https://webcache.example/dcc-mcp.github.io/', /invalid retrieval URL.*first-party allowlist/],
   ]) {
     validateMutation(queryContractSource, replaceFirstResult(url, 'true', 'true'), diagnostic)
   }
@@ -125,6 +130,16 @@ try {
       'true',
     ),
     /canonical path is not valid for application 3ds Max/,
+  )
+  validateMutation(
+    queryContractSource,
+    replaceApplicationResult(
+      'how to control Maya with AI',
+      'https://github.com/dcc-mcp/dcc-mcp-maya/issues',
+      'true',
+      'false',
+    ),
+    /official GitHub URL must be the exact repository root/,
   )
 } finally {
   rmSync(fixtureRoot, { recursive: true, force: true })
