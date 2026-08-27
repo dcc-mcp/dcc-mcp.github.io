@@ -19,6 +19,11 @@ const loadSourceCase = (name, source) => {
   writeFileSync(path, source)
   return () => loadIntegrationCatalog(path)
 }
+const loadByteCase = (name, bytes) => {
+  const path = join(fixtureRoot, `${name}.json`)
+  writeFileSync(path, bytes)
+  return () => loadIntegrationCatalog(path)
+}
 const loadCase = (name, literal) => loadSourceCase(name, literal)
 
 try {
@@ -43,6 +48,42 @@ try {
     'Smile 😀',
     'a valid escaped surrogate pair must decode without replacement characters',
   )
+  const rawSurrogatePair = staticLiteral.replace('"English summary"', '"Smile 😀"')
+  assert.equal(
+    loadCase('raw-surrogate-pair', rawSurrogatePair)()[0].summaryEn,
+    loadCase('escaped-surrogate-pair-equivalence', validSurrogatePair)()[0].summaryEn,
+    'raw and escaped supplementary characters must decode identically',
+  )
+  const explicitReplacement = staticLiteral.replace('"English summary"', '"Explicit �"')
+  assert.equal(
+    loadCase('explicit-replacement-character', explicitReplacement)()[0].summaryEn,
+    'Explicit �',
+    'an explicitly encoded replacement character remains valid Unicode',
+  )
+
+  const [bytePrefix, byteSuffix] = staticLiteral.split('English summary')
+  assert.throws(
+    loadByteCase('utf8-bom', Buffer.concat([
+      Buffer.from([0xef, 0xbb, 0xbf]),
+      Buffer.from(staticLiteral, 'utf8'),
+    ])),
+    Error,
+    'a UTF-8 BOM must remain visible and fail the byte-zero array contract',
+  )
+  const malformedUtf8 = [
+    ['invalid-utf8-continuation', [0xc3, 0x28]],
+    ['overlong-utf8-encoding', [0xc0, 0xaf]],
+    ['utf8-encoded-surrogate', [0xed, 0xa0, 0x80]],
+    ['truncated-utf8-sequence', [0xe2, 0x82]],
+  ]
+  for (const [name, bytes] of malformedUtf8) {
+    const fixture = Buffer.concat([
+      Buffer.from(bytePrefix, 'utf8'),
+      Buffer.from(bytes),
+      Buffer.from(byteSuffix, 'utf8'),
+    ])
+    assert.throws(loadByteCase(name, fixture), Error, `${name} must fail before catalog parsing`)
+  }
 
   const rejected = [
     ['escaped-c0-control', `[{${fields('"pro\\u0001be"')}\n    }]`],
