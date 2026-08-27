@@ -1,6 +1,5 @@
 import { readFileSync } from 'node:fs'
 
-const declaration = 'export const dccIntegrations: DccIntegration[] ='
 const requiredStringFields = Object.freeze([
   'slug',
   'name',
@@ -19,8 +18,6 @@ const allowedFields = new Set([...requiredStringFields, ...optionalStringFields,
 const prototypeFields = new Set(['__proto__', 'constructor', 'prototype'])
 
 const syntaxError = (message, index) => new Error(`Invalid DCC integration catalog at offset ${index}: ${message}`)
-const isIdentifierStart = (character) => /[A-Za-z_$]/.test(character)
-const isIdentifierPart = (character) => /[A-Za-z0-9_$]/.test(character)
 
 class CatalogLexer {
   constructor(source) {
@@ -44,50 +41,35 @@ class CatalogLexer {
   }
 
   readToken() {
-    while (/\s/.test(this.source[this.index] ?? '')) this.index += 1
+    while (/[ \t\r\n]/.test(this.source[this.index] ?? '')) this.index += 1
     const start = this.index
     const character = this.source[this.index]
-    const next = this.source[this.index + 1]
     if (character === undefined) return { type: 'eof', value: '', index: start }
-
-    if (character === '/' && next === '/') {
-      this.index += 2
-      while (this.index < this.source.length && !/[\r\n]/.test(this.source[this.index])) this.index += 1
-      return { type: 'comment', value: 'line', index: start }
-    }
-    if (character === '/' && next === '*') {
-      this.index += 2
-      const end = this.source.indexOf('*/', this.index)
-      if (end === -1) throw syntaxError('unterminated block comment', start)
-      this.index = end + 2
-      return { type: 'comment', value: 'block', index: start }
-    }
-    if (character === "'" || character === '"') return this.readString(character, start)
-    if (character === '`') return this.readTemplate(start)
-    if (isIdentifierStart(character)) {
+    if (character === '"') return this.readString(start)
+    if (character === '-' || /[0-9]/.test(character)) {
       this.index += 1
-      while (isIdentifierPart(this.source[this.index] ?? '')) this.index += 1
-      return { type: 'identifier', value: this.source.slice(start, this.index), index: start }
-    }
-    if (/[0-9]/.test(character)) {
-      this.index += 1
-      while (/[0-9A-Za-z_.]/.test(this.source[this.index] ?? '')) this.index += 1
+      while (/[0-9A-Za-z+._-]/.test(this.source[this.index] ?? '')) this.index += 1
       return { type: 'number', value: this.source.slice(start, this.index), index: start }
+    }
+    if (/[A-Za-z_$]/.test(character)) {
+      this.index += 1
+      while (/[A-Za-z0-9_$]/.test(this.source[this.index] ?? '')) this.index += 1
+      return { type: 'identifier', value: this.source.slice(start, this.index), index: start }
     }
     this.index += 1
     return { type: 'punctuator', value: character, index: start }
   }
 
-  readString(quote, start) {
+  readString(start) {
     this.index += 1
     let value = ''
     while (this.index < this.source.length) {
       const character = this.source[this.index]
-      if (character === quote) {
+      if (character === '"') {
         this.index += 1
         return { type: 'string', value, index: start }
       }
-      if (/[\r\n]/.test(character)) throw syntaxError('unterminated string literal', start)
+      if (character.charCodeAt(0) < 0x20) throw syntaxError('unescaped control character in string', this.index)
       if (character !== '\\') {
         value += character
         this.index += 1
@@ -96,16 +78,14 @@ class CatalogLexer {
       const escapeIndex = this.index
       const escaped = this.source[this.index + 1]
       const simpleEscapes = {
-        "'": "'",
         '"': '"',
         '\\': '\\',
+        '/': '/',
+        b: '\b',
+        f: '\f',
         n: '\n',
         r: '\r',
         t: '\t',
-        b: '\b',
-        f: '\f',
-        v: '\v',
-        0: '\0',
       }
       if (Object.hasOwn(simpleEscapes, escaped)) {
         value += simpleEscapes[escaped]
@@ -119,59 +99,13 @@ class CatalogLexer {
         this.index += 6
         continue
       }
-      if (escaped === 'x') {
-        const digits = this.source.slice(this.index + 2, this.index + 4)
-        if (!/^[0-9A-Fa-f]{2}$/.test(digits)) throw syntaxError('invalid hexadecimal escape', escapeIndex)
-        value += String.fromCharCode(Number.parseInt(digits, 16))
-        this.index += 4
-        continue
-      }
-      throw syntaxError('unsupported string escape', escapeIndex)
+      throw syntaxError('unsupported JSON string escape', escapeIndex)
     }
     throw syntaxError('unterminated string literal', start)
-  }
-
-  readTemplate(start) {
-    this.index += 1
-    let escaped = false
-    while (this.index < this.source.length) {
-      const character = this.source[this.index]
-      this.index += 1
-      if (escaped) escaped = false
-      else if (character === '\\') escaped = true
-      else if (character === '`') return { type: 'template', value: '', index: start }
-    }
-    throw syntaxError('unterminated template literal', start)
   }
 }
 
 const tokenMatches = (token, type, value) => token.type === type && token.value === value
-const declarationTokens = Object.freeze([
-  ['identifier', 'export'],
-  ['identifier', 'const'],
-  ['identifier', 'dccIntegrations'],
-  ['punctuator', ':'],
-  ['identifier', 'DccIntegration'],
-  ['punctuator', '['],
-  ['punctuator', ']'],
-  ['punctuator', '='],
-])
-
-const locateCatalogDeclaration = (lexer) => {
-  let matched = 0
-  while (true) {
-    const token = lexer.next()
-    if (token.type === 'eof') throw syntaxError('catalog declaration was not found', token.index)
-    const [type, value] = declarationTokens[matched]
-    if (tokenMatches(token, type, value)) {
-      matched += 1
-      if (matched === declarationTokens.length) return
-    } else {
-      matched = tokenMatches(token, ...declarationTokens[0]) ? 1 : 0
-    }
-  }
-}
-
 const expectToken = (lexer, type, value, message) => {
   const token = lexer.next()
   if (!tokenMatches(token, type, value)) throw syntaxError(message, token.index)
@@ -179,62 +113,67 @@ const expectToken = (lexer, type, value, message) => {
 }
 
 const parseStringArray = (lexer, field) => {
-  expectToken(lexer, 'punctuator', '[', `${field} must be a direct array of string literals`)
+  expectToken(lexer, 'punctuator', '[', `${field} must be a direct JSON array`)
   const values = []
-  while (!tokenMatches(lexer.peek(), 'punctuator', ']')) {
+  if (tokenMatches(lexer.peek(), 'punctuator', ']')) {
+    lexer.next()
+    return values
+  }
+  while (true) {
     const value = lexer.next()
-    if (value.type !== 'string') throw syntaxError(`${field} entries must be direct string literals`, value.index)
+    if (value.type !== 'string') throw syntaxError(`${field} entries must be JSON strings`, value.index)
     values.push(value.value)
-    const separator = lexer.peek()
-    if (tokenMatches(separator, 'punctuator', ',')) {
-      lexer.next()
-      if (tokenMatches(lexer.peek(), 'punctuator', ']')) break
-    } else if (!tokenMatches(separator, 'punctuator', ']')) {
+    const separator = lexer.next()
+    if (tokenMatches(separator, 'punctuator', ']')) return values
+    if (!tokenMatches(separator, 'punctuator', ',')) {
       throw syntaxError(`${field} entries must be comma-separated`, separator.index)
     }
+    if (tokenMatches(lexer.peek(), 'punctuator', ']')) {
+      throw syntaxError(`${field} must not contain a trailing comma`, lexer.peek().index)
+    }
   }
-  expectToken(lexer, 'punctuator', ']', `${field} array is not closed`)
-  return values
 }
 
 const parseIntegration = (lexer, index) => {
-  expectToken(lexer, 'punctuator', '{', `integration ${index} must be a direct object literal`)
+  expectToken(lexer, 'punctuator', '{', `integration ${index} must be a JSON object`)
   const integration = Object.create(null)
   const seen = new Set()
-  while (!tokenMatches(lexer.peek(), 'punctuator', '}')) {
-    const key = lexer.next()
-    if (key.type !== 'identifier') {
-      throw syntaxError(`integration ${index} property keys must be direct identifiers`, key.index)
-    }
-    if (prototypeFields.has(key.value)) {
-      throw syntaxError(`integration ${index} contains a forbidden prototype key: ${key.value}`, key.index)
-    }
-    if (!allowedFields.has(key.value)) {
-      throw syntaxError(`integration ${index} has an unexpected field: ${key.value}`, key.index)
-    }
-    if (seen.has(key.value)) {
-      throw syntaxError(`integration ${index} has a duplicate field: ${key.value}`, key.index)
-    }
-    seen.add(key.value)
-    expectToken(lexer, 'punctuator', ':', `integration ${index} field ${key.value} must use a direct value`)
-    if (taskFields.includes(key.value)) {
-      integration[key.value] = parseStringArray(lexer, key.value)
-    } else {
-      const value = lexer.next()
-      if (value.type !== 'string') {
-        throw syntaxError(`integration ${index} field ${key.value} must be a direct string literal`, value.index)
+  if (tokenMatches(lexer.peek(), 'punctuator', '}')) lexer.next()
+  else {
+    while (true) {
+      const key = lexer.next()
+      if (key.type !== 'string') {
+        throw syntaxError(`integration ${index} property keys must be JSON strings`, key.index)
       }
-      integration[key.value] = value.value
-    }
-    const separator = lexer.peek()
-    if (tokenMatches(separator, 'punctuator', ',')) {
-      lexer.next()
-      if (tokenMatches(lexer.peek(), 'punctuator', '}')) break
-    } else if (!tokenMatches(separator, 'punctuator', '}')) {
-      throw syntaxError(`integration ${index} properties must be comma-separated`, separator.index)
+      if (prototypeFields.has(key.value)) {
+        throw syntaxError(`integration ${index} contains a forbidden prototype key: ${key.value}`, key.index)
+      }
+      if (!allowedFields.has(key.value)) {
+        throw syntaxError(`integration ${index} has an unexpected field: ${key.value}`, key.index)
+      }
+      if (seen.has(key.value)) {
+        throw syntaxError(`integration ${index} has a duplicate field: ${key.value}`, key.index)
+      }
+      seen.add(key.value)
+      expectToken(lexer, 'punctuator', ':', `integration ${index} field ${key.value} requires a colon`)
+      if (taskFields.includes(key.value)) integration[key.value] = parseStringArray(lexer, key.value)
+      else {
+        const value = lexer.next()
+        if (value.type !== 'string') {
+          throw syntaxError(`integration ${index} field ${key.value} must be a JSON string`, value.index)
+        }
+        integration[key.value] = value.value
+      }
+      const separator = lexer.next()
+      if (tokenMatches(separator, 'punctuator', '}')) break
+      if (!tokenMatches(separator, 'punctuator', ',')) {
+        throw syntaxError(`integration ${index} properties must be comma-separated`, separator.index)
+      }
+      if (tokenMatches(lexer.peek(), 'punctuator', '}')) {
+        throw syntaxError(`integration ${index} must not contain a trailing comma`, lexer.peek().index)
+      }
     }
   }
-  expectToken(lexer, 'punctuator', '}', `integration ${index} object is not closed`)
   return integration
 }
 
@@ -260,66 +199,28 @@ const validateIntegration = (integration, index) => {
 }
 
 const parseCatalog = (lexer) => {
-  expectToken(lexer, 'punctuator', '[', 'catalog initializer must be a direct array literal')
+  expectToken(lexer, 'punctuator', '[', 'catalog must begin with a JSON array')
   const integrations = []
-  while (!tokenMatches(lexer.peek(), 'punctuator', ']')) {
-    integrations.push(validateIntegration(parseIntegration(lexer, integrations.length), integrations.length))
-    const separator = lexer.peek()
-    if (tokenMatches(separator, 'punctuator', ',')) {
-      lexer.next()
-      if (tokenMatches(lexer.peek(), 'punctuator', ']')) break
-    } else if (!tokenMatches(separator, 'punctuator', ']')) {
-      throw syntaxError('catalog integrations must be comma-separated', separator.index)
+  if (tokenMatches(lexer.peek(), 'punctuator', ']')) lexer.next()
+  else {
+    while (true) {
+      integrations.push(validateIntegration(parseIntegration(lexer, integrations.length), integrations.length))
+      const separator = lexer.next()
+      if (tokenMatches(separator, 'punctuator', ']')) break
+      if (!tokenMatches(separator, 'punctuator', ',')) {
+        throw syntaxError('catalog integrations must be comma-separated', separator.index)
+      }
+      if (tokenMatches(lexer.peek(), 'punctuator', ']')) {
+        throw syntaxError('catalog must not contain a trailing comma', lexer.peek().index)
+      }
     }
   }
-  expectToken(lexer, 'punctuator', ']', 'catalog array is not closed')
+  const trailing = lexer.next()
+  if (trailing.type !== 'eof') throw syntaxError('catalog must end immediately after the JSON array', trailing.index)
   return Object.freeze(integrations)
-}
-
-const releasedIntegrationDeclarationTokens = Object.freeze([
-  ['identifier', 'export'],
-  ['identifier', 'const'],
-  ['identifier', 'releasedIntegrations'],
-  ['punctuator', '='],
-  ['identifier', 'dccIntegrations'],
-  ['punctuator', '.'],
-  ['identifier', 'filter'],
-  ['punctuator', '('],
-  ['punctuator', '('],
-  ['punctuator', '{'],
-  ['identifier', 'dccType'],
-  ['punctuator', '}'],
-  ['punctuator', ')'],
-  ['punctuator', '='],
-  ['punctuator', '>'],
-  ['identifier', 'dccType'],
-  ['punctuator', ')'],
-])
-
-const validateCatalogDeclarationBoundary = (lexer) => {
-  if (tokenMatches(lexer.peek(), 'punctuator', ';')) lexer.next()
-  for (const [type, value] of releasedIntegrationDeclarationTokens) {
-    expectToken(
-      lexer,
-      type,
-      value,
-      'catalog declaration must end before the frozen releasedIntegrations declaration',
-    )
-  }
-  if (tokenMatches(lexer.peek(), 'punctuator', ';')) lexer.next()
-  expectToken(lexer, 'identifier', 'const', 'releasedIntegrations must be followed by repositoryUrl')
-  expectToken(lexer, 'identifier', 'repositoryUrl', 'releasedIntegrations must be followed by repositoryUrl')
 }
 
 export const loadIntegrationCatalog = (path) => {
   const source = readFileSync(path, 'utf8')
-  const firstDeclaration = source.indexOf(declaration)
-  if (firstDeclaration === -1 || firstDeclaration !== source.lastIndexOf(declaration)) {
-    throw new Error('Expected exactly one DCC integration catalog declaration')
-  }
-  const lexer = new CatalogLexer(source)
-  locateCatalogDeclaration(lexer)
-  const integrations = parseCatalog(lexer)
-  validateCatalogDeclarationBoundary(lexer)
-  return integrations
+  return parseCatalog(new CatalogLexer(source))
 }
