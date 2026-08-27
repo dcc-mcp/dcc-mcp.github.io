@@ -11,7 +11,12 @@ const fixtureRoot = mkdtempSync(join(tmpdir(), 'dcc-mcp-site-validator-'))
 try {
   cpSync(join(root, 'docs'), join(fixtureRoot, 'docs'), { recursive: true })
   mkdirSync(join(fixtureRoot, 'scripts'))
-  for (const file of ['integration-catalog-reader.mjs', 'site-identity-contract.mjs', 'validate-site.mjs']) {
+  for (const file of [
+    'integration-catalog-reader.mjs',
+    'site-identity-contract.mjs',
+    'validate-integration-identity.mjs',
+    'validate-site.mjs',
+  ]) {
     cpSync(join(root, 'scripts', file), join(fixtureRoot, 'scripts', file))
   }
 
