@@ -46,7 +46,7 @@
 - [Blender](https://dcc-mcp.github.io/zh/control/blender)
 - [Cinema 4D](https://dcc-mcp.github.io/zh/control/cinema-4d)
 - [Cache Inspector](https://dcc-mcp.github.io/zh/control/cache-inspector)
-- [ComfyUI](https://dcc-mcp.github.io/zh/control/comfyui)
+- [ComfyUI MCP：本地游戏 UI、透明 PNG 与 GLB 配方](https://dcc-mcp.github.io/zh/control/comfyui)：源码包含 SD1.5、SDXL、Klein 4B、Z-Image、Qwen-Image、BiRefNet、Hunyuan3D、TRELLIS.2 和 Pixal3D；按硬件与许可选择后预检。截至 2026-09-05，公开包 0.1.4 尚不包含这些配方，需确认实时实例的 game-assets Skill；GPU 画质尚未验证。 ComfyUI 不在线时先说明状态、提供启动配置或安装方案并等待授权；授权后完成配置与验证，已有同范围授权直接沿用。
 - [Flow Production Tracking](https://dcc-mcp.github.io/zh/control/flow-production-tracking)
 - [FreeCAD](https://dcc-mcp.github.io/zh/control/freecad)
 - [GIMP](https://dcc-mcp.github.io/zh/control/gimp)

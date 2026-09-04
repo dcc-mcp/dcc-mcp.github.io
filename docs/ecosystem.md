@@ -45,7 +45,7 @@ adapter repository as the source of truth for installation and host details.
 - [After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) — Adobe After Effects.
 - [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) — Blender add-on and embedded server.
 - [Cinema 4D](https://github.com/dcc-mcp/dcc-mcp-cinema4d) — Typed headless document, primitive, interchange, and render automation.
-- [ComfyUI](https://github.com/dcc-mcp/dcc-mcp-comfyui) — Live node-contract validation, bounded queue execution, normalized job status, and artifact retrieval through the local REST API.
+- [ComfyUI](https://github.com/dcc-mcp/dcc-mcp-comfyui) — Live node-contract validation, bounded queue execution and artifact retrieval. The [ComfyUI MCP guide](/control/comfyui) covers local game UI, transparent PNG and Pixal3D/PBR GLB recipes, including source-versus-release availability.
 - [FreeCAD](https://github.com/dcc-mcp/dcc-mcp-freecad) — Parametric CAD modeling, topology validation, and mesh interchange.
 - [GIMP](https://github.com/dcc-mcp/dcc-mcp-gimp) — GIMP 3.
 - [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) — Godot Engine and 2D game-authoring Skills.
@@ -86,6 +86,8 @@ adapter repository as the source of truth for installation and host details.
 
 ## Generation services
 
+For local generation, see the [ComfyUI game-asset workflow](/control/comfyui).
+
 - [Hunyuan 3D](https://github.com/dcc-mcp/dcc-ai-hunyuan3d) — Text and image to 3D generation.
 - [OpenAI Image](https://github.com/dcc-mcp/dcc-ai-openai-image) — Image generation and editing for DCC texture workflows.
 - [Tripo 3D](https://github.com/dcc-mcp/dcc-ai-tripo3d) — Text, image, and multiview to 3D generation.
@@ -107,6 +109,14 @@ adapter repository as the source of truth for installation and host details.
 - [adobepy](https://github.com/dcc-mcp/adobepy) — Shared Adobe desktop communication runtime.
 
 ## Organization and discovery surfaces
+
+Additional public adapter repositories are listed below. Check each repository
+and the installed CLI catalog for availability; a public repository alone does
+not establish a released host identifier.
+
+- [OBS Studio](https://github.com/dcc-mcp/dcc-mcp-obs) — Native OBS plugin with typed DCC-MCP control.
+- [LiquiGen](https://github.com/dcc-mcp/dcc-mcp-liquigen) — Typed node-graph automation and Unreal export validation.
+- [Epic Games Launcher and Fab](https://github.com/dcc-mcp/dcc-mcp-epic) — Local Epic Games Launcher, Fab and Unreal adapter.
 
 - [Official website source](https://github.com/dcc-mcp/dcc-mcp.github.io) — Shared documentation, GEO metadata, application-control guides, and showcases.
 - [Agent plugins](https://github.com/dcc-mcp/dcc-mcp-agent-plugins) — Canonical DCC-MCP Skills and plugin packages for supported agent clients.

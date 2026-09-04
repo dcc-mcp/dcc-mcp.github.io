@@ -573,6 +573,26 @@ for (const { slug, name, repository, dccType, marketplacePackage } of integratio
   const chineseGuide = readFileSync(join(dist, 'zh', 'control', `${slug}.html`), 'utf8')
   validateControlEntities(englishGuide, 'en', { slug, name, repository, dccType, marketplacePackage })
   validateControlEntities(chineseGuide, 'zh', { slug, name, repository, dccType, marketplacePackage })
+  if (slug === 'comfyui') {
+    for (const [language, html, guide] of [
+      ['English', englishGuide, 'selection-guide.en.md'],
+      ['Chinese', chineseGuide, 'selection-guide.md'],
+    ]) {
+      // Search entities must survive without scripts, metadata or link attributes.
+      const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? ''
+      const text = main.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/g, '').replace(/<[^>]+>/g, ' ')
+      for (const entity of ['comfyui-game-assets', 'SD1.5', 'SDXL', 'FLUX.2 Klein 4B', 'Z-Image Turbo', 'Qwen-Image 2512', 'BiRefNet', 'Hunyuan3D 2', 'TRELLIS.2', 'Pixal3D', 'PNG', 'GLB']) {
+        if (!text.includes(entity)) throw new Error(`${language} ComfyUI guide is missing visible game-asset entity: ${entity}`)
+      }
+      const guideUrl = `https://github.com/dcc-mcp/dcc-mcp-comfyui/blob/main/src/dcc_mcp_comfyui/skills/comfyui-game-assets/references/${guide}`
+      if (!main.includes(`href="${guideUrl}"`)) throw new Error(`${language} ComfyUI guide is missing its localized setup source`)
+    }
+    for (const llms of llmsFiles) {
+      if (!['Pixal3D', 'BiRefNet', 'PNG', 'GLB'].every((entity) => llms.includes(entity))) {
+        throw new Error('An llms file is missing ComfyUI game-asset entities')
+      }
+    }
+  }
   for (const [label, html, localePath, question] of [
     ['English', englishGuide, `control/${slug}`, `control ${name}`],
     ['Chinese', chineseGuide, `zh/control/${slug}`, `控制 ${name}`],

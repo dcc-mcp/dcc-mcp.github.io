@@ -105,7 +105,7 @@ The canonical hub is https://dcc-mcp.github.io/use-cases. Direct guides are avai
 - Blender: https://dcc-mcp.github.io/control/blender
 - Cinema 4D: https://dcc-mcp.github.io/control/cinema-4d
 - Cache Inspector: https://dcc-mcp.github.io/control/cache-inspector
-- ComfyUI: https://dcc-mcp.github.io/control/comfyui
+- ComfyUI MCP: https://dcc-mcp.github.io/control/comfyui — Local game UI, transparent PNG and GLB recipes in adapter source: SD1.5, SDXL, FLUX.2 Klein 4B, Z-Image Turbo, Qwen-Image 2512, BiRefNet, Hunyuan3D 2, TRELLIS.2 and Pixal3D. Inspect hardware and installed models, offer suitable options, honor the user's choice, preflight nodes/models, submit one job and verify its artifacts. No automatic model download or guaranteed VRAM/quality. As of 2026-09-05, published 0.1.4 predates the game-assets Skill; check live tool discovery. Setup and model licenses: https://github.com/dcc-mcp/dcc-mcp-comfyui/blob/main/src/dcc_mcp_comfyui/skills/comfyui-game-assets/references/selection-guide.en.md If ComfyUI is offline, explain the state, offer a concrete startup/configuration or installation plan and wait for authorization before downloads or changes. After approval, complete setup, reconnect, discover tools, preflight the selected recipe and perform the agreed verification. Reuse existing authorization; recipe selection alone does not authorize installation.
 - Flow Production Tracking: https://dcc-mcp.github.io/control/flow-production-tracking
 - FreeCAD: https://dcc-mcp.github.io/control/freecad
 - GIMP: https://dcc-mcp.github.io/control/gimp

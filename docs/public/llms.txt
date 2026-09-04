@@ -46,7 +46,7 @@ Universal install: `npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --
 - [Blender](https://dcc-mcp.github.io/control/blender)
 - [Cinema 4D](https://dcc-mcp.github.io/control/cinema-4d)
 - [Cache Inspector](https://dcc-mcp.github.io/control/cache-inspector)
-- [ComfyUI](https://dcc-mcp.github.io/control/comfyui)
+- [ComfyUI MCP: local game UI, transparent PNG and GLB recipes](https://dcc-mcp.github.io/control/comfyui): source includes SD1.5, SDXL, Klein 4B, Z-Image, Qwen-Image, BiRefNet, Hunyuan3D, TRELLIS.2 and Pixal3D; choose by hardware and license, then preflight. As of 2026-09-05, published 0.1.4 predates these recipes; confirm the live game-assets Skill. GPU quality is unverified. If ComfyUI is offline, explain the state, offer a startup/configuration or installation plan and wait for authorization; after approval, complete setup and verification, reusing prior approval for the same scope.
 - [Flow Production Tracking](https://dcc-mcp.github.io/control/flow-production-tracking)
 - [FreeCAD](https://dcc-mcp.github.io/control/freecad)
 - [GIMP](https://dcc-mcp.github.io/control/gimp)
