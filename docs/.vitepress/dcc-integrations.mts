@@ -23,6 +23,33 @@ const repositoryUrl = (integration: DccIntegration) =>
 
 export function renderControlGuide(integration: DccIntegration, language: 'en' | 'zh') {
   const released = Boolean(integration.dccType)
+  const gameAssets = integration.slug !== 'comfyui' ? '' : language === 'zh'
+    ? `## 可以用 ComfyUI MCP 免费生成本地游戏素材吗？
+
+可以。带有 \`comfyui-game-assets\` Skill 的适配器源码支持游戏 UI 插画、图标、透明 PNG 和 GLB 道具。图片方案包括 SD1.5、SDXL、FLUX.2 Klein 4B、Z-Image Turbo、Qwen-Image 2512；BiRefNet 用于去背景；Hunyuan3D 2 输出无贴图形状，TRELLIS.2 和 Pixal3D 输出 PBR 贴图网格。
+
+先让 Agent 检查已装模型和空闲显存，比较两三个合适方案，再由用户选择。已有选择直接沿用。下载模型、升级 ComfyUI 和开始生成都应遵循用户已授权的范围。较小显卡可先比较 SD1.5 草稿方案；权重体积不能作为峰值显存保证。免费本地生成仍需遵守各模型及依赖的许可。
+
+ComfyUI 不在线时，Agent 先说明连接状态，提供启动/配置已有安装或安装缺失组件的具体方案，并等待用户授权。授权后完成配置、连接与工具发现、配方预检及约定的最小验证；已有授权直接沿用。安装成功不等于已生成素材。[安装与授权流程](https://github.com/dcc-mcp/dcc-mcp-comfyui/blob/main/install.md#offline-host-handoff-and-authorization)。
+
+截至 2026-09-05，这批配方已合并到源码，公开包 0.1.4 尚未包含。先发现并描述实时实例的工具，确认能找到 \`comfyui-game-assets\`。节点预检和 CPU 测试不等于 GPU 推理或画质验收；生成后仍需检查透明边缘、文字、拓扑、材质和引擎导入。
+
+- [适配器使用与版本指引](https://github.com/dcc-mcp/dcc-mcp-comfyui/blob/main/README_zh.md)
+- [本地方案选择、Pixal3D、安装与 OOM 指引](https://github.com/dcc-mcp/dcc-mcp-comfyui/blob/main/src/dcc_mcp_comfyui/skills/comfyui-game-assets/references/selection-guide.md)
+`
+    : `## Can ComfyUI MCP generate free local game assets?
+
+Yes. Adapter source with the \`comfyui-game-assets\` Skill supports game UI artwork, icons, transparent PNG assets and GLB props. Image recipes include SD1.5, SDXL, FLUX.2 Klein 4B, Z-Image Turbo and Qwen-Image 2512. BiRefNet removes backgrounds; Hunyuan3D 2 produces untextured shapes; TRELLIS.2 and Pixal3D produce PBR textured meshes.
+
+Have the agent inspect installed models and free VRAM, compare two or three suitable recipes and let the user choose. Reuse an existing choice. Downloads, ComfyUI upgrades and generation should follow the user's authorized scope. For smaller GPUs, compare the SD1.5 draft workflow first; weight size does not guarantee peak memory fit. Local generation remains subject to model and dependency licenses.
+
+If ComfyUI is offline, the agent explains the connection state, offers a concrete startup/configuration or installation plan and waits for authorization. After approval, it completes setup, connection and tool discovery, recipe preflight and the agreed minimal verification. Existing authorization is reused. Installation alone is not asset generation. See the [installation and authorization flow](https://github.com/dcc-mcp/dcc-mcp-comfyui/blob/main/install.md#offline-host-handoff-and-authorization).
+
+As of 2026-09-05, these recipes are merged in source; the published 0.1.4 package predates them. Discover and describe the live instance's tools to confirm \`comfyui-game-assets\` is present. Node preflight and CPU tests do not establish GPU inference or visual quality. Review alpha edges, lettering, topology, materials and engine import after generation.
+
+- [Adapter usage and version guidance](https://github.com/dcc-mcp/dcc-mcp-comfyui)
+- [Local recipe selection, Pixal3D, setup and OOM guidance](https://github.com/dcc-mcp/dcc-mcp-comfyui/blob/main/src/dcc_mcp_comfyui/skills/comfyui-game-assets/references/selection-guide.en.md)
+`
   if (language === 'zh') {
     const availability = integration.marketplacePackage
       ? `这是 Host-neutral Marketplace Skill，不是独立适配器。使用 \`dcc-mcp-cli marketplace install ${integration.marketplacePackage} --dcc <实际-host> --reload\` 将它安装到具体 DCC；\`any\` 不是安装目录。`
@@ -41,6 +68,8 @@ export function renderControlGuide(integration: DccIntegration, language: 'en' |
 
 ${cliSection}
 ${vendorCase}
+
+${gameAssets}
 
 ## AI 可以在 ${integration.name} 中做什么？
 
@@ -99,6 +128,8 @@ If you mean an MCP-compatible AI agent operating a live ${integration.name} sess
 
 ${cliSection}
 ${vendorCase}
+
+${gameAssets}
 
 ## What can an AI agent do in ${integration.name}?
 

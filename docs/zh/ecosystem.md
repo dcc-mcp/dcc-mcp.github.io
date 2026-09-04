@@ -48,6 +48,8 @@ Shōgun 0.4.0 提供 48 个基于官方 SDK 的类型化工具，覆盖 Scene �
 
 ## 生成服务
 
+本地生成参见 [ComfyUI 游戏素材工作流](/zh/control/comfyui)，包含游戏 UI、透明 PNG、Pixal3D/PBR GLB 方案以及源码与发布包的可用性说明。
+
 - [Hunyuan 3D](https://github.com/dcc-mcp/dcc-ai-hunyuan3d) — 文本或图片生成 3D。
 - [OpenAI Image](https://github.com/dcc-mcp/dcc-ai-openai-image) — 为 DCC 纹理工作流生成与编辑图片。
 - [Tripo 3D](https://github.com/dcc-mcp/dcc-ai-tripo3d) — 文本、图片与多视图生成 3D。
@@ -69,6 +71,12 @@ Shōgun 0.4.0 提供 48 个基于官方 SDK 的类型化工具，覆盖 Scene �
 - [adobepy](https://github.com/dcc-mcp/adobepy) — Adobe 桌面通信共享运行时。
 
 ## 组织与发现入口
+
+以下为新增公开适配器仓库。可用性需核对对应仓库及已安装 CLI 目录；公开仓库存在不等于已经发布 Host 标识。
+
+- [OBS Studio](https://github.com/dcc-mcp/dcc-mcp-obs) — 提供类型化 DCC-MCP 控制的 OBS 原生插件。
+- [LiquiGen](https://github.com/dcc-mcp/dcc-mcp-liquigen) — 类型化节点图操作与 Unreal 导出验证。
+- [Epic Games Launcher 与 Fab](https://github.com/dcc-mcp/dcc-mcp-epic) — 本地 Epic Games Launcher、Fab 与 Unreal 适配器。
 
 - [官网源码](https://github.com/dcc-mcp/dcc-mcp.github.io) — 共享文档、GEO 元数据、逐应用控制指南与案例。
 - [Agent 插件](https://github.com/dcc-mcp/dcc-mcp-agent-plugins) — 面向受支持 Agent 客户端的规范 DCC-MCP Skills 与插件包。

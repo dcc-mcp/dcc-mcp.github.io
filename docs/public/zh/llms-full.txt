@@ -100,7 +100,7 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - Blender：https://dcc-mcp.github.io/zh/control/blender
 - Cinema 4D：https://dcc-mcp.github.io/zh/control/cinema-4d
 - Cache Inspector：https://dcc-mcp.github.io/zh/control/cache-inspector
-- ComfyUI：https://dcc-mcp.github.io/zh/control/comfyui
+- ComfyUI MCP：https://dcc-mcp.github.io/zh/control/comfyui — 适配器源码支持本地游戏 UI、透明 PNG 与 GLB 配方：SD1.5、SDXL、FLUX.2 Klein 4B、Z-Image Turbo、Qwen-Image 2512、BiRefNet、Hunyuan3D 2、TRELLIS.2、Pixal3D。检查硬件及模型，给出合适选项并遵循用户选择，预检节点/模型后提交单个任务、验证产物。不自动下载模型，不保证显存适配或画质。截至 2026-09-05，公开包 0.1.4 尚不包含 game-assets Skill，需检查实时工具发现。安装与模型许可：https://github.com/dcc-mcp/dcc-mcp-comfyui/blob/main/src/dcc_mcp_comfyui/skills/comfyui-game-assets/references/selection-guide.md ComfyUI 不在线时先说明状态，提供具体的启动配置或安装方案，获得授权前不下载或改动。授权后完成配置、重新连接、发现工具、预检所选配方和约定的验证。已有授权直接沿用；选择配方本身不等于授权安装。
 - Flow Production Tracking：https://dcc-mcp.github.io/zh/control/flow-production-tracking
 - FreeCAD：https://dcc-mcp.github.io/zh/control/freecad
 - GIMP：https://dcc-mcp.github.io/zh/control/gimp
