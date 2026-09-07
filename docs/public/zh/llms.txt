@@ -25,7 +25,9 @@
 - [dcc-mcp-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-creator)：创建或现代化 DCC 适配器/运行时，或无需 GitHub 的内部非 DCC standalone MCP 服务。
 - [dcc-mcp-skills-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator)：创建、验证或改进 DCC 专项 Skill 包。
 
-通用安装：`npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`
+通用安装：`npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`
+
+使用 `npx --yes skills@1.5.23 update -p -y` 更新项目 Skill，或用 `npx --yes skills@1.5.23 update -g -y` 更新全局安装。先运行 `dcc-mcp-cli update check` 检查 CLI；只有用户同意本地变更后才运行 `dcc-mcp-cli update apply`。无人值守更新不要附加 `--force`。
 
 ## 搜索别名与直接答案
 
@@ -35,9 +37,9 @@
 - [Unity 与团结 AI（Tuanjie AI）](https://dcc-mcp.github.io/zh/control/unity)：通过 `unity-tuanjie-ai` 检查原生 Codely CustomTool 目录；登录、积分、下载与恢复由团结软件包负责。
 - [Unreal Engine 官方 MCP](https://dcc-mcp.github.io/zh/control/unreal-engine)：桥接 Epic 官方 MCP toolset，不修改工具名称与 schema。
 
-## 当前发布集成
+## 当前 Core 与 CLI 路由
 
-`dcc-mcp-cli dcc-types` 当前提供 35 个适配器标识：`3dsmax`、`aftereffects`、`blender`、`c4d`、`comfyui`、`freecad`、`gimp`、`godot`、`houdini`、`illustrator`、`katana`、`krita`、`mari`、`marmoset`、`material-maker`、`maya`、`mobu`、`nuke`、`openscad`、`openusd`、`photoshop`、`powerpoint`、`premiere`、`renderdoc`、`shotgrid`、`shogun`、`sketchup`、`substance3d_designer`、`substance3d_painter`、`tiled`、`touchdesigner`、`unity`、`unreal`、`wwise`、`zbrush`。Cache Inspector 是 Host-neutral Marketplace Skill，不是适配器标识。同时支持工作室自定义 Host 标识。
+DCC-MCP Core 0.20.23 提供 39 个规范路由：38 个项目自有应用路由（`3dsmax`、`aftereffects`、`blender`、`c4d`、`comfyui`、`freecad`、`gimp`、`godot`、`houdini`、`illustrator`、`katana`、`krita`、`liquigen`、`mari`、`marmoset`、`material-maker`、`maya`、`mobu`、`nuke`、`obs`、`office`、`openscad`、`openusd`、`photoshop`、`powerpoint`、`premiere`、`renderdoc`、`shotgrid`、`shogun`、`sketchup`、`substance3d_designer`、`substance3d_painter`、`tiled`、`touchdesigner`、`unity`、`unreal`、`wwise`、`zbrush`），以及外部只读 `autodesk-help` 连接器。Cache Inspector 是 Host-neutral Marketplace Skill，不是应用路由。SpeedTree 仍是源码预览，不是已发布路由。运行 `dcc-mcp-cli dcc-types` 核对本机目录；同时支持工作室自定义 Host 标识。
 
 ## 逐应用 AI 控制指南
 
@@ -55,12 +57,15 @@
 - [Illustrator](https://dcc-mcp.github.io/zh/control/illustrator)
 - [Katana](https://dcc-mcp.github.io/zh/control/katana)
 - [Krita](https://dcc-mcp.github.io/zh/control/krita)
+- [LiquiGen](https://dcc-mcp.github.io/zh/control/liquigen)
 - [Mari](https://dcc-mcp.github.io/zh/control/mari)
 - [Marmoset Toolbag](https://dcc-mcp.github.io/zh/control/marmoset-toolbag)
 - [Material Maker](https://dcc-mcp.github.io/zh/control/material-maker)
 - [Maya](https://dcc-mcp.github.io/zh/control/maya)
 - [MotionBuilder](https://dcc-mcp.github.io/zh/control/motionbuilder)
 - [Nuke](https://dcc-mcp.github.io/zh/control/nuke)
+- [OBS Studio](https://dcc-mcp.github.io/zh/control/obs-studio)
+- [Microsoft Office](https://dcc-mcp.github.io/zh/control/office)
 - [OpenUSD](https://dcc-mcp.github.io/zh/control/openusd)
 - [OpenSCAD](https://dcc-mcp.github.io/zh/control/openscad)
 - [Photoshop](https://dcc-mcp.github.io/zh/control/photoshop)
@@ -68,6 +73,7 @@
 - [Premiere Pro](https://dcc-mcp.github.io/zh/control/premiere-pro)
 - [RenderDoc](https://dcc-mcp.github.io/zh/control/renderdoc)
 - [SketchUp](https://dcc-mcp.github.io/zh/control/sketchup)
+- [SpeedTree 源码预览](https://dcc-mcp.github.io/zh/control/speedtree)：没有 tag、GitHub Release 或 Core 0.20.23 路由。一次真实 ST9 交接已在 Unreal Engine 5.5.4 中验证一棵具有 3 个 LOD、修正后材质/UV 绑定与 1,234.383705 cm 网格高度的棕榈树；碰撞比例与动态风仍未验收。
 - [Shōgun](https://dcc-mcp.github.io/zh/control/shogun)
 - [Substance 3D Designer](https://dcc-mcp.github.io/zh/control/substance-3d-designer)
 - [Substance 3D Painter](https://dcc-mcp.github.io/zh/control/substance-3d-painter)
@@ -78,7 +84,7 @@
 - [Wwise](https://dcc-mcp.github.io/zh/control/wwise)
 - [ZBrush](https://dcc-mcp.github.io/zh/control/zbrush)
 
-公开指南与当前 35 个发布标识一致。操作前检查 `dcc-mcp-cli dcc-types` 与对应适配器仓库。
+公开指南覆盖 38 个项目自有发布路由，并单独标明源码预览与 Marketplace Skill。操作前检查 `dcc-mcp-cli dcc-types` 与对应仓库。
 
 ## Marketplace CLI 契约
 

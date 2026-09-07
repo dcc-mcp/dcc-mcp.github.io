@@ -34,6 +34,10 @@ export const expectedGuideIdentities = Object.freeze([
   ['unity', 'Unity', 'dcc-mcp-unity', 'unity', null],
   ['unreal-engine', 'Unreal Engine', 'dcc-mcp-unreal', 'unreal', null],
   ['wwise', 'Wwise', 'dcc-mcp-wwise', 'wwise', null],
+  ['liquigen', 'LiquiGen', 'dcc-mcp-liquigen', 'liquigen', null],
+  ['obs-studio', 'OBS Studio', 'dcc-mcp-obs', 'obs', null],
+  ['office', 'Microsoft Office', 'dcc-mcp-office', 'office', null],
+  ['speedtree', 'SpeedTree', 'dcc-mcp-speedtree', null, null],
   ['zbrush', 'ZBrush', 'dcc-mcp-zbrush', 'zbrush', null],
 ].map(([slug, name, repository, dccType, marketplacePackage]) => Object.freeze({
   slug,
@@ -43,7 +47,8 @@ export const expectedGuideIdentities = Object.freeze([
   marketplacePackage,
 })))
 
-// Frozen from the official `dcc-mcp-cli 0.20.21 dcc-types` release catalog.
+// Project-owned routes frozen from the official `dcc-mcp-cli 0.20.23 dcc-types` release catalog.
+// The external read-only `autodesk-help` connector has no DCC-MCP repository guide.
 export const expectedReleasedDccTypes = Object.freeze(
   expectedGuideIdentities.flatMap(({ dccType }) => dccType ? [dccType] : []).sort(),
 )

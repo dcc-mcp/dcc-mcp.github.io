@@ -33,7 +33,7 @@ hero:
 </div>
 
 ```bash
-npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
+npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 ```
 
 ```text
@@ -73,9 +73,9 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">OFFICIAL INTEGRATIONS</p>
-      <h2 id="integrations-title">35 released adapter identifiers.</h2>
+      <h2 id="integrations-title">39 routes in the current CLI catalog.</h2>
     </div>
-    <p>The release catalog exposes 35 adapter identifiers. The tiles below highlight representative integrations; run <code>dcc-mcp-cli dcc-types</code> for the complete current installable list.</p>
+    <p>DCC-MCP Core 0.20.23 exposes 38 project-owned application identifiers plus the read-only <code>autodesk-help</code> connector. OBS Studio, LiquiGen, and Office are released routes. <a href="/control/speedtree">SpeedTree is a source preview</a>, not a released route. Run <code>dcc-mcp-cli dcc-types</code> to verify the catalog installed on this machine.</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>

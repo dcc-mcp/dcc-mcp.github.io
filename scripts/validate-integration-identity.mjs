@@ -16,7 +16,7 @@ export const validateIntegrationIdentity = (integrations) => {
   const extraGuideIdentities = [...guideIdentitySet].filter((identity) => !expectedGuideIdentitySet.has(identity)).sort()
   if (duplicateGuideIdentities.length || missingGuideIdentities.length || extraGuideIdentities.length) {
     throw new Error(
-      'Public guide identities do not match the frozen 36-guide contract: '
+      `Public guide identities do not match the frozen ${expectedGuideIdentities.length}-guide contract: `
       + `duplicates=[${[...new Set(duplicateGuideIdentities)].join(';')}] `
       + `missing=[${missingGuideIdentities.join(';')}] `
       + `extra=[${extraGuideIdentities.join(';')}]`,
@@ -37,7 +37,7 @@ export const validateIntegrationIdentity = (integrations) => {
   const extraReleasedDccTypes = [...releasedDccTypeSet].filter((dccType) => !expectedReleasedDccTypeSet.has(dccType)).sort()
   if (duplicateReleasedDccTypes.length || missingReleasedDccTypes.length || extraReleasedDccTypes.length) {
     throw new Error(
-      'Released host identifiers do not match dcc-mcp-cli 0.20.21: '
+      'Released project-owned host identifiers do not match dcc-mcp-cli 0.20.23: '
       + `duplicates=[${[...new Set(duplicateReleasedDccTypes)].join(',')}] `
       + `missing=[${missingReleasedDccTypes.join(',')}] `
       + `extra=[${extraReleasedDccTypes.join(',')}]`,

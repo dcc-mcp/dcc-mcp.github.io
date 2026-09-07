@@ -159,8 +159,12 @@ const validateControlEntities = (html, language, integration) => {
       || repositoryReferences[0].value !== repositoryUrl) {
     throw new Error(`${label} has the wrong graph-wide repository relationship`)
   }
-  const expectedIdentifier = integration.dccType ?? integration.marketplacePackage
-  const expectedIdentifierKind = integration.dccType ? 'DCC-MCP host identifier' : 'DCC-MCP Marketplace package'
+  const expectedIdentifier = integration.dccType ?? integration.marketplacePackage ?? integration.repository
+  const expectedIdentifierKind = integration.dccType
+    ? 'DCC-MCP host identifier'
+    : integration.marketplacePackage
+      ? 'DCC-MCP Marketplace package'
+      : 'Source preview repository'
   if (!expectedIdentifier
       || application.identifier?.['@type'] !== 'PropertyValue'
       || application.identifier.propertyID !== expectedIdentifierKind
@@ -220,6 +224,8 @@ const requiredFiles = [
   'showcase/touchdesigner-typed-operator-workflow.webp',
   'showcase/tiled-typed-map-workflow.webp',
   'showcase/material-maker-typed-material-workflow.webp',
+  'showcase/speedtree-to-unreal-engine.webp',
+  'showcase/speedtree-to-unreal-engine-provenance.json',
   'showcase/krita-typed-paint-workflow.webp',
   'showcase/gimp-typed-image-workflow.webp',
   'showcase/katana-typed-lookdev-workflow.webp',
@@ -296,10 +302,10 @@ for (const [name, html, href] of [
     throw new Error(`${name} is missing the one-prompt setup anchor`)
   }
 }
-const universalSkillCommand = 'npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp'
+const universalSkillCommand = 'npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp'
 const hasRenderedSkillInstall = (html) => [
   'npx',
-  'skills@1.5.22',
+  'skills@1.5.23',
   'dcc-mcp/dcc-mcp-agent-plugins',
   '--skill',
 ].every((part) => html.includes(part))
@@ -511,7 +517,7 @@ for (const file of [join(dist, 'ecosystem.html'), join(dist, 'zh', 'ecosystem.ht
 }
 
 const showcaseSource = readFileSync(join(root, 'docs', '.vitepress', 'theme', 'components', 'ShowcaseGallery.vue'), 'utf8')
-for (const asset of ['blender-lookdev.webp', 'marmoset-pbr-lookdev.webp', 'dcc-mcp-wwise-dark.svg', 'houdini-portal.png', 'hunyuan3d.webp', 'geospatial-city.webp', 'maya-architecture.jpg', 'kenney-assets.webp', 'cache-inspection-workflow.webp', 'cinema4d-typed-scene.webp', 'comfyui-typed-workflow.webp', 'freecad-game-ready-pipeline.webp', 'illustrator-typed-vector-workflow.webp', 'openscad-parametric-pipeline.webp', 'sketchup-typed-modeling.webp', 'shogun-typed-mocap-workflow.webp', 'touchdesigner-typed-operator-workflow.webp', 'tiled-typed-map-workflow.webp', 'material-maker-typed-material-workflow.webp', 'krita-typed-paint-workflow.webp', 'gimp-typed-image-workflow.webp', 'katana-typed-lookdev-workflow.webp', 'premiere-typed-edit-workflow.webp']) {
+for (const asset of ['blender-lookdev.webp', 'marmoset-pbr-lookdev.webp', 'dcc-mcp-wwise-dark.svg', 'houdini-portal.png', 'hunyuan3d.webp', 'geospatial-city.webp', 'maya-architecture.jpg', 'kenney-assets.webp', 'cache-inspection-workflow.webp', 'cinema4d-typed-scene.webp', 'comfyui-typed-workflow.webp', 'freecad-game-ready-pipeline.webp', 'illustrator-typed-vector-workflow.webp', 'openscad-parametric-pipeline.webp', 'sketchup-typed-modeling.webp', 'shogun-typed-mocap-workflow.webp', 'touchdesigner-typed-operator-workflow.webp', 'tiled-typed-map-workflow.webp', 'material-maker-typed-material-workflow.webp', 'speedtree-to-unreal-engine.webp', 'krita-typed-paint-workflow.webp', 'gimp-typed-image-workflow.webp', 'katana-typed-lookdev-workflow.webp', 'premiere-typed-edit-workflow.webp']) {
   if (!showcaseSource.includes(asset)) throw new Error(`Showcase gallery is missing ${asset}`)
 }
 if (!showcaseSource.includes('navigator.clipboard.writeText')) throw new Error('Showcase prompt copy support is missing')
@@ -554,6 +560,9 @@ for (const llms of llmsFiles) {
   }
   if (!llms.includes(installSopSchemaUrl)) {
     throw new Error('An llms file is missing the canonical Adapter Install SOP v1 schema')
+  }
+  for (const phrase of ['Core 0.20.23', '39 ', 'SpeedTree', 'dcc-mcp-cli update check', 'skills@1.5.23 update']) {
+    if (!llms.includes(phrase)) throw new Error(`An llms file is missing the current release or update contract: ${phrase}`)
   }
   for (const phrase of ['Maya MCP', '3ds Max MCP', 'Blender MCP', 'Maya CLI', '3ds Max CLI', 'Blender CLI', 'Tuanjie AI']) {
     if (!llms.includes(phrase)) throw new Error(`An llms file is missing the search alias: ${phrase}`)

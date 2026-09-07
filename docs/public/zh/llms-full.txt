@@ -18,7 +18,7 @@ Core 文档：https://dcc-mcp.github.io/dcc-mcp-core/zh/
 
 ## 推荐 Agent 路由
 
-1. 在 Agent 工作区运行 `npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`；如果 Host 只在启动时发现 Skill，再开启新会话。
+1. 在 Agent 工作区运行 `npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`；如果 Host 只在启动时发现 Skill，再开启新会话。使用 `npx --yes skills@1.5.23 update -p -y` 更新项目安装，或使用 `npx --yes skills@1.5.23 update -g -y` 更新全局安装；无人值守更新不要附加 `--force`。
 2. 使用 `dcc-mcp-cli health`、`dcc-mcp-cli dcc-types` 与 `dcc-mcp-cli list` 验证 CLI 和已连接 Host。
 3. CLI 缺失时，先解释官方安装器并获得许可。现有官方构建可在同意后运行 `dcc-mcp-cli update check` 与 `dcc-mcp-cli update apply`。
 4. 缩小搜索范围：`dcc-mcp-cli search --query <intent> --dcc-type <host>`。
@@ -49,9 +49,9 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 
 规范分发源是 https://github.com/dcc-mcp/dcc-mcp-agent-plugins。只安装匹配任务的 Skill。通用 `skills` 命令覆盖主流兼容 Agent Skills 的 Host；Codex、Claude Code、CodeBuddy、WorkBuddy、OpenClaw、ClawHub 与 Smithery 的原生入口仍由该仓库维护。Host 需要在启动时发现 Skill 时再开启新会话。
 
-## 当前适配器发布目录
+## 当前 Core 与 CLI 发布目录
 
-使用 `dcc-mcp-cli dcc-types` 作为实时事实来源。当前目录包含 35 个规范标识：
+使用 `dcc-mcp-cli dcc-types` 作为实时事实来源。DCC-MCP Core 0.20.23 提供 39 个规范路由：38 个项目自有应用路由，以及一个外部只读连接器。
 
 - `3dsmax` — Autodesk 3ds Max — https://github.com/dcc-mcp/dcc-mcp-3dsmax
 - `aftereffects` — Adobe After Effects — https://github.com/dcc-mcp/dcc-mcp-aftereffects
@@ -65,12 +65,15 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - `illustrator` — Adobe Illustrator — https://github.com/dcc-mcp/dcc-mcp-illustrator
 - `katana` — Foundry Katana — https://github.com/dcc-mcp/dcc-mcp-katana
 - `krita` — Krita — https://github.com/dcc-mcp/dcc-mcp-krita
+- `liquigen` — LiquiGen — https://github.com/dcc-mcp/dcc-mcp-liquigen
 - `mari` — Foundry Mari — https://github.com/dcc-mcp/dcc-mcp-mari
 - `maya` — Autodesk Maya — https://github.com/dcc-mcp/dcc-mcp-maya
 - `marmoset` — Marmoset Toolbag — https://github.com/dcc-mcp/dcc-mcp-marmoset
 - `material-maker` — Material Maker — https://github.com/dcc-mcp/dcc-mcp-material-maker
 - `mobu` — Autodesk MotionBuilder — https://github.com/dcc-mcp/dcc-mcp-mobu
 - `nuke` — Foundry Nuke — https://github.com/dcc-mcp/dcc-mcp-nuke
+- `obs` — OBS Studio — https://github.com/dcc-mcp/dcc-mcp-obs
+- `office` — Microsoft Office 共享运行时 — https://github.com/dcc-mcp/dcc-mcp-office
 - `openscad` — OpenSCAD — https://github.com/dcc-mcp/dcc-mcp-openscad
 - `openusd` — OpenUSD — https://github.com/dcc-mcp/dcc-mcp-openusd
 - `photoshop` — Adobe Photoshop — https://github.com/dcc-mcp/dcc-mcp-photoshop
@@ -88,8 +91,9 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - `unreal` — Unreal Engine — https://github.com/dcc-mcp/dcc-mcp-unreal
 - `wwise` — Audiokinetic Wwise — https://github.com/dcc-mcp/dcc-mcp-wwise
 - `zbrush` — Maxon ZBrush — https://github.com/dcc-mcp/dcc-mcp-zbrush
+- `autodesk-help` — Autodesk Product Help — https://developer.api.autodesk.com/knowledge/public/v1/mcp — 外部可选只读连接器，不是 DCC-MCP 适配器，也不提供应用写入能力
 
-支持未知与自定义工作室 Host。更广泛的生态目录可能包含尚未进入当前 CLI 发布目录的实验或独立适配器：https://dcc-mcp.github.io/zh/ecosystem
+支持未知与自定义工作室 Host。Cache Inspector 是 Host-neutral Marketplace Skill，不是应用路由。SpeedTree 仍是源码预览，没有 tag 或 GitHub Release，也未进入 Core 0.20.23 目录。更广泛的生态目录可能包含其他实验或独立发布的适配器：https://dcc-mcp.github.io/zh/ecosystem
 
 ## 逐应用 AI 控制指南
 
@@ -109,12 +113,15 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - Illustrator：https://dcc-mcp.github.io/zh/control/illustrator
 - Katana：https://dcc-mcp.github.io/zh/control/katana
 - Krita：https://dcc-mcp.github.io/zh/control/krita
+- LiquiGen：https://dcc-mcp.github.io/zh/control/liquigen
 - Mari：https://dcc-mcp.github.io/zh/control/mari
 - Marmoset Toolbag：https://dcc-mcp.github.io/zh/control/marmoset-toolbag
 - Material Maker：https://dcc-mcp.github.io/zh/control/material-maker
 - Maya：https://dcc-mcp.github.io/zh/control/maya
 - MotionBuilder：https://dcc-mcp.github.io/zh/control/motionbuilder
 - Nuke：https://dcc-mcp.github.io/zh/control/nuke
+- OBS Studio：https://dcc-mcp.github.io/zh/control/obs-studio
+- Microsoft Office：https://dcc-mcp.github.io/zh/control/office
 - OpenUSD：https://dcc-mcp.github.io/zh/control/openusd
 - OpenSCAD：https://dcc-mcp.github.io/zh/control/openscad
 - Photoshop：https://dcc-mcp.github.io/zh/control/photoshop
@@ -122,6 +129,7 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 - Premiere Pro：https://dcc-mcp.github.io/zh/control/premiere-pro
 - RenderDoc：https://dcc-mcp.github.io/zh/control/renderdoc
 - SketchUp：https://dcc-mcp.github.io/zh/control/sketchup
+- SpeedTree 源码预览：https://dcc-mcp.github.io/zh/control/speedtree — 没有 tag、GitHub Release 或 Core 0.20.23 路由。一次真实 ST9 交接已在 Unreal Engine 5.5.4 中验证一棵具有 3 个 LOD、修正后材质/UV 绑定与 1,234.383705 cm 网格高度的棕榈树；碰撞比例与动态风仍未验收。
 - Shōgun：https://dcc-mcp.github.io/zh/control/shogun
 - Substance 3D Designer：https://dcc-mcp.github.io/zh/control/substance-3d-designer
 - Substance 3D Painter：https://dcc-mcp.github.io/zh/control/substance-3d-painter

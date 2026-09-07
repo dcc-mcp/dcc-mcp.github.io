@@ -33,8 +33,8 @@ defineProps<{ language: 'en' | 'zh' }>()
         </template>
         <template v-else>
           {{ language === 'zh'
-            ? '这是公开适配器；请在操作前检查当前 CLI 发布目录。'
-            : 'This is a public adapter; check the current CLI release catalog before operating.' }}
+            ? '这是源码预览，不是当前 CLI 的已发布 Host。'
+            : 'This is a source preview, not a released host in the current CLI catalog.' }}
         </template>
       </p>
     </section>

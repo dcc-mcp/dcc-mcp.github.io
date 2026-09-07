@@ -20,6 +20,8 @@ const optionalStringFields = Object.freeze([
   'marketplacePackage',
   'vendorCaseEn',
   'vendorCaseZh',
+  'availabilityEn',
+  'availabilityZh',
 ])
 const taskFields = Object.freeze(['tasksEn', 'tasksZh'])
 const allowedFields = new Set([...requiredStringFields, ...optionalStringFields, ...taskFields])

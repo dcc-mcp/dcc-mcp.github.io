@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 import { dccIntegrations, releasedIntegrations, type DccIntegration } from './dcc-integrations.mts'
 
 const siteUrl = 'https://dcc-mcp.github.io/'
-const description = 'Maya MCP, Blender MCP, 3ds Max MCP, and a typed DCC CLI for creative applications.'
-const zhDescription = '面向创意应用的 Maya MCP、Blender MCP、3ds Max MCP 与类型化 DCC CLI。'
+const description = 'Typed MCP adapters, CLI, and Skills for Maya, Blender, 3ds Max, Unreal Engine, Unity, OBS Studio, and other creative applications.'
+const zhDescription = '面向 Maya、Blender、3ds Max、Unreal Engine、Unity、OBS Studio 等创意应用的类型化 MCP 适配器、CLI 与 Skills。'
 
 const controlPageUrl = (integration: DccIntegration, isZh: boolean) =>
   new URL(`${isZh ? 'zh/' : ''}control/${integration.slug}`, siteUrl).href
@@ -13,8 +13,12 @@ const repositoryUrl = (integration: DccIntegration) =>
 
 const integrationIdentifier = (integration: DccIntegration) => ({
   '@type': 'PropertyValue',
-  propertyID: integration.dccType ? 'DCC-MCP host identifier' : 'DCC-MCP Marketplace package',
-  value: integration.dccType ?? integration.marketplacePackage,
+  propertyID: integration.dccType
+    ? 'DCC-MCP host identifier'
+    : integration.marketplacePackage
+      ? 'DCC-MCP Marketplace package'
+      : 'Source preview repository',
+  value: integration.dccType ?? integration.marketplacePackage ?? integration.repository,
 })
 
 const homeStructuredData = (isZh: boolean) => ({

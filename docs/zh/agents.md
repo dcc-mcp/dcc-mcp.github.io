@@ -13,12 +13,36 @@ OpenCode、Cline、Roo Code、Kiro CLI、Amp 或其他兼容 Agent Skills 的 Ho
 所使用的工作区运行：
 
 ```bash
-npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
+npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 ```
 
 用户级安装可追加 `--global`。如果 Host 只在启动时发现 Skill，请开启新会话。
 原生插件市场和 Registry 安装方式仍保留在
 [`dcc-mcp-agent-plugins` 仓库](https://github.com/dcc-mcp/dcc-mcp-agent-plugins#install)。
+
+## 更新 Skill 与 CLI
+
+由原安装工具负责更新。通过 GitHub 安装的 Agent Skills 使用 `skills`
+锁文件：
+
+```bash
+# 更新当前工作区中受管理的副本。
+npx --yes skills@1.5.23 update -p -y
+
+# 更新用户级受管理副本。
+npx --yes skills@1.5.23 update -g -y
+```
+
+DCC-MCP CLI 需要单独检查；确认后再应用经过验证的更新：
+
+```bash
+dcc-mcp-cli update check
+dcc-mcp-cli update apply
+```
+
+OpenClaw 与 ClawHub 直接安装会记录各自的来源和更新方式，详见
+[更新已安装 Skill](https://github.com/dcc-mcp/dcc-mcp-agent-plugins#keep-installed-skills-current)。
+无人值守更新不要追加 `--force`；如果 Skill 被固定版本或有本地修改，应停下检查。
 
 ## 使用简短提示词
 

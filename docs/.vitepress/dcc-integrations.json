@@ -632,6 +632,85 @@
     ]
   },
   {
+    "slug": "liquigen",
+    "name": "LiquiGen",
+    "repository": "dcc-mcp-liquigen",
+    "dccType": "liquigen",
+    "summaryEn": "inspect LiquiGen node graphs, run bounded simulation controls, and validate VAT export for Unreal Engine",
+    "summaryZh": "检查 LiquiGen 节点图，执行有界模拟控制，并验证面向 Unreal Engine 的 VAT 导出",
+    "tasksEn": [
+      "inspect the current node graph and simulation settings",
+      "run one bounded simulation or graph operation",
+      "export and validate VAT assets before Unreal Engine handoff"
+    ],
+    "tasksZh": [
+      "检查当前节点图与模拟设置",
+      "执行一次范围明确的模拟或图操作",
+      "在交给 Unreal Engine 前导出并验证 VAT 资产"
+    ],
+    "availabilityEn": "LiquiGen is available as the `liquigen` route in the DCC-MCP Core 0.20.23 release catalog. Installation and host requirements remain in the adapter repository.",
+    "availabilityZh": "LiquiGen 已作为 `liquigen` 路由进入 DCC-MCP Core 0.20.23 发布目录。安装方式与宿主要求以适配器仓库为准。"
+  },
+  {
+    "slug": "obs-studio",
+    "name": "OBS Studio",
+    "repository": "dcc-mcp-obs",
+    "dccType": "obs",
+    "summaryEn": "inspect exact-process OBS scenes and sources and control recording through typed operations",
+    "summaryZh": "检查精确进程绑定的 OBS 场景与来源，并通过类型化操作控制录制",
+    "tasksEn": [
+      "inspect the bound OBS process, active scene, and sources",
+      "start or stop a recording through typed controls",
+      "verify recording state and the resulting output"
+    ],
+    "tasksZh": [
+      "检查绑定的 OBS 进程、当前场景与来源",
+      "通过类型化控制开始或停止录制",
+      "验证录制状态与生成的输出"
+    ],
+    "availabilityEn": "OBS Studio is available as the `obs` route in the DCC-MCP Core 0.20.23 release catalog. Installing the adapter does not install OBS Studio itself; follow the adapter's installation guide and verify a live instance.",
+    "availabilityZh": "OBS Studio 已作为 `obs` 路由进入 DCC-MCP Core 0.20.23 发布目录。安装适配器不会安装 OBS Studio 本体；请按适配器安装说明配置，并验证在线实例。"
+  },
+  {
+    "slug": "office",
+    "name": "Microsoft Office",
+    "repository": "dcc-mcp-office",
+    "dccType": "office",
+    "summaryEn": "inspect shared Office runtime capabilities and route supported document work to the owning application adapter",
+    "summaryZh": "检查 Office 共享运行时能力，并将受支持的文档工作路由到对应应用适配器",
+    "tasksEn": [
+      "inspect the registered Office runtime and supported application routes",
+      "prepare one bounded document operation through the owning adapter",
+      "verify the saved document or rendered output in the target application"
+    ],
+    "tasksZh": [
+      "检查已注册的 Office 运行时与受支持应用路由",
+      "通过对应适配器准备一次范围明确的文档操作",
+      "在目标应用中验证保存的文档或渲染结果"
+    ],
+    "availabilityEn": "The shared Office runtime is available as the `office` route in the DCC-MCP Core 0.20.23 release catalog. Application-specific support remains explicit; use the owning PowerPoint, Word, Excel, or Outlook repository for its current status.",
+    "availabilityZh": "Office 共享运行时已作为 `office` 路由进入 DCC-MCP Core 0.20.23 发布目录。各应用支持状态仍需分别确认；请以 PowerPoint、Word、Excel 或 Outlook 对应仓库为准。"
+  },
+  {
+    "slug": "speedtree",
+    "name": "SpeedTree",
+    "repository": "dcc-mcp-speedtree",
+    "summaryEn": "discover a licensed SpeedTree instance and use only capabilities exposed by its approved official command hook",
+    "summaryZh": "发现已授权的 SpeedTree 实例，并且只使用经批准的官方命令 Hook 所公开的能力",
+    "tasksEn": [
+      "bind the exact SpeedTree process and window before discovery",
+      "inspect the official capability catalog without guessing private APIs",
+      "export through an approved official path and validate downstream engine assets"
+    ],
+    "tasksZh": [
+      "在发现能力前绑定精确的 SpeedTree 进程与窗口",
+      "检查官方能力目录，不猜测私有 API",
+      "通过获准的官方路径导出，并验证下游引擎资产"
+    ],
+    "availabilityEn": "Source preview. The public adapter repository has merged its first implementation, but it has no tag or GitHub Release and is not in the DCC-MCP Core 0.20.23 release catalog. One real SpeedTree Modeler 10.1 to Unreal Engine 5.5.4 ST9 handoff verified three LODs, corrected material/UV bindings, and a 1,234.383705 cm mesh height; collision scale and dynamic wind remain unverified.",
+    "availabilityZh": "源码预览。公开适配器仓库已经合并首个实现，但尚无 tag 或 GitHub Release，也未进入 DCC-MCP Core 0.20.23 发布目录。一次真实 SpeedTree Modeler 10.1 到 Unreal Engine 5.5.4 的 ST9 交接验证了 3 个 LOD、修正后的材质/UV 绑定与 1,234.383705 cm 网格高度；碰撞比例与动态风仍未验收。"
+  },
+  {
     "slug": "zbrush",
     "name": "ZBrush",
     "repository": "dcc-mcp-zbrush",

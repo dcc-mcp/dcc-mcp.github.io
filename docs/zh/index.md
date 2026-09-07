@@ -33,7 +33,7 @@ hero:
 </div>
 
 ```bash
-npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
+npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 ```
 
 ```text
@@ -73,9 +73,9 @@ npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">官方集成</p>
-      <h2 id="integrations-title">35 个已发布适配器标识。</h2>
+      <h2 id="integrations-title">当前 CLI 目录提供 39 条路由。</h2>
     </div>
-    <p>当前发布目录提供 35 个适配器标识。下方卡片展示代表性集成；使用 <code>dcc-mcp-cli dcc-types</code> 查询完整的当前可安装列表。</p>
+    <p>DCC-MCP Core 0.20.23 提供 38 个项目自有应用标识，以及只读的 <code>autodesk-help</code> 连接器。OBS Studio、LiquiGen 与 Office 已进入发布目录；<a href="/zh/control/speedtree">SpeedTree 仍是源码预览</a>，不是已发布路由。运行 <code>dcc-mcp-cli dcc-types</code> 核对本机安装的实际目录。</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>

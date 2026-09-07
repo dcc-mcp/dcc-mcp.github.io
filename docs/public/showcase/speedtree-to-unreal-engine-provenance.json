@@ -1,0 +1,21 @@
+{
+  "schema": "dcc-showcase-provenance.v1",
+  "source_repository": "https://github.com/dcc-mcp/dcc-mcp-speedtree",
+  "source_repository_commit": "7d3136a344c12dcb0ba4d8c71d133a2140af0efe",
+  "source_repository_image": "docs/images/speedtree-to-unreal.png",
+  "source_repository_provenance": "docs/showcase-provenance.json",
+  "source_application": "SpeedTree Modeler 10.1.0",
+  "source_asset": "Palm_Desktop.spm",
+  "source_spm_sha256": "0714a3551742223caf48e6e0b4e48e75d0a006a3e17e54d66031bb1f549fe660",
+  "source_capture_sha256": "b5d7cfea524054c2ae3bb7a4b798971c9533afad1309ca3c415ca23f388cb2aa",
+  "target_application": "Unreal Engine 5.5.4",
+  "target_render_sha256": "2fecab763cee129c4fffc3c20df5a41192fc08c055f93005e641734c7f7bd581",
+  "target_kind": "ST9 mesh duplicate with native SpeedTreeMaster materials, refreshed instances, corrected Subsurface map and UV0 V flip across three LODs; all LOD vertex positions converted from feet to centimeters",
+  "dynamic_wind_verified": false,
+  "capture_composition": "Original image pixels embedded and clipped in a labeled SVG; no generative imagery.",
+  "source_composite_sha256": "1af9db81e04667c03d09e5625ff53cd7eb5613fe0cdee59140de42c3c8e76cfe",
+  "final_dimensions_verified": true,
+  "collision_scale_verified": false,
+  "final_mesh_height_cm": 1234.383705,
+  "website_derivative_sha256": "241032e159ef37d1c6a69ba5a656763bda185f1e8bb519401b9546738ea2c3e4"
+}
