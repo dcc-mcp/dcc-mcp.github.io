@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { expectedReleasedDccTypes } from './site-identity-contract.mjs'
 import { loadIntegrationCatalog } from './integration-catalog-reader.mjs'
 import { validateIntegrationIdentity } from './validate-integration-identity.mjs'
+import { validateSpeedTreeShowcaseProvenance } from './showcase-provenance.mjs'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const dist = process.env.DCC_MCP_VALIDATED_DIST_PATH ?? join(root, 'docs', '.vitepress', 'dist')
@@ -20,6 +21,27 @@ const integrations = validateIntegrationIdentity(
   ),
 )
 const releasedIntegrationCount = expectedReleasedDccTypes.length
+validateSpeedTreeShowcaseProvenance(
+  JSON.parse(readFileSync(
+    join(root, 'docs', 'public', 'showcase', 'speedtree-to-unreal-engine-provenance.json'),
+    'utf8',
+  )),
+  readFileSync(join(root, 'docs', 'public', 'showcase', 'speedtree-to-unreal-engine.webp')),
+)
+const mayaIntegration = integrations.find((integration) => integration.slug === 'maya')
+if (!mayaIntegration) throw new Error('Maya integration is missing')
+for (const [field, requiredTerms] of Object.entries({
+  summaryEn: ['AssetSync v2', 'Arnold'],
+  summaryZh: ['AssetSync v2', 'Arnold'],
+  availabilityEn: ['Core 0.20.25', '0.9.22', '0.9.26', 'PR #486'],
+  availabilityZh: ['Core 0.20.25', '0.9.22', '0.9.26', 'PR #486'],
+})) {
+  for (const term of requiredTerms) {
+    if (!mayaIntegration[field].includes(term)) {
+      throw new Error(`Maya ${field} must expose the merged ${term} capability`)
+    }
+  }
+}
 
 const parseStructuredData = (html, label) => {
   const scripts = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
@@ -159,9 +181,11 @@ const validateControlEntities = (html, language, integration) => {
       || repositoryReferences[0].value !== repositoryUrl) {
     throw new Error(`${label} has the wrong graph-wide repository relationship`)
   }
-  const expectedIdentifier = integration.dccType ?? integration.marketplacePackage ?? integration.repository
+  const expectedIdentifier = integration.dccType ?? integration.coreApplicationRoute ?? integration.marketplacePackage ?? integration.repository
   const expectedIdentifierKind = integration.dccType
     ? 'DCC-MCP host identifier'
+    : integration.coreApplicationRoute
+      ? 'DCC-MCP Core application route'
     : integration.marketplacePackage
       ? 'DCC-MCP Marketplace package'
       : 'Source preview repository'
@@ -561,7 +585,7 @@ for (const llms of llmsFiles) {
   if (!llms.includes(installSopSchemaUrl)) {
     throw new Error('An llms file is missing the canonical Adapter Install SOP v1 schema')
   }
-  for (const phrase of ['Core 0.20.23', '39 ', 'SpeedTree', 'dcc-mcp-cli update check', 'skills@1.5.23 update']) {
+  for (const phrase of ['Core 0.20.25', '37 ', 'SpeedTree', 'Tracy', 'dcc-mcp-cli update check', 'skills@1.5.23 update']) {
     if (!llms.includes(phrase)) throw new Error(`An llms file is missing the current release or update contract: ${phrase}`)
   }
   for (const phrase of ['Maya MCP', '3ds Max MCP', 'Blender MCP', 'Maya CLI', '3ds Max CLI', 'Blender CLI', 'Tuanjie AI']) {
@@ -577,11 +601,11 @@ for (const [file, prompt] of [
     throw new Error(`${file} is missing the universal Skill install and short prompt`)
   }
 }
-for (const { slug, name, repository, dccType, marketplacePackage } of integrations) {
+for (const { slug, name, repository, dccType, marketplacePackage, coreApplicationRoute } of integrations) {
   const englishGuide = readFileSync(join(dist, 'control', `${slug}.html`), 'utf8')
   const chineseGuide = readFileSync(join(dist, 'zh', 'control', `${slug}.html`), 'utf8')
-  validateControlEntities(englishGuide, 'en', { slug, name, repository, dccType, marketplacePackage })
-  validateControlEntities(chineseGuide, 'zh', { slug, name, repository, dccType, marketplacePackage })
+  validateControlEntities(englishGuide, 'en', { slug, name, repository, dccType, marketplacePackage, coreApplicationRoute })
+  validateControlEntities(chineseGuide, 'zh', { slug, name, repository, dccType, marketplacePackage, coreApplicationRoute })
   if (slug === 'comfyui') {
     for (const [language, html, guide] of [
       ['English', englishGuide, 'selection-guide.en.md'],

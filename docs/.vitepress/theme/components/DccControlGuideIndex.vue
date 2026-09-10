@@ -31,10 +31,15 @@ defineProps<{ language: 'en' | 'zh' }>()
             ? `当前发布 Host 标识：${integration.dccType}。`
             : `Current release host id: ${integration.dccType}.` }}
         </template>
+        <template v-else-if="integration.coreApplicationRoute">
+          {{ language === 'zh'
+            ? `当前 Core 共享应用路由：${integration.coreApplicationRoute}；它不属于发布 CLI 的 dcc-types 清单。`
+            : `Current Core shared application route: ${integration.coreApplicationRoute}; it is not part of the released CLI dcc-types list.` }}
+        </template>
         <template v-else>
           {{ language === 'zh'
-            ? '这是源码预览，不是当前 CLI 的已发布 Host。'
-            : 'This is a source preview, not a released host in the current CLI catalog.' }}
+            ? integration.catalogStatusZh ?? '这是源码预览，不是当前 CLI 的已发布 Host。'
+            : integration.catalogStatusEn ?? 'This is a source preview, not a released host in the current CLI catalog.' }}
         </template>
       </p>
     </section>

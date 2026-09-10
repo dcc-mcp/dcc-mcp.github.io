@@ -310,18 +310,20 @@
     "name": "Maya",
     "repository": "dcc-mcp-maya",
     "dccType": "maya",
-    "summaryEn": "inspect live scenes and automate modeling, rigging, materials, animation, and rendering",
-    "summaryZh": "检查在线场景，并自动化建模、绑定、材质、动画与渲染",
+    "summaryEn": "inspect live scenes; AssetSync v2 editable rigs, animation, groom, materials, and Arnold lookdev require dcc-mcp-maya 0.9.26 or newer",
+    "summaryZh": "检查在线场景；AssetSync v2 的可编辑绑定、动画、毛发、材质与 Arnold 外观开发需要 dcc-mcp-maya 0.9.26 或更高版本",
     "tasksEn": [
-      "inspect DAG nodes and scene state",
-      "create or edit geometry without replacing existing work",
-      "validate names, transforms, relationships, and output"
+      "inspect DAG nodes and scene state before checking the installed Maya adapter version",
+      "preserve native joints, animation curves, groom curves, textures, and materials",
+      "validate controller and constraint editability plus bounded Arnold output"
     ],
     "tasksZh": [
-      "检查 DAG 节点与场景状态",
-      "在不替换现有内容的前提下创建或编辑几何体",
-      "验证名称、变换、关系与输出"
-    ]
+      "检查 DAG 节点与场景状态，再核对已安装的 Maya 适配器版本",
+      "保留原生骨骼、动画曲线、毛发曲线、纹理与材质",
+      "验证控制器和约束的可编辑性，以及范围明确的 Arnold 输出"
+    ],
+    "availabilityEn": "Core 0.20.25 currently selects dcc-mcp-maya 0.9.22. Upgrade to dcc-mcp-maya 0.9.26 or newer before using the AssetSync v2 rig, groom, material, animation, and Arnold lookdev workflow merged in PR #486.",
+    "availabilityZh": "Core 0.20.25 当前选择 dcc-mcp-maya 0.9.22。使用 PR #486 合并的 AssetSync v2 绑定、毛发、材质、动画与 Arnold 外观开发工作流前，请先升级到 dcc-mcp-maya 0.9.26 或更高版本。"
   },
   {
     "slug": "motionbuilder",
@@ -648,8 +650,8 @@
       "执行一次范围明确的模拟或图操作",
       "在交给 Unreal Engine 前导出并验证 VAT 资产"
     ],
-    "availabilityEn": "LiquiGen is available as the `liquigen` route in the DCC-MCP Core 0.20.23 release catalog. Installation and host requirements remain in the adapter repository.",
-    "availabilityZh": "LiquiGen 已作为 `liquigen` 路由进入 DCC-MCP Core 0.20.23 发布目录。安装方式与宿主要求以适配器仓库为准。"
+    "availabilityEn": "LiquiGen is available as the `liquigen` route in the DCC-MCP Core 0.20.25 release catalog. Installation and host requirements remain in the adapter repository.",
+    "availabilityZh": "LiquiGen 已作为 `liquigen` 路由进入 DCC-MCP Core 0.20.25 发布目录。安装方式与宿主要求以适配器仓库为准。"
   },
   {
     "slug": "obs-studio",
@@ -668,14 +670,14 @@
       "通过类型化控制开始或停止录制",
       "验证录制状态与生成的输出"
     ],
-    "availabilityEn": "OBS Studio is available as the `obs` route in the DCC-MCP Core 0.20.23 release catalog. Installing the adapter does not install OBS Studio itself; follow the adapter's installation guide and verify a live instance.",
-    "availabilityZh": "OBS Studio 已作为 `obs` 路由进入 DCC-MCP Core 0.20.23 发布目录。安装适配器不会安装 OBS Studio 本体；请按适配器安装说明配置，并验证在线实例。"
+    "availabilityEn": "OBS Studio is available as the `obs` route in the DCC-MCP Core 0.20.25 release catalog. Installing the adapter does not install OBS Studio itself; follow the adapter's installation guide and verify a live instance.",
+    "availabilityZh": "OBS Studio 已作为 `obs` 路由进入 DCC-MCP Core 0.20.25 发布目录。安装适配器不会安装 OBS Studio 本体；请按适配器安装说明配置，并验证在线实例。"
   },
   {
     "slug": "office",
     "name": "Microsoft Office",
     "repository": "dcc-mcp-office",
-    "dccType": "office",
+    "coreApplicationRoute": "office",
     "summaryEn": "inspect shared Office runtime capabilities and route supported document work to the owning application adapter",
     "summaryZh": "检查 Office 共享运行时能力，并将受支持的文档工作路由到对应应用适配器",
     "tasksEn": [
@@ -688,8 +690,8 @@
       "通过对应适配器准备一次范围明确的文档操作",
       "在目标应用中验证保存的文档或渲染结果"
     ],
-    "availabilityEn": "The shared Office runtime is available as the `office` route in the DCC-MCP Core 0.20.23 release catalog. Application-specific support remains explicit; use the owning PowerPoint, Word, Excel, or Outlook repository for its current status.",
-    "availabilityZh": "Office 共享运行时已作为 `office` 路由进入 DCC-MCP Core 0.20.23 发布目录。各应用支持状态仍需分别确认；请以 PowerPoint、Word、Excel 或 Outlook 对应仓库为准。"
+    "availabilityEn": "The shared Office runtime is available as the `office` route in the DCC-MCP Core 0.20.25 release catalog. Application-specific support remains explicit; use the owning PowerPoint, Word, Excel, or Outlook repository for its current status.",
+    "availabilityZh": "Office 共享运行时已作为 `office` 路由进入 DCC-MCP Core 0.20.25 发布目录。各应用支持状态仍需分别确认；请以 PowerPoint、Word、Excel 或 Outlook 对应仓库为准。"
   },
   {
     "slug": "speedtree",
@@ -707,8 +709,105 @@
       "检查官方能力目录，不猜测私有 API",
       "通过获准的官方路径导出，并验证下游引擎资产"
     ],
-    "availabilityEn": "Source preview. The public adapter repository has merged its first implementation, but it has no tag or GitHub Release and is not in the DCC-MCP Core 0.20.23 release catalog. One real SpeedTree Modeler 10.1 to Unreal Engine 5.5.4 ST9 handoff verified three LODs, corrected material/UV bindings, and a 1,234.383705 cm mesh height; collision scale and dynamic wind remain unverified.",
-    "availabilityZh": "源码预览。公开适配器仓库已经合并首个实现，但尚无 tag 或 GitHub Release，也未进入 DCC-MCP Core 0.20.23 发布目录。一次真实 SpeedTree Modeler 10.1 到 Unreal Engine 5.5.4 的 ST9 交接验证了 3 个 LOD、修正后的材质/UV 绑定与 1,234.383705 cm 网格高度；碰撞比例与动态风仍未验收。"
+    "availabilityEn": "Source preview. The public adapter repository has merged its first implementation, but it has no tag or GitHub Release and is not in the DCC-MCP Core 0.20.25 release catalog. One real SpeedTree Modeler 10.1 to Unreal Engine 5.5.4 ST9 handoff verified three LODs, corrected material/UV bindings, and a 1,234.383705 cm mesh height; collision scale and dynamic wind remain unverified.",
+    "availabilityZh": "源码预览。公开适配器仓库已经合并首个实现，但尚无 tag 或 GitHub Release，也未进入 DCC-MCP Core 0.20.25 发布目录。一次真实 SpeedTree Modeler 10.1 到 Unreal Engine 5.5.4 的 ST9 交接验证了 3 个 LOD、修正后的材质/UV 绑定与 1,234.383705 cm 网格高度；碰撞比例与动态风仍未验收。"
+  },
+  {
+    "slug": "epic-games",
+    "name": "Epic Games Launcher and Fab",
+    "repository": "dcc-mcp-epic",
+    "summaryEn": "inspect installed Unreal Engine builds and Fab inventory, then plan bounded verified engine, asset, and project operations",
+    "summaryZh": "检查已安装的 Unreal Engine 与 Fab 资产清单，并规划有界、可验证的引擎、资产与项目操作",
+    "tasksEn": [
+      "inspect installed Unreal Engine manifests, projects, and local Fab inventory",
+      "prepare one read-before-write engine or free-asset operation through an approved provider",
+      "verify ownership, downloaded bytes, and Unreal project import evidence"
+    ],
+    "tasksZh": [
+      "检查已安装的 Unreal Engine 清单、项目与本地 Fab 资产库",
+      "通过已批准的提供方准备一次先读后写的引擎或免费资产操作",
+      "验证资产所有权、下载字节与 Unreal 项目导入证据"
+    ],
+    "availabilityEn": "Source preview. Version 0.2.0 exists on the repository's main branch, but the repository has no tag or GitHub Release and Epic is not a host route in the DCC-MCP Core 0.20.25 catalog. Engine installation remains plan-only without a verified native provider; login, CAPTCHA, purchases, and license acceptance stay human-owned.",
+    "availabilityZh": "源码预览。仓库 main 分支已有 0.2.0 源码，但没有 tag 或 GitHub Release，Epic 也不是 DCC-MCP Core 0.20.25 目录中的 Host 路由。缺少已验证原生提供方时，引擎安装仍只生成计划；登录、验证码、购买与许可接受继续由用户负责。"
+  },
+  {
+    "slug": "gaea",
+    "name": "Gaea",
+    "repository": "dcc-mcp-gaea",
+    "summaryEn": "inspect registered terrain templates, run bounded Build Swarm jobs, and verify heightmap and weightmap outputs",
+    "summaryZh": "检查已注册地形模板，运行有界 Build Swarm 任务，并验证高度图与权重图输出",
+    "tasksEn": [
+      "inspect a registered terrain graph and its bounded numeric overrides",
+      "plan or run one configured Build Swarm job without overwriting outputs",
+      "verify exported image dimensions, hashes, and the declared Unreal handoff extent"
+    ],
+    "tasksZh": [
+      "检查已注册地形图与有界数值覆写项",
+      "规划或运行一个不会覆盖输出的已配置 Build Swarm 任务",
+      "验证导出图像尺寸、哈希与声明的 Unreal 交接范围"
+    ],
+    "availabilityEn": "Source preview. The initial 0.1.0 implementation has no tag or GitHub Release and is not in the DCC-MCP Core 0.20.25 catalog. Real licensed Gaea builds, process-tree cancellation, terrain quality, and Unreal imports remain unverified.",
+    "availabilityZh": "源码预览。首个 0.1.0 实现没有 tag 或 GitHub Release，也未进入 DCC-MCP Core 0.20.25 目录。真实授权 Gaea 构建、进程树取消、地形质量与 Unreal 导入仍未验收。"
+  },
+  {
+    "slug": "marvelous-designer",
+    "name": "Marvelous Designer",
+    "repository": "dcc-mcp-marvelous-designer",
+    "summaryEn": "inspect garment patterns and run bounded project, pattern, simulation, save, and export operations through the documented Python API",
+    "summaryZh": "通过官方 Python API 检查服装纸样，并执行有界的项目、纸样、模拟、保存与导出操作",
+    "tasksEn": [
+      "inspect API availability and paginated pattern information",
+      "create a bounded rectangular pattern or run a limited synchronous simulation",
+      "save a new ZPRJ or verify OBJ, FBX, or Alembic artifacts in an empty output directory"
+    ],
+    "tasksZh": [
+      "检查 API 可用性与分页纸样信息",
+      "创建一个有界矩形纸样或运行有限步同步模拟",
+      "保存新的 ZPRJ，或在空输出目录中验证 OBJ、FBX、Alembic 产物"
+    ],
+    "availabilityEn": "Source preview. The initial 0.1.0 implementation has no tag or GitHub Release and is not in the DCC-MCP Core 0.20.25 catalog. No licensed Marvelous Designer host, Qt bootstrap, cloth simulation, or engine handoff has completed acceptance.",
+    "availabilityZh": "源码预览。首个 0.1.0 实现没有 tag 或 GitHub Release，也未进入 DCC-MCP Core 0.20.25 目录。真实授权 Marvelous Designer Host、Qt 启动、布料模拟与引擎交接均未完成验收。"
+  },
+  {
+    "slug": "openscreen",
+    "name": "OpenScreen",
+    "repository": "dcc-mcp-openscreen",
+    "summaryEn": "inspect recording sources and run typed bounded record and export operations without desktop UI automation",
+    "summaryZh": "检查录制来源，并在不使用桌面 UI 自动化的前提下执行类型化、有界的录制与导出操作",
+    "tasksEn": [
+      "inspect available OpenScreen recording sources",
+      "start one bounded recording through the configured executable",
+      "export and verify the requested recording artifact"
+    ],
+    "tasksZh": [
+      "检查可用的 OpenScreen 录制来源",
+      "通过已配置可执行文件启动一次有界录制",
+      "导出并验证请求的录制产物"
+    ],
+    "availabilityEn": "Source preview. The 0.1.0 repository has no tag or GitHub Release and is not in the DCC-MCP Core 0.20.25 catalog. Source tests do not establish live Windows recording acceptance; unsupported window selection remains owned by dcc-cua and ui-control.",
+    "availabilityZh": "源码预览。0.1.0 仓库没有 tag 或 GitHub Release，也未进入 DCC-MCP Core 0.20.25 目录。源码测试不能替代真实 Windows 录制验收；未支持的窗口选择仍由 dcc-cua 与 ui-control 负责。"
+  },
+  {
+    "slug": "tracy",
+    "name": "Tracy Profiler",
+    "repository": "dcc-mcp-tracy",
+    "summaryEn": "capture instrumented processes with Tracy and export bounded offline zone data for performance analysis",
+    "summaryZh": "使用 Tracy 捕获已插桩进程，并导出有界离线 Zone 数据用于性能分析",
+    "tasksEn": [
+      "verify the target is instrumented and the official Tracy utilities are available",
+      "capture one bounded trace from the declared client address",
+      "export CSV data and summarize high-variance profiling zones"
+    ],
+    "tasksZh": [
+      "验证目标已接入 Tracy 插桩且官方工具可用",
+      "从声明的客户端地址捕获一次有界 Trace",
+      "导出 CSV 并汇总波动较大的性能 Zone"
+    ],
+    "catalogStatusEn": "Independent adapter release v0.2.5; not a host route in the Core 0.20.25 catalog.",
+    "catalogStatusZh": "独立适配器已发布 v0.2.5；不是 Core 0.20.25 目录中的 Host 路由。",
+    "availabilityEn": "Tracy adapter v0.2.5 is independently released, but it is not a host route in the DCC-MCP Core 0.20.25 catalog. The target must already contain Tracy instrumentation. The adapter controls official capture/export utilities and does not inject profiling into an uninstrumented process.",
+    "availabilityZh": "Tracy 适配器已独立发布 v0.2.5，但不是 DCC-MCP Core 0.20.25 目录中的 Host 路由。目标必须已经接入 Tracy 插桩；适配器只控制官方捕获与导出工具，不会向未插桩进程注入分析能力。"
   },
   {
     "slug": "zbrush",

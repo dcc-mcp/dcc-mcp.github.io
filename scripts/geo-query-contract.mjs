@@ -15,10 +15,10 @@ export const expectedFixedQueries = Object.freeze([
 
 export const expectedApplications = Object.freeze([
   '3ds Max', 'After Effects', 'Blender', 'Cinema 4D', 'ComfyUI', 'Cache Inspector',
-  'Flow Production Tracking', 'FreeCAD', 'GIMP', 'Godot', 'Houdini', 'Illustrator',
+  'Epic Games Launcher and Fab', 'Flow Production Tracking', 'FreeCAD', 'Gaea', 'GIMP', 'Godot', 'Houdini', 'Illustrator',
   'Katana', 'Krita', 'LiquiGen', 'Mari', 'Marmoset Toolbag', 'Material Maker', 'Maya',
-  'Microsoft Office', 'MotionBuilder', 'Nuke', 'OBS Studio', 'OpenUSD', 'OpenSCAD', 'Photoshop', 'PowerPoint',
+  'Marvelous Designer', 'Microsoft Office', 'MotionBuilder', 'Nuke', 'OBS Studio', 'OpenScreen', 'OpenUSD', 'OpenSCAD', 'Photoshop', 'PowerPoint',
   'Premiere Pro', 'RenderDoc', 'Shōgun', 'SketchUp', 'TouchDesigner',
-  'SpeedTree', 'Substance 3D Designer', 'Substance 3D Painter', 'Tiled', 'Unity', 'Tuanjie / 团结',
+  'SpeedTree', 'Substance 3D Designer', 'Substance 3D Painter', 'Tiled', 'Tracy Profiler', 'Unity', 'Tuanjie / 团结',
   'Unreal Engine', 'Wwise', 'ZBrush',
 ])

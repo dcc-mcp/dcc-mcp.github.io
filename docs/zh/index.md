@@ -73,9 +73,9 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">官方集成</p>
-      <h2 id="integrations-title">当前 CLI 目录提供 39 条路由。</h2>
+      <h2 id="integrations-title">37 条已发布适配器路由，45 份公开指南。</h2>
     </div>
-    <p>DCC-MCP Core 0.20.23 提供 38 个项目自有应用标识，以及只读的 <code>autodesk-help</code> 连接器。OBS Studio、LiquiGen 与 Office 已进入发布目录；<a href="/zh/control/speedtree">SpeedTree 仍是源码预览</a>，不是已发布路由。运行 <code>dcc-mcp-cli dcc-types</code> 核对本机安装的实际目录。</p>
+    <p><code>dcc-mcp-cli 0.20.25 dcc-types</code> 报告 37 个适配器标识。指南索引另外收录 Office 共享应用路由、独立发布的 Tracy、5 个源码预览与 1 个 Marketplace Skill。可选的 <code>autodesk-help</code> 是外部只读连接器，不是 DCC 适配器或写入路由。</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>

@@ -32,14 +32,19 @@ Core 记录共享控制平面；各仓库记录自己的安装、兼容性和 Ho
 开始；安装和 Host 专属细节仍以对应适配器仓库为事实来源。
 
 - [3ds Max](https://github.com/dcc-mcp/dcc-mcp-3dsmax) · [After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) · [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) · [Cinema 4D](https://github.com/dcc-mcp/dcc-mcp-cinema4d) · [ComfyUI](https://github.com/dcc-mcp/dcc-mcp-comfyui)
+- [Epic Games Launcher 与 Fab](https://github.com/dcc-mcp/dcc-mcp-epic) — 已安装引擎清单、项目检查与有界 Fab 提供方操作的源码预览。没有 tag 或 GitHub Release，也未进入 Core 0.20.25 目录。参见 [Epic Games 控制指南](/zh/control/epic-games)。
 - [FreeCAD](https://github.com/dcc-mcp/dcc-mcp-freecad) · [GIMP](https://github.com/dcc-mcp/dcc-mcp-gimp) · [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) · [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) · [Illustrator](https://github.com/dcc-mcp/dcc-mcp-illustrator) · [Katana](https://github.com/dcc-mcp/dcc-mcp-katana)
+- [Gaea](https://github.com/dcc-mcp/dcc-mcp-gaea) — 类型化 Build Swarm 地形任务与输出验证的源码预览。没有 tag 或 GitHub Release，也未进入 Core 0.20.25 目录；真实授权构建与 Unreal 导入仍未验收。参见 [Gaea 控制指南](/zh/control/gaea)。
 - [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) · [Mari](https://github.com/dcc-mcp/dcc-mcp-mari) · [Material Maker](https://github.com/dcc-mcp/dcc-mcp-material-maker) · [Maya](https://github.com/dcc-mcp/dcc-mcp-maya) · [Marmoset Toolbag](https://github.com/dcc-mcp/dcc-mcp-marmoset) · [MotionBuilder](https://github.com/dcc-mcp/dcc-mcp-mobu)
-- [LiquiGen](https://github.com/dcc-mcp/dcc-mcp-liquigen) — 类型化节点图检查、有界模拟控制、VAT 导出与 Unreal Engine 交接；已在 Core 0.20.23 中作为 `liquigen` 发布。
+- [LiquiGen](https://github.com/dcc-mcp/dcc-mcp-liquigen) — 类型化节点图检查、有界模拟控制、VAT 导出与 Unreal Engine 交接；已在 Core 0.20.25 中作为 `liquigen` 发布。
+- [Marvelous Designer](https://github.com/dcc-mcp/dcc-mcp-marvelous-designer) — 类型化服装、模拟、保存与导出操作的源码预览。没有 tag 或 GitHub Release，也未进入 Core 0.20.25 目录；真实授权 Host 验收仍未完成。参见 [Marvelous Designer 控制指南](/zh/control/marvelous-designer)。
 - [Nuke](https://github.com/dcc-mcp/dcc-mcp-nuke) · [Office](https://github.com/dcc-mcp/dcc-mcp-office) · [PowerPoint](https://github.com/dcc-mcp/dcc-mcp-powerpoint) · [Word](https://github.com/dcc-mcp/dcc-mcp-word) · [Excel](https://github.com/dcc-mcp/dcc-mcp-excel) · [Outlook](https://github.com/dcc-mcp/dcc-mcp-outlook) · [OpenSCAD](https://github.com/dcc-mcp/dcc-mcp-openscad) · [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) · [Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere) · [SketchUp](https://github.com/dcc-mcp/dcc-mcp-sketchup) · [Shōgun](https://github.com/dcc-mcp/dcc-mcp-shogun)
-- [OBS Studio](https://github.com/dcc-mcp/dcc-mcp-obs) — 精确进程绑定的场景/来源检查与类型化录制控制；已在 Core 0.20.23 中作为 `obs` 发布。安装适配器不会安装 OBS Studio 本体。
+- [OBS Studio](https://github.com/dcc-mcp/dcc-mcp-obs) — 精确进程绑定的场景/来源检查与类型化录制控制；已在 Core 0.20.25 中作为 `obs` 发布。安装适配器不会安装 OBS Studio 本体。
+- [OpenScreen](https://github.com/dcc-mcp/dcc-mcp-openscreen) — 提供类型化 `sources`、`record`、`export` 操作的源码预览。没有 tag 或 GitHub Release，也未进入 Core 0.20.25 目录；源码测试不能替代真实 Windows 录制验收。参见 [OpenScreen 控制指南](/zh/control/openscreen)。
 - [Substance 3D Designer](https://github.com/dcc-mcp/dcc-mcp-substance3d-designer) · [Substance 3D Painter](https://github.com/dcc-mcp/dcc-mcp-substance3d-painter)
 - [Tiled](https://github.com/dcc-mcp/dcc-mcp-tiled) · [TouchDesigner](https://github.com/dcc-mcp/dcc-mcp-touchdesigner) · [Unity](https://github.com/dcc-mcp/dcc-mcp-unity) · [Unreal Engine](https://github.com/dcc-mcp/dcc-mcp-unreal) · [Wwise](https://github.com/dcc-mcp/dcc-mcp-wwise) · [ZBrush](https://github.com/dcc-mcp/dcc-mcp-zbrush)
-- [SpeedTree](https://github.com/dcc-mcp/dcc-mcp-speedtree) — 精确实例、官方 Hook 能力桥的源码预览。目前没有 tag 或 GitHub Release，也未进入 Core 0.20.23 目录。一次真实 ST9 交接已在 Unreal Engine 5.5.4 中验证一棵棕榈树；碰撞比例与动态风仍未验收。参见 [SpeedTree MCP 指南](/zh/control/speedtree)。
+- [SpeedTree](https://github.com/dcc-mcp/dcc-mcp-speedtree) — 精确实例、官方 Hook 能力桥的源码预览。目前没有 tag 或 GitHub Release，也未进入 Core 0.20.25 目录。一次真实 ST9 交接已在 Unreal Engine 5.5.4 中验证一棵棕榈树；碰撞比例与动态风仍未验收。参见 [SpeedTree MCP 指南](/zh/control/speedtree)。
+- [Tracy Profiler](https://github.com/dcc-mcp/dcc-mcp-tracy) — 已独立发布 v0.2.5，用于有界 Tracy 捕获与离线 Zone 分析。它不是 Core 0.20.25 Host 路由，并且要求目标已经接入 Tracy 插桩。参见 [Tracy 控制指南](/zh/control/tracy)。
 
 Shōgun 0.4.0 提供 48 个基于官方 SDK 的类型化工具，覆盖 Scene 对象、属性、Channel、光学相机、文件、Timeline 控制，以及带能力门控的 Offline 处理设置与操作。
 
@@ -77,9 +82,7 @@ Shōgun 0.4.0 提供 48 个基于官方 SDK 的类型化工具，覆盖 Scene �
 
 以下入口补充外部只读连接器与尚未进入 Core 目录的仓库。公开仓库存在不等于已经发布 Host 标识；实际可用性仍需核对已安装 CLI 目录与对应仓库。
 
-- [Autodesk Product Help](https://developer.api.autodesk.com/knowledge/public/v1/mcp) — Core 0.20.23 中的 `autodesk-help` 外部只读连接器，不是 DCC-MCP 适配器，也不提供应用写入能力。
-- [OpenScreen](https://github.com/dcc-mcp/dcc-mcp-openscreen) — 仅有源码的 standalone 适配器，提供范围明确的 `sources`、`record` 与 `export` 操作。目前没有 tag 或 GitHub Release，也未进入 Core 0.20.23 目录；源码测试不能替代真实 Windows 录制验收。
-- [Epic Games Launcher 与 Fab](https://github.com/dcc-mcp/dcc-mcp-epic) — 本地 Epic Games Launcher、Fab 与 Unreal 适配器。
+- [Autodesk Product Help](https://developer.api.autodesk.com/knowledge/public/v1/mcp) — Core 0.20.25 中的 `autodesk-help` 外部只读连接器，不是 DCC-MCP 适配器，也不提供应用写入能力。
 
 - [官网源码](https://github.com/dcc-mcp/dcc-mcp.github.io) — 共享文档、GEO 元数据、逐应用控制指南与案例。
 - [Agent 插件](https://github.com/dcc-mcp/dcc-mcp-agent-plugins) — 面向受支持 Agent 客户端的规范 DCC-MCP Skills 与插件包。

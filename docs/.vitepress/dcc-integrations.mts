@@ -6,6 +6,7 @@ export type DccIntegration = {
   repository: string
   dccType?: string
   marketplacePackage?: string
+  coreApplicationRoute?: string
   summaryEn: string
   summaryZh: string
   tasksEn: string[]
@@ -14,6 +15,8 @@ export type DccIntegration = {
   vendorCaseZh?: string
   availabilityEn?: string
   availabilityZh?: string
+  catalogStatusEn?: string
+  catalogStatusZh?: string
 }
 
 export const dccIntegrations: DccIntegration[] = dccIntegrationCatalog
@@ -25,6 +28,7 @@ const repositoryUrl = (integration: DccIntegration) =>
 
 export function renderControlGuide(integration: DccIntegration, language: 'en' | 'zh') {
   const released = Boolean(integration.dccType)
+  const routeIdentifier = integration.dccType ?? integration.coreApplicationRoute
   const gameAssets = integration.slug !== 'comfyui' ? '' : language === 'zh'
     ? `## 可以用 ComfyUI MCP 免费生成本地游戏素材吗？
 
@@ -58,8 +62,8 @@ As of 2026-09-05, these recipes are merged in source; the published 0.1.4 packag
       : released
       ? `当前发布目录使用 \`${integration.dccType}\` 作为 Host 标识；实际操作前仍应运行 \`dcc-mcp-cli dcc-types\` 核对本机版本。`
       : '这是公开适配器仓库，但它可能尚未进入当前 CLI 发布目录。先检查适配器 README 与 `dcc-mcp-cli dcc-types`，不要猜测 Host 标识。')
-    const cliSection = released
-      ? `## ${integration.name} MCP 与 ${integration.name} CLI\n\n${integration.name} MCP 接口与 ${integration.name} CLI 工作流共用同一个 DCC-MCP 适配器和类型化工具目录。所谓 ${integration.name} CLI，是使用共享的 \`dcc-mcp-cli\`，并传入 \`--dcc-type ${integration.dccType}\` 来限定当前 ${integration.name} Host，而不是另一套不兼容的命令行。\n\n\`\`\`bash\ndcc-mcp-cli search --query "${integration.tasksZh[0]}" --dcc-type ${integration.dccType}\n\`\`\`\n`
+    const cliSection = routeIdentifier
+      ? `## ${integration.name} MCP 与 ${integration.name} CLI\n\n${integration.name} MCP 接口与 ${integration.name} CLI 工作流共用同一个 DCC-MCP 适配器和类型化工具目录。所谓 ${integration.name} CLI，是使用共享的 \`dcc-mcp-cli\`，并传入 \`--dcc-type ${routeIdentifier}\` 来限定当前 ${integration.name} Host，而不是另一套不兼容的命令行。\n\n\`\`\`bash\ndcc-mcp-cli search --query "${integration.tasksZh[0]}" --dcc-type ${routeIdentifier}\n\`\`\`\n`
       : ''
     const vendorCase = integration.vendorCaseZh
       ? `## 厂商原生 AI 能力\n\n${integration.vendorCaseZh}\n`
@@ -118,8 +122,8 @@ ${availability}
     : released
     ? `The current release catalog uses \`${integration.dccType}\` as the host identifier. Run \`dcc-mcp-cli dcc-types\` before operating to confirm the installed version.`
     : 'This is a public adapter repository, but it may not yet be present in the current CLI release catalog. Check its README and `dcc-mcp-cli dcc-types`; do not guess a host identifier.')
-  const cliSection = released
-    ? `## ${integration.name} MCP and ${integration.name} CLI\n\nThe ${integration.name} MCP endpoint and ${integration.name} CLI workflow share the same DCC-MCP adapter and typed tool catalog. A ${integration.name} CLI workflow uses the shared \`dcc-mcp-cli\` with \`--dcc-type ${integration.dccType}\` to select the live ${integration.name} host; it is not a second, incompatible command line.\n\n\`\`\`bash\ndcc-mcp-cli search --query "${integration.tasksEn[0]}" --dcc-type ${integration.dccType}\n\`\`\`\n`
+  const cliSection = routeIdentifier
+    ? `## ${integration.name} MCP and ${integration.name} CLI\n\nThe ${integration.name} MCP endpoint and ${integration.name} CLI workflow share the same DCC-MCP adapter and typed tool catalog. A ${integration.name} CLI workflow uses the shared \`dcc-mcp-cli\` with \`--dcc-type ${routeIdentifier}\` to select the live ${integration.name} host; it is not a second, incompatible command line.\n\n\`\`\`bash\ndcc-mcp-cli search --query "${integration.tasksEn[0]}" --dcc-type ${routeIdentifier}\n\`\`\`\n`
     : ''
   const vendorCase = integration.vendorCaseEn
     ? `## Vendor-native AI capabilities\n\n${integration.vendorCaseEn}\n`

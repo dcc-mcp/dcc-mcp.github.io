@@ -15,10 +15,12 @@ const integrationIdentifier = (integration: DccIntegration) => ({
   '@type': 'PropertyValue',
   propertyID: integration.dccType
     ? 'DCC-MCP host identifier'
+    : integration.coreApplicationRoute
+      ? 'DCC-MCP Core application route'
     : integration.marketplacePackage
       ? 'DCC-MCP Marketplace package'
       : 'Source preview repository',
-  value: integration.dccType ?? integration.marketplacePackage ?? integration.repository,
+  value: integration.dccType ?? integration.coreApplicationRoute ?? integration.marketplacePackage ?? integration.repository,
 })
 
 const homeStructuredData = (isZh: boolean) => ({
