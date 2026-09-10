@@ -133,6 +133,14 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
     <p>这里收录适配器、程序化工具、资产提供方和外部服务的使用结果。</p>
   </div>
   <div class="showcase-grid">
+    <a class="showcase-card showcase-wide showcase-media-contain" href="/zh/showcase#blender-designer-crate">
+      <img src="/showcase/crate-render.png" alt="使用 Substance 3D Designer 材质在 Blender 中渲染的旧木箱" loading="lazy">
+      <span><small>BLENDER + SUBSTANCE 3D DESIGNER</small><strong>旧木箱材质与视觉开发</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-narrow showcase-media-contain" href="/zh/showcase#blender-designer-crate">
+      <img src="/showcase/crate-uv-checker.png" alt="同一个木箱模型在 Blender 中的 UV 棋盘格渲染" loading="lazy">
+      <span><small>UV 坐标 + 棋盘格</small><strong>查看模型 UV</strong><em>→</em></span>
+    </a>
     <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-blender">
       <img src="/showcase/blender-lookdev.webp" alt="Blender 程序化星系渲染" loading="lazy">
       <span><small>BLENDER</small><strong>程序化星系</strong><em>↗</em></span>

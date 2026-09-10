@@ -10,6 +10,7 @@
 - [为什么是 DCC-MCP](https://dcc-mcp.github.io/zh/why-dcc-mcp)：说明这套架构从哪些真实生产问题、技术经验与有意保留的边界中逐步沉淀而来。
 - [Marketplace 搜索](https://dcc-mcp.github.io/zh/marketplace)：搜索官方目录，复制配置提示词或类型化 CLI 安装命令。
 - [案例画廊](https://dcc-mcp.github.io/zh/showcase)：查看结果、所属仓库、验证说明与提示词。
+- [Blender 与 Designer 木箱案例](https://dcc-mcp.github.io/zh/showcase#blender-designer-crate)：真实 Cycles 效果图、UV 坐标与棋盘格，以及可编辑场景和程序化材质来源。
 - [Wwise 音频案例](https://dcc-mcp.github.io/zh/showcase/wwise)：在线试听通过类型化 WAAPI 工具验证的可复现音效与背景音乐。
 - [AI + DCC 控制指南](https://dcc-mcp.github.io/zh/use-cases)：为全部公开创意应用与流水线集成提供直接答案和可复制提示词。
 - [Agent 工作流](https://dcc-mcp.github.io/zh/agents)：安装公开 Skill、发现类型化工具、验证调用并诊断失败。

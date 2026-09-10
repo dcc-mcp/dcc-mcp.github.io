@@ -491,6 +491,11 @@ html[lang='zh-CN'] .VPHome .vp-doc.container div[class*='language-'] button.copy
 }
 
 .showcase-card.showcase-logo img { object-fit: contain; background: #081426; }
+.showcase-card.showcase-media-contain img { object-fit: contain; }
+.showcase-prompt-media.showcase-media-contain img { object-fit: contain; }
+.showcase-evidence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 16px; }
+.showcase-evidence a { min-width: 0; color: var(--vp-c-text-2); font-size: 12px; }
+.showcase-evidence img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; margin-bottom: 8px; }
 
 .showcase-card::after {
   position: absolute;
