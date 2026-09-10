@@ -10,6 +10,7 @@ Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https
 - [Why DCC-MCP exists](https://dcc-mcp.github.io/why-dcc-mcp): The production problems, lessons, technical boundaries, and deliberate limits behind the architecture.
 - [Marketplace search](https://dcc-mcp.github.io/marketplace): Search the official catalog and copy a setup prompt or typed CLI installation command.
 - [Showcase gallery](https://dcc-mcp.github.io/showcase): View outputs, owning repositories, validation notes, and prompts.
+- [Blender and Designer crate](https://dcc-mcp.github.io/showcase#blender-designer-crate): Real Cycles beauty, UV coordinates and checker, with editable scene and procedural material sources.
 - [Wwise audio showcase](https://dcc-mcp.github.io/showcase/wwise): Play deterministic sound effects and background music validated through typed WAAPI tools.
 - [AI + DCC control guides](https://dcc-mcp.github.io/use-cases): Direct answers and copyable prompts for every public creative-application and pipeline integration.
 - [Agent workflow](https://dcc-mcp.github.io/agents): Install the public Skill, discover typed tools, validate calls, and diagnose failures.

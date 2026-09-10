@@ -182,6 +182,7 @@ Marketplace 卡片的 `showcase` 从软件包不可变 `source.ref` 解析，因
 ## 案例提示词模式
 
 案例画廊：https://dcc-mcp.github.io/zh/showcase
+Blender 与 Designer 木箱案例：https://dcc-mcp.github.io/zh/showcase#blender-designer-crate — 真实 Cycles 效果图、实际 UV 坐标与棋盘格渲染；使用平铺的 lookdev UV，并提供可编辑场景和程序化材质来源。
 
 每张卡片包含结果、所属仓库、验证说明和提示词。它不代表本地 Host 或软件包
 已经安装。Agent 仍须发现类型化工具、检查 Marketplace 软件包、改变状态前

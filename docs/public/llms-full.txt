@@ -185,6 +185,7 @@ After an accepted task, a specialized Skill may use the `dcc-mcp-skills-creator`
 ## Showcase prompt patterns
 
 Showcase gallery: https://dcc-mcp.github.io/showcase
+Blender and Designer crate: https://dcc-mcp.github.io/showcase#blender-designer-crate — real Cycles beauty, actual UV coordinates and a rendered checker; tiled lookdev UVs, with editable scene and procedural material sources.
 
 Each card links an output, its owning repository, validation notes, and a
 prompt. It does not prove that a local host or package is installed. Agents

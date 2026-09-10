@@ -133,6 +133,14 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
     <p>Examples from adapters, procedural tools, asset providers, and external services.</p>
   </div>
   <div class="showcase-grid">
+    <a class="showcase-card showcase-wide showcase-media-contain" href="/showcase#blender-designer-crate">
+      <img src="/showcase/crate-render.png" alt="Weathered wooden crate rendered in Blender with Substance 3D Designer materials" loading="lazy">
+      <span><small>BLENDER + SUBSTANCE 3D DESIGNER</small><strong>Weathered crate lookdev</strong><em>→</em></span>
+    </a>
+    <a class="showcase-card showcase-narrow showcase-media-contain" href="/showcase#blender-designer-crate">
+      <img src="/showcase/crate-uv-checker.png" alt="The same crate with its UV checker rendered in Blender" loading="lazy">
+      <span><small>UV COORDINATES + CHECKER</small><strong>Inspect the model UVs</strong><em>→</em></span>
+    </a>
     <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-blender">
       <img src="/showcase/blender-lookdev.webp" alt="Procedural galaxy rendered in Blender" loading="lazy">
       <span><small>BLENDER</small><strong>Procedural galaxy</strong><em>↗</em></span>

@@ -7,6 +7,8 @@ type Showcase = {
   id: string
   image: string
   source: string
+  contain?: boolean
+  evidence?: { image: string; en: string; zh: string }[]
   en: Copy
   zh: Copy
 }
@@ -16,6 +18,26 @@ const copied = ref('')
 const isZh = computed(() => lang.value.startsWith('zh'))
 
 const showcases: Showcase[] = [
+  {
+    id: 'blender-designer-crate',
+    image: '/showcase/crate-render.png',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-blender/tree/main/docs/showcase/crate-lookdev',
+    contain: true,
+    evidence: [
+      { image: '/showcase/crate-uv-layout.png', en: 'Actual UV coordinates', zh: '模型的实际 UV 坐标' },
+      { image: '/showcase/crate-uv-checker.png', en: 'Checker rendered on the model', zh: '模型上的棋盘格渲染' },
+    ],
+    en: {
+      label: 'BLENDER + SUBSTANCE 3D DESIGNER',
+      title: 'Weathered crate: materials, broken wood and UVs',
+      prompt: 'Use the dcc-mcp Skill to reconstruct a weathered wooden crate from the supplied reference in Blender, with procedural paint, grain, scratches and rust authored in Substance 3D Designer. Match the elongated proportions, layered wood fractures and metal reflections. Use geometry for large breaks and SD height displacement for small relief. Check consistent grain UV density, show the actual UV coordinates and a rendered checker, and verify all four supports contact the floor. Keep the tiled lookdev UVs distinct from a unique baking atlas. Save and reopen the Blender scene and SBS packages, verify packed textures, and deliver real beauty/detail renders and full native graph captures through dcc-cua.',
+    },
+    zh: {
+      label: 'BLENDER + SUBSTANCE 3D DESIGNER',
+      title: '旧木箱：材质、破损木块与 UV',
+      prompt: '使用 dcc-mcp Skill，根据提供的参考图在 Blender 中还原旧木箱，并在 Substance 3D Designer 中制作油漆、木纹、划痕和铁锈材质。对齐加长的体型、分层断裂的木块和金属反光；大破损使用几何，小起伏使用 SD 高度图置换。检查木纹的 UV 密度，展示实际 UV 坐标和棋盘格渲染，验证四角支撑与台面接触。明确平铺的 lookdev UV 与独占烘焙图集的区别。保存并重新打开 Blender 场景和 SBS 工程，核对打包贴图，交付真实效果图、近景和通过 dcc-cua 拍摄的完整节点流程。',
+    },
+  },
   {
     id: 'blender-lookdev',
     image: '/showcase/blender-lookdev.webp',
@@ -448,10 +470,16 @@ async function copyPrompt(item: Showcase) {
 <template>
   <div class="showcase-gallery">
     <article v-for="item in showcases" :id="item.id" :key="item.id" class="showcase-prompt-card">
-      <a class="showcase-prompt-media" :href="item.source" target="_blank" rel="noreferrer">
-        <img :src="item.image" :alt="(isZh ? item.zh : item.en).title">
+      <a class="showcase-prompt-media" :class="{ 'showcase-media-contain': item.contain }" :href="item.source" target="_blank" rel="noreferrer">
+        <img :src="item.image" :alt="(isZh ? item.zh : item.en).title" loading="lazy">
         <span>{{ (isZh ? item.zh : item.en).label }}</span>
       </a>
+      <div v-if="item.evidence" class="showcase-evidence">
+        <a v-for="evidence in item.evidence" :key="evidence.image" :href="evidence.image" target="_blank" rel="noreferrer">
+          <img :src="evidence.image" :alt="isZh ? evidence.zh : evidence.en" loading="lazy">
+          <span>{{ isZh ? evidence.zh : evidence.en }}</span>
+        </a>
+      </div>
       <div class="showcase-prompt-body">
         <h2>{{ (isZh ? item.zh : item.en).title }}</h2>
         <div class="showcase-prompt-copy">
