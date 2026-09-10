@@ -103,6 +103,13 @@ try {
     "slug": "probe",
     "summaryEn": "English summary"
   }]`)()[0].slug, 'probe')
+  const statusLiteral = staticLiteral.replace(
+    '"tasksZh": ["one", "two", "three"]',
+    '"tasksZh": ["one", "two", "three"],\n    "catalogStatusEn": "Independent release",\n    "catalogStatusZh": "独立发布"',
+  )
+  const [statusIntegration] = loadCase('optional-catalog-status', statusLiteral)()
+  assert.equal(statusIntegration.catalogStatusEn, 'Independent release')
+  assert.equal(statusIntegration.catalogStatusZh, '独立发布')
 
   const validSurrogatePair = staticLiteral.replace(
     '"English summary"',

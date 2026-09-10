@@ -13,13 +13,39 @@ Copilot, Cursor, Windsurf, OpenCode, Cline, Roo Code, Kiro CLI, Amp, or another
 Agent Skills-compatible host:
 
 ```bash
-npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
+npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 ```
 
 Use `--global` for a user-level installation. Start a new agent session if the
 host discovers Skills only at startup. Native plugin and registry installation
 options remain available in the
 [`dcc-mcp-agent-plugins` repository](https://github.com/dcc-mcp/dcc-mcp-agent-plugins#install).
+
+## Keep the Skill and CLI current
+
+Use the updater that owns each installation. Agent Skills installed from GitHub
+use the `skills` lock file:
+
+```bash
+# Update managed copies in this workspace.
+npx --yes skills@1.5.23 update -p -y
+
+# Update managed user-level copies.
+npx --yes skills@1.5.23 update -g -y
+```
+
+Check the DCC-MCP CLI separately, then apply the verified update only with
+consent:
+
+```bash
+dcc-mcp-cli update check
+dcc-mcp-cli update apply
+```
+
+OpenClaw and direct ClawHub installations use their own recorded source and
+update commands. See [Keep installed Skills current](https://github.com/dcc-mcp/dcc-mcp-agent-plugins#keep-installed-skills-current).
+Do not add `--force` to unattended updates; pinned or locally modified Skills
+should stop for review.
 
 ## Use a short prompt
 

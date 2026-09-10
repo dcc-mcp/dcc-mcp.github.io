@@ -25,11 +25,32 @@ const expectedApplications = [
   ...expectedGuideIdentities.map(({ name }) => name),
   'Tuanjie / 团结',
 ]
+// The 2026-08-27 observation is immutable. Keep its original 37-application
+// inventory separate from the current query plan so new guides cannot fabricate
+// historical search results.
+const baselineApplications = [
+  '3ds Max', 'After Effects', 'Blender', 'Cinema 4D', 'ComfyUI', 'Cache Inspector',
+  'Flow Production Tracking', 'FreeCAD', 'GIMP', 'Godot', 'Houdini', 'Illustrator',
+  'Katana', 'Krita', 'Mari', 'Marmoset Toolbag', 'Material Maker', 'Maya',
+  'MotionBuilder', 'Nuke', 'OpenUSD', 'OpenSCAD', 'Photoshop', 'PowerPoint',
+  'Premiere Pro', 'RenderDoc', 'Shōgun', 'SketchUp', 'TouchDesigner',
+  'Substance 3D Designer', 'Substance 3D Painter', 'Tiled', 'Unity', 'Tuanjie / 团结',
+  'Unreal Engine', 'Wwise', 'ZBrush',
+]
 const expectedRecords = [
   ...expectedFixedQueries.map(([query, locale, market]) => ({
     query, locale, market, kind: 'fixed', application: null,
   })),
   ...expectedApplications.flatMap((application) => [
+    { query: `how to control ${application} with AI`, locale: 'en', market: 'US', kind: 'application-control', application },
+    { query: `AI 怎么控制 ${application}`, locale: 'zh-CN', market: 'CN', kind: 'application-control', application },
+  ]),
+]
+const baselineExpectedRecords = [
+  ...expectedFixedQueries.map(([query, locale, market]) => ({
+    query, locale, market, kind: 'fixed', application: null,
+  })),
+  ...baselineApplications.flatMap((application) => [
     { query: `how to control ${application} with AI`, locale: 'en', market: 'US', kind: 'application-control', application },
     { query: `AI 怎么控制 ${application}`, locale: 'zh-CN', market: 'CN', kind: 'application-control', application },
   ]),
@@ -115,7 +136,7 @@ const observedRows = baseline.split(/\r?\n/)
     const query = codedQuery.startsWith('`') && codedQuery.endsWith('`')
       ? codedQuery.slice(1, -1)
       : codedQuery
-    const expected = expectedRecords.find((record) => record.query === query && record.locale === locale)
+    const expected = baselineExpectedRecords.find((record) => record.query === query && record.locale === locale)
     assert.ok(expected, `baseline contains unexpected query/locale: ${locale} ${query}`)
     assert.equal(provider, 'Microsoft Bing')
     assert.equal(engine, 'Bing Web Search RSS')
@@ -150,7 +171,7 @@ const observedRows = baseline.split(/\r?\n/)
     }
     return expected
   })
-compareExactInventory(observedRows, expectedRecords, 'Recorded baseline')
+compareExactInventory(observedRows, baselineExpectedRecords, 'Recorded baseline')
 
 for (const date of ['2026-08-28', '2026-09-04', '2026-09-11', '2026-09-27']) {
   assert.ok(baseline.includes(date), `baseline is missing immutable retest date: ${date}`)

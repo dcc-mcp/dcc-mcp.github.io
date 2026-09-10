@@ -18,8 +18,13 @@ const requiredStringFields = Object.freeze([
 const optionalStringFields = Object.freeze([
   'dccType',
   'marketplacePackage',
+  'coreApplicationRoute',
   'vendorCaseEn',
   'vendorCaseZh',
+  'availabilityEn',
+  'availabilityZh',
+  'catalogStatusEn',
+  'catalogStatusZh',
 ])
 const taskFields = Object.freeze(['tasksEn', 'tasksZh'])
 const allowedFields = new Set([...requiredStringFields, ...optionalStringFields, ...taskFields])

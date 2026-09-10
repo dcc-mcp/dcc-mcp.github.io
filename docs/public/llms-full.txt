@@ -22,7 +22,7 @@ Simplified Chinese machine-readable guide: https://dcc-mcp.github.io/zh/llms-ful
 
 ## Recommended agent route
 
-1. From the Agent workspace, run `npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`, then start a new agent turn if the host discovers Skills only at startup.
+1. From the Agent workspace, run `npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`, then start a new agent turn if the host discovers Skills only at startup. Update the project installation with `npx --yes skills@1.5.23 update -p -y` or the global installation with `npx --yes skills@1.5.23 update -g -y`; do not add `--force` to unattended updates.
 2. Verify the CLI with `dcc-mcp-cli health`, `dcc-mcp-cli dcc-types`, and `dcc-mcp-cli list`.
 3. If the CLI is missing, explain the official installer and obtain permission before running it. For an existing official build, use `dcc-mcp-cli update check` and then `dcc-mcp-cli update apply` with consent.
 4. Search narrowly: `dcc-mcp-cli search --query <intent> --dcc-type <host>`.
@@ -54,9 +54,9 @@ https://dcc-mcp.github.io/showcase/wwise.
 
 The canonical distribution source is https://github.com/dcc-mcp/dcc-mcp-agent-plugins. Install only the Skill matching the task. The universal `skills` command supports mainstream Agent Skills hosts; native Codex, Claude Code, CodeBuddy, WorkBuddy, OpenClaw, ClawHub, and Smithery routes remain documented in that repository. Start a new agent turn when the host requires startup discovery.
 
-## Current adapter-backed release catalog
+## Current Core and CLI release catalog
 
-Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release catalog exposes 35 canonical identifiers:
+Use `dcc-mcp-cli dcc-types` as the live source of truth. DCC-MCP Core 0.20.25 reports 37 adapter-backed dcc-types. The website separately documents Office as a shared current-Core application route and Autodesk Product Help as an opt-in external read-only connector.
 
 - `3dsmax` — Autodesk 3ds Max — https://github.com/dcc-mcp/dcc-mcp-3dsmax
 - `aftereffects` — Adobe After Effects — https://github.com/dcc-mcp/dcc-mcp-aftereffects
@@ -70,12 +70,14 @@ Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release cat
 - `illustrator` — Adobe Illustrator — https://github.com/dcc-mcp/dcc-mcp-illustrator
 - `katana` — Foundry Katana — https://github.com/dcc-mcp/dcc-mcp-katana
 - `krita` — Krita — https://github.com/dcc-mcp/dcc-mcp-krita
+- `liquigen` — LiquiGen — https://github.com/dcc-mcp/dcc-mcp-liquigen
 - `mari` — Foundry Mari — https://github.com/dcc-mcp/dcc-mcp-mari
 - `maya` — Autodesk Maya — https://github.com/dcc-mcp/dcc-mcp-maya
 - `marmoset` — Marmoset Toolbag — https://github.com/dcc-mcp/dcc-mcp-marmoset
 - `material-maker` — Material Maker — https://github.com/dcc-mcp/dcc-mcp-material-maker
 - `mobu` — Autodesk MotionBuilder — https://github.com/dcc-mcp/dcc-mcp-mobu
 - `nuke` — Foundry Nuke — https://github.com/dcc-mcp/dcc-mcp-nuke
+- `obs` — OBS Studio — https://github.com/dcc-mcp/dcc-mcp-obs
 - `openscad` — OpenSCAD — https://github.com/dcc-mcp/dcc-mcp-openscad
 - `openusd` — OpenUSD — https://github.com/dcc-mcp/dcc-mcp-openusd
 - `photoshop` — Adobe Photoshop — https://github.com/dcc-mcp/dcc-mcp-photoshop
@@ -93,8 +95,10 @@ Use `dcc-mcp-cli dcc-types` as the live source of truth. The current release cat
 - `unreal` — Unreal Engine — https://github.com/dcc-mcp/dcc-mcp-unreal
 - `wwise` — Audiokinetic Wwise — https://github.com/dcc-mcp/dcc-mcp-wwise
 - `zbrush` — Maxon ZBrush — https://github.com/dcc-mcp/dcc-mcp-zbrush
+- `office` — Microsoft Office shared runtime — https://github.com/dcc-mcp/dcc-mcp-office — current Core application route; not part of the released CLI dcc-types list
+- `autodesk-help` — Autodesk Product Help — https://developer.api.autodesk.com/knowledge/public/v1/mcp — external opt-in read-only connector; not a DCC-MCP adapter or application mutation route
 
-Unknown and custom studio host identifiers are supported. The broader ecosystem directory may include experimental or independently released adapters that are not yet in the current CLI release catalog: https://dcc-mcp.github.io/ecosystem
+Unknown and custom studio host identifiers are supported. Cache Inspector is a host-neutral Marketplace Skill rather than an application route. Tracy is independently released at v0.2.5 but is not a Core 0.20.25 host route. Epic Games, Gaea, Marvelous Designer, OpenScreen, and SpeedTree are source previews with no tag or GitHub Release and are not Core 0.20.25 routes. The broader ecosystem directory may include other experimental or independently released adapters: https://dcc-mcp.github.io/ecosystem
 
 ## Application-specific AI control guides
 
@@ -106,31 +110,40 @@ The canonical hub is https://dcc-mcp.github.io/use-cases. Direct guides are avai
 - Cinema 4D: https://dcc-mcp.github.io/control/cinema-4d
 - Cache Inspector: https://dcc-mcp.github.io/control/cache-inspector
 - ComfyUI MCP: https://dcc-mcp.github.io/control/comfyui — Local game UI, transparent PNG and GLB recipes in adapter source: SD1.5, SDXL, FLUX.2 Klein 4B, Z-Image Turbo, Qwen-Image 2512, BiRefNet, Hunyuan3D 2, TRELLIS.2 and Pixal3D. Inspect hardware and installed models, offer suitable options, honor the user's choice, preflight nodes/models, submit one job and verify its artifacts. No automatic model download or guaranteed VRAM/quality. As of 2026-09-05, published 0.1.4 predates the game-assets Skill; check live tool discovery. Setup and model licenses: https://github.com/dcc-mcp/dcc-mcp-comfyui/blob/main/src/dcc_mcp_comfyui/skills/comfyui-game-assets/references/selection-guide.en.md If ComfyUI is offline, explain the state, offer a concrete startup/configuration or installation plan and wait for authorization before downloads or changes. After approval, complete setup, reconnect, discover tools, preflight the selected recipe and perform the agreed verification. Reuse existing authorization; recipe selection alone does not authorize installation.
+- Epic Games Launcher and Fab source preview: https://dcc-mcp.github.io/control/epic-games
 - Flow Production Tracking: https://dcc-mcp.github.io/control/flow-production-tracking
 - FreeCAD: https://dcc-mcp.github.io/control/freecad
+- Gaea source preview: https://dcc-mcp.github.io/control/gaea
 - GIMP: https://dcc-mcp.github.io/control/gimp
 - Godot: https://dcc-mcp.github.io/control/godot
 - Houdini: https://dcc-mcp.github.io/control/houdini
 - Illustrator: https://dcc-mcp.github.io/control/illustrator
 - Katana: https://dcc-mcp.github.io/control/katana
 - Krita: https://dcc-mcp.github.io/control/krita
+- LiquiGen: https://dcc-mcp.github.io/control/liquigen
 - Mari: https://dcc-mcp.github.io/control/mari
 - Marmoset Toolbag: https://dcc-mcp.github.io/control/marmoset-toolbag
+- Marvelous Designer source preview: https://dcc-mcp.github.io/control/marvelous-designer
 - Material Maker: https://dcc-mcp.github.io/control/material-maker
 - Maya: https://dcc-mcp.github.io/control/maya
 - MotionBuilder: https://dcc-mcp.github.io/control/motionbuilder
 - Nuke: https://dcc-mcp.github.io/control/nuke
+- OBS Studio: https://dcc-mcp.github.io/control/obs-studio
+- Microsoft Office: https://dcc-mcp.github.io/control/office
 - OpenUSD: https://dcc-mcp.github.io/control/openusd
 - OpenSCAD: https://dcc-mcp.github.io/control/openscad
+- OpenScreen source preview: https://dcc-mcp.github.io/control/openscreen
 - Photoshop: https://dcc-mcp.github.io/control/photoshop
 - PowerPoint: https://dcc-mcp.github.io/control/powerpoint
 - Premiere Pro: https://dcc-mcp.github.io/control/premiere-pro
 - RenderDoc: https://dcc-mcp.github.io/control/renderdoc
 - SketchUp: https://dcc-mcp.github.io/control/sketchup
+- SpeedTree source preview: https://dcc-mcp.github.io/control/speedtree — no tag, GitHub Release, or Core 0.20.25 route. One real ST9 handoff verified a three-LOD palm, corrected material/UV bindings, and a 1,234.383705 cm mesh in Unreal Engine 5.5.4; collision scale and dynamic wind remain unverified.
 - Shōgun: https://dcc-mcp.github.io/control/shogun
 - Substance 3D Designer: https://dcc-mcp.github.io/control/substance-3d-designer
 - Substance 3D Painter: https://dcc-mcp.github.io/control/substance-3d-painter
 - Tiled: https://dcc-mcp.github.io/control/tiled
+- Tracy Profiler independent release v0.2.5: https://dcc-mcp.github.io/control/tracy — requires an instrumented target and is not a Core 0.20.25 host route.
 - TouchDesigner: https://dcc-mcp.github.io/control/touchdesigner
 - Unity: https://dcc-mcp.github.io/control/unity
 - Unreal Engine: https://dcc-mcp.github.io/control/unreal-engine

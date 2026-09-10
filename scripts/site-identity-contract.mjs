@@ -34,20 +34,33 @@ export const expectedGuideIdentities = Object.freeze([
   ['unity', 'Unity', 'dcc-mcp-unity', 'unity', null],
   ['unreal-engine', 'Unreal Engine', 'dcc-mcp-unreal', 'unreal', null],
   ['wwise', 'Wwise', 'dcc-mcp-wwise', 'wwise', null],
+  ['liquigen', 'LiquiGen', 'dcc-mcp-liquigen', 'liquigen', null],
+  ['obs-studio', 'OBS Studio', 'dcc-mcp-obs', 'obs', null],
+  ['office', 'Microsoft Office', 'dcc-mcp-office', null, null, 'office'],
+  ['speedtree', 'SpeedTree', 'dcc-mcp-speedtree', null, null],
+  ['epic-games', 'Epic Games Launcher and Fab', 'dcc-mcp-epic', null, null],
+  ['gaea', 'Gaea', 'dcc-mcp-gaea', null, null],
+  ['marvelous-designer', 'Marvelous Designer', 'dcc-mcp-marvelous-designer', null, null],
+  ['openscreen', 'OpenScreen', 'dcc-mcp-openscreen', null, null],
+  ['tracy', 'Tracy Profiler', 'dcc-mcp-tracy', null, null],
   ['zbrush', 'ZBrush', 'dcc-mcp-zbrush', 'zbrush', null],
-].map(([slug, name, repository, dccType, marketplacePackage]) => Object.freeze({
+].map(([slug, name, repository, dccType, marketplacePackage, coreApplicationRoute = null]) => Object.freeze({
   slug,
   name,
   repository,
   dccType,
   marketplacePackage,
+  coreApplicationRoute,
 })))
 
-// Frozen from the official `dcc-mcp-cli 0.20.21 dcc-types` release catalog.
+// Project-owned routes frozen from the official `dcc-mcp-cli 0.20.25 dcc-types` release catalog.
+// The external read-only `autodesk-help` connector has no DCC-MCP repository guide.
 export const expectedReleasedDccTypes = Object.freeze(
   expectedGuideIdentities.flatMap(({ dccType }) => dccType ? [dccType] : []).sort(),
 )
 
-export const guideIdentityKey = ({ slug, name, repository, dccType, marketplacePackage }) => (
-  `${slug}|${name}|${repository}|dccType=${dccType ?? '-'}|marketplacePackage=${marketplacePackage ?? '-'}`
+export const expectedCurrentCoreApplicationRoutes = Object.freeze(['office'])
+
+export const guideIdentityKey = ({ slug, name, repository, dccType, marketplacePackage, coreApplicationRoute }) => (
+  `${slug}|${name}|${repository}|dccType=${dccType ?? '-'}|marketplacePackage=${marketplacePackage ?? '-'}|coreApplicationRoute=${coreApplicationRoute ?? '-'}`
 )

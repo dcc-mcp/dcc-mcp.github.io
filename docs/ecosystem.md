@@ -46,32 +46,40 @@ adapter repository as the source of truth for installation and host details.
 - [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) — Blender add-on and embedded server.
 - [Cinema 4D](https://github.com/dcc-mcp/dcc-mcp-cinema4d) — Typed headless document, primitive, interchange, and render automation.
 - [ComfyUI](https://github.com/dcc-mcp/dcc-mcp-comfyui) — Live node-contract validation, bounded queue execution and artifact retrieval. The [ComfyUI MCP guide](/control/comfyui) covers local game UI, transparent PNG and Pixal3D/PBR GLB recipes, including source-versus-release availability.
+- [Epic Games Launcher and Fab](https://github.com/dcc-mcp/dcc-mcp-epic) — Source preview for installed-engine inventory, project checks, and bounded provider-owned Fab operations. It has no tag or GitHub Release and is not in the Core 0.20.25 catalog. See the [Epic Games control guide](/control/epic-games).
 - [FreeCAD](https://github.com/dcc-mcp/dcc-mcp-freecad) — Parametric CAD modeling, topology validation, and mesh interchange.
+- [Gaea](https://github.com/dcc-mcp/dcc-mcp-gaea) — Source preview for typed Build Swarm terrain jobs and output verification. It has no tag or GitHub Release and is not in the Core 0.20.25 catalog; real licensed builds and Unreal imports remain unverified. See the [Gaea control guide](/control/gaea).
 - [GIMP](https://github.com/dcc-mcp/dcc-mcp-gimp) — GIMP 3.
 - [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) — Godot Engine and 2D game-authoring Skills.
 - [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) — SideFX Houdini.
 - [Illustrator](https://github.com/dcc-mcp/dcc-mcp-illustrator) — Typed Adobe Illustrator documents, vector artwork, official DOM editing, and production export.
 - [Katana](https://github.com/dcc-mcp/dcc-mcp-katana) — Foundry Katana.
 - [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) — Krita.
+- [LiquiGen](https://github.com/dcc-mcp/dcc-mcp-liquigen) — Typed node-graph inspection, bounded simulation controls, VAT export, and Unreal Engine handoff; released as `liquigen` in Core 0.20.25.
 - [Mari](https://github.com/dcc-mcp/dcc-mcp-mari) — Foundry Mari projects, geometry, node graphs, look development, and texture export.
 - [Material Maker](https://github.com/dcc-mcp/dcc-mcp-material-maker) — Procedural material authoring.
 - [Maya](https://github.com/dcc-mcp/dcc-mcp-maya) — Autodesk Maya.
 - [Marmoset Toolbag](https://github.com/dcc-mcp/dcc-mcp-marmoset) — PBR material authoring, scene inspection, and rendering.
+- [Marvelous Designer](https://github.com/dcc-mcp/dcc-mcp-marvelous-designer) — Source preview for typed garment, simulation, save, and export operations. It has no tag or GitHub Release and is not in the Core 0.20.25 catalog; licensed-host acceptance remains outstanding. See the [Marvelous Designer control guide](/control/marvelous-designer).
 - [MotionBuilder](https://github.com/dcc-mcp/dcc-mcp-mobu) — Autodesk MotionBuilder.
 - [Nuke](https://github.com/dcc-mcp/dcc-mcp-nuke) — Foundry Nuke.
+- [OBS Studio](https://github.com/dcc-mcp/dcc-mcp-obs) — Exact-process scene/source inspection and typed recording control; released as `obs` in Core 0.20.25. Installing the adapter does not install OBS Studio.
 - [Office](https://github.com/dcc-mcp/dcc-mcp-office) — Shared office core: office-rpc/1 protocol, C# COM sidecar, Open XML worker, Microsoft Graph connector, and Office-wide Skills.
 - [PowerPoint](https://github.com/dcc-mcp/dcc-mcp-powerpoint) — Deck generation from Deck IR through Open XML compile and desktop COM render.
 - [Word](https://github.com/dcc-mcp/dcc-mcp-word) — Word documents, fields, and reflow (planned, Phase 2).
 - [Excel](https://github.com/dcc-mcp/dcc-mcp-excel) — Workbooks, formulas, charts, and production dashboards (planned, Phase 2).
 - [Outlook](https://github.com/dcc-mcp/dcc-mcp-outlook) — Mail drafts and calendar (planned, Phase 3).
 - [OpenSCAD](https://github.com/dcc-mcp/dcc-mcp-openscad) — Declarative parametric CAD validation, preview rendering, and mesh export.
+- [OpenScreen](https://github.com/dcc-mcp/dcc-mcp-openscreen) — Source preview with typed `sources`, `record`, and `export` operations. It has no tag or GitHub Release and is not in the Core 0.20.25 catalog; source tests do not establish live Windows recording acceptance. See the [OpenScreen control guide](/control/openscreen).
 - [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) — Adobe Photoshop through UXP.
 - [Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere) — Adobe Premiere Pro.
 - [SketchUp](https://github.com/dcc-mcp/dcc-mcp-sketchup) — Typed modeling, materials, Tags, scenes, validation, and interchange through an authenticated Ruby bridge.
 - [Shōgun](https://github.com/dcc-mcp/dcc-mcp-shogun) — 48 typed official-SDK tools for Scene objects, attributes, channels, optical cameras, files, Timeline control, and capability-gated Offline processing settings and operations.
+- [SpeedTree](https://github.com/dcc-mcp/dcc-mcp-speedtree) — Source preview for an exact-instance, official-hook capability bridge. It has no tag or GitHub Release and is not in the Core 0.20.25 catalog. A real ST9 handoff verified one palm in Unreal Engine 5.5.4, while collision scale and dynamic wind remain unverified. See the [SpeedTree MCP guide](/control/speedtree).
 - [Substance 3D Designer](https://github.com/dcc-mcp/dcc-mcp-substance3d-designer) — Adobe Substance 3D Designer.
 - [Substance 3D Painter](https://github.com/dcc-mcp/dcc-mcp-substance3d-painter) — Adobe Substance 3D Painter.
 - [Tiled](https://github.com/dcc-mcp/dcc-mcp-tiled) — Tiled map editor.
+- [Tracy Profiler](https://github.com/dcc-mcp/dcc-mcp-tracy) — Independently released adapter v0.2.5 for bounded Tracy capture and offline zone analysis. It is not a Core 0.20.25 host route and requires an already instrumented target. See the [Tracy control guide](/control/tracy).
 - [TouchDesigner](https://github.com/dcc-mcp/dcc-mcp-touchdesigner) — Derivative TouchDesigner.
 - [Unity](https://github.com/dcc-mcp/dcc-mcp-unity) — Unity Editor and game-authoring Skills.
 - [Unreal Engine](https://github.com/dcc-mcp/dcc-mcp-unreal) — Unreal Engine plug-in.
@@ -110,13 +118,11 @@ For local generation, see the [ComfyUI game-asset workflow](/control/comfyui).
 
 ## Organization and discovery surfaces
 
-Additional public adapter repositories are listed below. Check each repository
-and the installed CLI catalog for availability; a public repository alone does
-not establish a released host identifier.
+Additional discovery surfaces are listed below. Check the installed CLI catalog
+for availability; a repository or remote connector alone does not establish a
+live application instance.
 
-- [OBS Studio](https://github.com/dcc-mcp/dcc-mcp-obs) — Native OBS plugin with typed DCC-MCP control.
-- [LiquiGen](https://github.com/dcc-mcp/dcc-mcp-liquigen) — Typed node-graph automation and Unreal export validation.
-- [Epic Games Launcher and Fab](https://github.com/dcc-mcp/dcc-mcp-epic) — Local Epic Games Launcher, Fab and Unreal adapter.
+- [Autodesk Product Help](https://developer.api.autodesk.com/knowledge/public/v1/mcp) — Opt-in, read-only documentation connector released as `autodesk-help` in Core 0.20.25. It is not a DCC adapter or a mutation route.
 
 - [Official website source](https://github.com/dcc-mcp/dcc-mcp.github.io) — Shared documentation, GEO metadata, application-control guides, and showcases.
 - [Agent plugins](https://github.com/dcc-mcp/dcc-mcp-agent-plugins) — Canonical DCC-MCP Skills and plugin packages for supported agent clients.

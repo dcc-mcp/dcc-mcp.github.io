@@ -122,6 +122,21 @@ const showcases: Showcase[] = [
     },
   },
   {
+    id: 'speedtree-to-unreal-engine',
+    image: '/showcase/speedtree-to-unreal-engine.webp',
+    source: 'https://github.com/dcc-mcp/dcc-mcp-speedtree',
+    en: {
+      label: 'SPEEDTREE → UNREAL ENGINE · VERIFIED ST9 HANDOFF',
+      title: 'Real SpeedTree palm imported into Unreal Engine 5.5',
+      prompt: 'Use the dcc-mcp Skill to inspect the SpeedTree source-preview adapter and my licensed SpeedTree session. First verify whether a released SpeedTree host route exists; if it does not, report the source-preview status and ask before any source installation. Bind the exact process and window, discover only approved official-hook capabilities, export one caller-approved tree through the official ST9 path with its textures, and hand it to the released Unreal adapter in a new bounded content area. Verify the mesh LODs, dimensions, UV orientation, native SpeedTree material and texture bindings, and one rendered result. Treat collision scale and dynamic wind as unverified unless separately measured. Do not guess private APIs, host identifiers, or release status.',
+    },
+    zh: {
+      label: 'SPEEDTREE → UNREAL ENGINE · 经验证的 ST9 交接',
+      title: '真实 SpeedTree 棕榈树导入 Unreal Engine 5.5',
+      prompt: '使用 dcc-mcp Skill 检查 SpeedTree 源码预览适配器与我的已授权 SpeedTree 会话。先确认是否存在已发布的 SpeedTree Host 路由；如果没有，说明源码预览状态，并在安装任何源码前征得同意。绑定精确进程与窗口，只发现经批准的官方 Hook 能力；通过官方 ST9 路径导出一棵调用方批准的树及其贴图，再交给已发布的 Unreal 适配器，导入新的受控 Content 区域。验证网格 LOD、尺寸、UV 方向、原生 SpeedTree 材质与贴图绑定，并检查一次渲染结果。除非另行测量，不得把碰撞比例与动态风写成已验收；不得猜测私有 API、Host 标识或发布状态。',
+    },
+  },
+  {
     id: 'cinema4d-typed-scene',
     image: '/showcase/cinema4d-typed-scene.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-cinema4d',

@@ -14,6 +14,7 @@ try {
   for (const file of [
     'integration-catalog-reader.mjs',
     'site-identity-contract.mjs',
+    'showcase-provenance.mjs',
     'validate-integration-identity.mjs',
     'validate-site.mjs',
   ]) {
@@ -71,6 +72,11 @@ try {
   )
   validateCatalogMutation([...catalog, { ...cache }], [/duplicates=\[[^\]]*cache-inspector/])
 
+  validateCatalogMutation(
+    mutateGuide('Microsoft Office', { coreApplicationRoute: 'office-renamed' }),
+    [/missing=.*coreApplicationRoute=office/, /extra=.*coreApplicationRoute=office-renamed/],
+  )
+
   const reorderedExtra = {
     name: 'Reordered Extra',
     slug: 'reordered-extra',
@@ -93,6 +99,30 @@ try {
     tasksZh: cache.tasksZh,
   }
   validateCatalogMutation([reorderedDuplicate, ...catalog], [/duplicates=\[[^\]]*cache-inspector/])
+
+  writeFileSync(integrationPath, `${JSON.stringify(catalog, null, 2)}\n`)
+  const releaseSnapshotPath = join(
+    fixtureRoot,
+    'docs',
+    'public',
+    'catalog',
+    'core-v0.20.25-dcc-types.json',
+  )
+  const releaseSnapshot = JSON.parse(readFileSync(releaseSnapshotPath, 'utf8'))
+  writeFileSync(
+    releaseSnapshotPath,
+    `${JSON.stringify({ ...releaseSnapshot, dcc_types: [...releaseSnapshot.dcc_types, 'office'] }, null, 2)}\n`,
+  )
+  const releaseMutation = spawnSync(
+    process.execPath,
+    [join(fixtureRoot, 'scripts', 'validate-site.mjs')],
+    { encoding: 'utf8' },
+  )
+  assert.notEqual(releaseMutation.status, 0)
+  assert.match(
+    `${releaseMutation.stdout}\n${releaseMutation.stderr}`,
+    /Core v0\.20\.25 dcc-types release snapshot differs/,
+  )
 } finally {
   rmSync(fixtureRoot, { recursive: true, force: true })
 }

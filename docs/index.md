@@ -33,7 +33,7 @@ hero:
 </div>
 
 ```bash
-npx --yes skills@1.5.22 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
+npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 ```
 
 ```text
@@ -73,9 +73,9 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">OFFICIAL INTEGRATIONS</p>
-      <h2 id="integrations-title">35 released adapter identifiers.</h2>
+      <h2 id="integrations-title">37 released adapter routes and 45 public guides.</h2>
     </div>
-    <p>The release catalog exposes 35 adapter identifiers. The tiles below highlight representative integrations; run <code>dcc-mcp-cli dcc-types</code> for the complete current installable list.</p>
+    <p><code>dcc-mcp-cli 0.20.25 dcc-types</code> reports 37 adapter-backed identifiers. The guide index separately documents the shared Office application route, independently released Tracy, five source previews, and one Marketplace Skill. The opt-in <code>autodesk-help</code> connector is external and read-only, not a DCC adapter or mutation route.</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>
