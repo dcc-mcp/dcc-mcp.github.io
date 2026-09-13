@@ -1,5 +1,8 @@
 # Showcase sources
 
+- The bilingual [DCC-MCP introduction](../videos/dcc-mcp-intro-20260914/README.md)
+  uses the Kdenlive adapter production and the project media credited in its source register.
+
 Homepage showcase media is copied from the owning DCC-MCP repositories so the website remains available without cross-origin image dependencies.
 
 - `blender-lookdev.webp`: `dcc-mcp/dcc-mcp-blender`, `docs/images/dcc-mcp-blender-showcase.webp`

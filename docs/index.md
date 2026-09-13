@@ -26,6 +26,8 @@ hero:
   <span><strong>50+</strong> public projects</span>
 </div>
 
+<HomeIntroVideo locale="en" />
+
 <div id="install-prompt" class="install-intro">
   <p class="home-kicker">SETUP</p>
   <h2>Install once. Then describe the task.</h2>
