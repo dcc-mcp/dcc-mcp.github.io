@@ -44,6 +44,7 @@ adapter repository as the source of truth for installation and host details.
 - [3ds Max](https://github.com/dcc-mcp/dcc-mcp-3dsmax) — Autodesk 3ds Max.
 - [After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) — Adobe After Effects.
 - [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) — Blender add-on and embedded server.
+- [CapCut](https://github.com/dcc-mcp/dcc-mcp-capcut) — Typed CapCut Desktop adapter using an authenticated local bridge.
 - [Cinema 4D](https://github.com/dcc-mcp/dcc-mcp-cinema4d) — Typed headless document, primitive, interchange, and render automation.
 - [ComfyUI](https://github.com/dcc-mcp/dcc-mcp-comfyui) — Live node-contract validation, bounded queue execution and artifact retrieval. The [ComfyUI MCP guide](/control/comfyui) covers local game UI, transparent PNG and Pixal3D/PBR GLB recipes, including source-versus-release availability.
 - [Epic Games Launcher and Fab](https://github.com/dcc-mcp/dcc-mcp-epic) — Source preview for installed-engine inventory, project checks, and bounded provider-owned Fab operations. It has no tag or GitHub Release and is not in the Core 0.20.25 catalog. See the [Epic Games control guide](/control/epic-games).
@@ -54,6 +55,7 @@ adapter repository as the source of truth for installation and host details.
 - [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) — SideFX Houdini.
 - [Illustrator](https://github.com/dcc-mcp/dcc-mcp-illustrator) — Typed Adobe Illustrator documents, vector artwork, official DOM editing, and production export.
 - [Katana](https://github.com/dcc-mcp/dcc-mcp-katana) — Foundry Katana.
+- [Kdenlive](https://github.com/dcc-mcp/dcc-mcp-kdenlive) — Project authoring, MLT rendering, and shared DCC-CUA editor control.
 - [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) — Krita.
 - [LiquiGen](https://github.com/dcc-mcp/dcc-mcp-liquigen) — Typed node-graph inspection, bounded simulation controls, VAT export, and Unreal Engine handoff; released as `liquigen` in Core 0.20.25.
 - [Mari](https://github.com/dcc-mcp/dcc-mcp-mari) — Foundry Mari projects, geometry, node graphs, look development, and texture export.
@@ -108,6 +110,7 @@ For local generation, see the [ComfyUI game-asset workflow](/control/comfyui).
 - [Objaverse](https://github.com/dcc-mcp/dcc-asset-objaverse) · [Poly Haven](https://github.com/dcc-mcp/dcc-asset-polyhaven) · [Quaternius](https://github.com/dcc-mcp/dcc-asset-quaternius)
 - [Sketchfab](https://github.com/dcc-mcp/dcc-asset-sketchfab) · [Smithsonian 3D](https://github.com/dcc-mcp/dcc-asset-smithsonian3d)
 - [Pirate Nation](https://github.com/dcc-mcp/dcc-asset-pirate-nation) — Game asset provider integration.
+- [Poly Pizza](https://github.com/dcc-mcp/dcc-asset-poly-pizza) — Low-poly model search and downloads with asset license and provenance records.
 
 ## UI automation and shared runtimes
 
@@ -115,6 +118,7 @@ For local generation, see the [ComfyUI game-asset workflow](/control/comfyui).
 - [Qt Inspector](https://github.com/dcc-mcp/dcc-ui-qt-inspector) — Cross-host window and widget discovery.
 - [UI Workflow Memory](https://github.com/dcc-mcp/dcc-ui-workflow-memory) — Verified selectors, recipes, and failure memory.
 - [adobepy](https://github.com/dcc-mcp/adobepy) — Shared Adobe desktop communication runtime.
+- [dcc-mcp-runtime](https://github.com/dcc-mcp/dcc-mcp-runtime) — Shared Python runtime and manifest contract for external DCC-MCP adapters.
 
 ## Organization and discovery surfaces
 
