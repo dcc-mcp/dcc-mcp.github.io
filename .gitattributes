@@ -1,1 +1,2 @@
 docs/public/schemas/*.schema.json text eol=lf
+docs/public/videos/**/*.vtt text eol=lf
