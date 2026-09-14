@@ -10,3 +10,5 @@
 - `dcc-mcp-wwise.svg` and `dcc-mcp-wwise-dark.svg` are deterministic light and dark Wwise lockups generated with the `dcc-brand-lockup` contract. Product identity is carried by the audio waveform motif and the `WWISE` footer label without placing a product badge over the shared mark.
 
 The generated atmosphere uses the DCC-MCP navy, blue, cyan, and teal palette to suggest one shared gateway connecting creative tools. It is decorative only; product identity and written information remain in HTML and the authoritative logo asset.
+
+- `dcc-mcp-workflow-20260914-v3/` preserves the five unchanged ImageGen interface-reconstruction sources used by the bilingual 30-second and 50-second workflow films. Its [source record](dcc-mcp-workflow-20260914-v3/README.md) documents the film/poster derivatives, exact prompts, Blender Documentation Team attribution and CC BY-SA 4.0 terms. These are operation illustrations, not live captures.
