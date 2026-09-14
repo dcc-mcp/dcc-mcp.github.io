@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "records": [
+    {
+      "edition": "short",
+      "language": "zh",
+      "source_file": "dcc-mcp-v3-short-zh-wide.mp4",
+      "source_sha256": "5bdc3e3a4a567d3590da399849e92b96c0beacb34cb86fdac27976f661cf31bf",
+      "picture_frames": 900,
+      "picture_seconds": 30.0,
+      "container_seconds": 30.016,
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "video_codec": "h264",
+      "pixel_format": "yuv420p",
+      "color_space": "bt709",
+      "audio_codec": "aac",
+      "audio_sample_rate": "48000",
+      "audio_channels": 2,
+      "full_decode": "passed",
+      "source_hash_rechecked": true,
+      "poster_time_seconds": 2.2,
+      "files": [
+        {
+          "file": "short.zh.mp4",
+          "bytes": 2935114,
+          "sha256": "e9c908f42df3843387785c6f091138427b2b427128dd132b28814553484b39ff"
+        },
+        {
+          "file": "short.zh.webp",
+          "bytes": 75988,
+          "sha256": "44da83fec57e38f6b5ef1063f09e6cf0d0cc3af951031e774cc27faa8165dead"
+        },
+        {
+          "file": "short.zh.vtt",
+          "bytes": 770,
+          "sha256": "3223ecac6fe9c1bda77d958aa1348b59bd82e5bad87671c02b9bd56746f99da8"
+        }
+      ]
+    },
+    {
+      "edition": "short",
+      "language": "en",
+      "source_file": "dcc-mcp-v3-short-en-wide.mp4",
+      "source_sha256": "45a8cefc45888ed898effc7726f1f9ce900dfc98c43ad79280ccfb6612af45e9",
+      "picture_frames": 900,
+      "picture_seconds": 30.0,
+      "container_seconds": 30.016,
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "video_codec": "h264",
+      "pixel_format": "yuv420p",
+      "color_space": "bt709",
+      "audio_codec": "aac",
+      "audio_sample_rate": "48000",
+      "audio_channels": 2,
+      "full_decode": "passed",
+      "source_hash_rechecked": true,
+      "poster_time_seconds": 2.2,
+      "files": [
+        {
+          "file": "short.en.mp4",
+          "bytes": 2887438,
+          "sha256": "127060fe83ae418106dc2a8b753d09ff691919d3764e7a6790c518f0704d6cc4"
+        },
+        {
+          "file": "short.en.webp",
+          "bytes": 70446,
+          "sha256": "c2a1294fe597fde1ead51f04ef615972bb4a06b7e43ca6c94d733f76cbcc4c18"
+        },
+        {
+          "file": "short.en.vtt",
+          "bytes": 763,
+          "sha256": "c8e3f17b772e0be7d62feaed27327d2d14cb28c766654a71625f15befb876007"
+        }
+      ]
+    },
+    {
+      "edition": "explainer",
+      "language": "zh",
+      "source_file": "dcc-mcp-v3-explainer-zh-wide.mp4",
+      "source_sha256": "43b0ff122927c41b9ed95c270dcdf7dfaa5891e6cbebc944104796c4578bc66c",
+      "picture_frames": 1500,
+      "picture_seconds": 50.0,
+      "container_seconds": 50.005,
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "video_codec": "h264",
+      "pixel_format": "yuv420p",
+      "color_space": "bt709",
+      "audio_codec": "aac",
+      "audio_sample_rate": "48000",
+      "audio_channels": 2,
+      "full_decode": "passed",
+      "source_hash_rechecked": true,
+      "poster_time_seconds": 14.0,
+      "files": [
+        {
+          "file": "explainer.zh.mp4",
+          "bytes": 4674033,
+          "sha256": "1b4df11657132ef0e5ab943018595a1d12cf3a89a5d3e3bb7d2bdce6b301a597"
+        },
+        {
+          "file": "explainer.zh.webp",
+          "bytes": 71796,
+          "sha256": "e5b850f421f9d9f2c5bb328c31b6be80bedc33039e92a5dd052c041db509fb57"
+        },
+        {
+          "file": "explainer.zh.vtt",
+          "bytes": 1433,
+          "sha256": "669f3004a348d73e61da4f63f5cf81bdbc2268ae3bae5a7ad7a6b1160fe38968"
+        }
+      ]
+    },
+    {
+      "edition": "explainer",
+      "language": "en",
+      "source_file": "dcc-mcp-v3-explainer-en-wide.mp4",
+      "source_sha256": "702f925d4655151ef3f6506a1dec5a3c1869826a0359d9c6c90efb982567d0f7",
+      "picture_frames": 1500,
+      "picture_seconds": 50.0,
+      "container_seconds": 50.005,
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "video_codec": "h264",
+      "pixel_format": "yuv420p",
+      "color_space": "bt709",
+      "audio_codec": "aac",
+      "audio_sample_rate": "48000",
+      "audio_channels": 2,
+      "full_decode": "passed",
+      "source_hash_rechecked": true,
+      "poster_time_seconds": 14.0,
+      "files": [
+        {
+          "file": "explainer.en.mp4",
+          "bytes": 4623866,
+          "sha256": "87f060df3df558a0c08578e7264fd88d9dc2b73710af546e886b3b477b885271"
+        },
+        {
+          "file": "explainer.en.webp",
+          "bytes": 78468,
+          "sha256": "52ce60ae55c06d00c4edcbb9e1b357cbcc9bc3471875427bc473fb83c1700fcf"
+        },
+        {
+          "file": "explainer.en.vtt",
+          "bytes": 1234,
+          "sha256": "724c89199434d86bdd6e450ec1ca824d857ee8b7910c20d5c18dd8b17ed85975"
+        }
+      ]
+    }
+  ]
+}

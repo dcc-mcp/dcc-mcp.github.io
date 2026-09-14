@@ -1,7 +1,9 @@
 # Showcase sources
 
-- The bilingual [DCC-MCP introduction](../videos/dcc-mcp-intro-20260914/README.md)
-  uses the Kdenlive adapter production and the project media credited in its source register.
+- The bilingual [DCC-MCP workflow introduction](../videos/dcc-mcp-intro-20260914-v3/README.md)
+  includes a 30-second overview and a 50-second explanation, produced through the
+  Kdenlive adapter. ImageGen interface reconstructions are labelled as workflow
+  illustrations; their source register records reference attribution and media hashes.
 
 Homepage showcase media is copied from the owning DCC-MCP repositories so the website remains available without cross-origin image dependencies.
 

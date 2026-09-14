@@ -1,0 +1,98 @@
+{
+  "en": {
+    "kicker": "SEE WHAT IT DOES",
+    "title": "AI that works inside creative tools.",
+    "description": "Start with a model-editing request. See how DCC-MCP connects your AI assistant to software tools and reusable team workflows.",
+    "language": "en",
+    "captionsLabel": "English",
+    "fallback": "Your browser cannot play this video.",
+    "download": "Download video",
+    "transcriptLabel": "Read the transcript",
+    "marketplaceLabel": "Explore the skill marketplace →",
+    "marketplaceHref": "/marketplace",
+    "sourcesLabel": "Media sources and credits",
+    "disclosure": "AI-generated interface reconstructions and workflow illustrations. These scenes are not live recordings or evidence of the illustrated operations being executed.",
+    "editions": [
+      {
+        "id": "short",
+        "title": "30 seconds: what DCC-MCP does",
+        "summary": "A request, a software operation, and a reusable workflow.",
+        "caption": "English male narration and captions · AI-generated workflow illustration",
+        "transcript": [
+          "Give this model a metal finish. Render a preview.",
+          "DCC MCP connects your AI assistant to creative software.",
+          "Skills save your workflow. MCP calls Blender's tools.",
+          "Load relevant instructions, with less repeated context.",
+          "A Rust core, permission boundaries, and audit trails support team workflows.",
+          "Find and share skills in the marketplace.",
+          "Explore DCC MCP."
+        ]
+      },
+      {
+        "id": "explainer",
+        "title": "50 seconds: how the design works",
+        "summary": "Skills + MCP, relevant instructions, Rust, permissions and team sharing.",
+        "caption": "English male narration and captions · AI-generated workflow illustration",
+        "transcript": [
+          "Give this model a brushed-metal finish. Light it. Render a preview.",
+          "DCC MCP lets your AI assistant operate Blender and other creative software.",
+          "A Skill packages your team's method. MCP calls the software's tools.",
+          "Save material, checking, and export steps. Reuse them on the next job.",
+          "Load the instructions you need, reducing repeated code and context.",
+          "Rust runs the routing core, avoiding interpreter overhead there. Host scripts can still use Python.",
+          "Permissions set boundaries. Audit records help trace key calls.",
+          "Find and install skills in the marketplace, then share your team's versioned workflows.",
+          "DCC MCP. Explore the marketplace."
+        ]
+      }
+    ]
+  },
+  "zh": {
+    "kicker": "先看它能做什么",
+    "title": "让 AI 直接操作创作软件。",
+    "description": "从一次模型修改需求，看 DCC-MCP 如何把 AI 助手接入软件工具，再让团队的方法成为可复用的工作流。",
+    "language": "zh-CN",
+    "captionsLabel": "简体中文",
+    "fallback": "你的浏览器无法播放此视频。",
+    "download": "下载视频",
+    "transcriptLabel": "阅读文字稿",
+    "marketplaceLabel": "探索技能市场 →",
+    "marketplaceHref": "/zh/marketplace",
+    "sourcesLabel": "素材来源与署名",
+    "disclosure": "画面为 AI 生成的界面重构与操作示意，并非真实录屏，也不证明画面中的操作已实际执行。",
+    "editions": [
+      {
+        "id": "short",
+        "title": "30 秒：DCC-MCP 能做什么",
+        "summary": "一句需求、软件操作，以及可复用的工作流。",
+        "caption": "中文男声与字幕 · AI 生成操作示意",
+        "transcript": [
+          "给模型换成金属材质，渲染一张预览。",
+          "DCC MCP，让 AI 助手操作 Blender 等创作软件。",
+          "Skills 存方法，MCP 调软件里的工具。",
+          "按需加载指令，复用步骤，减少重复上下文。",
+          "Rust 核心，配合权限和审计，方便团队管理。",
+          "去技能市场，安装、分享团队的工作流。",
+          "来试试 DCC MCP。"
+        ]
+      },
+      {
+        "id": "explainer",
+        "title": "50 秒：为什么这样设计",
+        "summary": "讲清 Skills + MCP、按需加载、Rust、权限审计和团队共享。",
+        "caption": "中文男声与字幕 · AI 生成操作示意",
+        "transcript": [
+          "给这个模型换成磨砂金属，打好灯光，渲染预览。",
+          "DCC MCP，把 AI 助手接到 Blender 等创作软件，让它调用工具完成任务。",
+          "我们的组合是 Skills 加 MCP。Skills 保存团队的方法，MCP 负责调用软件工具。",
+          "材质设置、场景检查、导出步骤，做好一次，下个任务继续复用。",
+          "工具说明按需加载，少写重复代码，少塞无关上下文，帮助节省 token。",
+          "Rust 承担核心路由，减少这一层的解释器开销；软件里的脚本，仍可用 Python。",
+          "权限划定执行边界，审计记录帮助追查关键调用。",
+          "通过技能市场安装和分享，让大团队复用同一套有版本的工作流。",
+          "DCC MCP，来技能市场看看。"
+        ]
+      }
+    ]
+  }
+}
