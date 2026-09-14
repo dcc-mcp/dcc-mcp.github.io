@@ -32,9 +32,11 @@ Core 记录共享控制平面；各仓库记录自己的安装、兼容性和 Ho
 开始；安装和 Host 专属细节仍以对应适配器仓库为事实来源。
 
 - [3ds Max](https://github.com/dcc-mcp/dcc-mcp-3dsmax) · [After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) · [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) · [Cinema 4D](https://github.com/dcc-mcp/dcc-mcp-cinema4d) · [ComfyUI](https://github.com/dcc-mcp/dcc-mcp-comfyui)
+- [CapCut](https://github.com/dcc-mcp/dcc-mcp-capcut) — 通过已认证的本地桥接提供类型化 CapCut Desktop 操作。
 - [Epic Games Launcher 与 Fab](https://github.com/dcc-mcp/dcc-mcp-epic) — 已安装引擎清单、项目检查与有界 Fab 提供方操作的源码预览。没有 tag 或 GitHub Release，也未进入 Core 0.20.25 目录。参见 [Epic Games 控制指南](/zh/control/epic-games)。
 - [FreeCAD](https://github.com/dcc-mcp/dcc-mcp-freecad) · [GIMP](https://github.com/dcc-mcp/dcc-mcp-gimp) · [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) · [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) · [Illustrator](https://github.com/dcc-mcp/dcc-mcp-illustrator) · [Katana](https://github.com/dcc-mcp/dcc-mcp-katana)
 - [Gaea](https://github.com/dcc-mcp/dcc-mcp-gaea) — 类型化 Build Swarm 地形任务与输出验证的源码预览。没有 tag 或 GitHub Release，也未进入 Core 0.20.25 目录；真实授权构建与 Unreal 导入仍未验收。参见 [Gaea 控制指南](/zh/control/gaea)。
+- [Kdenlive](https://github.com/dcc-mcp/dcc-mcp-kdenlive) — 工程编排、MLT 渲染与共享 DCC-CUA 编辑器控制。
 - [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) · [Mari](https://github.com/dcc-mcp/dcc-mcp-mari) · [Material Maker](https://github.com/dcc-mcp/dcc-mcp-material-maker) · [Maya](https://github.com/dcc-mcp/dcc-mcp-maya) · [Marmoset Toolbag](https://github.com/dcc-mcp/dcc-mcp-marmoset) · [MotionBuilder](https://github.com/dcc-mcp/dcc-mcp-mobu)
 - [LiquiGen](https://github.com/dcc-mcp/dcc-mcp-liquigen) — 类型化节点图检查、有界模拟控制、VAT 导出与 Unreal Engine 交接；已在 Core 0.20.25 中作为 `liquigen` 发布。
 - [Marvelous Designer](https://github.com/dcc-mcp/dcc-mcp-marvelous-designer) — 类型化服装、模拟、保存与导出操作的源码预览。没有 tag 或 GitHub Release，也未进入 Core 0.20.25 目录；真实授权 Host 验收仍未完成。参见 [Marvelous Designer 控制指南](/zh/control/marvelous-designer)。
@@ -70,6 +72,7 @@ Shōgun 0.4.0 提供 48 个基于官方 SDK 的类型化工具，覆盖 Scene �
 - [Objaverse](https://github.com/dcc-mcp/dcc-asset-objaverse) · [Poly Haven](https://github.com/dcc-mcp/dcc-asset-polyhaven) · [Quaternius](https://github.com/dcc-mcp/dcc-asset-quaternius)
 - [Sketchfab](https://github.com/dcc-mcp/dcc-asset-sketchfab) · [Smithsonian 3D](https://github.com/dcc-mcp/dcc-asset-smithsonian3d)
 - [Pirate Nation](https://github.com/dcc-mcp/dcc-asset-pirate-nation) — 游戏资产提供方集成。
+- [Poly Pizza](https://github.com/dcc-mcp/dcc-asset-poly-pizza) — 低多边形模型搜索与下载，保留资产许可证和来源记录。
 
 ## UI 自动化与共享运行时
 
@@ -77,6 +80,7 @@ Shōgun 0.4.0 提供 48 个基于官方 SDK 的类型化工具，覆盖 Scene �
 - [Qt Inspector](https://github.com/dcc-mcp/dcc-ui-qt-inspector) — 跨 Host 窗口与控件发现。
 - [UI Workflow Memory](https://github.com/dcc-mcp/dcc-ui-workflow-memory) — 已验证的 Selector、Recipe 与失败记忆。
 - [adobepy](https://github.com/dcc-mcp/adobepy) — Adobe 桌面通信共享运行时。
+- [dcc-mcp-runtime](https://github.com/dcc-mcp/dcc-mcp-runtime) — 外部 DCC-MCP 适配器共享的 Python 运行时与 Manifest 契约。
 
 ## 组织与发现入口
 

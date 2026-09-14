@@ -26,6 +26,8 @@ hero:
   <span><strong>50+</strong> 个公开项目</span>
 </div>
 
+<HomeIntroVideo locale="zh" />
+
 <div id="install-prompt" class="install-intro">
   <p class="home-kicker">配置</p>
   <h2>安装一次，然后描述任务。</h2>

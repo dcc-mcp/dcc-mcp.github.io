@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme'
 import Layout from './Layout.vue'
 import MarketplaceSearch from './components/MarketplaceSearch.vue'
 import ShowcaseGallery from './components/ShowcaseGallery.vue'
+import HomeIntroVideo from './components/HomeIntroVideo.vue'
 import './styles.css'
 
 export default {
@@ -10,5 +11,6 @@ export default {
   enhanceApp({ app }) {
     app.component('MarketplaceSearch', MarketplaceSearch)
     app.component('ShowcaseGallery', ShowcaseGallery)
+    app.component('HomeIntroVideo', HomeIntroVideo)
   },
 }
