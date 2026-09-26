@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 2,
+  "timestamp": "2026-09-26T05:02:12.340Z",
+  "provider": "Microsoft Bing",
+  "engine": "Bing Web Search RSS",
+  "locale": "en",
+  "market": "US",
+  "kind": "fixed",
+  "query": "\"DCC-MCP\"",
+  "method": "first qualifying DCC-MCP result in the top 10 RSS items",
+  "rankMeaning": "RSS item order; not verified web SERP rank",
+  "relevance": "not-assessed",
+  "requestUrl": "https://www.bing.com/search?format=rss&q=%22DCC-MCP%22&setlang=en-US&cc=US",
+  "outcome": "inconclusive",
+  "measurementValid": false,
+  "rank": null,
+  "title": null,
+  "url": null,
+  "firstParty": null,
+  "canonical": null,
+  "response": {
+    "status": 200,
+    "url": "https://www.bing.com/search?format=rss&q=%22DCC-MCP%22&setlang=en-US&cc=US",
+    "redirected": false,
+    "contentType": "text/xml; charset=utf-8",
+    "bodyBytes": 5445,
+    "bodySha256": "af58673a1f19967bef01c488260cf3e67ae7c6918547cddf7bd469546af1d56a"
+  },
+  "parse": {
+    "status": "valid",
+    "resultCount": 10,
+    "examinedCount": 10,
+    "invalidItemCount": 0
+  },
+  "feed": {
+    "title": "Bing: \"DCC-MCP\"",
+    "url": "http://www.bing.com:80/search?q=%22DCC-MCP%22",
+    "description": "Search results"
+  },
+  "queryBinding": {
+    "response": "matched",
+    "feed": "mismatch"
+  },
+  "reason": "query-binding-unverified",
+  "publicRecordNote": "Response preview and result titles are omitted from this public diagnostic summary; response digest, parse counts and classification are retained."
+}

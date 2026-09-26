@@ -1,12 +1,12 @@
 ---
 layout: home
 title: DCC-MCP
-description: Maya MCP, Blender MCP, 3ds Max MCP, and a typed DCC CLI through one shared Gateway.
+description: Use AI to operate Maya, Blender, 3ds Max, and other creative software for modeling, materials, animation, and rendering through MCP, CLI, and REST interfaces.
 
 hero:
   name: DCC-MCP
-  text: Connect agents to creative software.
-  tagline: Use the Gateway and typed tools to work with Maya, Blender, Houdini, Unreal, Photoshop, and other applications in the pipeline.
+  text: Let AI work in creative software.
+  tagline: Give AI assistants that can use tools (agents) access to Maya, Blender, Houdini, Unreal Engine, Photoshop, and other applications for modeling, materials, animation, and rendering.
   image:
     src: /brand/dcc-mcp-logo-admin-light.png
     alt: DCC-MCP
@@ -31,7 +31,7 @@ hero:
 <div id="install-prompt" class="install-intro">
   <p class="home-kicker">SETUP</p>
   <h2>Install once. Then describe the task.</h2>
-  <p>The same maintained Skill works across mainstream Agent Skills-compatible hosts.</p>
+  <p>DCC means digital content creation. Install the dcc-mcp Skill workflow guide so an AI client that supports Agent Skills can connect to and use these applications through a shared workflow.</p>
 </div>
 
 ```bash
@@ -48,10 +48,10 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
   <div class="home-marketplace-heading">
     <div>
       <p class="home-kicker">MCP + CLI</p>
-      <h2 id="mcp-cli-title">Maya MCP, 3ds Max MCP, Blender MCP—one typed control plane.</h2>
+      <h2 id="mcp-cli-title">Use the same tools through MCP or the command line.</h2>
     </div>
     <div>
-      <p>Each adapter exposes the same discoverable tool contracts through MCP and <code>dcc-mcp-cli</code>. Looking for a Maya CLI or Blender CLI? Use the shared CLI with the host identifier; there is no separate incompatible command set.</p>
+      <p>Maya MCP, 3ds Max MCP, and Blender MCP expose typed tools: each tool defines its parameters, their types, and its results so calls can be inspected and validated. MCP (Model Context Protocol) and <code>dcc-mcp-cli</code> use these same tools. For a Maya CLI or Blender CLI workflow, select the application by its identifier.</p>
       <p><a href="/control/maya">Maya MCP and Maya CLI</a> · <a href="/control/3ds-max">3ds Max MCP and 3ds Max CLI</a> · <a href="/control/blender">Blender MCP and Blender CLI</a></p>
     </div>
   </div>
@@ -132,7 +132,7 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
   <div class="showcase-heading">
     <p class="home-kicker">EXAMPLES</p>
     <h2>Outputs, sources, and validation records.</h2>
-    <p>Examples from adapters, procedural tools, asset providers, and external services.</p>
+    <p>Explore modeling, material, animation, and asset workflows, with links to their tools, source projects, and verification records.</p>
   </div>
   <div class="showcase-grid">
     <a class="showcase-card showcase-wide showcase-media-contain" href="/showcase#blender-designer-crate">
@@ -165,7 +165,7 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
     </a>
     <a class="showcase-card showcase-narrow" href="/showcase#cinema4d-typed-scene">
       <img src="/showcase/cinema4d-typed-scene.webp" alt="Typed Cinema 4D primitives assembled, validated, and rendered" loading="lazy">
-      <span><small>CINEMA 4D</small><strong>Typed scene automation</strong><em>→</em></span>
+      <span><small>CINEMA 4D</small><strong>Build, check, and render a scene</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="/showcase#comfyui-typed-workflow">
       <img src="/showcase/comfyui-typed-workflow.webp" alt="ComfyUI graph validated against live node contracts, executed, and delivered as an artifact" loading="lazy">
@@ -173,47 +173,47 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
     </a>
     <a class="showcase-card showcase-wide" href="/showcase#illustrator-typed-vector-workflow">
       <img src="/showcase/illustrator-typed-vector-workflow.webp" alt="Illustrator documents inspected, edited through typed vector tools, and verified through production exports" loading="lazy">
-      <span><small>ILLUSTRATOR</small><strong>Typed vector creation and export</strong><em>→</em></span>
+      <span><small>ILLUSTRATOR</small><strong>Create and export vector artwork</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-narrow" href="/showcase#sketchup-typed-modeling">
       <img src="/showcase/sketchup-typed-modeling.webp" alt="SketchUp models inspected, built with typed geometry, organized, validated, and exported" loading="lazy">
-      <span><small>SKETCHUP</small><strong>Typed model to verified interchange</strong><em>→</em></span>
+      <span><small>SKETCHUP</small><strong>Model, validate, and export</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="/showcase#touchdesigner-typed-operator-workflow">
       <img src="/showcase/touchdesigner-typed-operator-workflow.webp" alt="Typed operator requests flow through a main-thread graph into verified project and PNG artifacts" loading="lazy">
-      <span><small>TOUCHDESIGNER</small><strong>Typed operator graph to verified artifacts</strong><em>→</em></span>
+      <span><small>TOUCHDESIGNER</small><strong>Build an operator graph and verify outputs</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="/showcase#cache-inspection-workflow">
       <img src="/showcase/cache-inspection-workflow.webp" alt="Compressed geometry cache decoded within bounded limits into privacy-safe counts, bounds, and attribute summaries" loading="lazy">
-      <span><small>CACHE INSPECTOR</small><strong>Bounded cache to privacy-safe structure</strong><em>→</em></span>
+      <span><small>CACHE INSPECTOR</small><strong>Inspect cache structure while protecting raw data</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="/showcase#shogun-typed-mocap-workflow">
       <img src="/showcase/shogun-typed-mocap-workflow.webp" alt="Motion-capture scene data inspected and processed through bounded typed Shōgun tools" loading="lazy">
-      <span><small>SHŌGUN</small><strong>Typed motion capture with capability gates</strong><em>→</em></span>
+      <span><small>SHŌGUN</small><strong>Check capabilities, then process motion capture</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-narrow" href="/showcase#tiled-typed-map-workflow">
       <img src="/showcase/tiled-typed-map-workflow.webp" alt="Tiled map data authored through typed tools and validated as a durable TMJ artifact" loading="lazy">
-      <span><small>TILED</small><strong>Typed map authoring and validation</strong><em>→</em></span>
+      <span><small>TILED</small><strong>Create and validate game maps</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="/showcase#material-maker-typed-material-workflow">
-      <img src="/showcase/material-maker-typed-material-workflow.webp" alt="Material Maker PTEX inspected and validated before native texture export" loading="lazy">
-      <span><small>MATERIAL MAKER</small><strong>Bounded PTEX to texture export</strong><em>→</em></span>
+      <img src="/showcase/material-maker-typed-material-workflow.webp" alt="Material Maker PTEX inspected and validated within defined limits before native texture export" loading="lazy">
+      <span><small>MATERIAL MAKER</small><strong>Check PTEX materials and export textures</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="/showcase#krita-typed-paint-workflow">
       <img src="/showcase/krita-typed-paint-workflow.webp" alt="Krita layered canvas authored through typed document and paint-layer tools" loading="lazy">
-      <span><small>KRITA</small><strong>Typed layered document authoring</strong><em>→</em></span>
+      <span><small>KRITA</small><strong>Create an editable layered canvas</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-narrow" href="/showcase#gimp-typed-image-workflow">
       <img src="/showcase/gimp-typed-image-workflow.webp" alt="GIMP image and layers authored through a fixed typed bridge and exported to XCF and PNG" loading="lazy">
-      <span><small>GIMP</small><strong>Typed image layers to verified exports</strong><em>→</em></span>
+      <span><small>GIMP</small><strong>Edit layers and verify exports</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="/showcase#katana-typed-lookdev-workflow">
       <img src="/showcase/katana-typed-lookdev-workflow.webp" alt="Katana node graph created and connected through typed main-thread operations" loading="lazy">
-      <span><small>KATANA</small><strong>Typed node graph to durable project</strong><em>→</em></span>
+      <span><small>KATANA</small><strong>Build a node graph and save the project</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="/showcase#premiere-typed-edit-workflow">
       <img src="/showcase/premiere-typed-edit-workflow.webp" alt="Premiere Pro media, sequence, timeline, marker, and export queue operated through typed tools" loading="lazy">
-      <span><small>PREMIERE PRO</small><strong>Typed edit to export queue</strong><em>→</em></span>
+      <span><small>PREMIERE PRO</small><strong>Edit a sequence and queue its export</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-narrow" href="https://github.com/dcc-mcp/dcc-ai-hunyuan3d">
       <img src="/showcase/hunyuan3d.webp" alt="Prompt to generated 3D lantern asset workflow" loading="lazy">

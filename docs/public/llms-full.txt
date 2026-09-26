@@ -1,9 +1,13 @@
 # DCC-MCP: agent, marketplace, adapter, and developer reference
 
-DCC-MCP exposes creative applications through a machine-wide Gateway, typed
-`dcc-mcp-cli`, MCP and REST endpoints, per-application adapters, Skills,
-Marketplace extensions, policy checks, diagnostics, and structured failure
-reporting.
+DCC-MCP is an open-source toolkit that connects AI agents and automation to
+creative applications such as Maya, Blender, and Houdini through MCP, REST APIs,
+and `dcc-mcp-cli`. DCC means digital content creation. An AI agent uses tools to
+carry out a task. Adapters connect each application, the Gateway routes calls
+to the selected instance, and Skills package reusable workflows. Typed tools
+define their inputs and outputs so calls can be checked before execution.
+Policy checks, diagnostics, and structured failure reports help teams inspect
+what happened.
 
 The shared contracts came from problems repeated across adapters: regenerated
 scripts, duplicated lifecycle code, DCC thread and instance constraints,
@@ -22,6 +26,8 @@ Simplified Chinese machine-readable guide: https://dcc-mcp.github.io/zh/llms-ful
 
 ## Recommended agent route
 
+The Skill provides the operating guide. First-time setup also requires the CLI, Gateway, and target application's adapter; check existing installations before adding components. Setup: https://dcc-mcp.github.io/dcc-mcp-core/guide/getting-started
+
 1. From the Agent workspace, run `npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`, then start a new agent turn if the host discovers Skills only at startup. Update the project installation with `npx --yes skills@1.5.23 update -p -y` or the global installation with `npx --yes skills@1.5.23 update -g -y`; do not add `--force` to unattended updates.
 2. Verify the CLI with `dcc-mcp-cli health`, `dcc-mcp-cli dcc-types`, and `dcc-mcp-cli list`.
 3. If the CLI is missing, explain the official installer and obtain permission before running it. For an existing official build, use `dcc-mcp-cli update check` and then `dcc-mcp-cli update apply` with consent.
@@ -29,7 +35,7 @@ Simplified Chinese machine-readable guide: https://dcc-mcp.github.io/zh/llms-ful
 5. Follow the returned `next_step` exactly. Load or describe only when requested.
 6. Execute the returned typed slug: `dcc-mcp-cli call <slug> --json <arguments>`.
 7. Validate the result and report concrete evidence, not only command success.
-8. Use scoped Computer Use only when the structured DCC Skill, script, or API cannot reach the required semantic UI.
+8. When native tools or APIs cannot complete a UI step, use the project-owned DCC-CUA runtime through UI Control. Bind the exact process and window, observe before acting, and verify the result. Stop and report a blocked route if that binding or runtime is unavailable.
 
 The default agent path is the public `dcc-mcp` Skill plus CLI + REST. IDE users may connect through MCP configuration. Both paths use the same gateway; CLI-first does not deprecate MCP.
 
@@ -191,6 +197,16 @@ Each card links an output, its owning repository, validation notes, and a
 prompt. It does not prove that a local host or package is installed. Agents
 must still discover typed tools, inspect Marketplace packages, request consent
 before mutation, and validate the scene or file.
+
+## More organization projects
+
+These repositories provide additional integrations, shared runtime code, and examples. Their presence here does not add a released adapter to the versioned CLI catalog above; check each repository and `dcc-mcp-cli dcc-types` for availability.
+
+- [Poly Pizza](https://github.com/dcc-mcp/dcc-asset-poly-pizza): Find and download licensed low-poly models.
+- [Shared adapter runtime](https://github.com/dcc-mcp/dcc-mcp-runtime): PyOxidizer runtime for external DCC-MCP adapters.
+- [CapCut Desktop](https://github.com/dcc-mcp/dcc-mcp-capcut): MCP adapter and application bridge.
+- [Kdenlive](https://github.com/dcc-mcp/dcc-mcp-kdenlive): Project authoring, MLT rendering, and editor control through DCC-CUA.
+- [Reproducible examples](https://github.com/dcc-mcp/showcase): Shared examples and evidence from real DCC applications.
 
 ## Developer ownership
 

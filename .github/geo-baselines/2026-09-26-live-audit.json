@@ -1,0 +1,221 @@
+{
+  "measuredAt": "2026-09-26T03:15:21Z",
+  "checkout": {
+    "branch": "agent/geo-chinese-copy",
+    "commit": "ef188730f42bc3807349da3c18e2d8229beb209c",
+    "scope": "read-only live measurements; only this report was written"
+  },
+  "bingFixedBaseline": {
+    "file": ".github/geo-baselines/2026-09-26-fixed-bing.jsonl",
+    "records": 12,
+    "recordsWithNullRank": 12,
+    "recordTimeRange": [
+      "2026-09-26T03:11:23.802Z",
+      "2026-09-26T03:11:25.733Z"
+    ],
+    "historicalRawResponsesAvailable": false,
+    "generator": "scripts/measure-public-retrieval.mjs",
+    "generatorValidationLimit": "Checks HTTP ok only; does not assert RSS content-type/root or nonempty item count. An empty/unparseable body can therefore become a null-rank record.",
+    "representativeLiveRequests": [
+      {
+        "query": "\"DCC-MCP\"",
+        "status": 200,
+        "contentType": "text/xml; charset=utf-8",
+        "bytes": 6810,
+        "rssRoot": true,
+        "channel": true,
+        "itemCount": 10,
+        "htmlOrChallenge": false,
+        "firstPartyResultsInReturnedItems": 0
+      },
+      {
+        "query": "\"DCC-MCP\"",
+        "status": 200,
+        "rssRoot": true,
+        "channel": true,
+        "itemCount": 7,
+        "htmlOrChallenge": false,
+        "firstPartyResultsInReturnedItems": 0
+      },
+      {
+        "query": "\"DCC-MCP\"",
+        "status": 200,
+        "contentType": "text/xml; charset=utf-8",
+        "bytes": 4480,
+        "rssRoot": true,
+        "channel": true,
+        "itemCount": 10,
+        "htmlOrChallenge": false,
+        "firstPartyResultsInReturnedItems": 0,
+        "resultQuality": "All returned titles were unrelated, low-quality spam; omitted from this report."
+      }
+    ],
+    "assessment": "Current Bing RSS endpoint returned structurally valid RSS on three requests (7, 10, and 10 items), but the result sets were unrelated low-quality spam and contained zero first-party URLs. This supports a current zero first-party retrieval observation for this query, with serious result-quality anomaly; it is not retrospective proof that every saved baseline null-rank response was valid. Bing result count/content varied between requests."
+  },
+  "crawlerReachability": {
+    "agents": [
+      "GPTBot",
+      "ClaudeBot",
+      "PerplexityBot",
+      "Googlebot",
+      "bingbot"
+    ],
+    "redirects": 0,
+    "resultsPerAgent": 4,
+    "allRequestsStatus": 200,
+    "paths": {
+      "/": {
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 53076
+      },
+      "/zh/": {
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 52829
+      },
+      "/robots.txt": {
+        "contentType": "text/plain; charset=utf-8",
+        "bytes": 71
+      },
+      "/sitemap.xml": {
+        "contentType": "application/xml",
+        "bytes": 28102
+      }
+    },
+    "robots": {
+      "status": 200,
+      "body": "User-agent: *\nAllow: /\n\nSitemap: https://dcc-mcp.github.io/sitemap.xml\n",
+      "interpretation": "Wildcard allows all tested agents to crawl the site; no blanket disallow. Sitemap URL is declared and sitemap returned HTTP 200 to every tested UA."
+    },
+    "limit": "HTTP reachability only; does not prove search indexing, rendered content quality, or answer-engine citation."
+  },
+  "githubOrganization": {
+    "source": "Unauthenticated public GitHub organization HTML listing and public repository About metadata pages; no credentials used.",
+    "publicRepositories": 91,
+    "listingPages": 4,
+    "repositoryDetailPagesChecked": 91,
+    "detailPageErrors": 0,
+    "missingDescription": {
+      "count": 2,
+      "repositories": [
+        "dcc-mcp-openscreen",
+        "dcc-asset-pirate-nation"
+      ]
+    },
+    "missingHomepage": {
+      "count": 25,
+      "repositories": [
+        "dcc-mcp-shogun",
+        "dcc-mcp-obs",
+        "dcc-mcp-openscreen",
+        "dcc-mcp-marvelous-designer",
+        "dcc-mcp-gaea",
+        "dcc-mcp-capcut",
+        "dcc-mcp-epic",
+        "dcc-mcp-speedtree",
+        "dcc-modeling-spec",
+        "dcc-itchio",
+        "dcc-mcp-runtime",
+        "fpt-cli",
+        "dcc-mcp-liquigen",
+        "dcc-cua",
+        "dcc-mcp-kdenlive",
+        "dcc-mcp-illustrator",
+        "dcc-asset-poly-pizza",
+        "dcc-mcp-wwise",
+        "dcc-lookdev",
+        "dcc-mcp-mari",
+        "dcc-mcp-sketchup",
+        "dcc-mcp-freecad",
+        "dcc-mcp-openscad",
+        "dcc-mcp-cinema4d",
+        "dcc-asset-pirate-nation"
+      ]
+    },
+    "missingTopics": {
+      "count": 24,
+      "repositories": [
+        "dcc-mcp-obs",
+        "showcase",
+        "dcc-mcp-openscreen",
+        "dcc-mcp-marvelous-designer",
+        "dcc-mcp-gaea",
+        "dcc-mcp-capcut",
+        "dcc-mcp-epic",
+        "dcc-mcp-speedtree",
+        "dcc-modeling-spec",
+        "dcc-itchio",
+        "dcc-mcp-runtime",
+        "fpt-cli",
+        "dcc-mcp-liquigen",
+        "dcc-mcp-kdenlive",
+        "dcc-mcp-illustrator",
+        "dcc-asset-poly-pizza",
+        "dcc-mcp-wwise",
+        "dcc-lookdev",
+        "dcc-mcp-mari",
+        "dcc-mcp-sketchup",
+        "dcc-mcp-freecad",
+        "dcc-mcp-openscad",
+        "dcc-mcp-cinema4d",
+        "dcc-asset-pirate-nation"
+      ]
+    },
+    "unauthenticatedRestApi": "HTTP 403 rate limit exceeded (remaining=0); inventory was taken from public GitHub HTML and detail pages instead."
+  },
+  "checkedInSiteCatalog": {
+    "file": "docs/.vitepress/dcc-integrations.json",
+    "controlGuides": 45,
+    "uniqueRepositoryReferences": 45,
+    "releasedDccTypeEntries": 37,
+    "referencesMissingFromPublicOrg": [],
+    "referencedRepoMetadataMissing": {
+      "description": {
+        "count": 1,
+        "repositories": [
+          "dcc-mcp-openscreen"
+        ]
+      },
+      "homepage": {
+        "count": 15,
+        "repositories": [
+          "dcc-mcp-cinema4d",
+          "dcc-mcp-freecad",
+          "dcc-mcp-illustrator",
+          "dcc-mcp-mari",
+          "dcc-mcp-openscad",
+          "dcc-mcp-shogun",
+          "dcc-mcp-sketchup",
+          "dcc-mcp-wwise",
+          "dcc-mcp-liquigen",
+          "dcc-mcp-obs",
+          "dcc-mcp-speedtree",
+          "dcc-mcp-epic",
+          "dcc-mcp-gaea",
+          "dcc-mcp-marvelous-designer",
+          "dcc-mcp-openscreen"
+        ]
+      },
+      "topics": {
+        "count": 14,
+        "repositories": [
+          "dcc-mcp-cinema4d",
+          "dcc-mcp-freecad",
+          "dcc-mcp-illustrator",
+          "dcc-mcp-mari",
+          "dcc-mcp-openscad",
+          "dcc-mcp-sketchup",
+          "dcc-mcp-wwise",
+          "dcc-mcp-liquigen",
+          "dcc-mcp-obs",
+          "dcc-mcp-speedtree",
+          "dcc-mcp-epic",
+          "dcc-mcp-gaea",
+          "dcc-mcp-marvelous-designer",
+          "dcc-mcp-openscreen"
+        ]
+      }
+    },
+    "releaseCatalogVersion": "0.20.25",
+    "versionBoundary": "The checked-in release/catalog claims remain Core 0.20.25. The instructed installed 0.20.28/newer version was excluded from catalog counts; no catalogs were refreshed or changed."
+  }
+}

@@ -6,17 +6,20 @@ pageClass: route-page
 
 # 安装一次，然后描述任务
 
-公开的 [`dcc-mcp` Skill](https://github.com/dcc-mcp/dcc-mcp-agent-plugins/tree/main/plugins/dcc-mcp/skills/dcc-mcp) 保存操作步骤。`dcc-mcp-cli` 负责 Gateway 状态、工具发现、类型化调用、诊断、更新和 Marketplace 安装。
+公开的 [`dcc-mcp` Skill](https://github.com/dcc-mcp/dcc-mcp-agent-plugins/tree/main/plugins/dcc-mcp/skills/dcc-mcp) 为 Agent 提供操作指南。`dcc-mcp-cli` 用于检查 Gateway 状态、查找和调用工具、排查故障、更新软件，以及安装 Marketplace 扩展。
 
-在 Codex、Claude Code、Gemini CLI、GitHub Copilot、Cursor、Windsurf、
-OpenCode、Cline、Roo Code、Kiro CLI、Amp 或其他兼容 Agent Skills 的 Host
-所使用的工作区运行：
+首次使用还需要配置 CLI、Gateway 和目标应用的适配器。具体步骤见
+[快速开始](https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/getting-started)；先检查机器上已有的安装，再补齐缺少的组件。
+
+在 Agent 客户端当前打开的工作区中运行以下命令。支持 Codex、Claude Code、
+Gemini CLI、GitHub Copilot、Cursor、Windsurf、OpenCode、Cline、Roo Code、
+Kiro CLI、Amp 等兼容 Agent Skills 的客户端：
 
 ```bash
 npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 ```
 
-用户级安装可追加 `--global`。如果 Host 只在启动时发现 Skill，请开启新会话。
+用户级安装可追加 `--global`。如果客户端只在启动时读取 Skill，请开启新会话。
 原生插件市场和 Registry 安装方式仍保留在
 [`dcc-mcp-agent-plugins` 仓库](https://github.com/dcc-mcp/dcc-mcp-agent-plugins#install)。
 
@@ -57,7 +60,7 @@ OpenClaw 与 ClawHub 直接安装会记录各自的来源和更新方式，详�
 | 任务 | Skill |
 | --- | --- |
 | 操作已连接 DCC、发现工具或搜索扩展 | `dcc-mcp` |
-| 创建或现代化完整适配器与运行时 | `dcc-mcp-creator` |
+| 开发或改进适配器及其运行环境 | `dcc-mcp-creator` |
 | 创建或改进 DCC 专项 Skill 包 | `dcc-mcp-skills-creator` |
 
 只有任务属于两个开发者路线之一时，才替换通用命令中的 `--skill` 值。

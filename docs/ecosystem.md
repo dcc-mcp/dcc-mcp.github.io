@@ -1,19 +1,21 @@
 ---
 title: DCC-MCP project directory
-description: Directory of DCC-MCP adapters, Skills, asset providers, generation services, and pipeline extensions.
+description: Find creative applications, workflow Skills, asset providers, generation services, and pipeline tools in DCC-MCP, with project purposes and release status.
 pageClass: ecosystem-directory
 outline: [2, 2]
 ---
 
 # Project directory
 
-Core documents the shared control plane. Each linked repository documents its
-own installation, compatibility, and host-specific API. Start with the public
-[`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp), then open an
-adapter or extension repository when the task needs it.
+This directory lists creative tools for AI agents and automation. DCC means digital content creation.
+Start with the public [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp)
+workflow guide, then choose the adapter or extension for your task.
+Each project documents its own installation, compatibility, and application APIs;
+Core documents the shared connection and invocation infrastructure.
+A typed tool defines its parameters, their types, and its results so a call can be inspected and validated.
 
 <div class="directory-actions">
-  <a href="https://clawhub.ai/loonghao/skills/dcc-mcp"><strong>Operate DCCs</strong><span>dcc-mcp Skill</span></a>
+  <a href="https://clawhub.ai/loonghao/skills/dcc-mcp"><strong>Operate creative software</strong><span>dcc-mcp Skill</span></a>
   <a href="https://clawhub.ai/loonghao/skills/dcc-mcp-creator"><strong>Build an adapter</strong><span>dcc-mcp-creator</span></a>
   <a href="https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator"><strong>Build a Skill</strong><span>dcc-mcp-skills-creator</span></a>
 </div>
@@ -21,6 +23,7 @@ adapter or extension repository when the task needs it.
 ## Shared infrastructure and pipeline tools
 
 - [dcc-mcp-core](https://github.com/dcc-mcp/dcc-mcp-core) — Shared gateway, CLI, MCP/REST runtime, safety, diagnostics, and observability.
+- [dcc-mcp-runtime](https://github.com/dcc-mcp/dcc-mcp-runtime) — Shared Python runtime and manifest contract for external DCC-MCP adapters.
 - [Marketplace search](/marketplace) — Search the official extension catalog used by `dcc-mcp-cli`; [catalog source](https://github.com/dcc-mcp/marketplace).
 - [dcc-mcp-fpt](https://github.com/dcc-mcp/dcc-mcp-fpt) — Autodesk Flow Production Tracking integration.
 - [fpt-cli](https://github.com/dcc-mcp/fpt-cli) — Automation-first Rust CLI for Autodesk Flow Production Tracking.
@@ -76,7 +79,7 @@ adapter repository as the source of truth for installation and host details.
 - [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) — Adobe Photoshop through UXP.
 - [Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere) — Adobe Premiere Pro.
 - [SketchUp](https://github.com/dcc-mcp/dcc-mcp-sketchup) — Typed modeling, materials, Tags, scenes, validation, and interchange through an authenticated Ruby bridge.
-- [Shōgun](https://github.com/dcc-mcp/dcc-mcp-shogun) — 48 typed official-SDK tools for Scene objects, attributes, channels, optical cameras, files, Timeline control, and capability-gated Offline processing settings and operations.
+- [Shōgun](https://github.com/dcc-mcp/dcc-mcp-shogun) — Version 0.4.0 provides 48 typed official-SDK tools for Scene objects, attributes, channels, optical cameras, files, Timeline control, and capability-gated Offline processing settings and operations.
 - [SpeedTree](https://github.com/dcc-mcp/dcc-mcp-speedtree) — Source preview for an exact-instance, official-hook capability bridge. It has no tag or GitHub Release and is not in the Core 0.20.25 catalog. A real ST9 handoff verified one palm in Unreal Engine 5.5.4, while collision scale and dynamic wind remain unverified. See the [SpeedTree MCP guide](/control/speedtree).
 - [Substance 3D Designer](https://github.com/dcc-mcp/dcc-mcp-substance3d-designer) — Adobe Substance 3D Designer.
 - [Substance 3D Painter](https://github.com/dcc-mcp/dcc-mcp-substance3d-painter) — Adobe Substance 3D Painter.
@@ -118,7 +121,6 @@ For local generation, see the [ComfyUI game-asset workflow](/control/comfyui).
 - [Qt Inspector](https://github.com/dcc-mcp/dcc-ui-qt-inspector) — Cross-host window and widget discovery.
 - [UI Workflow Memory](https://github.com/dcc-mcp/dcc-ui-workflow-memory) — Verified selectors, recipes, and failure memory.
 - [adobepy](https://github.com/dcc-mcp/adobepy) — Shared Adobe desktop communication runtime.
-- [dcc-mcp-runtime](https://github.com/dcc-mcp/dcc-mcp-runtime) — Shared Python runtime and manifest contract for external DCC-MCP adapters.
 
 ## Organization and discovery surfaces
 
@@ -129,6 +131,7 @@ live application instance.
 - [Autodesk Product Help](https://developer.api.autodesk.com/knowledge/public/v1/mcp) — Opt-in, read-only documentation connector released as `autodesk-help` in Core 0.20.25. It is not a DCC adapter or a mutation route.
 
 - [Official website source](https://github.com/dcc-mcp/dcc-mcp.github.io) — Shared documentation, GEO metadata, application-control guides, and showcases.
+- [Showcase](https://github.com/dcc-mcp/showcase) — Curated examples that can be reproduced in real DCC applications.
 - [Agent plugins](https://github.com/dcc-mcp/dcc-mcp-agent-plugins) — Canonical DCC-MCP Skills and plugin packages for supported agent clients.
 - [dcc-cua](https://github.com/dcc-mcp/dcc-cua) — Cross-platform Computer Use Automation runtime used by bounded DCC UI workflows.
 - [Organization profile](https://github.com/dcc-mcp/.github) — Shared GitHub profile and community configuration.

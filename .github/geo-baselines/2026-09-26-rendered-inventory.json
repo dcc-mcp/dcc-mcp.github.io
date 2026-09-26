@@ -1,0 +1,33 @@
+{
+  "measuredAt": "2026-09-26T03:22:18.984Z",
+  "localBuildOnly": true,
+  "packageCounts": {
+    "en/": {
+      "expectedPackages": 41,
+      "renderedPackages": 41,
+      "homepageShowcaseCards": 25,
+      "newRepoLinks": 5
+    },
+    "zh/": {
+      "expectedPackages": 41,
+      "renderedPackages": 41,
+      "homepageShowcaseCards": 25,
+      "newRepoLinks": 5
+    }
+  },
+  "sitemapUrls": 108,
+  "hreflangEntries": 216,
+  "visualAcceptance": {
+    "status": "blocked",
+    "provider": "dcc-cua",
+    "runtime": "1.8.3",
+    "processId": null,
+    "windowHandle": null,
+    "error": "browser_refused: CUA did not create the authorized isolated browser profile",
+    "desktopVerified": false,
+    "mobileVerified": false
+  },
+  "legacyChineseWhyAnchorPreserved": true,
+  "snapshotScope": "Historical first-round build and browser attempt; visual status was superseded later the same day.",
+  "visualAcceptanceFollowUp": "2026-09-26-visual-acceptance.json"
+}

@@ -1,32 +1,36 @@
 # DCC-MCP
 
-> DCC-MCP 为创意应用提供 Gateway、类型化 CLI、MCP/REST 接口、适配器与 Skills。
+> DCC-MCP 是连接 AI Agent 与创作软件的开源工具集。它通过 MCP、REST API 和 dcc-mcp-cli，让 Agent 与自动化程序调用 Maya、Blender、Houdini 等应用中的工具。
+
+DCC 指数字内容创作（Digital Content Creation）。AI Agent 是能够调用工具完成任务的智能助手。适配器负责连接各个应用，Skill 则封装可复用的操作流程。类型化工具会明确定义输入和输出，便于在执行前检查调用参数。
 
 语言：[English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https://dcc-mcp.github.io/zh/llms.txt)
 
-## 规范入口
+## 官方入口
 
 - [官网与配置提示词](https://dcc-mcp.github.io/zh/)
-- [为什么是 DCC-MCP](https://dcc-mcp.github.io/zh/why-dcc-mcp)：说明这套架构从哪些真实生产问题、技术经验与有意保留的边界中逐步沉淀而来。
-- [Marketplace 搜索](https://dcc-mcp.github.io/zh/marketplace)：搜索官方目录，复制配置提示词或类型化 CLI 安装命令。
+- [为什么选择 DCC-MCP](https://dcc-mcp.github.io/zh/why-dcc-mcp)：了解项目解决的制作流程问题、采用的技术方案及其适用范围。
+- [技能市场](https://dcc-mcp.github.io/zh/marketplace)：查找官方扩展，复制配置提示词或 CLI 安装命令。
 - [案例画廊](https://dcc-mcp.github.io/zh/showcase)：查看结果、所属仓库、验证说明与提示词。
 - [Blender 与 Designer 木箱案例](https://dcc-mcp.github.io/zh/showcase#blender-designer-crate)：真实 Cycles 效果图、UV 坐标与棋盘格，以及可编辑场景和程序化材质来源。
 - [Wwise 音频案例](https://dcc-mcp.github.io/zh/showcase/wwise)：在线试听通过类型化 WAAPI 工具验证的可复现音效与背景音乐。
-- [AI + DCC 控制指南](https://dcc-mcp.github.io/zh/use-cases)：为全部公开创意应用与流水线集成提供直接答案和可复制提示词。
+- [AI + DCC 控制指南](https://dcc-mcp.github.io/zh/use-cases)：按应用查看 AI 能做什么、如何操作，以及可直接使用的提示词。
 - [Agent 工作流](https://dcc-mcp.github.io/zh/agents)：安装公开 Skill、发现类型化工具、验证调用并诊断失败。
 - [开发者指南](https://dcc-mcp.github.io/zh/developers)：内部 standalone MCP 服务、DCC 适配器和专项 Skill 的本地示例与验证步骤。
-- [生态目录](https://dcc-mcp.github.io/zh/ecosystem)：适配器、扩展、资产提供方、生成服务和工作室集成。
+- [项目目录](https://dcc-mcp.github.io/zh/ecosystem)：查找应用适配器、扩展、素材服务、生成服务和工作室工具。
 - [Core 文档](https://dcc-mcp.github.io/dcc-mcp-core/zh/)：Gateway、CLI、MCP/REST、安全、可观测性与 Python API。
 - [适配器安装 SOP v1 schema](https://dcc-mcp.github.io/schemas/adapter-install-sop-v1.schema.json)：适配器生命周期命令的规范 Draft 2020-12 结果契约。
 
 ## Agent Skills
 
-- [规范分发仓库](https://github.com/dcc-mcp/dcc-mcp-agent-plugins)：一份 Skill 源码，同时提供通用与原生安装入口。
-- [dcc-mcp](https://clawhub.ai/loonghao/skills/dcc-mcp)：操作已连接 DCC，搜索并安装官方 Marketplace 扩展。
-- [dcc-mcp-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-creator)：创建或现代化 DCC 适配器/运行时，或无需 GitHub 的内部非 DCC standalone MCP 服务。
+- [官方 Skill 仓库](https://github.com/dcc-mcp/dcc-mcp-agent-plugins)：统一维护 Skill 源码，提供通用安装方式和各 Agent 客户端的原生安装方式。
+- [dcc-mcp](https://clawhub.ai/loonghao/skills/dcc-mcp)：操作已连接的 DCC 应用，查找并安装官方技能市场中的扩展。
+- [dcc-mcp-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-creator)：开发或改进 DCC 适配器与运行时，也可创建团队内部的独立 MCP 服务；内部服务无需托管到 GitHub，也不限于 DCC 应用。
 - [dcc-mcp-skills-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator)：创建、验证或改进 DCC 专项 Skill 包。
 
 通用安装：`npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`
+
+Skill 为 Agent 提供操作指南。首次使用还需要配置 CLI、Gateway 和目标应用的适配器；先检查已有安装，再补齐缺少的组件。配置步骤：https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/getting-started
 
 使用 `npx --yes skills@1.5.23 update -p -y` 更新项目 Skill，或用 `npx --yes skills@1.5.23 update -g -y` 更新全局安装。先运行 `dcc-mcp-cli update check` 检查 CLI；只有用户同意本地变更后才运行 `dcc-mcp-cli update apply`。无人值守更新不要附加 `--force`。
 
@@ -91,6 +95,16 @@ DCC-MCP Core 0.20.25 报告 37 个适配器 `dcc-types`（`3dsmax`、`aftereffec
 - [ZBrush](https://dcc-mcp.github.io/zh/control/zbrush)
 
 公开指南覆盖 45 个应用与流水线：37 个已发布适配器路由、1 个当前 Core Office 共享路由、1 个独立发布适配器、5 个源码预览与 1 个 Marketplace Skill。操作前检查 `dcc-mcp-cli dcc-types` 与对应仓库。
+
+## 更多组织项目
+
+以下仓库提供其他应用集成、共享运行时和案例，不额外计入上述版本的 CLI 发布目录。使用前请查看对应仓库，并运行 `dcc-mcp-cli dcc-types` 确认当前可用性。
+
+- [Poly Pizza](https://github.com/dcc-mcp/dcc-asset-poly-pizza)：查找并下载带有许可说明的低多边形模型。
+- [共享适配器运行时](https://github.com/dcc-mcp/dcc-mcp-runtime)：为外部 DCC-MCP 适配器提供 PyOxidizer 运行环境。
+- [CapCut Desktop](https://github.com/dcc-mcp/dcc-mcp-capcut)：桌面版 CapCut 的 MCP 适配器与应用桥接。
+- [Kdenlive](https://github.com/dcc-mcp/dcc-mcp-kdenlive)：编写视频工程、通过 MLT 渲染，并用 DCC-CUA 操作编辑器。
+- [可复现案例](https://github.com/dcc-mcp/showcase)：汇集实际 DCC 应用中的案例与验证记录。
 
 ## Marketplace CLI 契约
 

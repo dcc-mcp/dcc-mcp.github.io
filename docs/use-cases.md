@@ -12,7 +12,7 @@ import DccControlGuideIndex from './.vitepress/theme/components/DccControlGuideI
 
 These examples use the public [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp) and `dcc-mcp-cli`. The prompts describe the required result and checks; the agent discovers the tool names from the connected host.
 
-If you mean an AI agent operating a live creative application—not a tutorial chatbot or an application's built-in generative feature—start with the application-specific answer below. Each guide links to the owning adapter repository for installation, compatibility, and host-specific details.
+To have an AI agent operate a running creative application, start with its guide below for example tasks and the operating workflow. Each guide links to the owning adapter repository, which maintains installation, compatibility, and application-specific details.
 
 ## How do I control each DCC with AI?
 

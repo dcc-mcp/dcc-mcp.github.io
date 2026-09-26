@@ -1,0 +1,498 @@
+{
+  "date": "2026-09-26",
+  "status": "local-production-build-verified",
+  "provider": "dcc-cua",
+  "runtime": "1.9.1 official release",
+  "exactPidHwndBindingVerified": true,
+  "sourceBase": "ef188730f42bc3807349da3c18e2d8229beb209c",
+  "sourceStateAtCapture": "uncommitted local changes",
+  "method": "DCC-CUA public MCP snapshot and navigation; production pages in same-origin fixed CSS viewports; native DCC-CUA screenshots",
+  "captureCount": 17,
+  "limits": [
+    "No deployment or remote UI changes",
+    "CSS viewport checks, not physical mobile device emulation",
+    "Some homepage DOM snapshots truncated at node limit; screenshots returned",
+    "Loaded-image checks do not establish playback or complete lazy-media coverage",
+    "No clipboard or full-site interaction acceptance"
+  ],
+  "captures": [
+    {
+      "case": {
+        "lang": "zh",
+        "width": "1440",
+        "theme": "light",
+        "top": "0"
+      },
+      "measurement": {
+        "route": "/zh/",
+        "language": "zh-CN",
+        "theme": "light",
+        "viewport": 1440,
+        "height": 1000,
+        "scrollWidth": 1425,
+        "overflow": false,
+        "top": 0,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-16.json",
+      "images": [
+        {
+          "file": "call-16-1.png",
+          "sha256": "961964b6bd0071714d17d5dac91b63df3246d791f5ce8b2cc2a76679035dd5d8"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "zh",
+        "width": "1440",
+        "theme": "dark",
+        "top": "0"
+      },
+      "measurement": {
+        "route": "/zh/",
+        "language": "zh-CN",
+        "theme": "dark",
+        "viewport": 1440,
+        "height": 1000,
+        "scrollWidth": 1425,
+        "overflow": false,
+        "top": 0,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-19.json",
+      "images": [
+        {
+          "file": "call-19-1.png",
+          "sha256": "87dcc26bf9819943e1f836fce13ff00dd15ed503fa84694a1552b6eb9ddbfb62"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "zh",
+        "width": "390",
+        "theme": "light",
+        "top": "0"
+      },
+      "measurement": {
+        "route": "/zh/",
+        "language": "zh-CN",
+        "theme": "light",
+        "viewport": 390,
+        "height": 844,
+        "scrollWidth": 375,
+        "overflow": false,
+        "top": 0,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-22.json",
+      "images": [
+        {
+          "file": "call-22-1.png",
+          "sha256": "5026460453b68df62a0a9b3bcb7d259a99a62c1f1990c168816f85fc06264517"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "zh",
+        "width": "390",
+        "theme": "dark",
+        "top": "0"
+      },
+      "measurement": {
+        "route": "/zh/",
+        "language": "zh-CN",
+        "theme": "dark",
+        "viewport": 390,
+        "height": 844,
+        "scrollWidth": 375,
+        "overflow": false,
+        "top": 0,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-25.json",
+      "images": [
+        {
+          "file": "call-25-1.png",
+          "sha256": "2c151314158b5659f3516d676bd758130275dc775cf1bd29e5d1133eb942c709"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "en",
+        "width": "1440",
+        "theme": "light",
+        "top": "0"
+      },
+      "measurement": {
+        "route": "/",
+        "language": "en",
+        "theme": "light",
+        "viewport": 1440,
+        "height": 1000,
+        "scrollWidth": 1425,
+        "overflow": false,
+        "top": 0,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-28.json",
+      "images": [
+        {
+          "file": "call-28-1.png",
+          "sha256": "7a6ef18e210c7532f1bdd0a21ba763f4c70bc746970fe3ccfe684bb3cc5bce20"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "en",
+        "width": "1440",
+        "theme": "dark",
+        "top": "0"
+      },
+      "measurement": {
+        "route": "/",
+        "language": "en",
+        "theme": "dark",
+        "viewport": 1440,
+        "height": 1000,
+        "scrollWidth": 1425,
+        "overflow": false,
+        "top": 0,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-31.json",
+      "images": [
+        {
+          "file": "call-31-1.png",
+          "sha256": "7001bdf37068048a3ad6fe4df655b823a435cc9843451ac296db6d0d16bdcab5"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "en",
+        "width": "390",
+        "theme": "light",
+        "top": "0"
+      },
+      "measurement": {
+        "route": "/",
+        "language": "en",
+        "theme": "light",
+        "viewport": 390,
+        "height": 844,
+        "scrollWidth": 375,
+        "overflow": false,
+        "top": 0,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-34.json",
+      "images": [
+        {
+          "file": "call-34-1.png",
+          "sha256": "013daa3bb631bed4dda40e97bccf334cf53f9f633a390be53e13ee0e1effa78a"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "en",
+        "width": "390",
+        "theme": "dark",
+        "top": "0"
+      },
+      "measurement": {
+        "route": "/",
+        "language": "en",
+        "theme": "dark",
+        "viewport": 390,
+        "height": 844,
+        "scrollWidth": 375,
+        "overflow": false,
+        "top": 0,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-37.json",
+      "images": [
+        {
+          "file": "call-37-1.png",
+          "sha256": "e13552548149a4adcd1a0246cd58cc82b1909660c7706a9d76f01f9f62a8ab35"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "zh",
+        "width": "1440",
+        "theme": "dark",
+        "top": "900"
+      },
+      "measurement": {
+        "route": "/zh/",
+        "language": "zh-CN",
+        "theme": "dark",
+        "viewport": 1440,
+        "height": 1000,
+        "scrollWidth": 1425,
+        "overflow": false,
+        "top": 900,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-40.json",
+      "images": [
+        {
+          "file": "call-40-1.png",
+          "sha256": "bb53b5f020e8f393518930f1240f1a12196b1d9a8da6d71b9e1a718795109d7b"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "zh",
+        "width": "1440",
+        "theme": "light",
+        "top": "2200"
+      },
+      "measurement": {
+        "route": "/zh/",
+        "language": "zh-CN",
+        "theme": "light",
+        "viewport": 1440,
+        "height": 1000,
+        "scrollWidth": 1425,
+        "overflow": false,
+        "top": 2200,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-43.json",
+      "images": [
+        {
+          "file": "call-43-1.png",
+          "sha256": "6bffd7e80e72e29b498811e7a8efca7bd13538965321e91f587d0f45c947b194"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "zh",
+        "width": "390",
+        "theme": "light",
+        "top": "900"
+      },
+      "measurement": {
+        "route": "/zh/",
+        "language": "zh-CN",
+        "theme": "light",
+        "viewport": 390,
+        "height": 844,
+        "scrollWidth": 375,
+        "overflow": false,
+        "top": 900,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-46.json",
+      "images": [
+        {
+          "file": "call-46-1.png",
+          "sha256": "cf709b0aa3e432c09da89f0f8c0a2e7846fdcc956b7c93e1533970da14ce8730"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "zh",
+        "width": "390",
+        "theme": "dark",
+        "top": "2200"
+      },
+      "measurement": {
+        "route": "/zh/",
+        "language": "zh-CN",
+        "theme": "dark",
+        "viewport": 390,
+        "height": 844,
+        "scrollWidth": 375,
+        "overflow": false,
+        "top": 2200,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-49.json",
+      "images": [
+        {
+          "file": "call-49-1.png",
+          "sha256": "9b5b7007fab62512988d0459260cea1e6f6b0c915697f7e642c4c8053120a99a"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "zh",
+        "width": "1440",
+        "theme": "light",
+        "top": "0",
+        "route": "/zh/control/blender"
+      },
+      "measurement": {
+        "route": "/zh/control/blender",
+        "language": "zh-CN",
+        "theme": "light",
+        "viewport": 1440,
+        "height": 1000,
+        "scrollWidth": 1425,
+        "overflow": false,
+        "top": 0,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": true,
+      "responseFile": "call-52.json",
+      "images": [
+        {
+          "file": "call-52-1.png",
+          "sha256": "1577e2466893c9c37d2977afab4b3b2241edbb7751735583b877fc630b0a1bf6"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "zh",
+        "width": "390",
+        "theme": "dark",
+        "top": "0",
+        "route": "/zh/agents"
+      },
+      "measurement": {
+        "route": "/zh/agents",
+        "language": "zh-CN",
+        "theme": "dark",
+        "viewport": 390,
+        "height": 844,
+        "scrollWidth": 375,
+        "overflow": false,
+        "top": 0,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": true,
+      "responseFile": "call-55.json",
+      "images": [
+        {
+          "file": "call-55-1.png",
+          "sha256": "1ea69051b9c5c46e9ad523f452c59288c4f9c2fac7fba2ea773627a3bd450b64"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "zh",
+        "width": "1440",
+        "theme": "dark",
+        "top": "4000"
+      },
+      "measurement": {
+        "route": "/zh/",
+        "language": "zh-CN",
+        "theme": "dark",
+        "viewport": 1440,
+        "height": 1000,
+        "scrollWidth": 1425,
+        "overflow": false,
+        "top": 4000,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-58.json",
+      "images": [
+        {
+          "file": "call-58-1.png",
+          "sha256": "07163809de21968686ec178afb7f220311c1ccfa472f309690c5d0e2abaa8247"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "zh",
+        "width": "390",
+        "theme": "light",
+        "top": "5600"
+      },
+      "measurement": {
+        "route": "/zh/",
+        "language": "zh-CN",
+        "theme": "light",
+        "viewport": 390,
+        "height": 844,
+        "scrollWidth": 375,
+        "overflow": false,
+        "top": 5600,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-61.json",
+      "images": [
+        {
+          "file": "call-61-1.png",
+          "sha256": "3064d534ce9cc9eb39a101439fa938520caee93c28378c02a3408254f39a80be"
+        }
+      ],
+      "visualReview": "passed"
+    },
+    {
+      "case": {
+        "lang": "zh",
+        "width": "390",
+        "theme": "light",
+        "top": "6250"
+      },
+      "measurement": {
+        "route": "/zh/",
+        "language": "zh-CN",
+        "theme": "light",
+        "viewport": 390,
+        "height": 844,
+        "scrollWidth": 375,
+        "overflow": false,
+        "top": 6250,
+        "brokenImages": 0
+      },
+      "domSnapshotComplete": false,
+      "responseFile": "call-64.json",
+      "images": [
+        {
+          "file": "call-64-1.png",
+          "sha256": "23272b9af33d2aa24e11f46db41feac2f58647bdee1fc41049dce8ab8ee135d0"
+        }
+      ],
+      "visualReview": "passed"
+    }
+  ]
+}

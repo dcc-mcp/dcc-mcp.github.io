@@ -1,22 +1,27 @@
 # DCC-MCP：Agent、Marketplace、适配器与开发者参考
 
-DCC-MCP 通过机器级 Gateway、类型化 `dcc-mcp-cli`、MCP/REST 接口、逐应用
-适配器、Skills、Marketplace 扩展、策略检查、诊断和结构化失败报告连接创意
-应用。
+DCC-MCP 是连接 AI Agent 与创作软件的开源工具集。它通过 MCP、REST API 和
+`dcc-mcp-cli`，让 Agent 与自动化程序调用 Maya、Blender、Houdini 等应用中的工具。
+DCC 指数字内容创作（Digital Content Creation）。AI Agent 是能够调用工具完成任务的
+智能助手。适配器负责连接各个应用，Gateway 将调用发送到选定的应用实例，Skill
+则封装可复用的操作流程。类型化工具会明确定义输入和输出，便于在执行前检查参数。
+团队可以通过权限检查、诊断信息和结构化错误报告，了解操作过程并排查失败原因。
 
-共享契约来自多个 adapter 反复遇到的问题：重复生成脚本、重复实现生命周期、
-DCC 主线程和多实例约束、长任务、缺少 API，以及没有证据的失败。工作顺序是
-“生产标准化 → 标准流程化 → 流程工具化 → Agent 操作工具”。REST/OpenAPI
-与 CLI 在没有 AI 时仍可供运维、CI、自研应用、工作流画布和云平台使用。
-技术动机与已知边界见 https://dcc-mcp.github.io/zh/why-dcc-mcp。
+这些设计解决了接入不同应用时反复遇到的问题：重复编写脚本与启动、连接、退出逻辑，
+处理主线程和多实例限制，跟踪耗时任务，以及在缺少 API 或错误记录时排查问题。
+团队先明确制作标准，再整理可重复的流程、封装工具，最后交给 Agent 调用。
+没有 AI Agent 时，运维、CI、自研应用和云平台仍可使用 REST/OpenAPI 与 CLI。
+设计原因和适用范围见 https://dcc-mcp.github.io/zh/why-dcc-mcp。
 
-规范官网：https://dcc-mcp.github.io/zh/
+官方网站：https://dcc-mcp.github.io/zh/
 GitHub 组织：https://github.com/dcc-mcp
 Core 文档：https://dcc-mcp.github.io/dcc-mcp-core/zh/
 适配器安装 SOP v1 schema：https://dcc-mcp.github.io/schemas/adapter-install-sop-v1.schema.json
 英文机器可读指南：https://dcc-mcp.github.io/llms-full.txt
 
 ## 推荐 Agent 路由
+
+Skill 为 Agent 提供操作指南。首次使用还需要配置 CLI、Gateway 和目标应用的适配器；先检查已有安装，再补齐缺少的组件。配置步骤：https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/getting-started
 
 1. 在 Agent 工作区运行 `npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`；如果 Host 只在启动时发现 Skill，再开启新会话。使用 `npx --yes skills@1.5.23 update -p -y` 更新项目安装，或使用 `npx --yes skills@1.5.23 update -g -y` 更新全局安装；无人值守更新不要附加 `--force`。
 2. 使用 `dcc-mcp-cli health`、`dcc-mcp-cli dcc-types` 与 `dcc-mcp-cli list` 验证 CLI 和已连接 Host。
@@ -25,7 +30,7 @@ Core 文档：https://dcc-mcp.github.io/dcc-mcp-core/zh/
 5. 严格遵循返回的 `next_step`。仅在被要求时执行 load 或 describe。
 6. 执行返回的类型化 slug：`dcc-mcp-cli call <slug> --json <arguments>`。
 7. 验证结果并报告具体证据，而不只报告命令成功。
-8. 只有结构化 DCC Skill、脚本或 API 无法到达所需语义 UI 时，才使用受限 Computer Use。
+8. 原生工具或 API 无法完成某个界面步骤时，通过 UI Control 使用项目自有的 DCC-CUA。先绑定目标进程和窗口，观察后再操作，最后验证结果；无法建立绑定或运行时不可用时，停止并报告阻塞原因。
 
 默认 Agent 路径是公开 `dcc-mcp` Skill 加 CLI + REST。IDE 用户仍可通过 MCP 配置连接。两条路径使用同一个 Gateway；CLI 优先并不废弃 MCP。
 
@@ -43,11 +48,11 @@ https://dcc-mcp.github.io/zh/showcase/wwise。
 
 ## 公开 Skill 路由
 
-- 操作已连接 DCC、发现类型化工具或搜索安装 Marketplace 扩展：https://clawhub.ai/loonghao/skills/dcc-mcp
-- 创建或现代化 DCC 适配器或内部非 DCC standalone MCP 服务，包括 Dispatcher、Readiness、Runtime、Resource 或 Gateway 集成：https://clawhub.ai/loonghao/skills/dcc-mcp-creator
+- 操作已连接的 DCC 应用、查找工具或安装技能市场扩展：https://clawhub.ai/loonghao/skills/dcc-mcp
+- 开发或改进 DCC 适配器，也可为团队创建独立 MCP 服务；涵盖任务调度、就绪检查、运行时、资源与 Gateway 集成：https://clawhub.ai/loonghao/skills/dcc-mcp-creator
 - 创建、验证、测试、审查或发布专项 DCC Skill 包：https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator
 
-规范分发源是 https://github.com/dcc-mcp/dcc-mcp-agent-plugins。只安装匹配任务的 Skill。通用 `skills` 命令覆盖主流兼容 Agent Skills 的 Host；Codex、Claude Code、CodeBuddy、WorkBuddy、OpenClaw、ClawHub 与 Smithery 的原生入口仍由该仓库维护。Host 需要在启动时发现 Skill 时再开启新会话。
+官方分发仓库是 https://github.com/dcc-mcp/dcc-mcp-agent-plugins。只安装当前任务需要的 Skill。通用 `skills` 命令适用于主流 Agent Skills 客户端；该仓库也维护 Codex、Claude Code、CodeBuddy、WorkBuddy、OpenClaw、ClawHub 与 Smithery 的原生安装方式。若客户端只在启动时读取 Skill，安装后需开启新会话。
 
 ## 当前 Core 与 CLI 发布目录
 
@@ -188,9 +193,19 @@ Blender 与 Designer 木箱案例：https://dcc-mcp.github.io/zh/showcase#blende
 已经安装。Agent 仍须发现类型化工具、检查 Marketplace 软件包、改变状态前
 请求授权，并验证场景或文件。
 
+## 更多组织项目
+
+以下仓库提供其他应用集成、共享运行时和案例，不额外计入上述版本的 CLI 发布目录。使用前请查看对应仓库，并运行 `dcc-mcp-cli dcc-types` 确认当前可用性。
+
+- [Poly Pizza](https://github.com/dcc-mcp/dcc-asset-poly-pizza)：查找并下载带有许可说明的低多边形模型。
+- [共享适配器运行时](https://github.com/dcc-mcp/dcc-mcp-runtime)：为外部 DCC-MCP 适配器提供 PyOxidizer 运行环境。
+- [CapCut Desktop](https://github.com/dcc-mcp/dcc-mcp-capcut)：桌面版 CapCut 的 MCP 适配器与应用桥接。
+- [Kdenlive](https://github.com/dcc-mcp/dcc-mcp-kdenlive)：编写视频工程、通过 MLT 渲染，并用 DCC-CUA 操作编辑器。
+- [可复现案例](https://github.com/dcc-mcp/showcase)：汇集实际 DCC 应用中的案例与验证记录。
+
 ## 开发所有权
 
-- 使用 `dcc-mcp-creator` 构建新 DCC 集成或现代化运行时接线。
+- 使用 `dcc-mcp-creator` 开发新的 DCC 集成，或改进已有应用的接入方式。
 - 使用 `dcc-mcp-creator`、稳定的自定义服务 ID 与 `instance_type="standalone"` 暴露内部非 DCC API、CLI、资产系统、农场或评审服务；不要伪造 DCC PID，也不要求公开仓库。
 - 使用 `dcc-mcp-skills-creator` 构建专项工作流包。
 - 共享 Gateway、CLI、MCP/REST、安全、诊断、遥测与可复用运行时契约归 `dcc-mcp-core`。
@@ -201,16 +216,16 @@ https://dcc-mcp.github.io/zh/developers 使用 Dev Container 和开源 MCP
 Inspector 提供 loopback 本地示例。需要由运维管理的多人浏览器 Session 时
 可采用 Educates。不得为了使用托管 Playground 暴露内部端点。
 
-## 文档地图
+## 文档导航
 
 - 官网与配置提示词：https://dcc-mcp.github.io/zh/
-- 为什么是 DCC-MCP：https://dcc-mcp.github.io/zh/why-dcc-mcp
+- 为什么选择 DCC-MCP：https://dcc-mcp.github.io/zh/why-dcc-mcp
 - Agent 指南：https://dcc-mcp.github.io/zh/agents
 - Marketplace：https://dcc-mcp.github.io/zh/marketplace
 - 案例与提示词：https://dcc-mcp.github.io/zh/showcase
 - 常见 AI + DCC 任务：https://dcc-mcp.github.io/zh/use-cases
-- 开发者路由：https://dcc-mcp.github.io/zh/developers
-- 生态目录：https://dcc-mcp.github.io/zh/ecosystem
+- 开发者指南：https://dcc-mcp.github.io/zh/developers
+- 项目目录：https://dcc-mcp.github.io/zh/ecosystem
 - Core 快速开始：https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/getting-started
 - CLI 参考：https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/cli-reference
 - Core 架构：https://dcc-mcp.github.io/dcc-mcp-core/guide/architecture
@@ -222,5 +237,5 @@ Inspector 提供 loopback 本地示例。需要由运维管理的多人浏览器
 - `dcc-mcp-core` 是共享 DCC 基础设施与控制平面，不是 AI Agent，也不替代 `dcc-mcp-cli`。
 - `dcc-mcp` 是教 Agent 使用工具链的默认公开 Agent Skill。
 - `dcc-mcp-cli` 是 Gateway 生命周期、发现、调用、诊断与 Marketplace 安装的类型化操作接口。
-- Gateway 同时提供 MCP 与 REST，并路由到在线的逐 DCC 适配器。
-- DCC 表示数字内容创作应用或 Host。
+- Gateway 同时提供 MCP 与 REST，将请求发送到正在运行的应用所对应的适配器。
+- DCC 指数字内容创作（Digital Content Creation）；本文也用它统称相关创作应用。

@@ -1,13 +1,14 @@
 ---
 title: 开发 DCC-MCP 适配器、服务与 Skills
-description: 选择能力归属层，运行本地示例，并验证适配器、standalone 服务或 Skill。
+description: 根据任务选择适配器、独立服务或 Skill，运行本地示例并验证结果。
 pageClass: route-page
 ---
 
 # 开发适配器、服务或 Skill
 
-创建文件前先确认工作流归属。DCC-MCP 同时支持公开 DCC 适配器、
-内部非 DCC 服务和专项 Skill 包；一个本地目录或内部源码树就足够。
+开始开发前，先确定要连接应用、接入内部服务，还是扩展已有工作流。
+DCC-MCP 支持公开的 DCC 适配器、内部非 DCC 服务和专项 Skill 包；
+可以直接在本地项目或内部代码库中开发。
 
 <div class="directory-actions">
   <a href="https://clawhub.ai/loonghao/skills/dcc-mcp-creator"><strong>内部或自定义 MCP 服务</strong><span>使用 dcc-mcp-creator</span></a>
@@ -35,7 +36,7 @@ Agent 从内部项目目录运行，然后使用下面的提示词：
 ```text
 运行时使用 dcc-mcp-creator，Skill 文件使用 dcc-mcp-skills-creator。只在我当前的私有或内部项目中工作，不要创建 GitHub 仓库、公开 Catalog 条目、外部 Issue 或公开 Release。先检查并复用项目已有的语言、包管理器、测试命令、鉴权和部署约定。
 
-实现最小可用的非 DCC MCP 垂直切片：一个稳定的自定义服务 ID；使用 DccServerBase 与 DccServerOptions.from_env(..., instance_type="standalone")；不设置 dcc_pid；开发阶段只监听 loopback；围绕一个真实本地工作流提供一个类型化只读 Skill。普通服务、文件和 API 操作保持 inline execution；只有存在真实线程或进程边界时才增加 Dispatcher 或 Bridge。声明封闭的输入/输出 Schema、全部安全注解、有限超时、一个 call example，以及可执行且已清理敏感信息的错误。凭据必须保留在项目现有 Secret 边界中。
+实现一个端到端可运行的最小非 DCC MCP 服务（vertical slice）。使用稳定的自定义服务 ID，通过 DccServerBase 与 DccServerOptions.from_env(..., instance_type="standalone") 创建服务，不设置 dcc_pid；开发阶段只监听本机回环地址（loopback）。围绕一个真实的本地工作流，提供一个类型化只读 Skill。普通服务、文件和 API 操作在当前执行流程中直接运行（inline execution）；确实需要跨线程或进程时，才增加 Dispatcher 或 Bridge。输入和输出 Schema 应明确列出允许的字段，并补齐安全注解、有限的超时时间和调用示例。错误信息应说明如何处理，并清理敏感信息。凭据继续由项目现有的 Secret 机制管理。
 
 使用 dcc-mcp-cli lint skills 和项目原生的最小测试完成验证。启动服务并输出解析后的 /mcp URL；验证 tools/list、精确的 Skill 发现与 load、describe、一次合法调用、一次非法输入错误和干净退出。先使用官方开源 MCP Inspector 在本机验证，再通过 dcc-mcp-cli list/load-skill/describe/call 与 --output toon 重复 Agent 路径。保留返回的 slug 和 request_id，不要猜测或盲目重试。报告修改文件、准确验证证据、剩余安全/部署工作；发布或修改共享基础设施前停止。
 ```
