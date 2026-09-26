@@ -113,11 +113,15 @@ const requestUrl = ({ query, locale, market }) => {
   return url.href
 }
 
-const queryBinding = (url, query) => {
+const queryBinding = (url, query, { allowHttpFeed = false } = {}) => {
   try {
     if (url !== url.trim() || /[\u0000-\u0020\u007f]/.test(url)) return 'mismatch'
     const parsed = new URL(url)
-    if (parsed.origin !== 'https://www.bing.com' || parsed.pathname !== '/search') return 'mismatch'
+    // Bing can identify its RSS feed with an HTTP default-port metadata URL;
+    // this exception never applies to the URL actually used for retrieval.
+    const allowedOrigin = parsed.origin === 'https://www.bing.com'
+      || (allowHttpFeed && parsed.origin === 'http://www.bing.com')
+    if (!allowedOrigin || parsed.pathname !== '/search') return 'mismatch'
     const queries = parsed.searchParams.getAll('q')
     if (!queries.length) return 'unavailable'
     return queries.length === 1 && queries[0] === query ? 'matched' : 'mismatch'
@@ -183,7 +187,7 @@ export const measure = async (context, { planOnly = false, fetchImpl = fetch } =
     return { ...record, outcome: 'inconclusive', reason: 'invalid-encoding' }
   }
   if (!text.trim()) return { ...record, outcome: 'empty', reason: 'empty-response' }
-  if (/\b(?:text\/html|application\/xhtml\+xml)\b/i.test(record.response.contentType ?? '') || /^\s*(?:<!doctype\s+html\b|<html\b)/i.test(text)) {
+  if (/^\s*(?:<!doctype\s+html\b|<html\b)/i.test(text)) {
     return { ...record, outcome: 'inconclusive', reason: 'html-response', parse: { ...record.parse, status: 'invalid' } }
   }
   let parsed
@@ -194,7 +198,7 @@ export const measure = async (context, { planOnly = false, fetchImpl = fetch } =
   }
   record.parse = { status: 'valid', resultCount: parsed.resultCount, examinedCount: parsed.items.length, invalidItemCount: parsed.items.filter((item) => !item.valid).length }
   record.feed = { title: bounded(parsed.feed.title), url: bounded(parsed.feed.url, 4096), description: bounded(parsed.feed.description) }
-  record.queryBinding = { response: queryBinding(response.url, query), feed: queryBinding(parsed.feed.url, query) }
+  record.queryBinding = { response: queryBinding(response.url, query), feed: queryBinding(parsed.feed.url, query, { allowHttpFeed: true }) }
   record.results = parsed.items.map((item) => ({ ...item, ...(item.valid ? { title: bounded(item.title) } : {}) }))
   if (Object.values(record.queryBinding).some((binding) => binding !== 'matched')) {
     return { ...record, outcome: 'inconclusive', reason: 'query-binding-unverified' }

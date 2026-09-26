@@ -8,9 +8,9 @@ import { expectedApplications, expectedFixedQueries } from './geo-query-contract
 const context = { query: '"DCC-MCP" & 中文', locale: 'zh-CN', market: 'CN', kind: 'fixed' }
 const escapeXml = (value) => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
 const item = (title, url) => `<item><title>${escapeXml(title)}</title><link>${escapeXml(url)}</link></item>`
-const feed = (items, query = context.query) => `<?xml version="1.0" encoding="UTF-8"?>
+const feed = (items, query = context.query, channelUrl = `https://www.bing.com/search?q=${encodeURIComponent(query)}`) => `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel><title>${escapeXml(query)} - Bing</title>
-<link>${escapeXml(`https://www.bing.com/search?q=${encodeURIComponent(query)}`)}</link>
+<link>${escapeXml(channelUrl)}</link>
 <description>Search results</description>${items}</channel></rss>`
 const thirdParty = item('Other documentation', 'https://example.org/guide?q=one&lang=en')
 const firstParty = item('DCC-MCP', 'https://dcc-mcp.github.io/')
@@ -49,6 +49,26 @@ assert.equal(noHit.rank, null)
 assert.equal(noHit.results.length, 1, 'a valid miss still retains observed result evidence')
 assert.equal(noHit.relevance, 'not-assessed', 'a miss does not claim the response is relevant or the site unindexed')
 
+const encodedQuery = encodeURIComponent(context.query)
+for (const origin of ['http://www.bing.com', 'http://www.bing.com:80']) {
+  for (const [items, outcome] of [[firstParty, 'hit'], [thirdParty, 'no-hit']]) {
+    const channelUrl = `${origin}/search?q=${encodedQuery}`
+    const record = await measure(context, { fetchImpl: fixture(feed(items, context.query, channelUrl)) })
+    assert.equal(record.outcome, outcome, 'HTTP default-port feed metadata must retain valid observations')
+    assert.equal(record.measurementValid, true)
+    assert.deepEqual(record.queryBinding, { response: 'matched', feed: 'matched' })
+    assert.equal(record.feed.url, channelUrl, 'feed metadata must retain its exact decoded URL')
+    assert.ok(record.response.url.startsWith('https://'), 'actual retrieval remains HTTPS')
+  }
+}
+for (const contentType of ['text/html; charset=utf-8', 'application/xhtml+xml']) {
+  for (const [items, outcome] of [[firstParty, 'hit'], [thirdParty, 'no-hit']]) {
+    const record = await measure(context, { fetchImpl: fixture(feed(items), { contentType }) })
+    assert.equal(record.outcome, outcome, 'valid RSS must be parsed despite an incorrect HTML content type')
+    assert.equal(record.response.contentType, contentType, 'preserve inaccurate headers as evidence')
+  }
+}
+
 const cases = [
   ['empty body', '', {}, 'empty', 'empty-response'],
   ['empty feed', feed(''), {}, 'empty', 'empty-feed'],
@@ -61,6 +81,7 @@ const cases = [
   ['not RSS', '<root><item><title>DCC-MCP</title><link>https://dcc-mcp.github.io/</link></item></root>', {}, 'inconclusive', 'invalid-rss'],
   ['HTML challenge', '<!doctype html><html><body>Verify you are human</body></html>', { contentType: 'text/html' }, 'inconclusive', 'html-response'],
   ['HTML served as XML', '<html><body>Service unavailable</body></html>', {}, 'inconclusive', 'html-response'],
+  ['HTML with XML declaration', '<?xml version="1.0"?><html><body>Service unavailable</body></html>', { contentType: 'text/html' }, 'inconclusive', 'invalid-rss'],
   ['HTTP error with valid-looking RSS', feed(firstParty), { status: 503 }, 'error', 'http-error'],
   ['HTTP error with undecodable body', Buffer.from([255]), { status: 503 }, 'error', 'http-error'],
   ['invalid item', feed('<item><title>Missing URL</title></item>' + firstParty), {}, 'inconclusive', 'invalid-rss-item'],
@@ -77,6 +98,15 @@ const cases = [
   ['external entity declaration', '<!DOCTYPE rss [<!ENTITY external SYSTEM "file:///secret">]>' + feed(firstParty), {}, 'inconclusive', 'invalid-rss'],
   ['mismatched feed query', feed(firstParty, 'different query'), {}, 'inconclusive', 'query-binding-unverified'],
   ['missing feed query', feed(firstParty).replace(/<link>.*?<\/link>/, '<link>https://www.bing.com/search</link>'), {}, 'inconclusive', 'query-binding-unverified'],
+  ['HTTP feed wrong host', feed(firstParty, context.query, `http://example.org/search?q=${encodedQuery}`), {}, 'inconclusive', 'query-binding-unverified'],
+  ['HTTP feed wrong port', feed(firstParty, context.query, `http://www.bing.com:8080/search?q=${encodedQuery}`), {}, 'inconclusive', 'query-binding-unverified'],
+  ['HTTP feed HTTPS port', feed(firstParty, context.query, `http://www.bing.com:443/search?q=${encodedQuery}`), {}, 'inconclusive', 'query-binding-unverified'],
+  ['HTTP feed wrong path', feed(firstParty, context.query, `http://www.bing.com:80/other?q=${encodedQuery}`), {}, 'inconclusive', 'query-binding-unverified'],
+  ['HTTP feed wrong query', feed(firstParty, context.query, 'http://www.bing.com:80/search?q=different'), {}, 'inconclusive', 'query-binding-unverified'],
+  ['HTTP feed duplicate query', feed(firstParty, context.query, `http://www.bing.com:80/search?q=${encodedQuery}&q=${encodedQuery}`), {}, 'inconclusive', 'query-binding-unverified'],
+  ['HTTP feed wrapped whitespace', feed(firstParty, context.query, ` http://www.bing.com:80/search?q=${encodedQuery} `), {}, 'inconclusive', 'query-binding-unverified'],
+  ['HTTP response default port', feed(firstParty), { responseUrl: `http://www.bing.com:80/search?q=${encodedQuery}` }, 'inconclusive', 'query-binding-unverified'],
+  ['HTTP response implicit port', feed(firstParty), { responseUrl: `http://www.bing.com/search?q=${encodedQuery}` }, 'inconclusive', 'query-binding-unverified'],
   ['redirect to other query', feed(firstParty), { responseUrl: 'https://www.bing.com/search?q=different' }, 'inconclusive', 'query-binding-unverified'],
   ['unexpected final source', feed(firstParty), { responseUrl: 'https://example.org/search' }, 'inconclusive', 'query-binding-unverified'],
   ['missing final source', feed(firstParty), { responseUrl: '' }, 'inconclusive', 'query-binding-unverified'],

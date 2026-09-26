@@ -27,12 +27,16 @@ Shogun 的官方功能与白名单限制、Epic 的先读后写顺序、资产�
 只要出现不可用测量，批次最终以非零退出码结束。
 
 只有来源、查询绑定、RSS 和结果 URL 都有效时，才计算 hit/no-hit。
+实际网络响应必须来自 HTTPS；feed 内的来源链接允许 Bing 使用 HTTP 默认端口的
+元数据形式，不跟随该链接发起请求。响应头只用于诊断，实际正文必须通过 RSS 校验。
 URL 保留解码后的原文，前后空白、实体空白、CDATA 空白和嵌入控制字符不会被裁掉后算作有效命中。
 结果序号仅代表 RSS 顺序，不等于搜索网页排名；相关性仍标为 `not-assessed`。
 
-一次实际请求返回 HTTP 200 和十条 RSS 结果，但查询来源校验未通过，正确记为
-`inconclusive / query-binding-unverified`，没有算作“官网未被收录”。
-见[实际请求记录](2026-09-26-retrieval-v2-smoke.json)。
+初次实际请求返回 HTTP 200 和十条 RSS 结果，旧版来源检查将 feed 中的 HTTP 链接
+误判为来源不匹配，记为 `inconclusive / query-binding-unverified`。
+[实际请求记录](2026-09-26-retrieval-v2-smoke.json)保留当时的输出；PR 评审后已修正
+该过严检查，并增加 HTTP feed 元数据及错误 Content-Type 的回归测试。
+这次异常结果不证明官网未被收录；格式与来源有效也不代表返回内容与问题相关。
 没有重新解释第一轮固定查询分数，也没有宣称本地文案已改变搜索排名。
 
 ## 构建与内容校验

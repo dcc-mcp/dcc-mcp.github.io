@@ -1,5 +1,7 @@
 {
   "schemaVersion": 2,
+  "classifierRevision": "0f131ca1e8f10ee07de2c5fc2dbeebaaa1606ab8",
+  "historicalInterpretation": "The initial classifier rejected Bing HTTP feed-link metadata. That overly strict check was fixed during PR review; this file preserves the earlier observation, not a current classifier result or indexing conclusion.",
   "timestamp": "2026-09-26T05:02:12.340Z",
   "provider": "Microsoft Bing",
   "engine": "Bing Web Search RSS",
