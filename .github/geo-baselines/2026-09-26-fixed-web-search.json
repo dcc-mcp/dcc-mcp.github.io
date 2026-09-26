@@ -1,0 +1,655 @@
+[
+  {
+    "query": "\"DCC-MCP\"",
+    "locale": "en",
+    "engine": "web.run public search (provider/market unspecified)",
+    "timestamp": "2026-09-26T03:14:59.114Z",
+    "results": [
+      {
+        "rank": 1,
+        "title": "GitHub - dcc-mcp/dcc-mcp-core: Skill-first control plane for creative tools: shared MCP/REST runtime, gateway, CLI, marketplace, safety, and observability across studio pipelines. · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core"
+      },
+      {
+        "rank": 2,
+        "title": "DCC-MCP · GitHub",
+        "url": "https://github.com/dcc-mcp"
+      },
+      {
+        "rank": 3,
+        "title": "DCC-MCP",
+        "url": "https://dcc-mcp.github.io/"
+      },
+      {
+        "rank": 4,
+        "title": "dcc-mcp-core/docs/guide/getting-started.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/docs/guide/getting-started.md"
+      },
+      {
+        "rank": 5,
+        "title": "dcc-mcp-core/docs/guide/what-is-dcc-mcp-core.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/docs/guide/what-is-dcc-mcp-core.md"
+      },
+      {
+        "rank": 6,
+        "title": "dcc-mcp-core/README.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/README.md"
+      },
+      {
+        "rank": 7,
+        "title": "dcc-mcp-core/docs/guide/cli-reference.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/docs/guide/cli-reference.md"
+      },
+      {
+        "rank": 8,
+        "title": "GitHub - dcc-mcp/dcc-mcp-core: Skill-first control plane for creative tools: shared MCP/REST runtime, gateway, CLI, marketplace, safety, and observability across studio pipelines. · GitHub",
+        "url": "https://github.laiyagushi.com/dcc-mcp/dcc-mcp-core"
+      },
+      {
+        "rank": 9,
+        "title": "CLI Reference | DCC-MCP-Core",
+        "url": "https://dcc-mcp.github.io/dcc-mcp-core/guide/cli-reference"
+      },
+      {
+        "rank": 10,
+        "title": "Dcc Mcp Universal Model Context Protocol (MCP) service launcher for Digital Content Creation (DCC) applications. Provides a standardized AI interface for Maya, Houdini, 3ds Max, Nuke, and other DCC software through a modular adapter system. | Explore the World of MCP | MCP Explorer | Create MCP Server With AI Just One-Click | Zero MCP skill Required - Just enter the MCP server description and get the usable MCP server configuration within seconds.",
+        "url": "https://mcpso.cc/server/dcc-mcp"
+      }
+    ],
+    "method": "Independent query; rank is returned-result order, not a verified engine SERP position. Query language supplies locale; market was not selectable."
+  },
+  {
+    "query": "\"What is DCC-MCP\"",
+    "locale": "en",
+    "engine": "web.run public search (provider/market unspecified)",
+    "timestamp": "2026-09-26T03:14:59.831Z",
+    "results": [
+      {
+        "rank": 1,
+        "title": "dcc-mcp-core/docs/guide/what-is-dcc-mcp-core.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/docs/guide/what-is-dcc-mcp-core.md"
+      },
+      {
+        "rank": 2,
+        "title": "Why DCC-MCP exists | DCC-MCP",
+        "url": "https://dcc-mcp.github.io/why-dcc-mcp"
+      },
+      {
+        "rank": 3,
+        "title": "FAQ | DCC-MCP-Core",
+        "url": "https://dcc-mcp.github.io/dcc-mcp-core/guide/faq"
+      },
+      {
+        "rank": 4,
+        "title": "dcc-mcp-core/docs/guide/faq.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://ithub.global.ssl.fastly.net/dcc-mcp/dcc-mcp-core/blob/main/docs/guide/faq.md"
+      },
+      {
+        "rank": 5,
+        "title": "Gateway Election & Multi-Instance Support | DCC-MCP-Core",
+        "url": "https://dcc-mcp.github.io/dcc-mcp-core/guide/gateway-election"
+      },
+      {
+        "rank": 6,
+        "title": "dcc-mcp-core/docs/guide/agents-reference.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/docs/guide/agents-reference.md"
+      },
+      {
+        "rank": 7,
+        "title": "Capabilities & Workspace Roots | DCC-MCP-Core",
+        "url": "https://dcc-mcp.github.io/dcc-mcp-core/guide/capabilities"
+      },
+      {
+        "rank": 8,
+        "title": "Context Bundles | DCC-MCP-Core",
+        "url": "https://dcc-mcp.github.io/dcc-mcp-core/guide/context-bundles"
+      },
+      {
+        "rank": 9,
+        "title": "MCP + Skills Integration | DCC-MCP-Core",
+        "url": "https://dcc-mcp.github.io/dcc-mcp-core/guide/mcp-skills-integration"
+      },
+      {
+        "rank": 10,
+        "title": "dcc-mcp-core/docs/guide/skills.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/docs/guide/skills.md"
+      }
+    ],
+    "method": "Independent query; rank is returned-result order, not a verified engine SERP position. Query language supplies locale; market was not selectable."
+  },
+  {
+    "query": "\"DCC-MCP 是什么\"",
+    "locale": "zh-CN",
+    "engine": "web.run public search (provider/market unspecified)",
+    "timestamp": "2026-09-26T03:14:59.973Z",
+    "results": [
+      {
+        "rank": 1,
+        "title": "为什么是 DCC-MCP | DCC-MCP",
+        "url": "https://dcc-mcp.github.io/zh/why-dcc-mcp"
+      },
+      {
+        "rank": 2,
+        "title": "“与AI同游”：今年的ChinaJoy，把AI写进了主题_搜狐网",
+        "url": "https://m.sohu.com/a/1057561438_116000/"
+      },
+      {
+        "rank": 3,
+        "title": "人人都能用 WAAPI（四）：waapi-skill | 溪夜的博客",
+        "url": "https://xiye.art/zh/posts/2026-09-14-waapi-skill/"
+      },
+      {
+        "rank": 4,
+        "title": "Kaedim 游戏资产评估：流程、价格与 API",
+        "url": "https://makegamewithai.com/zh/tools/kaedim"
+      }
+    ],
+    "method": "Independent query; rank is returned-result order, not a verified engine SERP position. Query language supplies locale; market was not selectable."
+  },
+  {
+    "query": "\"Why DCC-MCP\"",
+    "locale": "en",
+    "engine": "web.run public search (provider/market unspecified)",
+    "timestamp": "2026-09-26T03:14:59.845Z",
+    "results": [
+      {
+        "rank": 1,
+        "title": "Why DCC-MCP exists | DCC-MCP",
+        "url": "https://dcc-mcp.github.io/why-dcc-mcp"
+      },
+      {
+        "rank": 2,
+        "title": "dcc-mcp-core/README.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/README.md"
+      },
+      {
+        "rank": 3,
+        "title": "DCC-MCP · GitHub",
+        "url": "https://github.com/dcc-mcp"
+      },
+      {
+        "rank": 4,
+        "title": "Gateway Election & Multi-Instance Support | DCC-MCP-Core",
+        "url": "https://dcc-mcp.github.io/dcc-mcp-core/guide/gateway-election"
+      },
+      {
+        "rank": 5,
+        "title": "GitHub - dcc-mcp/dcc-mcp-core: Skill-first control plane for creative tools: shared MCP/REST runtime, gateway, CLI, marketplace, safety, and observability across studio pipelines. · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core"
+      },
+      {
+        "rank": 6,
+        "title": "dcc-mcp-core/AI_AGENT_GUIDE.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/AI_AGENT_GUIDE.md"
+      },
+      {
+        "rank": 7,
+        "title": "dcc-mcp-core · PyPI",
+        "url": "https://pypi.org/project/dcc-mcp-core/0.20.31/"
+      },
+      {
+        "rank": 8,
+        "title": "dcc-mcp-core/docs/guide/skills.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/docs/guide/skills.md"
+      },
+      {
+        "rank": 9,
+        "title": "dcc-mcp-core/AGENTS.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/AGENTS.md"
+      },
+      {
+        "rank": 10,
+        "title": "Built-in Admin Dashboard | DCC-MCP-Core",
+        "url": "https://dcc-mcp.github.io/dcc-mcp-core/guide/admin-ui"
+      }
+    ],
+    "method": "Independent query; rank is returned-result order, not a verified engine SERP position. Query language supplies locale; market was not selectable."
+  },
+  {
+    "query": "AI agent control Maya Blender Houdini typed tools gateway MCP",
+    "locale": "en",
+    "engine": "web.run public search (provider/market unspecified)",
+    "timestamp": "2026-09-26T03:15:00.133Z",
+    "results": [
+      {
+        "rank": 1,
+        "title": "DCC-MCP",
+        "url": "https://dcc-mcp.github.io/"
+      },
+      {
+        "rank": 2,
+        "title": "GitHub - dcc-mcp/dcc-mcp-blender: Blender addon for the DCC Model Context Protocol (MCP) ecosystem — embeds a Streamable HTTP MCP server directly inside Blender · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-blender"
+      },
+      {
+        "rank": 3,
+        "title": "DCC-MCP-Core",
+        "url": "https://dcc-mcp.github.io/dcc-mcp-core/"
+      },
+      {
+        "rank": 4,
+        "title": "DCC-MCP · GitHub",
+        "url": "https://github.com/dcc-mcp/"
+      },
+      {
+        "rank": 5,
+        "title": "Dcc Rest Gateway — AI Skill — Termo",
+        "url": "https://termo.ai/skills/dcc-rest-gateway"
+      },
+      {
+        "rank": 6,
+        "title": "dcc-mcp-maya/README.md at main · dcc-mcp/dcc-mcp-maya · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-maya/blob/main/README.md"
+      },
+      {
+        "rank": 7,
+        "title": "Houdini MCP and CLI — control Houdini with AI | DCC-MCP",
+        "url": "https://dcc-mcp.github.io/control/houdini"
+      },
+      {
+        "rank": 8,
+        "title": "GitHub - dcc-mcp/dcc-mcp-maya: Maya-specific implementation of Model Context Protocol (MCP) for Autodesk Maya, enabling remote control and integration with MCP ecosystem. · GitHub",
+        "url": "https://ithub.global.ssl.fastly.net/dcc-mcp/dcc-mcp-maya"
+      },
+      {
+        "rank": 9,
+        "title": "dcc-mcp-core/AI_AGENT_GUIDE.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/AI_AGENT_GUIDE.md"
+      },
+      {
+        "rank": 10,
+        "title": "How to control Maya, Houdini, Blender, creative apps, and game engines with AI | DCC-MCP",
+        "url": "https://dcc-mcp.github.io/use-cases"
+      }
+    ],
+    "method": "Independent query; rank is returned-result order, not a verified engine SERP position. Query language supplies locale; market was not selectable."
+  },
+  {
+    "query": "use AI to control Maya typed tools MCP",
+    "locale": "en",
+    "engine": "web.run public search (provider/market unspecified)",
+    "timestamp": "2026-09-26T03:15:01.308Z",
+    "results": [
+      {
+        "rank": 1,
+        "title": "Maya MCP and CLI — control Maya with AI | DCC-MCP",
+        "url": "https://dcc-mcp.github.io/control/maya"
+      },
+      {
+        "rank": 2,
+        "title": "GitHub - dcc-mcp/dcc-mcp-maya: Maya-specific implementation of Model Context Protocol (MCP) for Autodesk Maya, enabling remote control and integration with MCP ecosystem. · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-maya"
+      },
+      {
+        "rank": 3,
+        "title": "Maya MCP Server — Developer Documentation | Maya Docs | Maya",
+        "url": "https://withmaya.ai/docs/mcp-server"
+      },
+      {
+        "rank": 4,
+        "title": "Maya MCP Server for Autodesk Maya - Maya MCP",
+        "url": "https://gimbalgoats.github.io/GG_MayaMCP/"
+      },
+      {
+        "rank": 5,
+        "title": "PRD - Maya MCP",
+        "url": "https://gimbalgoats.github.io/GG_MayaMCP/prd/"
+      },
+      {
+        "rank": 6,
+        "title": "GG_MayaMCP/docs/index.md at main · GimbalGoats/GG_MayaMCP · GitHub",
+        "url": "https://github.com/GimbalGoats/GG_MayaMCP/blob/main/docs/index.md"
+      },
+      {
+        "rank": 7,
+        "title": "GitHub - dcc-mcp/dcc-mcp-maya: Maya-specific implementation of Model Context Protocol (MCP) for Autodesk Maya, enabling remote control and integration with MCP ecosystem. · GitHub",
+        "url": "https://ithub.global.ssl.fastly.net/dcc-mcp/dcc-mcp-maya"
+      },
+      {
+        "rank": 8,
+        "title": "DCC-MCP",
+        "url": "https://dcc-mcp.github.io/"
+      },
+      {
+        "rank": 9,
+        "title": "dcc-mcp-maya",
+        "url": "https://dcc-mcp.github.io/dcc-mcp-maya/"
+      },
+      {
+        "rank": 10,
+        "title": "Maya MCP Server - jeffreytsai1004/maya-mcp",
+        "url": "https://playbooks.com/mcp/jeffreytsai1004/maya-mcp"
+      }
+    ],
+    "method": "Independent query; rank is returned-result order, not a verified engine SERP position. Query language supplies locale; market was not selectable."
+  },
+  {
+    "query": "用 AI 控制 Maya MCP 类型化工具",
+    "locale": "zh-CN",
+    "engine": "web.run public search (provider/market unspecified)",
+    "timestamp": "2026-09-26T03:14:59.057Z",
+    "results": [
+      {
+        "rank": 1,
+        "title": "Maya MCP 与 CLI — 用 AI 控制 Maya | DCC-MCP",
+        "url": "https://dcc-mcp.github.io/zh/control/maya"
+      },
+      {
+        "rank": 2,
+        "title": ".github/profile/README_zh.md at main · dcc-mcp/.github · GitHub",
+        "url": "https://github.com/dcc-mcp/.github/blob/main/profile/README_zh.md"
+      },
+      {
+        "rank": 3,
+        "title": "如何用 AI 控制 Maya、Houdini、Blender、创意应用与游戏引擎 | DCC-MCP",
+        "url": "https://dcc-mcp.github.io/zh/use-cases"
+      },
+      {
+        "rank": 4,
+        "title": "GitHub - dcc-mcp/dcc-mcp-maya: Maya-specific implementation of Model Context Protocol (MCP) for Autodesk Maya, enabling remote control and integration with MCP ecosystem. · GitHub",
+        "url": "https://ithub.global.ssl.fastly.net/dcc-mcp/dcc-mcp-maya"
+      },
+      {
+        "rank": 5,
+        "title": "GitHub - abrahamADSK/maya-mcp: MCP server for Autodesk Maya — scene control, modeling, animation, and I/O with RAG search, anti-hallucination safety, and self-learning · GitHub",
+        "url": "https://github.com/abrahamADSK/maya-mcp"
+      },
+      {
+        "rank": 6,
+        "title": "dcc-mcp-maya",
+        "url": "https://dcc-mcp.github.io/dcc-mcp-maya/"
+      },
+      {
+        "rank": 7,
+        "title": "DCC-MCP · GitHub",
+        "url": "https://download.plaud.ai/dcc-mcp"
+      },
+      {
+        "rank": 8,
+        "title": "maya-mcp · PyPI",
+        "url": "https://pypi.org/project/maya-mcp/"
+      },
+      {
+        "rank": 9,
+        "title": "dcc-mcp-maya/README_zh.md at main · dcc-mcp/dcc-mcp-maya · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-maya/blob/main/README_zh.md"
+      },
+      {
+        "rank": 10,
+        "title": "How to control Maya, Houdini, Blender, creative apps, and game engines with AI | DCC-MCP",
+        "url": "https://dcc-mcp.github.io/use-cases"
+      }
+    ],
+    "method": "Independent query; rank is returned-result order, not a verified engine SERP position. Query language supplies locale; market was not selectable."
+  },
+  {
+    "query": "\"How do I create ten random spheres in Maya?\"",
+    "locale": "en",
+    "engine": "web.run public search (provider/market unspecified)",
+    "timestamp": "2026-09-26T03:14:58.911Z",
+    "results": [
+      {
+        "rank": 1,
+        "title": "How to control Maya, Houdini, Blender, creative apps, and game engines with AI | DCC-MCP",
+        "url": "https://dcc-mcp.github.io/use-cases"
+      },
+      {
+        "rank": 2,
+        "title": "HammerTime (MCU OC/SI into Justin Hammer) | Page 5 | Sufficient Velocity",
+        "url": "https://forums.sufficientvelocity.com/threads/hammertime-mcu-oc-si-into-justin-hammer.128783/page-5"
+      },
+      {
+        "rank": 3,
+        "title": "(PDF) Review - The Song of the Spheres: Lewis, Tolkien and the Overlapping Realms of their Imagination edited by Lukasz Neubauer & Guglielmo Spirito",
+        "url": "https://www.researchgate.net/publication/398511867_Review_-_The_Song_of_the_Spheres_Lewis_Tolkien_and_the_Overlapping_Realms_of_their_Imagination_edited_by_Lukasz_Neubauer_Guglielmo_Spirito"
+      },
+      {
+        "rank": 4,
+        "title": "(PDF) Language Selection in Service, Performance and Communication Encounters: A Book of Reading in Honour of Professor Anjola A. ROBBIN",
+        "url": "https://www.researchgate.net/publication/411116284_Language_Selection_in_Service_Performance_and_Communication_Encounters_A_Book_of_Reading_in_Honour_of_Professor_Anjola_A_ROBBIN"
+      },
+      {
+        "rank": 5,
+        "title": "(PDF) Alternatives of Social Evolution",
+        "url": "https://www.researchgate.net/publication/231182477_Alternatives_of_Social_Evolution"
+      }
+    ],
+    "method": "Independent query; rank is returned-result order, not a verified engine SERP position. Query language supplies locale; market was not selectable."
+  },
+  {
+    "query": "\"DCC-MCP Marketplace\"",
+    "locale": "en",
+    "engine": "web.run public search (provider/market unspecified)",
+    "timestamp": "2026-09-26T03:14:58.702Z",
+    "results": [
+      {
+        "rank": 1,
+        "title": "marketplace/marketplace.json at main · dcc-mcp/marketplace · GitHub",
+        "url": "https://github.com/dcc-mcp/marketplace/blob/main/marketplace.json"
+      },
+      {
+        "rank": 2,
+        "title": "marketplace/CONTRIBUTING.md at main · dcc-mcp/marketplace · GitHub",
+        "url": "https://github.com/dcc-mcp/marketplace/blob/main/CONTRIBUTING.md"
+      },
+      {
+        "rank": 3,
+        "title": "DCC-MCP",
+        "url": "https://dcc-mcp.github.io/"
+      },
+      {
+        "rank": 4,
+        "title": "Marketplace: Typed Package Catalog | DCC-MCP-Core",
+        "url": "https://dcc-mcp.github.io/dcc-mcp-core/guide/marketplace"
+      },
+      {
+        "rank": 5,
+        "title": "dcc-mcp-core/docs/guide/cli-reference.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/docs/guide/cli-reference.md"
+      },
+      {
+        "rank": 6,
+        "title": "dcc-mcp-core/dcc-mcp-catalog.yml at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/dcc-mcp-catalog.yml"
+      },
+      {
+        "rank": 7,
+        "title": "GitHub - dcc-mcp/marketplace: Official DCC-MCP skill marketplace catalog — discover, install, and upgrade skill packs via dcc-mcp-cli · GitHub",
+        "url": "https://vpn.luca-server.com/px/aHR0cHM6Ly9naXRodWIuY29tL2RjYy1tY3AvbWFya2V0cGxhY2U"
+      },
+      {
+        "rank": 8,
+        "title": "dcc-mcp-core/docs/guide/marketplace.md at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://ithub.global.ssl.fastly.net/dcc-mcp/dcc-mcp-core/blob/main/docs/guide/marketplace.md"
+      },
+      {
+        "rank": 9,
+        "title": "GitHub - dcc-mcp/dcc-mcp-core: Skill-first control plane for creative tools: shared MCP/REST runtime, gateway, CLI, marketplace, safety, and observability across studio pipelines. · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core"
+      },
+      {
+        "rank": 10,
+        "title": "CLI Reference | DCC-MCP-Core",
+        "url": "https://dcc-mcp.github.io/dcc-mcp-core/guide/cli-reference"
+      }
+    ],
+    "method": "Independent query; rank is returned-result order, not a verified engine SERP position. Query language supplies locale; market was not selectable."
+  },
+  {
+    "query": "\"dcc-lookdev-turntable\"",
+    "locale": "en",
+    "engine": "web.run public search (provider/market unspecified)",
+    "timestamp": "2026-09-26T03:14:59.692Z",
+    "results": [
+      {
+        "rank": 1,
+        "title": "marketplace/marketplace.json at main · dcc-mcp/marketplace · GitHub",
+        "url": "https://github.com/dcc-mcp/marketplace/blob/main/marketplace.json"
+      },
+      {
+        "rank": 2,
+        "title": "Round-up: 13 findings from an agent-driven modeling + lookdev run · Issue #151 · dcc-mcp/dcc-mcp-3dsmax · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-3dsmax/issues/151"
+      },
+      {
+        "rank": 3,
+        "title": "dcc-mcp-houdini · PyPI",
+        "url": "https://pypi.org/project/dcc-mcp-houdini/0.31.1/"
+      },
+      {
+        "rank": 4,
+        "title": "[P1] Verification as a first-class toolset: deterministic capture contract, image stats, multi-view, comparison sheets, pixel metrics · Issue #2261 · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/issues/2261"
+      },
+      {
+        "rank": 5,
+        "title": "Blender 5.x rejects the startup script (no register()), and install.md lacks a --user fallback · Issue #186 · dcc-mcp/dcc-mcp-blender · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-blender/issues/186"
+      },
+      {
+        "rank": 6,
+        "title": "Releases · dcc-mcp/dcc-mcp-3dsmax · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-3dsmax/releases"
+      },
+      {
+        "rank": 7,
+        "title": "GitHub - zarandamon/usd-mercury-pipeline: USD Mercury is an innovative tool designed to streamline the setup of a complete VFX/CGI pipeline leveraging Universal Scene Description (USD) · GitHub",
+        "url": "https://github.com/zarandamon/usd-mercury-pipeline"
+      },
+      {
+        "rank": 8,
+        "title": "ArtStation - US CIVIL WAR BUGLE 3D MODEL FREE | Resources",
+        "url": "https://www.artstation.com/marketplace/p/p0YnL/us-civil-war-bugle-3d-model-free"
+      },
+      {
+        "rank": 9,
+        "title": "dcc-mcp-houdini · PyPI",
+        "url": "https://pypi.org/project/dcc-mcp-houdini/0.33.2/"
+      },
+      {
+        "rank": 10,
+        "title": "mojulo - Odel Module Marketplace",
+        "url": "https://odel.app/modules/zombico/mojulo"
+      }
+    ],
+    "method": "Independent query; rank is returned-result order, not a verified engine SERP position. Query language supplies locale; market was not selectable."
+  },
+  {
+    "query": "\"dcc-mcp-maya-procedural-architecture\"",
+    "locale": "en",
+    "engine": "web.run public search (provider/market unspecified)",
+    "timestamp": "2026-09-26T03:14:59.927Z",
+    "results": [
+      {
+        "rank": 1,
+        "title": "GitHub - dcc-mcp/dcc-mcp-maya-procedural-architecture: High-detail procedural residential architecture for Maya, Bifrost, and Arnold · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-maya-procedural-architecture"
+      },
+      {
+        "rank": 2,
+        "title": "marketplace/marketplace.json at main · dcc-mcp/marketplace · GitHub",
+        "url": "https://github.com/dcc-mcp/marketplace/blob/main/marketplace.json"
+      },
+      {
+        "rank": 3,
+        "title": "DCC-MCP · GitHub",
+        "url": "https://github.com/dcc-mcp"
+      },
+      {
+        "rank": 4,
+        "title": ".github/profile/README.md at main · dcc-mcp/.github · GitHub",
+        "url": "https://github.com/dcc-mcp/.github/blob/main/profile/README.md"
+      },
+      {
+        "rank": 5,
+        "title": "Showcase | DCC-MCP",
+        "url": "https://dcc-mcp.github.io/showcase"
+      },
+      {
+        "rank": 6,
+        "title": ".github/profile/README.md at main · dcc-mcp/.github · GitHub",
+        "url": "https://ithub.global.ssl.fastly.net/dcc-mcp/.github/blob/main/profile/README.md"
+      },
+      {
+        "rank": 7,
+        "title": "DCC-MCP · GitHub",
+        "url": "https://download.plaud.ai/dcc-mcp"
+      },
+      {
+        "rank": 8,
+        "title": "DCC-MCP · GitHub",
+        "url": "https://ithub.global.ssl.fastly.net/dcc-mcp"
+      },
+      {
+        "rank": 9,
+        "title": ".github/profile/README.md at main · dcc-mcp/.github · GitHub",
+        "url": "https://vpn.luca-server.com/px/aHR0cHM6Ly9naXRodWIuY29tL2RjYy1tY3AvLmdpdGh1Yi9ibG9iL21haW4vcHJvZmlsZS9SRUFETUUubWQ"
+      },
+      {
+        "rank": 10,
+        "title": "DCC-MCP · GitHub",
+        "url": "https://shoptherite.com/?_=%2Fdcc-mcp%23twhA%2FDXBZl%2FHb9X3%2FEFGnaoeGu8plg%3D%3D"
+      }
+    ],
+    "method": "Independent query; rank is returned-result order, not a verified engine SERP position. Query language supplies locale; market was not selectable."
+  },
+  {
+    "query": "\"DCC-MCP\" Wwise Marmoset Showcase",
+    "locale": "en",
+    "engine": "web.run public search (provider/market unspecified)",
+    "timestamp": "2026-09-26T03:14:58.774Z",
+    "results": [
+      {
+        "rank": 1,
+        "title": "Showcase | DCC-MCP",
+        "url": "https://dcc-mcp.github.io/showcase"
+      },
+      {
+        "rank": 2,
+        "title": "GitHub - dcc-mcp/dcc-mcp-wwise: Typed DCC-MCP adapter for Audiokinetic Wwise Authoring through WAAPI · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-wwise"
+      },
+      {
+        "rank": 3,
+        "title": "GitHub - dcc-mcp/dcc-mcp-marmoset: Typed DCC-MCP adapter for Marmoset Toolbag look development and rendering · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-marmoset"
+      },
+      {
+        "rank": 4,
+        "title": "Wwise MCP and CLI — control Wwise with AI | DCC-MCP",
+        "url": "https://dcc-mcp.github.io/control/wwise"
+      },
+      {
+        "rank": 5,
+        "title": "DCC-MCP",
+        "url": "https://dcc-mcp.github.io/"
+      },
+      {
+        "rank": 6,
+        "title": "dcc-mcp-marmoset by dcc-mcp | Glama",
+        "url": "https://glama.ai/mcp/servers/dcc-mcp/dcc-mcp-marmoset"
+      },
+      {
+        "rank": 7,
+        "title": "案例画廊 | DCC-MCP",
+        "url": "https://dcc-mcp.github.io/zh/showcase"
+      },
+      {
+        "rank": 8,
+        "title": "dcc-mcp-core/dcc-mcp-catalog.yml at main · dcc-mcp/dcc-mcp-core · GitHub",
+        "url": "https://github.com/dcc-mcp/dcc-mcp-core/blob/main/dcc-mcp-catalog.yml"
+      },
+      {
+        "rank": 9,
+        "title": "dcc-mcp-wwise by dcc-mcp | Glama",
+        "url": "https://glama.ai/mcp/servers/dcc-mcp/dcc-mcp-wwise"
+      },
+      {
+        "rank": 10,
+        "title": "DCC-MCP · GitHub",
+        "url": "https://github.com/dcc-mcp"
+      }
+    ],
+    "method": "Independent query; rank is returned-result order, not a verified engine SERP position. Query language supplies locale; market was not selectable."
+  }
+]

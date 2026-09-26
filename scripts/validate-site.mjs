@@ -468,7 +468,7 @@ for (const phrase of ['Maya MCP', '3ds Max MCP', 'Blender MCP', 'Maya CLI', 'Ble
 for (const label of ['Why DCC-MCP', 'Marketplace', 'Showcase', 'For Agents']) {
   if (!englishHome.includes(`>${label}<`)) throw new Error(`English navigation is missing ${label}`)
 }
-for (const label of ['为什么是 DCC-MCP', '技能市场', '案例画廊', 'Agent 使用']) {
+for (const label of ['为什么选择 DCC-MCP', '技能市场', '案例画廊', 'Agent 使用指南']) {
   if (!chineseHome.includes(`>${label}<`)) throw new Error(`Chinese navigation is missing ${label}`)
 }
 
@@ -685,8 +685,8 @@ for (const [file, phrases] of whyGuides) {
   }
 }
 for (const [label, file, phrases] of [
-  ['English', join(dist, 'why-dcc-mcp.html'), ['What is DCC-MCP?', 'open infrastructure', 'shared, typed control plane for creative applications']],
-  ['Chinese', join(dist, 'zh', 'why-dcc-mcp.html'), ['DCC-MCP 是什么？', '开放基础设施', '面向创意应用的共享类型化控制面']],
+  ['English', join(dist, 'why-dcc-mcp.html'), ['What is DCC-MCP?', 'open-source toolset', 'digital content creation', 'adapters connect each application']],
+  ['Chinese', join(dist, 'zh', 'why-dcc-mcp.html'), ['DCC-MCP 是什么？', '开源工具集', '数字内容创作', '适配器负责接入', 'id="为什么是-dcc-mcp"']],
 ]) {
   const html = readFileSync(file, 'utf8')
   for (const phrase of phrases) {

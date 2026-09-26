@@ -1,14 +1,17 @@
 ---
 title: Why DCC-MCP exists
-description: The production problems, technical decisions, and boundaries that shaped DCC-MCP.
+description: How DCC-MCP lets AI and automation operate creative software, with reusable tools, verified execution, and clear integration boundaries.
 ---
 
 # Why DCC-MCP exists
 
 ## What is DCC-MCP?
 
-DCC-MCP is open infrastructure that gives AI agents and automation a shared, typed control plane for creative applications.
-MCP, REST, and `dcc-mcp-cli` clients use the same discovery, routing, safety, lifecycle, and verification contracts while host-specific behavior stays in the owning adapters and reusable Skills.
+DCC-MCP is an open-source toolset that connects AI agents to creative software. An AI agent is an AI assistant that can call tools to perform tasks. DCC means digital content creation; applications include Maya, Blender, Houdini, and Photoshop.
+
+Agents and automation can use these tools for modeling, materials, animation, and rendering. A typed tool defines its parameters, their types, and its results so a call can be inspected and validated.
+
+MCP (Model Context Protocol), REST APIs, and `dcc-mcp-cli` share tool discovery, validation, instance selection, safety policies, and result verification. Core provides this shared infrastructure; adapters connect each application, and Skills provide reusable workflow guides.
 
 DCC-MCP grew out of adapter work across real DCC applications. Thread
 affinity, instance selection, lifecycle, discovery, and diagnostics kept
@@ -52,7 +55,7 @@ infrastructure.
 | Large tool catalogs consume context and confuse selection | Agents should discover only what the task needs | Progressive `search -> load/describe -> call` discovery |
 | Creative operations can be slow or partially complete | A call needs lifecycle semantics, not only a return value | Async jobs, progress, cancellation, checkpoints, and artefact hand-off |
 | Tool use becomes a black box | Production teams need evidence they can inspect | Request IDs, policies, audit records, logs, traces, metrics, health, and replay |
-| Existing tools sometimes expose no usable API | UI automation is a fallback, not the foundation | Scoped, policy-checked UI Control with `snapshot -> find -> act -> wait -> verify` |
+| Existing tools sometimes expose no usable API | UI automation is a fallback, not the foundation | DCC-CUA / UI Control bound to an exact process and window, with scoped operations, policy checks, and `snapshot -> find -> act -> wait -> verify` |
 | Useful workflows must move between people and projects | A script folder is not a distribution model | Marketplace packages, immutable source references, hot reload, and project/team scopes |
 
 ## Who owns what
@@ -133,7 +136,7 @@ This creates a concrete loop:
 
 DCC-MCP does not claim to make every creative application identical.
 
-- Native Skills and APIs remain preferable to UI Control.
+- Native Skills and APIs remain preferable to DCC-CUA / UI Control, which must bind an exact process and window.
 - Core does not own host-specific pipeline semantics.
 - An adapter cannot promise safe rollback when the host exposes no transaction API.
 - Marketplace packages extend the framework; they do not hide Core or adapter defects.

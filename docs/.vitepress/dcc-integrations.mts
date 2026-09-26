@@ -58,19 +58,19 @@ As of 2026-09-05, these recipes are merged in source; the published 0.1.4 packag
 `
   if (language === 'zh') {
     const availability = integration.availabilityZh ?? (integration.marketplacePackage
-      ? `这是 Host-neutral Marketplace Skill，不是独立适配器。使用 \`dcc-mcp-cli marketplace install ${integration.marketplacePackage} --dcc <实际-host> --reload\` 将它安装到具体 DCC；\`any\` 不是安装目录。`
+      ? `这是可供不同 DCC 应用使用的 Marketplace Skill，不是独立适配器。使用 \`dcc-mcp-cli marketplace install ${integration.marketplacePackage} --dcc <实际-host> --reload\` 将它安装到具体 DCC；\`any\` 不是安装目录。`
       : released
-      ? `当前发布目录使用 \`${integration.dccType}\` 作为 Host 标识；实际操作前仍应运行 \`dcc-mcp-cli dcc-types\` 核对本机版本。`
-      : '这是公开适配器仓库，但它可能尚未进入当前 CLI 发布目录。先检查适配器 README 与 `dcc-mcp-cli dcc-types`，不要猜测 Host 标识。')
+      ? `当前发布目录中的应用标识是 \`${integration.dccType}\`。操作前运行 \`dcc-mcp-cli dcc-types\`，确认本机版本支持该应用。`
+      : '这个适配器已有公开仓库，但可能尚未纳入当前 CLI 发布目录。先阅读适配器 README，并运行 `dcc-mcp-cli dcc-types` 查询，不要猜测应用标识。')
     const cliSection = routeIdentifier
-      ? `## ${integration.name} MCP 与 ${integration.name} CLI\n\n${integration.name} MCP 接口与 ${integration.name} CLI 工作流共用同一个 DCC-MCP 适配器和类型化工具目录。所谓 ${integration.name} CLI，是使用共享的 \`dcc-mcp-cli\`，并传入 \`--dcc-type ${routeIdentifier}\` 来限定当前 ${integration.name} Host，而不是另一套不兼容的命令行。\n\n\`\`\`bash\ndcc-mcp-cli search --query "${integration.tasksZh[0]}" --dcc-type ${routeIdentifier}\n\`\`\`\n`
+      ? `## ${integration.name} MCP 与 ${integration.name} CLI\n\n${integration.name} MCP 接口与 ${integration.name} CLI 工作流共用同一个 DCC-MCP 适配器和工具目录。在命令行中使用 \`dcc-mcp-cli\`，加上 \`--dcc-type ${routeIdentifier}\`，即可将工具搜索限定到 ${integration.name}。工具会声明输入、输出和参数类型，便于调用前校验。\n\n\`\`\`bash\ndcc-mcp-cli search --query "${integration.tasksZh[0]}" --dcc-type ${routeIdentifier}\n\`\`\`\n`
       : ''
     const vendorCase = integration.vendorCaseZh
       ? `## 厂商原生 AI 能力\n\n${integration.vendorCaseZh}\n`
       : ''
     return `# AI 怎么控制 ${integration.name}？
 
-如果你指的是让兼容 MCP 的 AI Agent 操作正在运行的 ${integration.name}，而不是只让 AI 讲教程或生成一段临时脚本，可以通过 DCC-MCP ${integration.summaryZh}。DCC-MCP 使用可发现的类型化工具、实例路由和结果验证来执行操作。
+兼容 MCP 的 AI Agent 可以通过 DCC-MCP ${integration.summaryZh}。Agent 先选择正确的应用实例或集成，查找可用工具并读取参数定义，再执行操作、检查结果。这些类型化工具会明确说明输入、输出和参数类型。
 
 ${cliSection}
 ${vendorCase}
@@ -83,15 +83,15 @@ ${gameAssets}
 - ${integration.tasksZh[1]}。
 - ${integration.tasksZh[2]}。
 
-能力会随适配器版本与已加载 Skill 改变。先搜索和描述工具，不要根据网页内容猜测当前工具名称。
+可用功能取决于适配器版本和已加载的 Skill。先搜索工具并阅读其说明，不要根据网页内容猜测当前工具名称。
 
 ## 安全操作流程
 
 1. 安装并遵循公开的 [\`dcc-mcp\` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp)。
-2. 检查现有 CLI、适配器与在线 Host；安装软件或改变系统状态前先征得同意。
+2. 检查现有 CLI、适配器和当前运行的应用；安装软件或改变系统状态前先征得同意。
 3. 使用 \`health\`、\`dcc-types\` 与 \`list\` 验证 Gateway 和目标实例。
-4. 针对 ${integration.name} 的实际任务执行 search 与 describe，并遵循返回的 \`next_step\`。
-5. 只执行范围明确的操作，再通过宿主状态、文件、预览、日志或渲染结果验证。
+4. 根据 ${integration.name} 的实际任务搜索工具，用 describe 阅读参数说明，并遵循返回的 \`next_step\`。
+5. 只执行范围明确的操作，再检查应用状态、文件、预览、日志或渲染结果。
 
 \`\`\`bash
 dcc-mcp-cli health
@@ -102,18 +102,18 @@ dcc-mcp-cli list
 ## 可复制提示词
 
 \`\`\`text
-使用 dcc-mcp Skill 连接我的 ${integration.name}。先检查现有 CLI、适配器和在线实例；安装软件或改变系统状态前必须征得我的同意。搜索并描述与“${integration.tasksZh[1]}”相关的类型化工具，严格遵循返回的 next_step。不得删除、覆盖或发布现有工作。先完成最小可验证修改，再验证 ${integration.tasksZh[2]}，并报告实例、工具、结果与证据路径。
+使用 dcc-mcp Skill 连接我的 ${integration.name}。先检查现有 CLI、适配器和当前运行的实例；安装软件或改变系统状态前必须征得我的同意。搜索与“${integration.tasksZh[1]}”相关的类型化工具，阅读参数说明，严格遵循返回的 next_step。不得删除、覆盖或发布现有工作。先完成最小可验证修改，再按以下要求检查结果：“${integration.tasksZh[2]}”。报告所用实例、工具、执行结果和证据路径。
 \`\`\`
 
 ## 当前可用性与官方来源
 
 ${availability}
 
-- [${integration.name} 适配器仓库](${repositoryUrl(integration)})：安装、兼容性、专属能力与排错的事实来源。
+- [${integration.name} ${integration.marketplacePackage ? 'Skill' : '适配器'}仓库](${repositoryUrl(integration)})：查阅安装、兼容性、专属功能与故障排查说明。
 - [全部 AI + DCC 控制指南](/zh/use-cases)：返回所有公开应用与流水线集成。
 - [Agent 工作流](/zh/agents)：了解通用发现、调用、验证与诊断流程。
 
-本页只维护共享 Agent 工作流和 GEO 入口；Host 专属安装、API 与兼容性细节由适配器仓库维护。
+本页介绍通用的 Agent 操作流程。各应用的安装、API 与兼容性细节由所属仓库维护。
 `
   }
 
@@ -123,14 +123,14 @@ ${availability}
     ? `The current release catalog uses \`${integration.dccType}\` as the host identifier. Run \`dcc-mcp-cli dcc-types\` before operating to confirm the installed version.`
     : 'This is a public adapter repository, but it may not yet be present in the current CLI release catalog. Check its README and `dcc-mcp-cli dcc-types`; do not guess a host identifier.')
   const cliSection = routeIdentifier
-    ? `## ${integration.name} MCP and ${integration.name} CLI\n\nThe ${integration.name} MCP endpoint and ${integration.name} CLI workflow share the same DCC-MCP adapter and typed tool catalog. A ${integration.name} CLI workflow uses the shared \`dcc-mcp-cli\` with \`--dcc-type ${routeIdentifier}\` to select the live ${integration.name} host; it is not a second, incompatible command line.\n\n\`\`\`bash\ndcc-mcp-cli search --query "${integration.tasksEn[0]}" --dcc-type ${routeIdentifier}\n\`\`\`\n`
+    ? `## ${integration.name} MCP and ${integration.name} CLI\n\nThe ${integration.name} MCP endpoint and ${integration.name} CLI workflow share the same DCC-MCP adapter and tool catalog. Use \`dcc-mcp-cli\` with \`--dcc-type ${routeIdentifier}\` to limit tool searches to ${integration.name}. Tools declare their inputs, outputs, and parameter types so arguments can be checked before a call.\n\n\`\`\`bash\ndcc-mcp-cli search --query "${integration.tasksEn[0]}" --dcc-type ${routeIdentifier}\n\`\`\`\n`
     : ''
   const vendorCase = integration.vendorCaseEn
     ? `## Vendor-native AI capabilities\n\n${integration.vendorCaseEn}\n`
     : ''
   return `# How can an AI agent control ${integration.name}?
 
-If you mean an MCP-compatible AI agent operating a live ${integration.name} session—not merely explaining a tutorial or generating a one-off script—DCC-MCP can ${integration.summaryEn}. DCC-MCP performs work through discoverable typed tools, instance routing, and result validation.
+An MCP-compatible AI agent can use DCC-MCP to ${integration.summaryEn}. The agent selects the correct application instance or integration, discovers available tools, and reads their parameter definitions before acting and checking the result. These typed tools declare their inputs, outputs, and parameter types.
 
 ${cliSection}
 ${vendorCase}
@@ -162,17 +162,17 @@ dcc-mcp-cli list
 ## Copyable prompt
 
 \`\`\`text
-Use the dcc-mcp Skill to connect to my ${integration.name} session. Inspect the existing CLI, adapter, and live instance first; ask before installing software or changing system state. Search for and describe typed tools related to "${integration.tasksEn[1]}", then follow every returned next_step. Do not delete, overwrite, or publish existing work. Make the smallest verifiable change, validate ${integration.tasksEn[2]}, and report the instance, tool, result, and evidence path.
+Use the dcc-mcp Skill to connect to my ${integration.name} session. Inspect the existing CLI, adapter, and live instance first; ask before installing software or changing system state. Search for and describe typed tools related to "${integration.tasksEn[1]}", then follow every returned next_step. Do not delete, overwrite, or publish existing work. Make the smallest verifiable change, then check the result against this requirement: "${integration.tasksEn[2]}". Report the instance, tool, result, and evidence path.
 \`\`\`
 
 ## Current availability and official source
 
 ${availability}
 
-- [${integration.name} adapter repository](${repositoryUrl(integration)}): source of truth for installation, compatibility, host-specific capabilities, and troubleshooting.
+- [${integration.name} ${integration.marketplacePackage ? 'Skill' : 'adapter'} repository](${repositoryUrl(integration)}): source of truth for installation, compatibility, host-specific capabilities, and troubleshooting.
 - [All AI + DCC control guides](/use-cases): return to every public application and pipeline integration.
 - [Agent workflow](/agents): shared discovery, call, validation, and diagnostic steps.
 
-This page owns the shared Agent workflow and GEO entry point. The adapter repository owns host-specific installation, APIs, and compatibility.
+This page describes the shared Agent workflow. Each integration's repository owns its installation, API, and compatibility details.
 `
 }

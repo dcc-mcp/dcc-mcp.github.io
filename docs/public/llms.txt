@@ -1,6 +1,8 @@
 # DCC-MCP
 
-> DCC-MCP provides a Gateway, typed CLI, MCP and REST endpoints, adapters, and Skills for creative applications.
+> DCC-MCP is an open-source toolkit that connects AI agents and automation to creative applications such as Maya, Blender, and Houdini through MCP, REST APIs, and dcc-mcp-cli.
+
+DCC means digital content creation. An AI agent uses tools to carry out a task. DCC-MCP adapters connect those tools to each application; Skills package reusable workflows. Typed tools define their inputs and outputs so calls can be checked before execution.
 
 Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https://dcc-mcp.github.io/zh/llms.txt)
 
@@ -27,6 +29,8 @@ Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https
 - [dcc-mcp-skills-creator](https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator): Create, validate, or improve a DCC-specific Skill package.
 
 Universal install: `npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`
+
+The Skill provides the operating guide. First-time setup also requires the CLI, Gateway, and target application's adapter; check existing installations before adding components. Setup: https://dcc-mcp.github.io/dcc-mcp-core/guide/getting-started
 
 Update the project Skill with `npx --yes skills@1.5.23 update -p -y` or the global installation with `npx --yes skills@1.5.23 update -g -y`. Check the CLI with `dcc-mcp-cli update check`; run `dcc-mcp-cli update apply` only after the user approves the local change. Do not add `--force` to unattended Skill updates.
 
@@ -91,6 +95,16 @@ DCC-MCP Core 0.20.25 reports 37 adapter-backed `dcc-types` (`3dsmax`, `aftereffe
 - [ZBrush](https://dcc-mcp.github.io/control/zbrush)
 
 The public guide inventory covers 45 applications and pipelines: 37 released adapter routes, one shared current-Core Office route, one independently released adapter, five source previews, and one Marketplace Skill. Check `dcc-mcp-cli dcc-types` and the linked repository before operating.
+
+## More organization projects
+
+These repositories provide additional integrations, shared runtime code, and examples. Their presence here does not add a released adapter to the versioned CLI catalog above; check each repository and `dcc-mcp-cli dcc-types` for availability.
+
+- [Poly Pizza](https://github.com/dcc-mcp/dcc-asset-poly-pizza): Find and download licensed low-poly models.
+- [Shared adapter runtime](https://github.com/dcc-mcp/dcc-mcp-runtime): PyOxidizer runtime for external DCC-MCP adapters.
+- [CapCut Desktop](https://github.com/dcc-mcp/dcc-mcp-capcut): MCP adapter and application bridge.
+- [Kdenlive](https://github.com/dcc-mcp/dcc-mcp-kdenlive): Project authoring, MLT rendering, and editor control through DCC-CUA.
+- [Reproducible examples](https://github.com/dcc-mcp/showcase): Shared examples and evidence from real DCC applications.
 
 ## Marketplace CLI contract
 

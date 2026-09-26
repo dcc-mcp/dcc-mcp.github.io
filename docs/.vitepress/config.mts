@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 import { dccIntegrations, releasedIntegrations, type DccIntegration } from './dcc-integrations.mts'
 
 const siteUrl = 'https://dcc-mcp.github.io/'
-const description = 'Typed MCP adapters, CLI, and Skills for Maya, Blender, 3ds Max, Unreal Engine, Unity, OBS Studio, and other creative applications.'
-const zhDescription = '面向 Maya、Blender、3ds Max、Unreal Engine、Unity、OBS Studio 等创意应用的类型化 MCP 适配器、CLI 与 Skills。'
+const description = 'DCC-MCP connects AI agents and automation to Maya, Blender, Houdini, 3ds Max, Unreal Engine, Unity, and other creative applications through MCP, REST APIs, and a shared CLI.'
+const zhDescription = 'DCC-MCP 是连接 AI Agent 与创作软件的开源工具集，通过 MCP、REST API 和统一命令行操作 Maya、Blender、Houdini、3ds Max、Unreal Engine、Unity 等应用。'
 
 const controlPageUrl = (integration: DccIntegration, isZh: boolean) =>
   new URL(`${isZh ? 'zh/' : ''}control/${integration.slug}`, siteUrl).href
@@ -66,7 +66,7 @@ const homeStructuredData = (isZh: boolean) => ({
         position: index + 1,
         name: isZh ? `${integration.name} MCP 适配器` : `${integration.name} MCP adapter`,
         description: isZh
-          ? `${integration.name} MCP 与类型化 dcc-mcp-cli 集成`
+          ? `通过 MCP 或 dcc-mcp-cli 操作 ${integration.name}`
           : `${integration.name} MCP and typed dcc-mcp-cli integration`,
         url: controlPageUrl(integration, isZh),
         sameAs: repositoryUrl(integration),
@@ -146,12 +146,12 @@ const englishTheme = {
 
 const chineseTheme = {
   nav: [
-    { text: '为什么是 DCC-MCP', link: '/zh/why-dcc-mcp' },
+    { text: '为什么选择 DCC-MCP', link: '/zh/why-dcc-mcp' },
     { text: '技能市场', link: '/zh/marketplace' },
     { text: '案例画廊', link: '/zh/showcase' },
-    { text: 'Agent 使用', link: '/zh/agents' },
+    { text: 'Agent 使用指南', link: '/zh/agents' },
     { text: '开发者', link: '/zh/developers' },
-    { text: '生态目录', link: '/zh/ecosystem' },
+    { text: '项目目录', link: '/zh/ecosystem' },
     {
       text: '参考资料',
       items: [
@@ -159,12 +159,12 @@ const chineseTheme = {
         { text: 'Core 文档', link: 'https://dcc-mcp.github.io/dcc-mcp-core/zh/' },
         { text: 'CLI 参考', link: 'https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/cli-reference' },
         { text: 'Python API', link: 'https://dcc-mcp.github.io/dcc-mcp-core/api/models' },
-        { text: 'Marketplace 源目录', link: 'https://github.com/dcc-mcp/marketplace' },
+        { text: '技能市场源码', link: 'https://github.com/dcc-mcp/marketplace' },
       ],
     },
   ],
   footer: {
-    message: '连接创意应用的 Gateway、CLI、适配器与 Skills。',
+    message: '用 AI Agent 和自动化工具连接创作软件。',
     copyright: 'DCC-MCP',
   },
   editLink: {

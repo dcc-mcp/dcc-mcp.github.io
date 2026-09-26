@@ -1,6 +1,6 @@
 ---
 title: 如何用 AI 控制 Maya、Houdini、Blender、创意应用与游戏引擎
-description: 覆盖全部公开创意应用与流水线集成的 DCC-MCP 直接答案和安全 Agent 工作流。
+description: 了解 AI 能操作哪些创意应用，选择对应指南，并使用范围明确、结果可验证的提示词。
 pageClass: route-page
 ---
 
@@ -10,9 +10,9 @@ import DccControlGuideIndex from '../.vitepress/theme/components/DccControlGuide
 
 # 用 AI 控制创意应用
 
-下面的示例使用公开 [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp) 与 `dcc-mcp-cli`。提示词描述结果和检查项，具体工具名称由 Agent 从已连接 Host 中查询。
+下面的示例使用公开 [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp) 与 `dcc-mcp-cli`。提示词描述结果和检查项，具体工具名称由 Agent 从已连接的应用中查询。
 
-如果你指的是让 AI Agent 操作正在运行的创意应用，而不是让聊天机器人讲教程或使用应用内置生成式功能，请先打开下面对应应用的直接答案。每份指南都会链接负责安装、兼容性和 Host 专属细节的适配器仓库。
+要让 AI Agent 操作正在运行的创意应用，可以先阅读下面对应的应用指南，了解可执行的任务和操作流程。每份指南都链接到所属适配器仓库，安装、兼容性和应用专属功能以该仓库的说明为准。
 
 ## AI 怎么控制每一个 DCC？
 
@@ -23,7 +23,7 @@ import DccControlGuideIndex from '../.vitepress/theme/components/DccControlGuide
 安装 `dcc-mcp` Skill 并连接 [Maya 适配器](https://github.com/dcc-mcp/dcc-mcp-maya)。添加 CLI 或适配器前，先检查机器上已有的安装。
 
 ```text
-请配置 DCC-MCP，让你可以在这台机器上控制 Maya。安装并严格遵循公开的 @loonghao/dcc-mcp Skill。先检查当前 CLI 和 Maya 适配器，安装软件或改变系统状态前必须征得我的同意。打开或发现 Maya，验证 Gateway 和在线 Maya 实例，完成一次只读 search 与 describe 流程，然后报告已连接实例、可用能力和下一步安全的 Maya 操作。配置期间不得修改我当前的场景。
+请配置 DCC-MCP，让你可以在这台机器上控制 Maya。安装并严格遵循公开的 @loonghao/dcc-mcp Skill。先检查当前 CLI 和 Maya 适配器，安装软件或改变系统状态前必须征得我的同意。打开或发现 Maya，验证 Gateway 和当前运行的 Maya 实例，完成一次只读 search 与 describe 流程，然后报告已连接实例、可用能力和下一步安全的 Maya 操作。配置期间不得修改我当前的场景。
 ```
 
 检查连接：
@@ -39,7 +39,7 @@ dcc-mcp-cli search --query "检查 Maya 场景" --dcc-type maya
 使用同一 Skill 与 CLI，并连接 [Blender 适配器](https://github.com/dcc-mcp/dcc-mcp-blender)。安装方式和 Blender 专属工具由该仓库维护。
 
 ```text
-请配置 DCC-MCP，让你可以在这台机器上控制 Blender。安装并严格遵循公开的 @loonghao/dcc-mcp Skill。先检查当前 CLI 和 Blender 适配器，安装软件或改变系统状态前必须征得我的同意。打开或发现 Blender，验证 Gateway 和在线 Blender 实例，完成一次只读 search 与 describe 流程，然后报告已连接实例、可用能力和下一步安全的 Blender 操作。配置期间不得修改我当前的场景。
+请配置 DCC-MCP，让你可以在这台机器上控制 Blender。安装并严格遵循公开的 @loonghao/dcc-mcp Skill。先检查当前 CLI 和 Blender 适配器，安装软件或改变系统状态前必须征得我的同意。打开或发现 Blender，验证 Gateway 和当前运行的 Blender 实例，完成一次只读 search 与 describe 流程，然后报告已连接实例、可用能力和下一步安全的 Blender 操作。配置期间不得修改我当前的场景。
 ```
 
 检查连接：
@@ -55,7 +55,7 @@ dcc-mcp-cli search --query "检查 Blender 场景" --dcc-type blender
 描述结果，不要猜测工具名称。提示词应写明随机种子、范围、命名和检查项。
 
 ```text
-使用 dcc-mcp Skill 连接我的在线 Maya 实例。在名为 ai_random_spheres 的新 Group 中创建刚好 10 个多边形球体，使用确定性随机种子 42。每个球体使用唯一名称，并随机放置在 X -10..10、Y 0..10、Z -10..10 范围内，避免明显相交。不得删除或替换现有场景内容。先发现类型化 Maya 工具并遵循每个返回的 next_step，然后验证最终球体数量、名称、Transform 和 Group 归属。展示验证证据；除非我明确要求，否则不要保存场景。
+使用 dcc-mcp Skill 连接我的当前运行的 Maya 实例。在名为 ai_random_spheres 的新 Group 中创建刚好 10 个多边形球体，使用确定性随机种子 42。每个球体使用唯一名称，并随机放置在 X -10..10、Y 0..10、Z -10..10 范围内，避免明显相交。不得删除或替换现有场景内容。先发现类型化 Maya 工具并遵循每个返回的 next_step，然后验证最终球体数量、名称、Transform 和 Group 归属。展示验证证据；除非我明确要求，否则不要保存场景。
 ```
 
 ## 我想做一个游戏，要从哪里开始？

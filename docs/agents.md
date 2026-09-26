@@ -8,6 +8,9 @@ pageClass: route-page
 
 The public [`dcc-mcp` Skill](https://github.com/dcc-mcp/dcc-mcp-agent-plugins/tree/main/plugins/dcc-mcp/skills/dcc-mcp) contains the operating procedure. `dcc-mcp-cli` handles Gateway status, tool discovery, typed calls, diagnostics, updates, and Marketplace installation.
 
+First-time setup also requires the CLI, Gateway, and target application's adapter.
+Follow the [quick start](https://dcc-mcp.github.io/dcc-mcp-core/guide/getting-started), checking existing installations before adding missing components.
+
 Run this from the workspace used by Codex, Claude Code, Gemini CLI, GitHub
 Copilot, Cursor, Windsurf, OpenCode, Cline, Roo Code, Kiro CLI, Amp, or another
 Agent Skills-compatible host:
