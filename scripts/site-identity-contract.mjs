@@ -54,7 +54,7 @@ export const expectedGuideIdentities = Object.freeze([
   coreApplicationRoute,
 })))
 
-// Catalog-listed routes observed with official CLI 0.20.38 and its verified signed remote catalog.
+// Catalog-listed routes observed with official CLI 0.20.39 and its verified signed remote catalog.
 // A catalog identity does not establish an installable artifact or live-host acceptance.
 // The external read-only `autodesk-help` connector has no DCC-MCP repository guide.
 export const expectedReleasedDccTypes = Object.freeze(

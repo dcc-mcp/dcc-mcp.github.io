@@ -33,8 +33,8 @@ if (!mayaIntegration) throw new Error('Maya integration is missing')
 for (const [field, requiredTerms] of Object.entries({
   summaryEn: ['AssetSync v2', 'Arnold'],
   summaryZh: ['AssetSync v2', 'Arnold'],
-  availabilityEn: ['Core 0.20.38', '0.9.22', '0.9.26', 'PR #486'],
-  availabilityZh: ['Core 0.20.38', '0.9.22', '0.9.26', 'PR #486'],
+  availabilityEn: ['Core 0.20.39', '0.9.22', '0.9.26', 'PR #486'],
+  availabilityZh: ['Core 0.20.39', '0.9.22', '0.9.26', 'PR #486'],
 })) {
   for (const term of requiredTerms) {
     if (!mayaIntegration[field].includes(term)) {
@@ -600,7 +600,7 @@ for (const llms of llmsFiles) {
   if (!llms.includes(installSopSchemaUrl)) {
     throw new Error('An llms file is missing the canonical Adapter Install SOP v1 schema')
   }
-  for (const phrase of ['Core 0.20.38', '38 ', 'SpeedTree', 'Tracy', 'dcc-mcp-cli update check', 'skills@1.5.23 update']) {
+  for (const phrase of ['Core 0.20.39', '38 ', 'SpeedTree', 'Tracy', 'dcc-mcp-cli update check', 'skills@1.5.23 update']) {
     if (!llms.includes(phrase)) throw new Error(`An llms file is missing the current release or update contract: ${phrase}`)
   }
   for (const phrase of ['Maya MCP', '3ds Max MCP', 'Blender MCP', 'Maya CLI', '3ds Max CLI', 'Blender CLI', 'Tuanjie AI']) {
