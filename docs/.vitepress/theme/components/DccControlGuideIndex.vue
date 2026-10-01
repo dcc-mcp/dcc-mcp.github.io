@@ -28,8 +28,8 @@ defineProps<{ language: 'en' | 'zh' }>()
         </template>
         <template v-else-if="integration.dccType">
           {{ language === 'zh'
-            ? `当前发布 Host 标识：${integration.dccType}。`
-            : `Current release host id: ${integration.dccType}.` }}
+            ? `当前目录适配器标识：${integration.dccType}。${integration.catalogStatusZh ?? ''}`
+            : `Current catalog adapter id: ${integration.dccType}. ${integration.catalogStatusEn ?? ''}` }}
         </template>
         <template v-else-if="integration.coreApplicationRoute">
           {{ language === 'zh'
@@ -38,8 +38,8 @@ defineProps<{ language: 'en' | 'zh' }>()
         </template>
         <template v-else>
           {{ language === 'zh'
-            ? integration.catalogStatusZh ?? '这是源码预览，不是当前 CLI 的已发布 Host。'
-            : integration.catalogStatusEn ?? 'This is a source preview, not a released host in the current CLI catalog.' }}
+            ? integration.catalogStatusZh ?? '这是独立集成；请在所属仓库核实发布版本与安装路径。'
+            : integration.catalogStatusEn ?? 'This is an independent integration; verify its release and setup in the owning repository.' }}
         </template>
       </p>
     </section>

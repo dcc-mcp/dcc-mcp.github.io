@@ -88,9 +88,9 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">OFFICIAL INTEGRATIONS</p>
-      <h2 id="integrations-title">37 released adapter routes and 45 public guides.</h2>
+      <h2 id="integrations-title">38 catalog identifiers and 46 public guides.</h2>
     </div>
-    <p><code>dcc-mcp-cli 0.20.25 dcc-types</code> reports 37 adapter-backed identifiers. The guide index separately documents the shared Office application route, independently released Tracy, five source previews, and one Marketplace Skill. The opt-in <code>autodesk-help</code> connector is external and read-only, not a DCC adapter or mutation route.</p>
+    <p><code>dcc-mcp-cli 0.20.38 dcc-types</code> lists 38 adapter-backed identifiers in the verified signed catalog: 33 have catalog installation artifacts; five do not. The 46 guides also cover Office, six independently released integrations outside this catalog, and one Marketplace Skill. <a href="/catalog/core-v0.20.38-dcc-types.json">Read the versioned evidence</a>. Catalog definitions do not establish live-host or tool-execution acceptance. The opt-in <code>autodesk-help</code> connector is external and read-only.</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>

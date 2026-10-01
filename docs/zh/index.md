@@ -88,9 +88,9 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">官方集成</p>
-      <h2 id="integrations-title">37 条已发布适配器路由，45 份公开指南。</h2>
+      <h2 id="integrations-title">38 个目录标识，46 份公开指南。</h2>
     </div>
-    <p><code>dcc-mcp-cli 0.20.25 dcc-types</code> 列出 37 个已发布的适配器标识。指南还收录了 Office 共享应用入口、独立发布的 Tracy、5 个源码预览项目和 1 个 Marketplace Skill。可选的 <code>autodesk-help</code> 仅连接外部文档供查询，不属于 DCC 适配器，也不能修改应用内容。</p>
+    <p><code>dcc-mcp-cli 0.20.38 dcc-types</code> 在已验证的签名目录中列出 38 个适配器标识：33 个有目录安装制品，5 个尚无。46 份指南还涵盖 Office、目录外 6 个已独立发布的集成和 1 个 Marketplace Skill。<a href="/catalog/core-v0.20.38-dcc-types.json">查看版本化证据</a>。目录定义不代表已完成 Host 或工具执行验收。可选的 <code>autodesk-help</code> 是外部只读连接器。</p>
   </div>
   <div class="dcc-grid">
     <a href="https://github.com/dcc-mcp/dcc-mcp-3dsmax"><img src="/dcc-logos/3dsmax.png" alt="3ds Max logo"><span>3ds Max</span></a>

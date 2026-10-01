@@ -106,7 +106,12 @@ for (const record of records) {
   assert.equal(record.provider, 'Microsoft Bing')
   assert.equal(record.engine, 'Bing Web Search RSS')
   assert.equal(record.method, 'first qualifying DCC-MCP result in the top 10 RSS items')
+  assert.equal(record.schemaVersion, 2)
   assert.equal(record.planned, true)
+  assert.equal(record.relevance, 'not-assessed')
+  for (const field of ['outcome', 'measurementValid', 'rank', 'title', 'url', 'firstParty', 'canonical', 'response', 'parse', 'results']) {
+    assert.ok(!(field in record), `unmeasured query plan must not contain ${field}: ${record.query}`)
+  }
   assert.ok(!Number.isNaN(Date.parse(record.timestamp)), `invalid timestamp for ${record.query}`)
 }
 compareExactInventory(records, expectedRecords, 'GEO query')

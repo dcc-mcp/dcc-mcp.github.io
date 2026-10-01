@@ -1,0 +1,440 @@
+{
+  "schema": "dcc-mcp-core-dcc-types.v2",
+  "repository": "https://github.com/dcc-mcp/dcc-mcp-core",
+  "tag": "v0.20.38",
+  "commit": "f532e0d9bf5bc0aaa0390af1f6c0e71cad48ce71",
+  "cli_asset": "dcc-mcp-cli-windows-x86_64.exe",
+  "cli_asset_sha256": "fc718609c46b75c764863a5b59a31def111f948407c196082619ec7d43447766",
+  "command": "dcc-mcp-cli --no-auto-gateway --output json --non-interactive dcc-types",
+  "observed_at": "2026-10-01T06:53:36Z",
+  "catalog": {
+    "source": "remote",
+    "latest_checked": true,
+    "sha256": "813d18d7e36bbe3054d88e7cf24830cb0371062d9c20fb459c23d908f1e1c9d0",
+    "source_revision": "60c96cce4ed949eb8412ebd67119853e77dbafee",
+    "issued_at": 1790761790,
+    "expires_at": 1791366590
+  },
+  "total": 38,
+  "dcc_types": [
+    {
+      "dcc_type": "3dsmax",
+      "adapters": [
+        {
+          "name": "dcc-mcp-3dsmax",
+          "version": "0.1.40",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-3dsmax",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "aftereffects",
+      "adapters": [
+        {
+          "name": "dcc-mcp-aftereffects",
+          "version": "0.6.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-aftereffects",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "blender",
+      "adapters": [
+        {
+          "name": "dcc-mcp-blender",
+          "version": "0.1.43",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-blender",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "c4d",
+      "adapters": [
+        {
+          "name": "dcc-mcp-cinema4d",
+          "version": "0.2.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-cinema4d",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "comfyui",
+      "adapters": [
+        {
+          "name": "dcc-mcp-comfyui",
+          "version": "0.1.1",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-comfyui",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "freecad",
+      "adapters": [
+        {
+          "name": "dcc-mcp-freecad",
+          "version": "0.3.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-freecad",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "gimp",
+      "adapters": [
+        {
+          "name": "dcc-mcp-gimp",
+          "version": "0.3.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-gimp",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "godot",
+      "adapters": [
+        {
+          "name": "dcc-mcp-godot",
+          "version": "0.4.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-godot",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "houdini",
+      "adapters": [
+        {
+          "name": "dcc-mcp-houdini",
+          "version": "0.31.5",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-houdini",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "illustrator",
+      "adapters": [
+        {
+          "name": "dcc-mcp-illustrator",
+          "version": "0.2.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-illustrator",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "katana",
+      "adapters": [
+        {
+          "name": "dcc-mcp-katana",
+          "version": "0.4.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-katana",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "kdenlive",
+      "adapters": [
+        {
+          "name": "dcc-mcp-kdenlive",
+          "version": "0.1.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-kdenlive",
+          "catalog_install_available": false
+        }
+      ]
+    },
+    {
+      "dcc_type": "krita",
+      "adapters": [
+        {
+          "name": "dcc-mcp-krita",
+          "version": "0.3.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-krita",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "liquigen",
+      "adapters": [
+        {
+          "name": "dcc-mcp-liquigen",
+          "version": "0.1.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-liquigen",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "mari",
+      "adapters": [
+        {
+          "name": "dcc-mcp-mari",
+          "version": "0.2.1",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-mari",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "marmoset",
+      "adapters": [
+        {
+          "name": "dcc-mcp-marmoset",
+          "version": "0.1.1",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-marmoset",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "material-maker",
+      "adapters": [
+        {
+          "name": "dcc-mcp-material-maker",
+          "version": "0.3.1",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-material-maker",
+          "catalog_install_available": false
+        }
+      ]
+    },
+    {
+      "dcc_type": "maya",
+      "adapters": [
+        {
+          "name": "dcc-mcp-maya",
+          "version": "0.9.22",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-maya",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "mobu",
+      "adapters": [
+        {
+          "name": "dcc-mcp-mobu",
+          "version": "0.3.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-mobu",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "nuke",
+      "adapters": [
+        {
+          "name": "dcc-mcp-nuke",
+          "version": "0.13.1",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-nuke",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "obs",
+      "adapters": [
+        {
+          "name": "dcc-mcp-obs",
+          "version": "1.4.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-obs",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "openscad",
+      "adapters": [
+        {
+          "name": "dcc-mcp-openscad",
+          "version": "0.2.1",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-openscad",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "openusd",
+      "adapters": [
+        {
+          "name": "dcc-mcp-openusd",
+          "version": "0.8.1",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-openusd",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "photoshop",
+      "adapters": [
+        {
+          "name": "dcc-mcp-photoshop",
+          "version": "0.1.37",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-photoshop",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "powerpoint",
+      "adapters": [
+        {
+          "name": "dcc-mcp-PowerPoint",
+          "version": "0.1.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-PowerPoint",
+          "catalog_install_available": false
+        }
+      ]
+    },
+    {
+      "dcc_type": "premiere",
+      "adapters": [
+        {
+          "name": "dcc-mcp-premiere",
+          "version": "0.5.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-premiere",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "renderdoc",
+      "adapters": [
+        {
+          "name": "dcc-mcp-renderdoc",
+          "version": "0.3.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-renderdoc",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "shogun",
+      "adapters": [
+        {
+          "name": "dcc-mcp-shogun",
+          "version": "0.10.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-shogun",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "shotgrid",
+      "adapters": [
+        {
+          "name": "dcc-mcp-fpt",
+          "version": "0.1.8",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-fpt",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "sketchup",
+      "adapters": [
+        {
+          "name": "dcc-mcp-sketchup",
+          "version": "0.2.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-sketchup",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "substance3d_designer",
+      "adapters": [
+        {
+          "name": "dcc-mcp-substance3d-designer",
+          "version": "0.3.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-substance3d-designer",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "substance3d_painter",
+      "adapters": [
+        {
+          "name": "dcc-mcp-substance3d-painter",
+          "version": "0.1.3",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-substance3d-painter",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "tiled",
+      "adapters": [
+        {
+          "name": "dcc-mcp-tiled",
+          "version": "0.3.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-tiled",
+          "catalog_install_available": false
+        }
+      ]
+    },
+    {
+      "dcc_type": "touchdesigner",
+      "adapters": [
+        {
+          "name": "dcc-mcp-touchdesigner",
+          "version": "0.1.1",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-touchdesigner",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "unity",
+      "adapters": [
+        {
+          "name": "dcc-mcp-unity",
+          "version": "0.11.2",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-unity",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "unreal",
+      "adapters": [
+        {
+          "name": "dcc-mcp-unreal",
+          "version": "0.3.0",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-unreal",
+          "catalog_install_available": true
+        }
+      ]
+    },
+    {
+      "dcc_type": "wwise",
+      "adapters": [
+        {
+          "name": "dcc-mcp-wwise",
+          "version": "0.1.2",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-wwise",
+          "catalog_install_available": false
+        }
+      ]
+    },
+    {
+      "dcc_type": "zbrush",
+      "adapters": [
+        {
+          "name": "dcc-mcp-zbrush",
+          "version": "0.2.18",
+          "url": "https://github.com/dcc-mcp/dcc-mcp-zbrush",
+          "catalog_install_available": true
+        }
+      ]
+    }
+  ],
+  "custom_types_supported": true
+}
