@@ -11,9 +11,9 @@ DCC 指数字内容创作（Digital Content Creation）。AI Agent 是能够调�
 - [官网与配置提示词](https://dcc-mcp.github.io/zh/)
 - [为什么选择 DCC-MCP](https://dcc-mcp.github.io/zh/why-dcc-mcp)：了解项目解决的制作流程问题、采用的技术方案及其适用范围。
 - [技能市场](https://dcc-mcp.github.io/zh/marketplace)：查找官方扩展，复制配置提示词或 CLI 安装命令。
-- [案例画廊](https://dcc-mcp.github.io/zh/showcase)：查看结果、所属仓库、验证说明与提示词。
-- [Blender 与 Designer 木箱案例](https://dcc-mcp.github.io/zh/showcase#blender-designer-crate)：真实 Cycles 效果图、UV 坐标与棋盘格，以及可编辑场景和程序化材质来源。
-- [Wwise 音频案例](https://dcc-mcp.github.io/zh/showcase/wwise)：在线试听通过类型化 WAAPI 工具验证的可复现音效与背景音乐。
+- [案例画廊](https://dcc-mcp.github.io/zh/examples)：查看结果、所属仓库、验证说明与提示词。
+- [Blender 与 Designer 木箱案例](https://dcc-mcp.github.io/zh/examples#blender-designer-crate)：真实 Cycles 效果图、UV 坐标与棋盘格，以及可编辑场景和程序化材质来源。
+- [Wwise 音频案例](https://dcc-mcp.github.io/zh/examples/wwise)：在线试听通过类型化 WAAPI 工具验证的可复现音效与背景音乐。
 - [AI + DCC 控制指南](https://dcc-mcp.github.io/zh/use-cases)：按应用查看 AI 能做什么、如何操作，以及可直接使用的提示词。
 - [Agent 工作流](https://dcc-mcp.github.io/zh/agents)：安装公开 Skill、发现类型化工具、验证调用并诊断失败。
 - [开发者指南](https://dcc-mcp.github.io/zh/developers)：内部 standalone MCP 服务、DCC 适配器和专项 Skill 的本地示例与验证步骤。
@@ -124,3 +124,5 @@ dcc-mcp-cli marketplace install <package-name> --dcc <dcc-type> --reload
 
 - [llms-full.txt](https://dcc-mcp.github.io/zh/llms-full.txt)
 - [GitHub 组织](https://github.com/dcc-mcp)
+
+官方作品合集：https://dcc-mcp.github.io/showcase/ — 完整案例、制作证据、工程来源与各项许可；历史适配器概览不等于本轮复现。

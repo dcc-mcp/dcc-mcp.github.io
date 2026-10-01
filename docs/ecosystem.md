@@ -46,6 +46,7 @@ adapter repository as the source of truth for installation and host details.
 
 - [3ds Max](https://github.com/dcc-mcp/dcc-mcp-3dsmax) — Autodesk 3ds Max.
 - [After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) — Adobe After Effects.
+- [AutoCAD](https://github.com/dcc-mcp/dcc-mcp-autocad) — Portable-first DWG automation through COM and headless `accoreconsole.exe`; check the owning repository for current availability and setup.
 - [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) — Blender add-on and embedded server.
 - [CapCut](https://github.com/dcc-mcp/dcc-mcp-capcut) — Typed CapCut Desktop adapter using an authenticated local bridge.
 - [Cinema 4D](https://github.com/dcc-mcp/dcc-mcp-cinema4d) — Typed headless document, primitive, interchange, and render automation.
@@ -117,6 +118,7 @@ For local generation, see the [ComfyUI game-asset workflow](/control/comfyui).
 
 ## UI automation and shared runtimes
 
+- [winget-releaser](https://github.com/dcc-mcp/winget-releaser) — Windows Package Manager release automation for application maintainers.
 - [Qt Actions](https://github.com/dcc-mcp/dcc-ui-qt-actions) — Reusable typed actions for Qt-based DCC interfaces.
 - [Qt Inspector](https://github.com/dcc-mcp/dcc-ui-qt-inspector) — Cross-host window and widget discovery.
 - [UI Workflow Memory](https://github.com/dcc-mcp/dcc-ui-workflow-memory) — Verified selectors, recipes, and failure memory.
@@ -131,7 +133,7 @@ live application instance.
 - [Autodesk Product Help](https://developer.api.autodesk.com/knowledge/public/v1/mcp) — Opt-in, read-only documentation connector released as `autodesk-help` in Core 0.20.25. It is not a DCC adapter or a mutation route.
 
 - [Official website source](https://github.com/dcc-mcp/dcc-mcp.github.io) — Shared documentation, GEO metadata, application-control guides, and showcases.
-- [Showcase](https://github.com/dcc-mcp/showcase) — Curated examples that can be reproduced in real DCC applications.
+- <a href="https://dcc-mcp.github.io/showcase/" target="_self">Showcase collection</a> — Finished work, reusable prompts, project sources, licensing, and explicit production evidence. [Collection source and contributions](https://github.com/dcc-mcp/showcase). [Adapter examples and prompts](/examples) retain their original evidence scope.
 - [Agent plugins](https://github.com/dcc-mcp/dcc-mcp-agent-plugins) — Canonical DCC-MCP Skills and plugin packages for supported agent clients.
 - [dcc-cua](https://github.com/dcc-mcp/dcc-cua) — Cross-platform Computer Use Automation runtime used by bounded DCC UI workflows.
 - [Organization profile](https://github.com/dcc-mcp/.github) — Shared GitHub profile and community configuration.

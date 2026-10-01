@@ -60,7 +60,7 @@ Use the dcc-mcp Skill to connect to my live Maya instance. In a new group named 
 
 ## I want to make a game. Where do I start?
 
-Define one playable loop, then choose [Unreal Engine](https://github.com/dcc-mcp/dcc-mcp-unreal), [Unity](https://github.com/dcc-mcp/dcc-mcp-unity), or [Godot](https://github.com/dcc-mcp/dcc-mcp-godot). Use the [Marketplace](/marketplace) for optional assets and check each license before use. The [Showcase](/showcase) contains example prompts.
+Define one playable loop, then choose [Unreal Engine](https://github.com/dcc-mcp/dcc-mcp-unreal), [Unity](https://github.com/dcc-mcp/dcc-mcp-unity), or [Godot](https://github.com/dcc-mcp/dcc-mcp-godot). Use the [Marketplace](/marketplace) for optional assets and check each license before use. The [Showcase](/examples) contains example prompts.
 
 ```text
 Help me make a small playable game with DCC-MCP. First ask me for the engine (Unreal, Unity, or Godot), target platform, visual style, and one-sentence playable loop. Reduce the idea to one level and one win or fail condition. Inventory the connected DCCs and engine, discover typed tools, and inspect the official Marketplace for any license-safe assets we need. Ask before installing packages, downloading assets, or changing system state. Build the smallest playable slice, run it, validate controls and the win/fail loop, capture evidence, and report the project and packaged-build paths. Do not claim completion without a runnable build.

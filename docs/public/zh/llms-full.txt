@@ -43,8 +43,8 @@ Skill 为 Agent 提供操作指南。首次使用还需要配置 CLI、Gateway �
 - Unreal Engine 官方 MCP 对应 https://dcc-mcp.github.io/zh/control/unreal-engine 与 `unreal-official-mcp` Skill；它保留 Epic 官方工具名称与 schema。
 
 配置提示词位于 https://dcc-mcp.github.io/zh/agents；结果、所属仓库、验证说明
-与提示词位于 https://dcc-mcp.github.io/zh/showcase；Wwise 音频案例位于
-https://dcc-mcp.github.io/zh/showcase/wwise。
+与提示词位于 https://dcc-mcp.github.io/zh/examples；Wwise 音频案例位于
+https://dcc-mcp.github.io/zh/examples/wwise。
 
 ## 公开 Skill 路由
 
@@ -186,8 +186,8 @@ Marketplace 卡片的 `showcase` 从软件包不可变 `source.ref` 解析，因
 
 ## 案例提示词模式
 
-案例画廊：https://dcc-mcp.github.io/zh/showcase
-Blender 与 Designer 木箱案例：https://dcc-mcp.github.io/zh/showcase#blender-designer-crate — 真实 Cycles 效果图、实际 UV 坐标与棋盘格渲染；使用平铺的 lookdev UV，并提供可编辑场景和程序化材质来源。
+案例画廊：https://dcc-mcp.github.io/zh/examples
+Blender 与 Designer 木箱案例：https://dcc-mcp.github.io/zh/examples#blender-designer-crate — 真实 Cycles 效果图、实际 UV 坐标与棋盘格渲染；使用平铺的 lookdev UV，并提供可编辑场景和程序化材质来源。
 
 每张卡片包含结果、所属仓库、验证说明和提示词。它不代表本地 Host 或软件包
 已经安装。Agent 仍须发现类型化工具、检查 Marketplace 软件包、改变状态前
@@ -222,7 +222,7 @@ Inspector 提供 loopback 本地示例。需要由运维管理的多人浏览器
 - 为什么选择 DCC-MCP：https://dcc-mcp.github.io/zh/why-dcc-mcp
 - Agent 指南：https://dcc-mcp.github.io/zh/agents
 - Marketplace：https://dcc-mcp.github.io/zh/marketplace
-- 案例与提示词：https://dcc-mcp.github.io/zh/showcase
+- 案例与提示词：https://dcc-mcp.github.io/zh/examples
 - 常见 AI + DCC 任务：https://dcc-mcp.github.io/zh/use-cases
 - 开发者指南：https://dcc-mcp.github.io/zh/developers
 - 项目目录：https://dcc-mcp.github.io/zh/ecosystem
@@ -239,3 +239,5 @@ Inspector 提供 loopback 本地示例。需要由运维管理的多人浏览器
 - `dcc-mcp-cli` 是 Gateway 生命周期、发现、调用、诊断与 Marketplace 安装的类型化操作接口。
 - Gateway 同时提供 MCP 与 REST，将请求发送到正在运行的应用所对应的适配器。
 - DCC 指数字内容创作（Digital Content Creation）；本文也用它统称相关创作应用。
+
+官方作品合集：https://dcc-mcp.github.io/showcase/ — 完整案例、制作证据、工程来源与各项许可；历史适配器概览不等于本轮复现。

@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://dcc-mcp.github.io/sitemap.xml
+Sitemap: https://dcc-mcp.github.io/showcase/sitemap.xml

@@ -116,7 +116,7 @@ const englishTheme = {
   nav: [
     { text: 'Why DCC-MCP', link: '/why-dcc-mcp' },
     { text: 'Marketplace', link: '/marketplace' },
-    { text: 'Showcase', link: '/showcase' },
+    { text: 'Showcase', link: 'https://dcc-mcp.github.io/showcase/', target: '_self' },
     { text: 'For Agents', link: '/agents' },
     { text: 'For Developers', link: '/developers' },
     { text: 'Ecosystem', link: '/ecosystem' },
@@ -124,6 +124,7 @@ const englishTheme = {
       text: 'Reference',
       items: [
         { text: 'Common AI + DCC tasks', link: '/use-cases' },
+        { text: 'Adapter examples and prompts', link: '/examples' },
         { text: 'Core documentation', link: 'https://dcc-mcp.github.io/dcc-mcp-core/' },
         { text: 'CLI reference', link: 'https://dcc-mcp.github.io/dcc-mcp-core/guide/cli-reference' },
         { text: 'Python API', link: 'https://dcc-mcp.github.io/dcc-mcp-core/api/models' },
@@ -148,7 +149,7 @@ const chineseTheme = {
   nav: [
     { text: '为什么选择 DCC-MCP', link: '/zh/why-dcc-mcp' },
     { text: '技能市场', link: '/zh/marketplace' },
-    { text: '案例画廊', link: '/zh/showcase' },
+    { text: '案例画廊', link: 'https://dcc-mcp.github.io/showcase/', target: '_self' },
     { text: 'Agent 使用指南', link: '/zh/agents' },
     { text: '开发者', link: '/zh/developers' },
     { text: '项目目录', link: '/zh/ecosystem' },
@@ -156,6 +157,7 @@ const chineseTheme = {
       text: '参考资料',
       items: [
         { text: '常见 AI + DCC 任务', link: '/zh/use-cases' },
+        { text: '适配器案例与提示词', link: '/zh/examples' },
         { text: 'Core 文档', link: 'https://dcc-mcp.github.io/dcc-mcp-core/zh/' },
         { text: 'CLI 参考', link: 'https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/cli-reference' },
         { text: 'Python API', link: 'https://dcc-mcp.github.io/dcc-mcp-core/api/models' },
@@ -190,7 +192,11 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
   srcExclude: ['public/**/README.md'],
-  sitemap: { hostname: siteUrl },
+  sitemap: {
+    hostname: siteUrl,
+    // Project Pages owns /showcase/. Keep legacy bridges out of discovery.
+    transformItems: (items) => items.filter(({ url }) => !/^(?:zh\/)?showcase(?:\.html|\/|$)/.test(url.replace(/^\//, ''))),
+  },
 
   locales: {
     root: { label: 'English', lang: 'en', title: 'DCC-MCP', description, themeConfig: englishTheme },
@@ -212,10 +218,15 @@ export default defineConfig({
     const relativePath = pageData.relativePath
       .replace(/index\.md$/, '')
       .replace(/\.md$/, '')
-    const canonicalUrl = new URL(relativePath, siteUrl).href
+    const isCollectionBridge = /^(?:zh\/)?showcase$/.test(relativePath)
+    const isAudioBridge = /^(?:zh\/)?showcase\/wwise$/.test(relativePath)
+    const canonicalPath = isCollectionBridge ? 'showcase/'
+      : isAudioBridge ? relativePath.replace('showcase/wwise', 'examples/wwise')
+      : relativePath
+    const canonicalUrl = new URL(canonicalPath, siteUrl).href
     const isZh = pageData.relativePath.startsWith('zh/')
-    const englishPath = relativePath.replace(/^zh\//, '')
-    const chinesePath = isZh ? relativePath : `zh/${relativePath}`
+    const englishPath = canonicalPath.replace(/^zh\//, '')
+    const chinesePath = isZh ? canonicalPath : `zh/${canonicalPath}`
     const title = pageData.frontmatter.layout === 'home'
         ? (isZh ? 'DCC-MCP — 创意应用控制平面' : 'DCC-MCP — Creative application control plane')
       : `${pageData.title} | DCC-MCP`
@@ -223,9 +234,11 @@ export default defineConfig({
     pageData.frontmatter.head ??= []
     pageData.frontmatter.head.push(
       ['link', { rel: 'canonical', href: canonicalUrl }],
-      ['link', { rel: 'alternate', hreflang: 'en', href: new URL(englishPath, siteUrl).href }],
-      ['link', { rel: 'alternate', hreflang: 'zh-CN', href: new URL(chinesePath, siteUrl).href }],
-      ['link', { rel: 'alternate', hreflang: 'x-default', href: new URL(englishPath, siteUrl).href }],
+      ...(!isCollectionBridge ? [
+        ['link', { rel: 'alternate', hreflang: 'en', href: new URL(englishPath, siteUrl).href }],
+        ['link', { rel: 'alternate', hreflang: 'zh-CN', href: new URL(chinesePath, siteUrl).href }],
+        ['link', { rel: 'alternate', hreflang: 'x-default', href: new URL(englishPath, siteUrl).href }],
+      ] : []),
       ['meta', { property: 'og:title', content: title }],
       ['meta', { property: 'og:description', content: pageData.description ?? (isZh ? zhDescription : description) }],
       ['meta', { property: 'og:url', content: canonicalUrl }],

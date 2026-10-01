@@ -99,6 +99,6 @@ dcc-mcp-cli stats --status failure
 - [Agent 参考](https://dcc-mcp.github.io/dcc-mcp-core/guide/agents-reference)
 - [Gateway 诊断](https://dcc-mcp.github.io/dcc-mcp-core/guide/gateway-diagnostics)
 - [技能市场](/zh/marketplace)
-- [案例提示词](/zh/showcase)
+- [案例提示词](/zh/examples)
 - [常见 AI + DCC 任务](/zh/use-cases)
 - [浏览生态目录](/zh/ecosystem)

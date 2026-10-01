@@ -16,3 +16,7 @@ npm run docs:dev
 ```
 
 Production builds use `npm run docs:build` and deploy to [dcc-mcp.github.io](https://dcc-mcp.github.io/).
+
+## Showcase collection
+
+The [official Showcase](https://dcc-mcp.github.io/showcase/) is published by [dcc-mcp/showcase](https://github.com/dcc-mcp/showcase). This portal links to the collection; adapter overviews remain at [/examples](https://dcc-mcp.github.io/examples), with media under `/showcase-media/` to avoid the project Pages mount.

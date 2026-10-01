@@ -24,7 +24,9 @@ const fixedCanonicalPaths = new Set([
   '/developers',
   '/ecosystem',
   '/marketplace',
-  '/showcase',
+  '/examples',
+  '/examples/wwise',
+  '/showcase/',
   '/use-cases',
   '/why-dcc-mcp',
   '/zh',
@@ -32,7 +34,8 @@ const fixedCanonicalPaths = new Set([
   '/zh/developers',
   '/zh/ecosystem',
   '/zh/marketplace',
-  '/zh/showcase',
+  '/zh/examples',
+  '/zh/examples/wwise',
   '/zh/use-cases',
   '/zh/why-dcc-mcp',
   ...expectedGuideIdentities.flatMap(({ slug }) => [`/control/${slug}`, `/zh/control/${slug}`]),
@@ -42,6 +45,7 @@ const fixedGitHubRepositories = new Set([
   'dcc-mcp-agent-plugins',
   'dcc-mcp-core',
   'marketplace',
+  'showcase',
 ])
 const fixedPyPiPackages = new Set([
   ...expectedGuideIdentities.flatMap(({ repository, marketplacePackage }) => [

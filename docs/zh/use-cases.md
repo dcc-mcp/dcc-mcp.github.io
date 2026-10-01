@@ -60,7 +60,7 @@ dcc-mcp-cli search --query "检查 Blender 场景" --dcc-type blender
 
 ## 我想做一个游戏，要从哪里开始？
 
-先定义一个可玩循环，再选择 [Unreal Engine](https://github.com/dcc-mcp/dcc-mcp-unreal)、[Unity](https://github.com/dcc-mcp/dcc-mcp-unity) 或 [Godot](https://github.com/dcc-mcp/dcc-mcp-godot)。可选资产在[技能市场](/zh/marketplace)查找，使用前检查许可证；[案例画廊](/zh/showcase)提供提示词示例。
+先定义一个可玩循环，再选择 [Unreal Engine](https://github.com/dcc-mcp/dcc-mcp-unreal)、[Unity](https://github.com/dcc-mcp/dcc-mcp-unity) 或 [Godot](https://github.com/dcc-mcp/dcc-mcp-godot)。可选资产在[技能市场](/zh/marketplace)查找，使用前检查许可证；[案例画廊](/zh/examples)提供提示词示例。
 
 ```text
 使用 DCC-MCP 帮我制作一个小型可玩游戏。先询问我选择 Unreal、Unity 还是 Godot，以及目标平台、视觉风格和一句话可玩循环。把想法缩小为一个关卡和一个胜利或失败条件。盘点已连接的 DCC 与引擎，发现类型化工具，并检查官方 Marketplace 是否有需要的安全授权资产。安装软件包、下载资产或改变系统状态前必须先征得我的同意。构建最小可玩切片，实际运行它，验证控制与胜负循环，保存证据并报告项目和打包构建路径。没有可运行构建时不得宣称完成。

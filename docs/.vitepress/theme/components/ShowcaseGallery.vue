@@ -20,12 +20,12 @@ const isZh = computed(() => lang.value.startsWith('zh'))
 const showcases: Showcase[] = [
   {
     id: 'blender-designer-crate',
-    image: '/showcase/crate-render.png',
+    image: '/showcase-media/crate-render.png',
     source: 'https://github.com/dcc-mcp/dcc-mcp-blender/tree/main/docs/showcase/crate-lookdev',
     contain: true,
     evidence: [
-      { image: '/showcase/crate-uv-layout.png', en: 'Actual UV coordinates', zh: '模型的实际 UV 坐标' },
-      { image: '/showcase/crate-uv-checker.png', en: 'Checker rendered on the model', zh: '模型上的棋盘格渲染' },
+      { image: '/showcase-media/crate-uv-layout.png', en: 'Actual UV coordinates', zh: '模型的实际 UV 坐标' },
+      { image: '/showcase-media/crate-uv-checker.png', en: 'Checker rendered on the model', zh: '模型上的棋盘格渲染' },
     ],
     en: {
       label: 'BLENDER + SUBSTANCE 3D DESIGNER',
@@ -40,7 +40,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'blender-lookdev',
-    image: '/showcase/blender-lookdev.webp',
+    image: '/showcase-media/blender-lookdev.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-blender',
     en: {
       label: 'BLENDER · PROCEDURAL LOOKDEV',
@@ -55,7 +55,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'blender-stylized-red-swings',
-    image: '/showcase/blender-stylized-red-swings.png',
+    image: '/showcase-media/blender-stylized-red-swings.png',
     source: 'https://github.com/dcc-mcp/dcc-mcp-blender#showcase-stylized-reference-reconstruction',
     en: {
       label: 'BLENDER · REFERENCE RECONSTRUCTION',
@@ -70,7 +70,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'marmoset-lookdev',
-    image: '/showcase/marmoset-pbr-lookdev.webp',
+    image: '/showcase-media/marmoset-pbr-lookdev.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-marmoset',
     en: {
       label: 'MARMOSET · PBR LOOKDEV',
@@ -100,7 +100,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'houdini-portal',
-    image: '/showcase/houdini-portal.png',
+    image: '/showcase-media/houdini-portal.png',
     source: 'https://github.com/dcc-mcp/dcc-mcp-houdini',
     en: {
       label: 'HOUDINI · FX',
@@ -115,7 +115,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'openscad-parametric-pipeline',
-    image: '/showcase/openscad-parametric-pipeline.webp',
+    image: '/showcase-media/openscad-parametric-pipeline.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-openscad',
     en: {
       label: 'OPENSCAD → FREECAD → BLENDER / GODOT',
@@ -130,7 +130,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'freecad-game-ready-pipeline',
-    image: '/showcase/freecad-game-ready-pipeline.webp',
+    image: '/showcase-media/freecad-game-ready-pipeline.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-freecad',
     en: {
       label: 'FREECAD · CAD INTERCHANGE',
@@ -145,7 +145,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'speedtree-to-unreal-engine',
-    image: '/showcase/speedtree-to-unreal-engine.webp',
+    image: '/showcase-media/speedtree-to-unreal-engine.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-speedtree',
     en: {
       label: 'SPEEDTREE → UNREAL ENGINE · VERIFIED ST9 HANDOFF',
@@ -160,7 +160,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'cinema4d-typed-scene',
-    image: '/showcase/cinema4d-typed-scene.webp',
+    image: '/showcase-media/cinema4d-typed-scene.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-cinema4d',
     en: {
       label: 'CINEMA 4D · TYPED AUTOMATION',
@@ -175,7 +175,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'comfyui-typed-workflow',
-    image: '/showcase/comfyui-typed-workflow.webp',
+    image: '/showcase-media/comfyui-typed-workflow.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-comfyui',
     en: {
       label: 'COMFYUI · TYPED WORKFLOW EXECUTION',
@@ -190,7 +190,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'illustrator-typed-vector-workflow',
-    image: '/showcase/illustrator-typed-vector-workflow.webp',
+    image: '/showcase-media/illustrator-typed-vector-workflow.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-illustrator',
     en: {
       label: 'ILLUSTRATOR · TYPED VECTOR AUTOMATION',
@@ -205,7 +205,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'sketchup-typed-modeling',
-    image: '/showcase/sketchup-typed-modeling.webp',
+    image: '/showcase-media/sketchup-typed-modeling.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-sketchup',
     en: {
       label: 'SKETCHUP · TYPED MODELING',
@@ -220,7 +220,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'touchdesigner-typed-operator-workflow',
-    image: '/showcase/touchdesigner-typed-operator-workflow.webp',
+    image: '/showcase-media/touchdesigner-typed-operator-workflow.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-touchdesigner',
     en: {
       label: 'TOUCHDESIGNER · TYPED OPERATOR WORKFLOW',
@@ -235,7 +235,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'cache-inspection-workflow',
-    image: '/showcase/cache-inspection-workflow.webp',
+    image: '/showcase-media/cache-inspection-workflow.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-cache-inspector',
     en: {
       label: 'CACHE INSPECTOR · BOUNDED READ-ONLY ANALYSIS',
@@ -250,7 +250,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'shogun-typed-mocap-workflow',
-    image: '/showcase/shogun-typed-mocap-workflow.webp',
+    image: '/showcase-media/shogun-typed-mocap-workflow.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-shogun',
     en: {
       label: 'SHŌGUN · TYPED MOTION CAPTURE',
@@ -265,7 +265,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'tiled-typed-map-workflow',
-    image: '/showcase/tiled-typed-map-workflow.webp',
+    image: '/showcase-media/tiled-typed-map-workflow.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-tiled',
     en: {
       label: 'TILED · TYPED MAP AUTHORING',
@@ -280,7 +280,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'material-maker-typed-material-workflow',
-    image: '/showcase/material-maker-typed-material-workflow.webp',
+    image: '/showcase-media/material-maker-typed-material-workflow.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-material-maker',
     en: {
       label: 'MATERIAL MAKER · BOUNDED PTEX PIPELINE',
@@ -295,7 +295,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'krita-typed-paint-workflow',
-    image: '/showcase/krita-typed-paint-workflow.webp',
+    image: '/showcase-media/krita-typed-paint-workflow.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-krita',
     en: {
       label: 'KRITA · TYPED DOCUMENT AUTHORING',
@@ -310,7 +310,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'gimp-typed-image-workflow',
-    image: '/showcase/gimp-typed-image-workflow.webp',
+    image: '/showcase-media/gimp-typed-image-workflow.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-gimp',
     en: {
       label: 'GIMP · TYPED IMAGE AUTHORING',
@@ -325,7 +325,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'katana-typed-lookdev-workflow',
-    image: '/showcase/katana-typed-lookdev-workflow.webp',
+    image: '/showcase-media/katana-typed-lookdev-workflow.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-katana',
     en: {
       label: 'KATANA · TYPED NODE GRAPH',
@@ -340,7 +340,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'premiere-typed-edit-workflow',
-    image: '/showcase/premiere-typed-edit-workflow.webp',
+    image: '/showcase-media/premiere-typed-edit-workflow.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-premiere',
     en: {
       label: 'PREMIERE PRO · TYPED EDITING',
@@ -355,7 +355,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'hunyuan3d',
-    image: '/showcase/hunyuan3d.webp',
+    image: '/showcase-media/hunyuan3d.webp',
     source: 'https://github.com/dcc-mcp/dcc-ai-hunyuan3d',
     en: {
       label: 'HUNYUAN3D · AI SERVICE',
@@ -370,7 +370,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'geospatial-city',
-    image: '/showcase/geospatial-city.webp',
+    image: '/showcase-media/geospatial-city.webp',
     source: 'https://github.com/dcc-mcp/dcc-asset-geospatial',
     en: {
       label: 'GEOSPATIAL · ASSET PROVIDER',
@@ -385,7 +385,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'maya-architecture',
-    image: '/showcase/maya-architecture.jpg',
+    image: '/showcase-media/maya-architecture.jpg',
     source: 'https://github.com/dcc-mcp/dcc-mcp-maya-procedural-architecture',
     en: {
       label: 'MAYA · SPECIALIZED SKILL',
@@ -400,7 +400,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'kenney-assets',
-    image: '/showcase/kenney-assets.webp',
+    image: '/showcase-media/kenney-assets.webp',
     source: 'https://github.com/dcc-mcp/dcc-asset-kenney',
     en: {
       label: 'KENNEY · ASSET PROVIDER',
@@ -415,7 +415,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'zbrush-fantasy-dragon',
-    image: '/showcase/zbrush-fantasy-dragon.png',
+    image: '/showcase-media/zbrush-fantasy-dragon.png',
     source: 'https://github.com/dcc-mcp/dcc-mcp-zbrush',
     en: {
       label: 'ZBRUSH · HIGH-POLY INTERCHANGE',
@@ -430,7 +430,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'zbrush-maya-roundtrip',
-    image: '/showcase/zbrush-maya-fantasy-dragon.png',
+    image: '/showcase-media/zbrush-maya-fantasy-dragon.png',
     source: 'https://github.com/dcc-mcp/dcc-mcp-maya',
     en: {
       label: 'ZBRUSH → MAYA · CROSS-DCC',
@@ -445,7 +445,7 @@ const showcases: Showcase[] = [
   },
   {
     id: 'office-powerpoint-deck',
-    image: '/showcase/dcc-mcp-office-deck.webp',
+    image: '/showcase-media/dcc-mcp-office-deck.webp',
     source: 'https://github.com/dcc-mcp/dcc-mcp-powerpoint',
     en: {
       label: 'OFFICE · POWERPOINT DECK',
