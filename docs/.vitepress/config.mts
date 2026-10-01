@@ -112,6 +112,24 @@ const controlPageStructuredData = (
   }
 }
 
+const cloudAgentPageStructuredData = (
+  isZh: boolean,
+  canonicalUrl: string,
+  title: string,
+  pageDescription: string,
+) => ({
+  '@context': 'https://schema.org',
+  '@graph': [{
+    '@type': 'WebPage',
+    '@id': `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: title,
+    description: pageDescription,
+    inLanguage: isZh ? 'zh-CN' : 'en',
+    isPartOf: { '@id': `${siteUrl}#website` },
+  }],
+})
+
 const englishTheme = {
   nav: [
     { text: 'Why DCC-MCP', link: '/why-dcc-mcp' },
@@ -124,6 +142,7 @@ const englishTheme = {
       text: 'Reference',
       items: [
         { text: 'Common AI + DCC tasks', link: '/use-cases' },
+        { text: 'Cloud agents and DCC-MCP', link: '/cloud-agents' },
         { text: 'Adapter examples and prompts', link: '/examples' },
         { text: 'Core documentation', link: 'https://dcc-mcp.github.io/dcc-mcp-core/' },
         { text: 'CLI reference', link: 'https://dcc-mcp.github.io/dcc-mcp-core/guide/cli-reference' },
@@ -157,6 +176,7 @@ const chineseTheme = {
       text: '参考资料',
       items: [
         { text: '常见 AI + DCC 任务', link: '/zh/use-cases' },
+        { text: '云 Agent 与 DCC-MCP', link: '/zh/cloud-agents' },
         { text: '适配器案例与提示词', link: '/zh/examples' },
         { text: 'Core 文档', link: 'https://dcc-mcp.github.io/dcc-mcp-core/zh/' },
         { text: 'CLI 参考', link: 'https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/cli-reference' },
@@ -248,6 +268,17 @@ export default defineConfig({
     if (relativePath === '' || relativePath === 'zh/') {
       pageData.frontmatter.head.push(
         ['script', { type: 'application/ld+json' }, JSON.stringify(homeStructuredData(isZh))],
+      )
+    }
+
+    if (/^(?:zh\/)?cloud-agents$/.test(relativePath)) {
+      pageData.frontmatter.head.push(
+        ['script', { type: 'application/ld+json' }, JSON.stringify(cloudAgentPageStructuredData(
+          isZh,
+          canonicalUrl,
+          pageData.title,
+          pageData.description ?? (isZh ? zhDescription : description),
+        ))],
       )
     }
 

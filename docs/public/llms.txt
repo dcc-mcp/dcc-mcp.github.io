@@ -16,6 +16,7 @@ Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https
 - [Wwise audio showcase](https://dcc-mcp.github.io/examples/wwise): Play deterministic sound effects and background music validated through typed WAAPI tools.
 - [AI + DCC control guides](https://dcc-mcp.github.io/use-cases): Direct answers and copyable prompts for every public creative-application and pipeline integration.
 - [Agent workflow](https://dcc-mcp.github.io/agents): Install the public Skill, discover typed tools, validate calls, and diagnose failures.
+- [Cloud agents and DCC-MCP](https://dcc-mcp.github.io/cloud-agents): Compare documented platform interfaces, native software checks, and versioned DCC-MCP workflow evidence; review prerequisites and loopback/TLS/authentication boundaries.
 - [Developer guide](https://dcc-mcp.github.io/developers): Local examples and validation steps for a private standalone MCP service, DCC adapter, or specialized Skill.
 - [Ecosystem directory](https://dcc-mcp.github.io/ecosystem): Adapters, extensions, asset providers, generation services, and studio integrations.
 - [Core documentation](https://dcc-mcp.github.io/dcc-mcp-core/): Gateway, CLI, MCP/REST, security, observability, and Python API.

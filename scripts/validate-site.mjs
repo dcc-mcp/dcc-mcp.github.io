@@ -9,6 +9,7 @@ import { validateSpeedTreeShowcaseProvenance } from './showcase-provenance.mjs'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const dist = process.env.DCC_MCP_VALIDATED_DIST_PATH ?? join(root, 'docs', '.vitepress', 'dist')
+const cloudEvidencePath = 'cloud-evidence/2026-10-01.json'
 const installSopSchemaPath = 'schemas/adapter-install-sop-v1.schema.json'
 const installSopSchemaUrl = `https://dcc-mcp.github.io/${installSopSchemaPath}`
 const installSopSchemaHash = '3ca25788439917b4d4c0617230a762f9797756b5b54f45c8c4149f975b90f904'
@@ -199,9 +200,102 @@ const validateControlEntities = (html, language, integration) => {
     if (forbidden in application) throw new Error(`${label} must not publish ${forbidden}`)
   }
 }
+const cloudAgentPages = [
+  {
+    file: 'cloud-agents.html',
+    route: '/cloud-agents',
+    language: 'en',
+    title: 'Cloud agents and DCC-MCP',
+    description: 'Choose a cloud or workstation workflow for DCC-MCP using dated software tests, platform interfaces, installation prerequisites, and deployment limits.',
+  },
+  {
+    file: 'zh/cloud-agents.html',
+    route: '/zh/cloud-agents',
+    language: 'zh-CN',
+    title: '云 Agent 与 DCC-MCP',
+    description: '根据软件实测、平台接口、安装前提与部署限制，选择 DCC-MCP 的云电脑或工作站工作流。',
+  },
+]
+
+const decodeHtmlText = (value) => value
+  .replace(/&(?:amp|lt|gt|quot|apos|#39|nbsp);/g, (entity) => ({
+    '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&apos;': "'", '&#39;': "'", '&nbsp;': ' ',
+  })[entity])
+  .replace(/&#(?:x([0-9a-f]+)|(\d+));/gi, (_entity, hex, decimal) => String.fromCodePoint(parseInt(hex ?? decimal, hex ? 16 : 10)))
+
+const visibleHtmlText = (html) => decodeHtmlText(html
+  .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/g, '')
+  .replace(/<!--[\s\S]*?-->/g, '')
+  .replace(/<[^>]+>/g, ' '))
+  .replace(/\s+/g, ' ').trim()
+
+const tagAttributes = (tag) => Object.fromEntries(
+  [...tag.matchAll(/([\w:-]+)="([^"]*)"/g)].map(([, name, value]) => [name, decodeHtmlText(value)]),
+)
+
+const pageMain = (html, label) => {
+  const match = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)
+  if (!match) throw new Error(`${label} is missing a rendered main element`)
+  return match
+}
+
+const validateCloudAgentPage = (html, page) => {
+  const label = page.title
+  const canonicalUrl = `https://dcc-mcp.github.io${page.route}`
+  const main = pageMain(html, label)[1]
+  const text = visibleHtmlText(main)
+  const headings = [...main.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g)]
+  if (headings.length !== 1 || !visibleHtmlText(headings[0][1]).includes(page.title) || !text.includes(page.description)) {
+    throw new Error(`${label} must render its title and description in visible main content`)
+  }
+  for (const id of ['evidence-levels', 'platform-interfaces', 'cloud-software-inventory', 'cloud-mcp-tests', 'choose-a-connection', 'prerequisites', 'verified-workflow', 'faq']) {
+    if (!main.includes(`id="${id}"`)) throw new Error(`${label} is missing the localized section: ${id}`)
+  }
+  for (const entity of ['DCC-MCP', 'dots', 'Grok Bot', 'Muse', 'Cue', 'MCP', 'CLI', 'TLS']) {
+    if (!text.includes(entity)) throw new Error(`${label} is missing the visible workflow entity: ${entity}`)
+  }
+  if (!main.includes(`href="/${cloudEvidencePath}"`)) {
+    throw new Error(`${label} is missing its visible frozen cloud evidence link`)
+  }
+  if (tagAttributes(html.match(/<html\b[^>]*>/)?.[0] ?? '').lang !== page.language) {
+    throw new Error(`${label} has the wrong document language`)
+  }
+  const links = [...html.matchAll(/<link\b[^>]*>/g)].map(([tag]) => tagAttributes(tag))
+  const canonicals = links.filter(({ rel }) => rel === 'canonical')
+  if (canonicals.length !== 1 || canonicals[0].href !== canonicalUrl) {
+    throw new Error(`${label} has the wrong canonical URL`)
+  }
+  for (const [language, href] of [
+    ['en', 'https://dcc-mcp.github.io/cloud-agents'],
+    ['zh-CN', 'https://dcc-mcp.github.io/zh/cloud-agents'],
+    ['x-default', 'https://dcc-mcp.github.io/cloud-agents'],
+  ]) {
+    const alternates = links.filter(({ rel, hreflang }) => rel === 'alternate' && hreflang === language)
+    if (alternates.length !== 1 || alternates[0].href !== href) {
+      throw new Error(`${label} has the wrong ${language} language alternate`)
+    }
+  }
+  const metas = [...html.matchAll(/<meta\b[^>]*>/g)].map(([tag]) => tagAttributes(tag))
+  if (!metas.some(({ name, content }) => name === 'description' && content === page.description)
+      || !metas.some(({ property, content }) => property === 'og:url' && content === canonicalUrl)) {
+    throw new Error(`${label} has the wrong description or social canonical metadata`)
+  }
+  const entities = graphEntities(parseStructuredData(html, label), label)
+  const webPage = oneEntity(entities, 'WebPage', label)
+  const allowedKeys = ['@type', '@id', 'url', 'name', 'description', 'inLanguage', 'isPartOf']
+  if (entities.length !== 1 || Object.keys(webPage).some((key) => !allowedKeys.includes(key))
+      || webPage['@id'] !== `${canonicalUrl}#webpage` || webPage.url !== canonicalUrl
+      || webPage.name !== page.title || webPage.description !== page.description
+      || webPage.inLanguage !== page.language
+      || JSON.stringify(webPage.isPartOf) !== JSON.stringify({ '@id': 'https://dcc-mcp.github.io/#website' })) {
+    throw new Error(`${label} JSON-LD must describe only the visible page identity and description`)
+  }
+}
+
 const requiredFiles = [
   'index.html',
   'agents.html',
+  'cloud-agents.html',
   'developers.html',
   'ecosystem.html',
   'marketplace.html',
@@ -211,6 +305,7 @@ const requiredFiles = [
   'why-dcc-mcp.html',
   'zh/index.html',
   'zh/agents.html',
+  'zh/cloud-agents.html',
   'zh/developers.html',
   'zh/ecosystem.html',
   'zh/marketplace.html',
@@ -222,6 +317,7 @@ const requiredFiles = [
   'llms-full.txt',
   'zh/llms.txt',
   'zh/llms-full.txt',
+  cloudEvidencePath,
   installSopSchemaPath,
   'brand/dcc-mcp-logo-admin-light.png',
   'brand/dcc-mcp-logo-admin-dark.png',
@@ -261,6 +357,36 @@ const requiredFiles = [
 
 for (const file of requiredFiles) {
   if (!existsSync(join(dist, file))) throw new Error(`Missing generated file: ${file}`)
+}
+
+const cloudEvidenceSource = readFileSync(join(root, 'docs', 'public', cloudEvidencePath))
+const cloudEvidenceDist = readFileSync(join(dist, cloudEvidencePath))
+if (!cloudEvidenceSource.equals(cloudEvidenceDist)) {
+  throw new Error('Generated cloud evidence snapshot differs from its public source')
+}
+const cloudEvidence = JSON.parse(cloudEvidenceDist.toString('utf8'))
+if (cloudEvidence.schema !== 'dcc-mcp-cloud-workflow-evidence.v1'
+    || cloudEvidence.observed_date !== '2026-10-01'
+    || cloudEvidence.environment?.platform !== 'OpenAI dots'
+    || cloudEvidence.environment?.core_version !== '0.20.39'
+    || !Array.isArray(cloudEvidence.workflows)
+    || cloudEvidence.workflows.map(({ application }) => application).sort().join(',') !== 'Blender,FreeCAD,Inkscape,OpenSCAD') {
+  throw new Error('Cloud evidence snapshot must identify the frozen environment and four unique workflows')
+}
+for (const application of ['FreeCAD', 'OpenSCAD']) {
+  const workflow = cloudEvidence.workflows.find((item) => item.application === application)
+  if (workflow.adapter_state !== 'unpublished local patch'
+      || workflow.public_patch_or_pr !== null
+      || !/^[a-f0-9]{40}$/.test(workflow.source_commit ?? '')) {
+    throw new Error(`${application} cloud evidence must retain its unpublished local patch identity`)
+  }
+}
+const blenderCloudEvidence = cloudEvidence.workflows.find(({ application }) => application === 'Blender')
+const inkscapeCloudEvidence = cloudEvidence.workflows.find(({ application }) => application === 'Inkscape')
+if (blenderCloudEvidence.adapter_state !== 'published' || blenderCloudEvidence.adapter_version !== '0.2.12'
+    || inkscapeCloudEvidence.result !== 'blocked by provenance validation'
+    || inkscapeCloudEvidence.evidence_level !== 'MCP production workflow incomplete') {
+  throw new Error('Cloud evidence must preserve the published Blender experiment and blocked Inkscape workflow')
 }
 
 const installSopSourceBytes = readFileSync(join(root, 'docs', 'public', installSopSchemaPath))
@@ -371,6 +497,31 @@ for (const [name, html, prefix] of [
 }
 validateHomeEntities(englishHome, 'en')
 validateHomeEntities(chineseHome, 'zh')
+for (const page of cloudAgentPages) {
+  const html = readFileSync(join(dist, page.file), 'utf8')
+  validateCloudAgentPage(html, page)
+  const unsupportedClaim = mutateStructuredData(html, page.title, (document) => {
+    document['@graph'][0].about = { '@type': 'SoftwareApplication', name: 'All cloud platforms supported' }
+  })
+  expectValidationFailure(
+    `${page.title} unsupported structured-data claim`,
+    `${page.title} JSON-LD must describe only the visible page identity and description`,
+    () => validateCloudAgentPage(unsupportedClaim, page),
+  )
+  const localePrefix = page.language === 'en' ? '' : 'zh/'
+  for (const file of [`${localePrefix}index.html`, `${localePrefix}agents.html`]) {
+    const entryHtml = readFileSync(join(dist, file), 'utf8')
+    const entry = file.endsWith('index.html')
+      ? entryHtml.match(/<section\b[^>]*aria-labelledby="cloud-agents-title"[^>]*>([\s\S]*?)<\/section>/)
+      : pageMain(entryHtml, file)
+    if (!entry?.[1].includes(`href="${page.route}"`)) {
+      throw new Error(`${file} is missing the visible cloud-agent workflow entry`)
+    }
+    if (!entryHtml.replace(entry[0], '').includes(`href="${page.route}"`)) {
+      throw new Error(`${file} is missing the cloud-agent navigation entry`)
+    }
+  }
+}
 {
   const integration = integrations.find(({ slug }) => slug === 'maya')
   if (!integration) throw new Error('Maya integration is missing from the mutation gate')
@@ -485,6 +636,11 @@ for (const label of ['为什么选择 DCC-MCP', '技能市场', '案例画廊', 
 }
 
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
+for (const { route } of cloudAgentPages) {
+  if (!sitemap.includes(`<loc>https://dcc-mcp.github.io${route}</loc>`)) {
+    throw new Error(`Sitemap is missing the canonical cloud-agent route: ${route}`)
+  }
+}
 if (/<loc>https:\/\/dcc-mcp\.github\.io\/(?:zh\/)?showcase(?:<|\/)/.test(sitemap)) {
   throw new Error('Official portal sitemap must not claim the separate Showcase project namespace')
 }
@@ -593,6 +749,12 @@ const llmsFiles = [
   readFileSync(join(dist, 'zh', 'llms.txt'), 'utf8'),
   readFileSync(join(dist, 'zh', 'llms-full.txt'), 'utf8'),
 ]
+for (const [index, llms] of llmsFiles.entries()) {
+  const route = index < 2 ? '/cloud-agents' : '/zh/cloud-agents'
+  if (!llms.includes(`https://dcc-mcp.github.io${route}`)) {
+    throw new Error(`An llms file is missing the localized cloud-agent workflow entry: ${route}`)
+  }
+}
 for (const llms of llmsFiles) {
   if (!llms.includes(universalSkillCommand) || !llms.includes('https://github.com/dcc-mcp/dcc-mcp-agent-plugins')) {
     throw new Error('An llms file is missing the canonical Agent Skill distribution contract')
@@ -709,4 +871,4 @@ for (const [label, file, phrases] of [
   }
 }
 
-console.log(`Validated ${18 + integrations.length * 2} localized pages, ${integrations.length} bilingual DCC control guides, ${organizationRepositories.length} active organization repositories, 4 llms files, the Install SOP v1 schema mirror, architecture rationale, developer labs, theme logos, sitemap, Marketplace media, Showcase prompts, audio, and GEO use cases.`)
+console.log(`Validated ${20 + integrations.length * 2} localized pages, ${integrations.length} bilingual DCC control guides, ${organizationRepositories.length} active organization repositories, 4 llms files, the Install SOP v1 schema mirror, architecture rationale, developer labs, cloud-agent page identity and visible discovery links, theme logos, sitemap, Marketplace media, Showcase prompts, audio, and GEO use cases.`)

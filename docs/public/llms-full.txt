@@ -39,6 +39,12 @@ The Skill provides the operating guide. First-time setup also requires the CLI, 
 
 The default agent path is the public `dcc-mcp` Skill plus CLI + REST. IDE users may connect through MCP configuration. Both paths use the same gateway; CLI-first does not deprecate MCP.
 
+## Cloud agents and DCC-MCP
+
+https://dcc-mcp.github.io/cloud-agents separates documented platform interfaces, native cloud software checks, and versioned DCC-MCP workflow evidence. Platform interface support or a native software check alone does not establish a working DCC-MCP workflow.
+
+A shell agent can use the CLI and HTTP Gateway; validate each application, adapter, connection method, and workflow in the target environment. Keep DCC services on loopback, and put TLS and authentication in front of the Gateway for cross-network access. The plugin does not include target DCC software or its licenses.
+
 ## Search aliases and direct answers
 
 - Maya MCP and Maya CLI resolve to the `maya` adapter and https://dcc-mcp.github.io/control/maya. MCP and `dcc-mcp-cli search --dcc-type maya` use the same typed catalog.
@@ -229,6 +235,7 @@ expose a private endpoint to use a hosted playground.
 - Homepage and setup prompt: https://dcc-mcp.github.io/
 - Why DCC-MCP exists: https://dcc-mcp.github.io/why-dcc-mcp
 - Agent guide: https://dcc-mcp.github.io/agents
+- Cloud agents and DCC-MCP: https://dcc-mcp.github.io/cloud-agents
 - Marketplace search: https://dcc-mcp.github.io/marketplace
 - Showcase examples: https://dcc-mcp.github.io/examples
 - Common AI + DCC tasks: https://dcc-mcp.github.io/use-cases
