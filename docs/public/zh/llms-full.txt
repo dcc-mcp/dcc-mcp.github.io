@@ -56,7 +56,7 @@ https://dcc-mcp.github.io/zh/examples/wwise。
 
 ## 当前 Core 与 CLI 发布目录
 
-使用 `dcc-mcp-cli dcc-types` 作为实时事实来源。DCC-MCP Core 0.20.38 报告 38 个目录适配器 dcc-types。网站另外记录 Office 当前 Core 共享应用路由，以及可选的 Autodesk Product Help 外部只读连接器。
+使用 `dcc-mcp-cli dcc-types` 作为实时事实来源。DCC-MCP Core 0.20.39 报告 38 个目录适配器 dcc-types。网站另外记录 Office 当前 Core 共享应用路由，以及可选的 Autodesk Product Help 外部只读连接器。
 
 - `3dsmax` — Autodesk 3ds Max — https://github.com/dcc-mcp/dcc-mcp-3dsmax
 - `aftereffects` — Adobe After Effects — https://github.com/dcc-mcp/dcc-mcp-aftereffects
@@ -99,7 +99,7 @@ https://dcc-mcp.github.io/zh/examples/wwise。
 - `office` — Microsoft Office 共享运行时 — https://github.com/dcc-mcp/dcc-mcp-office — 当前 Core 应用路由，不属于发布 CLI 的 dcc-types 清单
 - `autodesk-help` — Autodesk Product Help — https://developer.api.autodesk.com/knowledge/public/v1/mcp — 外部可选只读连接器，不是 DCC-MCP 适配器，也不提供应用写入能力
 
-支持未知与自定义工作室 Host。Cache Inspector 是 Host-neutral Marketplace Skill，不是应用路由。Tracy 已独立发布 v0.2.5，但不是 Core 0.20.38 Host 路由。Epic Games v0.2.1、Gaea v0.1.1、Marvelous Designer v0.1.1、OpenScreen v0.1.1 与 SpeedTree v0.1.1 均已独立发布，未列入 Core 0.20.38 目录。更广泛的生态目录可能包含其他实验或独立发布的适配器：https://dcc-mcp.github.io/zh/ecosystem
+支持未知与自定义工作室 Host。Cache Inspector 是 Host-neutral Marketplace Skill，不是应用路由。Tracy 已独立发布 v0.2.5，但不是 Core 0.20.39 Host 路由。Epic Games v0.2.1、Gaea v0.1.1、Marvelous Designer v0.1.1、OpenScreen v0.1.1 与 SpeedTree v0.1.1 均已独立发布，未列入 Core 0.20.39 目录。更广泛的生态目录可能包含其他实验或独立发布的适配器：https://dcc-mcp.github.io/zh/ecosystem
 
 ## 逐应用 AI 控制指南
 
@@ -140,12 +140,12 @@ https://dcc-mcp.github.io/zh/examples/wwise。
 - Premiere Pro：https://dcc-mcp.github.io/zh/control/premiere-pro
 - RenderDoc：https://dcc-mcp.github.io/zh/control/renderdoc
 - SketchUp：https://dcc-mcp.github.io/zh/control/sketchup
-- SpeedTree 独立发布：https://dcc-mcp.github.io/zh/control/speedtree — 已独立发布 v0.1.1，未列入 Core 0.20.38 目录。一次真实 ST9 交接已在 Unreal Engine 5.5.4 中验证一棵具有 3 个 LOD、修正后材质/UV 绑定与 1,234.383705 cm 网格高度的棕榈树；碰撞比例与动态风仍未验收。
+- SpeedTree 独立发布：https://dcc-mcp.github.io/zh/control/speedtree — 已独立发布 v0.1.1，未列入 Core 0.20.39 目录。一次真实 ST9 交接已在 Unreal Engine 5.5.4 中验证一棵具有 3 个 LOD、修正后材质/UV 绑定与 1,234.383705 cm 网格高度的棕榈树；碰撞比例与动态风仍未验收。
 - Shōgun：https://dcc-mcp.github.io/zh/control/shogun
 - Substance 3D Designer：https://dcc-mcp.github.io/zh/control/substance-3d-designer
 - Substance 3D Painter：https://dcc-mcp.github.io/zh/control/substance-3d-painter
 - Tiled：https://dcc-mcp.github.io/zh/control/tiled
-- Tracy Profiler v0.2.5 独立发布：https://dcc-mcp.github.io/zh/control/tracy — 要求目标已经接入插桩，不是 Core 0.20.38 Host 路由。
+- Tracy Profiler v0.2.5 独立发布：https://dcc-mcp.github.io/zh/control/tracy — 要求目标已经接入插桩，不是 Core 0.20.39 Host 路由。
 - TouchDesigner：https://dcc-mcp.github.io/zh/control/touchdesigner
 - Unity：https://dcc-mcp.github.io/zh/control/unity
 - Unreal Engine：https://dcc-mcp.github.io/zh/control/unreal-engine
@@ -244,4 +244,4 @@ Inspector 提供 loopback 本地示例。需要由运维管理的多人浏览器
 
 官方作品合集：https://dcc-mcp.github.io/showcase/ — 完整案例、制作证据、工程来源与各项许可；历史适配器概览不等于本轮复现。
 
-已验证 CLI 0.20.38 导出：38 个目录标识，33 个有可安装目录制品，5 个尚无（Kdenlive、Material Maker、PowerPoint、Tiled、Wwise）。签名远程目录 revision 为 60c96cce4ed949eb8412ebd67119853e77dbafee。证据：https://dcc-mcp.github.io/catalog/core-v0.20.38-dcc-types.json 。独立发布证据：https://dcc-mcp.github.io/catalog/independent-releases-2026-10-01.json 。目录和发布元数据不能代替重新进行 Host 或工具执行验收。
+已验证 CLI 0.20.39 导出：38 个目录标识，33 个有可安装目录制品，5 个尚无（Kdenlive、Material Maker、PowerPoint、Tiled、Wwise）。签名远程目录 revision 为 60c96cce4ed949eb8412ebd67119853e77dbafee。证据：https://dcc-mcp.github.io/catalog/core-v0.20.39-dcc-types.json 。独立发布证据：https://dcc-mcp.github.io/catalog/independent-releases-2026-10-01.json 。目录和发布元数据不能代替重新进行 Host 或工具执行验收。

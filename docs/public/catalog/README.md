@@ -1,7 +1,7 @@
 # Versioned catalog evidence
 
-`core-v0.20.38-dcc-types.json` records the actual output of the official Windows
-CLI 0.20.38 on 2026-10-01. Its executable SHA-256 matches the GitHub release
+`core-v0.20.39-dcc-types.json` records the actual output of the official Windows
+CLI 0.20.39 on 2026-10-01. Its executable SHA-256 matches the GitHub release
 asset digest. The CLI verified the signed **remote** catalog at revision
 `60c96cce4ed949eb8412ebd67119853e77dbafee`; this is not a claim about the
 unchanged bundled catalog inside the executable.
@@ -30,7 +30,12 @@ installation-status or provenance evidence.
 GitHub release identities and source commits. This metadata review did not
 re-run licensed DCC hosts, editor operations, rendering or engine import.
 
-## Historical observation
+## Historical observations
+
+`core-v0.20.38-dcc-types.json` preserves the earlier 2026-10-01 CLI 0.20.38
+observation made before v0.20.39 was published. Both actual exports returned
+the same signed catalog revision, descriptors and installation flags.
+
 
 `core-v0.20.25-dcc-types.json` records the 37 adapter-backed identifiers returned
 by the official DCC-MCP Core 0.20.25 Windows CLI. The record binds the release

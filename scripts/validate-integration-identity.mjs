@@ -11,7 +11,7 @@ import {
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const releaseSnapshotBytes = readFileSync(
-  join(root, 'docs', 'public', 'catalog', 'core-v0.20.38-dcc-types.json'),
+  join(root, 'docs', 'public', 'catalog', 'core-v0.20.39-dcc-types.json'),
 )
 const releaseSnapshot = JSON.parse(releaseSnapshotBytes.toString('utf8'))
 
@@ -20,17 +20,17 @@ const validateReleaseSnapshot = () => {
   const snapshotDccTypes = releaseSnapshot.dcc_types.map((row) => row.dcc_type)
   const installableCount = releaseSnapshot.dcc_types.flatMap((row) => row.adapters)
     .filter((adapter) => adapter.catalog_install_available).length
-  if (snapshotHash !== '6037a17bcdfa01276b2051fdbdb5b73df1022d53f3d923210ad99e591ea38a9c'
+  if (snapshotHash !== 'd6b563c44bdcafbe9bb3fbd7034d82a49da1ca0933361dafc0c9a1411d1b70a7'
       || releaseSnapshot.schema !== 'dcc-mcp-core-dcc-types.v2'
-      || releaseSnapshot.tag !== 'v0.20.38'
-      || releaseSnapshot.commit !== 'f532e0d9bf5bc0aaa0390af1f6c0e71cad48ce71'
-      || releaseSnapshot.cli_asset_sha256 !== 'fc718609c46b75c764863a5b59a31def111f948407c196082619ec7d43447766'
+      || releaseSnapshot.tag !== 'v0.20.39'
+      || releaseSnapshot.commit !== '60c96cce4ed949eb8412ebd67119853e77dbafee'
+      || releaseSnapshot.cli_asset_sha256 !== 'fd258c1a10bcbe9727e5ebc28a83cfba93cd3bccf97d1f7c4094bbe29d97ef65'
       || releaseSnapshot.catalog.source !== 'remote'
       || releaseSnapshot.catalog.source_revision !== '60c96cce4ed949eb8412ebd67119853e77dbafee'
       || releaseSnapshot.catalog.sha256 !== '813d18d7e36bbe3054d88e7cf24830cb0371062d9c20fb459c23d908f1e1c9d0'
       || releaseSnapshot.total !== 38 || installableCount !== 33
       || JSON.stringify(snapshotDccTypes) !== JSON.stringify(expectedReleasedDccTypes)) {
-    throw new Error('Core v0.20.38 dcc-types catalog snapshot differs from the immutable CLI evidence')
+    throw new Error('Core v0.20.39 dcc-types catalog snapshot differs from the immutable CLI evidence')
   }
 }
 
@@ -68,7 +68,7 @@ export const validateIntegrationIdentity = (integrations) => {
   const extraReleasedDccTypes = [...releasedDccTypeSet].filter((dccType) => !expectedReleasedDccTypeSet.has(dccType)).sort()
   if (duplicateReleasedDccTypes.length || missingReleasedDccTypes.length || extraReleasedDccTypes.length) {
     throw new Error(
-      'Catalog-listed project-owned identifiers do not match dcc-mcp-cli 0.20.38: '
+      'Catalog-listed project-owned identifiers do not match dcc-mcp-cli 0.20.39: '
       + `duplicates=[${[...new Set(duplicateReleasedDccTypes)].join(',')}] `
       + `missing=[${missingReleasedDccTypes.join(',')}] `
       + `extra=[${extraReleasedDccTypes.join(',')}]`,

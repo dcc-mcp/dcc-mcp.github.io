@@ -106,7 +106,7 @@ try {
     'docs',
     'public',
     'catalog',
-    'core-v0.20.38-dcc-types.json',
+    'core-v0.20.39-dcc-types.json',
   )
   const releaseSnapshot = JSON.parse(readFileSync(releaseSnapshotPath, 'utf8'))
   writeFileSync(
@@ -121,7 +121,7 @@ try {
   assert.notEqual(releaseMutation.status, 0)
   assert.match(
     `${releaseMutation.stdout}\n${releaseMutation.stderr}`,
-    /Core v0\.20\.38 dcc-types catalog snapshot differs/,
+    /Core v0\.20\.39 dcc-types catalog snapshot differs/,
   )
   for (const [label, mutate] of [
     ['installability', (snapshot) => {
@@ -141,7 +141,7 @@ try {
       encoding: 'utf8',
     })
     assert.notEqual(result.status, 0, `validator must reject changed ${label} evidence`)
-    assert.match(`${result.stdout}\n${result.stderr}`, /Core v0\.20\.38 dcc-types catalog snapshot differs/)
+    assert.match(`${result.stdout}\n${result.stderr}`, /Core v0\.20\.39 dcc-types catalog snapshot differs/)
   }
 } finally {
   rmSync(fixtureRoot, { recursive: true, force: true })
