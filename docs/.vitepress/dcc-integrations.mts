@@ -60,7 +60,7 @@ As of 2026-09-05, these recipes are merged in source; the published 0.1.4 packag
     const availability = integration.availabilityZh ?? (integration.marketplacePackage
       ? `这是可供不同 DCC 应用使用的 Marketplace Skill，不是独立适配器。使用 \`dcc-mcp-cli marketplace install ${integration.marketplacePackage} --dcc <实际-host> --reload\` 将它安装到具体 DCC；\`any\` 不是安装目录。`
       : released
-      ? `当前发布目录中的应用标识是 \`${integration.dccType}\`。操作前运行 \`dcc-mcp-cli dcc-types\`，确认本机版本支持该应用。`
+      ? `当前目录中的适配器标识是 \`${integration.dccType}\`。目录定义不等于 Host 验收；操作前运行 \`dcc-mcp-cli dcc-types\`，确认本机目录状态，再发现并描述实时实例工具。`
       : '这个适配器已有公开仓库，但可能尚未纳入当前 CLI 发布目录。先阅读适配器 README，并运行 `dcc-mcp-cli dcc-types` 查询，不要猜测应用标识。')
     const cliSection = routeIdentifier
       ? `## ${integration.name} MCP 与 ${integration.name} CLI\n\n${integration.name} MCP 接口与 ${integration.name} CLI 工作流共用同一个 DCC-MCP 适配器和工具目录。在命令行中使用 \`dcc-mcp-cli\`，加上 \`--dcc-type ${routeIdentifier}\`，即可将工具搜索限定到 ${integration.name}。工具会声明输入、输出和参数类型，便于调用前校验。\n\n\`\`\`bash\ndcc-mcp-cli search --query "${integration.tasksZh[0]}" --dcc-type ${routeIdentifier}\n\`\`\`\n`
@@ -120,7 +120,7 @@ ${availability}
   const availability = integration.availabilityEn ?? (integration.marketplacePackage
     ? `This is a host-neutral Marketplace Skill, not a standalone adapter. Install it into a concrete DCC with \`dcc-mcp-cli marketplace install ${integration.marketplacePackage} --dcc <real-host> --reload\`; \`any\` is not an install directory.`
     : released
-    ? `The current release catalog uses \`${integration.dccType}\` as the host identifier. Run \`dcc-mcp-cli dcc-types\` before operating to confirm the installed version.`
+    ? `The current catalog lists \`${integration.dccType}\` as the adapter identifier. Catalog definitions do not establish host acceptance; run \`dcc-mcp-cli dcc-types\`, then discover and describe the live instance's tools before operating.`
     : 'This is a public adapter repository, but it may not yet be present in the current CLI release catalog. Check its README and `dcc-mcp-cli dcc-types`; do not guess a host identifier.')
   const cliSection = routeIdentifier
     ? `## ${integration.name} MCP and ${integration.name} CLI\n\nThe ${integration.name} MCP endpoint and ${integration.name} CLI workflow share the same DCC-MCP adapter and tool catalog. Use \`dcc-mcp-cli\` with \`--dcc-type ${routeIdentifier}\` to limit tool searches to ${integration.name}. Tools declare their inputs, outputs, and parameter types so arguments can be checked before a call.\n\n\`\`\`bash\ndcc-mcp-cli search --query "${integration.tasksEn[0]}" --dcc-type ${routeIdentifier}\n\`\`\`\n`

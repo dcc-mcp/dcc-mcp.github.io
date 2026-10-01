@@ -62,6 +62,16 @@ try {
     /duplicates=.*Blender/,
   )
   validateMutation(
+    queryContractSource.replace("'Kdenlive',", ''),
+    baselineSource,
+    /missing=.*Kdenlive/,
+  )
+  validateMutation(
+    queryContractSource,
+    `${baselineSource}\n| Microsoft Bing | Bing Web Search RSS | en | \`how to control Kdenlive with AI\` | NO_HIT | — | — | false | false |\n`,
+    /baseline contains unexpected query\/locale: en how to control Kdenlive with AI/,
+  )
+  validateMutation(
     queryContractSource,
     baselineSource.replace('| NO_HIT | — | — | false | false |', '| 1 | — | — | false | false |'),
     /rank 1 requires a title and URL/,

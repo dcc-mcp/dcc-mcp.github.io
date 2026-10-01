@@ -14,12 +14,12 @@ const repositoryUrl = (integration: DccIntegration) =>
 const integrationIdentifier = (integration: DccIntegration) => ({
   '@type': 'PropertyValue',
   propertyID: integration.dccType
-    ? 'DCC-MCP host identifier'
+    ? 'DCC-MCP catalog adapter identifier'
     : integration.coreApplicationRoute
       ? 'DCC-MCP Core application route'
     : integration.marketplacePackage
       ? 'DCC-MCP Marketplace package'
-      : 'Source preview repository',
+      : 'Independent integration repository',
   value: integration.dccType ?? integration.coreApplicationRoute ?? integration.marketplacePackage ?? integration.repository,
 })
 
@@ -59,7 +59,7 @@ const homeStructuredData = (isZh: boolean) => ({
     },
     {
       '@type': 'ItemList',
-      name: isZh ? 'DCC-MCP 已发布创意应用集成' : 'DCC-MCP released creative application integrations',
+      name: isZh ? 'DCC-MCP 目录中的创意应用集成' : 'DCC-MCP catalog-listed creative application integrations',
       numberOfItems: releasedIntegrations.length,
       itemListElement: releasedIntegrations.map((integration, index) => ({
         '@type': 'ListItem',

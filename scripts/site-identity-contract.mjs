@@ -12,6 +12,7 @@ export const expectedGuideIdentities = Object.freeze([
   ['houdini', 'Houdini', 'dcc-mcp-houdini', 'houdini', null],
   ['illustrator', 'Illustrator', 'dcc-mcp-illustrator', 'illustrator', null],
   ['katana', 'Katana', 'dcc-mcp-katana', 'katana', null],
+  ['kdenlive', 'Kdenlive', 'dcc-mcp-kdenlive', 'kdenlive', null],
   ['krita', 'Krita', 'dcc-mcp-krita', 'krita', null],
   ['mari', 'Mari', 'dcc-mcp-mari', 'mari', null],
   ['marmoset-toolbag', 'Marmoset Toolbag', 'dcc-mcp-marmoset', 'marmoset', null],
@@ -53,7 +54,8 @@ export const expectedGuideIdentities = Object.freeze([
   coreApplicationRoute,
 })))
 
-// Project-owned routes frozen from the official `dcc-mcp-cli 0.20.25 dcc-types` release catalog.
+// Catalog-listed routes observed with official CLI 0.20.38 and its verified signed remote catalog.
+// A catalog identity does not establish an installable artifact or live-host acceptance.
 // The external read-only `autodesk-help` connector has no DCC-MCP repository guide.
 export const expectedReleasedDccTypes = Object.freeze(
   expectedGuideIdentities.flatMap(({ dccType }) => dccType ? [dccType] : []).sort(),

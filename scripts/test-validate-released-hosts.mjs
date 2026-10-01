@@ -106,12 +106,12 @@ try {
     'docs',
     'public',
     'catalog',
-    'core-v0.20.25-dcc-types.json',
+    'core-v0.20.38-dcc-types.json',
   )
   const releaseSnapshot = JSON.parse(readFileSync(releaseSnapshotPath, 'utf8'))
   writeFileSync(
     releaseSnapshotPath,
-    `${JSON.stringify({ ...releaseSnapshot, dcc_types: [...releaseSnapshot.dcc_types, 'office'] }, null, 2)}\n`,
+    `${JSON.stringify({ ...releaseSnapshot, dcc_types: [...releaseSnapshot.dcc_types, { dcc_type: 'office', adapters: [] }] }, null, 2)}\n`,
   )
   const releaseMutation = spawnSync(
     process.execPath,
@@ -121,8 +121,28 @@ try {
   assert.notEqual(releaseMutation.status, 0)
   assert.match(
     `${releaseMutation.stdout}\n${releaseMutation.stderr}`,
-    /Core v0\.20\.25 dcc-types release snapshot differs/,
+    /Core v0\.20\.38 dcc-types catalog snapshot differs/,
   )
+  for (const [label, mutate] of [
+    ['installability', (snapshot) => {
+      snapshot.dcc_types.find((row) => row.dcc_type === 'kdenlive')
+        .adapters[0].catalog_install_available = true
+    }],
+    ['adapter-version', (snapshot) => {
+      snapshot.dcc_types.find((row) => row.dcc_type === 'maya').adapters[0].version = '0.9.26'
+    }],
+    ['catalog-provenance', (snapshot) => { snapshot.catalog.source_revision = '0'.repeat(40) }],
+    ['cli-provenance', (snapshot) => { snapshot.cli_asset_sha256 = '0'.repeat(64) }],
+  ]) {
+    const mutated = structuredClone(releaseSnapshot)
+    mutate(mutated)
+    writeFileSync(releaseSnapshotPath, `${JSON.stringify(mutated, null, 2)}\n`)
+    const result = spawnSync(process.execPath, [join(fixtureRoot, 'scripts', 'validate-site.mjs')], {
+      encoding: 'utf8',
+    })
+    assert.notEqual(result.status, 0, `validator must reject changed ${label} evidence`)
+    assert.match(`${result.stdout}\n${result.stderr}`, /Core v0\.20\.38 dcc-types catalog snapshot differs/)
+  }
 } finally {
   rmSync(fixtureRoot, { recursive: true, force: true })
 }

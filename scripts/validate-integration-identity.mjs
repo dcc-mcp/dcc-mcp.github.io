@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -9,25 +10,27 @@ import {
 } from './site-identity-contract.mjs'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
-const releaseSnapshot = JSON.parse(readFileSync(
-  join(root, 'docs', 'public', 'catalog', 'core-v0.20.25-dcc-types.json'),
-  'utf8',
-))
+const releaseSnapshotBytes = readFileSync(
+  join(root, 'docs', 'public', 'catalog', 'core-v0.20.38-dcc-types.json'),
+)
+const releaseSnapshot = JSON.parse(releaseSnapshotBytes.toString('utf8'))
 
 const validateReleaseSnapshot = () => {
-  const expectedKeys = [
-    'schema', 'repository', 'tag', 'commit', 'cli_asset', 'cli_asset_sha256', 'dcc_types',
-  ].sort()
-  if (JSON.stringify(Object.keys(releaseSnapshot).sort()) !== JSON.stringify(expectedKeys)
-      || releaseSnapshot.schema !== 'dcc-mcp-core-dcc-types.v1'
-      || releaseSnapshot.repository !== 'https://github.com/dcc-mcp/dcc-mcp-core'
-      || releaseSnapshot.tag !== 'v0.20.25'
-      || releaseSnapshot.commit !== '05b3c61cf787045f11e4fd49019c2be090e9db78'
-      || releaseSnapshot.cli_asset !== 'dcc-mcp-cli-windows-x86_64.exe'
-      || releaseSnapshot.cli_asset_sha256 !== '2392a12cb6b809a424c218bcc7cf9841d8f6a17a070761f2a530dcaa4400322'
-      || !Array.isArray(releaseSnapshot.dcc_types)
-      || JSON.stringify(releaseSnapshot.dcc_types) !== JSON.stringify(expectedReleasedDccTypes)) {
-    throw new Error('Core v0.20.25 dcc-types release snapshot differs from the immutable CLI evidence')
+  const snapshotHash = createHash('sha256').update(releaseSnapshotBytes).digest('hex')
+  const snapshotDccTypes = releaseSnapshot.dcc_types.map((row) => row.dcc_type)
+  const installableCount = releaseSnapshot.dcc_types.flatMap((row) => row.adapters)
+    .filter((adapter) => adapter.catalog_install_available).length
+  if (snapshotHash !== '6037a17bcdfa01276b2051fdbdb5b73df1022d53f3d923210ad99e591ea38a9c'
+      || releaseSnapshot.schema !== 'dcc-mcp-core-dcc-types.v2'
+      || releaseSnapshot.tag !== 'v0.20.38'
+      || releaseSnapshot.commit !== 'f532e0d9bf5bc0aaa0390af1f6c0e71cad48ce71'
+      || releaseSnapshot.cli_asset_sha256 !== 'fc718609c46b75c764863a5b59a31def111f948407c196082619ec7d43447766'
+      || releaseSnapshot.catalog.source !== 'remote'
+      || releaseSnapshot.catalog.source_revision !== '60c96cce4ed949eb8412ebd67119853e77dbafee'
+      || releaseSnapshot.catalog.sha256 !== '813d18d7e36bbe3054d88e7cf24830cb0371062d9c20fb459c23d908f1e1c9d0'
+      || releaseSnapshot.total !== 38 || installableCount !== 33
+      || JSON.stringify(snapshotDccTypes) !== JSON.stringify(expectedReleasedDccTypes)) {
+    throw new Error('Core v0.20.38 dcc-types catalog snapshot differs from the immutable CLI evidence')
   }
 }
 
@@ -65,7 +68,7 @@ export const validateIntegrationIdentity = (integrations) => {
   const extraReleasedDccTypes = [...releasedDccTypeSet].filter((dccType) => !expectedReleasedDccTypeSet.has(dccType)).sort()
   if (duplicateReleasedDccTypes.length || missingReleasedDccTypes.length || extraReleasedDccTypes.length) {
     throw new Error(
-      'Released project-owned host identifiers do not match dcc-mcp-cli 0.20.25: '
+      'Catalog-listed project-owned identifiers do not match dcc-mcp-cli 0.20.38: '
       + `duplicates=[${[...new Set(duplicateReleasedDccTypes)].join(',')}] `
       + `missing=[${missingReleasedDccTypes.join(',')}] `
       + `extra=[${extraReleasedDccTypes.join(',')}]`,
