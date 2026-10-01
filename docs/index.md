@@ -57,6 +57,19 @@ Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this ma
 
 <p class="install-note">Run the command from your Agent workspace; use <code>--global</code> for user-level installation. <a href="/agents">See all Agent hosts</a> or <a href="/use-cases">choose a task →</a></p>
 
+<section class="home-marketplace-section" aria-labelledby="cloud-agents-title">
+  <div class="home-marketplace-heading">
+    <div>
+      <p class="home-kicker">CLOUD AGENTS</p>
+      <h2 id="cloud-agents-title">Plan a creative workflow on a cloud computer.</h2>
+    </div>
+    <div>
+      <p>Inspect the available software, choose an MCP or CLI connection, and keep the project files and verification records. Compare documented platform interfaces, dated DCC tests, installation prerequisites, and deployment limits before choosing a host.</p>
+      <p><a href="/cloud-agents">Cloud agents and DCC-MCP →</a></p>
+    </div>
+  </div>
+</section>
+
 <section class="home-marketplace-section" aria-labelledby="mcp-cli-title">
   <div class="home-marketplace-heading">
     <div>

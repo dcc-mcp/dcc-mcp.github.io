@@ -24,6 +24,15 @@ host discovers Skills only at startup. Native plugin and registry installation
 options remain available in the
 [`dcc-mcp-agent-plugins` repository](https://github.com/dcc-mcp/dcc-mcp-agent-plugins#install).
 
+## Cloud agents and DCC-MCP
+
+See [Cloud agents and DCC-MCP](/cloud-agents) for documented platform interfaces,
+a cloud software inventory, and versioned workflow evidence. A shell agent can
+use the CLI and HTTP Gateway; each application, adapter, and workflow still
+needs validation in the target environment. Keep DCC services on loopback, and
+put TLS and authentication in front of the Gateway for cross-network access.
+The plugin does not include the target DCC software or its licenses.
+
 ## Keep the Skill and CLI current
 
 Use the updater that owns each installation. Agent Skills installed from GitHub

@@ -16,6 +16,7 @@ DCC 指数字内容创作（Digital Content Creation）。AI Agent 是能够调�
 - [Wwise 音频案例](https://dcc-mcp.github.io/zh/examples/wwise)：在线试听通过类型化 WAAPI 工具验证的可复现音效与背景音乐。
 - [AI + DCC 控制指南](https://dcc-mcp.github.io/zh/use-cases)：按应用查看 AI 能做什么、如何操作，以及可直接使用的提示词。
 - [Agent 工作流](https://dcc-mcp.github.io/zh/agents)：安装公开 Skill、发现类型化工具、验证调用并诊断失败。
+- [云 Agent 与 DCC-MCP](https://dcc-mcp.github.io/zh/cloud-agents)：区分官方平台接口说明、原生软件检查与逐版本 DCC-MCP 工作流证据，查看安装前提和 loopback/TLS/认证边界。
 - [开发者指南](https://dcc-mcp.github.io/zh/developers)：内部 standalone MCP 服务、DCC 适配器和专项 Skill 的本地示例与验证步骤。
 - [项目目录](https://dcc-mcp.github.io/zh/ecosystem)：查找应用适配器、扩展、素材服务、生成服务和工作室工具。
 - [Core 文档](https://dcc-mcp.github.io/dcc-mcp-core/zh/)：Gateway、CLI、MCP/REST、安全、可观测性与 Python API。

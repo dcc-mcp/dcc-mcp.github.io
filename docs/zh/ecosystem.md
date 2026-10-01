@@ -60,6 +60,7 @@ outline: [2, 2]
 - [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) — Godot 引擎与 2D 游戏制作 Skills。
 - [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) — SideFX Houdini。
 - [Illustrator](https://github.com/dcc-mcp/dcc-mcp-illustrator) — 通过类型化工具和官方 DOM 接口处理文档、编辑矢量图形并导出制作文件。
+- [Inkscape](https://github.com/dcc-mcp/dcc-mcp-inkscape) — 源码集成，未列入 CLI 0.20.39 本次核查的目录。云端 MCP 制作工作流仍被来源验证阻断；参见[云实测记录](/zh/cloud-agents#cloud-mcp-tests)。
 - [Katana](https://github.com/dcc-mcp/dcc-mcp-katana) — Foundry Katana。
 - [Kdenlive](https://github.com/dcc-mcp/dcc-mcp-kdenlive) — 制作 Kdenlive 工程、通过 MLT 渲染，并使用 DCC-CUA 操作编辑器。仓库已独立发布 v0.1.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-kdenlive/tree/376c812047b308239174aa1bbb662da1908f829e)）；CLI 0.20.39 本次核查的目录将 `kdenlive` 定义为 0.1.0，并标记 `catalog_install_available=false`。本次目录核查未进行实际编辑器或渲染验收。参见 [Kdenlive 控制指南](/zh/control/kdenlive)。
 - [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) — Krita。

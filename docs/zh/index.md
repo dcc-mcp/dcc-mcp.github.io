@@ -57,6 +57,19 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 
 <p class="install-note">请在 Agent 的工作目录运行命令；如需供当前用户的所有项目使用，可追加 <code>--global</code>。<a href="/zh/agents">查看支持的 AI 客户端</a>或<a href="/zh/use-cases">选择一个任务 →</a></p>
 
+<section class="home-marketplace-section" aria-labelledby="cloud-agents-title">
+  <div class="home-marketplace-heading">
+    <div>
+      <p class="home-kicker">云 AGENT</p>
+      <h2 id="cloud-agents-title">在云电脑上规划创作工作流。</h2>
+    </div>
+    <div>
+      <p>先盘点可用软件，选择 MCP 或 CLI 连接方式，并保留工程文件与验证记录。选择环境前，对照平台官方接口、带日期的 DCC 实测、安装前提与部署限制。</p>
+      <p><a href="/zh/cloud-agents">云 Agent 与 DCC-MCP →</a></p>
+    </div>
+  </div>
+</section>
+
 <section class="home-marketplace-section" aria-labelledby="mcp-cli-title">
   <div class="home-marketplace-heading">
     <div>

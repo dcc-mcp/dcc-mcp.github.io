@@ -1,0 +1,152 @@
+{
+  "schema": "dcc-mcp-cloud-workflow-evidence.v1",
+  "observed_date": "2026-10-01",
+  "evidence_origin": "Frozen cloud validation worker report supplied for this documentation task; cloud tests were not rerun on PC8.",
+  "source_report": {
+    "filename": "VALIDATION_REPORT.md",
+    "archive_sha256": "12d8f7d99c412dc9d8dad41dbe43de769ae61eac30dde98b02b53fcd6754da5a",
+    "public_contents": "Summary only. The private archive and unpublished adapter patch payloads are not published here."
+  },
+  "environment": {
+    "platform": "OpenAI dots",
+    "context": "Lightbox development and deployment task",
+    "os": "Debian 13.6",
+    "architecture": "x86_64",
+    "managed_gui": "available",
+    "initial_dcc_mcp_packages": "none",
+    "core_version": "0.20.39",
+    "scope": "One tested cloud computer; not a platform-wide software or compatibility guarantee."
+  },
+  "workflows": [
+    {
+      "application": "FreeCAD",
+      "application_version": "1.0.0",
+      "adapter": "dcc-mcp-freecad",
+      "adapter_state": "unpublished local patch",
+      "source_commit": "f761672f62ab8d0d1ae3d77a6379249e307eeff1",
+      "public_patch_or_pr": null,
+      "connection": "Real MCP initialize/tools workflow",
+      "evidence_level": "MCP tested with a local patch",
+      "result": "passed after local repair",
+      "workflow": [
+        "create",
+        "save",
+        "reopen",
+        "export",
+        "independent readback"
+      ],
+      "repair": "Normalize adapter result verified to boolean for the Core result contract.",
+      "checks": {
+        "tests_passed": 138,
+        "real_host_tests_included": 3,
+        "ruff": "pass"
+      },
+      "limitations": [
+        "The patch is not a released adapter.",
+        "No remote PR was created.",
+        "A native write had succeeded while MCP job validation failed before repair."
+      ]
+    },
+    {
+      "application": "OpenSCAD",
+      "application_version": "2021.01",
+      "adapter": "dcc-mcp-openscad",
+      "adapter_base_version": "0.2.1",
+      "adapter_state": "unpublished local patch",
+      "source_commit": "799fc2af97d13365613545347e4d4817e9f75b48",
+      "public_patch_or_pr": null,
+      "connection": "Real MCP initialize/tools workflow",
+      "evidence_level": "MCP tested with a local patch",
+      "result": "passed for inspection/compilation/STL workflow",
+      "workflow": [
+        "discover version",
+        "new-session reopen and inspection",
+        "parameter compile",
+        "binary STL export",
+        "ASCII STL export",
+        "independent STL readback",
+        "safety rejection"
+      ],
+      "repair": "Normalize adapter result verified to boolean for the Core result contract; skill_tools.py and four regressions.",
+      "artifact_readback": {
+        "triangles": 12,
+        "volume_mm3": 7200
+      },
+      "checks": {
+        "unit_tests_passed": 129,
+        "windows_only_tests_skipped": 4,
+        "native_tests_passed": 2
+      },
+      "limitations": [
+        "The patch is not a released adapter.",
+        "PNG failed on the shell DISPLAY/OpenGL path.",
+        "SCAD source was authored as local text; the adapter has no authoring API, so this does not establish from-scratch MCP modeling."
+      ]
+    },
+    {
+      "application": "Blender",
+      "application_version": "4.3.2",
+      "adapter": "dcc-mcp-blender",
+      "adapter_version": "0.2.12",
+      "adapter_state": "published",
+      "connection": "Real MCP initialize/list/load/tools workflow",
+      "evidence_level": "MCP tested; compatibility experiment below support floor",
+      "result": "passed for scene save/reopen/GLB workflow",
+      "workflow": [
+        "initialize",
+        "list and load",
+        "new scene",
+        "create object",
+        "save blend",
+        "clear scene",
+        "open blend",
+        "inspect scene",
+        "export GLB"
+      ],
+      "limitations": [
+        "Official adapter support floor remains Blender 4.5.",
+        "Arbitrary scripting disabled.",
+        "Draco explicitly disabled.",
+        "GPU, GUI and the full MCP render chain were not validated."
+      ]
+    },
+    {
+      "application": "Inkscape",
+      "application_version": "1.4",
+      "adapter": "dcc-mcp-inkscape",
+      "source_commit_prefix": "9769234",
+      "adapter_state": "source integration",
+      "connection": "MCP discovery; managed GUI with temporary inkex dependencies for native action",
+      "evidence_level": "MCP production workflow incomplete",
+      "result": "blocked by provenance validation",
+      "workflow": [
+        "MCP discovery and capabilities readable",
+        "headless action absent",
+        "managed GUI native SVG intermediate written",
+        "provenance validation rejected GLib double-fork parent PID 1"
+      ],
+      "limitations": [
+        "No successful MCP production acceptance.",
+        "Intermediate native SVG is not proof of a successful MCP job.",
+        "Provenance validation was not weakened."
+      ]
+    }
+  ],
+  "other_platforms": [
+    {
+      "platform": "Grok Bot",
+      "evidence_level": "Official interface available; DCC untested"
+    },
+    {
+      "platform": "Meta Muse personal agent",
+      "evidence_level": "Official interface available; DCC untested",
+      "native_mcp": "not confirmed"
+    },
+    {
+      "platform": "Manus Cue",
+      "evidence_level": "Not confirmed",
+      "os_shell_mcp": "not confirmed"
+    }
+  ],
+  "publication_boundary": "No adapter release, private endpoint, credential, or patch payload is included. No platform partnership or universal DCC support is claimed."
+}

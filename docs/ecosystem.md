@@ -64,6 +64,7 @@ adapter release does not establish a live host or completed production acceptanc
 - [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) — Godot Engine and 2D game-authoring Skills.
 - [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) — SideFX Houdini.
 - [Illustrator](https://github.com/dcc-mcp/dcc-mcp-illustrator) — Typed Adobe Illustrator documents, vector artwork, official DOM editing, and production export.
+- [Inkscape](https://github.com/dcc-mcp/dcc-mcp-inkscape) — Source integration outside the catalog checked by CLI 0.20.39. The cloud MCP production workflow remains blocked by provenance validation; see the [cloud test record](/cloud-agents#cloud-mcp-tests).
 - [Katana](https://github.com/dcc-mcp/dcc-mcp-katana) — Foundry Katana.
 - [Kdenlive](https://github.com/dcc-mcp/dcc-mcp-kdenlive) — Project authoring, MLT rendering, and shared DCC-CUA editor control. The repository has independently released v0.1.1 ([release source](https://github.com/dcc-mcp/dcc-mcp-kdenlive/tree/376c812047b308239174aa1bbb662da1908f829e)); the catalog checked by CLI 0.20.39 lists `kdenlive` at 0.1.0 with `catalog_install_available=false`. This catalog check did not perform live editor or render acceptance. See the [Kdenlive control guide](/control/kdenlive).
 - [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) — Krita.

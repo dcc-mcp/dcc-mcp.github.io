@@ -23,6 +23,13 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 原生插件市场和 Registry 安装方式仍保留在
 [`dcc-mcp-agent-plugins` 仓库](https://github.com/dcc-mcp/dcc-mcp-agent-plugins#install)。
 
+## 云 Agent 与 DCC-MCP
+
+[云 Agent 与 DCC-MCP](/zh/cloud-agents) 汇总官方平台接口说明、云端软件盘点和逐版本工作流证据。
+具备 shell 的 Agent 可以使用 CLI 与 HTTP Gateway；每个应用、适配器和工作流仍需在目标环境中验证。
+DCC 服务保持监听 loopback；跨网络访问时，在 Gateway 前部署 TLS 与认证层。
+插件不包含目标 DCC 软件及其许可证。
+
 ## 更新 Skill 与 CLI
 
 由原安装工具负责更新。通过 GitHub 安装的 Agent Skills 使用 `skills`

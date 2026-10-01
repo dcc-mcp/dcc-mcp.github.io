@@ -34,6 +34,12 @@ Skill 为 Agent 提供操作指南。首次使用还需要配置 CLI、Gateway �
 
 默认 Agent 路径是公开 `dcc-mcp` Skill 加 CLI + REST。IDE 用户仍可通过 MCP 配置连接。两条路径使用同一个 Gateway；CLI 优先并不废弃 MCP。
 
+## 云 Agent 与 DCC-MCP
+
+https://dcc-mcp.github.io/zh/cloud-agents 区分官方平台接口说明、云端原生软件检查与逐版本 DCC-MCP 工作流证据。仅有平台接口支持或原生软件检查，不能证明 DCC-MCP 工作流已经可用。
+
+具备 shell 的 Agent 可以使用 CLI 与 HTTP Gateway；每个应用、适配器、连接方式和工作流都需要在目标环境中验证。DCC 服务保持监听 loopback；跨网络访问时，在 Gateway 前部署 TLS 与认证层。插件不包含目标 DCC 软件及其许可证。
+
 ## 搜索别名与直接答案
 
 - Maya MCP 与 Maya CLI 对应 `maya` 适配器和 https://dcc-mcp.github.io/zh/control/maya。MCP 与 `dcc-mcp-cli search --dcc-type maya` 使用同一个类型化目录。
@@ -223,6 +229,7 @@ Inspector 提供 loopback 本地示例。需要由运维管理的多人浏览器
 - 官网与配置提示词：https://dcc-mcp.github.io/zh/
 - 为什么选择 DCC-MCP：https://dcc-mcp.github.io/zh/why-dcc-mcp
 - Agent 指南：https://dcc-mcp.github.io/zh/agents
+- 云 Agent 与 DCC-MCP：https://dcc-mcp.github.io/zh/cloud-agents
 - Marketplace：https://dcc-mcp.github.io/zh/marketplace
 - 案例与提示词：https://dcc-mcp.github.io/zh/examples
 - 常见 AI + DCC 任务：https://dcc-mcp.github.io/zh/use-cases
