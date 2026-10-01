@@ -43,6 +43,7 @@ outline: [2, 2]
 
 - [3ds Max](https://github.com/dcc-mcp/dcc-mcp-3dsmax) — Autodesk 3ds Max。
 - [After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) — Adobe After Effects。
+- [AutoCAD](https://github.com/dcc-mcp/dcc-mcp-autocad) — 通过 COM 与无界面的 `accoreconsole.exe` 自动处理 DWG，优先提供可移植工作流；当前可用功能与安装方式以所属仓库为准。
 - [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) — Blender 插件与内嵌服务。
 - [CapCut](https://github.com/dcc-mcp/dcc-mcp-capcut) — 通过经身份验证的本地通信桥接，用类型化工具操作 CapCut 桌面版。
 - [Cinema 4D](https://github.com/dcc-mcp/dcc-mcp-cinema4d) — 通过类型化工具在无界面模式下处理文档、基础几何体、格式交换和渲染。
@@ -114,6 +115,7 @@ outline: [2, 2]
 
 ## UI 自动化与共享运行时
 
+- [winget-releaser](https://github.com/dcc-mcp/winget-releaser) — 为应用维护者自动处理 Windows Package Manager 发布。
 - [Qt Actions](https://github.com/dcc-mcp/dcc-ui-qt-actions) — 为基于 Qt 的 DCC 界面提供可复用的类型化操作。
 - [Qt Inspector](https://github.com/dcc-mcp/dcc-ui-qt-inspector) — 查找不同应用中的窗口和控件。
 - [UI Workflow Memory](https://github.com/dcc-mcp/dcc-ui-workflow-memory) — 保存验证过的控件定位方式、操作流程和失败记录。
@@ -127,7 +129,7 @@ outline: [2, 2]
 - [Autodesk Product Help](https://developer.api.autodesk.com/knowledge/public/v1/mcp) — Core 0.20.25 提供的可选外部文档连接器，标识为 `autodesk-help`。它只支持查询，不是 DCC 适配器，也不能修改应用内容。
 
 - [官网源码](https://github.com/dcc-mcp/dcc-mcp.github.io) — 共享文档、AI 搜索优化（GEO）元数据、各应用的控制指南和案例。
-- [Showcase](https://github.com/dcc-mcp/showcase) — 收录可在真实 DCC 应用中复现的案例。
+- <a href="https://dcc-mcp.github.io/showcase/" target="_self">Showcase 作品合集</a> — 成品、可复用提示词、工程来源、各项许可与明确的制作证据。[合集源码与贡献入口](https://github.com/dcc-mcp/showcase)。[适配器案例与提示词](/zh/examples) 保留原有验证范围。
 - [Agent 插件](https://github.com/dcc-mcp/dcc-mcp-agent-plugins) — 为支持的 AI 客户端维护官方 DCC-MCP Skills 和插件包。
 - [dcc-cua](https://github.com/dcc-mcp/dcc-cua) — 跨平台的计算机操作自动化运行时，用于在限定范围内操作 DCC 界面。
 - [组织主页配置](https://github.com/dcc-mcp/.github) — GitHub 组织主页和共享社区配置。

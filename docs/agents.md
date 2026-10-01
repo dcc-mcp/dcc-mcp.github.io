@@ -104,6 +104,6 @@ Then discover `dcc_feedback__report` through the same search workflow. Review an
 - [Agent reference](https://dcc-mcp.github.io/dcc-mcp-core/guide/agents-reference)
 - [Gateway diagnostics](https://dcc-mcp.github.io/dcc-mcp-core/guide/gateway-diagnostics)
 - [Marketplace](/marketplace)
-- [Showcase prompts](/showcase)
+- [Showcase prompts](/examples)
 - [Common AI + DCC tasks](/use-cases)
 - [Browse the ecosystem](/ecosystem)

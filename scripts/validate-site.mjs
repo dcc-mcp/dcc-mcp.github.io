@@ -23,10 +23,10 @@ const integrations = validateIntegrationIdentity(
 const releasedIntegrationCount = expectedReleasedDccTypes.length
 validateSpeedTreeShowcaseProvenance(
   JSON.parse(readFileSync(
-    join(root, 'docs', 'public', 'showcase', 'speedtree-to-unreal-engine-provenance.json'),
+    join(root, 'docs', 'public', 'showcase-media', 'speedtree-to-unreal-engine-provenance.json'),
     'utf8',
   )),
-  readFileSync(join(root, 'docs', 'public', 'showcase', 'speedtree-to-unreal-engine.webp')),
+  readFileSync(join(root, 'docs', 'public', 'showcase-media', 'speedtree-to-unreal-engine.webp')),
 )
 const mayaIntegration = integrations.find((integration) => integration.slug === 'maya')
 if (!mayaIntegration) throw new Error('Maya integration is missing')
@@ -205,8 +205,8 @@ const requiredFiles = [
   'developers.html',
   'ecosystem.html',
   'marketplace.html',
-  'showcase.html',
-  'showcase/wwise.html',
+  'examples.html',
+  'examples/wwise.html',
   'use-cases.html',
   'why-dcc-mcp.html',
   'zh/index.html',
@@ -214,8 +214,8 @@ const requiredFiles = [
   'zh/developers.html',
   'zh/ecosystem.html',
   'zh/marketplace.html',
-  'zh/showcase.html',
-  'zh/showcase/wwise.html',
+  'zh/examples.html',
+  'zh/examples/wwise.html',
   'zh/use-cases.html',
   'zh/why-dcc-mcp.html',
   'llms.txt',
@@ -237,26 +237,26 @@ const requiredFiles = [
   'dcc-logos/sketchup.svg',
   'dcc-logos/shogun.svg',
   'dcc-logos/touchdesigner-reference.svg',
-  'showcase/cinema4d-typed-scene.webp',
-  'showcase/cache-inspection-workflow.webp',
-  'showcase/comfyui-typed-workflow.webp',
-  'showcase/freecad-game-ready-pipeline.webp',
-  'showcase/illustrator-typed-vector-workflow.webp',
-  'showcase/openscad-parametric-pipeline.webp',
-  'showcase/sketchup-typed-modeling.webp',
-  'showcase/shogun-typed-mocap-workflow.webp',
-  'showcase/touchdesigner-typed-operator-workflow.webp',
-  'showcase/tiled-typed-map-workflow.webp',
-  'showcase/material-maker-typed-material-workflow.webp',
-  'showcase/speedtree-to-unreal-engine.webp',
-  'showcase/speedtree-to-unreal-engine-provenance.json',
-  'showcase/krita-typed-paint-workflow.webp',
-  'showcase/gimp-typed-image-workflow.webp',
-  'showcase/katana-typed-lookdev-workflow.webp',
-  'showcase/premiere-typed-edit-workflow.webp',
-  'showcase/wwise/ui-confirm.wav',
-  'showcase/wwise/sci-fi-impact.wav',
-  'showcase/wwise/neon-circuit-bgm.wav',
+  'showcase-media/cinema4d-typed-scene.webp',
+  'showcase-media/cache-inspection-workflow.webp',
+  'showcase-media/comfyui-typed-workflow.webp',
+  'showcase-media/freecad-game-ready-pipeline.webp',
+  'showcase-media/illustrator-typed-vector-workflow.webp',
+  'showcase-media/openscad-parametric-pipeline.webp',
+  'showcase-media/sketchup-typed-modeling.webp',
+  'showcase-media/shogun-typed-mocap-workflow.webp',
+  'showcase-media/touchdesigner-typed-operator-workflow.webp',
+  'showcase-media/tiled-typed-map-workflow.webp',
+  'showcase-media/material-maker-typed-material-workflow.webp',
+  'showcase-media/speedtree-to-unreal-engine.webp',
+  'showcase-media/speedtree-to-unreal-engine-provenance.json',
+  'showcase-media/krita-typed-paint-workflow.webp',
+  'showcase-media/gimp-typed-image-workflow.webp',
+  'showcase-media/katana-typed-lookdev-workflow.webp',
+  'showcase-media/premiere-typed-edit-workflow.webp',
+  'showcase-media/wwise/ui-confirm.wav',
+  'showcase-media/wwise/sci-fi-impact.wav',
+  'showcase-media/wwise/neon-circuit-bgm.wav',
 ]
 
 for (const file of requiredFiles) {
@@ -303,6 +303,18 @@ for (const { slug } of integrations) {
 
 const englishHome = readFileSync(join(dist, 'index.html'), 'utf8')
 const chineseHome = readFileSync(join(dist, 'zh', 'index.html'), 'utf8')
+for (const [locale, html] of [['English', englishHome], ['Chinese', chineseHome]]) {
+  const collectionLinks = [...html.matchAll(/<a\b[^>]*href="https:\/\/dcc-mcp\.github\.io\/showcase\/"[^>]*>/g)]
+  if (collectionLinks.length < 3 || collectionLinks.some(([anchor]) => !anchor.includes('target="_self"'))) {
+    throw new Error(`${locale} home must fully navigate to the separate Showcase project instead of its VitePress router`)
+  }
+  if (/(?:src|href)="\/showcase\/(?!$)/.test(html)) {
+    throw new Error(`${locale} home uses the namespace reserved by Showcase project Pages`)
+  }
+  for (const [, asset] of html.matchAll(/(?:src|href)="(\/showcase-media\/[^"#]+)"/g)) {
+    if (!existsSync(join(dist, asset))) throw new Error(`${locale} home links to missing migrated media: ${asset}`)
+  }
+}
 const powerPointIntegration = integrations.find(({ slug }) => slug === 'powerpoint')
 if (
   !powerPointIntegration
@@ -473,7 +485,10 @@ for (const label of ['为什么选择 DCC-MCP', '技能市场', '案例画廊', 
 }
 
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
-for (const route of ['/', '/marketplace', '/showcase', '/showcase/wwise', '/use-cases', '/why-dcc-mcp', '/zh/', '/zh/marketplace', '/zh/showcase', '/zh/showcase/wwise', '/zh/use-cases', '/zh/why-dcc-mcp']) {
+if (/<loc>https:\/\/dcc-mcp\.github\.io\/(?:zh\/)?showcase(?:<|\/)/.test(sitemap)) {
+  throw new Error('Official portal sitemap must not claim the separate Showcase project namespace')
+}
+for (const route of ['/', '/marketplace', '/examples', '/examples/wwise', '/use-cases', '/why-dcc-mcp', '/zh/', '/zh/marketplace', '/zh/examples', '/zh/examples/wwise', '/zh/use-cases', '/zh/why-dcc-mcp']) {
   if (!sitemap.includes(`https://dcc-mcp.github.io${route}`)) throw new Error(`Sitemap is missing ${route}`)
 }
 for (const { slug } of integrations) {
@@ -546,16 +561,16 @@ for (const asset of ['blender-lookdev.webp', 'marmoset-pbr-lookdev.webp', 'dcc-m
 }
 if (!showcaseSource.includes('navigator.clipboard.writeText')) throw new Error('Showcase prompt copy support is missing')
 const showcaseIds = [...showcaseSource.matchAll(/id: '([^']+)'/g)].map((match) => match[1])
-for (const file of [join(dist, 'showcase.html'), join(dist, 'zh', 'showcase.html')]) {
+for (const file of [join(dist, 'examples.html'), join(dist, 'zh', 'examples.html')]) {
   const html = readFileSync(file, 'utf8')
   const missing = showcaseIds.filter((id) => !html.includes(`id="${id}"`))
   if (missing.length) throw new Error(`${file} is missing rendered Showcase entries: ${missing.join(', ')}`)
 }
 
-for (const file of [join(dist, 'showcase', 'wwise.html'), join(dist, 'zh', 'showcase', 'wwise.html')]) {
+for (const file of [join(dist, 'examples', 'wwise.html'), join(dist, 'zh', 'examples', 'wwise.html')]) {
   const html = readFileSync(file, 'utf8')
   for (const id of ['ui-confirm', 'sci-fi-impact', 'neon-circuit-bgm']) {
-    if (!html.includes(`id="${id}"`) || !html.includes(`/showcase/wwise/${id}.wav`)) {
+    if (!html.includes(`id="${id}"`) || !html.includes(`/showcase-media/wwise/${id}.wav`)) {
       throw new Error(`${file} is missing playable audio: ${id}`)
     }
   }

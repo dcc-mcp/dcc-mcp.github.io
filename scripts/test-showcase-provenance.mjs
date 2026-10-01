@@ -6,11 +6,11 @@ import { validateSpeedTreeShowcaseProvenance } from './showcase-provenance.mjs'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const provenance = JSON.parse(readFileSync(
-  join(root, 'docs', 'public', 'showcase', 'speedtree-to-unreal-engine-provenance.json'),
+  join(root, 'docs', 'public', 'showcase-media', 'speedtree-to-unreal-engine-provenance.json'),
   'utf8',
 ))
 const derivative = readFileSync(
-  join(root, 'docs', 'public', 'showcase', 'speedtree-to-unreal-engine.webp'),
+  join(root, 'docs', 'public', 'showcase-media', 'speedtree-to-unreal-engine.webp'),
 )
 
 validateSpeedTreeShowcaseProvenance(provenance, derivative)

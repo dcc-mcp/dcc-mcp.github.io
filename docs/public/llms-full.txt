@@ -49,8 +49,8 @@ The default agent path is the public `dcc-mcp` Skill plus CLI + REST. IDE users 
 
 The setup prompt is at https://dcc-mcp.github.io/agents. Outputs, source
 repositories, validation notes, and prompts are at
-https://dcc-mcp.github.io/showcase. The Wwise audio example is at
-https://dcc-mcp.github.io/showcase/wwise.
+https://dcc-mcp.github.io/examples. The Wwise audio example is at
+https://dcc-mcp.github.io/examples/wwise.
 
 ## Public Skill router
 
@@ -190,8 +190,8 @@ After an accepted task, a specialized Skill may use the `dcc-mcp-skills-creator`
 
 ## Showcase prompt patterns
 
-Showcase gallery: https://dcc-mcp.github.io/showcase
-Blender and Designer crate: https://dcc-mcp.github.io/showcase#blender-designer-crate — real Cycles beauty, actual UV coordinates and a rendered checker; tiled lookdev UVs, with editable scene and procedural material sources.
+Showcase gallery: https://dcc-mcp.github.io/examples
+Blender and Designer crate: https://dcc-mcp.github.io/examples#blender-designer-crate — real Cycles beauty, actual UV coordinates and a rendered checker; tiled lookdev UVs, with editable scene and procedural material sources.
 
 Each card links an output, its owning repository, validation notes, and a
 prompt. It does not prove that a local host or package is installed. Agents
@@ -228,7 +228,7 @@ expose a private endpoint to use a hosted playground.
 - Why DCC-MCP exists: https://dcc-mcp.github.io/why-dcc-mcp
 - Agent guide: https://dcc-mcp.github.io/agents
 - Marketplace search: https://dcc-mcp.github.io/marketplace
-- Showcase examples: https://dcc-mcp.github.io/showcase
+- Showcase examples: https://dcc-mcp.github.io/examples
 - Common AI + DCC tasks: https://dcc-mcp.github.io/use-cases
 - Developer router: https://dcc-mcp.github.io/developers
 - Ecosystem directory: https://dcc-mcp.github.io/ecosystem
@@ -246,3 +246,5 @@ expose a private endpoint to use a hosted playground.
 - `dcc-mcp-cli` is the typed operational interface for gateway lifecycle, discovery, calls, diagnostics, and Marketplace installation.
 - The gateway exposes MCP and REST together and routes to live per-DCC adapters.
 - DCC means digital content creation application or host.
+
+Official Showcase collection: https://dcc-mcp.github.io/showcase/ — complete cases, production evidence, project sources, and per-asset licensing; archived adapter overviews are not evidence of reproduction in this session.

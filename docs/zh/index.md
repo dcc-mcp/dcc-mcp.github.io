@@ -26,6 +26,19 @@ hero:
   <span><strong>50+</strong> 个公开项目</span>
 </div>
 
+<section class="home-marketplace-section" aria-labelledby="showcase-collection-title">
+  <div class="home-marketplace-heading">
+    <div>
+      <p class="home-kicker">SHOWCASE</p>
+      <h2 id="showcase-collection-title">DCC-MCP Showcase 作品合集</h2>
+    </div>
+    <div>
+      <p>浏览官方作品合集：成品、可复用提示词、工具调用证据、工程与素材许可。每个案例明确说明实际验证范围与本轮是否复现。</p>
+      <p><a href="https://dcc-mcp.github.io/showcase/" target="_self">打开作品合集 →</a> · <a href="/zh/examples">查看适配器案例与提示词</a></p>
+    </div>
+  </div>
+</section>
+
 <HomeIntroVideo locale="zh" />
 
 <div id="install-prompt" class="install-intro">
@@ -135,106 +148,107 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
     <p>查看建模、材质、动画和资产处理案例，并追溯所用工具、项目来源和验证记录。</p>
   </div>
   <div class="showcase-grid">
-    <a class="showcase-card showcase-wide showcase-media-contain" href="/zh/showcase#blender-designer-crate">
-      <img src="/showcase/crate-render.png" alt="使用 Substance 3D Designer 材质在 Blender 中渲染的旧木箱" loading="lazy">
+    <a class="showcase-card showcase-wide showcase-media-contain" href="/zh/examples#blender-designer-crate">
+      <img src="/showcase-media/crate-render.png" alt="使用 Substance 3D Designer 材质在 Blender 中渲染的旧木箱" loading="lazy">
       <span><small>BLENDER + SUBSTANCE 3D DESIGNER</small><strong>旧木箱材质与视觉开发</strong><em>→</em></span>
     </a>
-    <a class="showcase-card showcase-narrow showcase-media-contain" href="/zh/showcase#blender-designer-crate">
-      <img src="/showcase/crate-uv-checker.png" alt="同一个木箱模型在 Blender 中的 UV 棋盘格渲染" loading="lazy">
+    <a class="showcase-card showcase-narrow showcase-media-contain" href="/zh/examples#blender-designer-crate">
+      <img src="/showcase-media/crate-uv-checker.png" alt="同一个木箱模型在 Blender 中的 UV 棋盘格渲染" loading="lazy">
       <span><small>UV 坐标 + 棋盘格</small><strong>查看模型 UV</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-blender">
-      <img src="/showcase/blender-lookdev.webp" alt="Blender 程序化星系渲染" loading="lazy">
+      <img src="/showcase-media/blender-lookdev.webp" alt="Blender 程序化星系渲染" loading="lazy">
       <span><small>BLENDER</small><strong>程序化星系</strong><em>↗</em></span>
     </a>
-    <a class="showcase-card showcase-narrow showcase-logo" href="/zh/showcase/wwise">
+    <a class="showcase-card showcase-narrow showcase-logo" href="/zh/examples/wwise">
       <img src="/brand/dcc-mcp-wwise-dark.svg" alt="Wwise 音效与背景音乐案例" loading="lazy">
       <span><small>WWISE</small><strong>交互音频</strong><em>▶</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-marmoset">
-      <img src="/showcase/marmoset-pbr-lookdev.webp" alt="在 Marmoset Toolbag 中还原并渲染 CC0 PBR 材质" loading="lazy">
+      <img src="/showcase-media/marmoset-pbr-lookdev.webp" alt="在 Marmoset Toolbag 中还原并渲染 CC0 PBR 材质" loading="lazy">
       <span><small>MARMOSET</small><strong>CC0 PBR 材质还原</strong><em>↗</em></span>
     </a>
     <a class="showcase-card showcase-narrow" href="https://github.com/dcc-mcp/dcc-mcp-houdini">
-      <img src="/showcase/houdini-portal.png" alt="Houdini 程序化传送门粒子" loading="lazy">
+      <img src="/showcase-media/houdini-portal.png" alt="Houdini 程序化传送门粒子" loading="lazy">
       <span><small>HOUDINI</small><strong>传送门粒子</strong><em>↗</em></span>
     </a>
-    <a class="showcase-card showcase-wide" href="/zh/showcase#openscad-parametric-pipeline">
-      <img src="/showcase/openscad-parametric-pipeline.webp" alt="OpenSCAD 支架经 FreeCAD 验证并导入 Blender 与 Godot" loading="lazy">
+    <a class="showcase-card showcase-wide" href="/zh/examples#openscad-parametric-pipeline">
+      <img src="/showcase-media/openscad-parametric-pipeline.webp" alt="OpenSCAD 支架经 FreeCAD 验证并导入 Blender 与 Godot" loading="lazy">
       <span><small>OPENSCAD → FREECAD → BLENDER / GODOT</small><strong>将 CAD 模型转换为游戏资产并验证</strong><em>→</em></span>
     </a>
-    <a class="showcase-card showcase-narrow" href="/zh/showcase#cinema4d-typed-scene">
-      <img src="/showcase/cinema4d-typed-scene.webp" alt="通过参数明确的工具在 Cinema 4D 中搭建基础几何体、验证场景并渲染" loading="lazy">
+    <a class="showcase-card showcase-narrow" href="/zh/examples#cinema4d-typed-scene">
+      <img src="/showcase-media/cinema4d-typed-scene.webp" alt="通过参数明确的工具在 Cinema 4D 中搭建基础几何体、验证场景并渲染" loading="lazy">
       <span><small>CINEMA 4D</small><strong>自动搭建、检查并渲染场景</strong><em>→</em></span>
     </a>
-    <a class="showcase-card showcase-wide" href="/zh/showcase#comfyui-typed-workflow">
-      <img src="/showcase/comfyui-typed-workflow.webp" alt="根据运行中的节点定义检查 ComfyUI 工作流，执行后获取输出文件" loading="lazy">
+    <a class="showcase-card showcase-wide" href="/zh/examples#comfyui-typed-workflow">
+      <img src="/showcase-media/comfyui-typed-workflow.webp" alt="根据运行中的节点定义检查 ComfyUI 工作流，执行后获取输出文件" loading="lazy">
       <span><small>COMFYUI</small><strong>验证、执行、交付</strong><em>→</em></span>
     </a>
-    <a class="showcase-card showcase-wide" href="/zh/showcase#illustrator-typed-vector-workflow">
-      <img src="/showcase/illustrator-typed-vector-workflow.webp" alt="检查 Illustrator 文档，通过类型化工具编辑矢量图形并验证导出结果" loading="lazy">
+    <a class="showcase-card showcase-wide" href="/zh/examples#illustrator-typed-vector-workflow">
+      <img src="/showcase-media/illustrator-typed-vector-workflow.webp" alt="检查 Illustrator 文档，通过类型化工具编辑矢量图形并验证导出结果" loading="lazy">
       <span><small>ILLUSTRATOR</small><strong>创建矢量图形并导出</strong><em>→</em></span>
     </a>
-    <a class="showcase-card showcase-narrow" href="/zh/showcase#sketchup-typed-modeling">
-      <img src="/showcase/sketchup-typed-modeling.webp" alt="通过类型化工具创建和整理 SketchUp 模型，检查模型并导出交换格式" loading="lazy">
+    <a class="showcase-card showcase-narrow" href="/zh/examples#sketchup-typed-modeling">
+      <img src="/showcase-media/sketchup-typed-modeling.webp" alt="通过类型化工具创建和整理 SketchUp 模型，检查模型并导出交换格式" loading="lazy">
       <span><small>SKETCHUP</small><strong>建模、检查并导出</strong><em>→</em></span>
     </a>
-    <a class="showcase-card showcase-wide" href="/zh/showcase#touchdesigner-typed-operator-workflow">
-      <img src="/showcase/touchdesigner-typed-operator-workflow.webp" alt="在 TouchDesigner 主线程中通过类型化工具连接算子，保存工程和 PNG 并验证结果" loading="lazy">
+    <a class="showcase-card showcase-wide" href="/zh/examples#touchdesigner-typed-operator-workflow">
+      <img src="/showcase-media/touchdesigner-typed-operator-workflow.webp" alt="在 TouchDesigner 主线程中通过类型化工具连接算子，保存工程和 PNG 并验证结果" loading="lazy">
       <span><small>TOUCHDESIGNER</small><strong>搭建算子网络，保存并验证输出</strong><em>→</em></span>
     </a>
-    <a class="showcase-card showcase-wide" href="/zh/showcase#cache-inspection-workflow">
-      <img src="/showcase/cache-inspection-workflow.webp" alt="在限制解码范围的前提下检查压缩几何缓存，只输出保护隐私的数量、包围盒和属性摘要" loading="lazy">
+    <a class="showcase-card showcase-wide" href="/zh/examples#cache-inspection-workflow">
+      <img src="/showcase-media/cache-inspection-workflow.webp" alt="在限制解码范围的前提下检查压缩几何缓存，只输出保护隐私的数量、包围盒和属性摘要" loading="lazy">
       <span><small>CACHE INSPECTOR</small><strong>检查缓存结构，保护原始数据</strong><em>→</em></span>
     </a>
-    <a class="showcase-card showcase-wide" href="/zh/showcase#shogun-typed-mocap-workflow">
-      <img src="/showcase/shogun-typed-mocap-workflow.webp" alt="确认 Shōgun 支持所需操作后，通过类型化工具在指定范围内检查和处理动作捕捉数据" loading="lazy">
+    <a class="showcase-card showcase-wide" href="/zh/examples#shogun-typed-mocap-workflow">
+      <img src="/showcase-media/shogun-typed-mocap-workflow.webp" alt="确认 Shōgun 支持所需操作后，通过类型化工具在指定范围内检查和处理动作捕捉数据" loading="lazy">
       <span><small>SHŌGUN</small><strong>确认可用功能，再处理动作捕捉数据</strong><em>→</em></span>
     </a>
-    <a class="showcase-card showcase-narrow" href="/zh/showcase#tiled-typed-map-workflow">
-      <img src="/showcase/tiled-typed-map-workflow.webp" alt="通过类型化工具制作 Tiled 地图，保存为 TMJ 文件并验证" loading="lazy">
+    <a class="showcase-card showcase-narrow" href="/zh/examples#tiled-typed-map-workflow">
+      <img src="/showcase-media/tiled-typed-map-workflow.webp" alt="通过类型化工具制作 Tiled 地图，保存为 TMJ 文件并验证" loading="lazy">
       <span><small>TILED</small><strong>制作并验证游戏地图</strong><em>→</em></span>
     </a>
-    <a class="showcase-card showcase-wide" href="/zh/showcase#material-maker-typed-material-workflow">
-      <img src="/showcase/material-maker-typed-material-workflow.webp" alt="在限定范围内检查并验证 Material Maker PTEX，再执行原生纹理导出" loading="lazy">
+    <a class="showcase-card showcase-wide" href="/zh/examples#material-maker-typed-material-workflow">
+      <img src="/showcase-media/material-maker-typed-material-workflow.webp" alt="在限定范围内检查并验证 Material Maker PTEX，再执行原生纹理导出" loading="lazy">
       <span><small>MATERIAL MAKER</small><strong>检查 PTEX 材质并导出纹理</strong><em>→</em></span>
     </a>
-    <a class="showcase-card showcase-wide" href="/zh/showcase#krita-typed-paint-workflow">
-      <img src="/showcase/krita-typed-paint-workflow.webp" alt="通过类型化文档与绘画图层工具制作 Krita 分层画布" loading="lazy">
+    <a class="showcase-card showcase-wide" href="/zh/examples#krita-typed-paint-workflow">
+      <img src="/showcase-media/krita-typed-paint-workflow.webp" alt="通过类型化文档与绘画图层工具制作 Krita 分层画布" loading="lazy">
       <span><small>KRITA</small><strong>创建可编辑的分层画布</strong><em>→</em></span>
     </a>
-    <a class="showcase-card showcase-narrow" href="/zh/showcase#gimp-typed-image-workflow">
-      <img src="/showcase/gimp-typed-image-workflow.webp" alt="通过预定义的类型化接口编辑 GIMP 图像和图层，导出 XCF 与 PNG 并验证结果" loading="lazy">
+    <a class="showcase-card showcase-narrow" href="/zh/examples#gimp-typed-image-workflow">
+      <img src="/showcase-media/gimp-typed-image-workflow.webp" alt="通过预定义的类型化接口编辑 GIMP 图像和图层，导出 XCF 与 PNG 并验证结果" loading="lazy">
       <span><small>GIMP</small><strong>编辑图层并验证导出结果</strong><em>→</em></span>
     </a>
-    <a class="showcase-card showcase-wide" href="/zh/showcase#katana-typed-lookdev-workflow">
-      <img src="/showcase/katana-typed-lookdev-workflow.webp" alt="通过类型化主线程操作创建并连接 Katana 节点图" loading="lazy">
+    <a class="showcase-card showcase-wide" href="/zh/examples#katana-typed-lookdev-workflow">
+      <img src="/showcase-media/katana-typed-lookdev-workflow.webp" alt="通过类型化主线程操作创建并连接 Katana 节点图" loading="lazy">
       <span><small>KATANA</small><strong>搭建节点网络并保存工程</strong><em>→</em></span>
     </a>
-    <a class="showcase-card showcase-wide" href="/zh/showcase#premiere-typed-edit-workflow">
-      <img src="/showcase/premiere-typed-edit-workflow.webp" alt="通过类型化工具整理 Premiere Pro 媒体、序列、时间线和标记，并管理导出队列" loading="lazy">
+    <a class="showcase-card showcase-wide" href="/zh/examples#premiere-typed-edit-workflow">
+      <img src="/showcase-media/premiere-typed-edit-workflow.webp" alt="通过类型化工具整理 Premiere Pro 媒体、序列、时间线和标记，并管理导出队列" loading="lazy">
       <span><small>PREMIERE PRO</small><strong>完成剪辑并加入导出队列</strong><em>→</em></span>
     </a>
     <a class="showcase-card showcase-narrow" href="https://github.com/dcc-mcp/dcc-ai-hunyuan3d">
-      <img src="/showcase/hunyuan3d.webp" alt="从提示词生成 3D 灯笼资产" loading="lazy">
+      <img src="/showcase-media/hunyuan3d.webp" alt="从提示词生成 3D 灯笼资产" loading="lazy">
       <span><small>AI + 3D</small><strong>用文字描述生成 3D 资产</strong><em>↗</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-asset-geospatial">
-      <img src="/showcase/geospatial-city.webp" alt="地理数据生成程序化城市" loading="lazy">
+      <img src="/showcase-media/geospatial-city.webp" alt="地理数据生成程序化城市" loading="lazy">
       <span><small>GEOSPATIAL</small><strong>根据地理数据生成城市</strong><em>↗</em></span>
     </a>
     <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-maya-procedural-architecture">
-      <img src="/showcase/maya-architecture.jpg" alt="Maya 程序化住宅建筑变体" loading="lazy">
+      <img src="/showcase-media/maya-architecture.jpg" alt="Maya 程序化住宅建筑变体" loading="lazy">
       <span><small>MAYA + BIFROST</small><strong>程序化建筑</strong><em>↗</em></span>
     </a>
     <a class="showcase-card showcase-narrow" href="https://github.com/dcc-mcp/dcc-asset-kenney">
-      <img src="/showcase/kenney-assets.webp" alt="游戏资产发现、解包与关卡搭建" loading="lazy">
+      <img src="/showcase-media/kenney-assets.webp" alt="游戏资产发现、解包与关卡搭建" loading="lazy">
       <span><small>GAME ASSETS</small><strong>查找资产并搭建关卡</strong><em>↗</em></span>
     </a>
-    <a class="showcase-card showcase-wide" href="/zh/showcase#zbrush-fantasy-dragon">
-      <img src="/showcase/zbrush-fantasy-dragon.png" alt="Fantasy Dragon 在 ZBrush 中从 500 万面重拓扑为 11.5 万面 PolyFrame 网格" loading="lazy">
+    <a class="showcase-card showcase-wide" href="/zh/examples#zbrush-fantasy-dragon">
+      <img src="/showcase-media/zbrush-fantasy-dragon.png" alt="Fantasy Dragon 在 ZBrush 中从 500 万面重拓扑为 11.5 万面 PolyFrame 网格" loading="lazy">
       <span><small>ZBRUSH → MAYA</small><strong>500 万面导入 → 11.5 万面布线</strong><em>→</em></span>
     </a>
   </div>
-  <a class="showcase-more" href="/zh/showcase">查看全部案例与提示词 →</a>
+  <a class="showcase-more" href="https://dcc-mcp.github.io/showcase/" target="_self">打开作品合集 →</a>
+  <a class="showcase-more" href="/zh/examples">查看适配器案例与提示词 →</a>
 </section>

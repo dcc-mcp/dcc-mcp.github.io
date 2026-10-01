@@ -1,13 +1,14 @@
 ---
-title: 案例画廊
-description: DCC-MCP 使用案例，包含来源仓库、验证信息和可复用提示词。
-pageClass: showcase-page
+title: DCC-MCP Showcase 作品合集
+description: 浏览官方作品合集：成品、可复用提示词、工具调用证据、工程与素材许可。每个案例明确说明实际验证范围与本轮是否复现。
+head:
+  - - meta
+    - name: robots
+      content: noindex, follow
 ---
 
-# 案例与提示词
+# DCC-MCP Showcase 作品合集
 
-每张卡片包含结果、所属仓库和一段提示词。使用 [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp) 的 Agent 仍需检查本机工具或 Marketplace 软件包，安装前必须征得你的同意。
+<a href="https://dcc-mcp.github.io/showcase/" target="_self">打开作品合集 →</a>
 
-<ShowcaseGallery />
-
-Fantasy Dragon 模型由 [Artec 3D](https://www.artec3d.com/3d-models/fantasy-dragon) 提供，按 Creative Commons Attribution 4.0 使用。
+[查看适配器案例与提示词](/zh/examples)

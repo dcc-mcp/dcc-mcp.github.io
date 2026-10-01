@@ -1,13 +1,14 @@
 ---
-title: Showcase
-description: DCC-MCP examples with source repositories, validation details, and reusable prompts.
-pageClass: showcase-page
+title: DCC-MCP Showcase collection
+description: "Explore the official collection: finished work, reusable prompts, tool-call evidence, source projects, and per-asset licensing. Each case states what was verified and whether it was reproduced."
+head:
+  - - meta
+    - name: robots
+      content: noindex, follow
 ---
 
-# Examples and prompts
+# DCC-MCP Showcase collection
 
-Each card includes an output, its owning repository, and a prompt. An agent using the [`dcc-mcp` Skill](https://clawhub.ai/loonghao/skills/dcc-mcp) still needs to discover the local tools or Marketplace package and ask before installing anything.
+<a href="https://dcc-mcp.github.io/showcase/" target="_self">Open the Showcase collection →</a>
 
-<ShowcaseGallery />
-
-Fantasy Dragon model by [Artec 3D](https://www.artec3d.com/3d-models/fantasy-dragon), used under Creative Commons Attribution 4.0.
+[Browse adapter examples and prompts](/examples)

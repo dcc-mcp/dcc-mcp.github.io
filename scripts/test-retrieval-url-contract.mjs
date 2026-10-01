@@ -7,6 +7,15 @@ import {
 const fixed = { kind: 'fixed', application: null, locale: 'en' }
 const maya = { kind: 'application-control', application: 'Maya', locale: 'en' }
 
+for (const url of [
+  'https://dcc-mcp.github.io/showcase/',
+  'https://dcc-mcp.github.io/examples',
+  'https://dcc-mcp.github.io/examples/wwise',
+  'https://github.com/dcc-mcp/showcase',
+]) {
+  assert.equal(classifyRetrievalUrl(url, fixed).accepted, true, `published Showcase entry must remain discoverable: ${url}`)
+}
+
 const rejected = [
   ['non-default port', 'https://dcc-mcp.github.io:8443/', fixed],
   ['IPv4 loopback', 'https://127.0.0.1/', fixed],
