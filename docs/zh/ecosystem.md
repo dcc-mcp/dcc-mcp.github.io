@@ -41,8 +41,8 @@ outline: [2, 2]
 想了解 AI 如何操作某个应用，可先阅读[按应用整理的控制指南](/zh/use-cases)，其中提供任务说明和可直接使用的 Agent 提示词。
 安装方法、兼容性和应用 API 以对应适配器仓库为准。
 
-官方 CLI 0.20.39 本次核查的已签名远程目录列出 38 个适配器标识。
-其中 33 个可通过该目录安装；`kdenlive`、`material-maker`、`powerpoint`、`tiled` 与 `wwise`
+官方 CLI 0.20.39 本次核查的已签名远程目录列出 47 个适配器标识。
+其中 44 个可通过该目录安装；`excel`、`material-maker` 与 `word`
 标记为 `catalog_install_available=false`。目录中存在定义或适配器已独立发布，
 不代表本机已有在线应用实例，也不代表已完成实际制作验收。
 
@@ -53,9 +53,9 @@ outline: [2, 2]
 - [CapCut](https://github.com/dcc-mcp/dcc-mcp-capcut) — 通过经身份验证的本地通信桥接，用类型化工具操作 CapCut 桌面版。
 - [Cinema 4D](https://github.com/dcc-mcp/dcc-mcp-cinema4d) — 通过类型化工具在无界面模式下处理文档、基础几何体、格式交换和渲染。
 - [ComfyUI](https://github.com/dcc-mcp/dcc-mcp-comfyui) — 根据运行中的节点定义校验工作流，在限定范围内执行队列任务并获取输出文件。[ComfyUI MCP 指南](/zh/control/comfyui) 包含游戏 UI、透明 PNG 和 Pixal3D/PBR GLB 工作流，并分别说明源码和发布包支持的功能。
-- [Epic Games Launcher 与 Fab](https://github.com/dcc-mcp/dcc-mcp-epic) — 已独立发布 v0.2.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-epic/tree/1157defe203aab4beaa8f7be56f8063caac2a415)），用于查询已安装的引擎、检查项目，并通过 Fab 提供的接口执行指定范围内的操作；未列入 CLI 0.20.39 本次核查的适配器目录。缺少已验证原生提供方时，引擎安装仍只生成计划；登录、验证码、购买与许可接受继续由用户负责。参见 [Epic Games 控制指南](/zh/control/epic-games)。
+- [Epic Games Launcher 与 Fab](https://github.com/dcc-mcp/dcc-mcp-epic) — 已独立发布 v0.2.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-epic/tree/1157defe203aab4beaa8f7be56f8063caac2a415)），用于查询已安装的引擎、检查项目，并通过 Fab 提供的接口执行指定范围内的操作；已作为目录适配器标识提供安装。缺少已验证原生提供方时，引擎安装仍只生成计划；登录、验证码、购买与许可接受继续由用户负责。参见 [Epic Games 控制指南](/zh/control/epic-games)。
 - [FreeCAD](https://github.com/dcc-mcp/dcc-mcp-freecad) — 参数化 CAD 建模、拓扑验证和网格格式交换。
-- [Gaea](https://github.com/dcc-mcp/dcc-mcp-gaea) — 已独立发布 v0.1.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-gaea/tree/b95d3f81b8f883732c73d268658100d09d9cad84)），通过类型化工具提交 Build Swarm 地形任务并检查输出；未列入 CLI 0.20.39 本次核查的适配器目录。真实授权构建、进程树取消、地形质量与 Unreal 导入仍未验收。参见 [Gaea 控制指南](/zh/control/gaea)。
+- [Gaea](https://github.com/dcc-mcp/dcc-mcp-gaea) — 已独立发布 v0.1.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-gaea/tree/b95d3f81b8f883732c73d268658100d09d9cad84)），通过类型化工具提交 Build Swarm 地形任务并检查输出；已作为目录适配器标识提供安装。真实授权构建、进程树取消、地形质量与 Unreal 导入仍未验收。参见 [Gaea 控制指南](/zh/control/gaea)。
 - [GIMP](https://github.com/dcc-mcp/dcc-mcp-gimp) — GIMP 3。
 - [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) — Godot 引擎与 2D 游戏制作 Skills。
 - [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) — SideFX Houdini。
@@ -73,22 +73,22 @@ outline: [2, 2]
 - [MotionBuilder](https://github.com/dcc-mcp/dcc-mcp-mobu) — Autodesk MotionBuilder。
 - [Nuke](https://github.com/dcc-mcp/dcc-mcp-nuke) — Foundry Nuke。
 - [OBS Studio](https://github.com/dcc-mcp/dcc-mcp-obs) — 绑定指定进程，检查场景和来源，并通过类型化工具控制录制；已作为 `obs` 列入 CLI 0.20.39 本次核查的目录。安装适配器不会安装 OBS Studio 本体。
-- [Office](https://github.com/dcc-mcp/dcc-mcp-office) — `office` 共享应用路由，包括 office-rpc/1 协议、C# COM 辅助进程、Open XML 处理程序、Microsoft Graph 连接器和通用 Skills。它不计入 CLI 0.20.39 报告的 38 个适配器标识；各应用的可用性以对应适配器为准。
+- [Office](https://github.com/dcc-mcp/dcc-mcp-office) — `office` 共享应用路由，包括 office-rpc/1 协议、C# COM 辅助进程、Open XML 处理程序、Microsoft Graph 连接器和通用 Skills。它不计入 CLI 0.20.39 报告的 47 个适配器标识；各应用的可用性以对应适配器为准。
 - [PowerPoint](https://github.com/dcc-mcp/dcc-mcp-powerpoint) — 将 Deck IR 编译为 Open XML 演示文稿，再通过桌面 COM 接口渲染；CLI 0.20.39 本次核查的目录列出 0.1.0，并标记 `catalog_install_available=false`。
 - [Word](https://github.com/dcc-mcp/dcc-mcp-word) — 文档、域和重排版功能（计划于第二阶段实现）。
 - [Excel](https://github.com/dcc-mcp/dcc-mcp-excel) — 工作簿、公式、图表和制作看板（计划于第二阶段实现）。
 - [Outlook](https://github.com/dcc-mcp/dcc-mcp-outlook) — 邮件草稿和日历（计划于第三阶段实现）。
 - [OpenSCAD](https://github.com/dcc-mcp/dcc-mcp-openscad) — 验证声明式参数化 CAD 模型、渲染预览并导出网格。
-- [OpenScreen](https://github.com/dcc-mcp/dcc-mcp-openscreen) — 已独立发布 v0.1.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-openscreen/tree/5a32837d9d1b3bd2aea04bf61e61b4a54bbd5262)），提供 `sources`、`record` 和 `export` 类型化操作；未列入 CLI 0.20.39 本次核查的适配器目录。源码测试通过不代表已完成 Windows 实际录制验收；未支持的窗口选择仍由 dcc-cua 与 ui-control 负责。参见 [OpenScreen 控制指南](/zh/control/openscreen)。
+- [OpenScreen](https://github.com/dcc-mcp/dcc-mcp-openscreen) — 已独立发布 v0.1.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-openscreen/tree/5a32837d9d1b3bd2aea04bf61e61b4a54bbd5262)），提供 `sources`、`record` 和 `export` 类型化操作；已作为目录适配器标识提供安装。源码测试通过不代表已完成 Windows 实际录制验收；未支持的窗口选择仍由 dcc-cua 与 ui-control 负责。参见 [OpenScreen 控制指南](/zh/control/openscreen)。
 - [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) — 通过 UXP 接入 Adobe Photoshop。
 - [Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere) — Adobe Premiere Pro。
 - [SketchUp](https://github.com/dcc-mcp/dcc-mcp-sketchup) — 通过经过身份验证的 Ruby 桥接和类型化工具完成建模、材质、标签、场景、验证和格式交换操作。
 - [Shōgun](https://github.com/dcc-mcp/dcc-mcp-shogun) — 通过官方 SDK 的类型化工具检查场景对象、属性、通道、光学相机和文件，控制时间线；执行离线处理或修改其设置前，会先检查应用是否支持对应功能。操作前应发现实际在线实例的工具。
-- [SpeedTree](https://github.com/dcc-mcp/dcc-mcp-speedtree) — 已独立发布 v0.1.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-speedtree/tree/595f0bd308aa0f4f0635a399c2b63bd76f16caf8)），绑定指定实例，通过官方 Hook 接口调用应用报告的可用功能；未列入 CLI 0.20.39 本次核查的适配器目录。一次实际 ST9 交接已在 Unreal Engine 5.5.4 中验证一棵棕榈树；碰撞比例和动态风仍未验收。参见 [SpeedTree MCP 指南](/zh/control/speedtree)。
+- [SpeedTree](https://github.com/dcc-mcp/dcc-mcp-speedtree) — 已独立发布 v0.1.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-speedtree/tree/595f0bd308aa0f4f0635a399c2b63bd76f16caf8)），绑定指定实例，通过官方 Hook 接口调用应用报告的可用功能；已作为目录适配器标识提供安装。一次实际 ST9 交接已在 Unreal Engine 5.5.4 中验证一棵棕榈树；碰撞比例和动态风仍未验收。参见 [SpeedTree MCP 指南](/zh/control/speedtree)。
 - [Substance 3D Designer](https://github.com/dcc-mcp/dcc-mcp-substance3d-designer) — Adobe Substance 3D Designer。
 - [Substance 3D Painter](https://github.com/dcc-mcp/dcc-mcp-substance3d-painter) — Adobe Substance 3D Painter。
 - [Tiled](https://github.com/dcc-mcp/dcc-mcp-tiled) — Tiled 地图编辑器；CLI 0.20.39 本次核查的目录列出 0.3.0，并标记 `catalog_install_available=false`。
-- [Tracy Profiler](https://github.com/dcc-mcp/dcc-mcp-tracy) — 已独立发布 v0.2.5（[发布源码](https://github.com/dcc-mcp/dcc-mcp-tracy/tree/a5e29b7bcef28ccd6a2ee17667dbdbcb7c45b119)），用于在指定范围内捕获 Tracy 数据，并离线分析 Zone。它未列入 CLI 0.20.39 本次核查的适配器目录，且要求目标程序事先集成 Tracy 的性能监测代码。参见 [Tracy 控制指南](/zh/control/tracy)。
+- [Tracy Profiler](https://github.com/dcc-mcp/dcc-mcp-tracy) — 已独立发布 v0.2.5（[发布源码](https://github.com/dcc-mcp/dcc-mcp-tracy/tree/a5e29b7bcef28ccd6a2ee17667dbdbcb7c45b119)），用于在指定范围内捕获 Tracy 数据，并离线分析 Zone。它已作为目录适配器标识提供安装，且要求目标程序事先集成 Tracy 的性能监测代码。参见 [Tracy 控制指南](/zh/control/tracy)。
 - [TouchDesigner](https://github.com/dcc-mcp/dcc-mcp-touchdesigner) — Derivative TouchDesigner。
 - [Unity](https://github.com/dcc-mcp/dcc-mcp-unity) — Unity 编辑器与游戏制作 Skills。
 - [Unreal Engine](https://github.com/dcc-mcp/dcc-mcp-unreal) — Unreal Engine 插件。
@@ -127,12 +127,21 @@ outline: [2, 2]
 - [UI Workflow Memory](https://github.com/dcc-mcp/dcc-ui-workflow-memory) — 保存验证过的控件定位方式、操作流程和失败记录。
 - [adobepy](https://github.com/dcc-mcp/adobepy) — Adobe 桌面应用共用的通信运行时。
 
+## 开发中
+
+以下仓库正在积极开发中，尚未进入目录，因此不可安装，也不计入上面的数量。列出它们是为了让进展可见，而不是显示为缺失。
+
+- [KiCad](https://github.com/dcc-mcp/dcc-mcp-kicad) — 早期适配器，仍在初始开发阶段。
+- [ParaView](https://github.com/dcc-mcp/dcc-mcp-paraview) — 早期适配器，仍在初始开发阶段。
+- [QGIS](https://github.com/dcc-mcp/dcc-mcp-qgis) — 早期适配器，目前仅有 README 与许可证。
+- [3D Slicer](https://github.com/dcc-mcp/dcc-mcp-slicer) — 早期适配器，实现尚未发布。
+
 ## 组织与发现入口
 
 以下入口补充外部只读连接器和项目文档。请通过已安装的 CLI 目录确认可用性；
 有公开仓库或远程连接器，不代表本机已有可调用的应用实例。
 
-- [Autodesk Product Help](https://developer.api.autodesk.com/knowledge/public/v1/mcp) — 可选外部文档连接器，标识为 `autodesk-help`，只支持查询。它不计入 CLI 0.20.39 报告的 38 个适配器标识，也不能修改应用内容。
+- [Autodesk Product Help](https://developer.api.autodesk.com/knowledge/public/v1/mcp) — 可选外部文档连接器，标识为 `autodesk-help`，只支持查询。它不计入 CLI 0.20.39 报告的 47 个适配器标识，也不能修改应用内容。
 
 - [官网源码](https://github.com/dcc-mcp/dcc-mcp.github.io) — 共享文档、AI 搜索优化（GEO）元数据、各应用的控制指南和案例。
 - <a href="https://dcc-mcp.github.io/showcase/" target="_self">Showcase 作品合集</a> — 成品、可复用提示词、工程来源、各项许可与明确的制作证据。[合集源码与贡献入口](https://github.com/dcc-mcp/showcase)。[适配器案例与提示词](/zh/examples) 保留原有验证范围。
