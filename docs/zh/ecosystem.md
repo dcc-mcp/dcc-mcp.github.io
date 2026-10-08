@@ -47,6 +47,7 @@ outline: [2, 2]
 不代表本机已有在线应用实例，也不代表已完成实际制作验收。
 
 - [3ds Max](https://github.com/dcc-mcp/dcc-mcp-3dsmax) — Autodesk 3ds Max。
+- [3D Slicer](https://github.com/dcc-mcp/dcc-mcp-slicer) — 通过类型化工具创建合成体素、材质模型和球体网格，导出 NRRD/STL，回转 MRB 工程，配置相机与切片并输出 PNG 预览。仅支持合成数据：不处理患者数据、DICOM 导入、临床判断或任意场景文件。源码候选版本锁定 Core 与 server 0.20.41，本机（原生）验收仍需重做；未列入 CLI 0.20.39 本次核查的适配器目录。
 - [After Effects](https://github.com/dcc-mcp/dcc-mcp-aftereffects) — Adobe After Effects。
 - [AutoCAD](https://github.com/dcc-mcp/dcc-mcp-autocad) — 通过 COM 与无界面的 `accoreconsole.exe` 自动处理 DWG，优先提供可移植工作流；当前可用功能与安装方式以所属仓库为准。
 - [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) — Blender 插件与内嵌服务。
@@ -63,6 +64,7 @@ outline: [2, 2]
 - [Inkscape](https://github.com/dcc-mcp/dcc-mcp-inkscape) — 源码集成，未列入 CLI 0.20.39 本次核查的目录。云端 MCP 制作工作流仍被来源验证阻断；参见[云实测记录](/zh/cloud-agents#cloud-mcp-tests)。
 - [Katana](https://github.com/dcc-mcp/dcc-mcp-katana) — Foundry Katana。
 - [Kdenlive](https://github.com/dcc-mcp/dcc-mcp-kdenlive) — 制作 Kdenlive 工程、通过 MLT 渲染，并使用 DCC-CUA 操作编辑器。仓库已独立发布 v0.1.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-kdenlive/tree/376c812047b308239174aa1bbb662da1908f829e)）；CLI 0.20.39 本次核查的目录将 `kdenlive` 定义为 0.1.0，并标记 `catalog_install_available=false`。本次目录核查未进行实际编辑器或渲染验收。参见 [Kdenlive 控制指南](/zh/control/kdenlive)。
+- [KiCad](https://github.com/dcc-mcp/dcc-mcp-kicad) — 通过原生 `pcbnew` API 与 `kicad-cli`，用类型化工具在无界面模式下处理 KiCad 9 电路板；它只操作自己创建的独立电路板，不连接 PCB Editor，也不提供 IPC 或界面控制。源码候选版本锁定 Core 与 server 0.20.41，本机（原生）验收仍需重做；尚未发布，也未列入 CLI 0.20.39 本次核查的适配器目录。
 - [Krita](https://github.com/dcc-mcp/dcc-mcp-krita) — Krita。
 - [LiquiGen](https://github.com/dcc-mcp/dcc-mcp-liquigen) — 通过类型化工具检查节点网络，在指定范围内运行模拟，导出 VAT 并交给 Unreal Engine 使用；已作为 `liquigen` 列入 CLI 0.20.39 本次核查的目录。
 - [Mari](https://github.com/dcc-mcp/dcc-mcp-mari) — 处理 Foundry Mari 工程、几何体、节点网络、材质与纹理导出。
@@ -80,8 +82,11 @@ outline: [2, 2]
 - [Outlook](https://github.com/dcc-mcp/dcc-mcp-outlook) — 邮件草稿和日历（计划于第三阶段实现）。
 - [OpenSCAD](https://github.com/dcc-mcp/dcc-mcp-openscad) — 验证声明式参数化 CAD 模型、渲染预览并导出网格。
 - [OpenScreen](https://github.com/dcc-mcp/dcc-mcp-openscreen) — 已独立发布 v0.1.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-openscreen/tree/5a32837d9d1b3bd2aea04bf61e61b4a54bbd5262)），提供 `sources`、`record` 和 `export` 类型化操作；未列入 CLI 0.20.39 本次核查的适配器目录。源码测试通过不代表已完成 Windows 实际录制验收；未支持的窗口选择仍由 dcc-cua 与 ui-control 负责。参见 [OpenScreen 控制指南](/zh/control/openscreen)。
+- [ParaView](https://github.com/dcc-mcp/dcc-mcp-paraview) — 用类型化工具操作常驻的 ParaView 管线：创建受限的基础几何体、平面裁剪与剖切、提取等值面、导出校验过的数据集、保存 PVSM 状态，并在有显示环境时渲染 PNG 预览。源码候选版本锁定 Core 与 server 0.20.41，本机（原生）验收仍需重做；尚未发布，也未列入 CLI 0.20.39 本次核查的适配器目录。
+- [PhotoCraft](https://github.com/dcc-mcp/dcc-mcp-photocraft) — 面向官方 PhotoCraft 0.2.0 无界面引擎的实验性类型化适配器，自己管理一个 stdio 进程，处理文档、图层、蒙版、选区、调整、预览和导出。它不附带应用本体，也不会打开桌面窗口；未列入 CLI 0.20.39 本次核查的适配器目录。
 - [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) — 通过 UXP 接入 Adobe Photoshop。
 - [Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere) — Adobe Premiere Pro。
+- [QGIS](https://github.com/dcc-mcp/dcc-mcp-qgis) — 由适配器自己启动无界面 PyQGIS 进程并维护独立工程，通过类型化工具编辑 QGIS 工程和矢量数据；它不会连接或修改正在运行的 QGIS 桌面会话。源码候选版本锁定 Core 与 server 0.20.41，仍需重新做本机（原生）验收；没有 PyPI 包或 GitHub 发布，也未列入 CLI 0.20.39 本次核查的适配器目录。
 - [SketchUp](https://github.com/dcc-mcp/dcc-mcp-sketchup) — 通过经过身份验证的 Ruby 桥接和类型化工具完成建模、材质、标签、场景、验证和格式交换操作。
 - [Shōgun](https://github.com/dcc-mcp/dcc-mcp-shogun) — 通过官方 SDK 的类型化工具检查场景对象、属性、通道、光学相机和文件，控制时间线；执行离线处理或修改其设置前，会先检查应用是否支持对应功能。操作前应发现实际在线实例的工具。
 - [SpeedTree](https://github.com/dcc-mcp/dcc-mcp-speedtree) — 已独立发布 v0.1.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-speedtree/tree/595f0bd308aa0f4f0635a399c2b63bd76f16caf8)），绑定指定实例，通过官方 Hook 接口调用应用报告的可用功能；未列入 CLI 0.20.39 本次核查的适配器目录。一次实际 ST9 交接已在 Unreal Engine 5.5.4 中验证一棵棕榈树；碰撞比例和动态风仍未验收。参见 [SpeedTree MCP 指南](/zh/control/speedtree)。
