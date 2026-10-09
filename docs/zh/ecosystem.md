@@ -77,9 +77,9 @@ outline: [2, 2]
 - [OBS Studio](https://github.com/dcc-mcp/dcc-mcp-obs) — 绑定指定进程，检查场景和来源，并通过类型化工具控制录制；已作为 `obs` 列入 CLI 0.20.39 本次核查的目录。安装适配器不会安装 OBS Studio 本体。
 - [Office](https://github.com/dcc-mcp/dcc-mcp-office) — `office` 共享应用路由，包括 office-rpc/1 协议、C# COM 辅助进程、Open XML 处理程序、Microsoft Graph 连接器和通用 Skills。它不计入 CLI 0.20.39 报告的 38 个适配器标识；各应用的可用性以对应适配器为准。
 - [PowerPoint](https://github.com/dcc-mcp/dcc-mcp-powerpoint) — 将 Deck IR 编译为 Open XML 演示文稿，再通过桌面 COM 接口渲染；CLI 0.20.39 本次核查的目录列出 0.1.0，并标记 `catalog_install_available=false`。
-- [Word](https://github.com/dcc-mcp/dcc-mcp-word) — 文档、域和重排版功能（计划于第二阶段实现）。
-- [Excel](https://github.com/dcc-mcp/dcc-mcp-excel) — 工作簿、公式、图表和制作看板（计划于第二阶段实现）。
-- [Outlook](https://github.com/dcc-mcp/dcc-mcp-outlook) — 邮件草稿和日历（计划于第三阶段实现）。
+- [Word](https://github.com/dcc-mcp/dcc-mcp-word) — 文档、域和重排版功能（规划中；适配器仓库仍为占位，尚无发布版本）。
+- [Excel](https://github.com/dcc-mcp/dcc-mcp-excel) — 工作簿、公式、图表和制作看板（规划中；适配器仓库仍为占位，尚无发布版本）。
+- [Outlook](https://github.com/dcc-mcp/dcc-mcp-outlook) — 邮件草稿和日历（规划中，第三阶段；分级为 `host_limited`）。它通过 MAPI/COM 驱动本机已安装的 Outlook，且首次运行需完成交互式授权，因此没有无头路径，无法在 CI 中验证，并豁免 CI 验证门禁。若日后要达到可在 CI 中自动验证的路径，需先具备 Microsoft Graph 路径。
 - [OpenSCAD](https://github.com/dcc-mcp/dcc-mcp-openscad) — 验证声明式参数化 CAD 模型、渲染预览并导出网格。
 - [OpenScreen](https://github.com/dcc-mcp/dcc-mcp-openscreen) — 已独立发布 v0.1.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-openscreen/tree/5a32837d9d1b3bd2aea04bf61e61b4a54bbd5262)），提供 `sources`、`record` 和 `export` 类型化操作；未列入 CLI 0.20.39 本次核查的适配器目录。源码测试通过不代表已完成 Windows 实际录制验收；未支持的窗口选择仍由 dcc-cua 与 ui-control 负责。参见 [OpenScreen 控制指南](/zh/control/openscreen)。
 - [ParaView](https://github.com/dcc-mcp/dcc-mcp-paraview) — 用类型化工具操作常驻的 ParaView 管线：创建受限的基础几何体、平面裁剪与剖切、提取等值面、导出校验过的数据集、保存 PVSM 状态，并在有显示环境时渲染 PNG 预览。源码候选版本锁定 Core 与 server 0.20.41，本机（原生）验收仍需重做；尚未发布，也未列入 CLI 0.20.39 本次核查的适配器目录。
