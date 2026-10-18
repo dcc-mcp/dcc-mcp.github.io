@@ -34,7 +34,9 @@ A typed tool defines its parameters, their types, and its results so a call can 
 - [dcc-pipeline-publish](https://github.com/dcc-mcp/dcc-pipeline-publish) — Portable publish manifests for DCC, USD, render farm, and tracking workflows.
 - [dcc-texture-pipeline](https://github.com/dcc-mcp/dcc-texture-pipeline) — Deterministic OpenImageIO and OpenColorIO texture workflows.
 - [dcc-itchio](https://github.com/dcc-mcp/dcc-itchio) — Safe itch.io asset acquisition and preview-gated game publishing Skills.
+- [dcc-media-enhance](https://github.com/dcc-mcp/dcc-media-enhance) — Agent-first Rust orchestration for bounded media denoising and enhancement using installed backends.
 - [dcc-mcp-cache-inspector](https://github.com/dcc-mcp/dcc-mcp-cache-inspector) — Host-neutral Marketplace Skill for bounded, privacy-safe offline SideFX cache inspection; no adapter or PyPI package.
+- [mcpcall](https://github.com/dcc-mcp/mcpcall) — CLI for listing and calling MCP server tools over stdio or Streamable HTTP.
 - [dcc-mcp-renderdoc](https://github.com/dcc-mcp/dcc-mcp-renderdoc) — RenderDoc capture and replay automation.
 - [dcc-mcp-tracy](https://github.com/dcc-mcp/dcc-mcp-tracy) — Tracy frame-profiler capture and analysis.
 
@@ -61,6 +63,7 @@ adapter release does not establish a live host or completed production acceptanc
 - [Epic Games Launcher and Fab](https://github.com/dcc-mcp/dcc-mcp-epic) — Independently released v0.2.1 ([release source](https://github.com/dcc-mcp/dcc-mcp-epic/tree/1157defe203aab4beaa8f7be56f8063caac2a415)) for installed-engine inventory, project checks, and bounded provider-owned Fab operations; not an adapter identifier in the catalog checked by CLI 0.20.39. Engine installation remains plan-only without a verified native provider; login, CAPTCHA, purchases, and license acceptance remain human-owned. See the [Epic Games control guide](/control/epic-games).
 - [FreeCAD](https://github.com/dcc-mcp/dcc-mcp-freecad) — Parametric CAD modeling, topology validation, and mesh interchange.
 - [Gaea](https://github.com/dcc-mcp/dcc-mcp-gaea) — Independently released v0.1.1 ([release source](https://github.com/dcc-mcp/dcc-mcp-gaea/tree/b95d3f81b8f883732c73d268658100d09d9cad84)) for typed Build Swarm terrain jobs and output verification; not an adapter identifier in the catalog checked by CLI 0.20.39. Real licensed builds, process-tree cancellation, terrain quality, and Unreal imports remain unverified. See the [Gaea control guide](/control/gaea).
+- [GameMaker](https://github.com/dcc-mcp/dcc-mcp-gamemaker) — GameMaker adapter; not an adapter identifier in the catalog checked by CLI 0.20.39.
 - [GIMP](https://github.com/dcc-mcp/dcc-mcp-gimp) — GIMP 3.
 - [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) — Godot Engine and 2D game-authoring Skills.
 - [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) — SideFX Houdini.
@@ -88,12 +91,16 @@ adapter release does not establish a live host or completed production acceptanc
 - [OpenScreen](https://github.com/dcc-mcp/dcc-mcp-openscreen) — Independently released v0.1.1 ([release source](https://github.com/dcc-mcp/dcc-mcp-openscreen/tree/5a32837d9d1b3bd2aea04bf61e61b4a54bbd5262)) with typed `sources`, `record`, and `export` operations; not an adapter identifier in the catalog checked by CLI 0.20.39. Source tests do not establish live Windows recording acceptance; unsupported window selection remains owned by dcc-cua and ui-control. See the [OpenScreen control guide](/control/openscreen).
 - [ParaView](https://github.com/dcc-mcp/dcc-mcp-paraview) — Typed persistent ParaView pipelines: bounded primitives, plane clips and slices, contour extraction, verified dataset export, PVSM state saves, and display-backed PNG previews. Source candidate pinned to Core and server 0.20.41 with native requalification pending; no published release, and not an adapter identifier in the catalog checked by CLI 0.20.39.
 - [PhotoCraft](https://github.com/dcc-mcp/dcc-mcp-photocraft) — Experimental typed adapter for the official PhotoCraft 0.2.0 headless engine, owning one stdio process for documents, layers, masks, selections, adjustments, previews, and exports. It bundles no application and opens no desktop window; not an adapter identifier in the catalog checked by CLI 0.20.39.
+- [PdfCraft](https://github.com/dcc-mcp/dcc-mcp-pdfcraft) — PdfCraft adapter; not an adapter identifier in the catalog checked by CLI 0.20.39.
 - [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) — Adobe Photoshop through UXP.
 - [Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere) — Adobe Premiere Pro.
 - [QGIS](https://github.com/dcc-mcp/dcc-mcp-qgis) — Typed QGIS project and vector editing over MCP, from an adapter-owned headless PyQGIS process with an isolated project; it does not attach to a running QGIS desktop session. Source candidate pinned to Core and server 0.20.41 with native revalidation required; no PyPI package or GitHub release, and not an adapter identifier in the catalog checked by CLI 0.20.39.
+- [REAPER](https://github.com/dcc-mcp/dcc-mcp-reaper) — REAPER DAW adapter; not an adapter identifier in the catalog checked by CLI 0.20.39.
+- [RizomUV](https://github.com/dcc-mcp/dcc-mcp-rizomuv) — Headless batch UV unwrapping and packing; not an adapter identifier in the catalog checked by CLI 0.20.39.
 - [SketchUp](https://github.com/dcc-mcp/dcc-mcp-sketchup) — Typed modeling, materials, Tags, scenes, validation, and interchange through an authenticated Ruby bridge.
 - [Shōgun](https://github.com/dcc-mcp/dcc-mcp-shogun) — Typed official-SDK tools for Scene objects, attributes, channels, optical cameras, files, Timeline control, and capability-gated Offline processing settings and operations. Discover the live instance's tools before operating.
 - [SpeedTree](https://github.com/dcc-mcp/dcc-mcp-speedtree) — Independently released v0.1.1 ([release source](https://github.com/dcc-mcp/dcc-mcp-speedtree/tree/595f0bd308aa0f4f0635a399c2b63bd76f16caf8)) for an exact-instance, official-hook capability bridge; not an adapter identifier in the catalog checked by CLI 0.20.39. A real ST9 handoff verified one palm in Unreal Engine 5.5.4, while collision scale and dynamic wind remain unverified. See the [SpeedTree MCP guide](/control/speedtree).
+- [DaVinci Resolve](https://github.com/dcc-mcp/dcc-mcp-resolve) — DaVinci Resolve adapter for project, media pool, timeline, and gallery inspection; not an adapter identifier in the catalog checked by CLI 0.20.39.
 - [Substance 3D Designer](https://github.com/dcc-mcp/dcc-mcp-substance3d-designer) — Adobe Substance 3D Designer.
 - [Substance 3D Painter](https://github.com/dcc-mcp/dcc-mcp-substance3d-painter) — Adobe Substance 3D Painter.
 - [Tiled](https://github.com/dcc-mcp/dcc-mcp-tiled) — Tiled map editor; the catalog checked by CLI 0.20.39 lists version 0.3.0 with `catalog_install_available=false`.
@@ -134,6 +141,7 @@ For local generation, see the [ComfyUI game-asset workflow](/control/comfyui).
 - [Qt Actions](https://github.com/dcc-mcp/dcc-ui-qt-actions) — Reusable typed actions for Qt-based DCC interfaces.
 - [Qt Inspector](https://github.com/dcc-mcp/dcc-ui-qt-inspector) — Cross-host window and widget discovery.
 - [UI Workflow Memory](https://github.com/dcc-mcp/dcc-ui-workflow-memory) — Verified selectors, recipes, and failure memory.
+- [dcc-mcp-filmcraft](https://github.com/dcc-mcp/dcc-mcp-filmcraft) — Experimental FilmCraft integration: typed browser SDK for the same visible WebAssembly editor document.
 - [adobepy](https://github.com/dcc-mcp/adobepy) — Shared Adobe desktop communication runtime.
 
 ## Organization and discovery surfaces
