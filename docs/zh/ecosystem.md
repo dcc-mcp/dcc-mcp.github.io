@@ -32,7 +32,9 @@ outline: [2, 2]
 - [dcc-pipeline-publish](https://github.com/dcc-mcp/dcc-pipeline-publish) — 为 DCC、USD、渲染农场和制作跟踪流程提供通用发布清单。
 - [dcc-texture-pipeline](https://github.com/dcc-mcp/dcc-texture-pipeline) — 使用 OpenImageIO 和 OpenColorIO 处理纹理，确保相同输入得到一致结果。
 - [dcc-itchio](https://github.com/dcc-mcp/dcc-itchio) — 安全获取 itch.io 资产，并在预览检查通过后发布游戏的 Skills。
+- [dcc-media-enhance](https://github.com/dcc-mcp/dcc-media-enhance) — 面向 Agent 的 Rust 编排层，调用已安装的后端完成有边界的媒体降噪与增强。
 - [dcc-mcp-cache-inspector](https://github.com/dcc-mcp/dcc-mcp-cache-inspector) — 离线检查 SideFX 缓存，在限制读取范围的同时保护原始数据隐私。它是不依赖特定应用的 Marketplace Skill，不提供适配器或 PyPI 包。
+- [mcpcall](https://github.com/dcc-mcp/mcpcall) — 用于列出并通过 stdio 或 Streamable HTTP 调用 MCP 服务器工具的命令行工具。
 - [dcc-mcp-renderdoc](https://github.com/dcc-mcp/dcc-mcp-renderdoc) — 自动执行 RenderDoc 帧捕获和回放。
 - [dcc-mcp-tracy](https://github.com/dcc-mcp/dcc-mcp-tracy) — 使用 Tracy 捕获和分析帧性能数据。
 
@@ -57,6 +59,7 @@ outline: [2, 2]
 - [Epic Games Launcher 与 Fab](https://github.com/dcc-mcp/dcc-mcp-epic) — 已独立发布 v0.2.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-epic/tree/1157defe203aab4beaa8f7be56f8063caac2a415)），用于查询已安装的引擎、检查项目，并通过 Fab 提供的接口执行指定范围内的操作；未列入 CLI 0.20.39 本次核查的适配器目录。缺少已验证原生提供方时，引擎安装仍只生成计划；登录、验证码、购买与许可接受继续由用户负责。参见 [Epic Games 控制指南](/zh/control/epic-games)。
 - [FreeCAD](https://github.com/dcc-mcp/dcc-mcp-freecad) — 参数化 CAD 建模、拓扑验证和网格格式交换。
 - [Gaea](https://github.com/dcc-mcp/dcc-mcp-gaea) — 已独立发布 v0.1.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-gaea/tree/b95d3f81b8f883732c73d268658100d09d9cad84)），通过类型化工具提交 Build Swarm 地形任务并检查输出；未列入 CLI 0.20.39 本次核查的适配器目录。真实授权构建、进程树取消、地形质量与 Unreal 导入仍未验收。参见 [Gaea 控制指南](/zh/control/gaea)。
+- [GameMaker](https://github.com/dcc-mcp/dcc-mcp-gamemaker) — GameMaker 适配器；未列入 CLI 0.20.39 本次核查的适配器目录。
 - [GIMP](https://github.com/dcc-mcp/dcc-mcp-gimp) — GIMP 3。
 - [Godot](https://github.com/dcc-mcp/dcc-mcp-godot) — Godot 引擎与 2D 游戏制作 Skills。
 - [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) — SideFX Houdini。
@@ -84,12 +87,16 @@ outline: [2, 2]
 - [OpenScreen](https://github.com/dcc-mcp/dcc-mcp-openscreen) — 已独立发布 v0.1.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-openscreen/tree/5a32837d9d1b3bd2aea04bf61e61b4a54bbd5262)），提供 `sources`、`record` 和 `export` 类型化操作；未列入 CLI 0.20.39 本次核查的适配器目录。源码测试通过不代表已完成 Windows 实际录制验收；未支持的窗口选择仍由 dcc-cua 与 ui-control 负责。参见 [OpenScreen 控制指南](/zh/control/openscreen)。
 - [ParaView](https://github.com/dcc-mcp/dcc-mcp-paraview) — 用类型化工具操作常驻的 ParaView 管线：创建受限的基础几何体、平面裁剪与剖切、提取等值面、导出校验过的数据集、保存 PVSM 状态，并在有显示环境时渲染 PNG 预览。源码候选版本锁定 Core 与 server 0.20.41，本机（原生）验收仍需重做；尚未发布，也未列入 CLI 0.20.39 本次核查的适配器目录。
 - [PhotoCraft](https://github.com/dcc-mcp/dcc-mcp-photocraft) — 面向官方 PhotoCraft 0.2.0 无界面引擎的实验性类型化适配器，自己管理一个 stdio 进程，处理文档、图层、蒙版、选区、调整、预览和导出。它不附带应用本体，也不会打开桌面窗口；未列入 CLI 0.20.39 本次核查的适配器目录。
+- [PdfCraft](https://github.com/dcc-mcp/dcc-mcp-pdfcraft) — PdfCraft 适配器；未列入 CLI 0.20.39 本次核查的适配器目录。
 - [Photoshop](https://github.com/dcc-mcp/dcc-mcp-photoshop) — 通过 UXP 接入 Adobe Photoshop。
 - [Premiere Pro](https://github.com/dcc-mcp/dcc-mcp-premiere) — Adobe Premiere Pro。
 - [QGIS](https://github.com/dcc-mcp/dcc-mcp-qgis) — 由适配器自己启动无界面 PyQGIS 进程并维护独立工程，通过类型化工具编辑 QGIS 工程和矢量数据；它不会连接或修改正在运行的 QGIS 桌面会话。源码候选版本锁定 Core 与 server 0.20.41，仍需重新做本机（原生）验收；没有 PyPI 包或 GitHub 发布，也未列入 CLI 0.20.39 本次核查的适配器目录。
+- [REAPER](https://github.com/dcc-mcp/dcc-mcp-reaper) — REAPER 音频工作站适配器；未列入 CLI 0.20.39 本次核查的适配器目录。
+- [RizomUV](https://github.com/dcc-mcp/dcc-mcp-rizomuv) — 无界面批量 UV 展开与排布；未列入 CLI 0.20.39 本次核查的适配器目录。
 - [SketchUp](https://github.com/dcc-mcp/dcc-mcp-sketchup) — 通过经过身份验证的 Ruby 桥接和类型化工具完成建模、材质、标签、场景、验证和格式交换操作。
 - [Shōgun](https://github.com/dcc-mcp/dcc-mcp-shogun) — 通过官方 SDK 的类型化工具检查场景对象、属性、通道、光学相机和文件，控制时间线；执行离线处理或修改其设置前，会先检查应用是否支持对应功能。操作前应发现实际在线实例的工具。
 - [SpeedTree](https://github.com/dcc-mcp/dcc-mcp-speedtree) — 已独立发布 v0.1.1（[发布源码](https://github.com/dcc-mcp/dcc-mcp-speedtree/tree/595f0bd308aa0f4f0635a399c2b63bd76f16caf8)），绑定指定实例，通过官方 Hook 接口调用应用报告的可用功能；未列入 CLI 0.20.39 本次核查的适配器目录。一次实际 ST9 交接已在 Unreal Engine 5.5.4 中验证一棵棕榈树；碰撞比例和动态风仍未验收。参见 [SpeedTree MCP 指南](/zh/control/speedtree)。
+- [DaVinci Resolve](https://github.com/dcc-mcp/dcc-mcp-resolve) — DaVinci Resolve 适配器，供 AI Agent 检查工程、媒体池、时间线和画廊；未列入 CLI 0.20.39 本次核查的适配器目录。
 - [Substance 3D Designer](https://github.com/dcc-mcp/dcc-mcp-substance3d-designer) — Adobe Substance 3D Designer。
 - [Substance 3D Painter](https://github.com/dcc-mcp/dcc-mcp-substance3d-painter) — Adobe Substance 3D Painter。
 - [Tiled](https://github.com/dcc-mcp/dcc-mcp-tiled) — Tiled 地图编辑器；CLI 0.20.39 本次核查的目录列出 0.3.0，并标记 `catalog_install_available=false`。
@@ -130,6 +137,7 @@ outline: [2, 2]
 - [Qt Actions](https://github.com/dcc-mcp/dcc-ui-qt-actions) — 为基于 Qt 的 DCC 界面提供可复用的类型化操作。
 - [Qt Inspector](https://github.com/dcc-mcp/dcc-ui-qt-inspector) — 查找不同应用中的窗口和控件。
 - [UI Workflow Memory](https://github.com/dcc-mcp/dcc-ui-workflow-memory) — 保存验证过的控件定位方式、操作流程和失败记录。
+- [dcc-mcp-filmcraft](https://github.com/dcc-mcp/dcc-mcp-filmcraft) — 实验性 FilmCraft 集成：为同一个可见的 WebAssembly 编辑器文档提供类型化浏览器 SDK。
 - [adobepy](https://github.com/dcc-mcp/adobepy) — Adobe 桌面应用共用的通信运行时。
 
 ## 组织与发现入口
