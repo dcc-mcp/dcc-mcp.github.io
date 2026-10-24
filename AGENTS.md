@@ -13,7 +13,7 @@ This repository is the official website and shared documentation front door for 
 - Preserve original generated source images in `docs/public/brand/` and record derivatives in its `README.md`.
 - Do not overwrite the authoritative Core README logo. Website variants must remain separate assets.
 - Showcase media must link back to its owning DCC-MCP repository and be recorded in `docs/public/showcase-media/README.md`.
-- Keep the website palette and theme-aware logo treatment aligned with the Core Admin UI. Both light and dark modes are release surfaces.
+- Preserve the selected single light site appearance and official Core Admin UI logo assets. The cinematic navy hero is artwork within the light site, not an appearance mode.
 
 ## Localization and Marketplace
 

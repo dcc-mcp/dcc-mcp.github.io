@@ -208,7 +208,7 @@ const chineseTheme = {
 export default defineConfig({
   title: 'DCC-MCP',
   description,
-  appearance: 'dark',
+  appearance: false,
   cleanUrls: true,
   lastUpdated: true,
   srcExclude: ['public/**/README.md'],

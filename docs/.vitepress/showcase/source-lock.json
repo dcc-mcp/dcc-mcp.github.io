@@ -1,0 +1,175 @@
+{
+  "repository": "dcc-mcp/showcase",
+  "ref": "090d62743778b6fd0cd8bd085af4522e9caee2ff",
+  "case_slugs": [
+    "brass-pendulum-denoise",
+    "houdini-procedural-study",
+    "crate-lookdev",
+    "painted-wood",
+    "crystal-freight-native-film",
+    "brass-relay",
+    "seismic-lens",
+    "orbit-post-office",
+    "trail-and-air",
+    "rainroom-two-hours",
+    "resonance-atlas",
+    "sonic-loom",
+    "prism-tide",
+    "orbital-loom",
+    "parcel-switchyard",
+    "dawnkeep-defense"
+  ],
+  "demo_slugs": [
+    "sonic-loom",
+    "prism-tide",
+    "parcel-switchyard",
+    "dawnkeep-defense"
+  ],
+  "projection_sha256": "a1f484d866ec8454b64a6f8877de4db8ae8ec950af468a6be8c42203bd1f13c9",
+  "files": {
+    "collection.json": {
+      "sha256": "555f8acda902941447c4825ae05325db0df00f2ee7dc3b8840a4771d7691f6eb",
+      "bytes": 255825
+    },
+    "play/manifest.json": {
+      "sha256": "f2ab959c48aacf62c7a2917f300263690358e3bbeaf47315ab8fa03686e71b64",
+      "bytes": 17545
+    },
+    "locales/en/ui.json": {
+      "sha256": "4b94145f7548e0a36925bed35c906ad5e1bf98ff55e1d2208c1a4667f11e950d",
+      "bytes": 14776
+    },
+    "locales/zh/collection.json": {
+      "sha256": "f082dad77a15b822cf92ec1aea0df95fbda7949e799e2eddd8c87a6c714b6688",
+      "bytes": 53203
+    },
+    "locales/en/cases/brass-pendulum-denoise.json": {
+      "sha256": "5c75fe5b94b1dde18b0132ae5fce47b69a0122043a9094912d1b57d8dc00b2e6",
+      "bytes": 19388
+    },
+    "locales/en/cases/brass-relay.json": {
+      "sha256": "c822bc298f2d37e975265118280b6bda4e9ef3e152a9a7863b4ac37db42691df",
+      "bytes": 21639
+    },
+    "locales/en/cases/crate-lookdev.json": {
+      "sha256": "e668fb5908f2b33ba0429501b7c3713777b2b9ff3dbc08cf4542f187689a09ff",
+      "bytes": 33123
+    },
+    "locales/en/cases/crystal-freight-native-film.json": {
+      "sha256": "bf4f22997d1fc542e8c39473b871a68fd511a71feb8bf3d2a67d64b738308c86",
+      "bytes": 21023
+    },
+    "locales/en/cases/dawnkeep-defense.json": {
+      "sha256": "e4562f091c8bb7e85cab6ff23c8c4f6fb7a280b46a0821f18d403034df1b1e42",
+      "bytes": 15662
+    },
+    "locales/en/cases/houdini-procedural-study.json": {
+      "sha256": "4bd0a8484134e388c8f6f960bcb38fe77fdc4d3ffb42c1932d3c1b63ccd96410",
+      "bytes": 21287
+    },
+    "locales/en/cases/orbit-post-office.json": {
+      "sha256": "eb8595d1a5a929273df223688f67857e3f8a31d7c60aab7061301da5cf053f52",
+      "bytes": 23039
+    },
+    "locales/en/cases/orbital-loom.json": {
+      "sha256": "cde2c335e45f84cc2ddda08fa652044e8bdb5cf85abe5fe7dc6e140e85968ead",
+      "bytes": 8962
+    },
+    "locales/en/cases/painted-wood.json": {
+      "sha256": "0411ff8f04221b60f858cf225dda6a591fa36f18f4a4e9839e08e12dd1c9b643",
+      "bytes": 20300
+    },
+    "locales/en/cases/parcel-switchyard.json": {
+      "sha256": "a18fb5302063afd4b19fd4841cf2374318c40b58cc3ccd26377ce6c8e1fdad50",
+      "bytes": 13768
+    },
+    "locales/en/cases/prism-tide.json": {
+      "sha256": "d4e375203ee168251c3f207c6ed45a0f748e067e74042d442c2a5487a6d9fabe",
+      "bytes": 12326
+    },
+    "locales/en/cases/rainroom-two-hours.json": {
+      "sha256": "864c6821db9b68348c2fd982fa916931335c8155a31d2c1ae58f29928e85159d",
+      "bytes": 8138
+    },
+    "locales/en/cases/resonance-atlas.json": {
+      "sha256": "86393c299ff989c125da65e2df3df203219c77aef6a7d3d32b7e05d549ba42c8",
+      "bytes": 6026
+    },
+    "locales/en/cases/seismic-lens.json": {
+      "sha256": "4df72cf3ef5923373c318ad073e4fd67470fe60394d72948ec0b6384f0fc2d5f",
+      "bytes": 20797
+    },
+    "locales/en/cases/sonic-loom.json": {
+      "sha256": "77beb5b4dbf54a82a56d745432951ed3a04f4720241fb8f8949bf04183a946b4",
+      "bytes": 10944
+    },
+    "locales/en/cases/trail-and-air.json": {
+      "sha256": "2705bb49795f1d2c8073ce35b31a47e40ce88ce708e1f88cde80bd4ffb05d3a6",
+      "bytes": 12910
+    },
+    "docs/showcase/brass-pendulum-denoise/manifest.json": {
+      "sha256": "a4f7e1383258e0913fefb53a3b29afa0fc2956b6cc4eeef5f4c1d4b1502c3b09",
+      "bytes": 7814
+    },
+    "docs/showcase/houdini-procedural-study/manifest.json": {
+      "sha256": "3c17ee294b7dc70f428b9c16460987d0a6da586b82d3919650be9bb47de97125",
+      "bytes": 3131
+    },
+    "docs/showcase/crate-lookdev/manifest.json": {
+      "sha256": "74ee3274329b4b55e438dd53902e67f0b5ad74e2ac8a14780a68dfe8e3a23c5b",
+      "bytes": 8554
+    },
+    "docs/showcase/painted-wood/manifest.json": {
+      "sha256": "0dbbfaa5611b8c9c2940ac8db1a2c788405c5973faabb029a65c0702ccb301ce",
+      "bytes": 3104
+    },
+    "docs/showcase/crystal-freight-native-film/manifest.json": {
+      "sha256": "b9838aabc474b942684014cdce4864d5a5f21040259c9021d09247137756a478",
+      "bytes": 4074
+    },
+    "docs/showcase/brass-relay/manifest.json": {
+      "sha256": "d5243076eccd0ec109866150fc29a60a71c8c330b11d41296f9a336247ee7de9",
+      "bytes": 3804
+    },
+    "docs/showcase/seismic-lens/manifest.json": {
+      "sha256": "ccd15fda3c65de4fd03988dc85bb111798c5ff9e2b82499138dbb98abfcc117b",
+      "bytes": 3576
+    },
+    "docs/showcase/orbit-post-office/manifest.json": {
+      "sha256": "63386a3ed39f036452a6d3d801fa2780c7ea0c36a1120fcc6c282cde465ffaf0",
+      "bytes": 9703
+    },
+    "docs/showcase/trail-and-air/manifest.json": {
+      "sha256": "f00995d941e44b44e6466a8843ba03951d4598eee13963594a8e6f7a3a0d323c",
+      "bytes": 1958
+    },
+    "docs/showcase/rainroom-two-hours/manifest.json": {
+      "sha256": "7390b8e01923c33ef0011e93c44d9fd571ed4c551570db4ca6cacb55fc904fde",
+      "bytes": 3096
+    },
+    "docs/showcase/resonance-atlas/manifest.json": {
+      "sha256": "ed1de0bb02f761feb50a41faedc0c689dfb8730a6e6993b85d136d8dd1d60cf9",
+      "bytes": 3804
+    },
+    "docs/showcase/sonic-loom/manifest.json": {
+      "sha256": "4ebae12d2bbcbe8ca623ca311dd242dbed0baa9270230e9fea95fa40a7820350",
+      "bytes": 3181
+    },
+    "docs/showcase/prism-tide/manifest.json": {
+      "sha256": "19a5690d61d1c08902df390d9d93891f531e1f192d341d908e36fceae2e0c400",
+      "bytes": 3297
+    },
+    "docs/showcase/orbital-loom/manifest.json": {
+      "sha256": "f0906898f7b11bfed183ea1eb19f9aa7a8f19418cdf9bb410331bbb87210dcda",
+      "bytes": 3273
+    },
+    "docs/showcase/parcel-switchyard/manifest.json": {
+      "sha256": "c658f297b4407a52d64809db21f078760bed7555c89bd4ea2fc9bc4eb3afc5b7",
+      "bytes": 3605
+    },
+    "docs/showcase/dawnkeep-defense/manifest.json": {
+      "sha256": "9f77d281c7ee1520a604b6fc3b3c42a2b83dea0d903d4dc738007010ad83072e",
+      "bytes": 4795
+    }
+  }
+}
