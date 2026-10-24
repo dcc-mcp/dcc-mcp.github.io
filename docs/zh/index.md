@@ -2,22 +2,8 @@
 layout: home
 title: DCC-MCP
 description: 用 AI 操作 Maya、Blender、3ds Max 等创意软件，完成建模、材质、动画和渲染任务。DCC-MCP 提供 MCP、命令行和 REST 接口。
-
-hero:
-  name: DCC-MCP
-  text: 让 AI 操作创意软件。
-  tagline: 让 AI 智能体（Agent）在 Maya、Blender、Houdini、Unreal Engine、Photoshop 等软件中完成建模、材质、动画和渲染任务。
-  image:
-    src: /brand/dcc-mcp-logo-admin-light.png
-    alt: DCC-MCP
-  actions:
-    - theme: brand
-      text: 配置 DCC-MCP
-      link: /zh/#install-prompt
-    - theme: alt
-      text: 浏览项目
-      link: /zh/ecosystem
 ---
+
 
 <div class="home-proof" aria-label="DCC-MCP 平台摘要">
   <span><strong>公开</strong> Agent Skill</span>
@@ -26,17 +12,15 @@ hero:
   <span><strong>50+</strong> 个公开项目</span>
 </div>
 
-<section class="home-marketplace-section" aria-labelledby="showcase-collection-title">
-  <div class="home-marketplace-heading">
-    <div>
-      <p class="home-kicker">SHOWCASE</p>
-      <h2 id="showcase-collection-title">DCC-MCP Showcase 作品合集</h2>
-    </div>
-    <div>
-      <p>浏览官方作品合集：成品、可复用提示词、工具调用证据、工程与素材许可。每个案例明确说明实际验证范围与本轮是否复现。</p>
-      <p><a href="https://dcc-mcp.github.io/showcase/" target="_self">打开作品合集 →</a> · <a href="/zh/examples">查看适配器案例与提示词</a></p>
-    </div>
-  </div>
+<CollectionMasonry locale="zh" />
+
+<section class="creation-method" aria-labelledby="creation-method-title">
+  <h2 id="creation-method-title">好作品，有方法。<br>让方法，能够复用。</h2>
+  <ol>
+    <li><strong>描述创作意图。</strong><p>把任务交给 Agent，用 Skill 记录你的工作方法。</p></li>
+    <li><strong>进入真实工具。</strong><p>通过类型化 MCP、CLI 或 REST 接口，连接应用原生能力。</p></li>
+    <li><strong>留下创作证据。</strong><p>交付可编辑工程、输出与验证记录，明确每一步的边界。</p></li>
+  </ol>
 </section>
 
 <HomeIntroVideo locale="zh" />
@@ -61,7 +45,7 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
   <div class="home-marketplace-heading">
     <div>
       <p class="home-kicker">云 AGENT</p>
-      <h2 id="cloud-agents-title">在云电脑上规划创作工作流。</h2>
+      <h2 id="cloud-agents-title">让创作，跨过工作站。</h2>
     </div>
     <div>
       <p>先盘点可用软件，选择 MCP 或 CLI 连接方式，并保留工程文件与验证记录。选择环境前，对照平台官方接口、带日期的 DCC 实测、安装前提与部署限制。</p>
@@ -74,7 +58,7 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
   <div class="home-marketplace-heading">
     <div>
       <p class="home-kicker">MCP + CLI</p>
-      <h2 id="mcp-cli-title">通过 MCP 或命令行，调用同一套工具。</h2>
+      <h2 id="mcp-cli-title">一种方法，多种接口。</h2>
     </div>
     <div>
       <p>Maya MCP、3ds Max MCP 和 Blender MCP 都提供类型化工具：每个工具明确规定参数、参数类型和返回结果，调用前可查询和校验。MCP（模型上下文协议）与 <code>dcc-mcp-cli</code> 共用这些工具；要使用 Maya CLI 或 Blender CLI，只需在命令中指定对应应用标识。</p>
@@ -87,7 +71,7 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
   <div class="home-marketplace-heading">
     <div>
       <p class="home-kicker">厂商原生 AI</p>
-      <h2 id="vendor-ai-title">在同一工作流中复用官方能力。</h2>
+      <h2 id="vendor-ai-title">顺着应用的原生能力创作。</h2>
     </div>
     <div>
       <p><strong>Unreal Engine 官方 MCP：</strong><a href="https://github.com/dcc-mcp/dcc-mcp-unreal/blob/main/src/dcc_mcp_unreal/skills/unreal-official-mcp/SKILL.md">Unreal Skill</a> 启用并接入 Epic 官方工具集，保留原有工具名称和参数定义。</p>
@@ -101,7 +85,7 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
   <div class="integrations-heading">
     <div>
       <p class="home-kicker">官方集成</p>
-      <h2 id="integrations-title">38 个目录标识，46 份公开指南。</h2>
+      <h2 id="integrations-title">熟悉的工具，连成工作流。</h2>
     </div>
     <p><code>dcc-mcp-cli 0.20.39 dcc-types</code> 在已验证的签名目录中列出 38 个适配器标识：33 个有目录安装制品，5 个尚无。46 份指南还涵盖 Office、目录外 6 个已独立发布的集成和 1 个 Marketplace Skill。<a href="/catalog/core-v0.20.39-dcc-types.json">查看版本化证据</a>。目录定义不代表已完成 Host 或工具执行验收。可选的 <code>autodesk-help</code> 是外部只读连接器。</p>
   </div>
@@ -144,7 +128,7 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
   <div class="home-marketplace-heading">
     <div>
       <p class="home-kicker">能力市场</p>
-      <h2 id="home-marketplace-title">查找可选软件包。</h2>
+      <h2 id="home-marketplace-title">把好用的工作流，交给下一次创作。</h2>
     </div>
     <div>
       <p>查找工作流 Skills、资产来源、生成服务和工作室扩展。展示素材均来自软件包指定的固定源码版本。</p>
@@ -152,116 +136,4 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
     </div>
   </div>
   <MarketplaceSearch preview />
-</section>
-
-<section class="showcase-section">
-  <div class="showcase-heading">
-    <p class="home-kicker">案例</p>
-    <h2>结果、来源与验证记录。</h2>
-    <p>查看建模、材质、动画和资产处理案例，并追溯所用工具、项目来源和验证记录。</p>
-  </div>
-  <div class="showcase-grid">
-    <a class="showcase-card showcase-wide showcase-media-contain" href="/zh/examples#blender-designer-crate">
-      <img src="/showcase-media/crate-render.png" alt="使用 Substance 3D Designer 材质在 Blender 中渲染的旧木箱" loading="lazy">
-      <span><small>BLENDER + SUBSTANCE 3D DESIGNER</small><strong>旧木箱材质与视觉开发</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-narrow showcase-media-contain" href="/zh/examples#blender-designer-crate">
-      <img src="/showcase-media/crate-uv-checker.png" alt="同一个木箱模型在 Blender 中的 UV 棋盘格渲染" loading="lazy">
-      <span><small>UV 坐标 + 棋盘格</small><strong>查看模型 UV</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-blender">
-      <img src="/showcase-media/blender-lookdev.webp" alt="Blender 程序化星系渲染" loading="lazy">
-      <span><small>BLENDER</small><strong>程序化星系</strong><em>↗</em></span>
-    </a>
-    <a class="showcase-card showcase-narrow showcase-logo" href="/zh/examples/wwise">
-      <img src="/brand/dcc-mcp-wwise-dark.svg" alt="Wwise 音效与背景音乐案例" loading="lazy">
-      <span><small>WWISE</small><strong>交互音频</strong><em>▶</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-marmoset">
-      <img src="/showcase-media/marmoset-pbr-lookdev.webp" alt="在 Marmoset Toolbag 中还原并渲染 CC0 PBR 材质" loading="lazy">
-      <span><small>MARMOSET</small><strong>CC0 PBR 材质还原</strong><em>↗</em></span>
-    </a>
-    <a class="showcase-card showcase-narrow" href="https://github.com/dcc-mcp/dcc-mcp-houdini">
-      <img src="/showcase-media/houdini-portal.png" alt="Houdini 程序化传送门粒子" loading="lazy">
-      <span><small>HOUDINI</small><strong>传送门粒子</strong><em>↗</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="/zh/examples#openscad-parametric-pipeline">
-      <img src="/showcase-media/openscad-parametric-pipeline.webp" alt="OpenSCAD 支架经 FreeCAD 验证并导入 Blender 与 Godot" loading="lazy">
-      <span><small>OPENSCAD → FREECAD → BLENDER / GODOT</small><strong>将 CAD 模型转换为游戏资产并验证</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-narrow" href="/zh/examples#cinema4d-typed-scene">
-      <img src="/showcase-media/cinema4d-typed-scene.webp" alt="通过参数明确的工具在 Cinema 4D 中搭建基础几何体、验证场景并渲染" loading="lazy">
-      <span><small>CINEMA 4D</small><strong>自动搭建、检查并渲染场景</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="/zh/examples#comfyui-typed-workflow">
-      <img src="/showcase-media/comfyui-typed-workflow.webp" alt="根据运行中的节点定义检查 ComfyUI 工作流，执行后获取输出文件" loading="lazy">
-      <span><small>COMFYUI</small><strong>验证、执行、交付</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="/zh/examples#illustrator-typed-vector-workflow">
-      <img src="/showcase-media/illustrator-typed-vector-workflow.webp" alt="检查 Illustrator 文档，通过类型化工具编辑矢量图形并验证导出结果" loading="lazy">
-      <span><small>ILLUSTRATOR</small><strong>创建矢量图形并导出</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-narrow" href="/zh/examples#sketchup-typed-modeling">
-      <img src="/showcase-media/sketchup-typed-modeling.webp" alt="通过类型化工具创建和整理 SketchUp 模型，检查模型并导出交换格式" loading="lazy">
-      <span><small>SKETCHUP</small><strong>建模、检查并导出</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="/zh/examples#touchdesigner-typed-operator-workflow">
-      <img src="/showcase-media/touchdesigner-typed-operator-workflow.webp" alt="在 TouchDesigner 主线程中通过类型化工具连接算子，保存工程和 PNG 并验证结果" loading="lazy">
-      <span><small>TOUCHDESIGNER</small><strong>搭建算子网络，保存并验证输出</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="/zh/examples#cache-inspection-workflow">
-      <img src="/showcase-media/cache-inspection-workflow.webp" alt="在限制解码范围的前提下检查压缩几何缓存，只输出保护隐私的数量、包围盒和属性摘要" loading="lazy">
-      <span><small>CACHE INSPECTOR</small><strong>检查缓存结构，保护原始数据</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="/zh/examples#shogun-typed-mocap-workflow">
-      <img src="/showcase-media/shogun-typed-mocap-workflow.webp" alt="确认 Shōgun 支持所需操作后，通过类型化工具在指定范围内检查和处理动作捕捉数据" loading="lazy">
-      <span><small>SHŌGUN</small><strong>确认可用功能，再处理动作捕捉数据</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-narrow" href="/zh/examples#tiled-typed-map-workflow">
-      <img src="/showcase-media/tiled-typed-map-workflow.webp" alt="通过类型化工具制作 Tiled 地图，保存为 TMJ 文件并验证" loading="lazy">
-      <span><small>TILED</small><strong>制作并验证游戏地图</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="/zh/examples#material-maker-typed-material-workflow">
-      <img src="/showcase-media/material-maker-typed-material-workflow.webp" alt="在限定范围内检查并验证 Material Maker PTEX，再执行原生纹理导出" loading="lazy">
-      <span><small>MATERIAL MAKER</small><strong>检查 PTEX 材质并导出纹理</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="/zh/examples#krita-typed-paint-workflow">
-      <img src="/showcase-media/krita-typed-paint-workflow.webp" alt="通过类型化文档与绘画图层工具制作 Krita 分层画布" loading="lazy">
-      <span><small>KRITA</small><strong>创建可编辑的分层画布</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-narrow" href="/zh/examples#gimp-typed-image-workflow">
-      <img src="/showcase-media/gimp-typed-image-workflow.webp" alt="通过预定义的类型化接口编辑 GIMP 图像和图层，导出 XCF 与 PNG 并验证结果" loading="lazy">
-      <span><small>GIMP</small><strong>编辑图层并验证导出结果</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="/zh/examples#katana-typed-lookdev-workflow">
-      <img src="/showcase-media/katana-typed-lookdev-workflow.webp" alt="通过类型化主线程操作创建并连接 Katana 节点图" loading="lazy">
-      <span><small>KATANA</small><strong>搭建节点网络并保存工程</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="/zh/examples#premiere-typed-edit-workflow">
-      <img src="/showcase-media/premiere-typed-edit-workflow.webp" alt="通过类型化工具整理 Premiere Pro 媒体、序列、时间线和标记，并管理导出队列" loading="lazy">
-      <span><small>PREMIERE PRO</small><strong>完成剪辑并加入导出队列</strong><em>→</em></span>
-    </a>
-    <a class="showcase-card showcase-narrow" href="https://github.com/dcc-mcp/dcc-ai-hunyuan3d">
-      <img src="/showcase-media/hunyuan3d.webp" alt="从提示词生成 3D 灯笼资产" loading="lazy">
-      <span><small>AI + 3D</small><strong>用文字描述生成 3D 资产</strong><em>↗</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-asset-geospatial">
-      <img src="/showcase-media/geospatial-city.webp" alt="地理数据生成程序化城市" loading="lazy">
-      <span><small>GEOSPATIAL</small><strong>根据地理数据生成城市</strong><em>↗</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="https://github.com/dcc-mcp/dcc-mcp-maya-procedural-architecture">
-      <img src="/showcase-media/maya-architecture.jpg" alt="Maya 程序化住宅建筑变体" loading="lazy">
-      <span><small>MAYA + BIFROST</small><strong>程序化建筑</strong><em>↗</em></span>
-    </a>
-    <a class="showcase-card showcase-narrow" href="https://github.com/dcc-mcp/dcc-asset-kenney">
-      <img src="/showcase-media/kenney-assets.webp" alt="游戏资产发现、解包与关卡搭建" loading="lazy">
-      <span><small>GAME ASSETS</small><strong>查找资产并搭建关卡</strong><em>↗</em></span>
-    </a>
-    <a class="showcase-card showcase-wide" href="/zh/examples#zbrush-fantasy-dragon">
-      <img src="/showcase-media/zbrush-fantasy-dragon.png" alt="Fantasy Dragon 在 ZBrush 中从 500 万面重拓扑为 11.5 万面 PolyFrame 网格" loading="lazy">
-      <span><small>ZBRUSH → MAYA</small><strong>500 万面导入 → 11.5 万面布线</strong><em>→</em></span>
-    </a>
-  </div>
-  <a class="showcase-more" href="https://dcc-mcp.github.io/showcase/" target="_self">打开作品合集 →</a>
-  <a class="showcase-more" href="/zh/examples">查看适配器案例与提示词 →</a>
 </section>

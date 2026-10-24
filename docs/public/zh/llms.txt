@@ -130,3 +130,5 @@ dcc-mcp-cli marketplace install <package-name> --dcc <dcc-type> --reload
 官方作品合集：https://dcc-mcp.github.io/showcase/ — 完整案例、制作证据、工程来源与各项许可；历史适配器概览不等于本轮复现。
 
 已验证 CLI 0.20.39 导出：38 个目录标识，33 个有可安装目录制品，5 个尚无（Kdenlive、Material Maker、PowerPoint、Tiled、Wwise）。签名远程目录 revision 为 60c96cce4ed949eb8412ebd67119853e77dbafee。证据：https://dcc-mcp.github.io/catalog/core-v0.20.39-dcc-types.json 。独立发布证据：https://dcc-mcp.github.io/catalog/independent-releases-2026-10-01.json 。目录和发布元数据不能代替重新进行 Host 或工具执行验收。
+
+官网作品来自 dcc-mcp/showcase 的 collection.json.cases[]，同步版本为 090d62743778b6fd0cd8bd085af4522e9caee2ff。稳定 slug 对应 /showcase/zh/cases/<slug>/（英文：/showcase/cases/<slug>/）。仅 play/manifest.json.demos[] 中的案例提供浏览器体验入口；作品原有证据标签与限制保持权威。

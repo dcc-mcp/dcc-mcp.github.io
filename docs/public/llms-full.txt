@@ -259,3 +259,5 @@ expose a private endpoint to use a hosted playground.
 Official Showcase collection: https://dcc-mcp.github.io/showcase/ — complete cases, production evidence, project sources, and per-asset licensing; archived adapter overviews are not evidence of reproduction in this session.
 
 Verified CLI 0.20.39 export: 38 catalog identifiers, 33 with installable catalog artifacts, five without (Kdenlive, Material Maker, PowerPoint, Tiled, Wwise). Signed remote catalog revision 60c96cce4ed949eb8412ebd67119853e77dbafee. Evidence: https://dcc-mcp.github.io/catalog/core-v0.20.39-dcc-types.json . Independent release evidence: https://dcc-mcp.github.io/catalog/independent-releases-2026-10-01.json . Catalog and release metadata do not establish a new live-host/tool-execution certification.
+
+Homepage works are synchronized from dcc-mcp/showcase collection.json.cases[] at commit 090d62743778b6fd0cd8bd085af4522e9caee2ff. Each stable slug maps to /showcase/cases/<slug>/ (Chinese: /showcase/zh/cases/<slug>/). Only play/manifest.json.demos[] entries offer a browser demo; evidence labels and limits remain authoritative.

@@ -15,6 +15,7 @@ try {
     'integration-catalog-reader.mjs',
     'site-identity-contract.mjs',
     'showcase-provenance.mjs',
+    'home-collection-contract.mjs',
     'validate-integration-identity.mjs',
     'validate-site.mjs',
   ]) {

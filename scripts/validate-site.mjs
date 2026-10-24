@@ -6,6 +6,7 @@ import { expectedReleasedDccTypes } from './site-identity-contract.mjs'
 import { loadIntegrationCatalog } from './integration-catalog-reader.mjs'
 import { validateIntegrationIdentity } from './validate-integration-identity.mjs'
 import { validateSpeedTreeShowcaseProvenance } from './showcase-provenance.mjs'
+import { validateCollection, validateCollectionHtml } from './home-collection-contract.mjs'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const dist = process.env.DCC_MCP_VALIDATED_DIST_PATH ?? join(root, 'docs', '.vitepress', 'dist')
@@ -429,8 +430,14 @@ for (const { slug } of integrations) {
 
 const englishHome = readFileSync(join(dist, 'index.html'), 'utf8')
 const chineseHome = readFileSync(join(dist, 'zh', 'index.html'), 'utf8')
+const collectionSnapshot = validateCollection(
+  readFileSync(join(root, 'docs/.vitepress/showcase/collection.json'), 'utf8'),
+  JSON.parse(readFileSync(join(root, 'docs/.vitepress/showcase/source-lock.json'), 'utf8')),
+)
+validateCollectionHtml(englishHome, collectionSnapshot, 'en')
+validateCollectionHtml(chineseHome, collectionSnapshot, 'zh')
 for (const [locale, html] of [['English', englishHome], ['Chinese', chineseHome]]) {
-  const collectionLinks = [...html.matchAll(/<a\b[^>]*href="https:\/\/dcc-mcp\.github\.io\/showcase\/"[^>]*>/g)]
+  const collectionLinks = [...html.matchAll(/<a\b[^>]*href="https:\/\/dcc-mcp\.github\.io\/showcase\/(?:zh\/)?"[^>]*>/g)]
   if (collectionLinks.length < 3 || collectionLinks.some(([anchor]) => !anchor.includes('target="_self"'))) {
     throw new Error(`${locale} home must fully navigate to the separate Showcase project instead of its VitePress router`)
   }
