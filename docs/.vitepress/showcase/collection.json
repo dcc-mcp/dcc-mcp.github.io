@@ -1,0 +1,1399 @@
+{
+  "schema_version": 1,
+  "repository": "dcc-mcp/showcase",
+  "ref": "090d62743778b6fd0cd8bd085af4522e9caee2ff",
+  "cases": [
+    {
+      "slug": "brass-pendulum-denoise",
+      "original": {
+        "title": "Brass Pendulum · 黄铜摆锤",
+        "subtitle": "Blender · 原生动画细化与引导式空间降噪",
+        "summary": "黄铜圆环和瓷质摆锤经过原生几何细化，42→44 mm 镜头保留完整底座。高分辨率候选使用真实 Albedo/Normal 引导逐帧空间降噪；成片为 144 帧、24000/1001 fps、6.006 秒，无音轨。旧低采样时域案例作为独立历史实验保留。",
+        "software": [
+          "Blender",
+          "dcc-media-enhance",
+          "FFmpeg"
+        ],
+        "evidence_label": "原生 Cycles 渲染 · 真实引导通道 · 空间 OIDN",
+        "evidence_scope": "真实 DCC-MCP 编辑与保存重开；960 × 720、96 samples 的原生多层线性 EXR，经统一 dcc-media-enhance CLI 调用 Blender compositor OIDN，再通过明确 AgX 与 sRGB→BT.709 链生成展示视频。英中桌面/触控完整画面播放已在明确记录的5080041提交上通过；后续提交须另验。",
+        "limitations": [
+          "本案例为原创程序化动画，不是CineRecon重建、物理摆仿真、基准测试或模型质量评分。",
+          "OIDN在此逐帧独立运行，属于空间降噪；没有时域算法或运动补偿，单帧成功不证明动态稳定。",
+          "历史atadenoise实验的几何、镜头、尺寸与采样不同；旧raw视频不能作为新成片的同源控制。",
+          "MP4为有损展示编码。浏览器参考由该最终MP4独立解码取得，只核验交付显示一致性，不是原生EXR或高采样画质真值。",
+          "公开原生副本字节不同于制作原件；只声明已检查设置与投影边界一致，未证明重新渲染像素一致。",
+          "触控为Chromium视口模拟；页面内正常原生控件可能遮挡末图，末图另通过真实全屏操作核验，不声称页面内画面无遮挡。未测试实体设备、Safari/Firefox或生产站点。",
+          "模型与推理强度没有可独立核验的已接受任务配置记录，各阶段继续Unknown。",
+          "dcc-media-enhance源码采用MIT许可；原创案例资产仍保留权利，上游Blender、OIDN和FFmpeg许可义务不变。"
+        ],
+        "alt": "新候选中的黄铜圆环、瓷质摆锤与完整深青色底座，来自实际 960 × 720 原生渲染"
+      },
+      "en": {
+        "title": "Brass Pendulum",
+        "subtitle": "Blender · Refined native animation and guided spatial denoising",
+        "summary": "Native geometry refinements shape the brass hoop and porcelain pendulum; the 42-to-44 mm lens keeps the whole plinth framed. The higher-resolution candidate uses real Albedo/Normal guides for per-frame spatial denoising, containing 144 frames at 24000/1001 fps over 6.006 seconds without audio. The older low-sample temporal experiment is preserved separately.",
+        "software": [
+          "Blender",
+          "dcc-media-enhance",
+          "FFmpeg"
+        ],
+        "evidence_label": "Native Cycles render · Real guide passes · Spatial OIDN",
+        "evidence_scope": "Genuine DCC-MCP edits and save/reopen; native multilayer linear EXR at 960 × 720 and 96 samples passes through the unified dcc-media-enhance CLI, Blender compositor OIDN and explicit AgX/sRGB-to-BT.709 delivery. English/Chinese desktop/touch full-picture playback passed on recorded commit 5080041; later commits require separate checks.",
+        "limitations": [
+          "This is an original procedural animation, not CineRecon reconstruction, a physical pendulum simulation, a benchmark or a model-quality score.",
+          "OIDN runs independently per frame here and is spatial; there is no temporal algorithm or motion compensation, and still-frame success does not prove motion stability.",
+          "The historical atadenoise experiment differs in geometry, camera, dimensions and sampling; its old raw video is not a same-source control for the new film.",
+          "MP4 is a lossy display encode. Browser references are independently decoded from that final MP4 and verify display consistency, not native EXR or high-sample quality ground truth.",
+          "The public native copy differs from production bytes; equivalence is limited to inspected settings and projected bounds, without pixel-identical rerender proof.",
+          "Touch is Chromium viewport emulation. Normal inline native controls can obscure the ended image; its separate real-fullscreen inspection does not claim unobstructed inline pixels. Physical devices, Safari/Firefox and production hosting were not tested.",
+          "No independently verifiable accepted task-configuration record establishes model or reasoning effort; every stage remains Unknown.",
+          "dcc-media-enhance source is MIT-licensed; original case assets remain rights-reserved, and upstream Blender, OIDN and FFmpeg licensing obligations remain unchanged."
+        ],
+        "alt": "Brass hoop, porcelain pendulum and complete deep-teal plinth in the new candidate, from the actual 960 × 720 native render"
+      },
+      "zh": {
+        "title": "Brass Pendulum · 黄铜摆锤",
+        "subtitle": "Blender · 原生动画细化与引导式空间降噪",
+        "summary": "黄铜圆环和瓷质摆锤经过原生几何细化，42→44 mm 镜头保留完整底座。高分辨率候选使用真实 Albedo/Normal 引导逐帧空间降噪；成片为 144 帧、24000/1001 fps、6.006 秒，无音轨。旧低采样时域案例作为独立历史实验保留。",
+        "software": [
+          "Blender",
+          "dcc-media-enhance",
+          "FFmpeg"
+        ],
+        "evidence_label": "原生 Cycles 渲染 · 真实引导通道 · 空间 OIDN",
+        "evidence_scope": "真实 DCC-MCP 编辑与保存重开；960 × 720、96 samples 的原生多层线性 EXR，经统一 dcc-media-enhance CLI 调用 Blender compositor OIDN，再通过明确 AgX 与 sRGB→BT.709 链生成展示视频。英中桌面/触控完整画面播放已在明确记录的5080041提交上通过；后续提交须另验。",
+        "limitations": [
+          "本案例为原创程序化动画，不是CineRecon重建、物理摆仿真、基准测试或模型质量评分。",
+          "OIDN在此逐帧独立运行，属于空间降噪；没有时域算法或运动补偿，单帧成功不证明动态稳定。",
+          "历史atadenoise实验的几何、镜头、尺寸与采样不同；旧raw视频不能作为新成片的同源控制。",
+          "MP4为有损展示编码。浏览器参考由该最终MP4独立解码取得，只核验交付显示一致性，不是原生EXR或高采样画质真值。",
+          "公开原生副本字节不同于制作原件；只声明已检查设置与投影边界一致，未证明重新渲染像素一致。",
+          "触控为Chromium视口模拟；页面内正常原生控件可能遮挡末图，末图另通过真实全屏操作核验，不声称页面内画面无遮挡。未测试实体设备、Safari/Firefox或生产站点。",
+          "模型与推理强度没有可独立核验的已接受任务配置记录，各阶段继续Unknown。",
+          "dcc-media-enhance源码采用MIT许可；原创案例资产仍保留权利，上游Blender、OIDN和FFmpeg许可义务不变。"
+        ],
+        "alt": "新候选中的黄铜圆环、瓷质摆锤与完整深青色底座，来自实际 960 × 720 原生渲染"
+      },
+      "cover": {
+        "path": "docs/showcase/brass-pendulum-denoise/hero.jpg",
+        "width": 960,
+        "height": 720,
+        "bytes": 42337,
+        "sha256": "c34e35261b7683e829fc3c62ed07568b9f19e22779e5bb4b76a44040de5cb4ca"
+      },
+      "demo": null,
+      "source": {
+        "url": "https://github.com/dcc-mcp/dcc-media-enhance/tree/bd4aca72488ca6165816ebdf95c99df5800a192a",
+        "commit": "bd4aca72488ca6165816ebdf95c99df5800a192a",
+        "title": "实际使用的统一降噪CLI源码；后端版本与运行证据另行记录"
+      },
+      "credits": {
+        "author": "DCC-MCP Brass Pendulum showcase contributors",
+        "license": "原创场景、画面、配方与案例资料保留权利；公开展示不构成额外 MIT 授权。上游软件许可证不变。",
+        "note": "无外部图像纹理、生成式位图或配乐；所有画面源于原生 Blender 场景。"
+      }
+    },
+    {
+      "slug": "houdini-procedural-study",
+      "original": {
+        "title": "青釉环纹器皿",
+        "subtitle": "Houdini · 51 点剖面到真实 Mantra 成图",
+        "summary": "51 点剖面定义环纹、肩部、口沿、内壁与底厚。144 段车削和两级细分形成 115,200 面的可编辑器皿；青釉、三块软箱与暖灰地面完成真实产品式主图。",
+        "software": [
+          "Houdini"
+        ],
+        "evidence_label": "本轮实际运行 · DCC-MCP 创作",
+        "evidence_scope": "2026-10-01 在独立空场景中实际运行：造型、釉面、灯光、相机、保存、四轮单帧 Mantra 渲染、工程重开及 OBJ 导出/同 Houdini 回导入均通过 typed DCC-MCP。Gateway checkpoint 89/89 successful。公开响应日志明确脱敏；早期请求未单独保存，复用 recipe 不是完整原始请求轨迹。原生 HIP 受私人元数据阻塞，仅本地保留；公开 OBJ、像素一致的公开 PNG、复用输入和证据。 最终 gateway session 93/93 successful。原 PNG 自动 Artist 元数据保留私有；公开 -public PNG 通过已发现的 MCP 自动化工具仅移除该文本 chunk，CRC、IDAT 及 decoded RGBA 哈希均保持一致。资产制作和渲染为专用 typed 工具，PNG 元数据整理明确使用 MCP 自动化 fallback。",
+        "limitations": [
+          "HIP 因私人原生元数据暂不公开，完整净化能力仍待补；可编辑 typed 输入与 CLI 重放入口已提供。",
+          "OBJ 不保留程序化 SOP 链、完整着色器与灯光；本轮未在其他 DCC 回导入 OBJ 验证。",
+          "本轮未验证 GUI 交互、其他 Houdini 版本、Karma、动画或封闭流形。",
+          "本轮生产未使用后续分辨率修复 PR；最终真实像素尺寸通过 typed 相机设置与文件解析保证。",
+          "早期仅保存响应；recipe 按实际输入整理，并在第二个空宿主通过无渲染重放；未重复完整带渲染流程。",
+          "PNG 元数据整理使用已发现的 MCP 自动化工具，专用 typed 净化能力未找到；CRC、IDAT 与 RGBA 像素一致。"
+        ],
+        "alt": "Houdini Mantra 渲染的青釉环纹器皿，具有空心口沿、柔和反射和地面接触阴影"
+      },
+      "en": {
+        "title": "Celadon Ringed Vessel",
+        "subtitle": "Houdini · From a 51-point profile to an actual Mantra render",
+        "summary": "A 51-point profile defines the rings, shoulder, rim, inner wall and base thickness. A 144-segment revolve and two subdivision levels produce an editable vessel with 115,200 faces; celadon glaze, three softboxes and a warm-gray floor complete the actual product-style hero image.",
+        "software": [
+          "Houdini"
+        ],
+        "evidence_label": "Executed in this round · DCC-MCP creation",
+        "evidence_scope": "Actually executed on 2026-10-01 in a separate empty scene: shaping, glaze, lighting, camera, saving, four rounds of single-frame Mantra rendering, project reopening, OBJ export and reimport into the same Houdini instance all went through typed DCC-MCP. Gateway checkpoint 89/89 successful. Public response logs are explicitly redacted; early requests were not saved separately, and the reusable recipe is not a complete original request trace. The native HIP is withheld because of private metadata and retained locally only; the OBJ, pixel-identical public PNG, reusable inputs and evidence are public. Final gateway session 93/93 successful. The original PNG's automatic Artist metadata remains private; the public -public PNG was processed through a discovered MCP automation tool to remove only that text chunk, preserving CRC, IDAT and decoded RGBA hashes. Asset creation and rendering used dedicated typed tools; PNG metadata cleanup explicitly used an MCP automation fallback.",
+        "limitations": [
+          "The HIP is currently withheld because of private native metadata; complete sanitization remains a capability gap. Editable typed inputs and a CLI replay entry point are provided.",
+          "The OBJ does not retain the procedural SOP chain, complete shaders or lighting; OBJ reimport into other DCC applications was not verified in this round.",
+          "GUI interaction, other Houdini versions, Karma, animation and closed-manifold geometry were not verified in this round.",
+          "This production round did not use the subsequent resolution-fix PR; the actual final pixel dimensions were ensured through typed camera settings and file parsing.",
+          "Only responses were saved early on. The recipe was organized from the actual inputs and passed a render-free replay in a second empty host; the complete rendering workflow was not repeated.",
+          "PNG metadata cleanup used a discovered MCP automation tool; no dedicated typed sanitization capability was found. CRC, IDAT and RGBA pixels remain identical."
+        ],
+        "alt": "A celadon ringed vessel rendered in Houdini Mantra, with an open rim, soft reflections and ground-contact shadows"
+      },
+      "zh": {
+        "title": "青釉环纹器皿",
+        "subtitle": "Houdini · 51 点剖面到真实 Mantra 成图",
+        "summary": "51 点剖面定义环纹、肩部、口沿、内壁与底厚。144 段车削和两级细分形成 115,200 面的可编辑器皿；青釉、三块软箱与暖灰地面完成真实产品式主图。",
+        "software": [
+          "Houdini"
+        ],
+        "evidence_label": "本轮实际运行 · DCC-MCP 创作",
+        "evidence_scope": "2026-10-01 在独立空场景中实际运行：造型、釉面、灯光、相机、保存、四轮单帧 Mantra 渲染、工程重开及 OBJ 导出/同 Houdini 回导入均通过 强类型 DCC-MCP。Gateway 检查点 89/89 成功。公开响应日志明确脱敏；早期请求未单独保存，复用 recipe 不是完整原始请求轨迹。原生 HIP 受私人元数据阻塞，仅本地保留；公开 OBJ、像素一致的公开 PNG、复用输入和证据。 最终 Gateway 会话 93/93 成功。原 PNG 自动 Artist 元数据保留私有；公开 -public PNG 通过已发现的 MCP 自动化工具仅移除该文本数据块，CRC、IDAT 及 解码后的 RGBA 哈希均保持一致。资产制作和渲染为专用强类型工具，PNG 元数据整理明确使用 MCP 自动化回退方案。",
+        "limitations": [
+          "HIP 因私人原生元数据暂不公开，完整净化能力仍待补；可编辑 typed 输入与 CLI 重放入口已提供。",
+          "OBJ 不保留程序化 SOP 链、完整着色器与灯光；本轮未在其他 DCC 回导入 OBJ 验证。",
+          "本轮未验证 GUI 交互、其他 Houdini 版本、Karma、动画或封闭流形。",
+          "本轮生产未使用后续分辨率修复 PR；最终真实像素尺寸通过 typed 相机设置与文件解析保证。",
+          "早期仅保存响应；recipe 按实际输入整理，并在第二个空宿主通过无渲染重放；未重复完整带渲染流程。",
+          "PNG 元数据整理使用已发现的 MCP 自动化工具，专用强类型净化能力未找到；CRC、IDAT 与 RGBA 像素一致。"
+        ],
+        "alt": "Houdini Mantra 渲染的青釉环纹器皿，具有空心口沿、柔和反射和地面接触阴影"
+      },
+      "cover": {
+        "path": "docs/showcase/houdini-procedural-study/hero.jpg",
+        "width": 1200,
+        "height": 1500,
+        "bytes": 52728,
+        "sha256": "ab77fb216e715cdeb44313054de3e2d5ac039755f8c82e21f61a2777011ef623"
+      },
+      "demo": null,
+      "source": {
+        "url": "https://github.com/dcc-mcp/dcc-mcp-houdini/tree/9957e58e987147e448819384a0e8a8be5756de18",
+        "commit": "9957e58e987147e448819384a0e8a8be5756de18",
+        "title": "实际运行的 Adapter 工具源码（作品另见本案例哈希）"
+      },
+      "credits": {
+        "author": "DCC-MCP showcase · 本轮通过 typed MCP 实际生成",
+        "license": "MIT",
+        "note": "无外部模型、参考图或贴图。文档、模型与渲染按仓库 MIT 许可提供；SideFX 软件及内置着色器不独立重新分发。"
+      }
+    },
+    {
+      "slug": "crate-lookdev",
+      "original": {
+        "title": "风化木箱",
+        "subtitle": "从 Designer 材质图到 Blender lookdev",
+        "summary": "把木纹、掉漆、铁锈与划痕分成可编辑材质图，再把厚度、断裂、纤维和接触阴影落实到一个可重开的木箱场景。178 个箱体网格、两套 Designer 图和 13 张打包贴图组成最终 lookdev。",
+        "software": [
+          "Blender",
+          "Substance 3D Designer"
+        ],
+        "evidence_label": "历史成果 · 新镜头仅为未完成阶段证据",
+        "evidence_scope": "2026-10-12 新镜头尝试未达到本轮目标：真实重开固定哈希历史源，保存重开两份新相机工程，完成55个全景帧；仅交付前50帧、约2.083秒真实片段。原计划六秒144帧未完成，多次宿主 -9 退出后已停止重试，原因未确定。片段技术解码通过不等于高品质整片验收。原模型、Designer图、历史成果与原始制作未知归属保留，不以本次镜头记录补造历史证据。",
+        "limitations": [
+          "本次只交付50帧阶段片段，不标作高品质最终成片。源工程和55帧检查点保留；退出原因未确定，未以降画质、插帧或重复静帧凑足时长。",
+          "2026-10-01归档未在DCC中复现。2026-10-12实际重开并尝试相机动画，未重做原始建模、Designer图或SBS计算；影片目标仍未完成。",
+          "原始提示词、完整 MCP 工具调用日志与 adapter/core 版本未公开。",
+          "历史参考图由 Codex 图像生成产生；它是参考输入，不是通过 DCC-MCP 制作的成品。",
+          "尺寸、风化与损伤是艺术估计；边缘磨损取自 Designer 板材分布，不是曲率烘焙。",
+          "这是密集 lookdev 场景：平铺/重叠 UV，不是游戏可用拓扑或唯一烘焙图集。",
+          "源记录只声明可重开和重算，不声明重算 PNG 字节完全一致。",
+          "源仓库整体声明 MIT；作品、生成参考图与材质没有另列许可。Adobe 内置库资源仅通过 sbs:// 引用，不在本站分发。",
+          "公开片段使用原第1–50帧；额外检查点51–55采用OIDN两线程。同帧校准最大通道差2/255，非逐像素一致，未证明峰值内存下降。旧ZIP仍是历史源，新镜头由固定输入和recipe重建。"
+        ],
+        "alt": "Blender Cycles 渲染的橄榄绿风化长木箱，带金属包角、锁扣和断裂压条"
+      },
+      "en": {
+        "title": "Weathered Wooden Crate",
+        "subtitle": "From a Designer material graph to Blender lookdev",
+        "summary": "Separate wood grain, peeling paint, rust and scratches into editable material graphs, then realize thickness, fractures, fibers and contact shadows in a reopenable crate scene. The final lookdev combines 178 crate meshes, two Designer graphs and 13 packed textures.",
+        "software": [
+          "Blender",
+          "Substance 3D Designer"
+        ],
+        "evidence_label": "Historical artwork · New camera attempt is partial stage evidence",
+        "evidence_scope": "The 2026-10-12 camera attempt did not meet this pass’s target. The pinned historical source was actually reopened, two new camera scenes were saved/reopened, and 55 wide frames completed; only the first 50 frames, approximately 2.083 seconds, are delivered as a real excerpt. The planned six-second, 144-frame film is incomplete. Repeated host exits with status -9 ended rendering retries; their cause is unestablished. Successful excerpt decoding is not final-quality approval of the full film. The original model, Designer graphs, historical artwork and unknown production attribution remain intact.",
+        "limitations": [
+          "This pass delivers only a 50-frame stage excerpt, not a high-quality finished film. Source scenes and the 55-frame checkpoint are retained. Host-exit causes are unestablished; quality reduction, interpolation and repeated still holds were not used to fill the missing duration.",
+          "The 2026-10-01 curation did not reproduce the work in a DCC. The 2026-10-12 pass actually reopened the source and attempted camera animation, without rebuilding the original model, Designer graphs or SBS materials. The film target remains incomplete.",
+          "The original prompt, complete MCP tool-call logs and adapter/core versions are not public.",
+          "The historical reference image was produced through Codex image generation. It is a reference input, not a deliverable made through DCC-MCP.",
+          "Dimensions, weathering and damage are artistic estimates; edge wear comes from the Designer board distribution, not a curvature bake.",
+          "This is a dense lookdev scene with tiling/overlapping UVs, not game-ready topology or a unique baked atlas.",
+          "The source records claim only that files can be reopened and recomputed, not that recomputed PNG bytes are identical.",
+          "The source repository declares MIT for the repository as a whole; no separate licenses are listed for the artwork, generated reference image or materials. Adobe built-in library assets are referenced only through sbs:// and are not distributed on this site.",
+          "The public excerpt uses original frames 1–50; extra checkpoint frames 51–55 use two OIDN threads. Same-frame calibration differs by at most 2/255 per channel, is not pixel-identical, and does not prove reduced peak memory. The old ZIP remains historical; the new cameras are rebuilt from the pinned input and recipe."
+        ],
+        "alt": "A long olive-green weathered wooden crate rendered in Blender Cycles, with metal corner fittings, latches and fractured battens"
+      },
+      "zh": {
+        "title": "风化木箱",
+        "subtitle": "从 Designer 材质图到 Blender 视觉开发",
+        "summary": "把木纹、掉漆、铁锈与划痕分成可编辑材质图，再把厚度、断裂、纤维和接触阴影落实到一个可重开的木箱场景。178 个箱体网格、两套 Designer 图和 13 张打包贴图组成最终 lookdev。",
+        "software": [
+          "Blender",
+          "Substance 3D Designer"
+        ],
+        "evidence_label": "历史成果 · 新镜头仅为未完成阶段证据",
+        "evidence_scope": "2026-10-12 新镜头尝试未达到本轮目标：真实重开固定哈希历史源，保存重开两份新相机工程，完成55个全景帧；仅交付前50帧、约2.083秒真实片段。原计划六秒144帧未完成，多次宿主 -9 退出后已停止重试，原因未确定。片段技术解码通过不等于高品质整片验收。原模型、Designer图、历史成果与原始制作未知归属保留，不以本次镜头记录补造历史证据。",
+        "limitations": [
+          "本次只交付50帧阶段片段，不标作高品质最终成片。源工程和55帧检查点保留；退出原因未确定，未以降画质、插帧或重复静帧凑足时长。",
+          "2026-10-01归档未在DCC中复现。2026-10-12实际重开并尝试相机动画，未重做原始建模、Designer图或SBS计算；影片目标仍未完成。",
+          "原始提示词、完整 MCP 工具调用日志与 adapter/core 版本未公开。",
+          "历史参考图由 Codex 图像生成产生；它是参考输入，不是通过 DCC-MCP 制作的成品。",
+          "尺寸、风化与损伤是艺术估计；边缘磨损取自 Designer 板材分布，不是曲率烘焙。",
+          "这是密集 lookdev 场景：平铺/重叠 UV，不是游戏可用拓扑或唯一烘焙图集。",
+          "源记录只声明可重开和重算，不声明重算 PNG 字节完全一致。",
+          "源仓库整体声明 MIT；作品、生成参考图与材质没有另列许可。Adobe 内置库资源仅通过 sbs:// 引用，不在本站分发。",
+          "公开片段使用原第1–50帧；额外检查点51–55采用OIDN两线程。同帧校准最大通道差2/255，非逐像素一致，未证明峰值内存下降。旧ZIP仍是历史源，新镜头由固定输入和recipe重建。"
+        ],
+        "alt": "Blender Cycles 渲染的橄榄绿风化长木箱，带金属包角、锁扣和断裂压条"
+      },
+      "cover": {
+        "path": "docs/showcase/crate-lookdev/hero.jpg",
+        "width": 1600,
+        "height": 1600,
+        "bytes": 143237,
+        "sha256": "9e4a70390fb56bc5182d36c97d8a70ee45cfad1bc65afb7c6b48b6543b752f7c"
+      },
+      "demo": null,
+      "source": {
+        "url": "https://github.com/dcc-mcp/dcc-mcp-substance3d-designer/blob/38623dd51721a958b8dc5d2e8957e991908333ac/docs/showcase/crate-lookdev/README.md",
+        "commit": "38623dd51721a958b8dc5d2e8957e991908333ac"
+      },
+      "credits": {
+        "author": "Long Hao / loonghao · DCC-MCP",
+        "license": "源仓库 MIT；作品与素材未另列独立许可",
+        "note": "保留源作者与完整 MIT 声明。参考图源于 Codex 图像生成；Adobe Substance 3D Designer 是第三方软件，标准库仅引用、不分发。当前图片是原公开成果的网页派生副本。"
+      }
+    },
+    {
+      "slug": "painted-wood",
+      "original": {
+        "title": "橄榄绿旧漆木材",
+        "subtitle": "从生成参考到可编辑的程序化表面",
+        "summary": "19 个作者节点把木纤维、裸木颜色和剥落油漆变成可编辑的 PBR 材质。颜色校正有前后图，paint_coverage 暴露为参数，五类原生输出保留明确的位深和色彩解释。",
+        "software": [
+          "Substance 3D Designer"
+        ],
+        "evidence_label": "公开案例 · 本轮未复现",
+        "evidence_scope": "整合源仓库 2026-09-10 发布的 Designer 图、前后颜色图、原生贴图与文件清单。公开报告声明通过 DCC-MCP 编写实时材质图；本轮核对 5 张原图哈希并制作网页副本，没有启动 Designer。源包未提供 validation.json、原始提示词、完整 tools/call 日志或 adapter/core 版本。",
+        "limitations": [
+          "本轮只核对公开资产哈希与来源，没有在 Designer 中重新执行，未证明当前适配器可复现。",
+          "公开案例没有原始提示词、validation.json、tools/call 日志或 adapter/core 版本。",
+          "历史参考图由 Codex 图像生成产生，属于参考输入；它不是程序化材质的导出结果。",
+          "圆角立方体是 Designer 预览网格。没有木箱几何、硬件、特定边缘磨损或 UV 重建。",
+          "颜色是艺术估计，不是物理 albedo 测量。Normal Y 方向仍须与目标渲染器匹配。",
+          "源仓库整体声明 MIT；作品、参考图和材质未另列许可。SBS 用 sbs:// 引用安装的 Adobe 标准库，本站不分发标准库源码。"
+        ],
+        "alt": "Designer 实际界面同时显示旧漆木材节点图、2D 输出与圆角立方体预览"
+      },
+      "en": {
+        "title": "Olive-Green Aged-Paint Wood",
+        "subtitle": "From a generated reference to an editable procedural surface",
+        "summary": "19 authoring nodes turn wood fibers, bare-wood colors and peeling paint into an editable PBR material. Before-and-after images document color correction, paint_coverage is exposed as a parameter, and the five native output types retain explicit bit depths and color interpretations.",
+        "software": [
+          "Substance 3D Designer"
+        ],
+        "evidence_label": "Public case · Not reproduced in this round",
+        "evidence_scope": "Combines the Designer graph, before-and-after color images, native textures and file inventory published in the source repository on 2026-09-10. The public report states that the live material graph was authored through DCC-MCP. This round checked hashes for 5 original images and created web copies without launching Designer. The source package does not provide validation.json, the original prompt, complete tools/call logs or adapter/core versions.",
+        "limitations": [
+          "This round checked only public asset hashes and provenance, without rerunning the workflow in Designer; reproducibility with the current adapter has not been established.",
+          "The public case lacks the original prompt, validation.json, tools/call logs and adapter/core versions.",
+          "The historical reference image was produced through Codex image generation and is a reference input, not an exported result of the procedural material.",
+          "The rounded cube is a Designer preview mesh. There is no reconstruction of crate geometry, hardware, specific edge wear or UVs.",
+          "Colors are artistic estimates, not physical albedo measurements. The Normal Y direction must still be matched to the target renderer.",
+          "The source repository declares MIT for the repository as a whole; no separate licenses are listed for the artwork, reference image or material. The SBS references the installed Adobe standard library through sbs://; this site does not distribute standard-library source code."
+        ],
+        "alt": "The actual Designer interface showing the aged-paint wood node graph, 2D output and rounded-cube preview together"
+      },
+      "zh": {
+        "title": "橄榄绿旧漆木材",
+        "subtitle": "从生成参考到可编辑的程序化表面",
+        "summary": "19 个作者节点把木纤维、裸木颜色和剥落油漆变成可编辑的 PBR 材质。颜色校正有前后图，paint_coverage 暴露为参数，五类原生输出保留明确的位深和色彩解释。",
+        "software": [
+          "Substance 3D Designer"
+        ],
+        "evidence_label": "公开案例 · 本轮未复现",
+        "evidence_scope": "整合源仓库 2026-09-10 发布的 Designer 图、前后颜色图、原生贴图与文件清单。公开报告声明通过 DCC-MCP 编写实时材质图；本轮核对 5 张原图哈希并制作网页副本，没有启动 Designer。源包未提供 validation.json、原始提示词、完整 tools/call 日志或 adapter/core 版本。",
+        "limitations": [
+          "本轮只核对公开资产哈希与来源，没有在 Designer 中重新执行，未证明当前适配器可复现。",
+          "公开案例没有原始提示词、validation.json、tools/call 日志或 adapter/core 版本。",
+          "历史参考图由 Codex 图像生成产生，属于参考输入；它不是程序化材质的导出结果。",
+          "圆角立方体是 Designer 预览网格。没有木箱几何、硬件、特定边缘磨损或 UV 重建。",
+          "颜色是艺术估计，不是物理 albedo 测量。Normal Y 方向仍须与目标渲染器匹配。",
+          "源仓库整体声明 MIT；作品、参考图和材质未另列许可。SBS 用 sbs:// 引用安装的 Adobe 标准库，本站不分发标准库源码。"
+        ],
+        "alt": "Designer 实际界面同时显示旧漆木材节点图、2D 输出与圆角立方体预览"
+      },
+      "cover": {
+        "path": "docs/showcase/painted-wood/hero.jpg",
+        "width": 1568,
+        "height": 931,
+        "bytes": 153765,
+        "sha256": "f6b76a213c736b241f8124efdaf1ab0af0a2810bc19c913c1cafdc6494103e88"
+      },
+      "demo": null,
+      "source": {
+        "url": "https://github.com/dcc-mcp/dcc-mcp-substance3d-designer/blob/38623dd51721a958b8dc5d2e8957e991908333ac/docs/showcase/painted-wood/README.md",
+        "commit": "38623dd51721a958b8dc5d2e8957e991908333ac"
+      },
+      "credits": {
+        "author": "Long Hao / loonghao · DCC-MCP",
+        "license": "源仓库 MIT；作品与素材未另列独立许可",
+        "note": "源报告注明参考由 Codex 生成、材质和导出文件为该仓库创作。保留作者与源许可；Adobe 标准库内容仅引用、不分发。当前图片是原公开成果的网页派生副本。"
+      }
+    },
+    {
+      "slug": "crystal-freight-native-film",
+      "original": {
+        "title": "CRYSTAL FREIGHT · 悬浮采石场",
+        "subtitle": "OpenSCAD → Blender → Kdenlive · 参数轨道、原生动作与可编辑影片",
+        "summary": "600毫米轨距、112根轨枕和148个原生对象构成一座小型采石场。机车停靠、矿晶落入货车、吊钩回收，列车穿过石质门架驶离。",
+        "software": [
+          "OpenSCAD",
+          "Blender",
+          "Kdenlive",
+          "REAPER"
+        ],
+        "evidence_label": "本轮实际运行 · 三软件 DCC-MCP 创作",
+        "evidence_scope": "实际 OpenSCAD → Blender → Kdenlive MCP 创作。四份原生 BLEND 迁移后重开并通过像素比较；修正编辑工程的全部480帧通过迁移比较。七个原生文字效果控件及未改参数的 Save Copy/重开已验收，同一显示环境下全部RGB/RGBA帧和MP4字节一致。公开证据是实际调用的精选脱敏投影，不是完整原始日志。",
+        "limitations": [
+          "这是原创运动学微缩场景，不是铁路安全、结构工程或刚体/悬挂/流体仿真。",
+          "仅检查有限采样及整数关键帧，不声称连续时间碰撞认证、完整绕行或无缝循环。",
+          "120张动作图按12fps节奏播放；不声称24fps独立运动帧或音轨设计。",
+          "早期JPEG白帧、门架及投影包围盒失败保留在证据中；最终影片使用已核验的PNG输入。",
+          "开发前后对比为早期几何/材质版本在最终车距与相机姿态下重新渲染，已明确标注。",
+          "最终工程已验收原生控件、未改参数的保存副本与重开；参数编辑/参数Undo及跨环境像素一致不在本次范围内。",
+          "精简包可独立打开 CAD/Blender；Kdenlive 需要完整包中的 122 张 PNG。完整包已通过免登录下载和 SHA-256 核验。",
+          "公开证据为精选实际工具调用投影，完整私有日志、软件运行时及字体文件不随包分发。",
+          "新增音轨不代表原视觉工程被重新制作；没有记录主观听评，也不涉及私人游戏项目的集成验证。"
+        ],
+        "alt": "深色背景中的悬浮岩岛、琥珀色矿晶、绿色窄轨机车与木制栈桥"
+      },
+      "en": {
+        "title": "CRYSTAL FREIGHT · Floating Quarry",
+        "subtitle": "OpenSCAD → Blender → Kdenlive · Parametric track, native motion and an editable film",
+        "summary": "A 600-millimeter track gauge, 112 sleepers and 148 native objects form a miniature quarry. The locomotive stops, a mineral crystal drops into a freight wagon, the hook retracts, and the train departs through a stone gantry.",
+        "software": [
+          "OpenSCAD",
+          "Blender",
+          "Kdenlive",
+          "REAPER"
+        ],
+        "evidence_label": "Executed in this round · DCC-MCP creation across three applications",
+        "evidence_scope": "Actual OpenSCAD → Blender → Kdenlive MCP creation. Four native BLEND files were reopened after migration and passed pixel comparisons; all 480 frames of the corrected editing project passed migration comparison. Seven native text-effect controls and unchanged-parameter Save Copy/reopen behavior passed acceptance. All RGB/RGBA frames and MP4 bytes were identical in the same display environment. Public evidence is a curated, redacted projection of actual calls, not the complete original logs.",
+        "limitations": [
+          "This is an original kinematic miniature scene, not a railway-safety, structural-engineering or rigid-body/suspension/fluid simulation.",
+          "Only limited samples and integer keyframes were checked; no claim is made of continuous-time collision certification, a complete circuit or seamless looping.",
+          "120 action images play at a 12fps cadence; no claim is made of 24fps independent motion frames or soundtrack design.",
+          "Early JPEG white-frame, gantry and projected-bounding-box failures are retained in the evidence; the final film uses verified PNG inputs.",
+          "The before/after development comparison rerenders an early geometry/material version at the final wagon spacing and camera pose, as explicitly labeled.",
+          "The final project passed acceptance for native controls, saving a copy with unchanged parameters and reopening. Parameter edits/parameter Undo and cross-environment pixel identity are outside this scope.",
+          "The compact package can open CAD/Blender independently; Kdenlive requires the 122 PNGs in the full package. The full package passed login-free download and SHA-256 verification.",
+          "Public evidence is a curated projection of actual tool calls; complete private logs, software runtimes and font files are not distributed with the package.",
+          "The added soundtrack does not mean that the original visual project was remade. No subjective listening review is recorded, and no integration verification with a private game project is included."
+        ],
+        "alt": "A floating rock island, amber mineral crystals, a green narrow-gauge locomotive and a wooden trestle against a dark background"
+      },
+      "zh": {
+        "title": "CRYSTAL FREIGHT · 悬浮采石场",
+        "subtitle": "OpenSCAD → Blender → Kdenlive · 参数轨道、原生动作与可编辑影片",
+        "summary": "600毫米轨距、112根轨枕和148个原生对象构成一座小型采石场。机车停靠、矿晶落入货车、吊钩回收，列车穿过石质门架驶离。",
+        "software": [
+          "OpenSCAD",
+          "Blender",
+          "Kdenlive",
+          "REAPER"
+        ],
+        "evidence_label": "本轮实际运行 · 三软件 DCC-MCP 创作",
+        "evidence_scope": "实际 OpenSCAD → Blender → Kdenlive MCP 创作。四份原生 BLEND 迁移后重开并通过像素比较；修正编辑工程的全部480帧通过迁移比较。七个原生文字效果控件及未改参数的 Save Copy/重开已验收，同一显示环境下全部RGB/RGBA帧和MP4字节一致。公开证据是实际调用的精选脱敏投影，不是完整原始日志。",
+        "limitations": [
+          "这是原创运动学微缩场景，不是铁路安全、结构工程或刚体/悬挂/流体仿真。",
+          "仅检查有限采样及整数关键帧，不声称连续时间碰撞认证、完整绕行或无缝循环。",
+          "120张动作图按12fps节奏播放；不声称24fps独立运动帧或音轨设计。",
+          "早期JPEG白帧、门架及投影包围盒失败保留在证据中；最终影片使用已核验的PNG输入。",
+          "开发前后对比为早期几何/材质版本在最终车距与相机姿态下重新渲染，已明确标注。",
+          "最终工程已验收原生控件、未改参数的保存副本与重开；参数编辑/参数Undo及跨环境像素一致不在本次范围内。",
+          "精简包可独立打开 CAD/Blender；Kdenlive 需要完整包中的 122 张 PNG。完整包已通过免登录下载和 SHA-256 核验。",
+          "公开证据为精选实际工具调用投影，完整私有日志、软件运行时及字体文件不随包分发。",
+          "新增音轨不代表原视觉工程被重新制作；没有记录主观听评，也不涉及私人游戏项目的集成验证。"
+        ],
+        "alt": "深色背景中的悬浮岩岛、琥珀色矿晶、绿色窄轨机车与木制栈桥"
+      },
+      "cover": {
+        "path": "docs/showcase/crystal-freight-native-film/hero.jpg",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 189104,
+        "sha256": "bbba7149465ad258fc2fe213d97090acbec866bd403a1a5d616e7b088b506121"
+      },
+      "demo": null,
+      "source": {
+        "url": "https://github.com/dcc-mcp/dcc-mcp-blender/tree/1f1dacc54c1bb9fa0f8b347f345437f59c23e40d",
+        "commit": "1f1dacc54c1bb9fa0f8b347f345437f59c23e40d",
+        "title": "实际 Blender 适配器基线；其他版本、修正源码哈希及公开证据边界见验收文件"
+      },
+      "credits": {
+        "author": "DCC-MCP showcase contributors",
+        "license": "作品与工程保留权利；本次未授予额外许可，站点MIT不适用于这些案例资产",
+        "note": "未导入第三方模型、参考图像、影视素材或音乐。创作参考只提供制作原则；作者链接和范围见LICENSES.md。 新增音轨说明见 SOUNDTRACK-LICENSES.md；独立音频 CC0，原画面和作品权利不变。"
+      }
+    },
+    {
+      "slug": "brass-relay",
+      "original": {
+        "title": "BRASS RELAY · 黄铜四连杆",
+        "subtitle": "FreeCAD → Blender → Kdenlive · 从参数零件到可核对的机构运动",
+        "summary": "镂孔黄铜飞轮匀速旋转，带动暗红连杆与银色摇杆往复摆动。零件尺寸、轴向分层、孔轴位置与原生关键帧都可检查和继续编辑。",
+        "software": [
+          "FreeCAD",
+          "Blender",
+          "Kdenlive",
+          "REAPER"
+        ],
+        "evidence_label": "本轮实际运行 · 三软件 DCC-MCP 创作",
+        "evidence_scope": "实际 FreeCAD → Blender → Kdenlive MCP 创作：13件参数CAD、3份原生BLEND、96张原生运动帧和432帧影片。修正时间线的98张原媒体、390个文字效果身份及样式均保留；迁移重渲染、未改参数的原生保存重开与同一显示环境的432帧RGB/RGBA和MP4比较通过。GUI控件只观察了结尾两个效果条目与第一个文字字段；公开证据是精选调用与结果。",
+        "limitations": [
+          "运动为几何解驱动的预定关键帧；不是刚体动力学、应力、承载或制造验证",
+          "铰点误差为数值读回结果，不是物理测量精度；不声称连续时间碰撞认证",
+          "96张独立原生运动帧在18秒影片中重复两遍；不声称432张不同运动渲染",
+          "Native CAD包包含13个参数零件；完整装配保存在Blender，不声称FreeCAD约束装配",
+          "FreeCAD首次打开GUI验收只覆盖单独的代表飞轮证明副本；13件最终工程均有原生视图保存重开读回",
+          "Kdenlive原生控件视觉验收只覆盖结尾两个效果条目和首个文字字段；390项身份及样式均有序列化比较。参数编辑、Undo与最终来源监视器未获本轮资格",
+          "历史Core0.20.39创作记录与0.20.41最终资格分开保留；不追认旧记录为新版本验收",
+          "不声称完全无缝像素循环、跨机器一致渲染或适配器已发布",
+          "新增音轨不代表原视觉工程被重新制作；没有记录主观听评，也不涉及私人游戏项目的集成验证。"
+        ],
+        "alt": "黄铜镂孔飞轮、暗红连杆与银色摇杆，在象牙色仪器底座上组成完整四杆机构"
+      },
+      "en": {
+        "title": "BRASS RELAY · Brass Four-Bar Linkage",
+        "subtitle": "FreeCAD → Blender → Kdenlive · From parametric parts to verifiable mechanism motion",
+        "summary": "The perforated brass flywheel rotates at a constant speed, driving the dark red connecting rod and silver rocker back and forth. Part dimensions, axial layering, hole and shaft positions, and native keyframes can all be inspected and edited further.",
+        "software": [
+          "FreeCAD",
+          "Blender",
+          "Kdenlive",
+          "REAPER"
+        ],
+        "evidence_label": "Executed in this round · DCC-MCP creation across three applications",
+        "evidence_scope": "Actual FreeCAD → Blender → Kdenlive MCP production: 13 parametric CAD parts, 3 native BLEND files, 96 native motion frames and a 432-frame film. The corrected timeline preserves all 98 original media items and the identities and styles of all 390 text effects. Relocation and rerendering, native save/reopen without parameter changes, and comparisons of all 432 RGB/RGBA frames and the MP4 in the same display environment passed. GUI controls were observed only for the final two effect entries and the first text field; the public evidence consists of selected calls and results.",
+        "limitations": [
+          "Motion uses predetermined keyframes driven by a geometric solution; it is not rigid-body dynamics, stress, load-bearing or manufacturing validation",
+          "Pivot error is a numerical readback result, not physical measurement precision; no continuous-time collision certification is claimed",
+          "96 distinct native motion frames are repeated twice in the 18-second film; 432 different motion renders are not claimed",
+          "The Native CAD package contains 13 parametric parts; the full assembly is saved in Blender, with no claim of a constrained FreeCAD assembly",
+          "FreeCAD first-open GUI acceptance covers only a separate representative flywheel proof copy; all 13 final projects have native-view save/reopen readbacks",
+          "Visual acceptance of Kdenlive native controls covers only the final two effect entries and the first text field; all 390 identities and styles have serialized comparisons. Parameter editing, Undo and the final source monitor were not qualified in this run",
+          "Historical Core 0.20.39 creation records and final 0.20.41 qualification are retained separately; old records are not retroactively treated as acceptance of the new version",
+          "No claim is made of a perfectly seamless pixel loop, identical rendering across machines or a released adapter",
+          "The added soundtrack does not mean that the original visual project was remade. No subjective listening review is recorded, and no integration verification with a private game project is included."
+        ],
+        "alt": "A perforated brass flywheel, dark red connecting rod and silver rocker form a complete four-bar mechanism on an ivory instrument base"
+      },
+      "zh": {
+        "title": "BRASS RELAY · 黄铜四连杆",
+        "subtitle": "FreeCAD → Blender → Kdenlive · 从参数零件到可核对的机构运动",
+        "summary": "镂孔黄铜飞轮匀速旋转，带动暗红连杆与银色摇杆往复摆动。零件尺寸、轴向分层、孔轴位置与原生关键帧都可检查和继续编辑。",
+        "software": [
+          "FreeCAD",
+          "Blender",
+          "Kdenlive",
+          "REAPER"
+        ],
+        "evidence_label": "本轮实际运行 · 三软件 DCC-MCP 创作",
+        "evidence_scope": "实际 FreeCAD → Blender → Kdenlive MCP 创作：13件参数CAD、3份原生BLEND、96张原生运动帧和432帧影片。修正时间线的98张原媒体、390个文字效果身份及样式均保留；迁移重渲染、未改参数的原生保存重开与同一显示环境的432帧RGB/RGBA和MP4比较通过。GUI控件只观察了结尾两个效果条目与第一个文字字段；公开证据是精选调用与结果。",
+        "limitations": [
+          "运动为几何解驱动的预定关键帧；不是刚体动力学、应力、承载或制造验证",
+          "铰点误差为数值读回结果，不是物理测量精度；不声称连续时间碰撞认证",
+          "96张独立原生运动帧在18秒影片中重复两遍；不声称432张不同运动渲染",
+          "原生 CAD 包包含13个参数零件；完整装配保存在Blender，不声称FreeCAD约束装配",
+          "FreeCAD首次打开GUI验收只覆盖单独的代表飞轮证明副本；13件最终工程均有原生视图保存重开读回",
+          "Kdenlive原生控件视觉验收只覆盖结尾两个效果条目和首个文字字段；390项身份及样式均有序列化比较。参数编辑、Undo与最终来源监视器未获本轮资格",
+          "历史Core0.20.39创作记录与0.20.41最终资格分开保留；不追认旧记录为新版本验收",
+          "不声称完全无缝像素循环、跨机器一致渲染或适配器已发布",
+          "新增音轨不代表原视觉工程被重新制作；没有记录主观听评，也不涉及私人游戏项目的集成验证。"
+        ],
+        "alt": "黄铜镂孔飞轮、暗红连杆与银色摇杆，在象牙色仪器底座上组成完整四杆机构"
+      },
+      "cover": {
+        "path": "docs/showcase/brass-relay/hero.jpg",
+        "width": 1600,
+        "height": 1000,
+        "bytes": 77376,
+        "sha256": "fe6c4495a3a0468fa6f41c646db64d32d7f401fb8756ae7371f122472c28f930"
+      },
+      "demo": null,
+      "source": {
+        "url": "https://github.com/dcc-mcp/dcc-mcp-freecad/tree/aebbdb5e3926d24e23cdabc641499e69539f70f2",
+        "commit": "aebbdb5e3926d24e23cdabc641499e69539f70f2",
+        "title": "FreeCAD官方源码基线；历史与修正编辑工程的版本资格见制作说明"
+      },
+      "credits": {
+        "author": "DCC-MCP showcase contributors",
+        "license": "Case artwork and native/source assets: rights reserved; no additional license grant. Separately identified upstream font/software notices retain their scope.",
+        "note": "未导入第三方模型、纹理、参考影片或音乐 新增音轨说明见 SOUNDTRACK-LICENSES.md；独立音频 CC0，原画面和作品权利不变。"
+      }
+    },
+    {
+      "slug": "seismic-lens",
+      "original": {
+        "title": "SEISMIC LENS · 合成场切片",
+        "subtitle": "ParaView → GIMP · 从数值切片到可编辑科学展板",
+        "summary": "同一个解析函数，在三个方向显露出不同截面。两条等值线以相同视图比例并列，展示中心区域随阈值收缩。",
+        "software": [
+          "ParaView",
+          "GIMP"
+        ],
+        "evidence_label": "实际运行 · 两软件 DCC-MCP 制作",
+        "evidence_scope": "ParaView MCP 创建三张切面、两条等值线与保存视图，当前公开源码复现记录 210 条 SDK 事件。GIMP 的 45 项制作操作与 202 条事件完成十九个可编辑文字、五组版式、XCF 重开与全图 RGBA 比较；另以 42 条事件验证复制的 XCF，修正验证器后的195 条事件验证原生副本预览工具。公开证据为明确脱敏的实际调用节选及结果，包含完整复现脚本；事件包含发现和轮询，不等同于创作操作数。",
+        "limitations": [
+          "原创解析示意，没有地震实测数据、PDE 解算或地质推断",
+          "当前环境未暴露 CameraClippingRange；验收覆盖实际可读属性与图像像素",
+          "MCP 重开限于本会话保存的可信状态；没有放开任意外部 PVSM 导入",
+          "开发增量与实际测试版本逐项记录，不冒称 PyPI 已发行能力",
+          "静态科学展板另附八秒真实 GIMP 图层演示；不声称重做 ParaView 计算、原始创作全过程或跨机器像素一致。",
+          "预览工具限定已测试的有界 RGB/RGBA 8-bit 格式与受信任本地目录；仅 Linux GIMP 3.0.4 原生验收，Windows 不在本次资格内"
+        ],
+        "alt": "三张共享色标的正交切片与两条等值线，排列在深色科学展板上"
+      },
+      "en": {
+        "title": "SEISMIC LENS · Synthetic Field Slices",
+        "subtitle": "ParaView → GIMP · From numerical slices to an editable scientific display board",
+        "summary": "The same analytical function reveals different cross-sections in three directions. Two contours are displayed side by side at the same view scale, showing the central region shrinking as the threshold increases.",
+        "software": [
+          "ParaView",
+          "GIMP"
+        ],
+        "evidence_label": "Actual execution · DCC-MCP production across two applications",
+        "evidence_scope": "ParaView MCP created three slices, two contours and saved views; reproduction using the current public source recorded 210 SDK events. GIMP's 45 production operations and 202 events completed nineteen editable text elements, five layout groups, XCF reopening and a full-image RGBA comparison. A further 42 events verified the copied XCF, and 195 events after a validator correction verified the native-copy preview tool. Public evidence consists of explicitly redacted excerpts of actual calls and results, including complete reproduction scripts; events include discovery and polling and are not equivalent to the number of creative operations.",
+        "limitations": [
+          "An original analytical illustration, with no measured seismic data, PDE solving or geological inference",
+          "The current environment does not expose CameraClippingRange; acceptance checks cover actually readable properties and image pixels",
+          "MCP reopening is limited to trusted states saved in this session; arbitrary external PVSM import has not been enabled",
+          "Development increments and actually tested versions are documented individually; no claim is made that these capabilities have been released on PyPI",
+          "The static scientific plate now includes an eight-second real GIMP layer demonstration; this does not claim a new ParaView computation, a replay of the original creation, or cross-machine pixel identity.",
+          "The preview tool is limited to tested, bounded RGB/RGBA 8-bit formats and trusted local directories; native acceptance covers only Linux GIMP 3.0.4, with Windows outside this qualification"
+        ],
+        "alt": "Three orthogonal slices with a shared color scale and two contours arranged on a dark scientific display board"
+      },
+      "zh": {
+        "title": "SEISMIC LENS · 合成场切片",
+        "subtitle": "ParaView → GIMP · 从数值切片到可编辑科学展板",
+        "summary": "同一个解析函数，在三个方向显露出不同截面。两条等值线以相同视图比例并列，展示中心区域随阈值收缩。",
+        "software": [
+          "ParaView",
+          "GIMP"
+        ],
+        "evidence_label": "实际运行 · 两软件 DCC-MCP 制作",
+        "evidence_scope": "ParaView MCP 创建三张切面、两条等值线与保存视图，当前公开源码复现记录 210 条 SDK 事件。GIMP 的 45 项制作操作与 202 条事件完成十九个可编辑文字、五组版式、XCF 重开与全图 RGBA 比较；另以 42 条事件验证复制的 XCF，修正验证器后的195 条事件验证原生副本预览工具。公开证据为明确脱敏的实际调用节选及结果，包含完整复现脚本；事件包含发现和轮询，不等同于创作操作数。",
+        "limitations": [
+          "原创解析示意，没有地震实测数据、PDE 解算或地质推断",
+          "当前环境未暴露 CameraClippingRange；验收覆盖实际可读属性与图像像素",
+          "MCP 重开限于本会话保存的可信状态；没有放开任意外部 PVSM 导入",
+          "开发增量与实际测试版本逐项记录，不冒称 PyPI 已发行能力",
+          "静态科学展板另附八秒真实 GIMP 图层演示；不声称重做 ParaView 计算、原始创作全过程或跨机器像素一致。",
+          "预览工具限定已测试的有界 RGB/RGBA 8-bit 格式与受信任本地目录；仅 Linux GIMP 3.0.4 原生验收，Windows 不在本次资格内"
+        ],
+        "alt": "三张共享色标的正交切片与两条等值线，排列在深色科学展板上"
+      },
+      "cover": {
+        "path": "docs/showcase/seismic-lens/hero.png",
+        "width": 1600,
+        "height": 1000,
+        "bytes": 249425,
+        "sha256": "08cb592dc6b94cbf6974cba6a75cd91d415d3aabf23cce596717d654a262eb0e"
+      },
+      "demo": null,
+      "source": {
+        "url": "https://github.com/dcc-mcp/dcc-mcp-paraview/tree/9b9de65d64f77356eaad4709535c79c49a852eb4",
+        "commit": "9b9de65d64f77356eaad4709535c79c49a852eb4",
+        "title": "已合并 ParaView 实际来源；GIMP 已合并基线与精确预览增量见原生包"
+      },
+      "credits": {
+        "author": "DCC-MCP showcase contributors",
+        "license": "Artwork and native/source assets: rights reserved; no additional license grant. Separately identified upstream notices retain their scope.",
+        "note": "原创合成数据；没有第三方测量数据、模型、贴图、音乐或字体二进制"
+      }
+    },
+    {
+      "slug": "orbit-post-office",
+      "original": {
+        "title": "ORBIT POST OFFICE · 星间邮局",
+        "subtitle": "GIMP → Godot → Kdenlive · 手绘小世界、八封信与七秒短片",
+        "summary": "在钟楼邮局分拣来信，让两位快递员穿梭于天文台、花园和炉火工坊。原创分层小世界变成可编辑原生游戏，再剪成一段真实首投递短片。",
+        "software": [
+          "GIMP",
+          "Godot",
+          "Kdenlive",
+          "REAPER"
+        ],
+        "evidence_label": "实际原生链路 · 七秒影片 / 独立八封信验证",
+        "evidence_scope": "四个新 GIMP 分层世界进入 Godot 游戏，再由 Kdenlive 制成七秒第一投递影片。完整 8 封信、10 枚邮票的原生游戏验证单独记录。保留原生重开、搬移、重导资格和失败边界；本次发布恢复只验证文件、像素与页面，没有重新运行 DCC。当前可编辑项目无公开下载。",
+        "limitations": [
+          "当前游戏、XCF 原画和 Kdenlive 工程无公开下载；公开 ZIP 仅为历史图标原型，不是画面中新版工程。",
+          "原始制作模型名和推理强度没有可核配置记录，保留未知；当前审阅配置不能追认历史制作。",
+          "影片只有第一投递，完整 8 封信通关有独立原生证据；不声称影片展示完整班次。",
+          "保留音频回退、V-Sync 与 Vulkan surface 警告，以及历史日志/性能/样本上限失败；无警告、跨平台和硬实时未验证。",
+          "原生按钮信号不是 OS 鼠标坐标证据；游戏 OS exit code 未观察。后来迟到恢复 PNG 未恢复，不以旧版图片冒充。",
+          "选定证据不是完整当前 MCP 传输轨迹，也不代表整个适配器或全部技能覆盖。当前发布未重新执行原生 DCC。",
+          "无浏览器可玩导出或应用程序二进制；原创作品、影片与内容保留权利。",
+          "新增音轨不代表原视觉工程被重新制作；没有记录主观听评，也不涉及私人游戏项目的集成验证。"
+        ],
+        "alt": "真实独立 Godot 游戏中的邮局与 Lumen、Moss、Ember 三个手绘世界"
+      },
+      "en": {
+        "title": "ORBIT POST OFFICE · Interstellar Post Office",
+        "subtitle": "GIMP → Godot → Kdenlive · Hand-drawn little worlds, eight letters and a seven-second film",
+        "summary": "Sort incoming letters in the clock-tower post office, sending two couriers between an observatory, a garden and a hearth workshop. Original layered little worlds become an editable native game, then an actual first delivery is edited into a short film.",
+        "software": [
+          "GIMP",
+          "Godot",
+          "Kdenlive",
+          "REAPER"
+        ],
+        "evidence_label": "Actual native pipeline · Seven-second film / separate eight-letter verification",
+        "evidence_scope": "Four new layered GIMP worlds enter a Godot game, then Kdenlive turns them into a seven-second first-delivery film. Native game verification of all 8 letters and 10 stamps is documented separately. Native reopening, relocation and re-export qualifications and failure boundaries are preserved; this publication recovery checked only files, pixels and pages, without rerunning DCC applications. The current editable projects are not publicly downloadable.",
+        "limitations": [
+          "The current game, XCF artwork and Kdenlive project are not publicly downloadable; the public ZIP contains only the historical icon prototype, not the new project shown in the visuals.",
+          "No verifiable configuration record exists for the original production model name and reasoning effort, so they remain unknown; the current review configuration cannot retroactively establish historical production settings.",
+          "The film shows only the first delivery; completion of all 8 letters has separate native evidence. No claim is made that the film shows the full shift.",
+          "Audio fallback, V-Sync and Vulkan surface warnings are retained, along with historical log, performance and sample-limit failures; warning-free operation, cross-platform behavior and hard real-time performance have not been verified.",
+          "Native button signals are not evidence of OS mouse coordinates; the game's OS exit code was not observed. The later late-delivery recovery PNG has not been recovered, and an older image is not substituted for it.",
+          "Selected evidence is not a complete current MCP transport trace and does not establish coverage of the entire adapter or every skill. Native DCC applications were not rerun for the current publication.",
+          "There is no browser-playable export or application binary; rights to the original artwork, film and content are reserved.",
+          "The added soundtrack does not mean that the original visual project was remade. No subjective listening review is recorded, and no integration verification with a private game project is included."
+        ],
+        "alt": "The post office and three hand-drawn worlds, Lumen, Moss and Ember, in an actual standalone Godot game"
+      },
+      "zh": {
+        "title": "ORBIT POST OFFICE · 星间邮局",
+        "subtitle": "GIMP → Godot → Kdenlive · 手绘小世界、八封信与七秒短片",
+        "summary": "在钟楼邮局分拣来信，让两位快递员穿梭于天文台、花园和炉火工坊。原创分层小世界变成可编辑原生游戏，再剪成一段真实首投递短片。",
+        "software": [
+          "GIMP",
+          "Godot",
+          "Kdenlive",
+          "REAPER"
+        ],
+        "evidence_label": "实际原生链路 · 七秒影片 / 独立八封信验证",
+        "evidence_scope": "四个新 GIMP 分层世界进入 Godot 游戏，再由 Kdenlive 制成七秒第一投递影片。完整 8 封信、10 枚邮票的原生游戏验证单独记录。保留原生重开、搬移、重导资格和失败边界；本次发布恢复只验证文件、像素与页面，没有重新运行 DCC。当前可编辑项目无公开下载。",
+        "limitations": [
+          "当前游戏、XCF 原画和 Kdenlive 工程无公开下载；公开 ZIP 仅为历史图标原型，不是画面中新版工程。",
+          "原始制作模型名和推理强度没有可核配置记录，保留未知；当前审阅配置不能追认历史制作。",
+          "影片只有第一投递，完整 8 封信通关有独立原生证据；不声称影片展示完整班次。",
+          "保留音频回退、V-Sync 与 Vulkan surface 警告，以及历史日志/性能/样本上限失败；无警告、跨平台和硬实时未验证。",
+          "原生按钮信号不是 OS 鼠标坐标证据；未观察游戏的操作系统退出码。后来迟到恢复 PNG 未恢复，不以旧版图片冒充。",
+          "选定证据不是完整当前 MCP 传输轨迹，也不代表整个适配器或全部技能覆盖。当前发布未重新执行原生 DCC。",
+          "无浏览器可玩导出或应用程序二进制；原创作品、影片与内容保留权利。",
+          "新增音轨不代表原视觉工程被重新制作；没有记录主观听评，也不涉及私人游戏项目的集成验证。"
+        ],
+        "alt": "真实独立 Godot 游戏中的邮局与 Lumen、Moss、Ember 三个手绘世界"
+      },
+      "cover": {
+        "path": "docs/showcase/orbit-post-office/standalone-main-native.jpg",
+        "width": 1228,
+        "height": 691,
+        "bytes": 152021,
+        "sha256": "1fd3a8fb9e423d584e0d5dcb8bfcfb8b5b4f24fa9d3db050e3b90b1d9677d064"
+      },
+      "demo": null,
+      "source": {
+        "url": "https://github.com/dcc-mcp/dcc-mcp-gimp/tree/943e2cd6855da6f4876032bc124556e3eac54bc9",
+        "commit": "943e2cd6855da6f4876032bc124556e3eac54bc9",
+        "title": "GIMP 已记录源码基线；Godot 固定 commit 与 Kdenlive 版本见运行记录"
+      },
+      "credits": {
+        "author": "DCC-MCP showcase contributors",
+        "license": "原创作品、游戏内容和配方保留权利；不新增 MIT 或 CC0。标明的上游软件与字体声明保留各自范围。",
+        "note": "原创 GIMP 图像、Godot 游戏与 Kdenlive 影片；无第三方图包、音乐、应用或字体二进制。网站 MIT 不适用于作品与案例下载包。 新增音轨说明见 SOUNDTRACK-LICENSES.md；独立音频 CC0，原画面和作品权利不变。"
+      }
+    },
+    {
+      "slug": "trail-and-air",
+      "original": {
+        "title": "Trail & Air · 原创步行音频素材",
+        "subtitle": "REAPER · 17 个可复用脚步、环境循环与交互音效",
+        "summary": "两组各六种单声道脚步、20 秒风与叶片环境循环、19.2 秒轻音乐循环，以及三个克制的交互提示。保留无损 WAV、原生项目与可复用合成/导出技能。",
+        "software": [
+          "REAPER"
+        ],
+        "evidence_label": "本轮原生音频验证 · 可在线试听",
+        "evidence_scope": "本轮通过 typed DCC-MCP 生成原创确定性声源，再由实际 REAPER 导入、建立原生音频图谱、逐资源渲染、保存与重开。17 个导出与声源 PCM 逐样本一致。封面为测量波形，在线试听是实际导出的片段组合，不冒充 GUI 截图、游戏场景或现场录音。使用者已确认制作方向并授权公开；没有记录主观听评，不把数值检测当作听觉验收。",
+        "limitations": [
+          "没有记录主观听评；技术检测不替代目标播放设备与游戏内混音的试听。",
+          "没有宣称在任何游戏场景中完成触发、空间化、衰减或行走验证。",
+          "环境与脚步是风格化程序化音频，不是现场录音。",
+          "REAPER 是付费软件；60 天 evaluation 不等于长期免费，开源用途不免除其许可证。"
+        ],
+        "alt": "根据实际导出音频绘制的脚步、环境与音乐波形图；不是软件或游戏截图"
+      },
+      "en": {
+        "title": "Trail & Air · Original walking audio assets",
+        "subtitle": "REAPER · 17 reusable footsteps, ambience loops and interaction sounds",
+        "summary": "Two sets of six mono footsteps, a 20-second wind-and-leaves ambience loop, a 19.2-second light music loop and three restrained interaction cues. Includes lossless WAVs, the native project and reusable synthesis/export skills.",
+        "software": [
+          "REAPER"
+        ],
+        "evidence_label": "Native audio verification in this run · Online listening preview",
+        "evidence_scope": "Typed DCC-MCP generated original deterministic sound sources, which real REAPER then imported into a native audio atlas, rendered individually, saved and reopened. All 17 exports match their source PCM sample for sample. The cover is a measured waveform; the listening preview combines actual exported excerpts and is not presented as a GUI screenshot, game scene or field recording. The user confirmed the production direction and authorized publication. No subjective listening review was recorded; numeric checks are not treated as listening acceptance.",
+        "limitations": [
+          "No subjective listening review was recorded; technical checks do not replace listening on target playback devices and in-game mixes.",
+          "No triggering, spatialization, attenuation or walking verification in any game scene is claimed.",
+          "Ambience and footsteps are stylized procedural audio, not field recordings.",
+          "REAPER is paid software; its 60-day evaluation does not mean it is free indefinitely, and open-source use does not waive its license."
+        ],
+        "alt": "Footstep, ambience and music waveforms plotted from actual exported audio; not a software or game screenshot"
+      },
+      "zh": {
+        "title": "Trail & Air · 原创步行音频素材",
+        "subtitle": "REAPER · 17 个可复用脚步、环境循环与交互音效",
+        "summary": "两组各六种单声道脚步、20 秒风与叶片环境循环、19.2 秒轻音乐循环，以及三个克制的交互提示。保留无损 WAV、原生项目与可复用合成/导出技能。",
+        "software": [
+          "REAPER"
+        ],
+        "evidence_label": "本轮原生音频验证 · 可在线试听",
+        "evidence_scope": "本轮通过 强类型 DCC-MCP 生成原创确定性声源，再由实际 REAPER 导入、建立原生音频图谱、逐资源渲染、保存与重开。17 个导出与声源 PCM 逐样本一致。封面为测量波形，在线试听是实际导出的片段组合，不冒充 GUI 截图、游戏场景或现场录音。使用者已确认制作方向并授权公开；没有记录主观听评，不把数值检测当作听觉验收。",
+        "limitations": [
+          "没有记录主观听评；技术检测不替代目标播放设备与游戏内混音的试听。",
+          "没有宣称在任何游戏场景中完成触发、空间化、衰减或行走验证。",
+          "环境与脚步是风格化程序化音频，不是现场录音。",
+          "REAPER 是付费软件；60 天 evaluation 不等于长期免费，开源用途不免除其许可证。"
+        ],
+        "alt": "根据实际导出音频绘制的脚步、环境与音乐波形图；不是软件或游戏截图"
+      },
+      "cover": {
+        "path": "docs/showcase/trail-and-air/hero.jpg",
+        "width": 1440,
+        "height": 960,
+        "bytes": 127919,
+        "sha256": "bdbc1f204eec90fa68002a8b51658e8e75f1a186afce4de19434b0f07c695fef"
+      },
+      "demo": null,
+      "source": {
+        "url": "https://github.com/dcc-mcp/dcc-mcp-reaper/tree/867ce6837c916aa7ca89a5cb14deae9869f09d00",
+        "commit": "867ce6837c916aa7ca89a5cb14deae9869f09d00",
+        "title": "实际验证的 REAPER 适配器修复 commit；附加制作技能在本案例源码包"
+      },
+      "credits": {
+        "author": "DCC-MCP showcase contributors",
+        "license": "本案例原创音频 CC0-1.0；代码 MIT。仅适用于本案例原创资源，不改变其他案例或软件的许可证。",
+        "note": "没有包含应用程序、账号信息、外部录音、第三方采样或私人游戏资料。"
+      }
+    },
+    {
+      "slug": "rainroom-two-hours",
+      "original": {
+        "title": "Rainroom · 雨窗的两个时刻",
+        "subtitle": "Blender · 同一原生场景的雨夜与清晨",
+        "summary": "330 颗几何雨滴与 26 条曲线水痕，真实玻璃、釉面陶瓷、亚麻帘、胡桃木与铜灯。帧 1 为暖灯雨夜，帧 2 为清晨。",
+        "software": [
+          "Blender"
+        ],
+        "evidence_label": "本轮实际运行 · 官方 DCC-MCP",
+        "evidence_scope": "官方 gateway 中实际创建 491 个可编辑物体，typed 图片打包、保存、清空场景、从新目录重开与 CPU 渲染；定制几何通过已审阅的 scripting 技能制作，非 typed-only。真实 1440px 双光照主图与第二视角。无生成图片冒充渲染。",
+        "limitations": [
+          "艺术化静物，不是施工模型或流体模拟。",
+          "不声称跨 DCC 材质一致性。",
+          "公开 MCP 记录是脱敏最小子集，不是完整原始 trace。",
+          "确切 backend model 与 reasoning effort 无已核验记录，均为 unknown。"
+        ],
+        "alt": "雨夜窗边静物，水珠玻璃、茶杯、书本与暖色铜灯"
+      },
+      "en": {
+        "title": "Rainroom · Two moments at a rainy window",
+        "subtitle": "Blender · A rainy night and morning in one native scene",
+        "summary": "330 geometric raindrops and 26 curved rivulets, with real glass, glazed ceramics, linen curtains, walnut and a copper lamp. Frame 1 is a warm rainy night; frame 2 is morning.",
+        "software": [
+          "Blender"
+        ],
+        "evidence_label": "Actual execution in this run · Official DCC-MCP",
+        "evidence_scope": "The official gateway created 491 editable objects, with typed image packing, saving, scene clearing, reopening from a new directory and CPU rendering. Custom geometry used the reviewed scripting skill; the workflow was not typed-only. Real 1440px hero images under two lighting conditions and a second view. No generated images are passed off as renders.",
+        "limitations": [
+          "An artistic still life, not a construction model or fluid simulation.",
+          "No cross-DCC material consistency is claimed.",
+          "The public MCP record is a minimal redacted subset, not the complete original trace.",
+          "There are no verified records of the exact backend model or reasoning effort; both remain unknown."
+        ],
+        "alt": "A rainy-night window still life with droplets on glass, a teacup, books and a warm copper lamp"
+      },
+      "zh": {
+        "title": "Rainroom · 雨窗的两个时刻",
+        "subtitle": "Blender · 同一原生场景的雨夜与清晨",
+        "summary": "330 颗几何雨滴与 26 条曲线水痕，真实玻璃、釉面陶瓷、亚麻帘、胡桃木与铜灯。帧 1 为暖灯雨夜，帧 2 为清晨。",
+        "software": [
+          "Blender"
+        ],
+        "evidence_label": "本轮实际运行 · 官方 DCC-MCP",
+        "evidence_scope": "官方 gateway 中实际创建 491 个可编辑物体，强类型图片打包、保存、清空场景、从新目录重开与 CPU 渲染；定制几何通过已审阅的 scripting 技能制作，并非仅使用强类型工具。真实 1440px 双光照主图与第二视角。无生成图片冒充渲染。",
+        "limitations": [
+          "艺术化静物，不是施工模型或流体模拟。",
+          "不声称跨 DCC 材质一致性。",
+          "公开 MCP 记录是脱敏最小子集，不是完整原始 trace。",
+          "确切后端模型与推理强度无已核验记录，均为未知。"
+        ],
+        "alt": "雨夜窗边静物，水珠玻璃、茶杯、书本与暖色铜灯"
+      },
+      "cover": {
+        "path": "docs/showcase/rainroom-two-hours/night.jpg",
+        "width": 1440,
+        "height": 1440,
+        "bytes": 150125,
+        "sha256": "6c93d479d897f9052920094184b05f14fae66fcd5a8ea619a1c760e624de9c34"
+      },
+      "demo": null,
+      "source": {
+        "url": "https://github.com/dcc-mcp/dcc-mcp-blender/tree/f831dc8a4a87d70eff0b1ca7eafca87058f20bd7",
+        "commit": "f831dc8a4a87d70eff0b1ca7eafca87058f20bd7",
+        "title": "Inspected official adapter source reference; installed wheel version is recorded separately, not a binary identity claim."
+      },
+      "credits": {
+        "author": "DCC-MCP Rainroom showcase contributors",
+        "license": "Original artwork/native assets rights reserved; reproduction scripts MIT.",
+        "note": "无外部素材、第三方贴图或字体。"
+      }
+    },
+    {
+      "slug": "resonance-atlas",
+      "original": {
+        "title": "Resonance Atlas · 共振图谱",
+        "subtitle": "Inkscape · 三联矢量海报与真实图层组装短片",
+        "summary": "31组相位轨迹、48道双源波前与42条谐波线，统一网格与编辑式排版。附12秒静音组装影片。",
+        "software": [
+          "Inkscape",
+          "FFmpeg"
+        ],
+        "evidence_label": "本轮实际运行 · Native Inkscape + DCC-MCP",
+        "evidence_scope": "55次真实gateway调用，9组原生SVG/PNG/PDF与文字转路径重开。制作依赖尚未合并的Linux适配修复精确commit；非纯脚本SVG。影片是原生PNG的组装剪辑，不是录屏。",
+        "limitations": [
+          "声学曲线为数学示意，不是实测数据或压力场模拟。",
+          "影片有意静音，不含音轨；PNG合成，非原生Inkscape动画或软件录屏。",
+          "依赖未合并Linux原生修复commit，不代表正式release已支持。",
+          "公开证据为脱敏摘要，非完整原始trace。"
+        ],
+        "alt": "深蓝、米白与紫色的三联声学矢量海报"
+      },
+      "en": {
+        "title": "Resonance Atlas",
+        "subtitle": "Inkscape · Three vector posters and a film assembled from actual layers",
+        "summary": "31 phase trajectories, 48 dual-source wavefronts and 42 harmonic lines share a grid and editorial typography. Includes a 12-second silent assembly film.",
+        "software": [
+          "Inkscape",
+          "FFmpeg"
+        ],
+        "evidence_label": "Actual execution in this run · Native Inkscape + DCC-MCP",
+        "evidence_scope": "55 real gateway calls, nine native SVG/PNG/PDF sets and reopening after outlining text. Production depends on an exact commit of an unmerged Linux adapter fix; these are not purely scripted SVGs. The film is an edit assembled from native PNGs, not a screen recording.",
+        "limitations": [
+          "The acoustic curves are mathematical illustrations, not measured data or pressure-field simulations.",
+          "The film is intentionally silent and has no audio track; it is composited from PNGs, not native Inkscape animation or a software screen recording.",
+          "Depends on an unmerged Linux native-fix commit; this does not establish support in an official release.",
+          "Public evidence is a redacted summary, not the complete original trace."
+        ],
+        "alt": "A three-poster acoustic vector series in deep blue, cream and purple"
+      },
+      "zh": {
+        "title": "Resonance Atlas · 共振图谱",
+        "subtitle": "Inkscape · 三联矢量海报与真实图层组装短片",
+        "summary": "31组相位轨迹、48道双源波前与42条谐波线，统一网格与编辑式排版。附12秒静音组装影片。",
+        "software": [
+          "Inkscape",
+          "FFmpeg"
+        ],
+        "evidence_label": "本轮实际运行 · 原生 Inkscape + DCC-MCP",
+        "evidence_scope": "55次真实gateway调用，9组原生SVG/PNG/PDF与文字转路径重开。制作依赖尚未合并的Linux适配修复精确commit；非纯脚本SVG。影片是原生PNG的组装剪辑，不是录屏。",
+        "limitations": [
+          "声学曲线为数学示意，不是实测数据或压力场模拟。",
+          "影片有意静音，不含音轨；PNG合成，非原生Inkscape动画或软件录屏。",
+          "依赖未合并Linux原生修复commit，不代表正式release已支持。",
+          "公开证据为脱敏摘要，非完整原始trace。"
+        ],
+        "alt": "深蓝、米白与紫色的三联声学矢量海报"
+      },
+      "cover": {
+        "path": "docs/showcase/resonance-atlas/hero.jpg",
+        "width": 1480,
+        "height": 660,
+        "bytes": 286803,
+        "sha256": "9be7925456be4400af71d7c00d7658be2ea4e08a415242908195c302422b536b"
+      },
+      "demo": null,
+      "source": {
+        "url": "https://github.com/dcc-mcp/dcc-mcp-inkscape/tree/498982ae7d4eedefeff31811c251795f5ff93be6",
+        "commit": "498982ae7d4eedefeff31811c251795f5ff93be6",
+        "title": "Exact native adapter used in CI; unmerged PR #3 dependency."
+      },
+      "credits": {
+        "author": "DCC-MCP Resonance Atlas showcase contributors",
+        "license": "Original artwork, video and new scripts: rights reserved; no additional MIT grant. Existing repository and third-party licenses unchanged.",
+        "note": "无第三方图像、AI生成位图或音轨。"
+      }
+    },
+    {
+      "slug": "sonic-loom",
+      "original": {
+        "title": "Sonic Loom · 可听的节奏织机",
+        "subtitle": "Godot · 四种原创音色，十六步交互音序器",
+        "summary": "轻触四色步进，让 Earth、Dust、Air 与 Glass 织出 A minor 节奏。支持播放暂停、变速、声部静音、保存、重载和重置；可下载独立原生工程。",
+        "software": [
+          "Godot"
+        ],
+        "evidence_label": "真实 Godot / MCP 创作 · 有声视频与在线试听",
+        "evidence_scope": "本轮通过真实 typed MCP 创建、编译、挂载和保存 GDScript / 场景；原生 Godot CI 另行完成像素录制、真实混音音轨与键鼠输入。四声部、64 个步进开关与本地保存重载通过；录音不是后配音乐。主观听测环境不可用，明确保留未完成听评，不把非静音检测冒称听觉验收。",
+        "limitations": [
+          "Subjective listening has not been performed. Use the audio player to audition on the target listening device.",
+          "The original native validation covered Linux Xvfb desktop interaction. The separately added Web export has its own browser verification and does not establish physical phone testing or hardware audio-device latency.",
+          "MCP authored and saved the source and scene. CI rendering and Movie Maker capture invoke Godot directly; they are not an MCP scene-preview return.",
+          "The small top-right animation is decorative, and THE THREAD is pattern density. Only waveform.png is measured from real audio PCM.",
+          "The movie uses a scripted demonstration of edits; separate xdotool keyboard/mouse evidence establishes actual UI input.",
+          "Pause stops sequencing; already-triggered voice tails decay naturally.",
+          "The root scene contains source-drawn artwork and runtime players; individual pads are not separate editor nodes.",
+          "Exact model identity and reasoning configuration are unknown.",
+          "The run is not stderr-warning-free: Xvfb V-Sync and Movie Maker ObjectDB-at-exit warnings are disclosed."
+        ],
+        "alt": "真实 Godot 窗口中的 Sonic Loom 音序器，深色面板、四色声部、十六步按钮和播放位置"
+      },
+      "en": {
+        "title": "Sonic Loom · An audible rhythm loom",
+        "subtitle": "Godot · Four original timbres in an interactive sixteen-step sequencer",
+        "summary": "Tap colored steps and let Earth, Dust, Air and Glass weave an A minor rhythm. Supports play/pause, tempo, part muting, save, reload and reset, with a downloadable standalone native project.",
+        "software": [
+          "Godot"
+        ],
+        "evidence_label": "Real Godot / MCP production · Video with native sound and an audio preview",
+        "evidence_scope": "Real typed MCP calls created, compiled, attached and saved the GDScript and scene. Native Godot CI separately captured pixels, the actual mixed audio and keyboard/mouse input. Four parts, 64 step toggles and local save/reload passed; the recording is not added background music. Subjective listening was unavailable and remains explicitly incomplete. Non-silence detection is not claimed as listening acceptance.",
+        "limitations": [
+          "Subjective listening has not been performed. Use the audio player to audition on the target listening device.",
+          "The original native validation covered Linux Xvfb desktop interaction. The separately added Web export has its own browser verification and does not establish physical phone testing or hardware audio-device latency.",
+          "MCP authored and saved the source and scene. CI rendering and Movie Maker capture invoke Godot directly; they are not an MCP scene-preview return.",
+          "The small top-right animation is decorative, and THE THREAD is pattern density. Only waveform.png is measured from real audio PCM.",
+          "The movie uses a scripted demonstration of edits; separate xdotool keyboard/mouse evidence establishes actual UI input.",
+          "Pause stops sequencing; already-triggered voice tails decay naturally.",
+          "The root scene contains source-drawn artwork and runtime players; individual pads are not separate editor nodes.",
+          "Exact model identity and reasoning configuration are unknown.",
+          "The run is not stderr-warning-free: Xvfb V-Sync and Movie Maker ObjectDB-at-exit warnings are disclosed."
+        ],
+        "alt": "Sonic Loom in a real Godot window, with a dark panel, four colored parts, sixteen-step buttons and a playhead"
+      },
+      "zh": {
+        "title": "Sonic Loom · 可听的节奏织机",
+        "subtitle": "Godot · 四种原创音色，十六步交互音序器",
+        "summary": "轻触四色步进，让 Earth、Dust、Air 与 Glass 织出 A 小调 节奏。支持播放暂停、变速、声部静音、保存、重载和重置；可下载独立原生工程。",
+        "software": [
+          "Godot"
+        ],
+        "evidence_label": "真实 Godot / MCP 创作 · 有声视频与在线试听",
+        "evidence_scope": "本轮通过真实 强类型 MCP 创建、编译、挂载和保存 GDScript / 场景；原生 Godot CI 另行完成像素录制、真实混音音轨与键鼠输入。四声部、64 个步进开关与本地保存重载通过；录音不是后配音乐。主观听测环境不可用，明确保留未完成听评，不把非静音检测冒称听觉验收。",
+        "limitations": [
+          "尚未进行主观听音评估。请使用音频播放器，在目标听音设备上试听。",
+          "原始原生验证覆盖 Linux Xvfb 桌面交互。另行新增的 Web 导出具有独立的浏览器验证记录，不代表已完成实体手机测试或硬件音频设备延迟测试。",
+          "MCP 完成了源码和场景的创作与保存。CI 渲染和 Movie Maker 录制直接调用 Godot，并非 MCP 场景预览的返回结果。",
+          "右上角的小动画仅作装饰，THE THREAD 表示节奏型密度。只有 waveform.png 是根据真实音频 PCM 测量生成的。",
+          "影片采用脚本演示编辑操作；另行提供的 xdotool 键盘/鼠标证据用于确认真实 UI 输入。",
+          "暂停会停止步进播放；已触发音色的尾音自然衰减。",
+          "根场景包含由源码绘制的艺术内容和运行时播放器；每个打击垫并非独立的编辑器节点。",
+          "确切模型身份及推理配置未知。",
+          "本次运行的 stderr 并非完全无警告：已披露 Xvfb V-Sync 和 Movie Maker 退出时的 ObjectDB 警告。"
+        ],
+        "alt": "真实 Godot 窗口中的 Sonic Loom 音序器，深色面板、四色声部、十六步按钮和播放位置"
+      },
+      "cover": {
+        "path": "docs/showcase/sonic-loom/hero.png",
+        "width": 1280,
+        "height": 800,
+        "bytes": 75855,
+        "sha256": "6fb6ca4d12bc7f0ab2128c2e700046ad7bee8e55ec7785d1d447177a333a95bb"
+      },
+      "demo": {
+        "case_slug": "sonic-loom",
+        "url": "play/sonic-loom/index.html",
+        "title": "Sonic Loom",
+        "engine": "Godot 4.6.3",
+        "renderer": "gl_compatibility",
+        "threads": false,
+        "localeSupport": [
+          "en",
+          "zh"
+        ],
+        "nativeTextLanguage": "en",
+        "controls": {
+          "en": "Tap steps to edit. On phones, select a voice, then use Mute for that voice. Space: play/pause; arrows: tempo; S/L/R: save/load/reset. Native portrait controls scroll vertically.",
+          "zh": "轻触步进编辑；手机先选择声部，再用 Mute 切换该声部静音。空格播放/暂停，上下键调速，S/L/R 保存、读取、重置。原生竖屏控件可上下滚动。"
+        },
+        "notes": {
+          "en": "Audio starts after a click or tap. Saves stay in this browser. The native instrument artwork remains in English. Web adaptation/review, 2026-10-12: requested and accepted configuration gpt-6-astra / ultra; backend routing was not independently verified. Review covers desktop/phone screenshots and 40 browser checks. No subjective listening, physical-phone, Safari or Firefox acceptance.",
+          "zh": "点击或轻触后启用声音，存档保留在当前浏览器，原生乐器画面保留英文。2026-10-12 Web 适配与复审请求并接受的配置为 gpt-6-astra / ultra；未独立核验后台路由。复审覆盖桌面与手机截图及40项浏览器检查，未作主观听评、实体手机、Safari 或 Firefox 验收。"
+        }
+      },
+      "source": {
+        "url": "https://github.com/dcc-mcp/dcc-mcp-godot/tree/e5ee3e8a904d71119e391b20c57698629c2193d0",
+        "commit": "e5ee3e8a904d71119e391b20c57698629c2193d0",
+        "title": "真实 Godot 音频与键鼠验证的工具仓库 Draft PR"
+      },
+      "credits": {
+        "author": "DCC-MCP showcase contributors",
+        "license": "Original source and test code, visual design, native assets and media: rights reserved; no new MIT, Creative Commons or other license grant. Existing site-code MIT and third-party licenses remain separate.",
+        "note": "不含第三方采样、软件二进制、账号资料或私有素材。"
+      }
+    },
+    {
+      "slug": "prism-tide",
+      "original": {
+        "title": "Prism Tide · 棱镜潮汐",
+        "subtitle": "Godot · 三关镜面光路解谜",
+        "summary": "一座安静的深海光学仪台。转动黄铜镜片、打开挡板，让薄荷绿信号回到接收器。三关从简单折线路径逐步扩展到六次反射与两道闸门。",
+        "software": [
+          "Godot"
+        ],
+        "evidence_label": "真实 MCP 制作 · 三关实际键鼠通关",
+        "evidence_scope": "十次真实 Gateway 制作调用创建、挂载、保存和设置原生工程，并修正反射术语。图像和15秒视频来自另行运行的官方Godot 4.6.3原生CI/Xvfb；演示状态变化与独立OS键鼠输入证据分开记录。没有将直接原生渲染冒称MCP渲染返回。",
+        "limitations": [
+          "桌面1280×800为设计目标；864×540仅验证布局拟合，不表示触屏或手机可读性已验收。",
+          "原始交付仅提供原生工程与PCK；后续新增的Web版本及其浏览器验收独立列出，原生历史记录不代表Web验收。",
+          "光路是确定性的正交格点模型，并非物理光线追踪。",
+          "美术由GDScript绘制；镜面和挡板可编辑数据，但不是独立场景网格。",
+          "本机headless只用于制作与逻辑验证；像素来自另一原生CI运行。无音轨。"
+        ],
+        "alt": "深海色光学仪台中，薄荷绿光束经黄铜反射镜到达接收器，左侧显示CONNECTED"
+      },
+      "en": {
+        "title": "Prism Tide",
+        "subtitle": "Godot · A three-level mirror-path puzzle",
+        "summary": "A quiet deep-sea optical console. Rotate brass mirrors and open shutters to return a mint-green signal to its receiver. Three levels progress from a simple bent path to six reflections and two gates.",
+        "software": [
+          "Godot"
+        ],
+        "evidence_label": "Real MCP production · All three levels completed with real keyboard and mouse input",
+        "evidence_scope": "Ten real Gateway production calls created, attached, saved and configured the native project and corrected the reflection terminology. Images and the 15-second video came from a separate official Godot 4.6.3 native CI/Xvfb run. Scripted demonstration state changes and independent OS keyboard/mouse evidence are recorded separately. Direct native rendering is not presented as an MCP render response.",
+        "limitations": [
+          "The design target is a 1280 × 800 desktop. The 864 × 540 check verifies layout fit only; touchscreen or mobile readability has not been accepted.",
+          "The original delivery provided only the native project and PCK. The later Web export and its browser acceptance are documented separately; the historical native records do not establish Web acceptance.",
+          "The light path is a deterministic orthogonal grid model, not physical ray tracing.",
+          "Artwork is drawn in GDScript. Mirrors and shutters are editable data, not separate scene meshes.",
+          "Local headless execution was used only for production and logic verification; pixels came from a separate native CI run. No audio track."
+        ],
+        "alt": "A mint-green beam reflects from brass mirrors to a receiver on a deep-sea optical console; CONNECTED appears on the left"
+      },
+      "zh": {
+        "title": "Prism Tide · 棱镜潮汐",
+        "subtitle": "Godot · 三关镜面光路解谜",
+        "summary": "一座安静的深海光学仪台。转动黄铜镜片、打开挡板，让薄荷绿信号回到接收器。三关从简单折线路径逐步扩展到六次反射与两道闸门。",
+        "software": [
+          "Godot"
+        ],
+        "evidence_label": "真实 MCP 制作 · 三关实际键鼠通关",
+        "evidence_scope": "十次真实 Gateway 制作调用创建、挂载、保存和设置原生工程，并修正反射术语。图像和15秒视频来自另行运行的官方Godot 4.6.3原生CI/Xvfb；演示状态变化与独立OS键鼠输入证据分开记录。没有将直接原生渲染冒称MCP渲染返回。",
+        "limitations": [
+          "桌面1280×800为设计目标；864×540仅验证布局拟合，不表示触屏或手机可读性已验收。",
+          "原始交付仅提供原生工程与PCK；后续新增的Web版本及其浏览器验收独立列出，原生历史记录不代表Web验收。",
+          "光路是确定性的正交格点模型，并非物理光线追踪。",
+          "美术由GDScript绘制；镜面和挡板可编辑数据，但不是独立场景网格。",
+          "本机headless只用于制作与逻辑验证；像素来自另一原生CI运行。无音轨。"
+        ],
+        "alt": "深海色光学仪台中，薄荷绿光束经黄铜反射镜到达接收器，左侧显示CONNECTED"
+      },
+      "cover": {
+        "path": "docs/showcase/prism-tide/hero.png",
+        "width": 1280,
+        "height": 800,
+        "bytes": 106268,
+        "sha256": "74a01953bc4381443a9f09a43216292d30de31dc9fa7e8706b25fd33a69817d2"
+      },
+      "demo": {
+        "case_slug": "prism-tide",
+        "url": "play/prism-tide/index.html",
+        "title": "Prism Tide",
+        "engine": "Godot 4.6.3",
+        "renderer": "gl_compatibility",
+        "threads": false,
+        "localeSupport": [
+          "en",
+          "zh"
+        ],
+        "nativeTextLanguage": "en",
+        "controls": {
+          "en": "On phones, tap a mirror or shutter to select it, then use Turn/Toggle below the scrolling board. Tab: select; Space/Enter: turn; R: reset; N: next after winning.",
+          "zh": "手机先轻触镜子或闸门选中，再使用滚动棋盘下方的 Turn/Toggle 操作。Tab 选择，空格或回车转动，R 重置，过关后 N 下一关。"
+        },
+        "notes": {
+          "en": "The original puzzle is silent. Explicit Save/Load stores a local checkpoint in this browser. Native puzzle artwork remains in English. Web adaptation/review, 2026-10-12: requested and accepted configuration gpt-6-astra / ultra; backend routing was not independently verified. Review covers desktop/phone screenshots and 40 browser checks. No subjective listening, physical-phone, Safari or Firefox acceptance.",
+          "zh": "原作没有音轨。保存与读取按钮用于当前浏览器的本地关卡存档，原生谜题画面保留英文。2026-10-12 Web 适配与复审请求并接受的配置为 gpt-6-astra / ultra；未独立核验后台路由。复审覆盖桌面与手机截图及40项浏览器检查，未作主观听评、实体手机、Safari 或 Firefox 验收。"
+        }
+      },
+      "source": {
+        "url": "https://github.com/dcc-mcp/dcc-mcp-godot/tree/f7b0b52aac4dc607c1b1bb0826a18243930c0f0f/tests/fixtures/prism-tide",
+        "commit": "f7b0b52aac4dc607c1b1bb0826a18243930c0f0f",
+        "title": "已验证原生fixture源文件"
+      },
+      "credits": {
+        "author": "DCC-MCP showcase contributors",
+        "license": "Original source and test code, visual design, native assets and media: rights reserved; no new MIT, Creative Commons or other license grant. Existing site-code MIT and third-party licenses remain separate.",
+        "note": "全部原创程序化图形，无第三方素材。软件、插件和字体文件未随工程分发。"
+      }
+    },
+    {
+      "slug": "orbital-loom",
+      "original": {
+        "title": "Orbital Loom · 轨道织机",
+        "subtitle": "Blender · 三重万向环与连续原生动画",
+        "summary": "三重驱动环绕白瓷核心反向转动，露出轴承与连接轴；连续相机运动展示黄铜、墨绿搪瓷与刻度底座。",
+        "software": [
+          "Blender"
+        ],
+        "evidence_label": "本轮实际运行 · 官方 DCC-MCP",
+        "evidence_scope": "本次制作通过官方 Blender 适配器的 embedded MCP 完成真实场景创建、保存重开与连续逐帧渲染。定制造型使用官方 scripting escape hatch；帧切换、渲染配置、场景打开/保存及 render_scene 调用使用 typed 工具。gateway 明确禁用，不声称 gateway CLI 或 GUI 验收。",
+        "limitations": [
+          "本案例驱动的typed driver修复为独立Draft PR #298；本轮成片没有升级或使用修复版。",
+          "不是制造级工程认证；刻意轴承连接不作为碰撞。",
+          "嵌入MCP通过；shared gateway/CLI call未通过，具体兼容性记录随附。",
+          "GLB不含摄影棚、相机和原生文字；不声称跨渲染器材质一致。",
+          "公开响应为最小脱敏子集，非完整原始trace。",
+          "确切backend model与reasoning effort无独立核验，均unknown。"
+        ],
+        "alt": "墨绿底座上的黄铜三重轨道动雕塑，完整底座与真实接触阴影"
+      },
+      "en": {
+        "title": "Orbital Loom",
+        "subtitle": "Blender · Three nested gimbals and continuous native animation",
+        "summary": "Three driven rings counter-rotate around an ivory ceramic core, revealing bearings and connecting shafts. Continuous camera movement shows the brass, deep green enamel and calibrated plinth.",
+        "software": [
+          "Blender"
+        ],
+        "evidence_label": "Actual execution in this run · Official DCC-MCP",
+        "evidence_scope": "This production used the official Blender adapter’s embedded MCP to create the scene, save and reopen it, and render consecutive frames. Custom modeling used the official scripting escape hatch; typed tools handled frame changes, render settings, scene opening/saving and render_scene calls. The gateway was explicitly disabled; gateway CLI or GUI acceptance is not claimed.",
+        "limitations": [
+          "The typed-driver fix prompted by this case is tracked in separate Draft PR #298; this production did not upgrade to or use the fixed version.",
+          "This is not fabrication-ready engineering certification; intentional bearing connections are not counted as collisions.",
+          "Embedded MCP passed; shared gateway/CLI calls did not pass. The specific compatibility findings are included.",
+          "The GLB excludes the studio, camera and native text; material fidelity across renderers is not claimed.",
+          "The public responses are a minimal sanitized subset, not the complete original trace.",
+          "The exact backend model and reasoning effort were not independently verified; both remain unknown."
+        ],
+        "alt": "Brass three-ring kinetic sculpture on a deep green plinth, showing the complete base and real contact shadows"
+      },
+      "zh": {
+        "title": "Orbital Loom · 轨道织机",
+        "subtitle": "Blender · 三重万向环与连续原生动画",
+        "summary": "三重驱动环绕白瓷核心反向转动，露出轴承与连接轴；连续相机运动展示黄铜、墨绿搪瓷与刻度底座。",
+        "software": [
+          "Blender"
+        ],
+        "evidence_label": "本轮实际运行 · 官方 DCC-MCP",
+        "evidence_scope": "本次制作通过官方 Blender 适配器的 embedded MCP 完成真实场景创建、保存重开与连续逐帧渲染。定制造型使用官方 scripting escape hatch；帧切换、渲染配置、场景打开/保存及 render_scene 调用使用 typed 工具。gateway 明确禁用，不声称 gateway CLI 或 GUI 验收。",
+        "limitations": [
+          "本案例驱动的typed driver修复为独立Draft PR #298；本轮成片没有升级或使用修复版。",
+          "不是制造级工程认证；刻意轴承连接不作为碰撞。",
+          "嵌入MCP通过；shared gateway/CLI call未通过，具体兼容性记录随附。",
+          "GLB不含摄影棚、相机和原生文字；不声称跨渲染器材质一致。",
+          "公开响应为最小脱敏子集，非完整原始trace。",
+          "确切backend model与reasoning effort无独立核验，均unknown。"
+        ],
+        "alt": "墨绿底座上的黄铜三重轨道动雕塑，完整底座与真实接触阴影"
+      },
+      "cover": {
+        "path": "docs/showcase/orbital-loom/hero.jpg",
+        "width": 960,
+        "height": 540,
+        "bytes": 73008,
+        "sha256": "1aa91ae5672978e7cd38a72f9f9452775f7be579e750a347baf4f746246098de"
+      },
+      "demo": null,
+      "source": {
+        "url": "https://github.com/dcc-mcp/dcc-mcp-blender/tree/f831dc8a4a87d70eff0b1ca7eafca87058f20bd7",
+        "commit": "f831dc8a4a87d70eff0b1ca7eafca87058f20bd7",
+        "title": "Inspected official adapter source reference; installed wheel version is recorded separately, not a binary identity claim."
+      },
+      "credits": {
+        "author": "DCC-MCP showcase contributors",
+        "license": "No new license grant for this original case, including artwork, native assets, media and reproduction scripts; rights reserved. Existing site-code MIT license remains separate.",
+        "note": "原创几何、材质与动画，无外部模型、贴图、音乐或字体。"
+      }
+    },
+    {
+      "slug": "parcel-switchyard",
+      "original": {
+        "title": "Parcel Switchyard · 包裹转辙场",
+        "subtitle": "Godot · 双进料轨道与三站点互动分拣",
+        "summary": "一个克制、温暖的微型包裹分拣游戏：从两条进料带发送包裹，在港口、花园和市场之间选对路线。保留可编辑工程、实际调用证据、短片与资源包。",
+        "software": [
+          "Godot"
+        ],
+        "evidence_label": "真实 typed MCP 制作 · 原生像素与输入验证",
+        "evidence_scope": "原生脚本、场景、挂载与项目设置由实际 typed Gateway 调用完成。云端本机 headless 可制作及逻辑验证，但不能渲染；真实画面与视频来自固定官方 Godot 的 CI/Xvfb 原生运行。包含实际键鼠输入、保存重开、PCK 导出重跑。没有把 CI 媒体生成描述为 MCP 渲染返回。",
+        "limitations": [
+          "2026-10-11 原始原生版本面向桌面1280×720；旧960×540截图不代表手机或触屏验收。",
+          "2026-10-11 原始交付未含Web；2026-10-18新增独立Web适配，验收记录与原生证据分开。原始PCK仍需兼容Godot。",
+          "美术由可编辑GDScript程序化绘制，并非逐物件可编辑的场景网格。",
+          "本机headless制作与CI原生渲染是不同验证阶段；没有伪造MCP渲染成功。"
+        ],
+        "alt": "Godot实际运行画面：奶油色操作面板、深蓝分拣场、三色目的地与包裹输送轨道"
+      },
+      "en": {
+        "title": "Parcel Switchyard",
+        "subtitle": "Godot · Interactive sorting with two feed tracks and three destinations",
+        "summary": "A small, understated and warm parcel-sorting game: send parcels from two feed belts and choose the right route to Harbor, Garden or Market. The editable project, actual tool-call evidence, short film and resource pack are retained.",
+        "software": [
+          "Godot"
+        ],
+        "evidence_label": "Actual typed MCP production · Native rendered-image and input verification",
+        "evidence_scope": "Actual typed Gateway calls created the native script and scene, attached the script and configured the project. The local headless cloud environment supported production and logic verification but could not render; the actual images and video came from native CI/Xvfb runs using a pinned official Godot build. Verification included actual keyboard and mouse input, saving and reopening, and PCK export and rerunning. Media generated in CI is not presented as an MCP rendering response.",
+        "limitations": [
+          "The original native version dated 2026-10-11 targets desktop 1280×720; its old 960×540 screenshot does not establish phone or touch acceptance.",
+          "The original 2026-10-11 delivery had no Web build. A separate Web adaptation was added on 2026-10-18, with acceptance recorded apart from native evidence. The original PCK still requires compatible Godot.",
+          "The artwork is drawn procedurally by editable GDScript; it is not a collection of individually editable scene meshes.",
+          "Local headless production and native rendering in CI were separate verification stages; MCP rendering success was not fabricated."
+        ],
+        "alt": "Actual running Godot view: a cream control panel, a deep blue sorting yard, three color-coded destinations and parcel conveyor tracks"
+      },
+      "zh": {
+        "title": "Parcel Switchyard · 包裹转辙场",
+        "subtitle": "Godot · 双进料轨道与三站点互动分拣",
+        "summary": "一个克制、温暖的微型包裹分拣游戏：从两条进料带发送包裹，在港口、花园和市场之间选对路线。保留可编辑工程、实际调用证据、短片与资源包。",
+        "software": [
+          "Godot"
+        ],
+        "evidence_label": "真实 typed MCP 制作 · 原生像素与输入验证",
+        "evidence_scope": "原生脚本、场景、挂载与项目设置由实际 typed Gateway 调用完成。云端本机 headless 可制作及逻辑验证，但不能渲染；真实画面与视频来自固定官方 Godot 的 CI/Xvfb 原生运行。包含实际键鼠输入、保存重开、PCK 导出重跑。没有把 CI 媒体生成描述为 MCP 渲染返回。",
+        "limitations": [
+          "2026-10-11 原始原生版本面向桌面1280×720；旧960×540截图不代表手机或触屏验收。",
+          "2026-10-11 原始交付未含Web；2026-10-18新增独立Web适配，验收记录与原生证据分开。原始PCK仍需兼容Godot。",
+          "美术由可编辑GDScript程序化绘制，并非逐物件可编辑的场景网格。",
+          "本机headless制作与CI原生渲染是不同验证阶段；没有伪造MCP渲染成功。"
+        ],
+        "alt": "Godot实际运行画面：奶油色操作面板、深蓝分拣场、三色目的地与包裹输送轨道"
+      },
+      "cover": {
+        "path": "docs/showcase/parcel-switchyard/hero.png",
+        "width": 1280,
+        "height": 720,
+        "bytes": 133692,
+        "sha256": "c90a0f36b1be223fd008067e78a112bdc50f36b580d4cc4cc82ee7f05df6a36b"
+      },
+      "demo": {
+        "case_slug": "parcel-switchyard",
+        "url": "play/parcel-switchyard/index.html",
+        "title": "Parcel Switchyard",
+        "engine": "Godot 4.6.3",
+        "renderer": "gl_compatibility",
+        "threads": false,
+        "localeSupport": [
+          "en",
+          "zh"
+        ],
+        "nativeTextLanguage": "en-zh",
+        "controls": {
+          "en": "Match the next parcel label. Tap a route and Send. Keys 1/2/3 select; Space sends; A auto; P pause; R reset. Portrait controls scroll vertically.",
+          "zh": "匹配下一件包裹标签，轻触线路再发送。1/2/3 选线，空格发送，A 自动，P 暂停，R 重置；竖屏操作区可上下滚动。"
+        },
+        "notes": {
+          "en": "The original game is silent. Exit/reload starts a fresh shift. Web game labels and browser controls support English and Simplified Chinese; the original downloadable native package is unchanged. Export records and exact-head browser acceptance are separate; an export alone is not playability proof. No physical-device, Safari/Firefox or deployment claim.",
+          "zh": "原作无音轨；退出或刷新即开始新班次，Web画面与浏览器控件支持中英文，原始原生下载包保持不变。导出记录与当前版本真实浏览器验收分开，导出成功不等于玩法通过；未声称实体设备、Safari、Firefox 或上线验证。"
+        }
+      },
+      "source": {
+        "url": "https://github.com/dcc-mcp/showcase/tree/c80c3df08e45e14270e0432477599c90b07887d4/docs/showcase/parcel-switchyard/native",
+        "commit": "c80c3df08e45e14270e0432477599c90b07887d4",
+        "title": "实际CI验证的原生源文件版本"
+      },
+      "credits": {
+        "author": "DCC-MCP showcase contributors",
+        "license": "本案例素材与工程不随站点MIT重新许可；没有新增CC0或版权授权。详见LICENSES.md。",
+        "note": "原创程序化画面；无私有项目、第三方素材包或外部图像。Godot与适配器不打包分发。"
+      }
+    },
+    {
+      "slug": "dawnkeep-defense",
+      "original": {
+        "title": "Dawnkeep · 曙光守誓",
+        "subtitle": "Godot · 八波英雄守卫战与原生 Web 试玩",
+        "summary": "扮演曙光守护者艾莉拉，在浮空林地守住曙光之心。走位拦截敌人，升级装备，使用 Q/E/R 技能与辅助防御塔，迎战八波进攻和无冕之王。提供中英文原生界面、浏览器试玩和可编辑 Godot 工程。",
+        "software": [
+          "Godot",
+          "Blender"
+        ],
+        "evidence_label": "真实 typed MCP 制作 · 原生与 Web 八波通关",
+        "evidence_scope": "冻结版本 957c1d3：Godot typed MCP 创建、保存并重开原生场景；X11 实际键鼠与桌面 Chrome 分别完成八波胜利、自然第五波失败及重新开始。竖屏为模拟触控，不是实体手机。原始网格由 Blender 原生 Python 制作，不冒称 Blender MCP；公开影片来自实际原生录屏。",
+        "limitations": [
+          "主观音乐试听、实体手机、多点触控、物理 GPU 性能及原生操作系统关闭窗口均未验收。",
+          "自动化实际输入验证了记录的策略和胜败路径，不等于所有流派、所有浏览器或所有设备的游戏平衡与兼容性保证。",
+          "短片有明确时间剪辑，不能冒称完整连续通关录像；录音数值和完整解码不能代替试听。",
+          "浏览器试玩是实际 Godot 单线程 Compatibility 导出；初始游戏界面为中文，按 L 或点击 EN 切换英文，不随页面语言自动切换。",
+          "原生 ZIP 需要 Godot 4.6.3，包含可编辑工程而非独立可执行程序；下载和试玩不新增原创作品的许可。",
+          "完整游戏 CI 与公开页面部署是不同阶段；这里的 957c1d3 记录不单独证明上线后的网络、页面或播放行为。"
+        ],
+        "alt": "Dawnkeep 原生实机：浮空林地、双路石径、曙光圣坛与英雄辅助防御塔"
+      },
+      "en": {
+        "title": "Dawnkeep · Oath of the Last Light",
+        "subtitle": "Godot · Eight-wave hero defense with a native Web playable",
+        "summary": "Play Elyra, the Dawnwarden, and protect the Dawnheart in a floating woodland. Intercept enemies, upgrade equipment, cast Q/E/R abilities and build supporting towers through eight waves and the Crownless King. Includes native English/Chinese UI, browser play and an editable Godot project.",
+        "software": [
+          "Godot",
+          "Blender"
+        ],
+        "evidence_label": "Actual typed MCP authoring · Native and Web eight-wave victories",
+        "evidence_scope": "Frozen revision 957c1d3: Godot typed MCP created, saved and reopened the native scene. Actual X11 keyboard/mouse and desktop Chrome independently completed eight-wave victory, natural wave-five defeat and restarts. Portrait uses emulated touch, not a physical phone. Original meshes were authored with native Blender Python, not Blender MCP; the public film is actual native screen capture.",
+        "limitations": [
+          "Subjective music listening, physical phones, multitouch, physical GPU performance and native OS-window closing remain untested.",
+          "Automated actual-input tests establish the recorded strategies and win/loss paths, not balance or compatibility across every strategy, browser or device.",
+          "The excerpt has explicit time edits and is not a continuous full-campaign film; recording measurements and full decoding do not replace listening.",
+          "The browser playable is the actual single-thread Godot Compatibility export. The game initially uses Chinese; press L or click EN for English. It does not automatically inherit the page language.",
+          "The native ZIP requires Godot 4.6.3 and contains an editable project rather than a standalone executable. Downloading or playing grants no additional license to the original work.",
+          "Full-game CI and public-site deployment are separate stages; the 957c1d3 record alone does not establish deployed network, page or playback behavior."
+        ],
+        "alt": "Actual native Dawnkeep view: floating woodland, two stone paths, the Dawnheart shrine and a supporting tower"
+      },
+      "zh": {
+        "title": "Dawnkeep · 曙光守誓",
+        "subtitle": "Godot · 八波英雄守卫战与原生 Web 试玩",
+        "summary": "扮演曙光守护者艾莉拉，在浮空林地守住曙光之心。走位拦截敌人，升级装备，使用 Q/E/R 技能与辅助防御塔，迎战八波进攻和无冕之王。提供中英文原生界面、浏览器试玩和可编辑 Godot 工程。",
+        "software": [
+          "Godot",
+          "Blender"
+        ],
+        "evidence_label": "真实 typed MCP 制作 · 原生与 Web 八波通关",
+        "evidence_scope": "冻结版本 957c1d3：Godot typed MCP 创建、保存并重开原生场景；X11 实际键鼠与桌面 Chrome 分别完成八波胜利、自然第五波失败及重新开始。竖屏为模拟触控，不是实体手机。原始网格由 Blender 原生 Python 制作，不冒称 Blender MCP；公开影片来自实际原生录屏。",
+        "limitations": [
+          "主观音乐试听、实体手机、多点触控、物理 GPU 性能及原生操作系统关闭窗口均未验收。",
+          "自动化实际输入验证了记录的策略和胜败路径，不等于所有流派、所有浏览器或所有设备的游戏平衡与兼容性保证。",
+          "短片有明确时间剪辑，不能冒称完整连续通关录像；录音数值和完整解码不能代替试听。",
+          "浏览器试玩是实际 Godot 单线程 Compatibility 导出；初始游戏界面为中文，按 L 或点击 EN 切换英文，不随页面语言自动切换。",
+          "原生 ZIP 需要 Godot 4.6.3，包含可编辑工程而非独立可执行程序；下载和试玩不新增原创作品的许可。",
+          "完整游戏 CI 与公开页面部署是不同阶段；这里的 957c1d3 记录不单独证明上线后的网络、页面或播放行为。"
+        ],
+        "alt": "Dawnkeep 原生实机：浮空林地、双路石径、曙光圣坛与英雄辅助防御塔"
+      },
+      "cover": {
+        "path": "docs/showcase/dawnkeep-defense/hero.jpg",
+        "width": 1280,
+        "height": 720,
+        "bytes": 112041,
+        "sha256": "ab8fcfad4554aa6d7da257ed7303e7615019981f50222fba12318ea6173c3bab"
+      },
+      "demo": {
+        "case_slug": "dawnkeep-defense",
+        "url": "play/dawnkeep-defense/index.html",
+        "title": "Dawnkeep / 曙光守誓",
+        "engine": "Godot 4.6.3",
+        "renderer": "gl_compatibility",
+        "threads": false,
+        "localeSupport": [
+          "en",
+          "zh"
+        ],
+        "nativeTextLanguage": "en-zh",
+        "controls": {
+          "en": "WASD/arrows move, Q/E/R skills, Space next wave, Escape pause. Use the native equipment and defense buttons. The initial screen is Chinese: press L or EN for English. On phones use the visible touch controls.",
+          "zh": "WASD/方向键移动，Q/E/R 技能，空格迎战，Esc 暂停；点击原生装备与防御按钮。L 或 EN/中文切换语言，手机使用画面中的触控按钮。"
+        },
+        "notes": {
+          "en": "Eight-wave hero defense. Click/tap the game to unlock audio; M or the native music button mutes it. No saved progress. Outer Reset reloads the real engine. Native and Web victory/defeat/reset passed on the recorded source; physical phones, subjective listening and physical-GPU performance remain unverified.",
+          "zh": "八波英雄守卫战。点击/轻触游戏后启用声音，M 或原生音乐按钮静音。没有存档，外层重开将重新加载真实引擎。记录版本的原生与 Web 胜败及重开通过；实体手机、主观听评和真实显卡性能仍未验证。"
+        }
+      },
+      "source": {
+        "url": "https://github.com/dcc-mcp/showcase/tree/957c1d3928d4d7382535a5b50ae2990aa4cf5854/scripts/godot_web/dawnkeep",
+        "commit": "957c1d3928d4d7382535a5b50ae2990aa4cf5854",
+        "title": "固定验收版本的原生工程与制作配方"
+      },
+      "credits": {
+        "author": "DCC-MCP showcase contributors",
+        "license": "原创玩法、界面、美术、源码与媒体保留所有权利；KayKit 与两首署名音乐保留 CC0 1.0，Noto 派生字体保留 SIL OFL 1.1，Godot 保留 MIT 与第三方通知。",
+        "note": "Kay Lousberg：Forest、Adventurers、Skeletons、Character Animations 免费版。Emma_MA：Determined Pursuit；pauliuw：The Field Of Dreams。未分发 Warcraft 或 League of Legends 素材。"
+      }
+    }
+  ]
+}

@@ -1,3 +1,5 @@
 docs/public/schemas/*.schema.json text eol=lf
 docs/public/catalog/*.json text eol=lf
 docs/public/videos/**/*.vtt text eol=lf
+# The generated source lock hashes LF bytes identically on Windows and Linux.
+docs/.vitepress/showcase/*.json text eol=lf
