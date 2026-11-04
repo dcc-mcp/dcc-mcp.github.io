@@ -156,3 +156,10 @@ same typed tools without rebuilding every DCC integration.
 - [Build an adapter, standalone service, or Skill](/developers)
 - [Explore the adapters and extensions](/ecosystem)
 - [Read the Core technical documentation](https://dcc-mcp.github.io/dcc-mcp-core/)
+
+## Official links
+
+- [DCC-MCP website](https://dcc-mcp.github.io/)
+- [GitHub organization](https://github.com/dcc-mcp)
+- [YouTube channel](https://www.youtube.com/@dcc-mcp)
+- [Showcase gallery](https://dcc-mcp.github.io/showcase/)

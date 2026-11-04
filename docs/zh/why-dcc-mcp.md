@@ -147,3 +147,10 @@ DCC-MCP 先处理可重复部分，并让 Agent 在约束内使用真实工具�
 - [开发适配器、独立服务或 Skill](/zh/developers)
 - [浏览所有适配器与扩展](/zh/ecosystem)
 - [阅读 Core 技术文档](https://dcc-mcp.github.io/dcc-mcp-core/zh/)
+
+## 官方链接
+
+- [DCC-MCP 官网](https://dcc-mcp.github.io/)
+- [GitHub 组织主页](https://github.com/dcc-mcp)
+- [YouTube 频道](https://www.youtube.com/@dcc-mcp)
+- [案例画廊](https://dcc-mcp.github.io/showcase/)

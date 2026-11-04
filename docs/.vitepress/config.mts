@@ -33,6 +33,7 @@ const homeStructuredData = (isZh: boolean) => ({
       logo: `${siteUrl}brand/dcc-mcp-logo.png`,
       sameAs: [
         'https://github.com/dcc-mcp',
+        'https://www.youtube.com/@dcc-mcp',
         'https://clawhub.ai/loonghao/skills/dcc-mcp',
       ],
     },
@@ -152,7 +153,10 @@ const englishTheme = {
     },
   ],
   footer: {
-    message: 'Gateway, CLI, adapters, and Skills for creative applications.',
+    message: 'Gateway, CLI, adapters, and Skills for creative applications. '
+      + '<a href="https://github.com/dcc-mcp" target="_blank" rel="noopener">GitHub</a> &middot; '
+      + '<a href="https://www.youtube.com/@dcc-mcp" target="_blank" rel="noopener">YouTube</a> &middot; '
+      + '<a href="https://dcc-mcp.github.io/showcase/" target="_self">Showcase</a>',
     copyright: 'DCC-MCP',
   },
   editLink: {
@@ -186,7 +190,10 @@ const chineseTheme = {
     },
   ],
   footer: {
-    message: '用 AI Agent 和自动化工具连接创作软件。',
+    message: '用 AI Agent 和自动化工具连接创作软件。'
+      + '<a href="https://github.com/dcc-mcp" target="_blank" rel="noopener">GitHub</a> &middot; '
+      + '<a href="https://www.youtube.com/@dcc-mcp" target="_blank" rel="noopener">YouTube</a> &middot; '
+      + '<a href="https://dcc-mcp.github.io/showcase/" target="_self">案例画廊</a>',
     copyright: 'DCC-MCP',
   },
   editLink: {
@@ -341,6 +348,8 @@ export default defineConfig({
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/dcc-mcp' },
+      { icon: 'youtube', link: 'https://www.youtube.com/@dcc-mcp' },
+      // Official X account is not open yet: { icon: 'x', link: 'https://x.com/dcc_mcp' },
     ],
   },
 })
