@@ -28,7 +28,7 @@ Simplified Chinese machine-readable guide: https://dcc-mcp.github.io/zh/llms-ful
 
 The Skill provides the operating guide. First-time setup also requires the CLI, Gateway, and target application's adapter; check existing installations before adding components. Setup: https://dcc-mcp.github.io/dcc-mcp-core/guide/getting-started
 
-1. From the Agent workspace, run `npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`, then start a new agent turn if the host discovers Skills only at startup. Update the project installation with `npx --yes skills@1.5.23 update -p -y` or the global installation with `npx --yes skills@1.5.23 update -g -y`; do not add `--force` to unattended updates.
+1. From the Agent workspace, run `npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`, then start a new agent turn if the host discovers Skills only at startup. Codex can use `codex plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins` followed by `codex plugin add dcc-mcp@dcc-mcp`; Claude Code can use `/plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins` followed by `/plugin install dcc-mcp@dcc-mcp`. Update the project installation with `npx --yes skills@1.5.23 update -p -y` or the global installation with `npx --yes skills@1.5.23 update -g -y`; do not add `--force` to unattended updates.
 2. Verify the CLI with `dcc-mcp-cli health`, `dcc-mcp-cli dcc-types`, and `dcc-mcp-cli list`.
 3. If the CLI is missing, explain the official installer and obtain permission before running it. For an existing official build, use `dcc-mcp-cli update check` and then `dcc-mcp-cli update apply` with consent.
 4. Search narrowly: `dcc-mcp-cli search --query <intent> --dcc-type <host>`.

@@ -31,6 +31,10 @@ DCC 指数字内容创作（Digital Content Creation）。AI Agent 是能够调�
 
 通用安装：`npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`
 
+Codex 原生插件市场安装：先运行 `codex plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins`，再运行 `codex plugin add dcc-mcp@dcc-mcp`
+
+Claude Code 原生插件安装：先运行 `/plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins`，再运行 `/plugin install dcc-mcp@dcc-mcp`
+
 Skill 为 Agent 提供操作指南。首次使用还需要配置 CLI、Gateway 和目标应用的适配器；先检查已有安装，再补齐缺少的组件。配置步骤：https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/getting-started
 
 使用 `npx --yes skills@1.5.23 update -p -y` 更新项目 Skill，或用 `npx --yes skills@1.5.23 update -g -y` 更新全局安装。先运行 `dcc-mcp-cli update check` 检查 CLI；只有用户同意本地变更后才运行 `dcc-mcp-cli update apply`。无人值守更新不要附加 `--force`。

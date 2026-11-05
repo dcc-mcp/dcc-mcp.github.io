@@ -25,21 +25,40 @@ description: 用 AI 操作 Maya、Blender、3ds Max 等创意软件，完成建�
 
 <HomeIntroVideo locale="zh" />
 
-<div id="install-prompt" class="install-intro">
-  <p class="home-kicker">配置</p>
-  <h2>安装一次，然后描述任务。</h2>
-  <p>DCC 指数字内容创作（Digital Content Creation）。安装 dcc-mcp Skill 工作流指南后，支持 Agent Skills 的 AI 客户端就能按统一流程连接和使用这些软件。</p>
-</div>
-
-```bash
-npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
-```
-
-```text
-使用 dcc-mcp Skill 为这台机器上的创意应用配置 DCC-MCP。安装软件或改变系统状态前先询问我，完成后提供验证证据。
-```
-
-<p class="install-note">请在 Agent 的工作目录运行命令；如需供当前用户的所有项目使用，可追加 <code>--global</code>。<a href="/zh/agents">查看支持的 AI 客户端</a>或<a href="/zh/use-cases">选择一个任务 →</a></p>
+<section id="install-prompt" class="install-panel" aria-labelledby="install-title">
+  <div class="install-intro">
+    <p class="home-kicker">配置</p>
+    <h2 id="install-title">安装一次，然后描述任务。</h2>
+    <p>DCC 指数字内容创作（Digital Content Creation）。选择 Agent 客户端支持的安装方式，安装 dcc-mcp Skill 工作流指南后，再按同一流程连接创意软件。</p>
+  </div>
+  <div class="install-cards" aria-label="DCC-MCP 安装方式">
+    <article class="install-card install-card-featured">
+      <p class="install-card-eyebrow">大多数 Agent</p>
+      <h3>Skills CLI</h3>
+      <p>在 Cursor、Codex、Claude Code、Gemini CLI、Windsurf 或其他兼容 Agent Skills 的客户端当前工作区中运行通用安装命令。</p>
+      <pre class="install-code"><code>npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp</code></pre>
+    </article>
+    <article class="install-card">
+      <p class="install-card-eyebrow">原生插件市场</p>
+      <h3>Codex</h3>
+      <p>如果使用 Codex 的原生插件市场，可通过 Host 自带命令安装同一套官方 Skills。</p>
+      <pre class="install-code"><code>codex plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins
+codex plugin add dcc-mcp@dcc-mcp</code></pre>
+    </article>
+    <article class="install-card">
+      <p class="install-card-eyebrow">原生插件</p>
+      <h3>Claude Code</h3>
+      <p>在 Claude Code 内安装时，可使用 Claude Code 的插件命令，而不必先切换到通用 shell 安装器。</p>
+      <pre class="install-code"><code>/plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins
+/plugin install dcc-mcp@dcc-mcp</code></pre>
+    </article>
+  </div>
+  <div class="install-followup">
+    <p class="install-followup-label">然后用一句简短提示词开始：</p>
+    <pre class="install-code install-prompt-code"><code>使用 dcc-mcp Skill 为这台机器上的创意应用配置 DCC-MCP。安装软件或改变系统状态前先询问我，完成后提供验证证据。</code></pre>
+    <p class="install-note">Skills CLI 命令请在 Agent 的工作目录运行；如需供当前用户的所有项目使用，可追加 <code>--global</code>。<a href="/zh/agents#原生插件市场">查看 Agent 客户端安装说明</a>或<a href="/zh/use-cases">选择一个任务 →</a></p>
+  </div>
+</section>
 
 <section class="home-marketplace-section" aria-labelledby="cloud-agents-title">
   <div class="home-marketplace-heading">

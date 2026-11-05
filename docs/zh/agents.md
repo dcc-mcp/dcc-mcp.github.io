@@ -20,8 +20,29 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 ```
 
 用户级安装可追加 `--global`。如果客户端只在启动时读取 Skill，请开启新会话。
-原生插件市场和 Registry 安装方式仍保留在
-[`dcc-mcp-agent-plugins` 仓库](https://github.com/dcc-mcp/dcc-mcp-agent-plugins#install)。
+
+## 原生插件市场
+
+当 Codex 或 Claude Code 提供原生插件市场时，可以使用 Host 自带安装方式。
+这些命令安装的仍是
+[`dcc-mcp-agent-plugins` 仓库](https://github.com/dcc-mcp/dcc-mcp-agent-plugins#install)
+中的同一套官方 `dcc-mcp` Skill。
+
+### Codex
+
+```bash
+codex plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins
+codex plugin add dcc-mcp@dcc-mcp
+```
+
+### Claude Code
+
+```text
+/plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins
+/plugin install dcc-mcp@dcc-mcp
+```
+
+其他原生插件和 Registry 安装方式继续以官方仓库为准。
 
 ## 云 Agent 与 DCC-MCP
 

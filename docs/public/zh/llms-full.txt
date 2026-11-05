@@ -23,7 +23,7 @@ Core 文档：https://dcc-mcp.github.io/dcc-mcp-core/zh/
 
 Skill 为 Agent 提供操作指南。首次使用还需要配置 CLI、Gateway 和目标应用的适配器；先检查已有安装，再补齐缺少的组件。配置步骤：https://dcc-mcp.github.io/dcc-mcp-core/zh/guide/getting-started
 
-1. 在 Agent 工作区运行 `npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`；如果 Host 只在启动时发现 Skill，再开启新会话。使用 `npx --yes skills@1.5.23 update -p -y` 更新项目安装，或使用 `npx --yes skills@1.5.23 update -g -y` 更新全局安装；无人值守更新不要附加 `--force`。
+1. 在 Agent 工作区运行 `npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`；如果 Host 只在启动时发现 Skill，再开启新会话。Codex 可先运行 `codex plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins`，再运行 `codex plugin add dcc-mcp@dcc-mcp`；Claude Code 可先运行 `/plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins`，再运行 `/plugin install dcc-mcp@dcc-mcp`。使用 `npx --yes skills@1.5.23 update -p -y` 更新项目安装，或使用 `npx --yes skills@1.5.23 update -g -y` 更新全局安装；无人值守更新不要附加 `--force`。
 2. 使用 `dcc-mcp-cli health`、`dcc-mcp-cli dcc-types` 与 `dcc-mcp-cli list` 验证 CLI 和已连接 Host。
 3. CLI 缺失时，先解释官方安装器并获得许可。现有官方构建可在同意后运行 `dcc-mcp-cli update check` 与 `dcc-mcp-cli update apply`。
 4. 缩小搜索范围：`dcc-mcp-cli search --query <intent> --dcc-type <host>`。

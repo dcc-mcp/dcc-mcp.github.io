@@ -31,6 +31,10 @@ Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https
 
 Universal install: `npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`
 
+Codex native marketplace install: `codex plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins` then `codex plugin add dcc-mcp@dcc-mcp`
+
+Claude Code native plugin install: `/plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins` then `/plugin install dcc-mcp@dcc-mcp`
+
 The Skill provides the operating guide. First-time setup also requires the CLI, Gateway, and target application's adapter; check existing installations before adding components. Setup: https://dcc-mcp.github.io/dcc-mcp-core/guide/getting-started
 
 Update the project Skill with `npx --yes skills@1.5.23 update -p -y` or the global installation with `npx --yes skills@1.5.23 update -g -y`. Check the CLI with `dcc-mcp-cli update check`; run `dcc-mcp-cli update apply` only after the user approves the local change. Do not add `--force` to unattended Skill updates.
