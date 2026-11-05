@@ -20,9 +20,30 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 ```
 
 Use `--global` for a user-level installation. Start a new agent session if the
-host discovers Skills only at startup. Native plugin and registry installation
-options remain available in the
+host discovers Skills only at startup.
+
+## Native plugin marketplaces
+
+Use a host-native marketplace when Codex or Claude Code provides one. These
+commands install the same canonical `dcc-mcp` Skill from the
 [`dcc-mcp-agent-plugins` repository](https://github.com/dcc-mcp/dcc-mcp-agent-plugins#install).
+
+### Codex
+
+```bash
+codex plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins
+codex plugin add dcc-mcp@dcc-mcp
+```
+
+### Claude Code
+
+```text
+/plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins
+/plugin install dcc-mcp@dcc-mcp
+```
+
+Other native plugin and registry installation options remain documented in the
+canonical repository.
 
 ## Cloud agents and DCC-MCP
 

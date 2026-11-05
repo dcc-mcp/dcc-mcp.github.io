@@ -25,21 +25,40 @@ description: Use AI to operate Maya, Blender, 3ds Max, and other creative softwa
 
 <HomeIntroVideo locale="en" />
 
-<div id="install-prompt" class="install-intro">
-  <p class="home-kicker">SETUP</p>
-  <h2>Install once. Then describe the task.</h2>
-  <p>DCC means digital content creation. Install the dcc-mcp Skill workflow guide so an AI client that supports Agent Skills can connect to and use these applications through a shared workflow.</p>
-</div>
-
-```bash
-npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
-```
-
-```text
-Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this machine. Ask before installing or changing system state, and finish with verification evidence.
-```
-
-<p class="install-note">Run the command from your Agent workspace; use <code>--global</code> for user-level installation. <a href="/agents">See all Agent hosts</a> or <a href="/use-cases">choose a task →</a></p>
+<section id="install-prompt" class="install-panel" aria-labelledby="install-title">
+  <div class="install-intro">
+    <p class="home-kicker">SETUP</p>
+    <h2 id="install-title">Install once. Then describe the task.</h2>
+    <p>DCC means digital content creation. Install the dcc-mcp Skill workflow guide through the route your Agent host supports, then use the same workflow to connect to creative applications.</p>
+  </div>
+  <div class="install-cards" aria-label="DCC-MCP install options">
+    <article class="install-card install-card-featured">
+      <p class="install-card-eyebrow">Most agents</p>
+      <h3>Skills CLI</h3>
+      <p>Use the universal Agent Skills CLI from the workspace opened by Cursor, Codex, Claude Code, Gemini CLI, Windsurf, or another compatible host.</p>
+      <pre class="install-code"><code>npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp</code></pre>
+    </article>
+    <article class="install-card">
+      <p class="install-card-eyebrow">Native marketplace</p>
+      <h3>Codex</h3>
+      <p>Use Codex's plugin marketplace when you want the host-native install path for the same canonical Skills.</p>
+      <pre class="install-code"><code>codex plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins
+codex plugin add dcc-mcp@dcc-mcp</code></pre>
+    </article>
+    <article class="install-card">
+      <p class="install-card-eyebrow">Native plugin</p>
+      <h3>Claude Code</h3>
+      <p>Use Claude Code's plugin commands when installing from inside Claude Code instead of a shell installer.</p>
+      <pre class="install-code"><code>/plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins
+/plugin install dcc-mcp@dcc-mcp</code></pre>
+    </article>
+  </div>
+  <div class="install-followup">
+    <p class="install-followup-label">Then start with a short prompt:</p>
+    <pre class="install-code install-prompt-code"><code>Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this machine. Ask before installing or changing system state, and finish with verification evidence.</code></pre>
+    <p class="install-note">Run the Skills CLI command from your Agent workspace; use <code>--global</code> for user-level installation. <a href="/agents#native-plugin-marketplaces">See Agent host install notes</a> or <a href="/use-cases">choose a task →</a></p>
+  </div>
+</section>
 
 <section class="home-marketplace-section" aria-labelledby="cloud-agents-title">
   <div class="home-marketplace-heading">

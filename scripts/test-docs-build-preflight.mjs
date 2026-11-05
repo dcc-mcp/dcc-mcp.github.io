@@ -3,11 +3,12 @@ import { cpSync, existsSync, linkSync, mkdtempSync, readFileSync, readdirSync, r
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { spawnSync } from 'node:child_process'
+import { tmpdir } from 'node:os'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const buildScript = join(root, 'scripts', 'build-docs.mjs')
 const packageJson = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'))
-const fixtureRoot = mkdtempSync(join(dirname(root), 'dcc-mcp-build-preflight-'))
+const fixtureRoot = mkdtempSync(join(tmpdir(), 'dcc-mcp-build-preflight-'))
 const officialCatalog = readFileSync(join(root, 'docs', '.vitepress', 'dcc-integrations.json'), 'utf8')
 const validCatalog = `[{
   "slug": "probe",

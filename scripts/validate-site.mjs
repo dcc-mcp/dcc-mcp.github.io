@@ -472,6 +472,13 @@ for (const [name, html, href] of [
   }
 }
 const universalSkillCommand = 'npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp'
+const nativePluginCommands = [
+  'codex plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins',
+  'codex plugin add dcc-mcp@dcc-mcp',
+  '/plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins',
+  '/plugin install dcc-mcp@dcc-mcp',
+]
+const hasRenderedCommand = (html, command) => html.includes(command) || visibleHtmlText(html).includes(command)
 const hasRenderedSkillInstall = (html) => [
   'npx',
   'skills@1.5.23',
@@ -484,6 +491,11 @@ for (const [name, html, prompt] of [
 ]) {
   if (!hasRenderedSkillInstall(html) || !html.includes(prompt)) {
     throw new Error(`${name} is missing the universal Skill install and short prompt`)
+  }
+  for (const command of nativePluginCommands) {
+    if (!hasRenderedCommand(html, command)) {
+      throw new Error(`${name} is missing a native plugin install command: ${command}`)
+    }
   }
 }
 if (!englishHome.includes('CAPABILITY MARKETPLACE') || !chineseHome.includes('能力市场')) {
@@ -766,6 +778,11 @@ for (const llms of llmsFiles) {
   if (!llms.includes(universalSkillCommand) || !llms.includes('https://github.com/dcc-mcp/dcc-mcp-agent-plugins')) {
     throw new Error('An llms file is missing the canonical Agent Skill distribution contract')
   }
+  for (const command of nativePluginCommands) {
+    if (!llms.includes(command)) {
+      throw new Error(`An llms file is missing a native Agent plugin command: ${command}`)
+    }
+  }
   if (!llms.includes(installSopSchemaUrl)) {
     throw new Error('An llms file is missing the canonical Adapter Install SOP v1 schema')
   }
@@ -783,6 +800,11 @@ for (const [file, prompt] of [
   const html = readFileSync(file, 'utf8')
   if (!hasRenderedSkillInstall(html) || !html.includes(prompt)) {
     throw new Error(`${file} is missing the universal Skill install and short prompt`)
+  }
+  for (const command of nativePluginCommands) {
+    if (!hasRenderedCommand(html, command)) {
+      throw new Error(`${file} is missing a native plugin install command: ${command}`)
+    }
   }
 }
 for (const { slug, name, repository, dccType, marketplacePackage, coreApplicationRoute } of integrations) {
