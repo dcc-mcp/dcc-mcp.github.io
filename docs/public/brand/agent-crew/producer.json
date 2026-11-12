@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "id": "dcc-mcp-delivery",
+  "name": "Delivery",
+  "body": {
+    "path": "M44 9A33 33 0 1 1 44 75A33 33 0 1 1 44 9Z M64 62L70 58L88 79Q91 84 86 89Q82 92 77 87L59 71Z"
+  },
+  "eyes": {
+    "x": 44,
+    "y": 41,
+    "spacing": 18,
+    "scale": 1.14
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "id": "dcc-mcp-task-planning",
+  "name": "Task planning",
+  "body": {
+    "path": "M26 25H74C84 25 91 32 91 42V59C91 69 84 76 74 76H42L24 90L28 75C17 73 10 66 10 57V42C10 32 17 25 26 25Z M47 26V16H53V26Z M50 8A7 7 0 1 1 50 22A7 7 0 1 1 50 8Z"
+  },
+  "eyes": {
+    "x": 50,
+    "y": 48,
+    "spacing": 19,
+    "scale": 1.18
+  }
+}

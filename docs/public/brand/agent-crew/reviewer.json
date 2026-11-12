@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "id": "dcc-mcp-result-checking",
+  "name": "Result checking",
+  "body": {
+    "path": "M18 16H82C86 16 89 20 89 25V49C89 69 73 83 50 94C27 83 11 69 11 49V25C11 20 14 16 18 16Z"
+  },
+  "eyes": {
+    "x": 50,
+    "y": 44,
+    "spacing": 20,
+    "scale": 1.2
+  }
+}
