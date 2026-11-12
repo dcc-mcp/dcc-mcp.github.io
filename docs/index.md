@@ -23,6 +23,8 @@ description: Use AI to operate Maya, Blender, 3ds Max, and other creative softwa
   </ol>
 </section>
 
+<AgentCrew locale="en" />
+
 <HomeIntroVideo locale="en" />
 
 <section id="install-prompt" class="install-panel" aria-labelledby="install-title">

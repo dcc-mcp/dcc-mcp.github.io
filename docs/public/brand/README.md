@@ -1,5 +1,7 @@
 # Brand assets
 
+- `agent-crew/` contains the five original AI-assisted role characters adapted from the Monica Agent Team sharing project. The [source record](agent-crew/README.md) includes geometry definitions, unmodified PNG/GIF derivatives and MIT notices. These illustrate creative workflow roles; they do not display live Agent status or replace the official DCC-MCP logo.
+
 - `dcc-mcp-logo.png` is an exact copy of the authoritative lockup used by the DCC-MCP-Core README. The site header, hero, social card, and repository README reuse it without redrawing the mark.
 - `dcc-mcp-hero-atmosphere-source.png` is the original supporting background generated with OpenAI ImageGen on 2026-07-29. It intentionally contains no logo, text, third-party marks, or product UI.
 - `dcc-mcp-hero-atmosphere.webp` is the optimized web derivative used by the homepage theme.

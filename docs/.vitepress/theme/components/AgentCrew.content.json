@@ -1,0 +1,38 @@
+{
+  "en": {
+    "kicker": "THE CREATIVE CREW",
+    "title": "Put a face to the work.",
+    "description": "Give the steps in your creative workflow a role: make the brief clear, build in your tools, check the result, and pass it on.",
+    "demo": "Illustrated roles",
+    "play": "Animate selected character",
+    "pause": "Pause animation",
+    "reduced": "Animation paused by your motion preference",
+    "taskLabel": "Try a brief like this",
+    "linkLabel": "Explore this workflow",
+    "roles": [
+      { "id": "plan", "asset": "planner", "name": "The planner", "purpose": "Turn a broad idea into a small, clear task.", "task": "Plan a product turntable: one model, a neutral background, and a short list of shots to review.", "href": "/use-cases" },
+      { "id": "make", "asset": "maker", "name": "The maker", "purpose": "Build and adjust the scene in your creative tools.", "task": "Create a simple scene in Blender, keep the objects editable, and save the project for review.", "href": "/control/blender" },
+      { "id": "look", "asset": "lookdev", "name": "The look artist", "purpose": "Work on materials, lighting, and the final look.", "task": "Try a soft studio light and two material options. Keep both versions so I can compare them.", "href": "/marketplace" },
+      { "id": "review", "asset": "reviewer", "name": "The reviewer", "purpose": "Check the result against the original request.", "task": "Check the saved scene, camera framing, and render output. Tell me what still needs attention.", "href": "/showcase" },
+      { "id": "deliver", "asset": "producer", "name": "The producer", "purpose": "Hand over files someone else can pick up.", "task": "Collect the editable project, preview, and a short note explaining how to open and continue the work.", "href": "/agents" }
+    ]
+  },
+  "zh": {
+    "kicker": "认识创作搭档",
+    "title": "给每一份工作，一张熟悉的面孔。",
+    "description": "用角色组织自己的创作流程：说清需求，在软件里制作，检查结果，再把成果交给下一位。",
+    "demo": "角色示意",
+    "play": "播放所选角色动画",
+    "pause": "暂停动画",
+    "reduced": "已按系统偏好暂停动画",
+    "taskLabel": "可以这样交代一个任务",
+    "linkLabel": "看看相关工作流",
+    "roles": [
+      { "id": "plan", "asset": "planner", "name": "任务规划", "purpose": "把宽泛的想法，整理成一件说得清的小事。", "task": "帮我规划一段产品转台：一个模型、干净的背景，再列出需要检查的几个镜头。", "href": "/zh/use-cases" },
+      { "id": "make", "asset": "maker", "name": "场景制作", "purpose": "在熟悉的创作软件里，搭建和调整场景。", "task": "在 Blender 里搭一个简单场景，保留可编辑的物体，保存工程供我检查。", "href": "/zh/control/blender" },
+      { "id": "look", "asset": "lookdev", "name": "材质灯光", "purpose": "尝试材质、灯光和画面的整体感觉。", "task": "试一组柔和的棚拍灯光，做两种材质方案，保留两个版本让我比较。", "href": "/zh/marketplace" },
+      { "id": "review", "asset": "reviewer", "name": "结果检查", "purpose": "对照最初的要求，看成果还缺什么。", "task": "检查保存的工程、镜头构图和渲染文件，把还需要处理的地方告诉我。", "href": "/zh/showcase" },
+      { "id": "deliver", "asset": "producer", "name": "成果交付", "purpose": "整理好文件，让别人能顺手接着做。", "task": "把可编辑工程、预览图和简短说明放在一起，告诉下一位怎么打开、从哪里继续。", "href": "/zh/agents" }
+    ]
+  }
+}

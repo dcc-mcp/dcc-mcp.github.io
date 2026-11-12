@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "id": "dcc-mcp-scene-creation",
+  "name": "Scene creation",
+  "body": {
+    "path": "M18 37H82C87 37 90 40 90 45V80C90 86 86 90 80 90H20C14 90 10 86 10 80V45C10 40 13 37 18 37Z M11 25L80 10Q84 9 85 13L88 26L15 43Z M28 22L33 37L40 35L35 20Z M51 17L56 32L63 30L58 15Z"
+  },
+  "eyes": {
+    "x": 50,
+    "y": 62,
+    "spacing": 20,
+    "scale": 1.14
+  }
+}

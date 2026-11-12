@@ -23,6 +23,8 @@ description: 用 AI 操作 Maya、Blender、3ds Max 等创意软件，完成建�
   </ol>
 </section>
 
+<AgentCrew locale="zh" />
+
 <HomeIntroVideo locale="zh" />
 
 <section id="install-prompt" class="install-panel" aria-labelledby="install-title">

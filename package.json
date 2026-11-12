@@ -8,7 +8,8 @@
     "showcase:sync": "node scripts/sync-showcase.mjs",
     "showcase:check": "node scripts/sync-showcase.mjs --check",
     "showcase:test": "node scripts/test-home-collection.mjs",
-    "geo:test": "node scripts/test-home-collection.mjs && node scripts/test-integration-catalog-reader.mjs && node scripts/test-docs-build-preflight.mjs && node scripts/test-validate-released-hosts.mjs && node scripts/test-showcase-provenance.mjs && node scripts/test-retrieval-url-contract.mjs && node scripts/test-public-retrieval.mjs && node scripts/test-geo-baseline.mjs && node scripts/test-geo-baseline-mutations.mjs",
+    "crew:test": "node scripts/test-agent-crew.mjs",
+    "geo:test": "npm run crew:test && node scripts/test-home-collection.mjs && node scripts/test-integration-catalog-reader.mjs && node scripts/test-docs-build-preflight.mjs && node scripts/test-validate-released-hosts.mjs && node scripts/test-showcase-provenance.mjs && node scripts/test-retrieval-url-contract.mjs && node scripts/test-public-retrieval.mjs && node scripts/test-geo-baseline.mjs && node scripts/test-geo-baseline-mutations.mjs",
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {

@@ -1,0 +1,128 @@
+{
+  "schema": "dcc-mcp.website-agent-crew.v1",
+  "kind": "Illustrative workflow roles; no live Agent status",
+  "authorship": {
+    "geometry_and_sequence": "Original AI-assisted geometry and animation sequence authored for this user in this workspace; credited as DCC-MCP contributors.",
+    "renderer": "open-bot-avatar 0.2.1, Copyright (c) 2026 Dominik Scholz, MIT",
+    "renderer_source": "https://github.com/DominikScholz/open-bot-avatar",
+    "rasterization": "ImageMagick; existing native SVG frame rendering, no browser capture"
+  },
+  "license": "MIT",
+  "license_files": [
+    "LICENSE.txt",
+    "open-bot-avatar-LICENSE.txt"
+  ],
+  "animation": "One shared idle/thinking loop style per role; seven preview states use text and CSS. GIFs are not seven separate state animations.",
+  "files": [
+    {
+      "file": "planner.png",
+      "sha256": "6bdc3df6bd4a7a1360bac95ce2c44c2649c00e66b1da7cd5e9ea78635d2ac8cf",
+      "bytes": 11581,
+      "width": 256,
+      "height": 256,
+      "frames": 1,
+      "source_file": "task-planning-static.png",
+      "source_role": "task-planning",
+      "transformation": "Byte-identical raster copy; renamed by website role"
+    },
+    {
+      "file": "planner.gif",
+      "sha256": "ad85a9227b4c2a266142076337f900695f8a185ae3de7b90684af97d6eda4c9b",
+      "bytes": 57361,
+      "width": 256,
+      "height": 256,
+      "frames": 27,
+      "source_file": "task-planning.gif",
+      "source_role": "task-planning",
+      "transformation": "Byte-identical raster copy; renamed by website role"
+    },
+    {
+      "file": "maker.png",
+      "sha256": "78812dbd515c2208d229705aef9661c8400a4662261ee3478ee164041ca52824",
+      "bytes": 15149,
+      "width": 256,
+      "height": 256,
+      "frames": 1,
+      "source_file": "scene-creation-static.png",
+      "source_role": "scene-creation",
+      "transformation": "Byte-identical raster copy; renamed by website role"
+    },
+    {
+      "file": "maker.gif",
+      "sha256": "87910346bf06d30e8a0799ea2419caa49549458c3a406cc8caf899a7df1619d8",
+      "bytes": 70153,
+      "width": 256,
+      "height": 256,
+      "frames": 27,
+      "source_file": "scene-creation.gif",
+      "source_role": "scene-creation",
+      "transformation": "Byte-identical raster copy; renamed by website role"
+    },
+    {
+      "file": "lookdev.png",
+      "sha256": "fbd091eec77a694a2671f8065bb28b106518451f756ee5e2ad98dd01f87f2fce",
+      "bytes": 13187,
+      "width": 256,
+      "height": 256,
+      "frames": 1,
+      "source_file": "materials-lighting-static.png",
+      "source_role": "materials-lighting",
+      "transformation": "Byte-identical raster copy; renamed by website role"
+    },
+    {
+      "file": "lookdev.gif",
+      "sha256": "b2edf7e59a3e565cbf60c7a03f780929742c749210e6365e475968d5c1bd6a6f",
+      "bytes": 59056,
+      "width": 256,
+      "height": 256,
+      "frames": 27,
+      "source_file": "materials-lighting.gif",
+      "source_role": "materials-lighting",
+      "transformation": "Byte-identical raster copy; renamed by website role"
+    },
+    {
+      "file": "reviewer.png",
+      "sha256": "3cc9c456a5a8874868a80bc63ab9eaad5680f9753daf58aad243c0a65f2ab914",
+      "bytes": 10461,
+      "width": 256,
+      "height": 256,
+      "frames": 1,
+      "source_file": "result-checking-static.png",
+      "source_role": "result-checking",
+      "transformation": "Byte-identical raster copy; renamed by website role"
+    },
+    {
+      "file": "reviewer.gif",
+      "sha256": "a4b8d52cdad8a87d8e956897c14e60c0d58729d86c5e7c6f9d2e3429bd620bcf",
+      "bytes": 53618,
+      "width": 256,
+      "height": 256,
+      "frames": 27,
+      "source_file": "result-checking.gif",
+      "source_role": "result-checking",
+      "transformation": "Byte-identical raster copy; renamed by website role"
+    },
+    {
+      "file": "producer.png",
+      "sha256": "b76bcad389b2cc8faf60f1a50d891a455107fa1a6e682c5a0703a0b0dd98a755",
+      "bytes": 12042,
+      "width": 256,
+      "height": 256,
+      "frames": 1,
+      "source_file": "delivery-static.png",
+      "source_role": "delivery",
+      "transformation": "Byte-identical raster copy; renamed by website role"
+    },
+    {
+      "file": "producer.gif",
+      "sha256": "d667605b7c3c783fee6b58d39e7344456ec0ee8d81d0ac6d6c2954a453bf2f00",
+      "bytes": 55479,
+      "width": 256,
+      "height": 256,
+      "frames": 27,
+      "source_file": "delivery.gif",
+      "source_role": "delivery",
+      "transformation": "Byte-identical raster copy; renamed by website role"
+    }
+  ]
+}
