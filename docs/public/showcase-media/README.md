@@ -42,3 +42,13 @@ Homepage showcase media is copied from the owning DCC-MCP repositories so the we
 The homepage collection uses externally hosted covers from `dcc-mcp/showcase` at immutable commit `090d62743778b6fd0cd8bd085af4522e9caee2ff`. Covers remain owned by their original case and link to its bilingual detail page, production source, evidence and per-asset licensing. No collection image is copied into this directory.
 
 The complete inventory, original credit records, cover dimensions and SHA256 values are generated from `collection.json.cases[]` and each case's media manifest into `docs/.vitepress/showcase/collection.json`; `source-lock.json` records the exact source file digests. Run `npm run showcase:sync -- --ref <full-showcase-commit>` to update the whole inventory, or `npm run showcase:check` to verify it against its pinned upstream files. Do not hand-edit the generated inventory or add a second component case list. The legacy media above belongs to the separate adapter examples documentation.
+
+## Homepage production concepts, 2026-11-17
+
+These original ImageGen concepts are separate from the canonical production inventory. The homepage labels them in both languages as AI-generated concepts, not application screenshots or verified software outputs. Full original PNGs and exact prompts are preserved in `../brand/`.
+
+- `game-world-v3.webp`: an original mountain-citadel game environment; workflow owner: [dcc-mcp-blender](https://github.com/dcc-mcp/dcc-mcp-blender). Source: `../brand/game-world-v3-source.png`.
+- `film-vfx-v3.webp`: an original industrial energy-aperture VFX shot; workflow owner: [dcc-mcp-houdini](https://github.com/dcc-mcp/dcc-mcp-houdini). Source: `../brand/film-vfx-v3-source.png`.
+- `character-lookdev-v3.webp`: an original frontier-explorer character; workflow owner: [dcc-mcp-maya](https://github.com/dcc-mcp/dcc-mcp-maya). Source: `../brand/character-lookdev-v3-source.png`.
+
+All derivatives preserve the 1672 × 941 composition. `../brand/game-film-v3-prompts.json` records full generation prompts and ownership. All website-owned media stays under `/showcase-media/`; `/showcase/` remains owned by the separate Showcase project.

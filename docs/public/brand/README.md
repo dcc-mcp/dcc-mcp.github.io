@@ -22,3 +22,15 @@ The generated atmosphere uses the DCC-MCP navy, blue, cyan, and teal palette to 
 Final generation prompt: Create one original cinematic hero artwork, 1792 by 1024 landscape, for the DCC-MCP creative software website. A monumental physically credible mechanical interstellar gateway in a shadowy industrial hangar. Single armored ring occupying the RIGHT half, at x=74% and y=48%, with layered cold steel-blue machined metal and concentrated warm amber plasma energy spiraling inward. Reflective floor, rich depth, controlled cinematic contrast. LEFT 48% quiet dark navy negative space safe for a large white headline. Enough top and bottom space for mobile cropping. Extremely polished 3D concept art, monumental silhouette, precision detail, restrained particles. No people, no text, no logos, no watermark, no interface. Decorative AI-generated brand artwork, not evidence of real software execution.
 
 The initial request with a local reference failed with an `AbsolutePathBuf` serialization error and created no output. The successful new-art request used the text above with no attached image.
+
+## Minimal homepage production concepts, 2026-11-17
+
+The current neutral light/dark homepage uses three original built-in ImageGen concepts. Both languages label these as generated production concepts, not software captures or verified adapter outputs. Canonical production cases still come from the unchanged, immutable Showcase collection.
+
+| Preserved generated source | Full-composition web derivative | Owning workflow |
+| --- | --- | --- |
+| `game-world-v3-source.png` | `../showcase-media/game-world-v3.webp` | [Blender](https://github.com/dcc-mcp/dcc-mcp-blender) |
+| `film-vfx-v3-source.png` | `../showcase-media/film-vfx-v3.webp` | [Houdini](https://github.com/dcc-mcp/dcc-mcp-houdini) |
+| `character-lookdev-v3-source.png` | `../showcase-media/character-lookdev-v3.webp` | [Maya](https://github.com/dcc-mcp/dcc-mcp-maya) |
+
+All original PNGs and derivatives are 1672 × 941 pixels. WebP quality is 82 for the game environment and 88 for the effects and character images (447,034 / 353,384 / 199,956 bytes). Exact generation prompts and repository links are retained in `game-film-v3-prompts.json`. Repository ownership identifies the relevant workflow, rather than claiming that an adapter produced the illustration. Earlier tracked sources and artwork remain preserved.

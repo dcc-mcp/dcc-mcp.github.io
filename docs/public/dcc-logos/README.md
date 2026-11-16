@@ -34,3 +34,7 @@ These nominative product identity assets are displayed unchanged. Product names 
 | `unreal.svg` | [Simple Icons](https://cdn.simpleicons.org/unrealengine), checked against [Unreal Engine branding](https://www.unrealengine.com/branding) |
 | `wwise.png` | [Official Audiokinetic reversed Wwise logo](https://info.audiokinetic.com/hs-fs/hubfs/WWISE%20LOGO_REV-2.png) |
 | `zbrush.png` | [Official Maxon ZBrush app artwork](https://apps.apple.com/app/zbrush-for-ipad/id6612028716) |
+
+## Neutral homepage marks
+
+`monochrome/` contains eight unmodified SVGs pinned to [Simple Icons 11.15.0](https://github.com/simple-icons/simple-icons/tree/11.15.0/icons). `monochrome/sources.json` records each exact source URL and SHA-256. The homepage uses CSS masks to display one theme-aware neutral color. Simple Icons distributes the artwork under CC0; product names and marks remain subject to their owners' trademark rules.

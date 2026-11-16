@@ -1,0 +1,63 @@
+/* Current mainline features, using the shared neutral design tokens. */
+.home-demonstrations > summary { min-height: 44px; color: var(--dcc-ink); cursor: pointer; font-size: 18px; }
+.home-demonstrations[open] > summary { margin-bottom: 40px; }
+.home-page .agent-crew, .home-page .home-intro-video { margin-bottom: 40px; }
+.home-page .home-kicker { margin-bottom: 16px; color: var(--dcc-muted); font-size: 12px; }
+.home-page .crew-heading h2, .home-page .intro-video-heading h2 { font-size: clamp(27px, 3vw, 38px); font-weight: 550; }
+.home-page .crew-heading > p, .home-page .intro-video-heading > p { font-size: 15px; }
+.collection-section { scroll-margin-top: 96px; }
+.collection-heading { max-width: 760px; margin-bottom: 32px; }
+.home-page .collection-index { margin-bottom: 16px; color: var(--dcc-muted); font-size: 11px; letter-spacing: .06em; }
+.home-page .collection-heading > p:not(.collection-index) { margin-top: 18px; font-size: 16px; }
+.collection-link, .collection-actions a, .collection-footer a, .collection-record a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: 13px; }
+.collection-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding-block: 20px; margin-bottom: 28px; border-block: 1px solid var(--dcc-line); }
+.collection-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.collection-filters button, .collection-empty button { min-height: 44px; padding: 9px 16px; border: 1px solid var(--dcc-line); border-radius: 999px; color: var(--dcc-ink-soft); cursor: pointer; font-size: 13px; }
+.collection-filters button[aria-pressed='true'], .collection-empty button { background: var(--dcc-action); color: var(--dcc-action-text); border-color: var(--dcc-action); }
+.collection-search { margin-left: auto; }
+.collection-search > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.collection-search input { width: 250px; max-width: 100%; min-height: 44px; padding: 10px 16px; border: 1px solid var(--dcc-line); border-radius: 999px; background: var(--dcc-panel); color: var(--dcc-ink); font-size: 16px; }
+.collection-search input::placeholder { color: var(--dcc-muted); opacity: 1; }
+.home-page .collection-count { min-width: 70px; color: var(--dcc-muted); font-size: 12px; }
+.collection-masonry { columns: 3; column-gap: 28px; }
+.collection-work { display: inline-block; width: 100%; min-width: 0; break-inside: avoid; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--dcc-line); overflow-wrap: anywhere; }
+.collection-cover { position: relative; display: block; overflow: hidden; border-radius: 12px; background: var(--dcc-panel-soft); }
+.collection-cover img { display: block; width: 100%; height: auto; }
+.collection-cover-fallback { display: grid; min-height: 180px; align-items: center; padding: 24px; font-size: 13px; }
+.collection-demo-mark { position: absolute; left: 12px; bottom: 12px; padding: 5px 10px; border-radius: 999px; color: white; background: #171719e6; font-size: 11px; }
+.home-page .collection-software { margin-top: 18px; color: var(--dcc-muted); font-size: 11px; }
+.home-page .collection-work h3 { margin: 10px 0 12px; font-size: 23px; font-weight: 550; line-height: 1.35; letter-spacing: -.03em; }
+.collection-work h3 a { color: var(--dcc-ink); }
+.collection-work h3 a span { white-space: nowrap; }
+.home-page .collection-evidence { padding-left: 10px; border-left: 2px solid var(--dcc-line); font-size: 12px; }
+.home-page .collection-summary { margin-top: 12px; font-size: 13px; }
+.collection-actions { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.collection-record { color: var(--dcc-ink-soft); font-size: 12px; }
+.collection-record summary { display: list-item; min-height: 44px; padding-block: 12px; cursor: pointer; }
+.home-page .collection-record p { font-size: 12px; }
+.collection-record ul { padding-left: 18px; }
+.collection-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; padding-top: 24px; border-top: 1px solid var(--dcc-line); }
+.home-page .collection-footer p { max-width: 700px; font-size: 12px; }
+.collection-empty { padding-block: 40px; }
+.home-install-options { margin-bottom: 32px; }
+.install-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.install-card { min-width: 0; padding: 24px; border: 1px solid var(--dcc-line); border-radius: 12px; background: var(--dcc-panel); }
+.home-page .install-card-eyebrow { margin-bottom: 12px; color: var(--dcc-muted); font-size: 11px; }
+.home-page .install-card h3 { margin-bottom: 14px; font-size: 21px; font-weight: 550; }
+.home-page .install-card > p { font-size: 13px; }
+.home-page .install-code { padding: 16px; margin: 18px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; border: 1px solid var(--dcc-line); border-radius: 8px; background: var(--dcc-panel-soft); color: var(--dcc-ink); }
+.install-code code { background: transparent; padding: 0; font: 12px/1.8 var(--vp-font-family-mono); }
+.install-followup { margin-top: 28px; }
+.home-page .install-followup p { font-size: 13px; }
+.home-page .install-note { margin-top: 16px; color: var(--dcc-muted); font-size: 12px; }
+.home-resources { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding-block: 64px; border-bottom: 1px solid var(--dcc-line); }
+.home-resources section { min-width: 0; }
+.home-page .home-resources h2 { margin-block: 12px 18px; font-size: 25px; }
+.home-page .home-resources p { margin-bottom: 12px; font-size: 13px; }
+.home-resources a, .install-note a { text-decoration: underline; text-underline-offset: 3px; }
+.route-page .VPDoc .content-container { max-width: 1120px; }
+.dcc-control-guide-index { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.dcc-control-guide-index > * { min-width: 0; }
+@media (max-width: 1024px) { .collection-masonry { columns: 2; } .install-cards { grid-template-columns: 1fr; } .home-resources { grid-template-columns: 1fr; } }
+@media (max-width: 700px) { .collection-masonry { columns: 1; } .collection-toolbar { align-items: flex-start; } .collection-search { width: 100%; margin-left: 0; } .collection-search input { width: 100%; } .dcc-control-guide-index { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .install-card { padding: 20px; } .home-page .collection-work h3 { font-size: 22px; } }
