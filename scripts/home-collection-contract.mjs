@@ -55,5 +55,5 @@ export function validateCollectionHtml(html, snapshot, locale) {
     assert.ok(!/<(?:iframe|video|canvas)\b/.test(card), 'Gallery must not load game engines or video')
   }
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1, 'Homepage needs one h1')
-  assert.ok(html.includes('id="creative-hero-title"') && html.includes('fetchpriority="high"'))
+  assert.ok(html.includes('id="home-title"') && html.includes('fetchpriority="high"'))
 }

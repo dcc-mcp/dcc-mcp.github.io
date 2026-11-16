@@ -1,5 +1,4 @@
 import DefaultTheme from 'vitepress/theme-without-fonts'
-import { defineAsyncComponent } from 'vue'
 import Layout from './Layout.vue'
 import MarketplaceSearch from './components/MarketplaceSearch.vue'
 import ShowcaseGallery from './components/ShowcaseGallery.vue'
@@ -7,16 +6,17 @@ import HomeIntroVideo from './components/HomeIntroVideo.vue'
 import AgentCrew from './components/AgentCrew.vue'
 import '@fontsource-variable/geist'
 import './styles.css'
-import './creative-home.css'
+import HomePage from './components/HomePage.vue'
+import './minimal-extensions.css'
 
 export default {
   extends: DefaultTheme,
   Layout,
   enhanceApp({ app }) {
+    app.component('HomePage', HomePage)
     app.component('MarketplaceSearch', MarketplaceSearch)
     app.component('ShowcaseGallery', ShowcaseGallery)
     app.component('HomeIntroVideo', HomeIntroVideo)
     app.component('AgentCrew', AgentCrew)
-    app.component('CollectionMasonry', defineAsyncComponent(() => import('./components/CollectionMasonry.vue')))
   },
 }

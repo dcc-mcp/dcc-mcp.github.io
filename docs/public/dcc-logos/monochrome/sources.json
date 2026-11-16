@@ -1,0 +1,46 @@
+{
+  "project": "simple-icons/simple-icons",
+  "tag": "11.15.0",
+  "icons": [
+    {
+      "name": "maya",
+      "source": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/autodeskmaya.svg",
+      "sha256": "20ecbc10667851cbc2577fa0e7d2a4447a6afe9297861edf92130c8a40b01a78"
+    },
+    {
+      "name": "blender",
+      "source": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/blender.svg",
+      "sha256": "ec86e2c9cf9fc25f5c8d3bf2e8d201c0dce6683137f37a1e61f992da6566bff5"
+    },
+    {
+      "name": "houdini",
+      "source": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/houdini.svg",
+      "sha256": "f9f8850031c760f7db518d118a8079ceff9e898f7c344f752be7b5d4dda5e334"
+    },
+    {
+      "name": "unreal",
+      "source": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/unrealengine.svg",
+      "sha256": "06bbd4833c91e4ad085dd8203b26739538a881e38755a3efc9ed8d57cfadbb73"
+    },
+    {
+      "name": "photoshop",
+      "source": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/adobephotoshop.svg",
+      "sha256": "11f791a18f274a494148fa2b2b04b81e4cb21561537ce5ac0af38ec8fdce97c1"
+    },
+    {
+      "name": "unity",
+      "source": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/unity.svg",
+      "sha256": "b5b66fda997db7445483ff2917b1c17abb8da607d43905835551991aeb940753"
+    },
+    {
+      "name": "nuke",
+      "source": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/nuke.svg",
+      "sha256": "d6f57a14ea189a82f4c894c549341817bc2ecb0aa06f4a05efd6b1f00aa91c15"
+    },
+    {
+      "name": "godot",
+      "source": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/godotengine.svg",
+      "sha256": "95757647fedf1440fd24cc32a00f592ead4b050f8a63fdfcc46fbcd3a2952ffb"
+    }
+  ]
+}

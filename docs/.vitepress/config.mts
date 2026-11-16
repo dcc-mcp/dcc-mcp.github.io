@@ -136,12 +136,12 @@ const englishTheme = {
     { text: 'Why DCC-MCP', link: '/why-dcc-mcp' },
     { text: 'Marketplace', link: '/marketplace' },
     { text: 'Showcase', link: 'https://dcc-mcp.github.io/showcase/', target: '_self' },
-    { text: 'For Agents', link: '/agents' },
-    { text: 'For Developers', link: '/developers' },
-    { text: 'Ecosystem', link: '/ecosystem' },
     {
-      text: 'Reference',
+      text: 'Resources',
       items: [
+        { text: 'For Agents', link: '/agents' },
+        { text: 'For Developers', link: '/developers' },
+        { text: 'Ecosystem', link: '/ecosystem' },
         { text: 'Common AI + DCC tasks', link: '/use-cases' },
         { text: 'Cloud agents and DCC-MCP', link: '/cloud-agents' },
         { text: 'Adapter examples and prompts', link: '/examples' },
@@ -172,13 +172,13 @@ const chineseTheme = {
   nav: [
     { text: '为什么选择 DCC-MCP', link: '/zh/why-dcc-mcp' },
     { text: '技能市场', link: '/zh/marketplace' },
-    { text: '案例画廊', link: 'https://dcc-mcp.github.io/showcase/', target: '_self' },
-    { text: 'Agent 使用指南', link: '/zh/agents' },
-    { text: '开发者', link: '/zh/developers' },
-    { text: '项目目录', link: '/zh/ecosystem' },
+    { text: '案例画廊', link: 'https://dcc-mcp.github.io/showcase/zh/', target: '_self' },
     {
-      text: '参考资料',
+      text: '资源',
       items: [
+        { text: 'Agent 使用指南', link: '/zh/agents' },
+        { text: '开发者', link: '/zh/developers' },
+        { text: '项目目录', link: '/zh/ecosystem' },
         { text: '常见 AI + DCC 任务', link: '/zh/use-cases' },
         { text: '云 Agent 与 DCC-MCP', link: '/zh/cloud-agents' },
         { text: '适配器案例与提示词', link: '/zh/examples' },
@@ -215,10 +215,10 @@ const chineseTheme = {
 export default defineConfig({
   title: 'DCC-MCP',
   description,
-  appearance: false,
+  appearance: 'dark',
   cleanUrls: true,
   lastUpdated: true,
-  srcExclude: ['public/**/README.md'],
+  srcExclude: ['public/**'],
   sitemap: {
     hostname: siteUrl,
     // Project Pages owns /showcase/. Keep legacy bridges out of discovery.
@@ -231,6 +231,7 @@ export default defineConfig({
   },
 
   head: [
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' }],
     ['link', { rel: 'icon', type: 'image/png', href: '/brand/dcc-mcp-logo.png' }],
     ['meta', { property: 'og:site_name', content: 'DCC-MCP' }],
     ['meta', { property: 'og:type', content: 'website' }],
