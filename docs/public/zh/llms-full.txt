@@ -48,8 +48,9 @@ https://dcc-mcp.github.io/zh/cloud-agents 区分官方平台接口说明、云�
 - Unity 与团结 AI（Tuanjie AI）对应 https://dcc-mcp.github.io/zh/control/unity。`unity-tuanjie-ai` Skill 检查原生 Codely CustomTool 目录；登录、积分、下载与任务恢复由团结软件包负责。
 - Unreal Engine 官方 MCP 对应 https://dcc-mcp.github.io/zh/control/unreal-engine 与 `unreal-official-mcp` Skill；它保留 Epic 官方工具名称与 schema。
 
-配置提示词位于 https://dcc-mcp.github.io/zh/agents；结果、所属仓库、验证说明
-与提示词位于 https://dcc-mcp.github.io/zh/examples；Wwise 音频案例位于
+配置提示词位于 https://dcc-mcp.github.io/zh/agents；官方作品合集（包含成品、制作
+证据、工程来源与许可）位于 https://dcc-mcp.github.io/showcase/zh/；适配器结果、
+验证说明与可复用提示词位于 https://dcc-mcp.github.io/zh/examples；Wwise 音频案例位于
 https://dcc-mcp.github.io/zh/examples/wwise。
 
 ## 公开 Skill 路由
@@ -194,7 +195,8 @@ Marketplace 卡片的 `showcase` 从软件包不可变 `source.ref` 解析，因
 
 ## 案例提示词模式
 
-案例画廊：https://dcc-mcp.github.io/zh/examples
+官方 Showcase 作品合集：https://dcc-mcp.github.io/showcase/zh/
+适配器案例与提示词：https://dcc-mcp.github.io/zh/examples
 Blender 与 Designer 木箱案例：https://dcc-mcp.github.io/zh/examples#blender-designer-crate — 真实 Cycles 效果图、实际 UV 坐标与棋盘格渲染；使用平铺的 lookdev UV，并提供可编辑场景和程序化材质来源。
 
 每张卡片包含结果、所属仓库、验证说明和提示词。它不代表本地 Host 或软件包
@@ -231,7 +233,8 @@ Inspector 提供 loopback 本地示例。需要由运维管理的多人浏览器
 - Agent 指南：https://dcc-mcp.github.io/zh/agents
 - 云 Agent 与 DCC-MCP：https://dcc-mcp.github.io/zh/cloud-agents
 - Marketplace：https://dcc-mcp.github.io/zh/marketplace
-- 案例与提示词：https://dcc-mcp.github.io/zh/examples
+- 官方 Showcase 作品合集：https://dcc-mcp.github.io/showcase/zh/
+- 适配器案例与提示词：https://dcc-mcp.github.io/zh/examples
 - 常见 AI + DCC 任务：https://dcc-mcp.github.io/zh/use-cases
 - 开发者指南：https://dcc-mcp.github.io/zh/developers
 - 项目目录：https://dcc-mcp.github.io/zh/ecosystem

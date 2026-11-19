@@ -14,27 +14,27 @@ const frames = [
 ] as const
 const selected = computed(() => frames[active.value])
 const copy = computed(() => props.locale === 'zh' ? {
-  eyebrow: '让已有工具具备 Agent 调用能力', title: '先把流程做扎实，再让 Agent 接进来。',
+  eyebrow: '把工具变成可复用的工作流', title: '把工具串成流程，再让 Agent 协作。',
   steps: [
     { title: '标准化', detail: '约定命名、输入输出、权限与验收标准。' },
     { title: '流程化', detail: '明确步骤顺序、依赖关系和上下游交接。' },
     { title: '工具化', detail: '封装现有脚本与服务，提供参数校验和可检查的结果。' },
     { title: 'Agent 编排', detail: '根据目标选择工具、协调执行，并验证交付。' },
   ],
-  principle: '模型越强，理解目标、选择工具和处理例外就越顺畅。团队积累的流程、工具与协作约定仍然是生产基础。',
+  principle: 'Agent 负责理解目标、选择工具和处理分支；团队继续掌握命名、权限、验收与交付标准。',
   caseLabel: '已有跨软件案例 · ZBrush → Maya', caseTitle: '同一份资产，带着检查结果交给下一站。',
   caseBody: '案例记录了从 500 万面源模型到 115,364 面重拓扑网格的处理，再在 Maya 中核对 115,336 个顶点与 115,364 个面。',
   mediaNote: '真实案例静帧轮播，非实时执行或软件录屏。', pause: '暂停轮播', play: '播放轮播',
   source: '查看所属项目', more: '了解生产方法', alt: 'Fantasy Dragon 在 ZBrush 与 Maya 中的已记录场景截图',
 } : {
-  eyebrow: 'MAKE EXISTING TOOLS AGENT-CALLABLE', title: 'Build the workflow. Then connect the agent.',
+  eyebrow: 'TURN TOOLS INTO REUSABLE WORKFLOWS', title: 'Connect the tools. Then let the agent coordinate.',
   steps: [
     { title: 'Standardize', detail: 'Define naming, inputs, outputs, permissions, and acceptance criteria.' },
     { title: 'Define the process', detail: 'Make step order, dependencies, and team handoffs explicit.' },
     { title: 'Expose tools', detail: 'Wrap existing scripts and services with validated parameters and inspectable results.' },
     { title: 'Agent orchestration', detail: 'Select tools for the goal, coordinate execution, and verify delivery.' },
   ],
-  principle: 'Stronger models make intent, tool selection, and exception handling smoother. Your production processes, tools, and team agreements remain the foundation.',
+  principle: 'The agent handles intent, tool selection, and branching. Your team keeps control of naming, permissions, acceptance, and delivery.',
   caseLabel: 'RECORDED CROSS-SOFTWARE CASE · ZBrush → Maya', caseTitle: 'One asset. A checked handoff to the next tool.',
   caseBody: 'The case records a five-million-face source remeshed to 115,364 faces, then validated in Maya at 115,336 vertices and 115,364 faces.',
   mediaNote: 'A slideshow of recorded case stills, not live execution or a software recording.', pause: 'Pause slideshow', play: 'Play slideshow',

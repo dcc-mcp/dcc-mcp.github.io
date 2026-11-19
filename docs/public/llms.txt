@@ -11,7 +11,8 @@ Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https
 - [Homepage and setup prompt](https://dcc-mcp.github.io/)
 - [Why DCC-MCP exists](https://dcc-mcp.github.io/why-dcc-mcp): The production problems, lessons, technical boundaries, and deliberate limits behind the architecture.
 - [Marketplace search](https://dcc-mcp.github.io/marketplace): Search the official catalog and copy a setup prompt or typed CLI installation command.
-- [Showcase gallery](https://dcc-mcp.github.io/examples): View outputs, owning repositories, validation notes, and prompts.
+- [Official Showcase collection](https://dcc-mcp.github.io/showcase/): View finished work, production evidence, owning repositories, and asset licensing.
+- [Adapter examples and prompts](https://dcc-mcp.github.io/examples): View capability examples, validation notes, and reusable prompts.
 - [Blender and Designer crate](https://dcc-mcp.github.io/examples#blender-designer-crate): Real Cycles beauty, UV coordinates and checker, with editable scene and procedural material sources.
 - [Wwise audio showcase](https://dcc-mcp.github.io/examples/wwise): Play deterministic sound effects and background music validated through typed WAAPI tools.
 - [AI + DCC control guides](https://dcc-mcp.github.io/use-cases): Direct answers and copyable prompts for every public creative-application and pipeline integration.
@@ -21,6 +22,14 @@ Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https
 - [Ecosystem directory](https://dcc-mcp.github.io/ecosystem): Adapters, extensions, asset providers, generation services, and studio integrations.
 - [Core documentation](https://dcc-mcp.github.io/dcc-mcp-core/): Gateway, CLI, MCP/REST, security, observability, and Python API.
 - [Adapter Install SOP v1 schema](https://dcc-mcp.github.io/schemas/adapter-install-sop-v1.schema.json): The canonical Draft 2020-12 result contract for adapter lifecycle commands.
+
+## Production areas
+
+- [Game development workflows](https://dcc-mcp.github.io/use-cases): Connect environment art, character assets, materials, scene assembly, and Unreal, Unity, or Godot workflows.
+- [Film and VFX workflows](https://dcc-mcp.github.io/use-cases): Coordinate Houdini effects, Nuke or After Effects compositing, Premiere editing, and review handoffs.
+- [3D and look development](https://dcc-mcp.github.io/use-cases): Use Maya, Blender, Cinema 4D, Substance, Mari, Marmoset, and related tools through typed integrations.
+- [Audio and interactive media](https://dcc-mcp.github.io/control/wwise): Inspect and create Wwise audio through typed WAAPI workflows.
+- [MCP, REST, and CLI](https://dcc-mcp.github.io/why-dcc-mcp): Reuse one typed tool contract from Agent clients, services, scripts, and CI.
 
 ## Agent Skills
 

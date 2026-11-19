@@ -1,7 +1,7 @@
 ---
 layout: home
 title: DCC-MCP
-description: Connect existing production tools into verified workflows across creative software. Standardize, define the process, expose tools, then let agents coordinate the pipeline.
+description: Connect the tools behind game art, film VFX, animation, and 3D production. DCC-MCP gives agents typed MCP, REST, and CLI access to your existing pipeline, with explicit checks and human handoffs.
 ---
 
 <HomePage />
