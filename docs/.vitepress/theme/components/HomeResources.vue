@@ -20,10 +20,10 @@ defineProps<{ locale: 'en' | 'zh' }>()
   <div class="home-marketplace-heading">
     <div>
       <p class="home-kicker">MCP + CLI</p>
-      <h2 id="mcp-cli-title">One method. Every interface.</h2>
+      <h2 id="mcp-cli-title">One tool contract. Every interface.</h2>
     </div>
     <div>
-      <p>Maya MCP, 3ds Max MCP, and Blender MCP expose typed tools: each tool defines its parameters, their types, and its results so calls can be inspected and validated. MCP (Model Context Protocol) and <code>dcc-mcp-cli</code> use these same tools. For a Maya CLI or Blender CLI workflow, select the application by its identifier.</p>
+      <p>Maya MCP, 3ds Max MCP, and Blender MCP expose typed tools: each tool defines its parameters, types, and results so calls can be inspected and validated. MCP, <code>dcc-mcp-cli</code>, and REST use the same tool contract. For a Maya CLI or Blender CLI workflow, select the application by its identifier.</p>
       <p><a href="/control/maya">Maya MCP and Maya CLI</a> · <a href="/control/3ds-max">3ds Max MCP and 3ds Max CLI</a> · <a href="/control/blender">Blender MCP and Blender CLI</a></p>
     </div>
   </div>
@@ -59,10 +59,10 @@ defineProps<{ locale: 'en' | 'zh' }>()
   <div class="home-marketplace-heading">
     <div>
       <p class="home-kicker">MCP + CLI</p>
-      <h2 id="mcp-cli-title">一种方法，多种接口。</h2>
+      <h2 id="mcp-cli-title">同一套工具契约，多种接口。</h2>
     </div>
     <div>
-      <p>Maya MCP、3ds Max MCP 和 Blender MCP 都提供类型化工具：每个工具明确规定参数、参数类型和返回结果，调用前可查询和校验。MCP（模型上下文协议）与 <code>dcc-mcp-cli</code> 共用这些工具；要使用 Maya CLI 或 Blender CLI，只需在命令中指定对应应用标识。</p>
+      <p>Maya MCP、3ds Max MCP 和 Blender MCP 都提供类型化工具：每个工具明确规定参数、类型和返回结果，调用前可查询和校验。MCP、<code>dcc-mcp-cli</code> 与 REST 共用这套工具契约；要使用 Maya CLI 或 Blender CLI，只需在命令中指定对应应用标识。</p>
       <p><a href="/zh/control/maya">Maya MCP 与 Maya CLI</a> · <a href="/zh/control/3ds-max">3ds Max MCP 与 3ds Max CLI</a> · <a href="/zh/control/blender">Blender MCP 与 Blender CLI</a></p>
     </div>
   </div>

@@ -1,7 +1,7 @@
 ---
 layout: home
 title: DCC-MCP
-description: 把现有制作工具接成可验证的跨软件工作流。先标准化、流程化和工具化，再由 Agent 协调调用，复用团队 Pipeline 与上下游交接。
+description: 连接游戏美术、影视特效、动画与三维制作中已有的软件与工具。DCC-MCP 通过类型化 MCP、REST API 和统一 CLI，让 Agent 接入现有 Pipeline，并保留检查与人工交接。
 ---
 
 <HomePage />

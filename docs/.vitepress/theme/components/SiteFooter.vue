@@ -19,7 +19,7 @@ const groups = computed(() => isZh.value ? [
 <template>
   <footer class="site-footer">
     <div class="site-footer-inner">
-      <div class="footer-brand"><a :href="`${prefix}/`" aria-label="DCC-MCP"><img class="footer-logo light" src="/brand/dcc-mcp-logo-admin-light.png" alt="DCC-MCP" width="88" height="40" loading="lazy"><img class="footer-logo dark" src="/brand/dcc-mcp-logo-admin-dark.png" alt="DCC-MCP" width="88" height="40" loading="lazy"></a><p>{{ isZh ? '让灵感，在熟悉的工具里成形。' : 'Bring your next idea to life, in the tools you know.' }}</p></div>
+      <div class="footer-brand"><a :href="`${prefix}/`" aria-label="DCC-MCP"><img class="footer-logo light" src="/brand/dcc-mcp-logo-admin-light.png" alt="DCC-MCP" width="88" height="40" loading="lazy"><img class="footer-logo dark" src="/brand/dcc-mcp-logo-admin-dark.png" alt="DCC-MCP" width="88" height="40" loading="lazy"></a><p>{{ isZh ? '让熟悉的工具，协作完成真正的作品。' : 'Connect the tools behind the work you want to make.' }}</p></div>
       <div v-for="group in groups" :key="group.title" class="footer-group"><h2>{{ group.title }}</h2><a v-for="[label, path] in group.links" :key="path" :href="destination(path)" :target="path === '/showcase' ? '_self' : undefined">{{ label }}</a></div>
       <div class="footer-group"><h2>{{ isZh ? '开源社区' : 'Open source' }}</h2><a href="https://github.com/dcc-mcp" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://github.com/dcc-mcp/dcc-mcp.github.io" target="_blank" rel="noreferrer">{{ isZh ? '参与贡献' : 'Contribute' }} ↗</a><a :href="`${prefix}/llms.txt`">llms.txt</a></div>
     </div>

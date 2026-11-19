@@ -5,11 +5,11 @@ const props = defineProps<{ locale: 'en' | 'zh' }>()
 const paused = ref(false)
 const prefix = computed(() => props.locale === 'zh' ? '/zh' : '')
 const copy = computed(() => props.locale === 'zh' ? {
-  title: '熟悉的工具，配合得更默契。', description: '从三维建模、游戏制作，到图像、音频与后期。把 Agent 带进你的创作日常。',
+  title: '你在用的工具，进入同一条工作流。', description: '从游戏引擎、三维与材质，到音频和后期。让 Agent 进入团队已经在用的工具。',
   catalog: `Core 0.20.39 的版本目录包含 ${releasedIntegrations.length} 个适配器标识；各集成的安装条件、独立发布状态与验证范围，请查看对应指南。`,
   all: `查看全部 ${dccIntegrations.length} 项集成指南`, directory: '找到我的软件', pause: '暂停滚动', resume: '继续滚动', evidence: '查看版本目录',
 } : {
-  title: 'Your favorite tools. Working together.', description: '3D, games, images, audio, and post-production. Bring your agent into the work you already do.',
+  title: 'The tools you use, in one workflow.', description: 'Game engines, 3D, look development, audio, and post. Bring your agent into the tools already in production.',
   catalog: `The Core 0.20.39 catalog lists ${releasedIntegrations.length} adapter identifiers. Each guide explains installation requirements, independent releases, and verification limits.`,
   all: `Explore all ${dccIntegrations.length} integration guides`, directory: 'Find your tools', pause: 'Pause scrolling', resume: 'Resume scrolling', evidence: 'Read the versioned catalog',
 })

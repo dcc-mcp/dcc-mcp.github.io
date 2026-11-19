@@ -6,13 +6,13 @@ const props = defineProps<{ locale: 'en' | 'zh' }>()
 const state = ref<'idle' | 'copied' | 'error'>('idle')
 let timer: ReturnType<typeof setTimeout> | undefined
 const copy = computed(() => props.locale === 'zh' ? {
-  eyebrow: '开始连接', title: '下一件作品，从一句话开始。', description: '复制给你正在使用的 Agent，让它带你完成连接。安装什么，先由你确认。',
-  prompt: '帮我连接创意软件，我想开始制作下一件作品。', button: '复制连接提示词', copied: '已复制', error: '复制失败，请展开并手动复制。',
-  details: '查看完整提示词', guide: '阅读 Agent 指南', prefix: '/zh',
+  eyebrow: '开始连接', title: '从一句话，开始接入你的工具。', description: '把配置提示词交给你正在使用的 Agent。它会先检查现有工具，安装或改变系统状态前询问你。',
+  prompt: '请帮我把现有创作工具接入 DCC-MCP，先检查环境，再给出验证结果。', button: '复制配置提示词', copied: '已复制', error: '复制失败，请展开并手动复制。',
+  details: '查看完整配置提示词', guide: '阅读 Agent 接入指南', prefix: '/zh',
 } : {
-  eyebrow: 'GET CONNECTED', title: 'Your next project starts with a prompt.', description: 'Give the setup prompt to your agent. It checks your tools, guides the connection, and asks before installing.',
-  prompt: 'Connect my creative tools so I can start making.', button: 'Copy setup prompt', copied: 'Copied', error: 'Could not copy. Expand the prompt and copy it manually.',
-  details: 'Read the full prompt', guide: 'Read the agent guide', prefix: '',
+  eyebrow: 'GET CONNECTED', title: 'Start with one clear request.', description: 'Give the prompt to your agent. It checks the tools you already have, guides the connection, and asks before installing or changing system state.',
+  prompt: 'Connect the creative applications on this machine to DCC-MCP. Check what is already installed, ask before changes, and finish with verification evidence.', button: 'Copy setup prompt', copied: 'Copied', error: 'Could not copy. Expand the prompt and copy it manually.',
+  details: 'Read the full setup prompt', guide: 'Read the agent setup guide', prefix: '',
 })
 async function copyPrompt() {
   clearTimeout(timer)

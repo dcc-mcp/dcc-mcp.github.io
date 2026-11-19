@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 import { dccIntegrations, releasedIntegrations, type DccIntegration } from './dcc-integrations.mts'
 
 const siteUrl = 'https://dcc-mcp.github.io/'
-const description = 'DCC-MCP connects AI agents and automation to Maya, Blender, Houdini, 3ds Max, Unreal Engine, Unity, and other creative applications through MCP, REST APIs, and a shared CLI.'
-const zhDescription = 'DCC-MCP 是连接 AI Agent 与创作软件的开源工具集，通过 MCP、REST API 和统一命令行操作 Maya、Blender、Houdini、3ds Max、Unreal Engine、Unity 等应用。'
+const description = 'DCC-MCP is an open-source control plane for AI agents and automation across digital content creation. It connects Maya, Blender, Houdini, Unreal Engine, Unity, and other creative applications through MCP, REST APIs, and a shared CLI.'
+const zhDescription = 'DCC-MCP 是面向数字内容创作（DCC）的开源控制平面，让 AI Agent 和自动化程序通过 MCP、REST API 与统一 CLI 连接 Maya、Blender、Houdini、Unreal Engine、Unity 等创意应用。'
 
 const controlPageUrl = (integration: DccIntegration, isZh: boolean) =>
   new URL(`${isZh ? 'zh/' : ''}control/${integration.slug}`, siteUrl).href
@@ -28,6 +28,7 @@ const homeStructuredData = (isZh: boolean) => ({
   '@graph': [
     {
       '@type': 'Organization',
+      '@id': `${siteUrl}#organization`,
       name: 'DCC-MCP',
       url: siteUrl,
       logo: `${siteUrl}brand/dcc-mcp-logo.png`,
@@ -44,6 +45,7 @@ const homeStructuredData = (isZh: boolean) => ({
       url: siteUrl,
       description: isZh ? zhDescription : description,
       inLanguage: ['en', 'zh-CN'],
+      publisher: { '@id': `${siteUrl}#organization` },
       potentialAction: {
         '@type': 'SearchAction',
         target: `${siteUrl}marketplace?q={search_term_string}`,
@@ -52,11 +54,20 @@ const homeStructuredData = (isZh: boolean) => ({
     },
     {
       '@type': 'SoftwareApplication',
+      '@id': `${siteUrl}#application`,
       name: 'DCC-MCP',
       applicationCategory: 'DeveloperApplication',
+      applicationSubCategory: 'Digital content creation workflow automation',
       operatingSystem: 'Windows, macOS, Linux',
       url: siteUrl,
       description: isZh ? zhDescription : description,
+      featureList: [
+        'MCP tool discovery and calls',
+        'REST API and OpenAPI workflows',
+        'Typed dcc-mcp-cli commands',
+        'DCC adapters and reusable Skills',
+      ],
+      publisher: { '@id': `${siteUrl}#organization` },
     },
     {
       '@type': 'ItemList',
@@ -232,6 +243,8 @@ export default defineConfig({
 
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' }],
+    ['meta', { name: 'theme-color', content: '#fcfcfc', media: '(prefers-color-scheme: light)' }],
+    ['meta', { name: 'theme-color', content: '#151517', media: '(prefers-color-scheme: dark)' }],
     ['link', { rel: 'icon', type: 'image/png', href: '/brand/dcc-mcp-logo.png' }],
     ['meta', { property: 'og:site_name', content: 'DCC-MCP' }],
     ['meta', { property: 'og:type', content: 'website' }],
@@ -256,8 +269,11 @@ export default defineConfig({
     const englishPath = canonicalPath.replace(/^zh\//, '')
     const chinesePath = isZh ? canonicalPath : `zh/${canonicalPath}`
     const title = pageData.frontmatter.layout === 'home'
-        ? (isZh ? 'DCC-MCP — 创意应用控制平面' : 'DCC-MCP — Creative application control plane')
+        ? (isZh ? 'DCC-MCP — 用 AI 连接创作软件与制作流程' : 'DCC-MCP — AI control for creative workflows')
       : `${pageData.title} | DCC-MCP`
+    if (pageData.frontmatter.layout === 'home') {
+      pageData.title = isZh ? '用 AI 连接创作软件与制作流程' : 'AI control for creative workflows'
+    }
 
     pageData.frontmatter.head ??= []
     pageData.frontmatter.head.push(
@@ -269,8 +285,11 @@ export default defineConfig({
       ] : []),
       ['meta', { property: 'og:title', content: title }],
       ['meta', { property: 'og:description', content: pageData.description ?? (isZh ? zhDescription : description) }],
+      ['meta', { property: 'og:image:alt', content: isZh ? 'DCC-MCP：用 AI 连接创作软件与制作流程' : 'DCC-MCP: connect AI agents to creative workflows' }],
       ['meta', { property: 'og:url', content: canonicalUrl }],
       ['meta', { property: 'og:locale', content: isZh ? 'zh_CN' : 'en_US' }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: pageData.description ?? (isZh ? zhDescription : description) }],
     )
 
     if (relativePath === '' || relativePath === 'zh/') {

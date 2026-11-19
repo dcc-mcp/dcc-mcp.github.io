@@ -22,3 +22,11 @@ The release is based on main commit `eee4030586a55ed6e3b09d7cf8b43aa4731bec26`. 
 - Physical hinges, viewport segments, and iOS/Android hardware were not emulated or device-tested. Folded/expanded labels describe viewport dimensions. Browser-provided safe-area insets are supported without claiming real-device acceptance.
 
 The original working tree and unrelated local media were preserved. The release is prepared in an isolated worktree; no production merge or publication is part of this acceptance.
+
+## Follow-up copy, layout, and GEO review, 2026-11-19
+
+- Reworked the bilingual homepage promise around a complete thought. English now reads “Connect your pipeline to Maya.” and Chinese now reads “让工作流连接 Maya 等软件。” The supporting copy names production, review, delivery, existing tools, and human handoffs.
+- Tightened the pipeline, showcase, integration, marketplace, setup, and footer language so English and Chinese describe the same workflow. The three homepage concepts now use clearer game-world, film/VFX, and character-asset production language while preserving the explicit AI-concept disclosure.
+- Added a production-area map for game development, film/VFX, 3D/look development, audio, and MCP/REST/CLI retrieval in both `llms.txt` variants. Corrected the official Showcase links to the separate `/showcase/` project and kept adapter examples under `/examples`.
+- Expanded homepage metadata with descriptive titles, theme colors, social descriptions, image alt metadata, Organization ownership, SoftwareApplication features, and the digital-content-creation workflow category.
+- Rebuilt and rechecked the site after the follow-up. The 504-case responsive matrix remained at zero failures and zero pending catalogs. Physical fold hinges and device-specific segment APIs remain outside the verification scope.

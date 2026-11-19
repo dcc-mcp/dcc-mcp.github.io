@@ -15,26 +15,26 @@ import HomeResources from './HomeResources.vue'
 const { lang } = useData()
 const locale = computed(() => lang.value.startsWith('zh') ? 'zh' : 'en')
 const copy = computed(() => locale.value === 'zh' ? {
-  why: '从生产标准，到跨软件协作。', whyBody: '先把输入、输出、检查和交接定义清楚，再让 Agent 调用可验证的工具。团队经验可以复用，每一次交付都有依据。',
+  why: '把生产标准，变成协作能力。', whyBody: '把输入、输出、检查与交接定义清楚，Agent 才能稳定调用工具；团队经验因此可以复用，每次交付都能回看。',
   reasons: [
     { title: '复用团队已有的 Pipeline', body: '让现有脚本、插件和内部服务成为可调用的能力，继续沿用熟悉的软件与制作约定。' },
-    { title: '把上下游交接接起来', body: '从场景准备、资产检查到导出与交付，明确每一步的输入、依赖、产物和下一位接收者。' },
-    { title: '每一步，都看得见', body: '保留场景检查、产物和验证记录。自动执行可重复步骤，人工验收保留在流程里。' },
+    { title: '让上下游交接顺起来', body: '从场景准备、资产检查到导出与交付，明确每一步的输入、依赖、产物和接收者。' },
+    { title: '每一步，都有依据', body: '保留场景检查、产物与验证记录。把可重复的步骤交给自动化，人工验收仍由团队掌握。' },
   ],
-  whyLink: '看看它如何配合你的创作', marketLabel: '能力市场', marketTitle: '让下一次创作，从更高的起点开始。',
-  marketBody: '找一套合适的资产、一项专门的 Skill，或一个新服务，把重复搭建的时间省下来。', marketLink: '发现新的创作能力',
-  developerTitle: '把你的拿手好戏，变成可复用的能力。', developerBody: '让自研工具、内部服务和制作经验接入同一套工作流，也让团队接着用。',
+  whyLink: '看看它如何配合你的制作流程', marketLabel: '能力市场', marketTitle: '找到下一项可直接复用的能力。',
+  marketBody: '从资产和 Skill，到团队内部服务。选择需要的能力，少花时间重复搭建。', marketLink: '浏览能力市场',
+  developerTitle: '把你的方法，变成团队可以复用的能力。', developerBody: '把自研工具、内部服务和制作经验接入同一套工作流，继续使用团队熟悉的工具。',
   developerLink: '开发者指南', githubLink: '在 GitHub 上探索', prefix: '/zh',
 } : {
-  why: 'Production standards. Connected workflows.', whyBody: 'Define inputs, outputs, checks, and handoffs first. Then let agents call verified tools, so the team can reuse its production knowledge and inspect each delivery.',
+  why: 'Production standards that keep the pipeline moving.', whyBody: 'Define inputs, outputs, checks, and handoffs first. Then let agents call verified tools while the team keeps production knowledge reusable and every delivery inspectable.',
   reasons: [
     { title: 'Reuse the pipeline you have', body: 'Make existing scripts, plugins, and studio services callable while keeping the applications and conventions your team relies on.' },
-    { title: 'Connect upstream and downstream', body: 'Connect scene preparation, asset checks, export, and delivery with clear dependencies, artifacts, and owners at each handoff.' },
-    { title: 'Stay in the loop', body: 'Keep scene checks, artifacts, and validation records. Automate repeatable steps with human acceptance kept in the workflow.' },
+    { title: 'Connect every handoff', body: 'Link scene preparation, asset checks, export, and delivery with clear dependencies, artifacts, and owners.' },
+    { title: 'Keep every step inspectable', body: 'Preserve scene checks, outputs, and validation records. Automate repeatable steps while people keep the final say.' },
   ],
-  whyLink: 'See how it fits your workflow', marketLabel: 'CAPABILITY MARKETPLACE', marketTitle: 'A head start for your next idea.',
-  marketBody: 'Find ready-to-use Skills, assets, and services. Spend less time setting up and more time making.', marketLink: 'Find your next capability',
-  developerTitle: 'Build it once. Create with it again.', developerBody: 'Bring your own tools, studio services, and production know-how into workflows your team can reuse.',
+  whyLink: 'See it in your production workflow', marketLabel: 'CAPABILITY MARKETPLACE', marketTitle: 'Find the next capability. Skip the repeated setup.',
+  marketBody: 'Choose from Skills, assets, and studio services your workflow can reuse. Spend less time wiring tools and more time making.', marketLink: 'Browse the capability market',
+  developerTitle: 'Turn your way of working into a reusable capability.', developerBody: 'Bring studio tools, internal services, and production know-how into workflows your team can keep using.',
   developerLink: 'Developer guide', githubLink: 'Explore on GitHub', prefix: '',
 })
 </script>

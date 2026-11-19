@@ -1,6 +1,6 @@
 ---
-title: Showcase
-description: DCC-MCP examples with source repositories, validation details, and reusable prompts.
+title: Adapter examples and prompts
+description: Explore DCC-MCP adapter examples with source repositories, validation details, and reusable prompts for creative software workflows.
 pageClass: showcase-page
 ---
 

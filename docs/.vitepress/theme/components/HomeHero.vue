@@ -46,15 +46,15 @@ onBeforeUnmount(() => {
 })
 
 const copy = computed(() => props.locale === 'zh' ? {
-  eyebrow: '跨软件协作 · 复用现有 Pipeline', title: '让工作流，', appPrefix: '贯通', punctuation: '等软件',
-  accessibleTitle: '让现有 Pipeline 贯通 Maya、Blender、Houdini 等软件，由 Agent 协调调用。',
-  description: '把目标告诉 Agent，通过已验证的工具连接制作、检查与交付。复用团队已有的软件、脚本和服务，保留上下游约定与人工验收。',
-  start: '接入现有工作流', explore: '看看能做什么', note: '开源 · 本地运行 · 复用现有工具', prefix: '/zh',
+  eyebrow: '连接你已经在用的工具', title: '让工作流', appPrefix: '连接', punctuation: '等软件。',
+  accessibleTitle: '让工作流连接 Maya、Blender、Houdini 等软件，由 Agent 协调制作、检查与交付。',
+  description: '给 Agent 一个目标。DCC-MCP 通过经过验证的工具，把制作、检查和交付串起来；团队继续使用熟悉的软件、脚本和服务。',
+  start: '接入你的工作流', explore: '浏览真实案例', note: '开源 · 本地运行 · 基于现有工具', prefix: '/zh',
 } : {
-  eyebrow: 'CROSS-SOFTWARE COLLABORATION', title: 'Your pipeline.', appPrefix: 'Across', punctuation: '.',
-  accessibleTitle: 'Connect your existing pipeline across Maya, Blender, Houdini, and the tools your team already uses.',
-  description: 'Tell your agent the goal. Connect production, checks, and delivery through verified tools, reusing your existing scripts and services. Keep team handoffs and human acceptance in the workflow.',
-  start: 'Connect your pipeline', explore: 'See it in action', note: 'Open source · Runs locally · Built around your tools', prefix: '',
+  eyebrow: 'CONNECT THE TOOLS YOU ALREADY USE', title: 'Connect your pipeline', appPrefix: 'to', punctuation: '.',
+  accessibleTitle: 'Connect your existing pipeline to Maya, Blender, Houdini, and the creative applications your team already uses.',
+  description: 'Give your agent a goal. DCC-MCP connects verified tools across production, review, and delivery, so your team can keep its software, scripts, and handoffs.',
+  start: 'Connect your pipeline', explore: 'See real workflows', note: 'Open source · Runs locally · Works with your tools', prefix: '',
 })
 </script>
 

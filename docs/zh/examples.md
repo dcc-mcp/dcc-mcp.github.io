@@ -1,6 +1,6 @@
 ---
-title: 案例画廊
-description: DCC-MCP 使用案例，包含来源仓库、验证信息和可复用提示词。
+title: 适配器案例与提示词
+description: 浏览 DCC-MCP 适配器案例、来源仓库、验证信息，以及面向创意软件工作流的可复用提示词。
 pageClass: showcase-page
 ---
 
