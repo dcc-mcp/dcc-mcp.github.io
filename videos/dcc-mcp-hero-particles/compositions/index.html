@@ -214,6 +214,7 @@
         }
 
         function drawTrail(spec, progress, alpha, kind) {
+          if (progress >= 0.84 && progress < 0.92) return;
           if (alpha <= 0.001) return;
           const segments = kind === "cold" ? 7 : 4;
           let previous = spiralPoint(spec, progress, kind);
@@ -241,7 +242,7 @@
           }
 
           ctx.shadowBlur = 0;
-          if (progress < 0.04 || progress > 0.9) {
+          if (progress < 0.04 || progress >= 0.92) {
             const point = spiralPoint(spec, progress, kind);
             ctx.globalAlpha = safeAlpha(point.x, point.y, alpha);
             ctx.fillStyle = spec.color;

@@ -387,7 +387,7 @@ time = ((frame - 1.0) % 180.0) / 180.0
 
 for index in range(4500):
     seed = (index * 0.61803398875) % 1.0
-    life = (time * 0.72 + seed) % 1.0
+    life = (time + seed) % 1.0
     suction = life ** 1.35
     radius = 0.38 + 6.3 * ((1.0 - suction) ** 0.76)
     angle = math.tau * seed + 5.8 * suction
@@ -398,7 +398,8 @@ for index in range(4500):
     point = geo.createPoint()
     point.setPosition(hou.Vector3(x, y, z))
     edge = max(0.0, 1.0 - abs(life - 0.55) / 0.55)
-    point.setAttribValue(density, 0.11 + 0.42 * edge)
+    reset_fade = min(1.0, life / 0.08, (1.0 - life) / 0.08)
+    point.setAttribValue(density, (0.11 + 0.42 * edge) * reset_fade)
     point.setAttribValue(pscale, 0.055 + 0.12 * (1.0 - suction))
     warm = index % 13 == 0
     point.setAttribValue(cd, (0.85, 0.08, 0.015) if warm else (0.025, 0.12, 0.65))

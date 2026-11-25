@@ -13,6 +13,22 @@ material-ready import candidate and retain `lod.fbx` for geometry comparison.
 The original 285 MB ZIP is not duplicated here; this directory contains all of
 its extracted files.
 
+## Build inputs
+
+The Houdini and Blender builders require these paths relative to
+`dcc-source/`:
+
+- `rodin/lod_basic_pbr.fbx`
+- `rodin/texture_diffuse.png`
+- `rodin/texture_roughness.png`
+- `rodin/texture_metallic.png`
+- `rodin/texture_normal.png`
+- `textures/armor-steel/armor_steel_height_v3.png`
+
+The first five files come from the Rodin export above. The armor-steel height
+map is retained at `textures/armor-steel/armor_steel_height_v3.png` in this
+project. Both builders use the same map.
+
 This asset was generated and downloaded by the project owner through a Hyper3D
 Rodin Creator subscription. Redistribution remains subject to the applicable
 Hyper3D terms.

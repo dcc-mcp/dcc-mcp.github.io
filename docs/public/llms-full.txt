@@ -204,7 +204,7 @@ Official Showcase collection: https://dcc-mcp.github.io/showcase/
 Adapter examples and prompts: https://dcc-mcp.github.io/examples
 Blender and Designer crate: https://dcc-mcp.github.io/examples#blender-designer-crate — real Cycles beauty, actual UV coordinates and a rendered checker; tiled lookdev UVs, with editable scene and procedural material sources.
 
-Each card links an output, its owning repository, validation notes, and a
+Each card shows an output image, links its owning repository, and provides a
 prompt. It does not prove that a local host or package is installed. Agents
 must still discover typed tools, inspect Marketplace packages, request consent
 before mutation, and validate the scene or file.

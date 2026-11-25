@@ -7,7 +7,7 @@ import bpy
 from mathutils import Matrix, Vector
 
 
-SOURCE_DIR = Path(r"F:\github\dcc-mcp.github.io\videos\dcc-mcp-hero-particles\dcc-source")
+SOURCE_DIR = Path(__file__).resolve().parent
 BLEND_PATH = SOURCE_DIR / "dcc-mcp-stellar-gate.blend"
 PREVIEW_PATH = SOURCE_DIR / "dcc-mcp-stellar-gate-pbr-preview.png"
 ARMOR_TEXTURE_DIR = SOURCE_DIR / "textures" / "armor-steel"
@@ -457,7 +457,7 @@ def add_block(
                 + radial * radial_offset
             )
             vertices.append(tuple(point))
-    faces = [tuple(range(8)), tuple(range(15, 7, -1))]
+    faces = [tuple(range(7, -1, -1)), tuple(range(8, 16))]
     for index in range(8):
         next_index = (index + 1) % 8
         faces.append((index, next_index, 8 + next_index, 8 + index))
@@ -570,6 +570,9 @@ def add_annular_segment(
     last = (angular_samples - 1) * 2
     faces.append((last + 1, last, layer_stride + last, layer_stride + last + 1))
 
+    if front_depth < back_depth:
+        faces = [tuple(reversed(face)) for face in faces]
+
     mesh = bpy.data.meshes.new(f"{name}_Mesh")
     mesh.from_pydata(vertices, [], faces)
     mesh.update()
@@ -595,6 +598,7 @@ def make_bolt_mesh(
     for index in range(segments):
         next_index = (index + 1) % segments
         faces.append((index, next_index, segments + next_index, segments + index))
+    faces = [tuple(reversed(face)) for face in faces]
     mesh = bpy.data.meshes.new(name)
     mesh.from_pydata(vertices, [], faces)
     mesh.update()
@@ -1537,6 +1541,7 @@ for obj in scene.objects:
 tilt_root = bpy.data.objects.new("Gate_Tilt_Root", None)
 scene.collection.objects.link(tilt_root)
 tilt_root.location = GATE_TILT_PIVOT + GATE_VERTICAL_OFFSET
+bpy.context.view_layer.update()
 for obj in list(scene.objects):
     follows_gate = (
         obj.name.startswith("Gate_")
