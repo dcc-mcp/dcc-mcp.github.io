@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body,
+      #stage,
+      #particle-overlay {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        background: transparent;
+      }
+
+      #stage {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="stage"
+      data-composition-id="dcc-mcp-hero-particles-host"
+      data-no-timeline
+      data-start="0"
+      data-duration="6"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div
+        id="particle-overlay"
+        class="clip"
+        data-composition-id="dcc-mcp-hero-particles-layer"
+        data-composition-src="compositions/index.html"
+        data-start="0"
+        data-duration="6"
+        data-track-index="0"
+      ></div>
+    </div>
+  </body>
+</html>

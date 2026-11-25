@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        background: transparent;
+      }
+
+      #stage {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: transparent;
+      }
+
+      #particle-field {
+        display: block;
+        width: 1920px;
+        height: 1080px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="stage"
+      data-composition-id="dcc-mcp-hero-particles"
+      data-start="0"
+      data-duration="6"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <canvas
+        id="particle-field"
+        class="clip"
+        width="1920"
+        height="1080"
+        data-start="0"
+        data-duration="6"
+        data-track-index="0"
+        aria-hidden="true"
+      ></canvas>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        const COMPOSITION_ID = "dcc-mcp-hero-particles";
+        const DURATION = 6;
+        const WIDTH = 1920;
+        const HEIGHT = 1080;
+        const TAU = Math.PI * 2;
+        const CENTER = { x: WIDTH * 0.6958, y: HEIGHT * 0.5 };
+        const PORTAL = {
+          rx: WIDTH * (0.8805 - 0.5111) * 0.5,
+          ry: HEIGHT * (0.8222 - 0.1778) * 0.5,
+        };
+        const COPY_AVOID = {
+          left: 0,
+          top: HEIGHT * 0.08,
+          right: WIDTH * 0.48,
+          bottom: HEIGHT * 0.72,
+          maxAlpha: 0.18,
+        };
+        const PALETTE = Object.freeze({
+          cold: Object.freeze(["#66B8FF", "#245DFF", "#D7E8FF"]),
+          warm: Object.freeze(["#FF6638", "#FFB45C"]),
+        });
+
+        const canvas = document.getElementById("particle-field");
+        const ctx = canvas.getContext("2d", { alpha: true });
+
+        function hashSeed(value) {
+          let hash = 2166136261;
+          for (let index = 0; index < value.length; index += 1) {
+            hash ^= value.charCodeAt(index);
+            hash = Math.imul(hash, 16777619);
+          }
+          return hash >>> 0;
+        }
+
+        function createRng(seed) {
+          let state = hashSeed(seed) || 1;
+          return () => {
+            state ^= state << 13;
+            state ^= state >>> 17;
+            state ^= state << 5;
+            return (state >>> 0) / 4294967296;
+          };
+        }
+
+        function between(rng, min, max) {
+          return min + (max - min) * rng();
+        }
+
+        function createSpecs() {
+          const rng = createRng("dcc-mcp-portal-v1");
+          const cold = Array.from({ length: 84 }, (_, index) => ({
+            angle: between(rng, -Math.PI, Math.PI),
+            radius: between(rng, 1.04, 2.42),
+            turns: between(rng, 0.55, 1.15),
+            phase: between(rng, 0, 1),
+            wobble: between(rng, 0.012, 0.045),
+            trail: between(rng, 0.012, 0.032),
+            width: between(rng, 1, 2),
+            alpha: between(rng, 0.26, 0.62),
+            moteAlpha: between(rng, 0.06, 0.12),
+            color: PALETTE.cold[Math.floor(rng() * PALETTE.cold.length)],
+            delay: index < 14 ? 0 : 0.01 + ((index - 14) / 69) * 0.11,
+          }));
+          const warm = Array.from({ length: 28 }, (_, index) => ({
+            angle: between(rng, -Math.PI, Math.PI),
+            radius: between(rng, 0.82, 1.18),
+            turns: -between(rng, 0.2, 0.55),
+            phase: between(rng, 0, 1),
+            wobble: between(rng, 0.01, 0.035),
+            trail: between(rng, 0.006, 0.016),
+            width: between(rng, 1.2, 3),
+            alpha: between(rng, 0.38, 0.78),
+            color: PALETTE.warm[Math.floor(rng() * PALETTE.warm.length)],
+            delay: 0.035 + (index / 27) * 0.14,
+          }));
+          const arcs = Array.from({ length: 3 }, (_, index) => ({
+            scale: 1.03 + index * 0.105,
+            dash: 72 + index * 18,
+            gap: 48 + index * 14,
+            phase: between(rng, 0, 160),
+            width: 1 + index * 0.35,
+            color: index === 1 ? PALETTE.warm[0] : PALETTE.cold[index],
+          }));
+          return Object.freeze({ cold, warm, arcs });
+        }
+
+        const specs = createSpecs();
+
+        function clamp(value, min = 0, max = 1) {
+          return Math.min(max, Math.max(min, value));
+        }
+
+        function lerp(start, end, amount) {
+          return start + (end - start) * amount;
+        }
+
+        function smoothstep(start, end, value) {
+          const amount = clamp((value - start) / (end - start));
+          return amount * amount * (3 - 2 * amount);
+        }
+
+        function safeAlpha(x, y, alpha) {
+          if (
+            x >= COPY_AVOID.left &&
+            x <= COPY_AVOID.right &&
+            y >= COPY_AVOID.top &&
+            y <= COPY_AVOID.bottom
+          ) {
+            return Math.min(alpha, COPY_AVOID.maxAlpha);
+          }
+          return alpha;
+        }
+
+        function spiralPoint(spec, progress, kind) {
+          const settle = kind === "cold" ? 0.8 : 0.82;
+          const local = clamp((progress - spec.delay) / (settle - spec.delay));
+          const contraction = 1 - Math.pow(1 - local, 2.15);
+          const interrupt = 1 - 0.16 * Math.max(0, 1 - Math.abs(progress - 0.5) / 0.03);
+          const angle =
+            spec.angle +
+            spec.turns * TAU * contraction * interrupt +
+            Math.sin((progress + spec.phase) * TAU) * spec.wobble;
+          const radius = lerp(spec.radius, 0.02, contraction);
+          let x = CENTER.x + Math.cos(angle) * PORTAL.rx * radius;
+          let y = CENTER.y + Math.sin(angle) * PORTAL.ry * radius;
+
+          const reset = smoothstep(0.84, 0.92, progress);
+          if (reset > 0) {
+            const startAngle = spec.angle + Math.sin(spec.phase * TAU) * spec.wobble;
+            const startX = CENTER.x + Math.cos(startAngle) * PORTAL.rx * spec.radius;
+            const startY = CENTER.y + Math.sin(startAngle) * PORTAL.ry * spec.radius;
+            x = lerp(x, startX, reset);
+            y = lerp(y, startY, reset);
+          }
+          return { x, y };
+        }
+
+        function coldAlpha(spec, index, progress) {
+          if (progress < 0.04) {
+            return index < 14 ? spec.moteAlpha : 0;
+          }
+          const entrance = smoothstep(spec.delay, spec.delay + 0.065, progress);
+          const exit = smoothstep(0.78, 0.88, progress);
+          const flow = spec.alpha * entrance * (1 - exit);
+          const loopMote = index < 14 ? spec.moteAlpha * smoothstep(0.86, 0.93, progress) : 0;
+          return Math.max(flow, loopMote);
+        }
+
+        function warmAlpha(spec, progress) {
+          const entrance = smoothstep(spec.delay, spec.delay + 0.05, progress);
+          const exit = smoothstep(0.77, 0.87, progress);
+          return spec.alpha * entrance * (1 - exit);
+        }
+
+        function drawTrail(spec, progress, alpha, kind) {
+          if (progress >= 0.84 && progress < 0.92) return;
+          if (alpha <= 0.001) return;
+          const segments = kind === "cold" ? 7 : 4;
+          let previous = spiralPoint(spec, progress, kind);
+          ctx.strokeStyle = spec.color;
+          ctx.lineCap = "round";
+          ctx.shadowColor = spec.color;
+          ctx.shadowBlur = kind === "warm" ? 8 : 4;
+
+          for (let segment = 1; segment <= segments; segment += 1) {
+            const trailProgress = Math.max(0, progress - (spec.trail * segment) / segments);
+            const current = spiralPoint(spec, trailProgress, kind);
+            const fade = 1 - segment / (segments + 1);
+            const segmentAlpha = safeAlpha(
+              (previous.x + current.x) * 0.5,
+              (previous.y + current.y) * 0.5,
+              alpha * fade,
+            );
+            ctx.globalAlpha = segmentAlpha;
+            ctx.lineWidth = spec.width * fade;
+            ctx.beginPath();
+            ctx.moveTo(previous.x, previous.y);
+            ctx.lineTo(current.x, current.y);
+            ctx.stroke();
+            previous = current;
+          }
+
+          ctx.shadowBlur = 0;
+          if (progress < 0.04 || progress >= 0.92) {
+            const point = spiralPoint(spec, progress, kind);
+            ctx.globalAlpha = safeAlpha(point.x, point.y, alpha);
+            ctx.fillStyle = spec.color;
+            ctx.beginPath();
+            ctx.arc(point.x, point.y, spec.width * 0.72, 0, TAU);
+            ctx.fill();
+          }
+        }
+
+        function drawColdFilaments(progress) {
+          specs.cold.forEach((spec, index) => {
+            drawTrail(spec, progress, coldAlpha(spec, index, progress), "cold");
+          });
+        }
+
+        function drawWarmSparks(progress) {
+          specs.warm.forEach((spec) => {
+            drawTrail(spec, progress, warmAlpha(spec, progress), "warm");
+          });
+        }
+
+        function drawOrbitalArcs(progress) {
+          const entrance = smoothstep(0.075, 0.18, progress);
+          const exit = 1 - smoothstep(0.76, 0.86, progress);
+          const alpha = Math.min(0.16, entrance * exit * 0.24);
+          if (alpha <= 0.001) return;
+          const contraction = 1 - Math.pow(1 - clamp(progress / 0.82), 2.05);
+
+          specs.arcs.forEach((arc, index) => {
+            const scale = lerp(arc.scale, 0.18 + index * 0.025, contraction);
+            ctx.globalAlpha = alpha * (1 - index * 0.16);
+            ctx.strokeStyle = arc.color;
+            ctx.lineWidth = arc.width;
+            ctx.setLineDash([arc.dash, arc.gap]);
+            ctx.lineDashOffset = -(arc.phase + progress * (95 + index * 22));
+            ctx.beginPath();
+            ctx.ellipse(CENTER.x, CENTER.y, PORTAL.rx * scale, PORTAL.ry * scale, 0, 0, TAU);
+            ctx.stroke();
+          });
+          ctx.setLineDash([]);
+          ctx.lineDashOffset = 0;
+        }
+
+        function drawCompressionRing(progress) {
+          const local = (progress - 0.485) / 0.03;
+          if (local >= 0 && local <= 1) {
+            const scale = lerp(1.05, 0.82, smoothstep(0, 1, local));
+            const alpha = Math.sin(Math.PI * local) * 0.88;
+            ctx.globalAlpha = alpha;
+            ctx.strokeStyle = PALETTE.warm[1];
+            ctx.lineWidth = 2;
+            ctx.shadowColor = PALETTE.warm[0];
+            ctx.shadowBlur = 14;
+            ctx.beginPath();
+            ctx.ellipse(CENTER.x, CENTER.y, PORTAL.rx * scale, PORTAL.ry * scale, 0, 0, TAU);
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+          }
+
+          const pinch = Math.max(0, 1 - Math.abs(progress - 0.7667) / 0.085);
+          if (pinch > 0) {
+            const radius = lerp(32, 11, pinch);
+            const glow = ctx.createRadialGradient(CENTER.x, CENTER.y, 0, CENTER.x, CENTER.y, radius);
+            glow.addColorStop(0, `rgba(255, 180, 92, ${0.42 * pinch})`);
+            glow.addColorStop(0.35, `rgba(255, 102, 56, ${0.2 * pinch})`);
+            glow.addColorStop(1, "rgba(255, 102, 56, 0)");
+            ctx.globalAlpha = 1;
+            ctx.fillStyle = glow;
+            ctx.beginPath();
+            ctx.arc(CENTER.x, CENTER.y, radius, 0, TAU);
+            ctx.fill();
+          }
+        }
+
+        function draw(rawProgress) {
+          const progress = ((rawProgress % 1) + 1) % 1;
+          ctx.clearRect(0, 0, WIDTH, HEIGHT);
+          ctx.save();
+          ctx.globalCompositeOperation = "lighter";
+
+          // Four ordered layers: cold-filaments, warm-sparks, orbital-arcs, compression-ring.
+          drawColdFilaments(progress);
+          drawWarmSparks(progress);
+          drawOrbitalArcs(progress);
+          drawCompressionRing(progress);
+
+          ctx.restore();
+        }
+
+        const playhead = { progress: 0 };
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+        tl.to(
+          playhead,
+          {
+            progress: 1,
+            duration: DURATION,
+            ease: "none",
+            onUpdate: () => draw(playhead.progress),
+          },
+          0,
+        );
+        window.__timelines[COMPOSITION_ID] = tl;
+        draw(0);
+        tl.seek(0);
+      })();
+    </script>
+  </body>
+</html>

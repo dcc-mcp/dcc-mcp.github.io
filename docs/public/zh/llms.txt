@@ -12,7 +12,7 @@ DCC 指数字内容创作（Digital Content Creation）。AI Agent 是能够调�
 - [为什么选择 DCC-MCP](https://dcc-mcp.github.io/zh/why-dcc-mcp)：了解项目解决的制作流程问题、采用的技术方案及其适用范围。
 - [技能市场](https://dcc-mcp.github.io/zh/marketplace)：查找官方扩展，复制配置提示词或 CLI 安装命令。
 - [官方 Showcase 作品合集](https://dcc-mcp.github.io/showcase/zh/)：查看成品、制作证据、所属仓库与素材许可。
-- [适配器案例与提示词](https://dcc-mcp.github.io/zh/examples)：查看能力示例、验证说明与可复用提示词。
+- [适配器案例与提示词](https://dcc-mcp.github.io/zh/examples)：查看能力示例与可复用提示词。
 - [Blender 与 Designer 木箱案例](https://dcc-mcp.github.io/zh/examples#blender-designer-crate)：真实 Cycles 效果图、UV 坐标与棋盘格，以及可编辑场景和程序化材质来源。
 - [Wwise 音频案例](https://dcc-mcp.github.io/zh/examples/wwise)：在线试听通过类型化 WAAPI 工具验证的可复现音效与背景音乐。
 - [AI + DCC 控制指南](https://dcc-mcp.github.io/zh/use-cases)：按应用查看 AI 能做什么、如何操作，以及可直接使用的提示词。
