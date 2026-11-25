@@ -1,0 +1,182 @@
+{
+  "category": "asset-fusion",
+  "duration_s": 6,
+  "fps": 30,
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "style": "Minimal cinematic sci-fi particle overlay with restrained premium motion, deep cold-blue streamlines against concentrated warm-orange portal energy, designed to remain readable over the existing DCC-MCP hero image with screen blending.",
+  "palette": [
+    "#66B8FF",
+    "#245DFF",
+    "#D7E8FF",
+    "#FF6638",
+    "#FFB45C"
+  ],
+  "font": "Geist",
+  "beats": [
+    12,
+    48,
+    90,
+    138,
+    168
+  ],
+  "export": "alpha-overlay",
+  "asset_needs": [
+    {
+      "role": "hero-geometry-reference",
+      "kind": "image",
+      "source": "../../docs/public/brand/dcc-mcp-hero-stargate-v2-source.png",
+      "treatment": "none"
+    }
+  ],
+  "customize": {
+    "build_strategy": "hand-authored-gap",
+    "reason": "No catalog block implements a transparent, geometry-grounded, deterministic radial-convergence particle field; do not adapt a text particle-burst block.",
+    "renderer": "transparent Canvas 2D driven by one paused HyperFrames timeline progress value",
+    "stage_background": "transparent",
+    "consumer_blend_mode": "screen"
+  },
+  "content": {
+    "data_type": "spatial",
+    "asset": "./.media/images/image_001.png",
+    "asset_usage": "geometry-and-palette-reference-only",
+    "affordance": "The concentric stargate aperture is a radial attractor: cool particles travel through the outer star field, warm particles skim the machine rim, and both collapse toward the grounded portal center. The reference image is never drawn into the rendered frames.",
+    "element_positions": {
+      "coordinate_space": "normalized-stage",
+      "center": [
+        0.6958,
+        0.5
+      ],
+      "extent": [
+        0.5111,
+        0.1778,
+        0.8805,
+        0.8222
+      ],
+      "safe": [
+        {
+          "id": "portal-flow",
+          "box": [
+            0.49,
+            0.14,
+            0.91,
+            0.86
+          ]
+        },
+        {
+          "id": "outer-entry-field",
+          "box": [
+            0.0,
+            0.0,
+            0.56,
+            1.0
+          ]
+        }
+      ],
+      "avoid": [
+        {
+          "id": "homepage-copy",
+          "box": [
+            0.0,
+            0.08,
+            0.48,
+            0.72
+          ],
+          "max_particle_alpha": 0.18
+        }
+      ]
+    },
+    "derived_palette": [
+      "#66B8FF",
+      "#245DFF",
+      "#D7E8FF",
+      "#FF6638",
+      "#FFB45C"
+    ],
+    "connectors": [],
+    "motion": {
+      "dominant_motif": "deterministic radial convergence",
+      "seed": "dcc-mcp-portal-v1",
+      "determinism": "Precompute every particle's start radius, angle, angular velocity, color, trail length, and phase from the fixed seed; never call random during draw or seek.",
+      "coordinate_model": "Use the grounded center and elliptical extent. Each particle follows an inward logarithmic spiral: its angle advances monotonically while its elliptical radius contracts to 0.02 of the portal radius, then it resets only while fully transparent.",
+      "progress_driver": "A single 0-to-1 timeline value maps directly to t/6 and redraws all layers, so arbitrary seeks produce the same frame.",
+      "blend": "Render on transparent pixels with additive lighter compositing inside the particle canvas; the website applies screen blend to the resulting alpha overlay.",
+      "layers": [
+        {
+          "id": "cold-filaments",
+          "count": 84,
+          "colors": [
+            "#66B8FF",
+            "#245DFF",
+            "#D7E8FF"
+          ],
+          "motion": "Long 1-2 px tapered line trails enter from the outer field, orbit clockwise by 0.55-1.15 turns, then converge to the portal center. Attenuate opacity inside the homepage-copy avoid zone."
+        },
+        {
+          "id": "warm-sparks",
+          "count": 28,
+          "colors": [
+            "#FF6638",
+            "#FFB45C"
+          ],
+          "motion": "Short 1-3 px sparks originate close to the grounded rim, travel counter-clockwise by 0.2-0.55 turns, and pinch into the center later than the cold filaments."
+        },
+        {
+          "id": "orbital-arcs",
+          "count": 3,
+          "colors": [
+            "#66B8FF",
+            "#FF6638"
+          ],
+          "motion": "Three broken elliptical arcs track the grounded portal extent with different dash phases; all shrink inward without rotating the whole stage."
+        },
+        {
+          "id": "compression-ring",
+          "count": 1,
+          "colors": [
+            "#FFB45C"
+          ],
+          "motion": "At 3.0s, one thin warm ring compresses from 1.05 to 0.82 of the portal extent over 0.18s and disappears inward; this is the sole pattern interrupt."
+        }
+      ],
+      "states": [
+        {
+          "time_s": 0,
+          "visible": "Transparent stage with 14 dim cold outer motes at alpha 0.06-0.12; no warm sparks, orbital arcs, or compression ring. This frame is the loop reference state."
+        },
+        {
+          "time_s": 0.4,
+          "visible": "The hook lands: roughly 40 cold filaments draw short tangential trails toward the portal and the first 6 warm rim sparks appear; no central flash."
+        },
+        {
+          "time_s": 1.6,
+          "visible": "Full flow is established: all 84 cold filaments, 28 warm sparks, and three broken orbital arcs are visible, with the left copy zone still sparse and low-contrast."
+        },
+        {
+          "time_s": 3,
+          "visible": "The warm compression ring is at maximum visibility while the cold trails briefly straighten toward the center; particle density remains highest around the grounded portal extent."
+        },
+        {
+          "time_s": 4.6,
+          "visible": "Suction peaks: at least 80 percent of particles have tightened into the inner 0.16 portal radius and vanish at the center, orbital arcs have contracted, and a small warm pinch glow replaces any outward burst."
+        },
+        {
+          "time_s": 5.6,
+          "visible": "The pinch glow and warm layer are gone; reset particles reappear only while nearly transparent at the outer field, leaving the same 14 dim cold motes approaching the opening layout."
+        },
+        {
+          "time_s": 6,
+          "visible": "Pixel-equivalent to 0.0s: the same 14 dim cold motes occupy the same positions and opacity, all other layers are hidden, and the next loop begins without a luminance jump."
+        }
+      ],
+      "loop": {
+        "period_s": 6,
+        "seam": "The complete rendered state at 6.0s must equal 0.0s; reset positions occur from 5.2-5.8s under an opacity gate and no particle crosses the seam visibly."
+      }
+    },
+    "shot_brief": "A sparse field of cool-blue line particles catches immediately, then bends into broad orbital paths around the supplied stargate geometry while selective warm-orange sparks ignite near the rim. At the midpoint, one controlled ring-compression pulse interrupts the flow; the paths then tighten, accelerate, and disappear into the portal center for a convincing inward-suction peak before easing into a seamless alpha loop. The single dominant motion idea is radial convergence, with the cool outer field and warm portal core maintaining a severe cold-warm contrast throughout; no text, logo, narration, or reference-image pixels appear in the rendered overlay."
+  }
+}
