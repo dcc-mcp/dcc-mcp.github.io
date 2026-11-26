@@ -22,6 +22,17 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 Use `--global` for a user-level installation. Start a new agent session if the
 host discovers Skills only at startup.
 
+The homepage install section has the same command selector for Codex, Claude
+Code, Cursor, Gemini CLI, GitHub Copilot, Windsurf, OpenCode, Cline, Roo Code,
+Kiro, Amp, CodeBuddy, OpenHands, Continue, Replit, OpenClaw, and WorkBuddy.
+
+The npm package is optional. Use it when a host or team workflow vendors Skills
+through `node_modules`, for example in a package-managed or offline setup:
+
+```bash
+npm install @dcc-mcp/skills
+```
+
 ## Native plugin marketplaces
 
 Use a host-native marketplace when Codex or Claude Code provides one. These

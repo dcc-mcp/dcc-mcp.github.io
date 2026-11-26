@@ -21,6 +21,17 @@ npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp
 
 用户级安装可追加 `--global`。如果客户端只在启动时读取 Skill，请开启新会话。
 
+官网首页的安装区提供同一套命令选择器，覆盖 Codex、Claude Code、Cursor、
+Gemini CLI、GitHub Copilot、Windsurf、OpenCode、Cline、Roo Code、Kiro、Amp、
+CodeBuddy、OpenHands、Continue、Replit、OpenClaw 和 WorkBuddy。
+
+npm 包是可选路径。只有在 Host 或团队工作流通过 `node_modules` 管理
+Skills，例如包管理或离线分发场景时，才需要安装：
+
+```bash
+npm install @dcc-mcp/skills
+```
+
 ## 原生插件市场
 
 当 Codex 或 Claude Code 提供原生插件市场时，可以使用 Host 自带安装方式。
