@@ -1,65 +1,152 @@
 <script setup lang="ts">
-defineProps<{ locale: 'en' | 'zh' }>()
+import { computed, ref } from 'vue'
+import { agentInstallers, featuredAgentInstallers } from '../data/agent-installers'
+
+const props = defineProps<{ locale: 'en' | 'zh' }>()
+const selectedId = ref('auto')
+const state = ref<'idle' | 'copied' | 'error'>('idle')
+
+const selected = computed(() => agentInstallers.find((agent) => agent.id === selectedId.value) ?? agentInstallers[0])
+
+const copy = computed(() => props.locale === 'zh' ? {
+  eyebrow: 'AGENT 安装路径',
+  choose: '选择你的 Agent',
+  copy: '复制安装命令',
+  copied: '已复制',
+  error: '复制失败，请手动复制。',
+  open: '打开发布页',
+  worksWith: '支持你的 Agent',
+  viewAll: '查看全部 Agent',
+  platforms: '个平台，统一入口',
+  npmTitle: '需要基于 npm 的分发方式？',
+  npmBody: '只有在 Agent 或团队工作流通过 node_modules 管理 Skills 时才需要安装 npm 包。',
+  npmLink: '查看 npm 包',
+  promptLabel: '然后用一句简短提示词开始：',
+  prompt: '使用 dcc-mcp Skill 为这台机器上的创意应用配置 DCC-MCP。安装软件或改变系统状态前先询问我，完成后提供验证证据。',
+  installNote: 'Skills CLI 命令请在 Agent 的工作目录运行；如需供当前用户的所有项目使用，可追加 --global。',
+  skillsCli: 'Skills CLI',
+  native: '原生插件',
+  registry: '技能市场',
+  manual: '发布包',
+} : {
+  eyebrow: 'AGENT INSTALL PATHS',
+  choose: 'Choose your agent',
+  copy: 'Copy install command',
+  copied: 'Copied',
+  error: 'Could not copy. Copy the command manually.',
+  open: 'Open release page',
+  worksWith: 'Works with your agent',
+  viewAll: 'View every supported agent',
+  platforms: 'platforms, one entry point',
+  npmTitle: 'Need a package-based workflow?',
+  npmBody: 'Use the npm package when an Agent or team workflow vendors Skills through node_modules.',
+  npmLink: 'View the npm package',
+  promptLabel: 'Then start with a short prompt:',
+  prompt: 'Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this machine. Ask before installing or changing system state, and finish with verification evidence.',
+  installNote: 'Run the Skills CLI command from your Agent workspace; use --global for user-level installation.',
+  skillsCli: 'Skills CLI',
+  native: 'Native plugin',
+  registry: 'Skill registry',
+  manual: 'Release archive',
+})
+
+const kindLabel = (kind: typeof agentInstallers[number]['kind']) => {
+  if (kind === 'native') return copy.value.native
+  if (kind === 'registry') return copy.value.registry
+  if (kind === 'manual') return copy.value.manual
+  return copy.value.skillsCli
+}
+
+function selectAgent(id: string) {
+  selectedId.value = id
+  state.value = 'idle'
+}
+
+async function copyCommand() {
+  if (selected.value.action === 'link') {
+    window.open(selected.value.command, '_blank', 'noopener,noreferrer')
+    return
+  }
+  try {
+    await navigator.clipboard.writeText(selected.value.command)
+    state.value = 'copied'
+    window.setTimeout(() => { state.value = 'idle' }, 2200)
+  } catch {
+    state.value = 'error'
+  }
+}
 </script>
+
 <template>
-<div class="home-install-options">
-<template v-if="locale === 'en'">
-  <div class="install-cards" aria-label="DCC-MCP install options">
-    <article class="install-card install-card-featured">
-      <p class="install-card-eyebrow">Most agents</p>
-      <h3>Skills CLI</h3>
-      <p>Use the universal Agent Skills CLI from the workspace opened by Cursor, Codex, Claude Code, Gemini CLI, Windsurf, or another compatible host.</p>
-      <pre class="install-code"><code>npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp</code></pre>
-    </article>
-    <article class="install-card">
-      <p class="install-card-eyebrow">Native marketplace</p>
-      <h3>Codex</h3>
-      <p>Use Codex's plugin marketplace when you want the host-native install path for the same canonical Skills.</p>
-      <pre class="install-code"><code>codex plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins
-codex plugin add dcc-mcp@dcc-mcp</code></pre>
-    </article>
-    <article class="install-card">
-      <p class="install-card-eyebrow">Native plugin</p>
-      <h3>Claude Code</h3>
-      <p>Use Claude Code's plugin commands when installing from inside Claude Code instead of a shell installer.</p>
-      <pre class="install-code"><code>/plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins
-/plugin install dcc-mcp@dcc-mcp</code></pre>
-    </article>
+  <div class="home-install-options">
+    <div class="agent-install-heading">
+      <p class="install-card-eyebrow">{{ copy.eyebrow }}</p>
+      <label class="agent-install-select">
+        <span>{{ copy.choose }}</span>
+        <select :value="selected.id" @change="selectAgent(($event.target as HTMLSelectElement).value)">
+          <option v-for="agent in agentInstallers" :key="agent.id" :value="agent.id">{{ agent.name }}</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="agent-install-rail" aria-label="DCC-MCP install command">
+      <div class="agent-install-command">
+        <span class="agent-install-kind">{{ kindLabel(selected.kind) }} · {{ selected.target }}</span>
+        <code>{{ selected.command }}</code>
+      </div>
+      <button v-if="selected.action !== 'link'" type="button" class="site-button primary agent-install-copy" @click="copyCommand">
+        {{ state === 'copied' ? copy.copied : copy.copy }} <span aria-hidden="true">{{ state === 'copied' ? '✓' : '↗' }}</span>
+      </button>
+      <a v-else class="site-button primary agent-install-copy" :href="selected.command" target="_blank" rel="noreferrer">
+        {{ copy.open }} <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+    <p class="agent-install-status" role="status">{{ state === 'error' ? copy.error : '' }}</p>
+
+    <div class="agent-install-divider"><span>{{ copy.worksWith }}</span></div>
+    <div class="agent-install-featured">
+      <button
+        v-for="agent in featuredAgentInstallers"
+        :key="agent.id"
+        type="button"
+        :aria-pressed="agent.id === selected.id"
+        @click="selectAgent(agent.id)"
+      >
+        <span class="agent-install-mark" aria-hidden="true">{{ agent.name.slice(0, 1) }}</span>
+        <strong>{{ agent.name }}</strong>
+      </button>
+    </div>
+
+    <details class="agent-install-details">
+      <summary>{{ copy.viewAll }} <span>{{ agentInstallers.length }} {{ copy.platforms }}</span></summary>
+      <div class="agent-install-grid">
+        <button
+          v-for="agent in agentInstallers"
+          :key="agent.id"
+          type="button"
+          :data-command="agent.command"
+          :aria-pressed="agent.id === selected.id"
+          @click="selectAgent(agent.id)"
+        >
+          <strong>{{ agent.name }}</strong>
+          <small>{{ kindLabel(agent.kind) }}</small>
+        </button>
+      </div>
+    </details>
+
+    <details class="agent-install-npm">
+      <summary>{{ copy.npmTitle }}</summary>
+      <div>
+        <p>{{ copy.npmBody }}</p>
+        <pre class="install-code"><code>npm install @dcc-mcp/skills</code></pre>
+        <a class="text-link" href="https://www.npmjs.com/package/@dcc-mcp/skills" target="_blank" rel="noreferrer">{{ copy.npmLink }} <span aria-hidden="true">↗</span></a>
+      </div>
+    </details>
+
+    <div class="install-followup">
+      <p class="install-followup-label">{{ copy.promptLabel }}</p>
+      <pre class="install-code install-prompt-code"><code>{{ copy.prompt }}</code></pre>
+      <p class="install-note">{{ copy.installNote }} <a :href="props.locale === 'zh' ? '/zh/agents' : '/agents'">{{ props.locale === 'zh' ? '查看 Agent 客户端安装说明' : 'See Agent host install notes' }}</a></p>
+    </div>
   </div>
-  <div class="install-followup">
-    <p class="install-followup-label">Then start with a short prompt:</p>
-    <pre class="install-code install-prompt-code"><code>Use the dcc-mcp Skill to set up DCC-MCP for the creative applications on this machine. Ask before installing or changing system state, and finish with verification evidence.</code></pre>
-    <p class="install-note">Run the Skills CLI command from your Agent workspace; use <code>--global</code> for user-level installation. <a href="/agents#native-plugin-marketplaces">See Agent host install notes</a> or <a href="/use-cases">choose a task →</a></p>
-  </div>
-</template>
-<template v-else>
-  <div class="install-cards" aria-label="DCC-MCP 安装方式">
-    <article class="install-card install-card-featured">
-      <p class="install-card-eyebrow">大多数 Agent</p>
-      <h3>Skills CLI</h3>
-      <p>在 Cursor、Codex、Claude Code、Gemini CLI、Windsurf 或其他兼容 Agent Skills 的客户端当前工作区中运行通用安装命令。</p>
-      <pre class="install-code"><code>npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp</code></pre>
-    </article>
-    <article class="install-card">
-      <p class="install-card-eyebrow">原生插件市场</p>
-      <h3>Codex</h3>
-      <p>如果使用 Codex 的原生插件市场，可通过 Host 自带命令安装同一套官方 Skills。</p>
-      <pre class="install-code"><code>codex plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins
-codex plugin add dcc-mcp@dcc-mcp</code></pre>
-    </article>
-    <article class="install-card">
-      <p class="install-card-eyebrow">原生插件</p>
-      <h3>Claude Code</h3>
-      <p>在 Claude Code 内安装时，可使用 Claude Code 的插件命令，而不必先切换到通用 shell 安装器。</p>
-      <pre class="install-code"><code>/plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins
-/plugin install dcc-mcp@dcc-mcp</code></pre>
-    </article>
-  </div>
-  <div class="install-followup">
-    <p class="install-followup-label">然后用一句简短提示词开始：</p>
-    <pre class="install-code install-prompt-code"><code>使用 dcc-mcp Skill 为这台机器上的创意应用配置 DCC-MCP。安装软件或改变系统状态前先询问我，完成后提供验证证据。</code></pre>
-    <p class="install-note">Skills CLI 命令请在 Agent 的工作目录运行；如需供当前用户的所有项目使用，可追加 <code>--global</code>。<a href="/zh/agents#原生插件市场">查看 Agent 客户端安装说明</a>或<a href="/zh/use-cases">选择一个任务 →</a></p>
-  </div>
-</template>
-</div>
 </template>

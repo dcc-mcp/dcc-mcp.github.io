@@ -40,6 +40,39 @@
 .home-page .collection-footer p { max-width: 700px; font-size: 12px; }
 .collection-empty { padding-block: 40px; }
 .home-install-options { margin-bottom: 32px; }
+.agent-install-heading { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 12px; }
+.agent-install-heading .install-card-eyebrow { margin: 0; }
+.agent-install-select { display: flex; flex-direction: column; gap: 7px; flex: 0 0 min(280px, 100%); color: var(--dcc-muted); font-size: 11px; }
+.agent-install-select select { min-height: 44px; padding: 9px 36px 9px 14px; border: 1px solid var(--dcc-line); border-radius: 999px; color: var(--dcc-ink); background: var(--dcc-panel); font-size: 13px; cursor: pointer; }
+.agent-install-rail { display: flex; align-items: center; gap: 12px; min-height: 76px; padding: 8px 8px 8px 20px; border: 1px solid var(--dcc-line); border-radius: 999px; background: var(--dcc-panel); }
+.agent-install-command { min-width: 0; flex: 1; overflow: hidden; }
+.agent-install-kind { display: block; overflow: hidden; margin-bottom: 4px; color: var(--dcc-muted); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.agent-install-command code { display: block; overflow: hidden; color: var(--dcc-ink); font: 12px/1.6 var(--vp-font-family-mono); text-overflow: ellipsis; white-space: nowrap; }
+.agent-install-copy { flex: 0 0 auto; min-height: 58px; padding-inline: 22px; }
+.agent-install-status { min-height: 20px; margin: 8px 0 0; color: var(--dcc-muted); font-size: 12px; }
+.agent-install-divider { display: flex; align-items: center; gap: 18px; margin: 30px 0 18px; color: var(--dcc-muted); font-size: 11px; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
+.agent-install-divider::before, .agent-install-divider::after { height: 1px; flex: 1; background: var(--dcc-line); content: ''; }
+.agent-install-featured { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); }
+.agent-install-featured button { display: grid; min-width: 0; justify-items: center; gap: 9px; padding: 0 8px; border: 0; border-right: 1px solid var(--dcc-line); color: var(--dcc-ink-soft); background: transparent; cursor: pointer; }
+.agent-install-featured button:last-child { border-right: 0; }
+.agent-install-featured button:hover, .agent-install-featured button[aria-pressed='true'] { color: var(--dcc-ink); }
+.agent-install-mark { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid currentColor; border-radius: 10px; font-size: 12px; font-weight: 650; }
+.agent-install-featured button:nth-child(3n) .agent-install-mark { border-radius: 50%; }
+.agent-install-featured strong { overflow: hidden; max-width: 100%; font-size: 11px; font-weight: 550; text-overflow: ellipsis; white-space: nowrap; }
+.agent-install-details { margin-top: 20px; border-top: 1px solid var(--dcc-line); border-bottom: 1px solid var(--dcc-line); }
+.agent-install-details summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; color: var(--dcc-ink); cursor: pointer; font-size: 13px; }
+.agent-install-details summary span { color: var(--dcc-muted); font-size: 12px; }
+.agent-install-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; padding: 0 0 18px; }
+.agent-install-grid button { display: flex; min-height: 58px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 4px; padding: 10px 12px; border: 1px solid var(--dcc-line); border-radius: 8px; color: var(--dcc-ink); background: var(--dcc-panel); text-align: left; cursor: pointer; }
+.agent-install-grid button:hover, .agent-install-grid button[aria-pressed='true'] { border-color: var(--vp-c-brand-1); background: var(--vp-c-brand-soft); }
+.agent-install-grid strong { font-size: 13px; font-weight: 550; }
+.agent-install-grid small { color: var(--dcc-muted); font-size: 11px; }
+.agent-install-npm { margin-top: 18px; border-top: 1px solid var(--dcc-line); border-bottom: 1px solid var(--dcc-line); }
+.agent-install-npm summary { min-height: 48px; padding-block: 14px; color: var(--dcc-ink-soft); cursor: pointer; font-size: 13px; }
+.agent-install-npm > div { padding: 0 0 18px; }
+.agent-install-npm p { margin: 0 0 12px; color: var(--dcc-ink-soft); font-size: 13px; }
+.agent-install-npm .install-code { margin: 0 0 12px; }
+.agent-install-npm .text-link { min-height: 36px; }
 .install-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .install-card { min-width: 0; padding: 24px; border: 1px solid var(--dcc-line); border-radius: 12px; background: var(--dcc-panel); }
 .home-page .install-card-eyebrow { margin-bottom: 12px; color: var(--dcc-muted); font-size: 11px; }
@@ -58,6 +91,6 @@
 .route-page .VPDoc .content-container { max-width: 1120px; }
 .dcc-control-guide-index { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .dcc-control-guide-index > * { min-width: 0; }
-@media (max-width: 1024px) { .collection-masonry { columns: 2; } .install-cards { grid-template-columns: 1fr; } .home-resources { grid-template-columns: 1fr; } }
-@media (max-width: 700px) { .collection-masonry { columns: 1; } .collection-toolbar { align-items: flex-start; } .collection-search { width: 100%; margin-left: 0; } .collection-search input { width: 100%; } .dcc-control-guide-index { grid-template-columns: 1fr; } }
+@media (max-width: 1024px) { .collection-masonry { columns: 2; } .install-cards { grid-template-columns: 1fr; } .home-resources { grid-template-columns: 1fr; } .agent-install-featured { grid-template-columns: repeat(5, minmax(0, 1fr)); row-gap: 18px; } .agent-install-featured button:nth-child(5n) { border-right: 0; } .agent-install-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .collection-masonry { columns: 1; } .collection-toolbar { align-items: flex-start; } .collection-search { width: 100%; margin-left: 0; } .collection-search input { width: 100%; } .dcc-control-guide-index { grid-template-columns: 1fr; } .agent-install-heading { display: block; } .agent-install-select { margin-top: 18px; width: 100%; } .agent-install-rail { align-items: stretch; flex-direction: column; padding: 14px; border-radius: 16px; } .agent-install-command code { white-space: normal; overflow-wrap: anywhere; } .agent-install-copy { width: 100%; } .agent-install-featured { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; } .agent-install-featured button, .agent-install-featured button:nth-child(5n) { border-right: 1px solid var(--dcc-line); } .agent-install-featured button:nth-child(2n) { border-right: 0; } .agent-install-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .install-card { padding: 20px; } .home-page .collection-work h3 { font-size: 22px; } }
