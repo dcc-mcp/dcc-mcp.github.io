@@ -73,9 +73,10 @@
   display: flex;
   justify-content: space-around;
   width: max(125%, 42rem);
-  animation: agent-logo-pan 22s ease-in-out infinite alternate;
+  animation: agent-logo-pan 22s ease-in-out infinite var(--pan-direction, alternate);
+  animation-play-state: var(--pan-state, running);
 }
-.agent-logo-row:nth-child(2) { animation-direction: alternate-reverse; }
+.agent-logo-row:nth-child(2) { --pan-direction: alternate-reverse; }
 @keyframes agent-logo-pan {
   from { transform: translateX(0); }
   to { transform: translateX(calc(100cqw - 100%)); }
@@ -96,9 +97,9 @@
 .agent-logo-row button:hover, .agent-logo-row button:focus-visible, .agent-logo-row button[aria-pressed='true'] { color: var(--dcc-ink); }
 .agent-logo-row button[aria-pressed='true'] > :last-child { text-decoration: underline; text-underline-offset: 4px; }
 .agent-logo { width: 44px; height: 44px; background: currentColor; mask: var(--logo) center / contain no-repeat; }
-.agent-logo-rail.is-paused .agent-logo-row { animation-play-state: paused; }
+.agent-logo-rail.is-paused { --pan-state: paused; }
 @media (hover: hover) {
-  .agent-logo-rail:hover .agent-logo-row { animation-play-state: paused; }
+  .agent-logo-rail:hover { --pan-state: paused; }
 }
 /* Keep every brand visible when navigating with the keyboard or using reduced motion. */
 .agent-logo-rail:has(:focus-visible) .agent-logo-row {
@@ -108,13 +109,17 @@
   animation: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  .agent-logo-row {
+  .agent-logo-rail:not(.motion-opt-in) .agent-logo-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 6rem), 1fr));
     width: 100%;
     animation: none;
   }
-  .agent-logo-playback { display: none; }
+  /* A deliberate press of Play can override the theme-wide motion reset. */
+  .agent-logo-rail.motion-opt-in:not(:has(:focus-visible)) .agent-logo-row {
+    animation: agent-logo-pan 22s ease-in-out infinite var(--pan-direction, alternate) !important;
+    animation-play-state: var(--pan-state, running) !important;
+  }
 }
 .agent-install-details { margin-top: 20px; border-top: 1px solid var(--dcc-line); border-bottom: 1px solid var(--dcc-line); }
 .agent-install-details summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; color: var(--dcc-ink); cursor: pointer; font-size: 13px; }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type SiteLocale, localePrefix } from '../../i18n/locales'
 import { useHomeTranslations } from '../data/home-translations'
-import { computed, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { agentInstallers, featuredAgentInstallers } from '../data/agent-installers'
 
 const props = defineProps<{ locale: SiteLocale }>()
@@ -11,6 +11,21 @@ const motionCopy = computed(() => translations?.value?.HomeIntegrations ?? (prop
   ? { pause: '暂停滚动', resume: '继续滚动' }
   : { pause: 'Pause scrolling', resume: 'Resume scrolling' }))
 const paused = ref(false)
+const reducedMotion = ref(false)
+let motionQuery: MediaQueryList | undefined
+
+function syncMotionPreference() {
+  reducedMotion.value = motionQuery?.matches ?? false
+  paused.value = reducedMotion.value
+}
+
+onMounted(() => {
+  motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+  syncMotionPreference()
+  motionQuery.addEventListener('change', syncMotionPreference)
+})
+onBeforeUnmount(() => motionQuery?.removeEventListener('change', syncMotionPreference))
+
 const rowSize = Math.ceil(featuredAgentInstallers.length / 2)
 const logoRows = [featuredAgentInstallers.slice(0, rowSize), featuredAgentInstallers.slice(rowSize)]
 const selectedId = ref('auto')
@@ -121,7 +136,8 @@ async function copyCommand() {
         <span aria-hidden="true">{{ paused ? '▶' : 'Ⅱ' }}</span>
       </button>
     </div>
-    <div class="agent-logo-rail" :class="{ 'is-paused': paused }" role="group" :aria-label="copy.worksWith">
+    <div class="agent-logo-rail" :class="{ 'is-paused': paused, 'motion-opt-in': reducedMotion && !paused }"
+      role="group" :aria-label="copy.worksWith">
       <div v-for="(row, index) in logoRows" :key="index" class="agent-logo-row">
         <button v-for="agent in row" :key="agent.id" type="button"
           :aria-pressed="agent.id === selected.id" @click="selectAgent(agent.id)">
