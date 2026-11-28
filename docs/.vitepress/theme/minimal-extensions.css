@@ -52,13 +52,70 @@
 .agent-install-status { min-height: 20px; margin: 8px 0 0; color: var(--dcc-muted); font-size: 12px; }
 .agent-install-divider { display: flex; align-items: center; gap: 18px; margin: 30px 0 18px; color: var(--dcc-muted); font-size: 11px; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
 .agent-install-divider::before, .agent-install-divider::after { height: 1px; flex: 1; background: var(--dcc-line); content: ''; }
-.agent-install-featured { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); }
-.agent-install-featured button { display: grid; min-width: 0; justify-items: center; gap: 9px; padding: 0 8px; border: 0; border-right: 1px solid var(--dcc-line); color: var(--dcc-ink-soft); background: transparent; cursor: pointer; }
-.agent-install-featured button:last-child { border-right: 0; }
-.agent-install-featured button:hover, .agent-install-featured button[aria-pressed='true'] { color: var(--dcc-ink); }
-.agent-install-mark { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid currentColor; border-radius: 10px; font-size: 12px; font-weight: 650; }
-.agent-install-featured button:nth-child(3n) .agent-install-mark { border-radius: 50%; }
-.agent-install-featured strong { overflow: hidden; max-width: 100%; font-size: 11px; font-weight: 550; text-overflow: ellipsis; white-space: nowrap; }
+.agent-logo-playback {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--dcc-muted);
+  cursor: pointer;
+}
+.agent-logo-playback:hover, .agent-logo-playback:focus-visible { background: var(--dcc-panel-soft); color: var(--dcc-ink); }
+.agent-logo-rail {
+  container-type: inline-size;
+  overflow: clip;
+  display: grid;
+  gap: 12px;
+  padding-block: 12px;
+}
+.agent-logo-row {
+  display: flex;
+  justify-content: space-around;
+  width: max(125%, 42rem);
+  animation: agent-logo-pan 22s ease-in-out infinite alternate;
+}
+.agent-logo-row:nth-child(2) { animation-direction: alternate-reverse; }
+@keyframes agent-logo-pan {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(100cqw - 100%)); }
+}
+.agent-logo-row button {
+  display: grid;
+  flex: 1;
+  justify-items: center;
+  align-content: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 10px 4px;
+  color: var(--dcc-muted);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.agent-logo-row button:hover, .agent-logo-row button:focus-visible, .agent-logo-row button[aria-pressed='true'] { color: var(--dcc-ink); }
+.agent-logo-row button[aria-pressed='true'] > :last-child { text-decoration: underline; text-underline-offset: 4px; }
+.agent-logo { width: 44px; height: 44px; background: currentColor; mask: var(--logo) center / contain no-repeat; }
+.agent-logo-rail.is-paused .agent-logo-row { animation-play-state: paused; }
+@media (hover: hover) {
+  .agent-logo-rail:hover .agent-logo-row { animation-play-state: paused; }
+}
+/* Keep every brand visible when navigating with the keyboard or using reduced motion. */
+.agent-logo-rail:has(:focus-visible) .agent-logo-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 6rem), 1fr));
+  width: 100%;
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .agent-logo-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 6rem), 1fr));
+    width: 100%;
+    animation: none;
+  }
+  .agent-logo-playback { display: none; }
+}
 .agent-install-details { margin-top: 20px; border-top: 1px solid var(--dcc-line); border-bottom: 1px solid var(--dcc-line); }
 .agent-install-details summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; color: var(--dcc-ink); cursor: pointer; font-size: 13px; }
 .agent-install-details summary span { color: var(--dcc-muted); font-size: 12px; }
@@ -91,6 +148,6 @@
 .route-page .VPDoc .content-container { max-width: 1120px; }
 .dcc-control-guide-index { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .dcc-control-guide-index > * { min-width: 0; }
-@media (max-width: 1024px) { .collection-masonry { columns: 2; } .install-cards { grid-template-columns: 1fr; } .home-resources { grid-template-columns: 1fr; } .agent-install-featured { grid-template-columns: repeat(5, minmax(0, 1fr)); row-gap: 18px; } .agent-install-featured button:nth-child(5n) { border-right: 0; } .agent-install-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 700px) { .collection-masonry { columns: 1; } .collection-toolbar { align-items: flex-start; } .collection-search { width: 100%; margin-left: 0; } .collection-search input { width: 100%; } .dcc-control-guide-index { grid-template-columns: 1fr; } .agent-install-heading { display: block; } .agent-install-select { margin-top: 18px; width: 100%; } .agent-install-rail { align-items: stretch; flex-direction: column; padding: 14px; border-radius: 16px; } .agent-install-command code { white-space: normal; overflow-wrap: anywhere; } .agent-install-copy { width: 100%; } .agent-install-featured { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; } .agent-install-featured button, .agent-install-featured button:nth-child(5n) { border-right: 1px solid var(--dcc-line); } .agent-install-featured button:nth-child(2n) { border-right: 0; } .agent-install-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 1024px) { .collection-masonry { columns: 2; } .install-cards { grid-template-columns: 1fr; } .home-resources { grid-template-columns: 1fr; } .agent-install-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .collection-masonry { columns: 1; } .collection-toolbar { align-items: flex-start; } .collection-search { width: 100%; margin-left: 0; } .collection-search input { width: 100%; } .dcc-control-guide-index { grid-template-columns: 1fr; } .agent-install-heading { display: block; } .agent-install-select { margin-top: 18px; width: 100%; } .agent-install-rail { align-items: stretch; flex-direction: column; padding: 14px; border-radius: 16px; } .agent-install-command code { white-space: normal; overflow-wrap: anywhere; } .agent-install-copy { width: 100%; } .agent-install-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .install-card { padding: 20px; } .home-page .collection-work h3 { font-size: 22px; } }

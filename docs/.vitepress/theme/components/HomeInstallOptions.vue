@@ -7,6 +7,12 @@ import { agentInstallers, featuredAgentInstallers } from '../data/agent-installe
 const props = defineProps<{ locale: SiteLocale }>()
 const translations = useHomeTranslations()
 const localCopy = computed(() => translations?.value?.HomeInstallOptions)
+const motionCopy = computed(() => translations?.value?.HomeIntegrations ?? (props.locale === 'zh'
+  ? { pause: '暂停滚动', resume: '继续滚动' }
+  : { pause: 'Pause scrolling', resume: 'Resume scrolling' }))
+const paused = ref(false)
+const rowSize = Math.ceil(featuredAgentInstallers.length / 2)
+const logoRows = [featuredAgentInstallers.slice(0, rowSize), featuredAgentInstallers.slice(rowSize)]
 const selectedId = ref('auto')
 const state = ref<'idle' | 'copied' | 'error'>('idle')
 
@@ -107,18 +113,22 @@ async function copyCommand() {
     </div>
     <p class="agent-install-status" role="status">{{ state === 'error' ? copy.error : '' }}</p>
 
-    <div class="agent-install-divider"><span>{{ copy.worksWith }}</span></div>
-    <div class="agent-install-featured">
-      <button
-        v-for="agent in featuredAgentInstallers"
-        :key="agent.id"
-        type="button"
-        :aria-pressed="agent.id === selected.id"
-        @click="selectAgent(agent.id)"
-      >
-        <span class="agent-install-mark" aria-hidden="true">{{ agent.name.slice(0, 1) }}</span>
-        <strong>{{ agent.id === 'auto' && localCopy ? localCopy.auto : agent.name }}</strong>
+    <div class="agent-install-divider">
+      <span>{{ copy.worksWith }}</span>
+      <button type="button" class="agent-logo-playback"
+        :aria-label="paused ? motionCopy.resume : motionCopy.pause"
+        :title="paused ? motionCopy.resume : motionCopy.pause" @click="paused = !paused">
+        <span aria-hidden="true">{{ paused ? '▶' : 'Ⅱ' }}</span>
       </button>
+    </div>
+    <div class="agent-logo-rail" :class="{ 'is-paused': paused }" role="group" :aria-label="copy.worksWith">
+      <div v-for="(row, index) in logoRows" :key="index" class="agent-logo-row">
+        <button v-for="agent in row" :key="agent.id" type="button"
+          :aria-pressed="agent.id === selected.id" @click="selectAgent(agent.id)">
+          <span class="agent-logo" :style="{ '--logo': `url('/agent-logos/${agent.id}.svg')` }" aria-hidden="true" />
+          <span>{{ agent.name }}</span>
+        </button>
+      </div>
     </div>
 
     <details class="agent-install-details">
