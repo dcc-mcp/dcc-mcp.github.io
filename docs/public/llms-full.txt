@@ -1,5 +1,7 @@
 # DCC-MCP: agent, marketplace, adapter, and developer reference
 
+[English](https://dcc-mcp.github.io/llms-full.txt) · [简体中文](https://dcc-mcp.github.io/zh/llms-full.txt) · [日本語](https://dcc-mcp.github.io/ja/llms-full.txt) · [한국어](https://dcc-mcp.github.io/ko/llms-full.txt) · [Español](https://dcc-mcp.github.io/es/llms-full.txt) · [Français](https://dcc-mcp.github.io/fr/llms-full.txt) · [Deutsch](https://dcc-mcp.github.io/de/llms-full.txt) · [Português](https://dcc-mcp.github.io/pt/llms-full.txt) · [Русский](https://dcc-mcp.github.io/ru/llms-full.txt)
+
 DCC-MCP is an open-source toolkit that connects AI agents and automation to
 creative applications such as Maya, Blender, and Houdini through MCP, REST APIs,
 and `dcc-mcp-cli`. DCC means digital content creation. An AI agent uses tools to

@@ -13,6 +13,12 @@ type Showcase = {
   zh: Copy
 }
 
+type TranslatedGallery = {
+  copy: string
+  copied: string
+  cards: Record<string, Copy & { evidence?: string[] }>
+}
+const props = defineProps<{ translations?: TranslatedGallery }>()
 const { lang } = useData()
 const copied = ref('')
 const isZh = computed(() => lang.value.startsWith('zh'))
@@ -460,8 +466,12 @@ const showcases: Showcase[] = [
   },
 ]
 
+function card(item: Showcase) {
+  return props.translations?.cards[item.id] ?? (isZh.value ? item.zh : item.en)
+}
+
 async function copyPrompt(item: Showcase) {
-  await navigator.clipboard.writeText((isZh.value ? item.zh : item.en).prompt)
+  await navigator.clipboard.writeText(card(item).prompt)
   copied.value = item.id
   window.setTimeout(() => { copied.value = '' }, 1600)
 }
@@ -471,22 +481,22 @@ async function copyPrompt(item: Showcase) {
   <div class="showcase-gallery">
     <article v-for="item in showcases" :id="item.id" :key="item.id" class="showcase-prompt-card">
       <a class="showcase-prompt-media" :class="{ 'showcase-media-contain': item.contain }" :href="item.source" target="_blank" rel="noreferrer">
-        <img :src="item.image" :alt="(isZh ? item.zh : item.en).title" loading="lazy">
-        <span>{{ (isZh ? item.zh : item.en).label }}</span>
+        <img :src="item.image" :alt="card(item).title" loading="lazy">
+        <span>{{ card(item).label }}</span>
       </a>
       <div v-if="item.evidence" class="showcase-evidence">
-        <a v-for="evidence in item.evidence" :key="evidence.image" :href="evidence.image" target="_blank" rel="noreferrer">
-          <img :src="evidence.image" :alt="isZh ? evidence.zh : evidence.en" loading="lazy">
-          <span>{{ isZh ? evidence.zh : evidence.en }}</span>
+        <a v-for="(evidence, index) in item.evidence" :key="evidence.image" :href="evidence.image" target="_blank" rel="noreferrer">
+          <img :src="evidence.image" :alt="translations?.cards[item.id]?.evidence?.[index] ?? (isZh ? evidence.zh : evidence.en)" loading="lazy">
+          <span>{{ translations?.cards[item.id]?.evidence?.[index] ?? (isZh ? evidence.zh : evidence.en) }}</span>
         </a>
       </div>
       <div class="showcase-prompt-body">
-        <h2>{{ (isZh ? item.zh : item.en).title }}</h2>
+        <h2>{{ card(item).title }}</h2>
         <div class="showcase-prompt-copy">
-          <small>{{ isZh ? '复制提示词' : 'COPY PROMPT' }}</small>
-          <p>{{ (isZh ? item.zh : item.en).prompt }}</p>
+          <small>{{ translations?.copy ?? (isZh ? '复制提示词' : 'COPY PROMPT') }}</small>
+          <p>{{ card(item).prompt }}</p>
           <button type="button" @click="copyPrompt(item)">
-            {{ copied === item.id ? (isZh ? '已复制' : 'Copied') : (isZh ? '复制提示词' : 'Copy prompt') }}
+            {{ copied === item.id ? (translations?.copied ?? (isZh ? '已复制' : 'Copied')) : (translations?.copy ?? (isZh ? '复制提示词' : 'Copy prompt')) }}
           </button>
         </div>
       </div>

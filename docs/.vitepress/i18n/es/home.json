@@ -1,0 +1,625 @@
+{
+  "HomePage": {
+    "why": "Un proceso de producción que todo el equipo puede seguir",
+    "whyBody": "Define qué recibe cada etapa, qué entrega y quién comprueba el resultado. Así el equipo puede revisar el trabajo del agente antes de continuar.",
+    "reasons": [
+      {
+        "title": "Aprovecha tus herramientas",
+        "body": "Conecta los scripts, complementos y servicios del estudio sin cambiar de aplicación."
+      },
+      {
+        "title": "Prepara cada entrega",
+        "body": "Relaciona la preparación de escenas, la revisión de recursos y la exportación con sus responsables y archivos de salida."
+      },
+      {
+        "title": "Revisa los resultados",
+        "body": "Guarda las comprobaciones y los archivos generados. Automatiza las tareas repetitivas y deja la aprobación final en manos del equipo."
+      }
+    ],
+    "whyLink": "Ver el flujo de producción",
+    "marketLabel": "Marketplace",
+    "marketTitle": "Encuentra herramientas para tu próxima tarea",
+    "marketBody": "Explora Skills, recursos y servicios que puedes incorporar a tu flujo de producción.",
+    "marketLink": "Explorar el catálogo",
+    "developerTitle": "Comparte los métodos de tu estudio",
+    "developerBody": "Conecta herramientas internas y procedimientos de producción para que el equipo pueda reutilizarlos.",
+    "developerLink": "Guía de desarrollo",
+    "githubLink": "Ver en GitHub",
+    "demos": "Roles de producción y demostraciones"
+  },
+  "HomeHero": {
+    "eyebrow": "Herramientas de producción",
+    "title": "Conecta tus herramientas",
+    "appPrefix": "con",
+    "punctuation": ".",
+    "accessibleTitle": "Integra Maya y Blender en tu flujo de producción",
+    "description": "Indica al agente qué quieres producir. DCC-MCP enlaza las herramientas que ya usas para crear, revisar y entregar el trabajo con los controles de tu equipo.",
+    "start": "Conectar mis herramientas",
+    "explore": "Ver proyectos reales",
+    "note": "Código abierto · Se ejecuta localmente · Funciona con sus herramientas."
+  },
+  "HomePipeline": {
+    "eyebrow": "Flujo de producción",
+    "title": "Define el proceso y deja que el agente ejecute sus pasos",
+    "steps": [
+      {
+        "title": "Estandarizar",
+        "detail": "Defina los criterios de nombres, entradas, salidas, permisos y aceptación."
+      },
+      {
+        "title": "Defina el proceso.",
+        "detail": "Es necesario que el orden de los pasos, las dependencias entre ellos y las transferencias de responsabilidades entre los miembros del equipo sean claros."
+      },
+      {
+        "title": "Exponer las herramientas",
+        "detail": "Envuelva los scripts y servicios existentes con parámetros validados y resultados que se puedan inspeccionar."
+      },
+      {
+        "title": "Orquestación de agentes",
+        "detail": "Seleccione las herramientas adecuadas para alcanzar el objetivo, coordinar la ejecución y verificar que el entrega se realice correctamente."
+      }
+    ],
+    "principle": "El agente se encarga de manejar las intenciones del usuario, la selección de herramientas y las diferentes opciones que se pueden tomar. Su equipo, por su parte, se ocupa de los aspectos relacionados con la asignación de nombres, los permisos, la aceptación de los pedidos y su entrega.",
+    "caseLabel": "CASO DE USO DEL SISTEMA CROSS-SOFTWARE · ZBrush → Maya",
+    "caseTitle": "Un activo útil. Una transferencia ordenada al siguiente instrumento.",
+    "caseBody": "Los registros del caso indican que una fuente con cinco millones de faces se redujo a 115,364 faces. Posteriormente, se verificó que en el sistema Maya, esa fuente correspondía a 115,336 vértices y 115,364 faces.",
+    "mediaNote": "Una presentación de imágenes grabadas de los casos, no una ejecución en vivo o una grabación realizada por un software.",
+    "pause": "Haz una pausa en la presentación de imágenes.",
+    "play": "Reproducir diapositivas",
+    "source": "Vea el proyecto que lo posee.",
+    "more": "Explora el enfoque de producción.",
+    "alt": "La escena de dragones fantásticos, grabada en ZBrush y Maya.",
+    "frames": [
+      "Reorganizar y exportar",
+      "Importar y validar"
+    ]
+  },
+  "HomeIntegrations": {
+    "title": "Aplicaciones que puedes conectar",
+    "description": "Consulta las guías para motores de juego, creación 3D, audio y posproducción.",
+    "catalog": "El catálogo de Core 0.20.39 incluye {released} identificadores de adaptadores. Cada guía indica los requisitos de instalación, las versiones independientes y el alcance de las pruebas.",
+    "all": "Ver las {total} guías de integración",
+    "directory": "Buscar una integración",
+    "pause": "Pausar el desplazamiento",
+    "resume": "Reanudar el desplazamiento",
+    "evidence": "Consultar la versión del catálogo"
+  },
+  "HomeSetup": {
+    "eyebrow": "Conéctate con nosotros.",
+    "title": "Comienza con una solicitud clara.",
+    "description": "Dale la instrucción a tu agente. Él verifica las herramientas que ya tienes, guía la conexión y pide permiso antes de instalar o cambiar el estado del sistema.",
+    "prompt": "Conecte las aplicaciones creativas de esta máquina con DCC-MCP. Verifique qué está ya instalado. Pregunte antes de realizar cualquier cambio, y luego realice la verificación necesaria para completar el proceso.",
+    "button": "Copiar instrucción de configuración",
+    "copied": "Copiado",
+    "error": "No se pudo realizar la copia. Por favor, expanda el mensaje y copíelo manualmente.",
+    "details": "Ver la instrucción completa",
+    "guide": "Lea la guía de configuración del agente.",
+    "full": "Configura DCC-MCP para las aplicaciones de creación de este equipo.\n1. Sigue la Skill dcc-mcp instalada por el método compatible con este agente. Si no está disponible en esta conversación, detente y pídeme que inicie otra.\n2. Comprueba dcc-mcp-cli. Si falta, explica cómo funciona el instalador oficial y solicita mi permiso antes de ejecutarlo. Después ejecuta update check, health, dcc-types y list.\n3. Detecta las aplicaciones que utilizo y propón solo adaptadores oficiales compatibles. Consulta conmigo antes de instalar software o modificar el estado del sistema.\n4. Comprueba que el Gateway está listo y verifica una secuencia segura de search → load/describe → call sin modificar la escena ni el documento abiertos.\n5. Conserva el request_id. Si falla una llamada, utiliza doctor, las estadísticas de fallos de stats y el flujo dcc_feedback__report que devuelva la búsqueda. Solicita mi aprobación antes de publicar evidencias o abrir una incidencia externa.\n6. Para un adaptador nuevo utiliza @loonghao/dcc-mcp-creator. Para una Skill de un flujo concreto, utiliza @loonghao/dcc-mcp-skills-creator.\n7. Indica las versiones instaladas, las instancias conectadas, las comprobaciones realizadas y cualquier acción pendiente por mi parte."
+  },
+  "HomeInstallOptions": {
+    "eyebrow": "Agentes para instalar los caminos de acceso",
+    "choose": "Elegir agente",
+    "copy": "Copiar comando de instalación",
+    "copied": "Copiado",
+    "error": "No se pudo realizar la copia. Es necesario copiar la orden manualmente.",
+    "open": "Abrir la página de versiones",
+    "worksWith": "Trabaja en colaboración con su agente.",
+    "viewAll": "Ver todos los agentes compatibles",
+    "platforms": "Plataformas, un punto de entrada único.",
+    "npmTitle": "¿Necesita un flujo de trabajo basado en paquetes?",
+    "npmBody": "Use el paquete npm cuando un agente o equipo necesite utilizar los proveedores de habilidades que se encuentran en node_modules.",
+    "npmLink": "Vea el paquete npm.",
+    "promptLabel": "Luego, comienza con una breve instrucción o prompt.",
+    "prompt": "Utilice la habilidad dcc-mcp para configurar DCC-MCP para aplicaciones creativas en esta máquina. Pregunte antes de instalar o cambiar el estado del sistema. Finalice con la verificación de los datos necesarios.",
+    "installNote": "Ejecute la orden del CLI de habilidades desde su área de trabajo del agente; utilice --global para la instalación a nivel de usuario.",
+    "skillsCli": "Habilidades CLI",
+    "native": "Plugin nativo",
+    "registry": "Registro de habilidades",
+    "manual": "Archivo de lanzamiento",
+    "notes": "Guía de instalación del agente",
+    "auto": "Detectar automáticamente",
+    "command": "Comando de instalación"
+  },
+  "CollectionMasonry": {
+    "title": "Desde una idea… hacia el mundo real.",
+    "intro": "Entre en el mundo del trabajo: proyectos nativos, registros de producción, y un relato honesto de hasta dónde han llegado cada uno de los proyectos.",
+    "collection": "Ver la colección",
+    "all": "Todos los proyectos",
+    "playable": "Demos en el navegador",
+    "search": "Buscar proyectos o aplicaciones",
+    "count": "proyectos",
+    "view": "Ver proyecto",
+    "play": "Abrir demo",
+    "evidence": "Pruebas y limitaciones",
+    "source": "Proyecto de origen",
+    "fallback": "La cubierta no está disponible. Sin embargo, la obra en sí y los registros relacionados con su producción todavía están disponibles.",
+    "empty": "No hay ningún trabajo que coincida con la búsqueda realizada. Intente realizar otra búsqueda o navegue entre todos los trabajos disponibles.",
+    "reset": "Restablecer filtros",
+    "provenance": "Las etiquetas de evidencia provienen de la colección de datos. Las demostraciones en el navegador siguen las instrucciones especificadas en su manifiesto público. Esta versión del sitio web no las ha volvido a probar.",
+    "cases": {
+      "brass-pendulum-denoise": {
+        "title": "Pendulo de bronce",
+        "subtitle": "Blender · Animación nativa refinada y eliminación de ruido espacial guiada",
+        "summary": "Los refinamientos en la geometría nativa dan forma al aro de bronce y al péndulo de porcelana. La lente de 42 a 44 mm sirve para enmarcar todo el pedestal. El candidato de mayor resolución utiliza guías de Albedo/Normal reales para el procesamiento espacial de cada fotograma. Incluye 144 fotogramas, con una velocidad de 24000/1001 fps, durante un tiempo total de 6.006 segundos, sin audio. El experimento anterior, con muestras de baja resolución, se conserva por separado.",
+        "software": [
+          "Blender",
+          "dcc-media-enhance",
+          "FFmpeg"
+        ],
+        "evidence_label": "Native Cycles renderiza pasos de guía reales y OIDN espaciales.",
+        "evidence_scope": "Las ediciones reales de DCC-MCP se guardan y se vuelven a abrir. El formato EXR de múltiples capas, con resolución de 960 × 720 y 96 muestras por segundo, pasa por el proceso unificado de dcc-media-enhance CLI, Blender Compositor OIDN, y también se realiza una transición explícita entre los formatos AgX/sRGB y BT.709. La reproducción de imágenes en pantalla completa en inglés/chingo se realizó correctamente en el commit 5080041; sin embargo, los commits posteriores requieren verificaciones separadas.",
+        "limitations": [
+          "Se trata de una animación procedural original, no de una reconstrucción realizada por CineRecon. También no se trata de una simulación de un péndulo físico, ni de ningún tipo de puntaje relacionado con la calidad del modelo.",
+          "En este caso, OIDN funciona de manera independiente por cada fotograma. Además, es un proceso espacial; no existe ningún algoritmo temporal ni compensación para el movimiento. El éxito en la reproducción de imágenes estáticas no demuestra que el sistema sea estable en términos de movimiento.",
+          "El experimento histórico de Atadenoise difiere en cuanto a su geometría, cámara, dimensiones y método de muestreo. Su video original no es una fuente de control idéntica para la nueva película.",
+          "MP4 es un formato de codificación de visualización que implica la pérdida de datos. Las referencias del navegador se decodifican independientemente del archivo MP4 final, y esto se hace para garantizar la consistencia en la visualización. No se trata de un formato nativo de EXR o de alta calidad de muestreo.",
+          "La versión pública nativa difiere de las versiones producidas. La equivalencia se limita a los ajustes realizados y a los límites establecidos, sin que haya necesidad de rerenderizar los píxeles de forma idéntica.",
+          "El “Touch” es una forma de emulación de la ventana de visualización de Chromium. Los controles nativos, que se muestran en la pantalla, pueden ocultar la imagen final. La inspección independiente del escenario real no garantiza que los píxeles estén visibles sin obstáculos. No se han probado dispositivos físicos, ni tampoco Safari/Firefox, ni el alojamiento en producción.",
+          "No existe ningún registro de configuración de tareas que sea verificable de forma independiente y que pueda servir como base para el establecimiento de un modelo o para la justificación de algún proceso. Cada etapa del proceso sigue siendo desconocida.",
+          "La fuente dcc-media-enhance está licenciada por el MIT. Los activos originales siguen estando protegidos por derechos de autor. Además, las obligaciones de licencia relacionadas con Blender, OIDN y FFmpeg permanecen sin cambios."
+        ],
+        "alt": "Círculo de bronce, péndulo de porcelana y un pedestal completo de color verde oscuro en el nuevo candidato. Imagen obtenida con los valores reales de 960 × 720."
+      },
+      "houdini-procedural-study": {
+        "title": "Nave de Celadon con anillos",
+        "subtitle": "Houdini: De un perfil con 51 puntos a un verdadero mantra.",
+        "summary": "Un perfil de 51 puntos define los anillos, los hombros, el borde, la pared interior y el grosor de la base. Un revólver de 144 segmentos, además de dos niveles de subdivisión, permiten crear un objeto editable con 115,200 caras. El esmalte celadón, tres focos y un suelo de color gris cálido completan la imagen del producto final.",
+        "software": [
+          "Houdini"
+        ],
+        "evidence_label": "Ejecutado en esta ronda · Creación de DCC-MCP",
+        "evidence_scope": "En realidad, todo el proceso se llevó a cabo el 2026-10-01, en una escena vacía separada. Se realizaron las siguientes acciones: formación del patrón, aplicación de la pintura, iluminación, configuración de la cámara, guardado de los datos, cuatro rondas de renderizado de imágenes individuales, reapertura del proyecto, exportación de los archivos OBJ y su reimportación en la misma instancia de Houdini. Todo esto se realizó mediante el programa DCC-MCP. El punto de control del gateway 89/89 fue exitoso. Los registros de respuesta pública están ocultados; las solicitudes iniciales no se guardaron por separado, y la receta reutilizable no constituye una copia completa de la solicitud original. El archivo HIP nativo se mantuvo en secreto debido a los metadatos privados; los archivos OBJ y los PNG públicos, que son idénticos en términos de píxeles, son de uso público. La sesión final del gateway fue exitosa. Los metadatos automáticos del archivo PNG original siguen siendo privados; el archivo PNG público se procesó utilizando una herramienta de automatización de MCP, con el fin de eliminar solo esa parte del texto, manteniendo así los hash CRC, IDAT y RGBA decodificados. La creación y renderizado de los archivos se realizaron utilizando herramientas dedicadas; los metadatos del archivo PNG se limpiaron utilizando una herramienta de automatización de MCP.",
+        "limitations": [
+          "El HIP se encuentra actualmente retenido debido a los metadatos privados del sistema nativo. La sanización completa de los datos sigue siendo una capacidad que aún no se ha desarrollado. Se proporcionan entradas de tipo editable y un punto de entrada para la reproducción mediante la interfaz de línea de comandos.",
+          "El archivo OBJ no conserva la cadena de procedimientos SOP, ni los shaders completos ni el sistema de iluminación. No se verificó si el archivo OBJ podía ser reimportado en otras aplicaciones DCC en esta ronda.",
+          "La interacción con el GUI, otras versiones de Houdini, Karma, la animación y la geometría de manchas cerradas no fueron verificadas en esta ronda.",
+          "En esta ronda de producción, no se utilizó el método de resolución y corrección de errores posteriormente. Las dimensiones finales de los píxeles se determinaron mediante la configuración de la cámara y el análisis de los archivos.",
+          "Solo se guardaron las respuestas desde un inicio. La receta se organizó a partir de los datos proporcionados, y luego se realizó una reproducción sin procesamiento de gráficos en un host vacío. El flujo de trabajo completo no se repitió.",
+          "La limpieza de los metadatos PNG utilizó una herramienta de automatización desarrollada por MCP. No se encontró ninguna capacidad dedicada para la limpieza de los datos. Los píxeles en formato CRC, IDAT y RGBA siguen siendo idénticos."
+        ],
+        "alt": "Un anillo de celadón, decorado con motivos en estilo Houdini Mantra. Tiene un borde abierto, reflejos suaves y sombras que se proyectan sobre la superficie del anillo."
+      },
+      "crate-lookdev": {
+        "title": "Caja de madera deteriorada con el paso del tiempo",
+        "subtitle": "Desde un gráfico de material diseñado por un diseñador, hasta el aspecto visual del producto en Blender.",
+        "summary": "Se separa el grano del madera, la pintura desconchada, el óxido y los arañazos, para convertirlos en materiales editables. Luego, se generan elementos como espesor, fracturas, fibras y sombras de contacto en una escena que puede ser reabierta. El resultado final combina 178 mallas de cajas, dos gráficos de diseño y 13 texturas comprimidas.",
+        "software": [
+          "Blender",
+          "Substance 3D Designer"
+        ],
+        "evidence_label": "Obra de arte histórica · Nuevo intento de captura con cámara: solo es una prueba parcial.",
+        "evidence_scope": "El intento de grabación el 2026-10-12 no logró alcanzar el objetivo deseado. La fuente histórica original fue realmente reabierta; se guardaron dos nuevas escenas grabadas, y se completaron 55 fotogramas. Solo los primeros 50 fotogramas, aproximadamente 2.083 segundos, se presentan como extracto real. La película planeada, de seis segundos y 144 fotogramas, no está completa. Los intentos de renderización se detuvieron debido a errores en el estado de los datos. La decodificación exitosa del extracto no significa que la película completa sea de calidad final. El modelo original, los gráficos del diseñador, las obras de arte históricas y la atribución de la producción siguen intactos.",
+        "limitations": [
+          "Este paso solo proporciona un fragmento de 50 fotogramas, y no una película terminada de alta calidad. Las escenas originales y el punto de control con 55 fotogramas se mantienen. Las causas que llevan a la salida del anfitrión no están establecidas; además, no se utilizaron métodos como la reducción de calidad, la interpolación o el uso repetido de imágenes para completar el tiempo faltante.",
+          "La curación realizada el 2026-10-01 no logró reproducir el trabajo en DCC. La curación realizada el 2026-10-12, en cambio, permitió volver a abrir la fuente de datos y intentar la animación con cámaras, sin necesidad de reconstruir el modelo original, los gráficos del diseñador o los materiales SBS. El objetivo del filme sigue siendo inacabado.",
+          "Los registros completos de llamadas a la herramienta MCP, así como las versiones del adaptador y del núcleo, no son de acceso público.",
+          "La imagen de referencia histórica se generó mediante el proceso de creación de imágenes Codex. Se trata de una entrada de referencia, no de un producto final obtenido a través del DCC-MCP.",
+          "Las dimensiones, el desgaste y los daños son estimaciones artísticas. El desgaste en los bordes se debe a la distribución de la placa del diseñador, y no a la curvatura de la placa misma.",
+          "Se trata de una escena de desarrollo visual densa, con UVs que se superponen entre sí. No se trata de una topología lista para jugar, ni de un atlas único.",
+          "Las fuentes indican que solo es posible volver a abrir los archivos y calcular sus valores nuevamente. No se afirma que los bytes PNG, después de ser calculados nuevamente, sean idénticos a los originales.",
+          "El repositorio de origen indica que el repositorio en su totalidad pertenece a MIT. No se enumeran licencias separadas para las ilustraciones, las imágenes de referencia generadas o los materiales utilizados. Los recursos de la biblioteca integrada de Adobe se referencian únicamente a través de sbs://. Estos recursos no se distribuyen en este sitio web.",
+          "El fragmento público utiliza los marcos originales del 1 al 50. Los marcos adicionales del 51 al 55 utilizan dos hilos OIDN. La calibración en los mismos marcos difiere en un máximo de 2/255 por canal. Los píxeles no son idénticos entre sí, y esto no demuestra que se haya reducido la cantidad de memoria utilizada. Las cámaras antiguas siguen siendo históricas; las nuevas cámaras se construyen a partir de los datos de entrada y las recetas utilizadas."
+        ],
+        "alt": "Una larga caja de madera de color verde oliva, deteriorada con el paso del tiempo. La caja está diseñada utilizando el programa Blender Cycles. Cuenta con herrajes metálicos en las esquinas, pestillos y listones rotos."
+      },
+      "painted-wood": {
+        "title": "Maderas pintadas con color verde oliva, envejecidas.",
+        "subtitle": "Desde una referencia generada, hasta una superficie procedural que pueda ser editada.",
+        "summary": "Los 19 nodos de creación convierten las fibras de madera, los colores de la madera sin tratamiento y la pintura desconchada en un material PBR que puede editarse. Las imágenes antes y después demuestran cómo se realizan las correcciones de color. La cantidad de pintura aplicada se representa como un parámetro, y los cinco tipos de salida nativos mantienen sus profundidades de bits y interpretaciones de colores específicas.",
+        "software": [
+          "Substance 3D Designer"
+        ],
+        "evidence_label": "Caso público · No se reproduce en esta ronda.",
+        "evidence_scope": "Combina el gráfico del diseñador, las imágenes de color antes y después, las texturas nativas y el inventario de archivos, todos publicados en el repositorio original el 2026-09-10. El informe público indica que el gráfico del material en vivo fue creado mediante DCC-MCP. En esta ronda se verificaron los hash de 5 imágenes originales y se crearon copias web sin necesidad de ejecutar Designer. El paquete de origen no proporciona el archivo validation.json, el prompt original, los registros completos de las herramientas utilizadas o las versiones del adaptador/core.",
+        "limitations": [
+          "Esta ronda solo verificó los hash de los activos públicos y la procedencia de dichos activos, sin necesidad de volver a ejecutar el flujo de trabajo en Designer. La reproducibilidad con el adaptador actual aún no ha sido establecida.",
+          "El caso público carece de los siguientes elementos: el prompt original, el archivo validation.json, los registros de las herramientas utilizadas, y las versiones del adaptador/core.",
+          "La imagen de referencia histórica se generó mediante el proceso de creación de imágenes por parte del Codex. Se trata, por lo tanto, de una entrada de referencia, y no de un resultado exportado del material procesado.",
+          "El cubo redondeado es una malla de previsualización del diseñador. No se realiza ninguna reconstrucción de la geometría de la caja, ni de los componentes hardware, ni del desgaste en los bordes, ni de los datos UV.",
+          "Los colores son estimaciones artísticas, no mediciones del albedo físico. La dirección Y normal debe seguir siendo coincidente con el renderizador de destino.",
+          "El repositorio de origen indica que el repositorio en su totalidad es de licencia MIT. No se enumeran licencias separadas para las ilustraciones, imágenes de referencia o materiales relacionados. SBS hace referencia a la biblioteca estándar de Adobe instalada, a través de sbs://. Este sitio no distribuye código fuente de la biblioteca estándar."
+        ],
+        "alt": "La interfaz del diseñador real, que muestra el gráfico del nodo de madera con pintura envejecida, la salida en 2D y la vista previa del cubo redondeado."
+      },
+      "crystal-freight-native-film": {
+        "title": "CRYSTAL FREIGHT · Minería flotante",
+        "subtitle": "OpenSCAD → Blender → Kdenlive. Se trata de una herramienta que permite crear pistas paramétricas, movimientos nativos y elementos cinematográficos que pueden ser editados.",
+        "summary": "Con un ancho de vía de 600 milímetros, 112 raíles y 148 objetos naturales, se crea una miniatura de cantera. La locomotora se detiene; un cristal mineral cae en un vagón de carga. El gancho se retrae, y el tren se aleja a través de un arco de piedra.",
+        "software": [
+          "OpenSCAD",
+          "Blender",
+          "Kdenlive",
+          "REAPER"
+        ],
+        "evidence_label": "Ejecutado en esta ronda: creación de DCC-MCP en tres aplicaciones diferentes.",
+        "evidence_scope": "Se trata de la creación de archivos en OpenSCAD, luego en Blender y, finalmente, en Kdenlive MCP. Cuatro archivos nativos de BLEND fueron reabiertos después de la migración, y se realizaron comparaciones de píxeles. Todos los 480 fotogramas del proyecto de edición corregido cumplieron con los requisitos de migración. Los siete controles de efectos de texto nativos, así como el comportamiento de los archivos guardados y reabiertos sin cambios en los parámetros, también cumplieron con los requisitos establecidos. Todos los fotogramas en formato RGB/RGBA y los bytes del archivo MP4 eran idénticos en el mismo entorno de visualización. La evidencia pública representa una versión editada de las llamadas reales, no los registros originales completos.",
+        "limitations": [
+          "Se trata de una escena en miniatura, basada en principios cinemáticos. No se trata de algo relacionado con la seguridad ferroviaria, la ingeniería estructural o simulaciones de sistemas rígidos/escolios.",
+          "Solo se verificaron muestras limitadas y fotogramas de clave enteros. No se garantiza la certificación de colisiones en tiempo continuo, ni que el circuito sea completo o que los ciclos sean sin interrupciones.",
+          "120 imágenes de acción se reproducen a una velocidad de 12 frames por segundo. No se garantiza que se puedan reproducir 24 frames por segundo, ni que exista un diseño adecuado para el sonido de la película.",
+          "Los problemas relacionados con los formatos JPEG de tipo “white-frame”, “gantry” y “projected-bounding-box” se mantienen en las pruebas. La versión final del archivo utiliza datos PNG verificados como formato de archivo.",
+          "La comparación entre el estado inicial y el estado final del desarrollo permite visualizar la geometría y el material utilizados en una versión preliminar del producto, con el espaciado entre los vagones y la posición de la cámara definidos de manera explícita.",
+          "El proyecto final fue aceptado para los controles nativos. Se guardó una copia con los mismos parámetros, y se volvió a abrir el proyecto. Las ediciones de los parámetros, así como la capacidad de deshacer las modificaciones realizadas, no están dentro del alcance de este proyecto.",
+          "El paquete compacto puede abrir CAD/Blender de forma independiente. En cambio, Kdenlive requiere los 122 archivos PNG que forman parte del paquete completo. El paquete completo se descargó sin necesidad de iniciar sesión, y la verificación de seguridad se realizó mediante el método SHA-256.",
+          "La evidencia pública es una representación seleccionada de las llamadas a los diferentes herramientas utilizadas en la aplicación. Los registros completos, los tiempos de ejecución del software y los archivos de fuentes no se distribuyen junto con el paquete.",
+          "El sonido adicional no significa que el proyecto visual original haya sido rehízo. No se graba ninguna revisión subjetiva del sonido, y tampoco se realiza ninguna verificación de integración con un proyecto de juego privado."
+        ],
+        "alt": "Una isla flotante de rocas; cristales minerales de color ámbar; una locomotora verde de vía estrecha; y un puente de madera contra un fondo oscuro."
+      },
+      "brass-relay": {
+        "title": "RELAY DE METALES · Conjunto de cuatro vías con engranajes de metal",
+        "subtitle": "FreeCAD → Blender → Kdenlive. De piezas paramétricas a movimientos mecánicos verificables.",
+        "summary": "El volante de latón perforado gira a una velocidad constante, lo que hace que la barra de conexión de color rojo oscuro y el mecanismo plateado se muevan hacia adelante y hacia atrás. Se pueden inspeccionar y editar las dimensiones de las partes, la disposición axial de los elementos, la posición de los orificios y ejes, así como los fotogramas clave nativos.",
+        "software": [
+          "FreeCAD",
+          "Blender",
+          "Kdenlive",
+          "REAPER"
+        ],
+        "evidence_label": "Ejecutado en esta ronda: creación de DCC-MCP en tres aplicaciones diferentes.",
+        "evidence_scope": "La producción realizada con FreeCAD → Blender → Kdenlive MCP consta de: 13 piezas CAD paramétricas, 3 archivos nativos en formato BLEND, 96 fotogramas de movimiento nativos, y una película de 432 fotogramas. La línea de tiempo corregida conserva todos los 98 elementos multimedia originales, así como las identidades y estilos de los 390 efectos de texto. La reubicación y redesenrollo se realizan sin cambios en los parámetros, y se pueden comparar todos los 432 fotogramas en formato RGB/RGBA, junto con el archivo MP4, en el mismo entorno de visualización. Se observaron controles gráficos solo en las dos últimas entradas de efectos y en el primer campo de texto. La evidencia pública consiste en las llamadas realizadas y los resultados obtenidos.",
+        "limitations": [
+          "El movimiento se basa en fotogramas clave predeterminados, que están determinados por una solución geométrica. No se trata de dinámica de cuerpos rígidos, ni de consideraciones relacionadas con el esfuerzo, la carga o la validación de los procesos de fabricación.",
+          "El error de pivoteo es un resultado numérico, no una precisión en las mediciones físicas. No se puede afirmar que exista una certificación continua en términos de colisiones.",
+          "En el filme de 18 segundos, se repiten 96 marcos de movimiento distintos. En total, se realizan 432 representaciones diferentes del movimiento. No se reclaman más que esas 432 representaciones.",
+          "El paquete CAD nativo contiene 13 piezas paramétricas. El conjunto completo está guardado en Blender, sin que haya ninguna restricción relacionada con el uso de FreeCAD.",
+          "La aceptación del interfaz gráfico al abrir FreeCAD por primera vez abarca solo una copia de prueba del dispositivo de almacenamiento. Los 13 proyectos finales tienen capacidad para leer y volver a abrir los archivos guardados con su vista nativa.",
+          "La aceptación visual de los controles nativos de Kdenlive abarca solo las dos últimas entradas relacionadas con los efectos y el primer campo de texto. Todas las 390 identidades y estilos han sido comparados en su serialización. La edición de parámetros, la función de deshacer y el monitor de fuente final no se calificaron en esta prueba.",
+          "Los registros de creación del software, que son versiones anteriores a 0.20.39, y las calificaciones finales, que corresponden a la versión 0.20.41, se mantienen por separado. Los registros antiguos no se consideran como una aceptación retroactiva de la nueva versión.",
+          "No se pretende lograr un ciclo de píxeles perfectamente uniforme, ni una representación idéntica en diferentes máquinas, ni tampoco un adaptador que funcione de manera óptima.",
+          "El sonido adicional no significa que el proyecto visual original haya sido rehízo. No se graba ninguna revisión subjetiva del sonido, y tampoco se realiza ninguna verificación de integración con un proyecto de juego privado."
+        ],
+        "alt": "Un eje de reloj perforado, con barras de conexión de color rojo oscuro y un mecanismo de control plateado. Todo esto forma un mecanismo completo de cuatro piezas, ubicado sobre un soporte de color marfil."
+      },
+      "seismic-lens": {
+        "title": "Lente sísmica · Cortes sintéticos del campo",
+        "subtitle": "ParaView → GIMP · De rebanadas numéricas a una tabla de visualización científica editable",
+        "summary": "La misma función analítica revela diferentes secciones transversales en tres direcciones. Dos contornos se muestran uno al lado del otro, a la misma escala de visualización. Esto indica que la región central se reduce a medida que aumenta el umbral.",
+        "software": [
+          "ParaView",
+          "GIMP"
+        ],
+        "evidence_label": "Ejecución real: producción de DCC-MCP en dos aplicaciones diferentes.",
+        "evidence_scope": "ParaView MCP creó tres cortes transversales, dos contornos y guardó las vistas resultantes. La reproducción utilizando la fuente pública actual registró 210 eventos relacionados con el SDK. GIMP realizó 45 operaciones de producción y 202 eventos; se completaron diecinueve elementos de texto editables, cinco grupos de diseño, se volvió a abrir el archivo XCF y se realizó una comparación completa entre los datos RGBA. Además, 42 eventos verificaron el archivo XCF copiado, y 195 eventos, después de que se realizara una corrección por parte del herramienta de validación, confirmaron que el archivo era correcto. La evidencia pública consiste en extractos de llamadas y resultados, incluyendo scripts de reproducción completos. Los eventos incluyen operaciones de descubrimiento y sondeo, pero no corresponden al número total de operaciones creativas realizadas.",
+        "limitations": [
+          "Es una ilustración analítica original, sin datos sísmicos medidos, sin solución de ecuaciones diferenciales no lineales ni inferencias geológicas.",
+          "El entorno actual no exige que se utilice CameraClippingRange. Las verificaciones de aceptabilidad se refieren únicamente a las propiedades legibles y a los píxeles de la imagen.",
+          "La reapertura de MCP está limitada a los estados de confianza que se hayan guardado en esta sesión. La importación de datos de fuentes externas no está habilitada.",
+          "Los incrementos de desarrollo y las versiones que han sido probadas en la práctica se documentan por separado. No se puede afirmar que estas capacidades hayan sido lanzadas en PyPI.",
+          "La placa científica estática ahora incluye una demostración en tiempo real de ocho segundos. Esto no implica que se realice un nuevo cálculo con ParaView, ni que se vuelva a reproducir la creación original, ni que se verifique la identidad de los píxeles entre las diferentes máquinas.",
+          "La herramienta de previsualización está limitada a los formatos RGB/RGBA de 8 bits, que han sido probados y son confiables. Además, solo se aceptan los directorios locales que sean de confianza. La compatibilidad nativa se da únicamente en Linux, con GIMP 3.0.4. En Windows, no existe esta compatibilidad."
+        ],
+        "alt": "Tres cortes ortogonales, con una escala de colores común, y dos contornos dispuestos en un panel científico oscuro."
+      },
+      "orbit-post-office": {
+        "title": "Oficina de correos ORBIT · Oficina de correos interstelar",
+        "subtitle": "GIMP → Godot → Kdenlive. Mundos dibujados a mano, ocho letras y una película de siete segundos.",
+        "summary": "Se ordenan las cartas que llegan en la oficina de correos del campanario. Se envían dos mensajeros entre un observatorio, un jardín y una taller donde se fabrican objetos de madera. Los pequeños mundos originales se convierten en un juego nativo que puede ser editado. Luego, el primer envío real se convierte en una película corta.",
+        "software": [
+          "GIMP",
+          "Godot",
+          "Kdenlive",
+          "REAPER"
+        ],
+        "evidence_label": "La línea de procesamiento nativa actual… Película de siete segundos / Verificación independiente de ocho letras.",
+        "evidence_scope": "Cuatro nuevos mundos en formato GIMP se integran en un juego Godot. Luego, Kdenlive convierte estos mundos en una película de siete segundos de duración. Se documenta por separado el proceso de verificación nativa de todos los 8 caracteres y 10 sellos utilizados en el juego. Se conservan también las capacidades de reabrir, relocalizar y exportar los datos del juego, así como los límites de fallo. En esta publicación, solo se verifican los archivos, los píxeles y las páginas, sin necesidad de ejecutar nuevamente las aplicaciones DCC. Los proyectos que son editables en este momento no están disponibles para su descarga pública.",
+        "limitations": [
+          "El juego actual, las ilustraciones de XCF y el proyecto Kdenlive no pueden descargarse públicamente. El archivo ZIP contiene únicamente el prototipo del icono histórico, y no el nuevo proyecto que se muestra en las imágenes.",
+          "No existe ningún registro verificable de la configuración del modelo original. Por lo tanto, esos datos siguen siendo desconocidos. La configuración actual no puede establecer retroactivamente los parámetros de producción históricos.",
+          "La película solo muestra la primera entrega de los materiales. La finalización de las 8 cartas en total tiene evidencia independiente. No se afirma que la película muestre toda la jornada laboral.",
+          "Se mantienen los avisos relacionados con el audio, la sincronización de imágenes y las fallas en Vulkan. También se conservan los registros históricos, los datos de rendimiento y las fallas relacionadas con las muestras limitadas. No se ha verificado que el funcionamiento sin avisos, el comportamiento entre plataformas y el rendimiento en tiempo real sean efectivos.",
+          "Las señales nativas de los botones no constituyen evidencia de las coordenadas del ratón del sistema operativo. Tampoco se observó ningún código de salida del sistema operativo durante el juego. La imagen PNG recuperada después de un tiempo adicional no ha sido utilizada; además, no se ha sustituido con una imagen más antigua.",
+          "Los datos seleccionados no constituyen una representación completa de los procesos de transporte en MCP. Además, no abarcan toda la capacidad del adaptador ni todas las funciones que puede realizar. Las aplicaciones nativas de DCC no se volvieron a ejecutar para esta publicación.",
+          "No existe una forma de exportar o utilizar la obra original, ni ningún tipo de aplicación relacionada con ella. Los derechos sobre la obra original, el filme y el contenido están reservados.",
+          "El sonido adicional no significa que el proyecto visual original haya sido rehízo. No se graba ninguna revisión subjetiva del sonido, y tampoco se realiza ninguna verificación de integración con un proyecto de juego privado."
+        ],
+        "alt": "La oficina de correos y tres mundos dibujados a mano: Lumen, Moss y Ember. En un juego independiente real, desarrollado con Godot."
+      },
+      "trail-and-air": {
+        "title": "Trail & Air · Archivos de audio originales para la caminata",
+        "subtitle": "REAPER: 17 pasos reutilizables, bucles de ambiente y sonidos de interacción.",
+        "summary": "Dos conjuntos de seis pasos monótonos; una secuencia de 20 segundos con sonidos de viento y hojas; una secuencia de 19.2 segundos de música ligera; y tres señales que indican interacción entre los elementos musicales. Incluye archivos WAV sin pérdidas, el formato nativo del proyecto, así como herramientas de síntesis y exportación reutilizables.",
+        "software": [
+          "REAPER"
+        ],
+        "evidence_label": "Verificación del audio nativo en esta sesión de prueba. Previsualización del audio en línea.",
+        "evidence_scope": "Los archivos DCC-MCP generados mediante el programa de tipo “Typed” contenían fuentes de sonido deterministas. Estos archivos fueron importados en un atlas de audio nativo por parte de REAPER. Los fragmentos de audio se renderizaron individualmente, guardaron y luego se volvieron a abrir. Todos los 17 archivos de exportación coinciden con las muestras PCM originales. La portada del archivo de audio es una forma de onda medida; la vista previa de escucha combina extractos de audio exportados, pero no se presenta como una captura de pantalla de interfaz gráfica, escena de juego o grabación en campo. El usuario confirmó la dirección de producción y autorizó la publicación del resultado final. No se registró ninguna revisión subjetiva del audio; los controles numéricos no se consideran como una forma de aceptación del audio.",
+        "limitations": [
+          "No se grabó ninguna revisión subjetiva del sonido. Las comprobaciones técnicas no pueden reemplazar la escucha en los dispositivos de reproducción y en las mezclas dentro del juego.",
+          "No se reclama la posibilidad de activar elementos como el desencadenamiento de eventos, la espacialización, la atenuación de sonidos o la verificación del movimiento del personaje en ninguna escena del juego.",
+          "El ambiente y los pasos que se escuchan son sonidos de tipo “procedural”, es decir, son sonidos que han sido procesados de alguna manera, y no son grabaciones reales.",
+          "REAPER es un software pago. La evaluación de 60 días que ofrece no significa que sea gratuito de forma indefinida. Además, el uso de código abierto no exime a REAPER de cumplir con las condiciones de licencia."
+        ],
+        "alt": "Las huellas de los pasos, el ambiente y las formas de onda de la música se obtienen a partir del audio exportado realmente. No se trata de capturas de pantalla de software o juegos."
+      },
+      "rainroom-two-hours": {
+        "title": "Rainroom · Dos momentos junto a una ventana lluviosa",
+        "subtitle": "Batidora · Una noche y mañana lluviosas en una sola escena.",
+        "summary": "330 gotas geométricas y 26 riachuelos curvos. Todo está hecho de vidrio real, cerámica esmaltada, cortinas de lino, madera de nogal y una lámpara de cobre. El primer encuadre representa una noche lluviosa cálida; el segundo encuadre representa la mañana.",
+        "software": [
+          "Blender"
+        ],
+        "evidence_label": "Ejecución real en esta ronda: DCC-MCP oficial.",
+        "evidence_scope": "La puerta de enlace oficial creó 491 objetos editables. Incluyó funciones como el empaquetamiento de imágenes, la salvación de datos, la limpieza de escenas, la reapertura desde un directorio nuevo y el renderizado por parte del CPU. La geometría personalizada utilizó las habilidades de scripting revisadas; el flujo de trabajo no se limitaba únicamente a la escritura de códigos. Se utilizaron imágenes reales de 1440px en dos condiciones de iluminación y una segunda vista. Ninguna imagen generada fue presentada como algo que realmente representa una renderización real.",
+        "limitations": [
+          "Se trata de una pintura de estilo artístico, no de un modelo de construcción o simulación de fluidos.",
+          "No se afirma que haya consistencia en los materiales utilizados entre diferentes DCCs.",
+          "El registro público del MCP es una versión reducida y editada del registro original. No representa la versión completa del registro original.",
+          "No existen registros verificados sobre el modelo de backend exacto o sobre los esfuerzos realizados para desarrollarlo. Ambos aspectos siguen siendo desconocidos."
+        ],
+        "alt": "Una escena de still life en una noche lluviosa: gotas en el vidrio, una taza de té, libros y una lámpara de cobre caliente."
+      },
+      "resonance-atlas": {
+        "title": "Atlas de resonancias",
+        "subtitle": "Inkscape: Tres pósters vectoriales y una película compuesta a partir de capas reales.",
+        "summary": "31 trayectorias de fase, 48 frente de ondas de origen dual y 42 líneas armónicas comparten una misma estructura gráfica y tipografía editorial. Incluye también un video de 12 segundos con una escena de reunión en silencio.",
+        "software": [
+          "Inkscape",
+          "FFmpeg"
+        ],
+        "evidence_label": "La ejecución real en esta ronda es la siguiente: Inkscape nativo + DCC-MCP.",
+        "evidence_scope": "Se realizan 55 llamadas al gateway real. También se utilizan nueve conjuntos de archivos SVG/PNG/PDF nativos. La reproducción del video depende de que se realice una comprobación precisa de los ajustes del adaptador para Linux. Estos archivos no son simplemente archivos SVG generados por scripts. El video es una mezcla de archivos PNG nativos, y no es una grabación de pantalla.",
+        "limitations": [
+          "Las curvas acústicas son ilustraciones matemáticas, no datos medidos o simulaciones del campo de presión.",
+          "La película está diseñada de manera que sea completamente silenciosa y no cuenta con ningún sonido. Está compuesta a partir de imágenes PNG, y no se trata de una animación nativa de Inkscape o de una grabación de pantalla realizada con algún software.",
+          "Depende de un commit que no esté unido con los cambios realizados en el código nativo de Linux. Esto no garantiza que el soporte esté presente en una versión oficial del software.",
+          "La evidencia pública es un resumen editado, no el texto original completo."
+        ],
+        "alt": "Una serie de vectores acústicos con tres postes, en colores azul oscuro, crema y morado."
+      },
+      "sonic-loom": {
+        "title": "Sonic Loom · Un ritmo audible que se puede percibir con los oídos.",
+        "subtitle": "Godot: Cuatro tonos originales en un secuenciador interactivo de dieciséis pasos.",
+        "summary": "Toque los pasos de color correspondientes y deje que la Tierra, el Polvo, el Aire y el Vidrio creen un ritmo de tipo “A menor”. Los controles incluyen funciones como pausa/continuación del ritmo, silenciamiento de las partes del ritmo, guardado, carga nueva y restablecimiento. También existe un proyecto independiente que se puede descargar.",
+        "software": [
+          "Godot"
+        ],
+        "evidence_label": "Producción realizada con Godot / MCP. Video con sonido nativo y previsualización del audio.",
+        "evidence_scope": "Se crearon llamadas MCP reales, se compilaron, se adjuntaron y se guardaron los archivos GDScript y la escena. El sistema de CI nativo de Godot capturó los píxeles, así como el audio y las entradas del teclado/ratón. Había cuatro partes, 64 pasos de cambio de estado, y se realizaron operaciones de guardado y carga local. La grabación no incluía música de fondo. No fue posible realizar una escucha subjetiva, por lo que la información sigue siendo incompleta. La detección de silencio no se consideró como parte de la aceptación de la grabación.",
+        "limitations": [
+          "No se ha realizado ningún tipo de escucha subjetiva. Utilice el reproductor de audio para escuchar el audio en el dispositivo objetivo.",
+          "La validación inicial se refería a la interacción con el escritorio Linux Xvfb. La función de exportación a web, que se agregó posteriormente, requiere una verificación en el navegador correspondiente. No se realizan pruebas físicas del dispositivo telefónico ni se evalúa la latencia del dispositivo de audio.",
+          "MCP escribió y guardó la fuente y la escena. La renderización de CI y Movie Maker invocan directamente a Godot; no son una forma de visualizar la escena en MCP.",
+          "La pequeña animación que se encuentra en la esquina superior derecha es decorativa. La “densidad del patrón” se mide a partir de la imagen waveform.png, que representa el audio PCM real.",
+          "La película utiliza una demostración programada de las ediciones que se realizan; los datos obtenidos mediante xdotool, tanto a través del teclado como del ratón, confirman que realmente se han realizado entradas en la interfaz del usuario.",
+          "La pausa detiene el proceso de secuenciación; las señales de voz que ya han sido activadas, decaen naturalmente.",
+          "La escena raíz contiene elementos gráficos creados por el programa original, además de los reproductores de contenido en tiempo real. Los diferentes paneles no son nodos separados dentro del editor.",
+          "La identidad exacta del modelo y la configuración de razonamiento son desconocidas.",
+          "La ejecución no está libre de los avisos de tipo “stderr-warning”. Se notifican los avisos relacionados con el uso de Xvfb V-Sync y Movie Maker ObjectDB al final de la ejecución."
+        ],
+        "alt": "Sonic Loom se muestra en una ventana real de Godot. Cuenta con un panel oscuro, cuatro partes de colores, dieciséis botones, y un controlador de reproducción."
+      },
+      "prism-tide": {
+        "title": "Prism Tide",
+        "subtitle": "Godot · Un rompecabezas de tipo “espejo” con tres niveles.",
+        "summary": "Es una consola óptica silenciosa y de profundidad marina. Se pueden girar los espejos de bronce y abrir las persianas para que el señal verde limón llegue hasta su receptor. Hay tres niveles de reflexión: desde un camino simple hasta seis reflejos y dos puertas.",
+        "software": [
+          "Godot"
+        ],
+        "evidence_label": "Producción real de MCP. Se han completado los tres niveles, utilizando teclados y ratones reales para la entrada de datos.",
+        "evidence_scope": "Se crearon diez llamadas de producción para el Gateway. Se adjuntaron, guardaron y configuraron los proyectos nativos correspondientes. También se corrigió la terminología utilizada en las imágenes y en el video de 15 segundos. Las imágenes y el video fueron obtenidos a través de una ejecución oficial de Godot 4.6.3 utilizando el canal CI/Xvfb. Los cambios en el estado del demo, así como las acciones realizadas mediante el teclado y el ratón, se registran por separado. El proceso de renderización directa no se presenta como una respuesta de renderización MCP.",
+        "limitations": [
+          "El objetivo del diseño es una pantalla de escritorio de 1280 × 800 píxeles. La verificación de que el tamaño de la pantalla sea de 864 × 540 píxeles es solo para asegurar que el diseño funcione correctamente en esa resolución. No se ha tenido en cuenta la legibilidad en pantallas táctiles o dispositivos móviles.",
+          "La entrega original solo incluía el proyecto nativo y PCK. La exportación a formato web y su aceptación por parte del navegador se documentan por separado. Los registros históricos del proyecto nativo no indican si el formato web es aceptado o no.",
+          "El camino de luz es un modelo de cuadrícula ortogonal y determinista, y no se trata de un proceso de trazado de rayos físico.",
+          "Los elementos artísticos se dibujan en GDScript. Los espejos y las persianas son datos que pueden ser modificados, y no se trata de mallas de escena separadas.",
+          "La ejecución local sin controlador se utilizó únicamente para tareas de producción y verificación lógica. Los píxeles provenían de una ejecución nativa separada. No había pistas de audio."
+        ],
+        "alt": "Un rayo de luz de color verde menta se refleja en los espejos de latón, y luego en un receptor ubicado en una consola óptica de profundidad marina. En el lado izquierdo, aparece la palabra “CONNECTED”."
+      },
+      "orbital-loom": {
+        "title": "Orbital Loom",
+        "subtitle": "Blender: Tres gimbals anidados y animación nativa continua.",
+        "summary": "Tres anillos giran en direcciones opuestas alrededor de un núcleo de cerámica de marfil, lo que permite ver los cojinetes y los ejes de conexión. El movimiento continuo de la cámara muestra el bronce, el esmalte de color verde oscuro y el pedestal calibrado.",
+        "software": [
+          "Blender"
+        ],
+        "evidence_label": "Ejecución real en esta ronda: DCC-MCP oficial.",
+        "evidence_scope": "Esta producción utilizó el adaptador oficial de Blender para crear la escena. Se guardó la escena y luego se volvió a abrir para poder renderizar los fotogramas uno tras otro. El modelado personalizado se realizó utilizando las herramientas de scripting oficiales. Las herramientas de tipo “tool” se encargaban de manejar los cambios en los fotogramas, los ajustes de renderización, la apertura y guarda de la escena, así como las llamadas a render_scene. El gateway fue desactivado explícitamente; no se ha indicado si existe una forma de utilizarlo a través de la interfaz CLI o GUI.",
+        "limitations": [
+          "La solución propuesta para este problema está registrada en un documento separado, con el número de borrador #298. Esta versión no se actualizó ni utilizó la versión corregida del problema.",
+          "Esto no constituye una certificación de ingeniería apta para ser utilizada en la fabricación de productos. Las conexiones intencionales entre componentes no se consideran como colisiones.",
+          "Las llamadas al gateway compartido/CLI no pasaron la verificación de compatibilidad. Se incluyen los resultados específicos de la verificación de compatibilidad.",
+          "GLB excluye el estudio, la cámara y el texto original. No se garantiza la fidelidad del material en todos los renderizadores.",
+          "Las respuestas del público son solo una submuestra, minimamente purificada. No representan la versión original completa.",
+          "El modelo de backend exacto y el esfuerzo necesario para su implementación no fueron verificados de forma independiente. Ambos factores permanecen desconocidos."
+        ],
+        "alt": "Escultura cinética de bronce con tres anillos, colocada sobre un pedestal de color verde oscuro. Muestra la base completa y las sombras del objeto en contacto con el suelo."
+      },
+      "parcel-switchyard": {
+        "title": "Parcel Switchyard",
+        "subtitle": "Godot · Clasificación interactiva con dos pistas de alimentación y tres destinos",
+        "summary": "Se trata de un sistema de clasificación de paquetes sencillo, discreto y eficiente. Se envían los paquetes desde dos zonas de alimentación, y se elige la ruta adecuada para llegar a Harbor, Garden o Market. El proyecto es editable; además, se conservan las pruebas del instrumento utilizado, el cortometraje y el paquete de recursos relacionados con el proyecto.",
+        "software": [
+          "Godot"
+        ],
+        "evidence_label": "Producción de MCP tipo impreso actualmente en funcionamiento. Imágenes renderizadas de forma nativa y verificación de los datos de entrada.",
+        "evidence_scope": "Las llamadas a la Gateway actualmente tecleadas generaron el script y la escena nativas. Se adjuntó el script y se configuró el proyecto. El entorno cloud local sin servidor soportaba la verificación de lógica, pero no podía renderizar imágenes ni videos. Las imágenes y videos reales provenían de ejecuciones nativas en CI/Xvfb, utilizando una versión oficial de Godot. La verificación incluyó la entrada de datos desde teclado y ratón, el guardado y reabrir los archivos, así como la exportación de PCK y su reejecución. Los medios generados en CI no se presentan como respuesta de renderizado MCP.",
+        "limitations": [
+          "La versión original, fechada el 11 de octubre de 2026, está diseñada para uso en dispositivos de escritorio con resolución 1280×720. La imagen de pantalla anterior, con resolución 960×540, no indica si la aplicación es compatible con teléfonos o dispositivos táctiles.",
+          "La entrega original, del 11 de octubre de 2026, no incluía ningún desarrollo web. Una adaptación web separada se añadió el 18 de octubre de 2026. La aceptación de esta adaptación se registró, pero no existen pruebas directas que lo demuestren. El PCK original todavía requiere que sea compatible con Godot.",
+          "El artefacto se crea de forma procedural, mediante el uso del GDScript editable. No se trata de una colección de meshes que puedan ser editadas individualmente.",
+          "La producción local sin controladores y la renderización nativa en CI eran etapas de verificación separadas. El éxito de la renderización con MCP no fue algo fabricado artificialmente."
+        ],
+        "alt": "La vista actual de Godot: un panel de control en color crema, un área de clasificación de color azul oscuro, tres destinos codificados por colores, y pistas para el transporte de paquetes."
+      },
+      "dawnkeep-defense": {
+        "title": "Dawnkeep · Jura de la Última Luz",
+        "subtitle": "Godot · Defensa heroica de ocho ondas, con una versión nativa para su uso en la web.",
+        "summary": "Juega como Elyra, el Dawnwarden. Protégelo en un bosque flotante. Detén a los enemigos, actualiza el equipo, utiliza las habilidades Q/E/R y construye torres de apoyo. Todo esto se debe hacer durante ocho vueltas de juego, además de enfrentarse al Rey sin corona. Incluye una interfaz de usuario en inglés/chingo, posibilidad de jugar en el navegador, y un proyecto de Godot que puede editarse.",
+        "software": [
+          "Godot",
+          "Blender"
+        ],
+        "evidence_label": "Autores de MCP tipados actualmente… Victorias en las plataformas nativas y web.",
+        "evidence_scope": "Revisión congelada: 957c1d3. Se creó, guardó y volvió a abrir la escena nativa en Godot. La pantalla X11 y el ratón se utilizaron de forma independiente para completar las tareas necesarias. La pantalla en modo vertical utiliza un sistema de toque emulado, no un teléfono físico. Las mallas originales fueron creadas utilizando el lenguaje Python nativo de Blender, no el lenguaje Blender MCP. La grabación pública es una captura de pantalla real, hecha con el software nativo de Blender.",
+        "limitations": [
+          "La escucha subjetiva de la música, los teléfonos físicos, la capacidad de multitarea, el rendimiento del GPU físico y la forma en que se cierran las ventanas del sistema operativo nativo aún no han sido probados.",
+          "Los tests automatizados de entrada de datos permiten determinar las estrategias registradas y los caminos de ganancia o pérdida. Pero no se tiene en cuenta el equilibrio ni la compatibilidad entre todas las estrategias, navegadores o dispositivos.",
+          "El fragmento seleccionado contiene ediciones temporales explícitas, y no se trata de una película que represente toda la campaña en su totalidad. La grabación de mediciones y el descifrado completo de los datos no reemplazan la escucha en sí.",
+          "El “browser playable” es, en realidad, la forma de exportar el contenido compatible con Godot en modo de un solo hilo. Inicialmente, el juego utiliza el idioma chino; presione L o haga clic en EN para cambiar al idioma inglés. No se hereda automáticamente el idioma de la página.",
+          "El archivo ZIP original requiere que Godot esté en la versión 4.6.3. Se trata de un proyecto que puede ser editado, y no de un archivo ejecutable independiente. Descargar o reproducir este archivo no otorga ninguna licencia adicional sobre el trabajo original.",
+          "La implementación completa del juego en el sitio público y la implementación en la red son etapas separadas. El registro 957c1d3 por sí solo no determina el comportamiento de la red, las páginas o la reproducción del juego en la red."
+        ],
+        "alt": "La vista actual en Dawnkeep: bosques flotantes, dos caminos de piedra, el santuario de Dawnheart y una torre de apoyo."
+      }
+    }
+  },
+  "HomeShowcase": {
+    "workflows": "Explora flujos de trabajo creativos.",
+    "choose": "Elija un flujo de trabajo.",
+    "note": "Ilustración conceptual generada por la IA. Consulte la galería para ver ejemplos de cómo se ha producido esta ilustración.",
+    "link": "Véanse los ejemplos de producción.",
+    "items": [
+      {
+        "tab": "Entornos de juego",
+        "title": "Construye un mundo. Continúa con el proceso de transferencia de responsabilidades.",
+        "description": "Conecte el modelado del entorno, la asamblea de escenas, los materiales y la iluminación. Luego, presente la escena procesada en la siguiente etapa del proceso.",
+        "alt": "Concepto original del mundo del juego: un viajero se acerca a una vasta ciudadela montañosa, a través de un desfiladero glacial en estado de desolación.",
+        "stages": [
+          "Modelado del entorno",
+          "Montaje de escenas",
+          "Iluminación y revisión"
+        ],
+        "app": "Blender · Entornos de juegos"
+      },
+      {
+        "tab": "Cine y efectos visuales",
+        "title": "Convierta una acción ambiciosa en un flujo de trabajo que pueda repetirse con facilidad.",
+        "description": "Conecte los efectos procedurales, observe el desarrollo del proceso y previsualice las renderizaciones, teniendo en cuenta que existen entradas, salidas y verificaciones claras en cada paso del proceso.",
+        "alt": "Concepto de toma de imagen con efectos visuales originales: una enorme apertura de energía industrial ilumina un hangar empapado por la lluvia, con chispas y una niebla volumétrica.",
+        "stages": [
+          "Configuración procesal",
+          "Efectos y aspecto visual",
+          "Revisión de rendimiento"
+        ],
+        "app": "Houdini · Cine y VFX"
+      },
+      {
+        "tab": "Personajes",
+        "title": "Lleve cada detalle a la siguiente etapa.",
+        "description": "El modelado de coordenadas, las verificaciones de activos y el desarrollo de herramientas son aspectos importantes que deben ser considerados en las herramientas que utiliza el equipo. De esta manera, el siguiente artista puede inspeccionar y continuar con el trabajo sin problemas.",
+        "alt": "Concepto original de producción de personajes: un explorador de fronteras con piel detallada, cabello trenzado, ropa tejida y armadura técnica desgastada.",
+        "stages": [
+          "Modelar y perfeccionar.",
+          "Materiales y aspecto visual",
+          "Validar y transferir"
+        ],
+        "app": "Maya · Producción de personajes"
+      }
+    ]
+  },
+  "AgentCrew": {
+    "kicker": "El equipo creativo",
+    "title": "Asigna un rostro a cada tarea.",
+    "description": "Dale a los pasos de tu flujo de trabajo creativo un papel específico: haz que el briefing sea claro, utiliza las herramientas adecuadas, verifica el resultado y luego pasa el trabajo a la siguiente persona.",
+    "demo": "Roles ilustrados",
+    "play": "Reproducir animación",
+    "pause": "Pausar",
+    "reduced": "La animación se detiene debido a tu preferencia de movimiento.",
+    "taskLabel": "Pruebe con un breve como este:",
+    "linkLabel": "Explore este flujo de trabajo.",
+    "roles": [
+      {
+        "id": "plan",
+        "asset": "planner",
+        "name": "El planificador",
+        "purpose": "Convierta una idea general en una tarea pequeña y clara.",
+        "task": "Planifique un “product turntable”: un modelo, un fondo neutro y una breve lista de fotografías que se deben revisar.",
+        "href": "/es/use-cases"
+      },
+      {
+        "id": "make",
+        "asset": "maker",
+        "name": "El creador",
+        "purpose": "Construye y ajusta la escena utilizando tus herramientas creativas.",
+        "task": "Cree una escena simple en Blender. Mantenga los objetos editables y guarde el proyecto para su revisión posterior.",
+        "href": "/es/control/blender"
+      },
+      {
+        "id": "look",
+        "asset": "lookdev",
+        "name": "La mirada del artista",
+        "purpose": "Trabajamos en los materiales utilizados, en la iluminación y en el aspecto general del producto final.",
+        "task": "Pruebe usar una luz suave de estudio, además de dos opciones de materiales para la decoración. Guárdelas ambas, para poder compararlas entre sí.",
+        "href": "/es/marketplace"
+      },
+      {
+        "id": "review",
+        "asset": "reviewer",
+        "name": "El revisor",
+        "purpose": "Verifique el resultado con respecto a la solicitud original.",
+        "task": "Verifique la escena guardada, el encuadre de la cámara y el resultado del renderizado. Díganme qué aspectos aún requieren atención.",
+        "href": "/es/showcase"
+      },
+      {
+        "id": "deliver",
+        "asset": "producer",
+        "name": "El productor",
+        "purpose": "Entregue los archivos a alguien que pueda manejarlos.",
+        "task": "Recopile el proyecto editable, realice una vista previa y lea una breve nota que explique cómo abrir y continuar con el trabajo.",
+        "href": "/es/agents"
+      }
+    ]
+  },
+  "HomeIntroVideo": {
+    "kicker": "Veamos qué efecto tiene.",
+    "title": "AI que funciona dentro de herramientas creativas.",
+    "description": "Comiencen con una solicitud de edición de modelos. Vean cómo DCC-MCP conecta su asistente de IA con las herramientas de software y los flujos de trabajo reutilizables del equipo.",
+    "language": "es",
+    "captionsLabel": "Español",
+    "fallback": "Tu navegador no puede reproducir este video.",
+    "download": "Descargue el video.",
+    "transcriptLabel": "Lea el texto transcrito.",
+    "marketplaceLabel": "Explora el mercado de habilidades →",
+    "marketplaceHref": "/es/marketplace",
+    "sourcesLabel": "Fuentes y créditos de los medios de comunicación",
+    "disclosure": "Reconstrucciones de interfaces y ilustraciones de flujos de trabajo generadas por la IA. Estas escenas no son grabaciones en vivo, ni representan realmente las operaciones que se están ejecutando.",
+    "editions": [
+      {
+        "id": "short",
+        "title": "30 segundos: ¿Qué hace DCC-MCP?",
+        "summary": "Una solicitud, una operación de software y un flujo de trabajo reutilizable.",
+        "caption": "Narración en inglés, con subtítulos en idioma local. Ilustraciones del flujo de trabajo generadas por la AI.",
+        "transcript": [
+          "Aplica un acabado metálico al modelo y renderiza una vista previa.",
+          "DCC-MCP conecta tu asistente de IA con las aplicaciones de creación.",
+          "Las Skills guardan tu proceso. MCP llama a las herramientas de Blender.",
+          "Carga solo las instrucciones pertinentes y evita repetir el contexto.",
+          "El núcleo en Rust, los permisos y los registros de auditoría respaldan el trabajo en equipo.",
+          "Encuentra y comparte Skills en el catálogo.",
+          "Explora DCC-MCP."
+        ]
+      },
+      {
+        "id": "explainer",
+        "title": "50 segundos: cómo funciona el diseño",
+        "summary": "Habilidades + MCP, instrucciones relevantes, Rust, permisos y uso compartido por parte del equipo.",
+        "caption": "Narración en inglés, con subtítulos en idioma local. Ilustraciones del flujo de trabajo generadas por la AI.",
+        "transcript": [
+          "Aplica un acabado de metal cepillado, ilumina el modelo y renderiza una vista previa.",
+          "DCC-MCP permite a tu asistente de IA operar Blender y otras aplicaciones de creación.",
+          "Una Skill recoge el método de tu equipo. MCP llama a las herramientas de la aplicación.",
+          "Guarda los pasos de materiales, revisión y exportación para el próximo proyecto.",
+          "Carga las instrucciones necesarias y reduce la repetición de código y contexto.",
+          "El núcleo de enrutamiento se ejecuta en Rust sin pasar por un intérprete. Los scripts de la aplicación pueden usar Python.",
+          "Los permisos delimitan las operaciones. Los registros de auditoría permiten rastrear las llamadas importantes.",
+          "Instala Skills desde el catálogo y comparte versiones de los procesos de tu equipo.",
+          "Explora el catálogo de DCC-MCP."
+        ]
+      }
+    ]
+  },
+  "HomeResources": {
+    "cloud": "Agentes en la nube",
+    "workstation": "Elija dónde ejecutar su software creativo.",
+    "cloudBody": "Compare el software instalado, las opciones de conexión y los resultados de las pruebas realizadas con anterioridad, antes de elegir una máquina o estación de trabajo en la nube.",
+    "cloudLink": "Agentes en la nube y DCC-MCP",
+    "contract": "Un único contrato que funciona con MCP, CLI y REST.",
+    "contractBody": "Cada herramienta declara sus entradas, tipos de datos y resultados. Seleccione una aplicación mediante su identificador para poder inspeccionar las mismas herramientas desde la línea de comandos.",
+    "native": "Herramientas de IA nativas",
+    "nativeTitle": "Utilice las herramientas que proporciona la aplicación.",
+    "epic": "La “Unreal Skill” conecta los conjuntos de herramientas oficiales de Epic, y también preserva los nombres y esquemas de dichas herramientas.",
+    "unity": "La función Unity lee el catálogo de herramientas personalizadas de Codely antes de llamar a alguna herramienta en particular. Tuanjie se encarga de gestionar el inicio de sesión, los créditos, las descargas y la recuperación de datos."
+  }
+}

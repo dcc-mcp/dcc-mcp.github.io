@@ -17,7 +17,7 @@ This repository is the official website and shared documentation front door for 
 
 ## Localization and Marketplace
 
-- Keep English routes and their `zh/` counterparts structurally equivalent. Update localized `llms.txt` and `hreflang` metadata when public routes or Agent contracts change.
+- Keep English routes and every edition declared in the VitePress locale configuration structurally equivalent. Update localized `llms.txt` and `hreflang` metadata when public routes or Agent contracts change.
 - Resolve Marketplace showcase media from the package's immutable `source.ref`. Images and GIFs render as lazy images; video files render with native controls. Do not introduce a mutable media CDN.
 
 ## Validation

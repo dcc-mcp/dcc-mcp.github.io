@@ -4,7 +4,7 @@
 
 DCC means digital content creation. An AI agent uses tools to carry out a task. DCC-MCP adapters connect those tools to each application; Skills package reusable workflows. Typed tools define their inputs and outputs so calls can be checked before execution.
 
-Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https://dcc-mcp.github.io/zh/llms.txt)
+Languages: [English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https://dcc-mcp.github.io/zh/llms.txt) · [日本語](https://dcc-mcp.github.io/ja/llms.txt) · [한국어](https://dcc-mcp.github.io/ko/llms.txt) · [Español](https://dcc-mcp.github.io/es/llms.txt) · [Français](https://dcc-mcp.github.io/fr/llms.txt) · [Deutsch](https://dcc-mcp.github.io/de/llms.txt) · [Português](https://dcc-mcp.github.io/pt/llms.txt) · [Русский](https://dcc-mcp.github.io/ru/llms.txt)
 
 ## Canonical entry points
 

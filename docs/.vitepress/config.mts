@@ -1,3 +1,5 @@
+import { addedLocales, languageTag, localePrefix, site, siteLocale, siteLocales, type SiteLocale } from './i18n/locales'
+import { createLocale, createSearchLocale } from './i18n/theme.mts'
 import { defineConfig } from 'vitepress'
 import { dccIntegrations, releasedIntegrations, type DccIntegration } from './dcc-integrations.mts'
 
@@ -5,8 +7,8 @@ const siteUrl = 'https://dcc-mcp.github.io/'
 const description = 'DCC-MCP is an open-source control plane for AI agents and automation across digital content creation. It connects Maya, Blender, Houdini, Unreal Engine, Unity, and other creative applications through MCP, REST APIs, and a shared CLI.'
 const zhDescription = 'DCC-MCP 是面向数字内容创作（DCC）的开源控制平面，让 AI Agent 和自动化程序通过 MCP、REST API 与统一 CLI 连接 Maya、Blender、Houdini、Unreal Engine、Unity 等创意应用。'
 
-const controlPageUrl = (integration: DccIntegration, isZh: boolean) =>
-  new URL(`${isZh ? 'zh/' : ''}control/${integration.slug}`, siteUrl).href
+const controlPageUrl = (integration: DccIntegration, locale: SiteLocale) =>
+  new URL(`${localePrefix(locale)}/control/${integration.slug}`, siteUrl).href
 
 const repositoryUrl = (integration: DccIntegration) =>
   `https://github.com/dcc-mcp/${integration.repository}`
@@ -23,7 +25,10 @@ const integrationIdentifier = (integration: DccIntegration) => ({
   value: integration.dccType ?? integration.coreApplicationRoute ?? integration.marketplacePackage ?? integration.repository,
 })
 
-const homeStructuredData = (isZh: boolean) => ({
+const siteDescription = (locale: SiteLocale) => locale === 'en' ? description : locale === 'zh' ? zhDescription : site[locale].description
+const homeTitle = (locale: SiteLocale) => locale === 'en' ? 'AI control for creative workflows' : locale === 'zh' ? '用 AI 连接创作软件与制作流程' : site[locale].homeTitle
+
+const homeStructuredData = (locale: SiteLocale) => ({
   '@context': 'https://schema.org',
   '@graph': [
     {
@@ -43,12 +48,12 @@ const homeStructuredData = (isZh: boolean) => ({
       '@id': `${siteUrl}#website`,
       name: 'DCC-MCP',
       url: siteUrl,
-      description: isZh ? zhDescription : description,
-      inLanguage: ['en', 'zh-CN'],
+      description: siteDescription(locale),
+      inLanguage: siteLocales.map(languageTag),
       publisher: { '@id': `${siteUrl}#organization` },
       potentialAction: {
         '@type': 'SearchAction',
-        target: `${siteUrl}marketplace?q={search_term_string}`,
+        target: new URL(`${localePrefix(locale)}/marketplace?q={search_term_string}`, siteUrl).href,
         'query-input': 'required name=search_term_string',
       },
     },
@@ -60,7 +65,7 @@ const homeStructuredData = (isZh: boolean) => ({
       applicationSubCategory: 'Digital content creation workflow automation',
       operatingSystem: 'Windows, macOS, Linux',
       url: siteUrl,
-      description: isZh ? zhDescription : description,
+      description: siteDescription(locale),
       featureList: [
         'MCP tool discovery and calls',
         'REST API and OpenAPI workflows',
@@ -71,16 +76,16 @@ const homeStructuredData = (isZh: boolean) => ({
     },
     {
       '@type': 'ItemList',
-      name: isZh ? 'DCC-MCP 目录中的创意应用集成' : 'DCC-MCP catalog-listed creative application integrations',
+      name: locale === 'zh' ? 'DCC-MCP 目录中的创意应用集成' : locale === 'en' ? 'DCC-MCP catalog-listed creative application integrations' : site[locale].nav.ecosystem,
       numberOfItems: releasedIntegrations.length,
       itemListElement: releasedIntegrations.map((integration, index) => ({
         '@type': 'ListItem',
         position: index + 1,
-        name: isZh ? `${integration.name} MCP 适配器` : `${integration.name} MCP adapter`,
-        description: isZh
+        name: locale === 'zh' ? `${integration.name} MCP 适配器` : locale === 'en' ? `${integration.name} MCP adapter` : `${integration.name} MCP`,
+        description: locale === 'zh'
           ? `通过 MCP 或 dcc-mcp-cli 操作 ${integration.name}`
-          : `${integration.name} MCP and typed dcc-mcp-cli integration`,
-        url: controlPageUrl(integration, isZh),
+          : locale === 'en' ? `${integration.name} MCP and typed dcc-mcp-cli integration` : `${integration.name} · MCP · dcc-mcp-cli`,
+        url: controlPageUrl(integration, locale),
         sameAs: repositoryUrl(integration),
       })),
     },
@@ -89,12 +94,12 @@ const homeStructuredData = (isZh: boolean) => ({
 
 const controlPageStructuredData = (
   integration: DccIntegration,
-  isZh: boolean,
+  locale: SiteLocale,
   canonicalUrl: string,
   title: string,
   pageDescription: string,
 ) => {
-  const language = isZh ? 'zh-CN' : 'en'
+  const language = languageTag(locale)
   const applicationId = `${canonicalUrl}#application`
   return {
     '@context': 'https://schema.org',
@@ -112,7 +117,7 @@ const controlPageStructuredData = (
       {
         '@type': 'SoftwareApplication',
         '@id': applicationId,
-        name: isZh ? `${integration.name} MCP 集成` : `${integration.name} MCP integration`,
+        name: locale === 'zh' ? `${integration.name} MCP 集成` : locale === 'en' ? `${integration.name} MCP integration` : `${integration.name} MCP`,
         description: pageDescription,
         applicationCategory: 'DeveloperApplication',
         url: canonicalUrl,
@@ -125,7 +130,7 @@ const controlPageStructuredData = (
 }
 
 const cloudAgentPageStructuredData = (
-  isZh: boolean,
+  locale: SiteLocale,
   canonicalUrl: string,
   title: string,
   pageDescription: string,
@@ -137,7 +142,7 @@ const cloudAgentPageStructuredData = (
     url: canonicalUrl,
     name: title,
     description: pageDescription,
-    inLanguage: isZh ? 'zh-CN' : 'en',
+    inLanguage: languageTag(locale),
     isPartOf: { '@id': `${siteUrl}#website` },
   }],
 })
@@ -228,17 +233,19 @@ export default defineConfig({
   description,
   appearance: 'dark',
   cleanUrls: true,
+  metaChunk: true,
   lastUpdated: true,
   srcExclude: ['public/**'],
   sitemap: {
     hostname: siteUrl,
     // Project Pages owns /showcase/. Keep legacy bridges out of discovery.
-    transformItems: (items) => items.filter(({ url }) => !/^(?:zh\/)?showcase(?:\.html|\/|$)/.test(url.replace(/^\//, ''))),
+    transformItems: (items) => items.filter(({ url }) => !/(?:^|\/)showcase(?:\.html|\/|$)/.test(url)),
   },
 
   locales: {
     root: { label: 'English', lang: 'en', title: 'DCC-MCP', description, themeConfig: englishTheme },
     zh: { label: '简体中文', lang: 'zh-CN', title: 'DCC-MCP', description: zhDescription, link: '/zh/', themeConfig: chineseTheme },
+    ...Object.fromEntries(addedLocales.map(locale => [locale, createLocale(locale)])),
   },
 
   head: [
@@ -259,67 +266,63 @@ export default defineConfig({
     const relativePath = pageData.relativePath
       .replace(/index\.md$/, '')
       .replace(/\.md$/, '')
-    const isCollectionBridge = /^(?:zh\/)?showcase$/.test(relativePath)
-    const isAudioBridge = /^(?:zh\/)?showcase\/wwise$/.test(relativePath)
-    const canonicalPath = isCollectionBridge ? 'showcase/'
-      : isAudioBridge ? relativePath.replace('showcase/wwise', 'examples/wwise')
-      : relativePath
-    const canonicalUrl = new URL(canonicalPath, siteUrl).href
-    const isZh = pageData.relativePath.startsWith('zh/')
-    const englishPath = canonicalPath.replace(/^zh\//, '')
-    const chinesePath = isZh ? canonicalPath : `zh/${canonicalPath}`
-    const title = pageData.frontmatter.layout === 'home'
-        ? (isZh ? 'DCC-MCP — 用 AI 连接创作软件与制作流程' : 'DCC-MCP — AI control for creative workflows')
-      : `${pageData.title} | DCC-MCP`
-    if (pageData.frontmatter.layout === 'home') {
-      pageData.title = isZh ? '用 AI 连接创作软件与制作流程' : 'AI control for creative workflows'
-    }
+    const locale = siteLocale(relativePath.split('/')[0])
+    const prefix = localePrefix(locale)
+    const route = prefix ? relativePath.slice(prefix.length) : relativePath
+    const isCollectionBridge = route === 'showcase'
+    const pageRoute = route === 'showcase/wwise' ? 'examples/wwise' : route
+    const canonicalUrl = new URL(isCollectionBridge ? 'showcase/' : `${prefix}/${pageRoute}`, siteUrl).href
+    const isHome = pageData.frontmatter.layout === 'home'
+    if (isHome) pageData.title = homeTitle(locale)
+    const title = isHome ? `DCC-MCP — ${pageData.title}` : `${pageData.title} | DCC-MCP`
 
     pageData.frontmatter.head ??= []
     pageData.frontmatter.head.push(
       ['link', { rel: 'canonical', href: canonicalUrl }],
       ...(!isCollectionBridge ? [
-        ['link', { rel: 'alternate', hreflang: 'en', href: new URL(englishPath, siteUrl).href }],
-        ['link', { rel: 'alternate', hreflang: 'zh-CN', href: new URL(chinesePath, siteUrl).href }],
-        ['link', { rel: 'alternate', hreflang: 'x-default', href: new URL(englishPath, siteUrl).href }],
+        ...siteLocales.map(language => ['link', {
+          rel: 'alternate', hreflang: languageTag(language),
+          href: new URL(`${localePrefix(language)}/${pageRoute}`, siteUrl).href,
+        }]),
+        ['link', { rel: 'alternate', hreflang: 'x-default', href: new URL(pageRoute, siteUrl).href }],
       ] : []),
       ['meta', { property: 'og:title', content: title }],
-      ['meta', { property: 'og:description', content: pageData.description ?? (isZh ? zhDescription : description) }],
-      ['meta', { property: 'og:image:alt', content: isZh ? 'DCC-MCP：用 AI 连接创作软件与制作流程' : 'DCC-MCP: connect AI agents to creative workflows' }],
+      ['meta', { property: 'og:description', content: pageData.description ?? siteDescription(locale) }],
+      ['meta', { property: 'og:image:alt', content: 'DCC-MCP · ' + homeTitle(locale) }],
       ['meta', { property: 'og:url', content: canonicalUrl }],
-      ['meta', { property: 'og:locale', content: isZh ? 'zh_CN' : 'en_US' }],
+      ['meta', { property: 'og:locale', content: locale === 'zh' ? 'zh_CN' : locale === 'en' ? 'en_US' : site[locale].og }],
       ['meta', { name: 'twitter:title', content: title }],
-      ['meta', { name: 'twitter:description', content: pageData.description ?? (isZh ? zhDescription : description) }],
+      ['meta', { name: 'twitter:description', content: pageData.description ?? siteDescription(locale) }],
     )
 
-    if (relativePath === '' || relativePath === 'zh/') {
+    if (!route) {
       pageData.frontmatter.head.push(
-        ['script', { type: 'application/ld+json' }, JSON.stringify(homeStructuredData(isZh))],
+        ['script', { type: 'application/ld+json' }, JSON.stringify(homeStructuredData(locale))],
       )
     }
 
-    if (/^(?:zh\/)?cloud-agents$/.test(relativePath)) {
+    if (route === 'cloud-agents') {
       pageData.frontmatter.head.push(
         ['script', { type: 'application/ld+json' }, JSON.stringify(cloudAgentPageStructuredData(
-          isZh,
+          locale,
           canonicalUrl,
           pageData.title,
-          pageData.description ?? (isZh ? zhDescription : description),
+          pageData.description ?? siteDescription(locale),
         ))],
       )
     }
 
-    const controlSlug = relativePath.match(/^(?:zh\/)?control\/([^/]+)$/)?.[1]
+    const controlSlug = route.match(/^control\/([^/]+)$/)?.[1]
     if (controlSlug) {
       const integration = dccIntegrations.find(({ slug }) => slug === controlSlug)
       if (!integration) throw new Error(`Unknown DCC control guide integration: ${controlSlug}`)
       pageData.frontmatter.head.push(
         ['script', { type: 'application/ld+json' }, JSON.stringify(controlPageStructuredData(
           integration,
-          isZh,
+          locale,
           canonicalUrl,
           pageData.params?.title ?? pageData.title,
-          pageData.params?.description ?? pageData.description ?? (isZh ? zhDescription : description),
+          pageData.params?.description ?? pageData.description ?? siteDescription(locale),
         ))],
       )
     }
@@ -342,7 +345,22 @@ export default defineConfig({
     search: {
       provider: 'local',
       options: {
+        miniSearch: {
+          options: {
+            // VitePress serializes this function for the browser. Keep the
+            // tokenizer self-contained so the index and queries agree.
+            tokenize: (text: string) => {
+              const terms = text.split(/[\n\r\p{Z}\p{P}]+/u).filter(Boolean)
+              if (!/[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(text) ||
+                  typeof Intl.Segmenter !== 'function') return terms
+              const lang = /[\p{Script=Hiragana}\p{Script=Katakana}]/u.test(text) ? 'ja' : 'zh'
+              const words = new Intl.Segmenter(lang, { granularity: 'word' }).segment(text)
+              return [...new Set([...terms, ...Array.from(words).filter(word => word.isWordLike).map(word => word.segment)])]
+            },
+          },
+        },
         locales: {
+          ...Object.fromEntries(addedLocales.map(locale => [locale, createSearchLocale(locale)])),
           zh: {
             translations: {
               button: { buttonText: '搜索', buttonAriaLabel: '搜索文档' },

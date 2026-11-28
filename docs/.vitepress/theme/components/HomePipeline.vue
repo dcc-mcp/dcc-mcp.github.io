@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { type SiteLocale, localePrefix, mediaLocale } from '../../i18n/locales'
+import { useHomeTranslations } from '../data/home-translations'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
-const props = defineProps<{ locale: 'en' | 'zh' }>()
+const props = defineProps<{ locale: SiteLocale }>()
+const translations = useHomeTranslations()
+const localCopy = computed(() => translations?.value?.HomePipeline)
 const active = ref(0)
 const paused = ref(false)
 const hovered = ref(false)
@@ -13,7 +17,7 @@ const frames = [
   { image: '/showcase-media/zbrush-maya-fantasy-dragon.png', app: 'Maya', source: 'https://github.com/dcc-mcp/dcc-mcp-maya', en: 'Import and validate', zh: '导入与验证' },
 ] as const
 const selected = computed(() => frames[active.value])
-const copy = computed(() => props.locale === 'zh' ? {
+const copy = computed(() => localCopy.value ?? (props.locale === 'zh' ? {
   eyebrow: '把工具变成可复用的工作流', title: '把工具串成流程，再让 Agent 协作。',
   steps: [
     { title: '标准化', detail: '约定命名、输入输出、权限与验收标准。' },
@@ -39,7 +43,7 @@ const copy = computed(() => props.locale === 'zh' ? {
   caseBody: 'The case records a five-million-face source remeshed to 115,364 faces, then validated in Maya at 115,336 vertices and 115,364 faces.',
   mediaNote: 'A slideshow of recorded case stills, not live execution or a software recording.', pause: 'Pause slideshow', play: 'Play slideshow',
   source: 'View the owning project', more: 'Explore the production approach', alt: 'Recorded Fantasy Dragon scene captures in ZBrush and Maya',
-})
+}))
 
 function stopRotation() {
   clearInterval(timer)
@@ -82,11 +86,11 @@ onBeforeUnmount(() => {
     <div class="section-intro"><p class="home-eyebrow">{{ copy.eyebrow }}</p><h2 id="pipeline-title">{{ copy.title }}</h2></div>
     <ol class="pipeline-method"><li v-for="(step, index) in copy.steps" :key="step.title"><span class="pipeline-number" aria-hidden="true">0{{ index + 1 }}</span><h3>{{ step.title }}</h3><p>{{ step.detail }}</p></li></ol>
     <p class="pipeline-principle">{{ copy.principle }}</p>
-    <a class="text-link" :href="locale === 'zh' ? '/zh/why-dcc-mcp' : '/why-dcc-mcp'">{{ copy.more }} <span aria-hidden="true">→</span></a>
+    <a class="text-link" :href="`${localePrefix(locale)}/why-dcc-mcp`">{{ copy.more }} <span aria-hidden="true">→</span></a>
     <div class="pipeline-case" @mouseenter="setHovered(true)" @mouseleave="setHovered(false)" @focusin="setHovered(true)" @focusout="setHovered(false)">
       <div class="pipeline-case-media">
         <a :href="selected.source" target="_blank" rel="noreferrer"><Transition name="pipeline-frame" mode="out-in"><img :key="selected.image" :src="selected.image" :alt="copy.alt + ' · ' + selected.app" width="1280" height="720" loading="lazy" decoding="async"></Transition></a>
-        <div class="pipeline-controls"><div class="pipeline-frame-buttons"><button v-for="(frame, index) in frames" :key="frame.app" type="button" :aria-pressed="active === index" @click="chooseFrame(index)">{{ frame.app }} <span aria-hidden="true">·</span> {{ frame[locale] }}</button></div><button type="button" class="pipeline-playback" :aria-pressed="paused" @click="togglePlayback">{{ paused ? copy.play : copy.pause }}</button></div>
+        <div class="pipeline-controls"><div class="pipeline-frame-buttons"><button v-for="(frame, index) in frames" :key="frame.app" type="button" :aria-pressed="active === index" @click="chooseFrame(index)">{{ frame.app }} <span aria-hidden="true">·</span> {{ localCopy?.frames[index] ?? frame[mediaLocale(locale)] }}</button></div><button type="button" class="pipeline-playback" :aria-pressed="paused" @click="togglePlayback">{{ paused ? copy.play : copy.pause }}</button></div>
       </div>
       <div class="pipeline-case-copy"><p class="home-eyebrow">{{ copy.caseLabel }}</p><h3>{{ copy.caseTitle }}</h3><p>{{ copy.caseBody }}</p><p class="pipeline-media-note">{{ copy.mediaNote }}</p><a class="text-link" :href="selected.source" target="_blank" rel="noreferrer">{{ copy.source }} <span aria-hidden="true">↗</span></a></div>
     </div>

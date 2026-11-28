@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { siteLocale, localePrefix } from '../../i18n/locales'
+import { computed, provide } from 'vue'
+import { homeTranslationsKey, type HomeTranslations } from '../data/home-translations'
 import { useData } from 'vitepress'
 import HomeHero from './HomeHero.vue'
 import HomePipeline from './HomePipeline.vue'
@@ -12,9 +14,11 @@ import AgentCrew from './AgentCrew.vue'
 import HomeIntroVideo from './HomeIntroVideo.vue'
 import HomeResources from './HomeResources.vue'
 
+const props = defineProps<{ translations?: HomeTranslations }>()
+provide(homeTranslationsKey, computed(() => props.translations))
 const { lang } = useData()
-const locale = computed(() => lang.value.startsWith('zh') ? 'zh' : 'en')
-const copy = computed(() => locale.value === 'zh' ? {
+const locale = computed(() => siteLocale(lang.value))
+const copy = computed(() => props.translations?.HomePage ?? (locale.value === 'zh' ? {
   why: '把生产标准，变成协作能力。', whyBody: '把输入、输出、检查与交接定义清楚，Agent 才能稳定调用工具；团队经验因此可以复用，每次交付都能回看。',
   reasons: [
     { title: '复用团队已有的 Pipeline', body: '让现有脚本、插件和内部服务成为可调用的能力，继续沿用熟悉的软件与制作约定。' },
@@ -36,7 +40,7 @@ const copy = computed(() => locale.value === 'zh' ? {
   marketBody: 'Choose from Skills, assets, and studio services your workflow can reuse. Spend less time wiring tools and more time making.', marketLink: 'Browse the capability market',
   developerTitle: 'Turn your way of working into a reusable capability.', developerBody: 'Bring studio tools, internal services, and production know-how into workflows your team can keep using.',
   developerLink: 'Developer guide', githubLink: 'Explore on GitHub', prefix: '',
-})
+}))
 </script>
 
 <template>
@@ -48,23 +52,23 @@ const copy = computed(() => locale.value === 'zh' ? {
     <section class="home-section home-benefits" aria-labelledby="benefits-title">
       <div class="section-intro"><h2 id="benefits-title">{{ copy.why }}</h2><p>{{ copy.whyBody }}</p></div>
       <div class="benefit-grid"><article v-for="reason in copy.reasons" :key="reason.title"><h3>{{ reason.title }}</h3><p>{{ reason.body }}</p></article></div>
-      <a class="text-link" :href="`${copy.prefix}/why-dcc-mcp`">{{ copy.whyLink }} <span aria-hidden="true">→</span></a>
+      <a class="text-link" :href="`${localePrefix(locale)}/why-dcc-mcp`">{{ copy.whyLink }} <span aria-hidden="true">→</span></a>
     </section>
     <div class="home-section"><CollectionMasonry :locale="locale" /></div>
     <details class="home-demonstrations home-section">
-      <summary>{{ locale === 'zh' ? '看看创作分工与工作流演示' : 'Explore creative roles and workflow films' }}</summary>
+      <summary>{{ translations?.HomePage.demos ?? (locale === 'zh' ? '看看创作分工与工作流演示' : 'Explore creative roles and workflow films') }}</summary>
       <AgentCrew :locale="locale" />
       <HomeIntroVideo :locale="locale" />
     </details>
     <section class="home-section home-marketplace-section" aria-labelledby="home-marketplace-title">
-      <div class="section-intro"><p class="home-eyebrow">{{ copy.marketLabel }}</p><h2 id="home-marketplace-title">{{ copy.marketTitle }}</h2><p>{{ copy.marketBody }}</p><a class="text-link" :href="`${copy.prefix}/marketplace`">{{ copy.marketLink }} <span aria-hidden="true">↗</span></a></div>
+      <div class="section-intro"><p class="home-eyebrow">{{ copy.marketLabel }}</p><h2 id="home-marketplace-title">{{ copy.marketTitle }}</h2><p>{{ copy.marketBody }}</p><a class="text-link" :href="`${localePrefix(locale)}/marketplace`">{{ copy.marketLink }} <span aria-hidden="true">↗</span></a></div>
       <ClientOnly><MarketplaceSearch preview /></ClientOnly>
     </section>
     <HomeSetup :locale="locale" />
     <HomeResources :locale="locale" />
     <section class="home-section home-developers" aria-labelledby="developer-title">
       <div><h2 id="developer-title">{{ copy.developerTitle }}</h2><p>{{ copy.developerBody }}</p></div>
-      <div class="home-actions"><a class="site-button primary" :href="`${copy.prefix}/developers`">{{ copy.developerLink }} <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/dcc-mcp" target="_blank" rel="noreferrer">{{ copy.githubLink }} <span aria-hidden="true">↗</span></a></div>
+      <div class="home-actions"><a class="site-button primary" :href="`${localePrefix(locale)}/developers`">{{ copy.developerLink }} <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/dcc-mcp" target="_blank" rel="noreferrer">{{ copy.githubLink }} <span aria-hidden="true">↗</span></a></div>
     </section>
   </div>
 </template>

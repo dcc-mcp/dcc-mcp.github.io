@@ -1,0 +1,397 @@
+{
+  "3ds-max": {
+    "summary": "Examinez la scène et préparez la modélisation, les matériaux, les transformations et le rendu.",
+    "tasks": [
+      "Recenser les objets de la scène et leurs modificateurs",
+      "Créer et placer une géométrie modifiable",
+      "Vérifier les matériaux, les transformations et les paramètres de rendu"
+    ]
+  },
+  "after-effects": {
+    "summary": "Travaillez sur les compositions, les calques, les images clés et les effets, puis contrôlez l’aperçu.",
+    "tasks": [
+      "Recenser les compositions et les métrages sources",
+      "Créer une courte animation graphique",
+      "Vérifier la plage d’images, les médias manquants et l’aperçu"
+    ]
+  },
+  "blender": {
+    "summary": "Examinez la scène ouverte et intervenez sur les objets, les modificateurs, les matériaux, l’animation et le rendu.",
+    "tasks": [
+      "Inspecter les collections, les objets et les modificateurs",
+      "Modifier un modèle en préservant sa géométrie d’origine",
+      "Contrôler l’état des objets et un rendu de prévisualisation"
+    ]
+  },
+  "cinema-4d": {
+    "summary": "Inspectez le document, transformez les primitives et vérifiez le rendu et les fichiers d’échange.",
+    "tasks": [
+      "Examiner les documents, les objets, les matériaux et les fonctions disponibles",
+      "Créer et transformer les primitives autorisées en une seule mise à jour du document",
+      "Vérifier le document enregistré, le rendu et l’export dans un format pris en charge"
+    ]
+  },
+  "comfyui": {
+    "summary": "Comparez le graphe aux définitions des nœuds, lancez un traitement et récupérez le fichier produit.",
+    "tasks": [
+      "Vérifier les classes de nœuds, les entrées obligatoires et les références du graphe",
+      "Soumettre un flux de génération d’image et attendre sa fin",
+      "Consulter l’état final et récupérer le fichier de sortie prévu"
+    ]
+  },
+  "cache-inspector": {
+    "summary": "Inspectez hors ligne les caches SideFX geo, bgeo et bgeo.sc en lecture seule.",
+    "tasks": [
+      "Détecter le format et décoder dans les limites de taille publiées",
+      "Vérifier les quantités, familles de primitives, bornes finies et définitions d’attributs",
+      "Vérifier l’absence de géométrie brute et du bloc d’informations libres"
+    ]
+  },
+  "flow-production-tracking": {
+    "summary": "Consultez les données de production et contrôlez les changements de statut.",
+    "tasks": [
+      "Retrouver un projet, un plan, une ressource ou une tâche",
+      "Résumer les notes et versions associées",
+      "Prévisualiser et confirmer les changements de statut"
+    ]
+  },
+  "freecad": {
+    "summary": "Inspectez les formes du document et construisez un solide modifiable.",
+    "tasks": [
+      "Examiner objets, formes, limites et propriétés physiques",
+      "Construire un solide avec des primitives et des opérations booléennes",
+      "Valider la topologie et exporter un OBJ ou STL vérifié"
+    ]
+  },
+  "gimp": {
+    "summary": "Examinez l’image et ses calques, puis effectuez une retouche réversible.",
+    "tasks": [
+      "Vérifier les dimensions et la structure des calques",
+      "Appliquer une retouche réversible",
+      "Exporter une copie sans écraser l’original"
+    ]
+  },
+  "godot": {
+    "summary": "Examinez scènes et nœuds, puis testez une interaction jouable.",
+    "tasks": [
+      "Recenser scènes, nœuds et réglages du projet",
+      "Construire une petite interaction jouable",
+      "Lancer le jeu et vérifier les conditions de victoire ou d’échec"
+    ]
+  },
+  "houdini": {
+    "summary": "Inspectez le réseau de nœuds et construisez un traitement procédural ou une simulation.",
+    "tasks": [
+      "Examiner le graphe actuel et ses paramètres",
+      "Construire une configuration procédurale ou une simulation minimale",
+      "Vérifier l’échelle, le cache et l’aperçu"
+    ]
+  },
+  "illustrator": {
+    "summary": "Manipulez plans de travail, tracés et texte à travers le DOM officiel.",
+    "tasks": [
+      "Examiner documents, plans de travail, calques et éléments de page",
+      "Créer ou modifier rectangles, tracés et texte via le DOM officiel",
+      "Vérifier le document, enregistrer une copie AI et exporter en SVG ou PNG"
+    ]
+  },
+  "katana": {
+    "summary": "Ajustez l’apparence de la scène et contrôlez-la dans un rendu de test.",
+    "tasks": [
+      "Examiner le graphe de scène et le graphe de nœuds actif",
+      "Apporter une modification ciblée au look de la scène",
+      "Vérifier les affectations et effectuer un rendu de test"
+    ]
+  },
+  "kdenlive": {
+    "summary": "Montez une copie du projet et vérifiez son rendu avec MLT.",
+    "tasks": [
+      "Examiner la structure, les références médias et les effets MLT installés",
+      "Modifier clips, effets ou sous-titres sur une copie",
+      "Vérifier le projet et les médias, puis rendre une plage avec MLT"
+    ],
+    "catalogStatus": "Définition du catalogue : 0.1.0. Aucun artefact de catalogue pouvant être installé. Version indépendante : v0.1.1.",
+    "availability": "Le catalogue vérifié de Core 0.20.39 indique que `kdenlive` est défini à la version 0.1.0, avec `catalog_install_available=false`. Le dépôt qui le gère a publié la version [v0.1.1](https://github.com/dcc-mcp/dcc-mcp-kdenlive/releases/tag/v0.1.1). Les outils liés au projet et la réduction des images par MLT sont distincts des fonctionnalités de l’interface utilisateur. Le bridge natif expérimental nécessite un hôte personnalisé, et il n’existe pas de binaire d’hôte complet et validé. Ce renouvellement du catalogue n’a pas entraîné de modifications en temps réel ni de validation des résultats de la réduction des images."
+  },
+  "krita": {
+    "summary": "Examinez la toile et les calques avant de peindre ou de corriger une image.",
+    "tasks": [
+      "Vérifier l’état de la toile et des calques",
+      "Peindre ou appliquer un réglage réversible",
+      "Vérifier l’espace colorimétrique et exporter une copie"
+    ]
+  },
+  "mari": {
+    "summary": "Examinez le projet et ses canaux avant d’exporter les textures.",
+    "tasks": [
+      "Examiner géométrie, canaux, nœuds, shaders et images",
+      "Modifier un élément ciblé de la géométrie, des canaux ou du graphe via les outils typés",
+      "Vérifier les éléments à exporter et les textures produites"
+    ]
+  },
+  "marmoset-toolbag": {
+    "summary": "Examinez maillages et matériaux, puis contrôlez l’éclairage en rotation.",
+    "tasks": [
+      "Inspecter maillages, matériaux et emplacements de textures",
+      "Ajuster l’apparence du modèle dans un essai ciblé",
+      "Vérifier les cartes, l’éclairage et le rendu en rotation"
+    ]
+  },
+  "material-maker": {
+    "summary": "Construisez un matériau procédural modifiable et vérifiez ses cartes.",
+    "tasks": [
+      "Examiner les nœuds et les paramètres exposés",
+      "Construire un matériau procédural modifiable",
+      "Vérifier les raccords du motif et les cartes exportées"
+    ],
+    "catalogStatus": "Définition du catalogue : 0.3.1. Ce catalogue ne contient aucun fichier pouvant être installé.",
+    "availability": "Le catalogue vérifié de Core 0.20.39 indique que `material-maker` est présent dans la définition d’adaptateur 0.3.1. De plus, `catalog_install_available=false`. Il convient de suivre les paramètres actuellement définis par le dépôt qui le gère. Cette liste ne représente pas une installation automatique, ni une acceptation par l’hôte actuel."
+  },
+  "maya": {
+    "summary": "Inspectez le DAG et la scène, préservez le rig et contrôlez le résultat dans Arnold.",
+    "tasks": [
+      "Examiner les nœuds du DAG et la scène avant de vérifier la version de l’adaptateur",
+      "Préserver les articulations, les courbes d’animation et de coiffure, les textures et les matériaux natifs",
+      "Vérifier que les contrôleurs et contraintes restent modifiables et effectuer un rendu de contrôle dans Arnold"
+    ],
+    "availability": "La version Core 0.20.39 sélectionne actuellement dcc-mcp-maya 0.9.22. Il est nécessaire de mettre à niveau sur dcc-mcp-maya 0.9.26 ou une version plus récente avant d’utiliser le workflow AssetSync v2 : les rigs, les matériaux, les animations, ainsi que le workflow de développement visuel avec Arnold, qui sont intégrés dans la PR #486."
+  },
+  "motionbuilder": {
+    "summary": "Examinez les personnages et les prises, puis ajustez le mouvement.",
+    "tasks": [
+      "Inspecter personnages, prises et animation active",
+      "Modifier une portion de mouvement",
+      "Vérifier la synchronisation, le mappage des personnages et la sauvegarde"
+    ]
+  },
+  "nuke": {
+    "summary": "Examinez le graphe et ajoutez une branche de compositing réversible.",
+    "tasks": [
+      "Inspecter les nœuds et les métadonnées des sources",
+      "Créer une branche de compositing réversible",
+      "Vérifier plage d’images, canaux, espace colorimétrique et aperçu"
+    ]
+  },
+  "openusd": {
+    "summary": "Examinez le stage et modifiez ses couches de manière non destructive.",
+    "tasks": [
+      "Inspecter les couches du stage et la hiérarchie des prims",
+      "Apporter une modification non destructive dans une couche",
+      "Vérifier composition, références et schémas"
+    ]
+  },
+  "openscad": {
+    "summary": "Validez un modèle paramétrique et contrôlez le maillage exporté.",
+    "tasks": [
+      "Examiner les dépendances des sources et les fonctions disponibles",
+      "Valider un modèle sans exécuter de code arbitraire",
+      "Rendre un aperçu et exporter un STL ou un maillage vérifié"
+    ]
+  },
+  "photoshop": {
+    "summary": "Examinez le document et effectuez des retouches réversibles avec des calques ou des masques.",
+    "tasks": [
+      "Vérifier les dimensions, le mode colorimétrique et les calques",
+      "Effectuer une retouche non destructive avec des calques ou des masques",
+      "Exporter un nouveau fichier sans aplatir l’original"
+    ]
+  },
+  "powerpoint": {
+    "summary": "Inspectez une présentation et modifiez une séquence de diapositives.",
+    "tasks": [
+      "Recenser diapositives, dispositions, textes et médias liés",
+      "Créer ou réviser une séquence de diapositives",
+      "Vérifier l’ordre, le rendu visuel et la copie enregistrée"
+    ],
+    "catalogStatus": "Définition du catalogue : 0.1.0. Ce catalogue ne contient aucun fichier installable.",
+    "availability": "Le catalogue vérifié de Core 0.20.39 indique que `powerpoint` est défini à la position 0.1.0. De plus, `catalog_install_available=false`. Il convient de suivre les paramètres actuellement définis par le dépôt qui le gère. Cette liste ne représente pas une installation automatique, ni une acceptation par l’hôte en temps réel."
+  },
+  "premiere-pro": {
+    "summary": "Montez une séquence en préservant les fichiers sources.",
+    "tasks": [
+      "Recenser médias et réglages de séquence",
+      "Monter un passage sans modifier les fichiers sources",
+      "Vérifier médias manquants, synchronisation, audio et export de l’aperçu"
+    ]
+  },
+  "renderdoc": {
+    "summary": "Examinez une capture pour documenter l’état du rendu.",
+    "tasks": [
+      "Ouvrir une capture et identifier l’image cible",
+      "Inspecter événements, ressources et état du pipeline graphique",
+      "Consigner des résultats reproductibles sans modifier la compilation d’origine"
+    ]
+  },
+  "shogun": {
+    "summary": "Examinez les données de capture de mouvement et utilisez les traitements confirmés par l’application.",
+    "tasks": [
+      "Examiner sujets, marqueurs, squelettes, trajectoires, hiérarchie, transformations, canaux, échantillons, lacunes, caméras et sélection",
+      "Examiner ou régler les plages, la sélection par clés et la lecture si Timeline est disponible",
+      "Vérifier les réglages autorisés et la fonction officielle avant tout étiquetage ROM, étalonnage ou QuickPost"
+    ]
+  },
+  "sketchup": {
+    "summary": "Créez de la géométrie groupée et vérifiez le modèle enregistré.",
+    "tasks": [
+      "Inspecter entités, limites, matériaux, balises et scènes",
+      "Grouper boîtes ou cylindres et affecter matériaux et métadonnées",
+      "Vérifier les entités persistantes, enregistrer le SKP et exporter dans un format pris en charge"
+    ]
+  },
+  "touchdesigner": {
+    "summary": "Reliez les opérateurs, vérifiez les paramètres et enregistrez les résultats.",
+    "tasks": [
+      "Examiner le projet, les chemins, familles et paramètres des opérateurs",
+      "Créer des opérateurs typés, les relier et relire les paramètres modifiés",
+      "Capturer un TOP en PNG, enregistrer le TOE et vérifier taille et empreinte"
+    ]
+  },
+  "substance-3d-designer": {
+    "summary": "Construisez une variante de matériau modifiable dans le graphe.",
+    "tasks": [
+      "Examiner nœuds, paquets et dépendances",
+      "Créer une variante de matériau modifiable",
+      "Vérifier les paramètres exposés et les rendus"
+    ]
+  },
+  "substance-3d-painter": {
+    "summary": "Travaillez sur les jeux de textures et les matériaux de manière réversible.",
+    "tasks": [
+      "Inspecter les jeux de textures et les piles de calques",
+      "Modifier un matériau ou un masque de manière réversible",
+      "Vérifier les cartes de maillage et les canaux exportés"
+    ]
+  },
+  "tiled": {
+    "summary": "Modifiez les éléments de la carte et validez son export.",
+    "tasks": [
+      "Examiner dimensions, calques et jeux de tuiles",
+      "Modifier une zone délimitée de la carte",
+      "Vérifier les calques, les propriétés et les données exportées"
+    ],
+    "catalogStatus": "Définition du catalogue : 0.3.0. Ce catalogue ne contient aucun élément pouvant être installé.",
+    "availability": "Le catalogue vérifié de Core 0.20.39 indique que `tiled` est disponible dans la définition de l’adaptateur 0.3.0, avec `catalog_install_available=false`. Il convient de suivre la configuration actuelle du dépôt responsable ; la liste des éléments n’est pas une installation automatique ni une acceptation immédiate par l’hôte."
+  },
+  "unity": {
+    "summary": "Inspectez les scènes et les ressources, créez une interaction et testez-la en mode Play.",
+    "tasks": [
+      "Recenser les scènes, les ressources et les réglages du projet",
+      "Créer une interaction jouable simple",
+      "Vérifier le comportement en mode Play avant la compilation"
+    ],
+    "vendorCase": "Pour les projets Unity et Tuanjie AI, la [compétence `unity-tuanjie-ai`](https://github.com/dcc-mcp/dcc-mcp-unity/blob/main/src/dcc_mcp_unity/skills/unity-tuanjie-ai/SKILL.md) vérifie le catalogue natif des outils Codely CustomTool. Seulement un outil est exécuté à partir des résultats de cette vérification. Tuanjie dispose de fonctionnalités liées à l’authentification, aux crédits, aux téléchargements et à la récupération des tâches. DCC-MCP, quant à lui, offre des fonctionnalités de découverte, de routage et de vérification des capacités des différents fournisseurs."
+  },
+  "unreal-engine": {
+    "summary": "Examinez les niveaux et les acteurs, puis testez un mécanisme de jeu ou une opération de l’éditeur.",
+    "tasks": [
+      "Recenser les niveaux, les acteurs, les ressources et les réglages du projet",
+      "Construire un mécanisme de jeu ou une opération ciblée dans l’éditeur",
+      "Exécuter et vérifier le résultat avant de créer le paquet"
+    ]
+  },
+  "wwise": {
+    "summary": "Organisez les objets audio, créez des événements et vérifiez-les à l’écoute.",
+    "tasks": [
+      "Parcourir la hiérarchie du projet et ses objets audio",
+      "Importer et classer un ensemble de sons",
+      "Créer des événements et en contrôler la lecture"
+    ],
+    "catalogStatus": "Définition du catalogue : 0.1.2. Ce catalogue ne contient aucun fichier installable.",
+    "availability": "Le catalogue vérifié de Core 0.20.39 indique que `wwise` se trouve à la définition 0.1.2 du pilote. De plus, la valeur `catalog_install_available=false` indique que l’installation n’est pas automatique, et que le serveur n’accepte pas automatiquement cette installation. Il est donc nécessaire de suivre les paramètres définis par le dépôt qui gère cette installation."
+  },
+  "liquigen": {
+    "summary": "Exécutez une simulation de fluide et préparez des ressources VAT pour Unreal Engine.",
+    "tasks": [
+      "Examiner le graphe et les réglages de simulation",
+      "Lancer une simulation ou une opération ciblée sur le graphe",
+      "Exporter et vérifier les ressources VAT avant leur transfert dans Unreal Engine"
+    ],
+    "availability": "LiquiGen est disponible sous la forme de la route `liquigen` dans le catalogue de la version 0.20.39 de DCC-MCP Core. Les informations relatives à l’installation et aux exigences d’host restent dans le répertoire des adaptateurs."
+  },
+  "obs-studio": {
+    "summary": "Pilotez l’enregistrement dans l’instance OBS sélectionnée.",
+    "tasks": [
+      "Vérifier le processus, la scène active et les sources",
+      "Démarrer ou arrêter l’enregistrement via les commandes typées",
+      "Vérifier l’état de l’enregistrement et le fichier produit"
+    ],
+    "availability": "OBS Studio est disponible sous le nom de “`obs`” dans le catalogue de la version 0.20.39 de DCC-MCP Core. L’installation de l’adaptateur ne permet pas l’installation de OBS Studio lui-même. Veuillez suivre les instructions d’installation de l’adaptateur et vérifier que l’instance de OBS Studio fonctionne correctement."
+  },
+  "office": {
+    "summary": "Vérifiez le service Office et ses documents dans l’application concernée.",
+    "tasks": [
+      "Examiner la source d’exécution enregistrée et les applications prises en charge",
+      "Préparer une opération ciblée via l’adaptateur responsable",
+      "Vérifier le document enregistré ou son rendu dans l’application cible"
+    ],
+    "availability": "L’environnement de développement partagé dispose d’une route d’application distincte pour “`office`”. Cette route n’est pas parmi les 38 identifiants d’adaptateurs observés avec la version CLI 0.20.39. Le support spécifique à chaque application reste explicite ; il est donc nécessaire d’utiliser le répertoire correspondant à PowerPoint, Word, Excel ou Outlook pour connaître l’état actuel de ces applications. Il est également important de vérifier que l’instance en ligne est bien disponible avant de procéder à l’opération."
+  },
+  "speedtree": {
+    "summary": "Connectez la bonne instance et exportez via les fonctions officielles de SpeedTree.",
+    "tasks": [
+      "Associer le processus et la fenêtre exacts avant de rechercher les outils",
+      "Consulter les capacités officielles sans supposer l’existence d’API privées",
+      "Exporter par une voie officielle approuvée et vérifier la ressource dans le moteur"
+    ],
+    "availability": "Le dépositaire propriétaire a publié de manière indépendante la version [v0.1.1](https://github.com/dcc-mcp/dcc-mcp-speedtree/releases/tag/v0.1.1). Il ne s’agit pas d’une route hôte dans le catalogue Core 0.20.39 vérifié. La transition entre SpeedTree Modeler 10.1 et Unreal Engine 5.5.4 a été vérifiée en utilisant trois niveaux de détail, les liens de matériaux/UV ont été corrigés, et la hauteur du mesh est de 1,234.383705 cm. La échelle de collision et le vent dynamique restent à vérifier. Il s’agit donc d’une mise à jour des métadonnées, et non d’une nouvelle version en cours d’utilisation.",
+    "catalogStatus": "Disponible indépendamment sous la version v0.1.1. Ce logiciel ne fait pas partie de la liste de compatibilité avec le pilote Core 0.20.39."
+  },
+  "epic-games": {
+    "summary": "Examinez les installations Unreal Engine et les ressources locales de Fab.",
+    "tasks": [
+      "Inspecter les manifestes, projets et ressources Fab locales",
+      "Lire l’état avant de préparer une opération sur le moteur ou une ressource gratuite auprès d’un fournisseur approuvé",
+      "Vérifier les droits, les données téléchargées et l’import dans le projet"
+    ],
+    "availability": "Le dépositaire propriétaire a publié de manière indépendante la version [v0.2.1](https://github.com/dcc-mcp/dcc-mcp-epic/releases/tag/v0.2.1). Il ne s’agit pas d’une route hôte dans le catalogue Core 0.20.39 vérifié. L’installation de l’engin reste uniquement planifiée, sans aucun fournisseur natif vérifié. La connexion, les opérations de paiement, ainsi que l’acceptation des licences restent gérés par des humains. Il s’agit donc d’une mise à jour des métadonnées vérifiées, et non d’une nouvelle version en cours d’exécution.",
+    "catalogStatus": "Disponible indépendamment sous la version v0.2.1. Ce logiciel ne fait pas partie de la liste de compatibilité avec le pilote Core 0.20.39."
+  },
+  "gaea": {
+    "summary": "Préparez une tâche Build Swarm et contrôlez le terrain exporté.",
+    "tasks": [
+      "Examiner le graphe enregistré et les ajustements numériques autorisés",
+      "Planifier ou lancer une tâche configurée sans écraser les sorties",
+      "Vérifier dimensions, empreintes et étendue du terrain destiné à Unreal"
+    ],
+    "availability": "Le dépositaire propriétaire a publié de manière indépendante la version [v0.1.1](https://github.com/dcc-mcp/dcc-mcp-gaea/releases/tag/v0.1.1). Il ne s’agit pas d’une route hôte inscrite dans le catalogue Core 0.20.39. Les versions de Gaea dont les licences sont valides, les modifications apportées au arbre de traitement, la qualité du terrain, ainsi que les importations via Unreal restent non vérifiés dans les données de ce site. Il s’agit donc d’une mise à jour des métadonnées de cette version, et non d’une nouvelle version en cours d’utilisation.",
+    "catalogStatus": "Disponible indépendamment sous la version v0.1.1. Ce logiciel ne fait pas partie de la liste de compatibilité avec le pilote Core 0.20.39."
+  },
+  "marvelous-designer": {
+    "summary": "Examinez les pièces du patron et vérifiez les fichiers produits.",
+    "tasks": [
+      "Vérifier l’API et parcourir les informations paginées sur les pièces",
+      "Créer une pièce rectangulaire ou lancer une simulation synchrone limitée",
+      "Enregistrer un nouveau ZPRJ ou vérifier OBJ, FBX ou Alembic dans un répertoire vide"
+    ],
+    "availability": "Le dépositaire propriétaire a publié de manière indépendante la version [v0.1.1](https://github.com/dcc-mcp/dcc-mcp-marvelous-designer/releases/tag/v0.1.1). Il ne s’agit pas d’une route hôte inscrite dans le catalogue Core 0.20.39. Les données relatives à ce site n’ont pas encore été validées en termes de licences, de fonctionnalités liées au Qt, de simulation de tissus, ou de transfert de contrôle entre différents hôtes. Il s’agit donc d’une mise à jour des métadonnées de cette version, et non d’une nouvelle version en cours d’utilisation.",
+    "catalogStatus": "Disponible indépendamment sous la version v0.1.1. Ce logiciel ne fait pas partie de la liste de compatibilité avec le pilote Core 0.20.39."
+  },
+  "openscreen": {
+    "summary": "Enregistrez avec l’exécutable configuré et vérifiez le fichier.",
+    "tasks": [
+      "Examiner les sources d’enregistrement disponibles",
+      "Démarrer un enregistrement de portée définie",
+      "Exporter et vérifier l’enregistrement demandé"
+    ],
+    "availability": "Le dépositaire propriétaire a publié de manière indépendante la version [v0.1.1](https://github.com/dcc-mcp/dcc-mcp-openscreen/releases/tag/v0.1.1). Il ne s’agit pas d’une route hôte dans le catalogue Core 0.20.39 vérifié. Les tests de source ne vérifient pas l’acceptation de la réception en temps réel sur Windows. La sélection des fenêtres non supportées reste entre les mains de dcc-cua et ui-control. Il s’agit donc d’une mise à jour des métadonnées de la version vérifiée, et non d’une nouvelle exécution en temps réel.",
+    "catalogStatus": "Disponible indépendamment sous la version v0.1.1. Ce logiciel ne fait pas partie de la liste de compatibilité avec le pilote Core 0.20.39."
+  },
+  "tracy": {
+    "summary": "Capturez une trace de l’application instrumentée et analysez ses durées.",
+    "tasks": [
+      "Confirmer l’instrumentation et la disponibilité des utilitaires officiels",
+      "Capturer une trace ciblée à l’adresse client indiquée",
+      "Exporter en CSV et résumer les zones aux durées les plus variables"
+    ],
+    "catalogStatus": "Disponible indépendamment sous la version v0.2.5. Il ne fait pas partie de la liste de pilotes Core 0.20.39 vérifiée.",
+    "availability": "Le dépositaire propriétaire a publié de manière indépendante la version [v0.2.5](https://github.com/dcc-mcp/dcc-mcp-tracy/releases/tag/v0.2.5). Il ne s’agit pas d’une route d’hôte dans le catalogue Core 0.20.39 vérifié. L’objectif doit déjà contenir des instruments de mesure de performance. L’adaptateur contrôle les utilités officielles de capture/exportation, et ne injecte pas de données de profilage dans un processus non instrumenté. Il s’agit donc d’une mise à jour des métadonnées, et non d’une nouvelle exécution en tant qu’hôte vivant."
+  },
+  "zbrush": {
+    "summary": "Examinez outils et sous-outils, puis ajustez le maillage choisi.",
+    "tasks": [
+      "Vérifier outil actif, sous-outils et état du maillage",
+      "Sculpter ou remailler une partie définie",
+      "Vérifier topologie, subdivisions et géométrie exportée"
+    ]
+  }
+}

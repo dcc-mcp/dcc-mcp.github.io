@@ -1,0 +1,155 @@
+{
+  "copy": "Copiar instrução",
+  "copied": "Copiado",
+  "cards": {
+    "blender-designer-crate": {
+      "label": "BLENDER + DESIGNER 3D de Substâncias",
+      "title": "Caixa envelhecida: materiais quebrados, madeira danificada e luzes UV.",
+      "prompt": "Use a habilidade dcc-mcp para reconstruir uma caixa de madeira envelhecida, com base na referência fornecida no Blender. Use efeitos como pintura, grãos, arranhões e ferrugem, criados no Substance 3D Designer. Conserte as proporções alongadas, as fraturas na madeira e os reflexos metálicos. Use a geometria para criar áreas de grande amplitude, e o deslocamento de altura para criar relevos menores. Verifique se a densidade UV é consistente, mostre as coordenadas UV reais e os renders. Verifique também se todos os quatro suportes estão em contato com o chão. Mantenha os UV distintos, de forma que não haja confusão entre eles. Salve e abra novamente a cena do Blender e os pacotes SBS. Verifique as texturas compactadas e entregue renders com beleza real e capturas de gráficos completos, através do dcc-cua.",
+      "evidence": [
+        "Coordenadas UV atuais",
+        "O Checker é renderizado no modelo."
+      ]
+    },
+    "blender-lookdev": {
+      "label": "BLENDER · Aparência Procedimental",
+      "title": "Cena de uma galáxia espiral no Blender",
+      "prompt": "Use a habilidade “dcc-mcp” para se conectar ao Blender. Descubra as ferramentas necessárias para criar uma galáxia espiral em uma nova coleção. Trabalhe de maneira não destrutiva, faça uma pré-visualização da cena, valide a cena criada e relate os chamados das ferramentas utilizadas, além do caminho de saída dos dados gerados. Peça permissão antes de instalar qualquer coisa."
+    },
+    "blender-stylized-red-swings": {
+      "label": "BLENDER · RECONSTRUÇÃO DA REFERÊNCIA",
+      "title": "Cena de swing estilizada, reconstruída a partir de referências.",
+      "prompt": "Use a habilidade dcc-mcp para se conectar ao Blender e reconstruir a referência em 3D fornecida, tornando-a uma cena totalmente editável. Corrija as duas cadeiras paralelas, os arcos de suspensão e os elos da corrente achatados. Também corrija o suporte acima do assento, sua sombra contínua, o chão laminado, a composição ortográfica, o tratamento do material vermelho, o gradiente do assento no canto inferior direito, a overexposure distante, o efeito de “bloom” sutil e os elementos cinematográficos. Trabalhe em um ciclo de renderização e comparação: após cada visualização, meça a silhueta, a alinhamento no espaço de tela, o ângulo da sombra e a continuidade, a visibilidade dos elementos, o desbotamento das luzes e a planicidade do material. Corrija a geometria, a iluminação, os materiais e as configurações de composição, sem substituir a cena por uma imagem pintada. Preserve a cena em formato de malha real, salve o arquivo .blend, renderize a imagem final em formato 16:9, e relate as evidências de validação e os caminhos de saída."
+    },
+    "marmoset-lookdev": {
+      "label": "MARMOSET · PBR LOOKDEV",
+      "title": "Material PBR em Toolbag, de licença CC0.",
+      "prompt": "Use a habilidade dcc-mcp para se conectar ao Marmoset Toolbag. Verifique o ambiente de execução e descubra as ferramentas marmoset-scene, marmoset-lookdev e marmoset-diagnostics. Peça permissão antes de baixar qualquer recurso; use uma fonte com licença CC0 e preserve a origem do recurso. Imprima o modelo, atribua os mapas Albedo, Normal, Roughness, Metalness e Occlusion, enquadre o objeto corretamente, verifique se não faltam referências de texturas, salve o arquivo .tbscene, renderize uma imagem com resolução 16:9, e relate os caminhos da cena, do render e da fonte do arquivo."
+    },
+    "wwise-audio": {
+      "label": "WWISE · Áudio Interativo",
+      "title": "Efeitos sonoros e repetições no Wwise",
+      "prompt": "Use a habilidade “dcc-mcp” para se conectar ao Wwise. Trabalhe em um projeto local no Scratch. Descubra os recursos do Wwise e das ferramentas de áudio. Crie um som de interface do usuário, um som de impacto, e uma trilha sonora de fundo com repetição curta. Importe e organize esses elementos. Crie eventos de reprodução, visualize todos os resultados e relate as evidências de validação. Não publique o projeto Wwise no Scratch."
+    },
+    "houdini-portal": {
+      "label": "HOUDINI · FX",
+      "title": "Portal de procedimentos Houdini",
+      "prompt": "Use a habilidade dcc-mcp para se conectar ao Houdini. Descubra as ferramentas de pré-visualização, como SOP, POP, material e outras ferramentas necessárias para criar um portal de energia procedural. Construa o sistema em uma rede isolada, mantenha os parâmetros editáveis, utilize o cache apenas quando necessário, faça a pré-visualização do resultado e relate as evidências de validação."
+    },
+    "openscad-parametric-pipeline": {
+      "label": "OPENSCAD → FREECAD → BLENDER / GODOT",
+      "title": "Parênteses paramétricos para verificar os ativos do jogo",
+      "prompt": "Use a habilidade dcc-mcp para validar um intervalo paramétrico utilizando os softwares OpenSCAD, FreeCAD, Blender e Godot. Trabalhe apenas em um novo “scratch root”. No OpenSCAD, verifique a fonte do modelo, valide o modelo, faça uma pré-visualização e exporte o arquivo STL. Ao mesmo tempo, registre as dimensões, as métricas da topologia e os hashs do modelo. Importe o arquivo STL para o FreeCAD, verifique os pontos, as faces, o volume e os limites exatos do modelo. Depois, importe o arquivo OBJ para o Blender, verifique o número de malhas do modelo, exporte o arquivo GLB e carregue-o no Godot. Execute a cena no Godot e verifique se existe um MeshInstance3D visível. Relate todos os arquivos e os resultados da validação."
+    },
+    "freecad-game-ready-pipeline": {
+      "label": "FREECAD · Troca de dados entre CADs",
+      "title": "CAD editável para mesh validado em tempo real",
+      "prompt": "Use a habilidade dcc-mcp para se conectar ao FreeCAD. Crie um novo documento FCStd em uma raiz de saída aprovada. Construa um objeto editável a partir de primitivos e booleanos digitados. Preserve a fonte paramétrica do objeto. Verifique os objetos resultantes e confirme a validade da forma, o número de vértices, o volume e os limites do objeto. Exporte o arquivo em formato OBJ ou STL, importe-o no Blender, verifique o mesh, exporte o arquivo em formato GLB e carregue o arquivo GLB no Godot para realizar uma verificação de execução. Relate o documento, os arquivos de intercâmbio, as métricas dos objetos e os hashs dos arquivos."
+    },
+    "speedtree-to-unreal-engine": {
+      "label": "SPEEDTREE → UNREAL ENGINE · VERIFICADO EM ST9 HANDOFF",
+      "title": "Palmeiras da marca Real SpeedTree, importadas para o Unreal Engine 5.5",
+      "prompt": "Use a habilidade dcc-mcp para inspecionar o adaptador SpeedTree que foi lançado independentemente, bem como a sessão do SpeedTree que está licenciada. Verifique o repositório responsável pelo adaptador, a versão do adaptador instalado e as rotas de host disponíveis. Se for necessário realizar a instalação, informe o caminho de configuração suportado antes de alterar o ambiente. Bindue o processo e a janela exatamente como desejado. Use apenas as funcionalidades oficiais aprovadas. Exporte o objeto renderizado através do caminho oficial ST9, incluindo suas texturas. Entregue esse objeto ao adaptador Unreal em uma área de conteúdo separada. Verifique as dimensões da malha, a orientação das UVs, os materiais nativos do SpeedTree e as vinculações de texturas. Trate a escala de colisão e o vento dinâmico como algo não verificado, a menos que sejam medidos separadamente. Não adivinhe informações sobre APIs privadas, identificadores de host ou status de lançamento."
+    },
+    "cinema4d-typed-scene": {
+      "label": "CINEMA 4D · Automação Tipada",
+      "title": "Primitivas digitadas para renderização validada",
+      "prompt": "Use a habilidade dcc-mcp com o runtime do Cinema 4D licenciado localmente. Comece utilizando as funções get_status e get_capabilities. Depois, crie um documento do Cinema 4D que seja durável e esteja dentro dos padrões permitidos. Adicione apenas primitivos compatíveis com o formato desejado, dê um nome único a cada objeto, aplicar transformações limitadas aos objetos, inspecione o documento salvo e verifique se ele está correto. Renderize um arquivo PNG com proporção 16:9 e exporte-o no formato OBJ ou outro formato compatível, apenas quando o runtime indicar que o formato é suportado. Informe o número de objetos, o tamanho da saída, os hashs e quaisquer limitações específicas do formato. Não execute códigos Python arbitrários nem publique detalhes sobre a instalação local."
+    },
+    "comfyui-typed-workflow": {
+      "label": "COMFYUI · Execução do fluxo de trabalho digitado",
+      "title": "Contrato de gráficos em tempo real para o artefato entregue",
+      "prompt": "Use a habilidade dcc-mcp para se conectar ao adaptador ComfyUI local. Descubra os quatro instrumentos do fluxo de trabalho comfyui-workflow. Em seguida, valide um pequeno gráfico no formato API, em comparação com o registro de nós em funcionamento. Execute o fluxo de trabalho EmptyImage para ImageInvert e SaveImage. Aguarde o status do terminal, consulte as saídas normalizadas e obtenha o URL do artefato conhecido. Relate o ID do prompt, o número de nós, o status, os metadados do artefato, o tamanho do arquivo e o hash, sem revelar as paths do sistema de arquivos local."
+    },
+    "illustrator-typed-vector-workflow": {
+      "label": "ILUSTRATOR · TIPO DE AUTOMAÇÃO VETORIAL",
+      "title": "Documento estruturado, destinado à exportação de produtos verificados.",
+      "prompt": "Use a habilidade dcc-mcp para se conectar ao Illustrator. Comece inspecionando o status e os documentos. Depois, crie um novo documento em formato RGB. Crie uma pequena composição, utilizando apenas ferramentas como retângulos, caminhos e texto. Use nomes de objetos claros e preserve a capacidade de edição dos elementos do documento. Inspecione as tabelas de trabalho, os layers e o número de itens na página. Salve uma cópia do documento no formato AI, em um arquivo aprovado. Exporte o documento em formato SVG ou PNG. Relate as métricas do documento, os tamanhos dos elementos, entre outros dados importantes. Não execute nenhum ExtendScript arbitrário."
+    },
+    "sketchup-typed-modeling": {
+      "label": "SKETCHUP · Modelagem Tipografada",
+      "title": "Modelo em tempo real para intercâmbio validado",
+      "prompt": "Use a habilidade dcc-mcp para se conectar a um modelo do SketchUp em tempo real. Comece analisando o estado do modelo, inspecionando os elementos do modelo e listando as entidades presentes no modelo. Crie uma caixa agrupada e um cilindro agrupado, com dimensões especificadas. Atribua um material e uma etiqueta a cada elemento do modelo, e salve a cena da câmera. Verifique o estado persistente das entidades e a integridade do modelo. Salve uma cópia do modelo no formato aprovado. Exporte o modelo para um formato suportado pelo runtime, como DAE. Relate o número de entidades, seus limites, caminhos de saída, tamanhos e outros dados relacionados. Não execute códigos Ruby arbitrários."
+    },
+    "touchdesigner-typed-operator-workflow": {
+      "label": "TOUCHDESIGNER · Fluxo de trabalho do operador de digitação",
+      "title": "Texto digitado, relacionado a um projeto verificado; imagens com erros ou imperfeições.",
+      "prompt": "Use a habilidade dcc-mcp para se conectar a uma instância do TouchDesigner. Comece inspecionando o projeto e criando uma lista de operadores. Crie dois operadores compatíveis com o sistema, conecte os conectores correspondentes, defina um parâmetro permitido e leia-o novamente. Capture o resultado em um arquivo PNG, no caminho aprovado para a saída, e salve uma cópia do arquivo com proteção contra sobreposição de dados. Relate os caminhos dos operadores, os valores dos parâmetros, as dimensões das imagens, o tamanho dos arquivos e os hashes SHA-256. Exclua apenas o operador temporário que você criou. Não execute nenhum código Python arbitrário."
+    },
+    "cache-inspection-workflow": {
+      "label": "INSPETORE DE ARMAZÉNS · ANÁLISE EXCLUSIVA PARA LEITURA",
+      "title": "Cache de geometria comprimida, para uma estrutura segura para a privacidade",
+      "prompt": "Use a habilidade dcc-mcp para instalar a habilidade dcc-mcp-cache-inspector no adaptador específico que controla esse fluxo de trabalho. Em seguida, execute a função de inspeção do cache. Verifique um arquivo .bgeo ou .bgeo.sc aprovado pelo chamador, com um tamanho de entrada de 512 MiB e limites de dados decodificados. Relate o formato e a versão reconhecidos, o número de pontos, vértices e primitivos, as famílias de primitivos, os limites finitos, quando isso é suportado, e informações sobre o proprietário do atributo, nome, armazenamento, tamanho da tupla e número de elementos. Use a função call_list_attributes para obter informações sobre o esquema do arquivo. Verifique se o bloco de informações livres e os valores de geometria bruta não estão presentes. Não execute o Houdini, avalie o código, altere o cache ou aumente os limites públicos."
+    },
+    "shogun-typed-mocap-workflow": {
+      "label": "SHŌGUN · Captura de movimentos digitados",
+      "title": "48 ferramentas oficiais do SDK para trabalhos de mocap com verificação de capacidades",
+      "prompt": "Use a habilidade dcc-mcp para se conectar a uma instância do Vicon Shōgun Post e carregar os 48 instrumentos disponíveis. Comece inspecionando a cena, os objetos, as seleções e a linha do tempo. Relate os assuntos, os marcadores, os esqueletos, as trajetórias, a hierarquia, os atributos e os nomes dos canais. Também seja capaz de exibir um exemplo de canal ou resumo de lacunas, bem como informações sobre a taxa de quadros, o quadro atual, as faixas de reprodução e animação. Antes de qualquer alteração, verifique exatamente o comando da cena, da linha do tempo ou do SDK offline. Se for possível, faça apenas uma seleção/visualização específica, permita a atualização das configurações de processamento, o processamento do quadro atual e da faixa selecionada, a rotina ROM-label, a calibração ou a operação QuickPost. Depois, valide o estado resultante e salve-o em um novo caminho aprovado. Não exponha os valores dos atributos ou os IDs dos dispositivos de câmera, não execute comandos arbitrários em HSL ou Python, não permita escrita de dados brutos nos canais ou trajetórias, e não sobrescreva a cena original."
+    },
+    "tiled-typed-map-workflow": {
+      "label": "Mapa digitado / Desenhado pelo autor",
+      "title": "Os dados do mapa são limitados a artefatos TMJ validados.",
+      "prompt": "Use a habilidade dcc-mcp para se conectar ao adaptador Tiled e trabalhar apenas dentro de um novo espaço de trabalho aprovado. Verifique o runtime do Tiled detectado, crie um mapa pequeno com tamanho e dimensões especificados. Crie ou anexe um conjunto de tiles. Desenhe um retângulo limitado com os IDs dos tiles. Adicione uma camada de objetos com um ponto de spawn nomeado. Salve o arquivo TMJ. Verifique e valide o mapa final. Depois, relate o número de camadas, conjuntos de tiles, objetos e tiles não vazios, além do caminho de saída e do hash do arquivo. Use apenas o driver de tipo fixo; não avalie o JavaScript fornecido pelo chamador."
+    },
+    "material-maker-typed-material-workflow": {
+      "label": "Material Maker · Tubulações PTEX com bordas definidas",
+      "title": "Fonte de material nativo para exportação de textura validada",
+      "prompt": "Use a habilidade dcc-mcp, juntamente com o adaptador Material Maker. Verifique um projeto .ptex aprovado por um chamador, dentro de um espaço de trabalho aprovado. Indique a versão do formato do projeto, o caminho para os recursos gráficos, o esquema dos parâmetros e as definições da saída produzida. Além disso, verifique as referências e os tipos de propriedades suportados. Se a CLI oficial do Material Maker estiver disponível, exporte o projeto para um novo diretório de saída, sem sobrescrever os arquivos existentes. Indique os nomes exatos dos arquivos produzidos, seus tamanhos e hashes. A criação de gráficos interativos está fora do escopo deste adaptador. Portanto, não pretenda criar ou editar nós no sistema."
+    },
+    "krita-typed-paint-workflow": {
+      "label": "KRITA · Geração de documentos digitais",
+      "title": "Lona com várias camadas, com cópias verificadas tanto para uso interno quanto para exportação.",
+      "prompt": "Use a habilidade “dcc-mcp” para se conectar a uma instância do Krita em tempo real. Inspecione o documento e abra-o. Crie um pequeno documento, adicione duas camadas de pintura com nomes claros, preencha os retângulos com cores especificadas, e leia novamente o estado do documento e das camadas. Salve uma cópia editável do KRA e exporte o arquivo em formato PNG, sem sobrescrever os arquivos existentes. Relate as dimensões, modelo de cor, ordem das camadas, tamanhos de saída e hashes dos arquivos. Não execute Python arbitrário, IDs de ações ou procedimentos destrutivos sem confirmação explícita."
+    },
+    "gimp-typed-image-workflow": {
+      "label": "GIMP · Criação de imagens digitais",
+      "title": "Imagem em camadas, para arquivos XCF e PNG verificados.",
+      "prompt": "Use a habilidade “dcc-mcp” para se conectar a uma instância do GIMP 3 em tempo real. Inspecione a ponte autenticada e as imagens. Crie uma pequena imagem em formato RGBA. Adicione camadas com nomes claros, preencha-as com cores RGBA. Altere uma propriedade de camada e leia o estado atual da imagem. Salve uma cópia editável do arquivo XCF e exporte o arquivo em formato PNG, sem sobrescrever os arquivos existentes. Relate as dimensões, a ordem das camadas, as propriedades, os tamanhos de saída e os hashes dos arquivos. Não execute nomes de procedimentos Python ou PDB arbitrários. Não desfaça ou descarte as alterações sem uma confirmação explícita."
+    },
+    "katana-typed-lookdev-workflow": {
+      "label": "KATANA · Grafo de Nós Tipados",
+      "title": "Criação de nós principais para projetos duradouros",
+      "prompt": "Use a habilidade dcc-mcp para se conectar a uma instância do Katana em tempo real. Verifique o grafo atual, crie um pequeno nó isolado e une-o a outros nós com nomes únicos. Adicione e conecte apenas portas explícitas. Defina e leia os valores dos parâmetros. Posicione os nós corretamente e defina um intervalo de tempo limitado. Verifique o grafo resultante e salve um novo projeto .katana em uma pasta aprovada. Relate os tipos de nós, conexões, valores dos parâmetros, cronograma, tamanho da saída e hash. Não execute código Python arbitrário nem exclua nós já existentes."
+    },
+    "premiere-typed-edit-workflow": {
+      "label": "Pré-estreia para edição tipográfica.",
+      "title": "Mídias aprovadas para a revisão da linha do tempo e para exportação em fila",
+      "prompt": "Use a habilidade “dcc-mcp” para se conectar a um projeto do Premiere Pro. Verifique o estado do projeto e da sequência de técnicas utilizadas. Crie uma pasta com nomes claros para armazenar os arquivos. Imprima apenas os materiais aprovados pelo chamador. Crie uma sequência e insira um item do projeto em um momento específico. Adicione um marcador com nome definido e verifique a linha de tempo. Salve uma cópia do projeto em uma pasta de saída aprovada. Se for relatado que existe um preset de codificação compatível, faça a exportação da sequência e relate o identificador do trabalho realizado. Caso contrário, exporte apenas um quadro. Relate o número de itens, clipes e marcadores, além dos metadados de saída. Não afirme que o renderização foi concluída sem evidências concretas."
+    },
+    "hunyuan3d": {
+      "label": "HUNYUAN3D · Serviço de AI",
+      "title": "Lanterna 3D gerada com o Hunyuan3D",
+      "prompt": "Verifique o pacote oficial do Marketplace: dcc-ai-hunyuan3d. Peça permissão antes de instalar esse pacote ou contate o serviço remoto para obter ajuda. Crie um modelo 3D de lanterna com base na minha descrição. Imprima esse modelo no DCC selecionado. Verifique a geometria e os materiais utilizados no modelo. Além disso, informe a origem do modelo e os arquivos resultantes da conversão."
+    },
+    "geospatial-city": {
+      "label": "GEOSPATIAL · FORNECEDOR DE ATIVOS",
+      "title": "Cena urbana geoespacial",
+      "prompt": "Verifique o pacote oficial do Marketplace, chamado dcc-asset-geospatial. Consulte antes de instalar ou baixar os dados. Use a área limitada que eu forneço; preserve o sistema de coordenadas e a origem dos dados. Crie um layout da cidade no DCC selecionado. Verifique o número de objetos e a escala. Relate o caminho resultante."
+    },
+    "maya-architecture": {
+      "label": "MAYA · Habilidades Especializadas",
+      "title": "Variações arquitetônicas de Maya",
+      "prompt": "Verifique o pacote oficial do Marketplace, chamado dcc-mcp-maya-procedural-architecture. Consulte as instruções antes de instalá-lo. Em uma nova cena ou espaço de nomes do Maya, crie três variações arquitetônicas editáveis a partir de um único modelo. Faça a renderização de uma folha de contato, valide a estrutura da cena e relate os parâmetros selecionados."
+    },
+    "kenney-assets": {
+      "label": "KENNEY · FORNECEDOR DE ATIVOS",
+      "title": "Os ativos de Kenney em uma cena jogável",
+      "prompt": "Verifique o pacote oficial do Marketplace, chamado “dcc-asset-kenney”. Consulte antes de instalar ou baixar os recursos necessários. Encontre um pacote que seja compatível com o meu motor de jogo escolhido. Preserve as licenças e a origem dos recursos utilizados. Crie um pequeno nível jogável com base no motor de jogo escolhido. Verifique se existem referências faltando e informe os caminhos de saída do programa."
+    },
+    "zbrush-fantasy-dragon": {
+      "label": "ZBRUSH · INTERCÂMBIO DE ALTO NÍVEL",
+      "title": "O Dragão de cinco milhões de faces foi transformado em um mesh de 115.000 pontos, utilizando o formato PolyFrame.",
+      "prompt": "Use a habilidade dcc-mcp para se conectar ao ZBrush. Peça permissão antes de baixar o Artec 3D Fantasy Dragon, e preserve a atribuição de direitos autorais “CC BY 4.0”. Imprima o arquivo de forma silenciosa e verifique que existem 2.499.970 faces no modelo. Confirme que o processo de “bake” do dragão foi rejeitado, pois ele não possui UVs. Verifique também se o processo de “bake” normal e de deslocamento está funcionando corretamente em uma malha de teste UV. Duplique o dragão, redimensione-o para 115.364 faces, ative o PolyFrame, vire a cabeça do dragão na direção da câmera, capture as imagens necessárias e exporte o modelo atual como OBJ, juntamente com seu hash. Serialize as mudanças feitas no SDK e não tente novamente enquanto o host ainda estiver ocupado."
+    },
+    "zbrush-maya-roundtrip": {
+      "label": "ZBRUSH → MAYA · CROSS-DCC",
+      "title": "Cinco milhões de rostos reduzidos a apenas 115.000 esboços em formato de linha, realizados pelos Maias.",
+      "prompt": "Continue a validação do ZBrush para Maya, utilizando o arquivo OBJ exportado do Fantasy Dragon. Use as ferramentas do Maya para verificar que o número de vértices é de 2.499.970 e o número de faces é de 5.000.000. Em seguida, importe o arquivo ZRemesh para um espaço de nomes, e verifique se o número de vértices e faces é exatamente 115.336 e 115.364, respectivamente. Enquadre o dragão, ative a opção “Wireframe-on-Shaded”, salve a cena no Maya. Use apenas o interface de usuário do projeto para visualizar as informações necessárias, quando o playblast não estiver disponível. Não deixe os dispositivos de teste na cena final."
+    },
+    "office-powerpoint-deck": {
+      "label": "Escritório · Coleção de apresentações em PowerPoint",
+      "title": "Um framework de 16 diapositivos, que consiste em: Deck IR → Open XML → COM render.",
+      "prompt": "Use a habilidade dcc-mcp para gerar um conjunto de slides do PowerPoint que apresente o framework DCC-MCP. Carregue o pacote de habilidades powerpoint-deck, crie o conjunto de slides com base no exemplo Deck IR (layouts semânticos, modelo de marca, notas para o orador). Renderize o PDF e visualize as pré-vistas de cada slide através do backend COM do desktop. Valide os artefatos e a qualidade visual em nível de pixel. Relate os caminhos de saída gerados."
+    }
+  }
+}

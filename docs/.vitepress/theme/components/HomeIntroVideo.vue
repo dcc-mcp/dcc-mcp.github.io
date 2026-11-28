@@ -1,13 +1,17 @@
 <script setup lang="ts">
+import { type SiteLocale, mediaLocale } from '../../i18n/locales'
+import { useHomeTranslations } from '../data/home-translations'
 import { computed } from 'vue'
 import { withBase } from 'vitepress'
 import localizedCopy from './HomeIntroVideo.content.json'
 
-const props = withDefaults(defineProps<{ locale?: 'en' | 'zh' }>(), { locale: 'en' })
+const props = withDefaults(defineProps<{ locale?: SiteLocale }>(), { locale: 'en' })
+const translations = useHomeTranslations()
+const localCopy = computed(() => translations?.value?.HomeIntroVideo)
 const mediaRoot = '/videos/dcc-mcp-intro-20260914-v3'
-const copy = computed(() => localizedCopy[props.locale])
+const copy = computed(() => localCopy.value ?? localizedCopy[mediaLocale(props.locale)])
 const mediaUrl = (edition: string, extension: string) =>
-  withBase(`${mediaRoot}/${edition}.${props.locale}.${extension}`)
+  withBase(`${mediaRoot}/${edition}.${extension === 'vtt' ? props.locale : mediaLocale(props.locale)}.${extension}`)
 </script>
 
 <template>
@@ -39,6 +43,7 @@ const mediaUrl = (edition: string, extension: string) =>
             <track
               :src="mediaUrl(edition.id, 'vtt')"
               kind="subtitles"
+              :default="Boolean(localCopy)"
               :srclang="copy.language"
               :label="copy.captionsLabel"
             >

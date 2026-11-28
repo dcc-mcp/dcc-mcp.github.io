@@ -13,7 +13,7 @@ Use the [official Skill](https://clawhub.ai/loonghao/skills/dcc-mcp) to operate 
 
 ## Official DCC MCP directory
 
-The release catalog currently contains 20 adapter-backed DCC identifiers. Wwise is listed as an additional audio integration. A repository in the broader [ecosystem directory](/ecosystem) may be experimental or independent until it appears in `dcc-mcp-cli dcc-types`.
+The table below shows selected integrations. The Core 0.20.39 catalog lists 38 adapter identifiers, including Wwise. A repository in the broader [ecosystem directory](/ecosystem) may be experimental or independent until it appears in `dcc-mcp-cli dcc-types`.
 
 | Application | Common search terms | Official integration |
 | --- | --- | --- |

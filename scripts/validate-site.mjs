@@ -900,4 +900,59 @@ for (const [label, file, phrases] of [
   }
 }
 
-console.log(`Validated ${20 + integrations.length * 2} localized pages, ${integrations.length} bilingual DCC control guides, ${organizationRepositories.length} active organization repositories, 4 llms files, the Install SOP v1 schema mirror, architecture rationale, developer labs, cloud-agent page identity and visible discovery links, theme logos, sitemap, Marketplace media, Showcase prompts, audio, and GEO use cases.`)
+// Verify the same public routes, machine-readable entry points and language
+// alternates that users reach from the switcher, including generated guides.
+const siteCopy = JSON.parse(readFileSync(join(root, 'docs/.vitepress/i18n/site.json'), 'utf8'))
+const editions = { en: 'en', zh: 'zh-CN', ...Object.fromEntries(
+  Object.entries(siteCopy).map(([code, edition]) => [code, edition.lang]),
+) }
+const siteRoutes = [
+  '', 'agents', 'cloud-agents', 'developers', 'ecosystem', 'examples', 'examples/wwise',
+  'integrations', 'marketplace', 'use-cases', 'why-dcc-mcp',
+  ...integrations.map(({ slug }) => `control/${slug}`),
+]
+const publicUrl = (code, route) => `https://dcc-mcp.github.io/${code === 'en' ? '' : code + '/'}${route}`
+for (const [code, lang] of Object.entries(editions)) {
+  const directory = code === 'en' ? dist : join(dist, code)
+  for (const route of siteRoutes) {
+    const page = readFileSync(join(directory, (route || 'index') + '.html'), 'utf8')
+    const url = publicUrl(code, route)
+    const links = [...page.matchAll(/<link\b[^>]*>/g)].map(([tag]) => tagAttributes(tag))
+    const canonicals = links.filter(link => link.rel === 'canonical')
+    if (tagAttributes(page.match(/<html\b[^>]*>/)?.[0] ?? '').lang !== lang ||
+        canonicals.length !== 1 || canonicals[0].href !== url || !sitemap.includes(`<loc>${url}</loc>`)) {
+      throw new Error(`Wrong document language, canonical URL or sitemap entry at ${url}`)
+    }
+    const alternates = links.filter(link => link.rel === 'alternate')
+    for (const [other, tag] of Object.entries({ ...editions, 'x-default': 'x-default' })) {
+      const match = alternates.filter(link => link.hreflang === tag)
+      if (match.length !== 1 || match[0].href !== publicUrl(other === 'x-default' ? 'en' : other, route)) {
+        throw new Error(`Wrong ${tag} alternate on ${url}`)
+      }
+    }
+  }
+  for (const file of ['llms.txt', 'llms-full.txt']) {
+    const guide = readFileSync(join(directory, file), 'utf8')
+    for (const other of Object.keys(editions)) {
+      if (!guide.includes(publicUrl(other, file))) throw new Error(`${code}/${file} is missing ${other}`)
+    }
+    for (const { slug } of integrations) {
+      if (!guide.includes(publicUrl(code, 'control/' + slug))) throw new Error(`Missing ${code} guide for ${slug} in ${file}`)
+    }
+  }
+  if (!siteCopy[code]) continue
+  const developerPage = readFileSync(join(root, 'docs', code, 'developers.md'), 'utf8')
+  for (const literal of ['DccServerOptions.from_env(..., instance_type="standalone")', 'dcc-mcp-cli lint skills', '--output toon', 'dcc_mcp_core.skills_helper', 'metadata.dcc-mcp.*']) {
+    if (!developerPage.includes(literal)) throw new Error(`Developer workflow in ${code} lost ${literal}`)
+  }
+  const home = readFileSync(join(directory, 'index.html'), 'utf8')
+  for (const edition of ['short', 'explainer']) {
+    const track = `/videos/dcc-mcp-intro-20260914-v3/${edition}.${code}.vtt`
+    if (!home.includes(track) || !existsSync(join(dist, track))) throw new Error(`Missing subtitles for ${code}: ${track}`)
+  }
+  if (!home.includes(`href="/${code}/agents"`) || !home.includes(`href="/${code}/control/maya"`)) {
+    throw new Error(`Homepage navigation lost the ${code} locale prefix`)
+  }
+}
+console.log(`Validated ${siteRoutes.length} canonical routes across ${Object.keys(editions).length} languages, reciprocal alternates, locale discovery files and video subtitles.`)
+console.log(`Validated ${organizationRepositories.length} active organization repositories, Install SOP v1, developer labs, cloud-agent evidence, theme logos, Marketplace media, Showcase prompts, audio and GEO use cases.`)

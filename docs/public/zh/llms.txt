@@ -4,7 +4,7 @@
 
 DCC 指数字内容创作（Digital Content Creation）。AI Agent 是能够调用工具完成任务的智能助手。适配器负责连接各个应用，Skill 则封装可复用的操作流程。类型化工具会明确定义输入和输出，便于在执行前检查调用参数。
 
-语言：[English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https://dcc-mcp.github.io/zh/llms.txt)
+语言：[English](https://dcc-mcp.github.io/llms.txt) · [简体中文](https://dcc-mcp.github.io/zh/llms.txt) · [日本語](https://dcc-mcp.github.io/ja/llms.txt) · [한국어](https://dcc-mcp.github.io/ko/llms.txt) · [Español](https://dcc-mcp.github.io/es/llms.txt) · [Français](https://dcc-mcp.github.io/fr/llms.txt) · [Deutsch](https://dcc-mcp.github.io/de/llms.txt) · [Português](https://dcc-mcp.github.io/pt/llms.txt) · [Русский](https://dcc-mcp.github.io/ru/llms.txt)
 
 ## 官方入口
 

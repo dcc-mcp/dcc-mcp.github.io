@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { formatMessage, localePrefix, siteLocale } from '../../i18n/locales'
 import { computed, onMounted, reactive, ref, watch } from 'vue'
 import { useData } from 'vitepress'
 import { data as catalogSnapshot } from '../../marketplace.data.mts'
@@ -97,9 +98,19 @@ const messages = {
   },
 }
 
+const catalogs = import.meta.glob('../../i18n/*/marketplace.json', { eager: true, import: 'default' }) as Record<string, typeof import('../../i18n/ja/marketplace.json')>
 const { lang } = useData()
-const isZh = computed(() => lang.value.toLowerCase().startsWith('zh'))
-const text = computed(() => isZh.value ? messages.zh : messages.en)
+const locale = computed(() => siteLocale(lang.value))
+const isZh = computed(() => locale.value === 'zh')
+const localCopy = computed(() => catalogs[`../../i18n/${locale.value}/marketplace.json`])
+const text = computed(() => {
+  const copy = localCopy.value
+  return copy ? {
+    ...copy,
+    results: (shown: number, total: number) => formatMessage(copy.results, { shown, total }),
+    mediaAlt: (name: string) => formatMessage(copy.mediaAlt, { name }),
+  } : isZh.value ? messages.zh : messages.en
+})
 const skills = ref<MarketplaceSkill[]>((catalogSnapshot as { skills: MarketplaceSkill[] }).skills)
 const query = ref('')
 const dcc = ref('')
@@ -165,7 +176,7 @@ function isVideo(url: string) {
 }
 
 function previewLink(skill: MarketplaceSkill) {
-  return `${isZh.value ? '/zh' : ''}/marketplace?q=${encodeURIComponent(skill.name)}`
+  return `${localePrefix(locale.value)}/marketplace?q=${encodeURIComponent(skill.name)}`
 }
 
 async function writeClipboard(value: string, key: string) {
@@ -186,7 +197,7 @@ function copyInstall(skill: MarketplaceSkill) {
 
 function copyAgentPrompt(skill: MarketplaceSkill) {
   const host = targetDcc(skill)
-  const prompt = isZh.value
+  const prompt = localCopy.value ? formatMessage(localCopy.value.prompt, { name: skill.name, host }) : isZh.value
     ? `检查适用于 ${host} 的官方 Marketplace 软件包“${skill.name}”。说明 install --reload 会改变什么，并等待我确认。确认后使用准确包 ID 安装、重新加载 DCC，并验证工具是否可用。`
     : `Check the official Marketplace package "${skill.name}" for ${host}. Explain what install --reload will change and wait for my approval. After approval, install the exact package ID, reload the DCC, and verify that its tools are available.`
   return writeClipboard(prompt, `agent:${skill.name}`)
@@ -243,7 +254,7 @@ watch(query, (value) => {
       <template v-else>{{ text.results(filtered.length, skills.length) }}</template>
     </p>
 
-    <div v-if="!props.preview && !loading && !error" class="marketplace-summary" aria-label="Marketplace summary">
+    <div v-if="!props.preview && !loading && !error" class="marketplace-summary" :aria-label="localCopy?.summary ?? text.packages">
       <div><span>{{ text.packages }}</span><strong>{{ skills.length }}</strong></div>
       <div><span>{{ text.showcased }}</span><strong>{{ showcasedCount }}</strong></div>
       <div><span>{{ text.targets }}</span><strong>{{ dccOptions.length }}</strong></div>

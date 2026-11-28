@@ -1,0 +1,28 @@
+WEBVTT
+
+00:00:00.033 --> 00:00:05.100
+Aplique metal escovado ao modelo, ajuste a iluminação e renderize uma prévia.
+
+00:00:05.367 --> 00:00:09.667
+Com o DCC-MCP, seu assistente de IA pode operar o Blender e outros aplicativos de criação.
+
+00:00:11.167 --> 00:00:15.733
+Uma Skill reúne o método da equipe. O MCP chama as ferramentas do aplicativo.
+
+00:00:18.533 --> 00:00:23.333
+Guarde as etapas de materiais, verificação e exportação para reutilizá-las no próximo projeto.
+
+00:00:24.000 --> 00:00:27.433
+Carregue as instruções necessárias para reduzir a repetição de código e contexto.
+
+00:00:29.567 --> 00:00:35.433
+O núcleo de roteamento roda em Rust e dispensa um interpretador nessa etapa. Os scripts dos aplicativos podem usar Python.
+
+00:00:35.800 --> 00:00:39.967
+As permissões delimitam o acesso. Os registros de auditoria ajudam a rastrear chamadas importantes.
+
+00:00:40.233 --> 00:00:44.133
+Instale Skills pelo catálogo e compartilhe versões dos fluxos de trabalho da equipe.
+
+00:00:45.367 --> 00:00:49.067
+Explore o catálogo do DCC-MCP.

@@ -1,10 +1,14 @@
 <script setup lang="ts">
+import { type SiteLocale, mediaLocale } from '../../i18n/locales'
+import { useHomeTranslations } from '../data/home-translations'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { withBase } from 'vitepress'
 import localizedCopy from './AgentCrew.content.json'
 
-const props = withDefaults(defineProps<{ locale?: 'en' | 'zh' }>(), { locale: 'en' })
-const copy = computed(() => localizedCopy[props.locale])
+const props = withDefaults(defineProps<{ locale?: SiteLocale }>(), { locale: 'en' })
+const translations = useHomeTranslations()
+const localCopy = computed(() => translations?.value?.AgentCrew)
+const copy = computed(() => localCopy.value ?? localizedCopy[mediaLocale(props.locale)])
 const selected = ref('plan')
 const animationEnabled = ref(false)
 const reducedMotion = ref(false)

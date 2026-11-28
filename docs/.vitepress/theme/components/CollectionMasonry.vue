@@ -1,12 +1,16 @@
 <script setup lang="ts">
+import { type SiteLocale, mediaLocale } from '../../i18n/locales'
+import { useHomeTranslations } from '../data/home-translations'
 import { computed, ref } from 'vue'
 import snapshot from '../../showcase/collection.json'
 
-const props = withDefaults(defineProps<{ locale?: 'en' | 'zh' }>(), { locale: 'en' })
+const props = withDefaults(defineProps<{ locale?: SiteLocale }>(), { locale: 'en' })
+const translations = useHomeTranslations()
+const localCopy = computed(() => translations?.value?.CollectionMasonry)
 const query = ref('')
 const onlyPlayable = ref(false)
 const failedImages = ref(new Set<string>())
-const copy = computed(() => props.locale === 'zh' ? {
+const copy = computed(() => localCopy.value ?? (props.locale === 'zh' ? {
   title: '从灵感，到作品。', intro: '走进真实创作的过程：原生工程、制作记录，以及每件作品做到哪一步。',
   collection: '浏览作品合集', all: '全部作品', playable: '浏览器体验', search: '搜索作品或软件',
   count: '件作品', view: '查看作品', play: '打开体验', evidence: '证据与限制', source: '制作来源',
@@ -18,10 +22,12 @@ const copy = computed(() => props.locale === 'zh' ? {
   count: 'works', view: 'Explore the work', play: 'Open demo', evidence: 'Evidence & limits', source: 'Production source',
   fallback: 'Cover unavailable. The work and its production records are still available.', empty: 'No matching work. Try another search or browse all work.',
   reset: 'Reset filters', provenance: 'Evidence labels come from the collection. Browser demos follow its public manifest; this website revision has not re-tested them.',
-})
+}))
 const collectionUrl = 'https://dcc-mcp.github.io/showcase/'
 const prefix = computed(() => `${collectionUrl}${props.locale === 'zh' ? 'zh/' : ''}`)
-const works = computed(() => snapshot.cases.map((item) => ({ ...item, copy: item[props.locale] })))
+type CaseCopy = typeof snapshot.cases[number]["en"]
+const translatedCases = computed<Record<string, CaseCopy> | undefined>(() => localCopy.value?.cases)
+const works = computed(() => snapshot.cases.map((item) => ({ ...item, copy: translatedCases.value?.[item.slug] ?? item[mediaLocale(props.locale)] })))
 const visible = computed(() => {
   const term = query.value.trim().toLocaleLowerCase()
   return works.value.filter((item) => (!onlyPlayable.value || item.demo) &&

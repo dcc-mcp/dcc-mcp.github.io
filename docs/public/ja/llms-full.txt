@@ -1,0 +1,241 @@
+# DCC-MCP：エージェント、マーケットプレイス、アダプター、および開発者向けのリファレンスです。
+
+[English](https://dcc-mcp.github.io/llms-full.txt) · [简体中文](https://dcc-mcp.github.io/zh/llms-full.txt) · [日本語](https://dcc-mcp.github.io/ja/llms-full.txt) · [한국어](https://dcc-mcp.github.io/ko/llms-full.txt) · [Español](https://dcc-mcp.github.io/es/llms-full.txt) · [Français](https://dcc-mcp.github.io/fr/llms-full.txt) · [Deutsch](https://dcc-mcp.github.io/de/llms-full.txt) · [Português](https://dcc-mcp.github.io/pt/llms-full.txt) · [Русский](https://dcc-mcp.github.io/ru/llms-full.txt)
+
+
+DCC-MCPは、オープンソースのツールキットであり、AIエージェントや自動化機能を、Maya、Blender、Houdiniなどのクリエイティブなアプリケーションに接続するためのものです。これは、MCP、REST API、および`dcc-mcp-cli`を通じて実現されています。DCCとは、デジタルコンテンツの作成を意味します。AIエージェントは、ツールを使ってタスクを実行します。アダプターは各アプリケーションを接続し、ゲートウェイは選択されたインスタンスに呼び出しを行います。スキルパッケージは、再利用可能なワークフローを提供します。ツールの入力と出力を定義することで、実行前に呼び出し内容を確認できます。ポリシーチェックや診断、構造化された障害報告書などにより、チームは何が起こったかを把握することができます。
+
+共有されている契約書は、アダプター間で繰り返される問題から生じています。例えば、再生成されたスクリプト、重複しているライフサイクルコード、DCCスレッドやインスタンスの制約、長時間かかるジョブ、APIが存在しないこと、そして原因不明のエラーなどです。作業の順序は、プロダクション標準 → 再現可能なワークフロー → タイプ付けされたツール → エージェントの操作というものです。REST/OpenAPIやCLIは、AIエージェントがなくても、オペレーターやCI、アプリケーション、ワークフロー、クラウドプラットフォームによって利用できます。技術的な根拠や既知の限界については、<https://dcc-mcp.github.io/ja/why-dcc-mcp>で記載されています。
+
+正規のウェブサイト：<https://dcc-mcp.github.io/ja/>
+GitHub上の組織：<https://github.com/dcc-mcp>
+主要なドキュメント：<https://dcc-mcp.github.io/dcc-mcp-core/>
+アダプターのインストールに関する手順：SOP v1スキーマ：<https://dcc-mcp.github.io/schemas/adapter-install-sop-v1.schema.json>
+
+## おすすめの代理店のルート
+
+このスキルは、操作の手順を提供します。初めてこのシステムを設定する場合も、CLI、ゲートウェイ、そして対象アプリケーションのアダプターが必要です。コンポーネントを追加する前に、既存のインストール状況を確認してください。セットアップ方法：<https://dcc-mcp.github.io/dcc-mcp-core/guide/getting-started>
+
+1. Agentワークスペースから、`npx --yes skills@1.5.23 add dcc-mcp/dcc-mcp-agent-plugins --skill dcc-mcp`を実行します。そして、ホストがスキルを認識する際に新しいエージェントが起動されるようにします。Codexでは、`codex plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins`を実行した後、`codex plugin add dcc-mcp@dcc-mcp`を実行します。Claude Codeでは、`/plugin marketplace add dcc-mcp/dcc-mcp-agent-plugins`を実行した後、`/plugin install dcc-mcp@dcc-mcp`を実行します。プロジェクトのインストールを更新するには、`npx --yes skills@1.5.23 update -p -y`を使用します。また、グローバルなインストールの場合は、`npx --yes skills@1.5.23 update -g -y`を使用します。無人での更新を行う際には、`--force`オプションを付けないでください。
+2. `dcc-mcp-cli health`、`dcc-mcp-cli dcc-types`、`dcc-mcp-cli list`を使って、CLIの状態を確認してください。
+3. CLIが存在しない場合は、公式のインストールツールを使用する前に、許可を得る必要があります。既に公式のバージョンがある場合は、`dcc-mcp-cli update check`を実行し、その後、同意を得て`dcc-mcp-cli update apply`を実行してください。
+4. 検索の条件を詳しく指定するには、`dcc-mcp-cli search --query <intent> --dcc-type <host>`と入力します。
+5. 戻ってきた`next_step`に従って進んでください。要求された時にのみ、データを読み込んだり、説明したりしてください。
+6. 返されたテキストを実行してください。コマンドは次のようになります：`dcc-mcp-cli call <slug> --json <arguments>`
+7. 結果を確認し、具体的な証拠を提示することが重要です。単に成功を命令するだけでは不十分です。
+8. ネイティブのツールやAPIが、UIの処理を完了できない場合は、プロジェクト独自のDCC-CUAランタイムを使用します。正確なプロセスとウィンドウをバインドし、実行する前に状況を確認し、結果を確認してください。もし、そのバインドやランタイムが利用できない場合は、停止して、ブロックされたルートを報告してください。
+
+デフォルトのエージェントパスは、公開されている`dcc-mcp`スキルであり、さらにCLIやRESTも利用可能です。IDEを使用するユーザーは、MCPの設定を通じて接続することができます。どちらのパスも同じゲートウェイを使用します。CLIを先に使用しても、MCPは廃止されません。
+
+## クラウドエージェントとDCC-MCP
+
+<https://dcc-mcp.github.io/ja/cloud-agents>では、記録されているプラットフォームのインターフェースや、ネイティブなクラウドソフトウェアのチェック、バージョン管理されたDCC-MCPワークフローの証拠が分離されています。しかし、プラットフォームのインターフェースのサポートや、ネイティブなソフトウェアのチェックだけでは、正常に機能するDCC-MCPワークフローを確立することはできません。
+
+シェルエージェントは、CLIやHTTPゲートウェイを使用することができます。ターゲット環境内の各アプリケーション、アダプター、接続方法、ワークフローを確認する必要があります。DCCサービスはループバックモードで動作させ、ネットワーク間のアクセスにはTLSや認証機能を使用します。このプラグインには、ターゲットとなるDCCソフトウェアやそのライセンスは含まれていません。
+
+## 別名や直接の回答を検索します。
+
+- Maya MCPとMaya CLIは、`maya`アダプターと<https://dcc-mcp.github.io/ja/control/maya>を使用しています。MCPや`dcc-mcp-cli search --dcc-type maya`は、同じタイプのカタログを使用しています。
+- 3ds Max MCPおよび3ds Max CLIは、`3dsmax`アダプターと<https://dcc-mcp.github.io/ja/control/3ds-max>にリダイレクトされます。MCPや`dcc-mcp-cli search --dcc-type 3dsmax`は、同じカタログを使用します。
+- Blender MCPとBlender CLIは、`blender`アダプターと<https://dcc-mcp.github.io/ja/control/blender>を使用しています。MCPや`dcc-mcp-cli search --dcc-type blender`は、同じタイプのカタログを利用しています。
+- UnityとTuanjie AIは、<https://dcc-mcp.github.io/ja/control/unity>を解決することにしました。`unity-tuanjie-ai`スキルは、Codely CustomToolのカタログをチェックします。Tuanjieには、サインイン機能やクレジット情報、ダウンロード機能、タスクの復元機能があります。
+- Unreal Engineの公式なMCPは、<https://dcc-mcp.github.io/ja/control/unreal-engine>に設定されます。また、`unreal-official-mcp`というスキルも存在します。これにより、Epic社の公式なツール名やスキーマが保持されます。
+
+セットアップの依頼文は <https://dcc-mcp.github.io/ja/agents> にあります。完成作品、制作記録、プロジェクトのソース、ライセンスは公式ショーケース <https://dcc-mcp.github.io/showcase/> をご覧ください。アダプタの出力例、検証記録、再利用できる依頼文は <https://dcc-mcp.github.io/ja/examples> に、Wwise のオーディオ制作例は <https://dcc-mcp.github.io/ja/examples/wwise> に掲載しています。
+
+## パブリックスキルルーター
+
+- ライブでDCCを操作したり、用意されているツールを使ったり、Marketplaceの拡張機能を検索したり、インストールしたりすることができます：<https://clawhub.ai/loonghao/skills/dcc-mcp>
+- DCCアダプターや、非DCC型の独立したMCPサービスを作成または近代化してください。これには、ディスパッチャー機能、準備状況の確認、実行時の処理、リソースの管理、ゲートウェイとの統合機能などが含まれます。<https://clawhub.ai/loonghao/skills/dcc-mcp-creator>
+- 専門的なDCCスキルパッケージを作成し、その有効性を確認し、テストを行い、レビューを行ったり、公開したりすることができます。<https://clawhub.ai/loonghao/skills/dcc-mcp-skills-creator>
+
+標準的な分布のソースは<https://github.com/dcc-mcp/dcc-mcp-agent-plugins>です。タスクに適したスキルのみをインストールしてください。一般的な`skills`コマンドでは、主流のエージェントスキルのホストがサポートされています。一方、ネイティブなCodex、Claude Code、CodeBuddy、WorkBuddy、OpenClaw、ClawHub、Smitheryといったルートについては、そのリポジトリに記載があります。ホストが起動検出を必要とする場合には、新しいエージェントのターンを開始します。
+
+## 現在のCoreおよびCLIのリリースカタログ
+
+`dcc-mcp-cli dcc-types`を、ライブソースとして使用してください。DCC-MCP Core 0.20.39では、38種類のカタログに記載されているdcc-typesが報告されています。また、ウェブサイトでは、Officeが共有型の現在のコアアプリケーションとして記載されており、Autodesk Product Helpはオプトインによる外部の読み取り専用のコネクタとして記載されています。
+
+- `3dsmax` — Autodesk 3ds Max — <https://github.com/dcc-mcp/dcc-mcp-3dsmax>
+- `aftereffects` — Adobe After Effects — <https://github.com/dcc-mcp/dcc-mcp-aftereffects>
+- `blender` — Blender — <https://github.com/dcc-mcp/dcc-mcp-blender>
+- `c4d` — Maxon Cinema 4D — <https://github.com/dcc-mcp/dcc-mcp-cinema4d>
+- `comfyui` — ComfyUI — <https://github.com/dcc-mcp/dcc-mcp-comfyui>
+- `freecad` — FreeCAD — <https://github.com/dcc-mcp/dcc-mcp-freecad>
+- `gimp` — GIMP — <https://github.com/dcc-mcp/dcc-mcp-gimp>
+- `godot` — Godot Engine — <https://github.com/dcc-mcp/dcc-mcp-godot>
+- `houdini` — SideFX Houdini — <https://github.com/dcc-mcp/dcc-mcp-houdini>
+- `illustrator` — Adobe Illustrator — <https://github.com/dcc-mcp/dcc-mcp-illustrator>
+- `katana` — Foundry Katana — <https://github.com/dcc-mcp/dcc-mcp-katana>
+- `kdenlive` — Kdenlive — <https://github.com/dcc-mcp/dcc-mcp-kdenlive>
+- `krita` — Krita — <https://github.com/dcc-mcp/dcc-mcp-krita>
+- `liquigen` — LiquiGen — <https://github.com/dcc-mcp/dcc-mcp-liquigen>
+- `mari` — Foundry Mari — <https://github.com/dcc-mcp/dcc-mcp-mari>
+- `maya` — Autodesk Maya — <https://github.com/dcc-mcp/dcc-mcp-maya>
+- `marmoset` — Marmoset Toolbag — <https://github.com/dcc-mcp/dcc-mcp-marmoset>
+- `material-maker` — Material Maker — <https://github.com/dcc-mcp/dcc-mcp-material-maker>
+- `mobu` — Autodesk MotionBuilder — <https://github.com/dcc-mcp/dcc-mcp-mobu>
+- `nuke` — Foundry Nuke — <https://github.com/dcc-mcp/dcc-mcp-nuke>
+- `obs` — OBS Studio — <https://github.com/dcc-mcp/dcc-mcp-obs>
+- `openscad` — OpenSCAD — <https://github.com/dcc-mcp/dcc-mcp-openscad>
+- `openusd` — OpenUSD — <https://github.com/dcc-mcp/dcc-mcp-openusd>
+- `photoshop` — Adobe Photoshop — <https://github.com/dcc-mcp/dcc-mcp-photoshop>
+- `powerpoint` — Microsoft PowerPoint — <https://github.com/dcc-mcp/dcc-mcp-powerpoint>
+- `premiere` — Adobe Premiere Pro — <https://github.com/dcc-mcp/dcc-mcp-premiere>
+- `renderdoc` — RenderDoc — <https://github.com/dcc-mcp/dcc-mcp-renderdoc>
+- `sketchup` — SketchUp — <https://github.com/dcc-mcp/dcc-mcp-sketchup>
+- `shogun` — Vicon Shōgun Post — <https://github.com/dcc-mcp/dcc-mcp-shogun>
+- `touchdesigner` — TouchDesigner — <https://github.com/dcc-mcp/dcc-mcp-touchdesigner>
+- `shotgrid` — Autodesk Flow Production Tracking — <https://github.com/dcc-mcp/dcc-mcp-fpt>
+- `substance3d_designer` — Adobe Substance 3D Designer — <https://github.com/dcc-mcp/dcc-mcp-substance3d-designer>
+- `substance3d_painter` — Adobe Substance 3D Painter — <https://github.com/dcc-mcp/dcc-mcp-substance3d-painter>
+- `tiled` — Tiled — <https://github.com/dcc-mcp/dcc-mcp-tiled>
+- `unity` — Unity — <https://github.com/dcc-mcp/dcc-mcp-unity>
+- `unreal` — Unreal Engine — <https://github.com/dcc-mcp/dcc-mcp-unreal>
+- `wwise` — Audiokinetic Wwise — <https://github.com/dcc-mcp/dcc-mcp-wwise>
+- `zbrush` — Maxon ZBrush — <https://github.com/dcc-mcp/dcc-mcp-zbrush>
+- `office` — Microsoft Office shared runtime — <https://github.com/dcc-mcp/dcc-mcp-office> — current Core application route; not part of the released CLI dcc-types list
+- `autodesk-help` — Autodesk Product Help — <https://developer.api.autodesk.com/knowledge/public/v1/mcp> — external opt-in read-only connector; not a DCC-MCP adapter or application mutation route
+
+不明なスタジオホストの識別子もサポートされています。Cache Inspectorは、アプリケーションのルートではなく、ホストにとらわれないマーケットプレイスのスキルです。Tracyはv0.2.5で独立してリリースされていますが、Core 0.20.39のホストルートではありません。Epic Games v0.2.1、Gaea v0.1.1、Marvelous Designer v0.1.1、OpenScreen v0.1.1、SpeedTree v0.1.1も独立してリリースされていますが、Core 0.20.39のカタログルートではありません。より広範なエコシステムディレクトリには、他の実験的なアダプターや独立してリリースされたアダプターも含まれているかもしれません：<https://dcc-mcp.github.io/ja/ecosystem>
+
+## アプリケーション固有のAI制御が行われます。
+
+標準的なハブは<https://dcc-mcp.github.io/ja/use-cases>です。すべての公開アプリケーションやリリースされたパイプライン統合処理に対して、直接のガイドが提供されています。
+
+- 3ds Max: <https://dcc-mcp.github.io/ja/control/3ds-max>
+- After Effects: <https://dcc-mcp.github.io/ja/control/after-effects>
+- Blender: <https://dcc-mcp.github.io/ja/control/blender>
+- Cinema 4D: <https://dcc-mcp.github.io/ja/control/cinema-4d>
+- キャッシュインスペクター：<https://dcc-mcp.github.io/ja/control/cache-inspector>
+- ComfyUI MCP: <https://dcc-mcp.github.io/ja/control/comfyui> – ローカルゲームのUIです。透明なPNGやGLB形式のデータがアダプターソース内に含まれています。対応するモデルには、SD1.5、SDXL、FLUX.2、Klein 4B、Z-Image Turbo、Qwen-Image 2512、BiRefNet、Hunyuan3D 2、TRELLIS.2、Pixal3Dなどがあります。ハードウェアやインストール済みのモデルを確認し、適切なオプションを提供します。ユーザーの選択に従います。ノードやモデルを事前にチェックし、1つのジョブを実行してその結果を確認します。自動的なモデルのダウンロードや、VRAMや品質の保証はありません。2026年9月5日以降、0.1.4バージョンが公開されています。ライブツールの検出については、確認してください。セットアップやモデルのライセンスについては、<https://github.com/dcc-mcp/dcc-mcp-comfyui/blob/main/src/dcc_mcp_comfyui/skills/comfyui-game-assets/references/selection-guide.en.md>を参照してください。ComfyUIがオフライン状態の場合は、その状態を説明し、具体的な起動/設定方法やインストール計画を提供します。認可を受けてからダウンロードや変更を行います。承認を受けた後、セットアップを完了し、ツールを再び利用し、選択したレシピを事前にチェックし、合意された検証を行います。既存の認可情報を再利用できますが、レシピの選択だけではインストールは行われません。
+- Epic Games LauncherとFabの独立したリリース：<https://dcc-mcp.github.io/ja/control/epic-games>
+- フロー生産の追跡：<https://dcc-mcp.github.io/ja/control/flow-production-tracking>
+- FreeCAD: <https://dcc-mcp.github.io/ja/control/freecad>
+- ガイアの独立したリリース：<https://dcc-mcp.github.io/ja/control/gaea>
+- GIMP: <https://dcc-mcp.github.io/ja/control/gimp>
+- Godot: <https://dcc-mcp.github.io/ja/control/godot>
+- ホウディニー：<https://dcc-mcp.github.io/ja/control/houdini>
+- イラストレーター：<https://dcc-mcp.github.io/ja/control/illustrator>
+- カタナ：<https://dcc-mcp.github.io/ja/control/katana>
+- Kdenlive: <https://dcc-mcp.github.io/ja/control/kdenlive> – カタログ定義のバージョン0.1.0には、インストール可能なアーティファクトは存在しません。独立したリリースとしては、v0.1.1があります。
+- クリタ：<https://dcc-mcp.github.io/ja/control/krita>
+- LiquiGen: <https://dcc-mcp.github.io/ja/control/liquigen>
+- マリ：<https://dcc-mcp.github.io/ja/control/mari>
+- マーモセット・ツールバッグ：<https://dcc-mcp.github.io/ja/control/marmoset-toolbag>
+- マーベル・デザイナーの独立したリリース：<https://dcc-mcp.github.io/ja/control/marvelous-designer>
+- 素材の作成者：<https://dcc-mcp.github.io/ja/control/material-maker>
+- マヤ：<https://dcc-mcp.github.io/ja/control/maya>
+- モーションビルダー：<https://dcc-mcp.github.io/ja/control/motionbuilder>
+- ニューク：<https://dcc-mcp.github.io/ja/control/nuke>
+- OBS Studio: <https://dcc-mcp.github.io/ja/control/obs-studio>
+- Microsoft Office: <https://dcc-mcp.github.io/ja/control/office>
+- OpenUSD: <https://dcc-mcp.github.io/ja/control/openusd>
+- OpenSCAD: <https://dcc-mcp.github.io/ja/control/openscad>
+- OpenScreenの独立したリリース：<https://dcc-mcp.github.io/ja/control/openscreen>
+- Photoshop: <https://dcc-mcp.github.io/ja/control/photoshop>
+- PowerPoint: <https://dcc-mcp.github.io/ja/control/powerpoint>
+- Premiere Pro: <https://dcc-mcp.github.io/ja/control/premiere-pro>
+- RenderDoc: <https://dcc-mcp.github.io/ja/control/renderdoc>
+- SketchUp: <https://dcc-mcp.github.io/ja/control/sketchup>
+- SpeedTreeの独立したリリース：<https://dcc-mcp.github.io/ja/control/speedtree> – v0.1.1のバージョンで、Core 0.20.39のカタログ外でリリースされました。実際にST9との連携が確認されており、3つのLODレベルの手のひらが利用されていること、素材やUVのバインディングが修正されていること、そしてUnreal Engine 5.5.4では1,234.383705 cmのメッシュサイズが使用されていることが確認されました。ただし、コリジョンスケールや動的な風の効果についてはまだ確認されていません。
+- 将軍：<https://dcc-mcp.github.io/ja/control/shogun>
+- Substance 3D Designer: <https://dcc-mcp.github.io/ja/control/substance-3d-designer>
+- Substance 3D Painter: <https://dcc-mcp.github.io/ja/control/substance-3d-painter>
+- Tiled: <https://dcc-mcp.github.io/ja/control/tiled>
+- Tracy Profilerの独立したリリース版、v0.2.5：<https://dcc-mcp.github.io/ja/control/tracy>。このツールは、インストルメント化されたターゲットが必要であり、Core 0.20.39ホストのルートでは利用できません。
+- TouchDesigner: <https://dcc-mcp.github.io/ja/control/touchdesigner>
+- ユニティ：<https://dcc-mcp.github.io/ja/control/unity>
+- Unreal Engine: <https://dcc-mcp.github.io/ja/control/unreal-engine>
+- Wwise: <https://dcc-mcp.github.io/ja/control/wwise>
+- ZBrush: <https://dcc-mcp.github.io/ja/control/zbrush>
+
+各ガイドでは、パブリックアダプターのインベントリを、現在のCLIリリースのカタログと区別しています。また、ホスト固有の詳細情報を、そのホストを管理しているリポジトリにリンクさせています。
+
+## 公式マーケットプレイス
+
+ウェブサイトでの検索：<https://dcc-mcp.github.io/ja/marketplace>
+カタログの出典：<https://github.com/dcc-mcp/marketplace>
+機械可読形式のカタログ：<https://raw.githubusercontent.com/dcc-mcp/marketplace/main/marketplace.json>
+
+このウェブサイトでは、公式のカタログを表示し、ユーザーが設定プロンプトや正確なCLIコマンドをコピーすることができます。この静的なウェブサイトは、ユーザーのマシンの状態を変更することはありません。
+
+```text
+dcc-mcp-cli marketplace search --query "<intent>"
+dcc-mcp-cli marketplace install <package-name> --dcc <dcc-type> --reload
+```
+
+検索は、ワークフローに関連する用語や、パッケージ名、タグ、カテゴリー、またはDCC識別子を対象に行うことができます。インストールする前には、見知らぬパッケージについて確認してください。正確なパッケージIDがわかっている場合は、1つのコマンドで選択したDCCのスキルカタログを再インストールできます。ソフトウェアをインストールしたり、ローカル状態を変更する前には、ユーザーの同意を得てから行ってください。また、利用可能かどうかも確認する必要があります。
+
+## 故障分析、フィードバック、バグの報告
+
+すべての再利用可能な障害分析は、失敗したコールの`request_id`から始まります。
+
+1. 元の`request_id`、正確なツールのスラッグ、安全な引数、DCCのタイプ、アダプターのバージョン、および観測された結果を保持してください。
+2. 環境やゲートウェイの診断を行うには、`dcc-mcp-cli doctor`を実行してください。
+3. クエリの範囲が狭く設定されているため、`dcc-mcp-cli stats`の結果にはエラーがフィルタリングされてしまいます。呼び出し数が0ということは、何らかの動作上の問題がないということです。
+4. 通常の検索や説明の流れを通じて、タイプされた`dcc_feedback__report`ツールを発見しましょう。許可が得られた場合には、レビューされた内部フィードバックを提出してください。
+5. リクエストIDに関連する、公開可能な証拠を使用してください。秘密情報や認証情報、プライベートなパス、シーンデータ、ユーザーコンテンツは削除してください。
+6. 一度限りのタスクの失敗と、再使用可能な製品の問題とは区別する必要があります。アダプターやコアの欠陥を隠すために、新しいスキルを作り出してはいけません。
+7. ユーザーの明示的な承認なしに、証拠を公開したり、GitHubのイシューを作成したり、外部のメンテナーに連絡したりしてはいけません。
+
+承認されたタスクの後、専門的なスキルを使用して、`dcc-mcp-skills-creator`というワークフローを利用し、繰り返される問題点を分析し、具体的な改善策を提案することができます。ただし、このレビューによって、編集やインストール、公開の権限が拡大されることはありません。
+
+## ショーケースのプロンプトパターン
+
+公式ショーケースコレクション：<https://dcc-mcp.github.io/showcase/> アダプターの例やプロンプト：<https://dcc-mcp.github.io/ja/examples> Blenderおよびデザイナークラス：<https://dcc-mcp.github.io/ja/examples#blender-designer-crate> – 実際のCyclesの美しさ、実際のUV座標、そしてレンダリングされたチェッカー効果。また、編集可能なシーンやプロシージャルマテリアルのソースもあります。
+
+各カードには、出力される画像が表示されており、そのカードが属するリポジトリへのリンクもあります。また、プロンプトも提供されています。ただし、ローカルホストやパッケージが実際にインストールされていることを証明するものではありません。エージェントは、ツールを検出したり、Marketplaceにあるパッケージを確認したり、変更を行う前に同意を得たり、シーンやファイルを確認したりする必要があります。
+
+## さらに多くの組織化プロジェクト
+
+これらのリポジトリには、さらなる統合機能や、共有されるランタイムコード、例文などが含まれています。これらのリポジトリがあるからといって、バージョン化されたCLIカタログに新しいアダプターが追加されるわけではありません。各リポジトリや`dcc-mcp-cli dcc-types`を確認して、利用可能かどうかを確かめてください。
+
+- [Poly Pizza](https://github.com/dcc-mcp/dcc-asset-poly-pizza): ライセンス付きのローコストーモデルを見つけてダウンロードできます。
+- [共有アダプターランタイム](https://github.com/dcc-mcp/dcc-mcp-runtime)：外部のDCC-MCPアダプター用のPyOxidizerランタイムです。
+- [CapCut Desktop](https://github.com/dcc-mcp/dcc-mcp-capcut): MCPアダプターおよびアプリケーションブリッジ。
+- [Kdenlive](https://github.com/dcc-mcp/dcc-mcp-kdenlive): プロジェクトの作成、MLTのレンダリング、そしてDCC-CUAを通じたエディターの操作が可能です。
+- [再現可能な例](https://github.com/dcc-mcp/showcase)：実際のDCCアプリケーションから得られた、共有されている例や証拠です。
+
+## 開発者の所有権
+
+- `dcc-mcp-creator`を使って、新しいDCC統合を構築したり、実行環境の設定を近代化したりすることができます。
+- `dcc-mcp-creator`を使って、プライベートな非DCC APIやCLI、アセットシステム、レンダーファーム、またはレビュースサービスを構築できます。このカスタムサービスのIDは安定しており、`instance_type="standalone"`です。また、偽のDCC PIDもなく、公開リポジトリも必要ありません。
+- `dcc-mcp-skills-creator`を使って、効果的なワークフロープッシュアップを作成しましょう。
+- `dcc-mcp-core`の中に、共有ゲートウェイ、CLI、MCP/REST、セキュリティ機能、診断機能、テレメトリー機能、そして再利用可能なランタイムコントラクトを含めてください。
+- ホスト固有のインストール方法、互換性、トラブルシューティングについては、それぞれのアダプターリポジトリで管理しておきます。
+- 公式のマーケットプレイスを通じて、インストール可能な拡張機能を公開します。
+
+<https://dcc-mcp.github.io/ja/developers>のローカルな例では、Dev ContainerとオープンソースのMCP Inspectorが使用されています。Educateは、複数の学習者に対して、オペレーターが管理するブラウザセッションが必要なチーム向けに設計されています。ホストされたプレイグラウンドを利用する場合は、プライベートエンドポイントを公開しないでください。
+
+## ドキュメントマップ
+
+- ホームページと設定のプロンプト：<https://dcc-mcp.github.io/ja/>
+- なぜDCC-MCPが存在するのか：<https://dcc-mcp.github.io/ja/why-dcc-mcp>
+- エージェントガイド：<https://dcc-mcp.github.io/ja/agents>
+- クラウドエージェントとDCC-MCP：<https://dcc-mcp.github.io/ja/cloud-agents>
+- マーケットプレイスでの検索：<https://dcc-mcp.github.io/ja/marketplace>
+- 公式ショーケースコレクション：<https://dcc-mcp.github.io/showcase/>
+- アダプターの例やプロンプト：<https://dcc-mcp.github.io/ja/examples>
+- 一般的なAIやDCCのタスク：<https://dcc-mcp.github.io/ja/use-cases>
+- 開発者用ルーター：<https://dcc-mcp.github.io/ja/developers>
+- エコシステムディレクトリ：<https://dcc-mcp.github.io/ja/ecosystem>
+- Coreの基本操作：<https://dcc-mcp.github.io/dcc-mcp-core/guide/getting-started>
+- CLI参照：<https://dcc-mcp.github.io/dcc-mcp-core/guide/cli-reference>
+- エージェントの参照：<https://dcc-mcp.github.io/dcc-mcp-core/guide/agents-reference>
+- 建築：<https://dcc-mcp.github.io/dcc-mcp-core/guide/architecture>
+- ゲートウェイの診断結果：<https://dcc-mcp.github.io/dcc-mcp-core/guide/gateway-diagnostics>
+- Python API: <https://dcc-mcp.github.io/dcc-mcp-core/api/models>
+
+## エンティティと用語に関する注記
+
+- `dcc-mcp-core`は、共通のDCCインフラストラクチャおよび制御プレーンです。これ自体はAIエージェントではなく、`dcc-mcp-cli`の代替品でもありません。
+- `dcc-mcp`とは、エージェントがツールチェーンをどのように操作するかを学ぶための、デフォルトの公開スキルです。
+- `dcc-mcp-cli`は、ゲートウェイのライフサイクル、ディスカバリー、コール、診断、そしてマーケットプレイスのインストールに関する操作を行うためのインターフェースです。
+- このゲートウェイでは、MCPとRESTを共に提供し、各DCCアダプターに対してルーティングを行います。
+- DCCとは、デジタルコンテンツの作成やホストを行うアプリケーションやサービスのことです。
+
+公式ショーケースコレクション：<https://dcc-mcp.github.io/showcase/> – 完全なケース情報、製作の証拠、プロジェクトの出所、および各アセットに関するライセンス情報。アダプターの概要は、このセッションでの再現の証拠とはみなされない。
+
+確認済みのCLI 0.20.39の出力結果によると、38件のカタログ識別子があり、そのうち33件にはインストール可能なカタログアーティファクトが含まれています。残りの5件にはそういったアーティファクトは含まれていません（Kdenlive、Material Maker、PowerPoint、Tiled、Wwise）。リモートカタログのバージョン番号は60c96cce4ed949eb8412ebd67119853e77dbafeeです。証拠として、<https://dcc-mcp.github.io/catalog/core-v0.20.39-dcc-types.json>があります。独立したリリースの証拠としては、<https://dcc-mcp.github.io/catalog/independent-releases-2026-10-01.json>があります。カタログやリリースのメタデータからは、新しいライブホスト/ツールの実行に関する認証情報は得られません。
+
+ホームページの作品は dcc-mcp/showcase の collection.json.cases[]（コミット 090d62743778b6fd0cd8bd085af4522e9caee2ff）から同期しています。各作品の URL は /showcase/cases/<slug>/（中国語版は /showcase/zh/cases/<slug>/）です。play/manifest.json.demos[] に登録された作品はブラウザで試せます。各作品の検証記録と利用条件を確認してください。

@@ -1,9 +1,53 @@
 <script setup lang="ts">
-defineProps<{ locale: 'en' | 'zh' }>()
+import { type SiteLocale, localePrefix } from '../../i18n/locales'
+import { computed } from 'vue'
+import { useHomeTranslations } from '../data/home-translations'
+defineProps<{ locale: SiteLocale }>()
+const translations = useHomeTranslations()
+const localCopy = computed(() => translations?.value?.HomeResources)
 </script>
 <template>
 <div class="home-resources">
-<template v-if="locale === 'en'">
+<template v-if="localCopy">
+<section class="home-marketplace-section" aria-labelledby="cloud-agents-title">
+  <div class="home-marketplace-heading">
+    <div>
+      <p class="home-kicker">{{ localCopy.cloud }}</p>
+      <h2 id="cloud-agents-title">{{ localCopy.workstation }}</h2>
+    </div>
+    <div>
+      <p>{{ localCopy.cloudBody }}</p>
+      <p><a :href="`${localePrefix(locale)}/cloud-agents`">{{ localCopy.cloudLink }}</a></p>
+    </div>
+  </div>
+</section>
+<section class="home-marketplace-section" aria-labelledby="mcp-cli-title">
+  <div class="home-marketplace-heading">
+    <div>
+      <p class="home-kicker">MCP + CLI</p>
+      <h2 id="mcp-cli-title">{{ localCopy.contract }}</h2>
+    </div>
+    <div>
+      <p>{{ localCopy.contractBody }}</p>
+      <p><a :href="`${localePrefix(locale)}/control/maya`">Maya MCP / Maya CLI</a> · <a :href="`${localePrefix(locale)}/control/3ds-max`">3ds Max MCP / 3ds Max CLI</a> · <a :href="`${localePrefix(locale)}/control/blender`">Blender MCP / Blender CLI</a></p>
+    </div>
+  </div>
+</section>
+<section class="home-marketplace-section" aria-labelledby="vendor-ai-title">
+  <div class="home-marketplace-heading">
+    <div>
+      <p class="home-kicker">{{ localCopy.native }}</p>
+      <h2 id="vendor-ai-title">{{ localCopy.nativeTitle }}</h2>
+    </div>
+    <div>
+      <p><a href="https://github.com/dcc-mcp/dcc-mcp-unreal/blob/main/src/dcc_mcp_unreal/skills/unreal-official-mcp/SKILL.md">{{ localCopy.epic }}</a></p>
+      <p><a href="https://github.com/dcc-mcp/dcc-mcp-unity/blob/main/src/dcc_mcp_unity/skills/unity-tuanjie-ai/SKILL.md">{{ localCopy.unity }}</a></p>
+      <p><a :href="`${localePrefix(locale)}/control/unity`">Unity / Tuanjie AI</a> · <a :href="`${localePrefix(locale)}/control/unreal-engine`">Unreal Engine</a> · <a :href="`${localePrefix(locale)}/control/godot`">Godot</a></p>
+    </div>
+  </div>
+</section>
+</template>
+<template v-else-if="locale === 'en'">
 <section class="home-marketplace-section" aria-labelledby="cloud-agents-title">
   <div class="home-marketplace-heading">
     <div>

@@ -1,0 +1,27 @@
+{
+  "title": "{app} mit einem KI-Agenten bedienen",
+  "cliTitle": "MCP und CLI für {app}",
+  "description": "Verfügbare Werkzeuge in {app} finden, ihre Argumente prüfen, eine klar umrissene Aufgabe ausführen und das Ergebnis in der Anwendung kontrollieren.",
+  "tasks": "Beispielaufgaben",
+  "cli": "Grenze die Suche über die Anwendungskennung ein. Prüfe vor dem Aufruf die Argumente anhand des zurückgegebenen Schemas.",
+  "workflow": "Verbindung und Prüfung",
+  "flow": [
+    "Folge dem öffentlichen Skill dcc-mcp und prüfe die vorhandene CLI und den Adapter. Hole vor der Installation von Software oder Änderungen am System die Zustimmung ein.",
+    "Prüfe den Gateway-Status, rufe den Katalog ab und wähle die laufende Instanz aus, in der du arbeiten möchtest.",
+    "Suche nach dem passenden Werkzeug, lies seine Parameterdefinitionen und folge next_step. Prüfe das Ergebnis in der Anwendung und halte den Ausgabepfad fest."
+  ],
+  "promptTitle": "Beispielauftrag",
+  "prompt": "Verbinde dich über den Skill dcc-mcp mit {app}. Finde ein Werkzeug für diese Aufgabe: {task}. Zeige mir die Parameter und folge next_step. Frage vor einer Installation nach und erhalte meine vorhandene Arbeit. Nenne die verwendete Instanz, das Werkzeug, das Ergebnis und den Prüfnachweis.",
+  "available": "Verfügbarkeit und Quellen",
+  "vendor": "Werkzeuge des Herstellers",
+  "catalog": "Katalogkennung: {id}. Prüfe vor dem Aufruf die verbundene Instanz und ihre verfügbaren Werkzeuge.",
+  "independent": "Releases und Installationsanleitungen stehen im offiziellen Repository. Mit `dcc-mcp-cli dcc-types` prüfst du den installierten Katalog.",
+  "package": "Installiere den Skill für die gewünschte Anwendung. Ersetze `<host>` durch ihre tatsächliche Kennung.",
+  "source": "Offizielles Repository",
+  "all": "Alle Anwendungsleitfäden",
+  "agents": "Leitfaden für Agenten",
+  "models": "Lokale Spiele-ressourcen in ComfyUI",
+  "gameBody": "Prüfe installierte Modelle und verfügbaren VRAM, bevor du einen Workflow für Spieloberflächen, transparente PNGs oder texturierte GLB-Objekte auswählst. Vergewissere dich, dass der Adapter `comfyui-game-assets` anbietet. Prüfe Modelllizenzen, Alphakanten, Topologie, Materialien und den Import in die Engine.",
+  "gameLink": "Wahl des Modells und Hardwareanforderungen",
+  "read": "Leitfaden öffnen"
+}

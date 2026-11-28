@@ -1,0 +1,27 @@
+{
+  "title": "Utiliser {app} avec un agent IA",
+  "cliTitle": "MCP et ligne de commande pour {app}",
+  "description": "Identifiez les outils disponibles dans {app}, vérifiez leurs paramètres, lancez une opération ciblée et contrôlez le résultat dans l’application.",
+  "tasks": "Exemples de tâches",
+  "cli": "Limitez la recherche à l’aide de l’identifiant de l’application. Consultez le schéma renvoyé pour vérifier les paramètres avant l’appel.",
+  "workflow": "Connexion et vérification",
+  "flow": [
+    "Suivez la procédure du Skill public dcc-mcp et vérifiez la CLI et l’adaptateur installés. Demandez l’accord de l’utilisateur avant toute installation ou modification du système.",
+    "Vérifiez l’état de la passerelle, consultez le catalogue et sélectionnez l’instance de l’application à piloter.",
+    "Recherchez l’outil adapté, consultez ses paramètres et suivez l’indication next_step. Vérifiez le résultat dans l’application et notez le chemin du fichier produit."
+  ],
+  "promptTitle": "Exemple de consigne",
+  "prompt": "Connecte-toi à {app} avec le Skill dcc-mcp. Cherche un outil pour la tâche suivante : {task}. Présente ses paramètres et suis next_step. Demande mon accord avant toute installation et préserve mon travail. Indique l’instance, l’outil, le résultat et les vérifications effectuées.",
+  "available": "Disponibilité et sources",
+  "vendor": "Outils fournis par l’éditeur",
+  "catalog": "Identifiant dans le catalogue : {id}. Vérifiez l’instance connectée et ses outils avant de lancer la tâche.",
+  "independent": "Consultez les versions et les instructions d’installation dans le dépôt officiel. La commande `dcc-mcp-cli dcc-types` affiche le catalogue installé.",
+  "package": "Installez la Skill pour l’application choisie. Remplacez `<host>` par son identifiant.",
+  "source": "Dépôt officiel",
+  "all": "Tous les guides par application",
+  "agents": "Guide des agents",
+  "models": "Les ressources de jeu locales dans ComfyUI",
+  "gameBody": "Vérifiez les modèles installés et la VRAM disponible avant de choisir un flux pour une interface de jeu, un PNG transparent ou un objet GLB texturé. Confirmez la présence de `comfyui-game-assets` dans l’adaptateur connecté. Contrôlez les licences, les contours alpha, la topologie, les matériaux et l’import dans le moteur.",
+  "gameLink": "Sélection du modèle et exigences matérielles",
+  "read": "Lire le guide"
+}

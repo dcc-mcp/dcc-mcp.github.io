@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { type SiteLocale, mediaLocale } from '../../i18n/locales'
+import { useHomeTranslations } from '../data/home-translations'
 import { computed, ref } from 'vue'
-const props = defineProps<{ locale: 'en' | 'zh' }>()
+const props = defineProps<{ locale: SiteLocale }>()
+const translations = useHomeTranslations()
+const localCopy = computed(() => translations?.value?.HomeShowcase)
 const active = ref(0)
 const items = [
   {
@@ -20,7 +24,7 @@ const items = [
   },
 ] as const
 const selected = computed(() => items[active.value])
-const text = computed(() => selected.value[props.locale])
+const text = computed(() => localCopy.value?.items[active.value] ?? selected.value[mediaLocale(props.locale)])
 function handleKey(event: KeyboardEvent, index: number) {
   const destinations: Record<string, number> = { ArrowRight: index + 1, ArrowLeft: index - 1, Home: 0, End: items.length - 1 }
   if (!(event.key in destinations)) return
@@ -31,16 +35,16 @@ function handleKey(event: KeyboardEvent, index: number) {
 </script>
 
 <template>
-  <section id="home-showcase" class="home-showcase" :aria-label="locale === 'zh' ? '探索创作工作流' : 'Explore creative workflows'">
-    <div class="showcase-tabs" role="tablist" :aria-label="locale === 'zh' ? '选择工作流' : 'Choose a workflow'">
-      <button v-for="(item, index) in items" :id="`showcase-tab-${index}`" :key="item.source" type="button" role="tab" :aria-selected="active === index" aria-controls="showcase-panel" :tabindex="active === index ? 0 : -1" @click="active = index" @keydown="handleKey($event, index)">{{ item[locale].tab }}</button>
+  <section id="home-showcase" class="home-showcase" :aria-label="localCopy?.workflows ?? (locale === 'zh' ? '探索创作工作流' : 'Explore creative workflows')">
+    <div class="showcase-tabs" role="tablist" :aria-label="localCopy?.choose ?? (locale === 'zh' ? '选择工作流' : 'Choose a workflow')">
+      <button v-for="(item, index) in items" :id="`showcase-tab-${index}`" :key="item.source" type="button" role="tab" :aria-selected="active === index" aria-controls="showcase-panel" :tabindex="active === index ? 0 : -1" @click="active = index" @keydown="handleKey($event, index)">{{ localCopy?.items[index].tab ?? item[mediaLocale(locale)].tab }}</button>
     </div>
     <div id="showcase-panel" class="showcase-panel" role="tabpanel" :aria-labelledby="`showcase-tab-${active}`" tabindex="0">
       <a :href="selected.source" target="_blank" rel="noreferrer" class="showcase-feature-image"><img :key="selected.image" :src="selected.image" :alt="text.alt" width="1672" height="941" fetchpriority="high" decoding="async"></a>
       <ol class="showcase-workflow-stages"><li v-for="stage in text.stages" :key="stage">{{ stage }}</li></ol>
       <div class="showcase-feature-caption">
-        <div><p class="home-eyebrow">{{ selected.app[locale] }}</p><h2>{{ text.title }}</h2><p class="showcase-feature-description">{{ text.description }}</p><p class="showcase-illustration-note">{{ locale === 'zh' ? 'AI 原创制作概念图 · 非软件实机截图，真实案例见画廊' : 'Original AI-generated production concept · Not a software capture; real examples are in the gallery' }}</p></div>
-        <a class="text-link" :href="`https://dcc-mcp.github.io/showcase/${locale === 'zh' ? 'zh/' : ''}`" target="_self">{{ locale === 'zh' ? '看看真实案例' : 'Explore real examples' }} <span aria-hidden="true">↗</span></a>
+        <div><p class="home-eyebrow">{{ localCopy?.items[active].app ?? selected.app[mediaLocale(locale)] }}</p><h2>{{ text.title }}</h2><p class="showcase-feature-description">{{ text.description }}</p><p class="showcase-illustration-note">{{ localCopy?.note ?? (locale === 'zh' ? 'AI 原创制作概念图 · 非软件实机截图，真实案例见画廊' : 'Original AI-generated production concept · Not a software capture; real examples are in the gallery') }}</p></div>
+        <a class="text-link" :href="`https://dcc-mcp.github.io/showcase/${locale === 'zh' ? 'zh/' : ''}`" target="_self">{{ localCopy?.link ?? (locale === 'zh' ? '看看真实案例' : 'Explore real examples') }} <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>

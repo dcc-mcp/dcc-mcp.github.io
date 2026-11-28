@@ -1,0 +1,27 @@
+{
+  "title": "Como usar {app} com um agente de IA",
+  "cliTitle": "MCP e CLI para {app}",
+  "description": "Encontre as ferramentas disponíveis em {app}, confira os argumentos, execute uma tarefa de escopo definido e verifique o resultado no aplicativo.",
+  "tasks": "Exemplos de tarefas",
+  "cli": "Use o identificador do aplicativo para restringir a busca. Antes de chamar a ferramenta, confira os argumentos no esquema retornado.",
+  "workflow": "Conexão e verificação",
+  "flow": [
+    "Siga as instruções da Skill pública dcc-mcp e confira a CLI e o adaptador instalados. Peça autorização antes de instalar programas ou alterar o estado do sistema.",
+    "Verifique o estado do Gateway, consulte o catálogo e selecione a instância do aplicativo em que deseja trabalhar.",
+    "Busque a ferramenta adequada, consulte os parâmetros e siga o valor de next_step. Verifique o resultado no aplicativo e registre o caminho do arquivo gerado."
+  ],
+  "promptTitle": "Exemplo de instrução",
+  "prompt": "Conecte-se a {app} com a Skill dcc-mcp. Encontre uma ferramenta para esta tarefa: {task}. Mostre os argumentos e siga next_step. Peça minha autorização antes de instalar software e preserve meu trabalho. Informe a instância, a ferramenta, o resultado e como ele foi verificado.",
+  "available": "Disponibilidade e fontes",
+  "vendor": "Ferramentas do fornecedor",
+  "catalog": "Identificador no catálogo: {id}. Confira a instância conectada e as ferramentas disponíveis antes de executar a tarefa.",
+  "independent": "Consulte as versões e as instruções de instalação no repositório oficial. Use `dcc-mcp-cli dcc-types` para conferir o catálogo instalado.",
+  "package": "Instale a Skill para o aplicativo escolhido. Substitua `<host>` pelo identificador real.",
+  "source": "Repositório oficial",
+  "all": "Todos os guias de aplicativos",
+  "agents": "Guia para agentes",
+  "models": "Ativos de jogo locais no ComfyUI",
+  "gameBody": "Confira os modelos instalados e a VRAM disponível antes de escolher um fluxo para interfaces de jogos, PNGs transparentes ou objetos GLB com texturas. Verifique se o adaptador conectado oferece `comfyui-game-assets`. Confira as licenças, as bordas do canal alfa, a topologia, os materiais e a importação no motor.",
+  "gameLink": "Seleção do modelo e requisitos de hardware",
+  "read": "Ler o guia"
+}

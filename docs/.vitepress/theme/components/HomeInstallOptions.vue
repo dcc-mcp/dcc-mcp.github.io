@@ -1,14 +1,18 @@
 <script setup lang="ts">
+import { type SiteLocale, localePrefix } from '../../i18n/locales'
+import { useHomeTranslations } from '../data/home-translations'
 import { computed, ref } from 'vue'
 import { agentInstallers, featuredAgentInstallers } from '../data/agent-installers'
 
-const props = defineProps<{ locale: 'en' | 'zh' }>()
+const props = defineProps<{ locale: SiteLocale }>()
+const translations = useHomeTranslations()
+const localCopy = computed(() => translations?.value?.HomeInstallOptions)
 const selectedId = ref('auto')
 const state = ref<'idle' | 'copied' | 'error'>('idle')
 
 const selected = computed(() => agentInstallers.find((agent) => agent.id === selectedId.value) ?? agentInstallers[0])
 
-const copy = computed(() => props.locale === 'zh' ? {
+const copy = computed(() => localCopy.value ?? (props.locale === 'zh' ? {
   eyebrow: 'AGENT 安装路径',
   choose: '选择你的 Agent',
   copy: '复制安装命令',
@@ -48,7 +52,7 @@ const copy = computed(() => props.locale === 'zh' ? {
   native: 'Native plugin',
   registry: 'Skill registry',
   manual: 'Release archive',
-})
+}))
 
 const kindLabel = (kind: typeof agentInstallers[number]['kind']) => {
   if (kind === 'native') return copy.value.native
@@ -84,14 +88,14 @@ async function copyCommand() {
       <label class="agent-install-select">
         <span>{{ copy.choose }}</span>
         <select :value="selected.id" @change="selectAgent(($event.target as HTMLSelectElement).value)">
-          <option v-for="agent in agentInstallers" :key="agent.id" :value="agent.id">{{ agent.name }}</option>
+          <option v-for="agent in agentInstallers" :key="agent.id" :value="agent.id">{{ agent.id === 'auto' && localCopy ? localCopy.auto : agent.name }}</option>
         </select>
       </label>
     </div>
 
-    <div class="agent-install-rail" aria-label="DCC-MCP install command">
+    <div class="agent-install-rail" :aria-label="localCopy?.command ?? copy.copy">
       <div class="agent-install-command">
-        <span class="agent-install-kind">{{ kindLabel(selected.kind) }} · {{ selected.target }}</span>
+        <span class="agent-install-kind">{{ kindLabel(selected.kind) }} · {{ localCopy ? (selected.id === 'auto' ? localCopy.auto : selected.name) : selected.target }}</span>
         <code>{{ selected.command }}</code>
       </div>
       <button v-if="selected.action !== 'link'" type="button" class="site-button primary agent-install-copy" @click="copyCommand">
@@ -113,7 +117,7 @@ async function copyCommand() {
         @click="selectAgent(agent.id)"
       >
         <span class="agent-install-mark" aria-hidden="true">{{ agent.name.slice(0, 1) }}</span>
-        <strong>{{ agent.name }}</strong>
+        <strong>{{ agent.id === 'auto' && localCopy ? localCopy.auto : agent.name }}</strong>
       </button>
     </div>
 
@@ -128,7 +132,7 @@ async function copyCommand() {
           :aria-pressed="agent.id === selected.id"
           @click="selectAgent(agent.id)"
         >
-          <strong>{{ agent.name }}</strong>
+          <strong>{{ agent.id === 'auto' && localCopy ? localCopy.auto : agent.name }}</strong>
           <small>{{ kindLabel(agent.kind) }}</small>
         </button>
       </div>
@@ -146,7 +150,7 @@ async function copyCommand() {
     <div class="install-followup">
       <p class="install-followup-label">{{ copy.promptLabel }}</p>
       <pre class="install-code install-prompt-code"><code>{{ copy.prompt }}</code></pre>
-      <p class="install-note">{{ copy.installNote }} <a :href="props.locale === 'zh' ? '/zh/agents' : '/agents'">{{ props.locale === 'zh' ? '查看 Agent 客户端安装说明' : 'See Agent host install notes' }}</a></p>
+      <p class="install-note">{{ copy.installNote }} <a :href="`${localePrefix(locale)}/agents`">{{ localCopy?.notes ?? (locale === 'zh' ? '查看 Agent 客户端安装说明' : 'See Agent host install notes') }}</a></p>
     </div>
   </div>
 </template>

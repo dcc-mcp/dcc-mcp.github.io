@@ -1,47 +1,57 @@
 <script setup lang="ts">
 import { dccIntegrations } from '../../dcc-integrations.mts'
 
-defineProps<{ language: 'en' | 'zh' }>()
+import { formatMessage, localePrefix, type SiteLocale } from '../../i18n/locales'
+import type { GuideLabels, IntegrationCopy } from '../../i18n/control-guides.mts'
+
+defineProps<{ language: SiteLocale; entries?: Record<string, IntegrationCopy>; labels?: GuideLabels }>()
 </script>
 
 <template>
   <div class="dcc-control-guide-index">
     <section v-for="integration in dccIntegrations" :key="integration.slug">
-      <h3 :id="`control-${integration.slug}-with-ai`">
-        {{ language === 'zh'
-          ? `AI 怎么控制 ${integration.name}？`
-          : `How do I control ${integration.name} with AI?` }}
-      </h3>
-      <p>
-        {{ language === 'zh'
-          ? `DCC-MCP 可以${integration.summaryZh}。`
-          : `DCC-MCP can ${integration.summaryEn}.` }}
-        <a :href="`${language === 'zh' ? '/zh' : ''}/control/${integration.slug}`">
-          {{ language === 'zh' ? `查看 ${integration.name} 控制指南` : `Read the ${integration.name} control guide` }}
-        </a>
-      </p>
-      <p>
-        <template v-if="integration.marketplacePackage">
+      <template v-if="labels && entries">
+        <h3 :id="`control-${integration.slug}-with-ai`">{{ formatMessage(labels.title, { app: integration.name }) }}</h3>
+        <p>{{ entries[integration.slug].summary }} <a :href="`${localePrefix(language)}/control/${integration.slug}`" :aria-label="formatMessage(labels.title, { app: integration.name })">{{ labels.read }}</a></p>
+        <p v-if="entries[integration.slug].catalogStatus">{{ entries[integration.slug].catalogStatus }}</p>
+      </template>
+      <template v-else>
+        <h3 :id="`control-${integration.slug}-with-ai`">
           {{ language === 'zh'
-            ? `Host-neutral Marketplace Skill：${integration.marketplacePackage}；安装时需指定实际 Host。`
-            : `Host-neutral Marketplace Skill: ${integration.marketplacePackage}; choose a concrete host when installing.` }}
-        </template>
-        <template v-else-if="integration.dccType">
+            ? `AI 怎么控制 ${integration.name}？`
+            : `How do I control ${integration.name} with AI?` }}
+        </h3>
+        <p>
           {{ language === 'zh'
-            ? `当前目录适配器标识：${integration.dccType}。${integration.catalogStatusZh ?? ''}`
-            : `Current catalog adapter id: ${integration.dccType}. ${integration.catalogStatusEn ?? ''}` }}
-        </template>
-        <template v-else-if="integration.coreApplicationRoute">
-          {{ language === 'zh'
-            ? `当前 Core 共享应用路由：${integration.coreApplicationRoute}；它不属于发布 CLI 的 dcc-types 清单。`
-            : `Current Core shared application route: ${integration.coreApplicationRoute}; it is not part of the released CLI dcc-types list.` }}
-        </template>
-        <template v-else>
-          {{ language === 'zh'
-            ? integration.catalogStatusZh ?? '这是独立集成；请在所属仓库核实发布版本与安装路径。'
-            : integration.catalogStatusEn ?? 'This is an independent integration; verify its release and setup in the owning repository.' }}
-        </template>
-      </p>
+            ? `DCC-MCP 可以${integration.summaryZh}。`
+            : `DCC-MCP can ${integration.summaryEn}.` }}
+          <a :href="`${language === 'zh' ? '/zh' : ''}/control/${integration.slug}`">
+            {{ language === 'zh' ? `查看 ${integration.name} 控制指南` : `Read the ${integration.name} control guide` }}
+          </a>
+        </p>
+        <p>
+          <template v-if="integration.marketplacePackage">
+            {{ language === 'zh'
+              ? `Host-neutral Marketplace Skill：${integration.marketplacePackage}；安装时需指定实际 Host。`
+              : `Host-neutral Marketplace Skill: ${integration.marketplacePackage}; choose a concrete host when installing.` }}
+          </template>
+          <template v-else-if="integration.dccType">
+            {{ language === 'zh'
+              ? `当前目录适配器标识：${integration.dccType}。${integration.catalogStatusZh ?? ''}`
+              : `Current catalog adapter id: ${integration.dccType}. ${integration.catalogStatusEn ?? ''}` }}
+          </template>
+          <template v-else-if="integration.coreApplicationRoute">
+            {{ language === 'zh'
+              ? `当前 Core 共享应用路由：${integration.coreApplicationRoute}；它不属于发布 CLI 的 dcc-types 清单。`
+              : `Current Core shared application route: ${integration.coreApplicationRoute}; it is not part of the released CLI dcc-types list.` }}
+          </template>
+          <template v-else>
+            {{ language === 'zh'
+              ? integration.catalogStatusZh ?? '这是独立集成；请在所属仓库核实发布版本与安装路径。'
+              : integration.catalogStatusEn ?? 'This is an independent integration; verify its release and setup in the owning repository.' }}
+          </template>
+        </p>
+      </template>
     </section>
   </div>
 </template>
