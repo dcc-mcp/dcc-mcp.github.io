@@ -106,9 +106,10 @@ a, button, input, select, summary { touch-action: manipulation; }
 .hero-app-rotator { display: inline-grid; flex-shrink: 0; width: 7.2em; height: 1.5em; overflow: hidden; align-items: center; border: 1px solid var(--dcc-line); border-radius: 999px; background: var(--dcc-panel-soft); font-size: .76em; line-height: 1.1; letter-spacing: -.045em; vertical-align: middle; }
 .hero-app-name { display: flex; align-items: center; justify-content: center; gap: .24em; width: 100%; white-space: nowrap; }
 .hero-app-name img { flex-shrink: 0; width: .85em; height: .85em; object-fit: contain; }
-.hero-app-enter-active, .hero-app-leave-active { transition: opacity 160ms ease, transform 160ms ease; }
-.hero-app-enter-from { opacity: 0; transform: translateY(20%); }
-.hero-app-leave-to { opacity: 0; transform: translateY(-20%); }
+/* Homepage logo motion takes precedence over the theme's reduced-motion reset. */
+.hero-app-enter-active, .hero-app-leave-active { transition: opacity 160ms ease, transform 160ms ease !important; }
+.hero-app-enter-from { opacity: 0; transform: translateX(20%); }
+.hero-app-leave-to { opacity: 0; transform: translateX(-20%); }
 html[lang='zh-CN'] .home-hero h1 { font-size: clamp(44px, 5.1vw, 68px); font-weight: 500; letter-spacing: -.055em; line-height: 1.28; }
 html[lang='zh-CN'] .home-page h2 { font-weight: 500; }
 .home-page .home-hero-description { max-width: 610px; margin-top: 25px; font-size: 18px; line-height: 1.8; text-wrap: balance; }
@@ -149,17 +150,19 @@ html[lang='zh-CN'] .home-page h2 { font-weight: 500; }
 .home-integrations { text-align: center; }
 .home-integrations .section-intro { margin-inline: auto; }
 .home-page .home-integrations h2 { font-size: clamp(25px, 3vw, 34px); }
-.integration-marquee { max-width: 980px; margin: 40px auto 8px; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-.integration-marquee-track { display: flex; width: max-content; animation: integration-drift 42s linear infinite; }
-.integration-marquee-group { display: flex; min-width: 980px; flex-shrink: 0; align-items: center; justify-content: space-around; gap: 48px; padding: 12px 24px; }
+.logo-strip { container-type: inline-size; overflow: clip; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.logo-strip-track { display: flex; width: max-content; animation: logo-strip-scroll var(--logo-strip-duration, 32s) linear infinite !important; }
+.logo-strip-group { display: flex; flex: none; min-width: 100cqw; align-items: center; justify-content: space-around; }
+@keyframes logo-strip-scroll { to { transform: translateX(-50%); } }
+.logo-strip:has(:focus-visible) { overflow-x: auto; mask-image: none; }
+.logo-strip:has(:focus-visible) .logo-strip-track { animation: none !important; }
+.logo-strip:has(:focus-visible) .logo-strip-group[aria-hidden='true'] { display: none; }
+.integration-marquee { max-width: 980px; margin: 40px auto 8px; }
+.integration-marquee-group { min-width: max(980px, 100cqw); gap: 48px; padding: 12px 24px; }
 .integration-marquee a { display: grid; width: 64px; min-height: 64px; flex-shrink: 0; place-items: center; border-radius: 12px; color: var(--dcc-ink-soft); }
 .integration-marquee a:hover { color: var(--dcc-ink); }
 .integration-mark { display: block; width: 44px; height: 44px; background: currentColor; mask: var(--integration-logo) center / contain no-repeat; }
-.integration-marquee:focus-within .integration-marquee-track, .integration-marquee.is-paused .integration-marquee-track { animation-play-state: paused; }
-.integration-marquee-toggle { min-height: 36px; padding: 6px 12px; border-radius: 999px; color: var(--dcc-muted); font-size: 11px; cursor: pointer; }
-.integration-marquee-toggle:hover { background: var(--dcc-panel-soft); color: var(--dcc-ink); }
 .home-page .integration-catalog-note { font-size: 12px; }
-@keyframes integration-drift { to { transform: translateX(-50%); } }
 .dark .dcc-logo-invert-dark { filter: invert(1); }
 .integration-disclosure { margin: 16px 0 8px; }
 .integration-disclosure summary, .setup-details summary { width: fit-content; margin-inline: auto; min-height: 44px; padding: 11px 0; color: var(--dcc-ink-soft); font-size: 13px; cursor: pointer; }
@@ -328,7 +331,7 @@ html[lang='zh-CN'] .vp-doc :is(h1, h2, h3) { font-weight: 500; }
   .benefit-grid { gap: 24px; }
   .home-page .benefit-grid h3 { font-size: 17px; }
   .showcase-feature-caption { align-items: flex-start; flex-direction: column; gap: 12px; padding: 24px; }
-  .integration-marquee-group { min-width: 800px; gap: 32px; }
+  .integration-marquee-group { min-width: max(800px, 100cqw); gap: 32px; }
   .integration-directory { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .setup-prompt { flex-direction: column; align-items: flex-start; padding: 24px; }
   .home-developers { flex-direction: column; gap: 28px; }
@@ -390,11 +393,8 @@ html[lang='zh-CN'] .vp-doc :is(h1, h2, h3) { font-weight: 500; }
   .home-actions > .site-button { flex: 1 1 auto; }
 }
 @media (max-width: 1024px), (pointer: coarse) {
-  .marketplace-card-actions button, .marketplace-card-actions a, .marketplace-dcc-filter button, .marketplace-card-chips button, .showcase-prompt-copy button, .integration-marquee-toggle, .pipeline-controls button, .VPNavBarSearch .DocSearch-Button, .footer-group a { min-height: 44px; }
+  .marketplace-card-actions button, .marketplace-card-actions a, .marketplace-dcc-filter button, .marketplace-card-chips button, .showcase-prompt-copy button, .pipeline-controls button, .VPNavBarSearch .DocSearch-Button, .footer-group a { min-height: 44px; }
   .marketplace-toolbar input, .marketplace-toolbar select { font-size: 16px; }
-}
-@media (hover: hover) {
-  .integration-marquee:hover .integration-marquee-track { animation-play-state: paused; }
 }
 @media (orientation: landscape) and (max-height: 500px) {
   .home-hero { padding-block: 32px; }
@@ -402,8 +402,4 @@ html[lang='zh-CN'] .vp-doc :is(h1, h2, h3) { font-weight: 500; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
-  .integration-marquee-track { width: 100%; }
-  .integration-marquee-group { display: grid; width: 100%; min-width: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; padding-inline: 0; }
-  .integration-marquee-group[aria-hidden='true'], .integration-marquee-toggle { display: none; }
-  .integration-marquee a { width: 100%; }
 }

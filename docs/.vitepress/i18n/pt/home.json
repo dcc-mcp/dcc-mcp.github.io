@@ -80,8 +80,6 @@
     "catalog": "O catálogo do Core 0.20.39 inclui {released} identificadores de adaptadores. Cada guia informa os requisitos de instalação, as versões independentes e o alcance dos testes.",
     "all": "Ver os {total} guias de integração",
     "directory": "Buscar integração",
-    "pause": "Pausar rolagem",
-    "resume": "Retomar rolagem",
     "evidence": "Conferir a versão do catálogo"
   },
   "HomeSetup": {
