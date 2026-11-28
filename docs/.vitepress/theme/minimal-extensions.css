@@ -52,75 +52,25 @@
 .agent-install-status { min-height: 20px; margin: 8px 0 0; color: var(--dcc-muted); font-size: 12px; }
 .agent-install-divider { display: flex; align-items: center; gap: 18px; margin: 30px 0 18px; color: var(--dcc-muted); font-size: 11px; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
 .agent-install-divider::before, .agent-install-divider::after { height: 1px; flex: 1; background: var(--dcc-line); content: ''; }
-.agent-logo-playback {
-  display: grid;
-  width: 40px;
-  height: 40px;
-  place-items: center;
-  border-radius: 50%;
-  color: var(--dcc-muted);
-  cursor: pointer;
-}
-.agent-logo-playback:hover, .agent-logo-playback:focus-visible { background: var(--dcc-panel-soft); color: var(--dcc-ink); }
 .agent-logo-rail {
-  container-type: inline-size;
-  overflow: clip;
-  display: grid;
-  gap: 12px;
+  --logo-strip-duration: 42s;
   padding-block: 12px;
 }
-.agent-logo-row {
-  display: flex;
-  justify-content: space-around;
-  width: max(125%, 42rem);
-  animation: agent-logo-pan 22s ease-in-out infinite var(--pan-direction, alternate);
-  animation-play-state: var(--pan-state, running);
-}
-.agent-logo-row:nth-child(2) { --pan-direction: alternate-reverse; }
-@keyframes agent-logo-pan {
-  from { transform: translateX(0); }
-  to { transform: translateX(calc(100cqw - 100%)); }
-}
-.agent-logo-row button {
+.agent-logo-group button {
   display: grid;
-  flex: 1;
+  flex: 0 0 clamp(104px, 14vw, 148px);
   justify-items: center;
   align-content: center;
   gap: 10px;
-  min-width: 0;
   padding: 10px 4px;
   color: var(--dcc-muted);
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
 }
-.agent-logo-row button:hover, .agent-logo-row button:focus-visible, .agent-logo-row button[aria-pressed='true'] { color: var(--dcc-ink); }
-.agent-logo-row button[aria-pressed='true'] > :last-child { text-decoration: underline; text-underline-offset: 4px; }
+.agent-logo-group button:hover, .agent-logo-group button:focus-visible, .agent-logo-group button[aria-pressed='true'] { color: var(--dcc-ink); }
+.agent-logo-group button[aria-pressed='true'] > :last-child { text-decoration: underline; text-underline-offset: 4px; }
 .agent-logo { width: 44px; height: 44px; background: currentColor; mask: var(--logo) center / contain no-repeat; }
-.agent-logo-rail.is-paused { --pan-state: paused; }
-@media (hover: hover) {
-  .agent-logo-rail:hover { --pan-state: paused; }
-}
-/* Keep every brand visible when navigating with the keyboard or using reduced motion. */
-.agent-logo-rail:has(:focus-visible) .agent-logo-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 6rem), 1fr));
-  width: 100%;
-  animation: none;
-}
-@media (prefers-reduced-motion: reduce) {
-  .agent-logo-rail:not(.motion-opt-in) .agent-logo-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 6rem), 1fr));
-    width: 100%;
-    animation: none;
-  }
-  /* A deliberate press of Play can override the theme-wide motion reset. */
-  .agent-logo-rail.motion-opt-in:not(:has(:focus-visible)) .agent-logo-row {
-    animation: agent-logo-pan 22s ease-in-out infinite var(--pan-direction, alternate) !important;
-    animation-play-state: var(--pan-state, running) !important;
-  }
-}
 .agent-install-details { margin-top: 20px; border-top: 1px solid var(--dcc-line); border-bottom: 1px solid var(--dcc-line); }
 .agent-install-details summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; color: var(--dcc-ink); cursor: pointer; font-size: 13px; }
 .agent-install-details summary span { color: var(--dcc-muted); font-size: 12px; }

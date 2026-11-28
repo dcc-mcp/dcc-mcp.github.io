@@ -17,8 +17,6 @@ const apps = [
 const active = ref(0)
 const currentApp = computed(() => apps[active.value])
 let timer: ReturnType<typeof setInterval> | undefined
-let motionPreference: MediaQueryList | undefined
-let hovered = false
 
 function stopRotation() {
   clearInterval(timer)
@@ -27,25 +25,17 @@ function stopRotation() {
 
 function syncRotation() {
   stopRotation()
-  if (!motionPreference || motionPreference.matches || document.hidden || hovered) return
+  if (document.hidden) return
   timer = setInterval(() => { active.value = (active.value + 1) % apps.length }, 3200)
 }
 
-function setHovered(value: boolean) {
-  hovered = value
-  syncRotation()
-}
-
 onMounted(() => {
-  motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
-  motionPreference.addEventListener('change', syncRotation)
   document.addEventListener('visibilitychange', syncRotation)
   syncRotation()
 })
 
 onBeforeUnmount(() => {
   stopRotation()
-  motionPreference?.removeEventListener('change', syncRotation)
   document.removeEventListener('visibilitychange', syncRotation)
 })
 
@@ -69,7 +59,7 @@ const copy = computed(() => localCopy.value ?? (props.locale === 'zh' ? {
       <span class="hero-title-static" aria-hidden="true">{{ copy.title }}</span>
       <span class="hero-app-line" aria-hidden="true">
         <span v-if="copy.appPrefix" class="hero-app-prefix">{{ copy.appPrefix }}</span>
-        <span class="hero-app-rotator" @mouseenter="setHovered(true)" @mouseleave="setHovered(false)">
+        <span class="hero-app-rotator">
           <Transition name="hero-app" mode="out-in">
             <span :key="currentApp.name" class="hero-app-name">
               <img :src="`/dcc-logos/${currentApp.logo}`" alt="" :class="{ 'dcc-logo-invert-dark': 'invert' in currentApp && currentApp.invert }" width="48" height="48">

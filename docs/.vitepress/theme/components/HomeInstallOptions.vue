@@ -1,33 +1,12 @@
 <script setup lang="ts">
 import { type SiteLocale, localePrefix } from '../../i18n/locales'
 import { useHomeTranslations } from '../data/home-translations'
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { agentInstallers, featuredAgentInstallers } from '../data/agent-installers'
 
 const props = defineProps<{ locale: SiteLocale }>()
 const translations = useHomeTranslations()
 const localCopy = computed(() => translations?.value?.HomeInstallOptions)
-const motionCopy = computed(() => translations?.value?.HomeIntegrations ?? (props.locale === 'zh'
-  ? { pause: '暂停滚动', resume: '继续滚动' }
-  : { pause: 'Pause scrolling', resume: 'Resume scrolling' }))
-const paused = ref(false)
-const reducedMotion = ref(false)
-let motionQuery: MediaQueryList | undefined
-
-function syncMotionPreference() {
-  reducedMotion.value = motionQuery?.matches ?? false
-  paused.value = reducedMotion.value
-}
-
-onMounted(() => {
-  motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-  syncMotionPreference()
-  motionQuery.addEventListener('change', syncMotionPreference)
-})
-onBeforeUnmount(() => motionQuery?.removeEventListener('change', syncMotionPreference))
-
-const rowSize = Math.ceil(featuredAgentInstallers.length / 2)
-const logoRows = [featuredAgentInstallers.slice(0, rowSize), featuredAgentInstallers.slice(rowSize)]
 const selectedId = ref('auto')
 const state = ref<'idle' | 'copied' | 'error'>('idle')
 
@@ -128,22 +107,18 @@ async function copyCommand() {
     </div>
     <p class="agent-install-status" role="status">{{ state === 'error' ? copy.error : '' }}</p>
 
-    <div class="agent-install-divider">
-      <span>{{ copy.worksWith }}</span>
-      <button type="button" class="agent-logo-playback"
-        :aria-label="paused ? motionCopy.resume : motionCopy.pause"
-        :title="paused ? motionCopy.resume : motionCopy.pause" @click="paused = !paused">
-        <span aria-hidden="true">{{ paused ? '▶' : 'Ⅱ' }}</span>
-      </button>
-    </div>
-    <div class="agent-logo-rail" :class="{ 'is-paused': paused, 'motion-opt-in': reducedMotion && !paused }"
-      role="group" :aria-label="copy.worksWith">
-      <div v-for="(row, index) in logoRows" :key="index" class="agent-logo-row">
-        <button v-for="agent in row" :key="agent.id" type="button"
-          :aria-pressed="agent.id === selected.id" @click="selectAgent(agent.id)">
-          <span class="agent-logo" :style="{ '--logo': `url('/agent-logos/${agent.id}.svg')` }" aria-hidden="true" />
-          <span>{{ agent.name }}</span>
-        </button>
+    <div id="agent-logo-caption" class="agent-install-divider">{{ copy.worksWith }}</div>
+    <div id="agent-logo-rail" class="logo-strip agent-logo-rail" role="group" aria-labelledby="agent-logo-caption">
+      <div class="logo-strip-track">
+        <div v-for="repeat in 2" :key="repeat" class="logo-strip-group agent-logo-group"
+          :aria-hidden="repeat === 2 ? true : undefined">
+          <button v-for="agent in featuredAgentInstallers" :key="agent.id" type="button"
+            :tabindex="repeat === 2 ? -1 : undefined" :aria-pressed="agent.id === selected.id"
+            @click="selectAgent(agent.id)">
+            <span class="agent-logo" :style="{ '--logo': `url('/agent-logos/${agent.id}.svg')` }" aria-hidden="true" />
+            <span>{{ agent.name }}</span>
+          </button>
+        </div>
       </div>
     </div>
 

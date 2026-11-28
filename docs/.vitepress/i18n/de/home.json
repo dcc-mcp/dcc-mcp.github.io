@@ -80,8 +80,6 @@
     "catalog": "Der Katalog von Core 0.20.39 enthält {released} Adapterkennungen. Die Leitfäden erläutern Installationsvoraussetzungen, eigenständige Releases und den Umfang der Prüfungen.",
     "all": "Alle {total} Integrationsleitfäden ansehen",
     "directory": "Integration suchen",
-    "pause": "Bildlauf anhalten",
-    "resume": "Bildlauf fortsetzen",
     "evidence": "Katalogversion ansehen"
   },
   "HomeSetup": {
